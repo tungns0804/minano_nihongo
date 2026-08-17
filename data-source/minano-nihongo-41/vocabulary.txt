@@ -1,0 +1,43 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+HÔ,呼びます (よびます),gọi/ mời|タクシーを呼んでくださいませんか。
+THỦ THẾ,取り替えます (とりかえます),đổi/ thay|電池を取り替えていただけませんか。
+THÂN THIẾT,親切にします (しんせつにします),đối xử thân thiện/ tốt với|先生はいつも親切にしてくださいます。
+CHÚC,お祝い (おいわい),quà mừng/ lời chúc mừng|入学のお祝いをいただきました。
+NIÊN NGỌC,お年玉 (おとしだま),tiền mừng tuổi|子どもにお年玉をあげます。
+KIẾN VŨ,お見舞い (おみまい),việc thăm người ốm|入院した友達のお見舞いに行きます。
+HƯNG VỊ,興味 (きょうみ),sự quan tâm/ hứng thú|日本の文化に興味があります。
+TÌNH BÁO,情報 (じょうほう),thông tin|新しい情報を教えてくださいませんか。
+VĂN PHÁP,文法 (ぶんぽう),ngữ pháp|文法が難しいです。
+PHÁT ÂM,発音 (はつおん),phát âm|発音を直していただきました。
+VIÊN,猿 (さる),con khỉ|山で猿を見ました。
+HỘI,絵はがき (えはがき),bưu ảnh|京都から絵はがきをくださいました。
+NGOA HẠ,靴下 (くつした),cái tất|靴下を買いました。
+THỦ ĐẠI,手袋 (てぶくろ),cái găng tay|母に手袋をいただきました。
+CHỈ LUÂN,指輪 (ゆびわ),cái nhẫn|妻に指輪をあげました。
+TỔ PHỤ,祖父 (そふ),ông (của mình)|祖父に習字を教えてもらいました。
+TỔ MẪU,祖母 (そぼ),bà (của mình)|祖母が作ってくださったお菓子です。
+TÔN,孫 (まご),cháu|孫が生まれました。
+THÂN DỊCH,申し訳ありません (もうしわけありません),Xin lỗi/ Thành thật xin lỗi.|お待たせして申し訳ありません。
+DỰ,預かります (あずかります),giữ hộ/ nhận giữ|荷物を預かっていただけませんか。
+TIÊN NHẬT,先日 (せんじつ),hôm trước/ mấy hôm trước|先日はごちそうさまでした。
+TRỢ,助かります (たすかります),được giúp/ đỡ được|手伝ってくださって助かりました。
+TÍCH THOẠI,昔話 (むかしばなし),chuyện cổ tích|子どもに昔話を読んであげます。
+NAM,男 (おとこ),người đàn ông/ nam giới|男の人が二人立っています。
+TỬ CUNG,子供たち (こどもたち),trẻ em/ bọn trẻ|子供たちにお菓子をあげました。
+TRỢ,助けます (たすけます),giúp/ giúp đỡ|困っている人を助けます。
+THÀNH,お城 (おしろ),lâu đài/ thành|日曜日にお城を見に行きました。
+CƠ DẠNG,お姫様 (おひめさま),công chúa|昔話にお姫様が出てきます。
+LẠC,楽しく (たのしく),vui/ vui vẻ|みんなで楽しく歌いました。
+MỘ,暮らします (くらします),sống/ sinh hoạt|家族と楽しく暮らしています。
+LỤC,陸 (りく),đất liền/ lục địa|船が陸に着きました。
+YÊN,煙 (けむり),khói|工場から煙が出ています。
+CHÂN BẠCH,真っ白 (まっしろ),trắng toát/ trắng ngần|山が雪で真っ白になりました。
+TRUNG THÂN,中身 (なかみ),nội dung/ phần bên trong|箱の中身は何ですか。

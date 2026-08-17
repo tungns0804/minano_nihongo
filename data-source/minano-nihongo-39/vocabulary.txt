@@ -1,0 +1,42 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+CHẤT VẤN ĐÁP,質問に答えます (しつもんにこたえます),trả lời câu hỏi|学生の質問に答えました。
+ĐẢO,ビルが倒れます (ビルがたおれます),nhà cao tầng bị đổ|地震でビルが倒れました。
+THIÊU,焼けます (やけます),cháy/ chín (nướng)|火事で家が焼けてしまいました。
+NHỤC THIÊU,肉が焼けます (にくがやけます),thịt được nướng chín|肉が焼けたら、食べましょう。
+ĐẠO THÔNG,道を通ります (みちをとおります),đi qua đường|この道を通って駅へ行きます。
+TỬ,死にます (しにます),chết|事故で人が死にました。
+AN TÂM,安心します (あんしんします),yên tâm|家族が元気だと聞いて安心しました。
+TRÌ KHẮC,遅刻します (ちこくします),đến chậm/ đến muộn|電車が遅れて、遅刻しました。
+TẢO THOÁI,早退します (そうたいします),về sớm/ ra sớm|気分が悪くて早退しました。
+LY HÔN,離婚します (りこんします),ly dị/ ly hôn|二人は去年離婚しました。
+PHỨC TẠP,複雑 (ふくざつ),phức tạp|話が複雑で分かりません。
+TÀ MA,邪魔 (じゃま),cản trở/ choán chỗ|この箱が邪魔で通れません。
+Ô,汚い (きたない),bẩn|手が汚いので、洗ってください。
+BI,悲しい (かなしい),buồn/ đau thương|悲しいニュースを聞きました。
+SỈ,恥ずかしい (はずかしい),xấu hổ/ thẹn|間違えて恥ずかしかったです。
+ĐỊA CHẤN,地震 (じしん),động đất|地震で電車が止まりました。
+ĐÀI PHONG,台風 (たいふう),bão|台風が来て、旅行に行けませんでした。
+HỎA SỰ,火事 (かじ),hỏa hoạn/ cháy|火事でビルが焼けました。
+SỰ CỐ,事故 (じこ),tai nạn/ sự cố|事故があって、道が込んでいます。
+KIẾN HỢP,お見合い (おみあい),xem mặt/ làm mối|お見合いで結婚しました。
+ĐIỆN THOẠI ĐẠI,電話代 (でんわだい),tiền điện thoại|今月は電話代が高かったです。
+HÃN,汗 (あせ),mồ hôi|暑くて汗をかきました。
+ĐẠI THẾ,大勢 (おおぜい),nhiều người|会場に大勢の人が集まりました。
+BÌ DẠNG,お疲れ様でした (おつかれさまでした),Anh/chị đã vất vả rồi.|今日もお疲れ様でした。
+TỨ,伺います (うかがいます),xin đến thăm/ đến thăm|明日3時にお宅へ伺います。
+ĐỒ TRUNG,途中で (とちゅうで),giữa đường/ dọc đường|学校へ行く途中で友達に会いました。
+TỊNH,並びます (ならびます),xếp hàng|切符を買うために並びました。
+ĐẠI NHÂN,大人 (おとな),người lớn|大人は千円、子どもは五百円です。
+DƯƠNG PHỤC,洋服 (ようふく),quần áo kiểu Tây Âu|洋服を着て出かけます。
+TÂY DƯƠNG HÓA,西洋化します (せいようかします),Tây Âu hóa|生活が西洋化しました。
+HỢP,合います (あいます),vừa/ hợp|この靴は足に合いません。
+KIM,今では (いまでは),bây giờ thì|今では日本の生活に慣れました。
+THÀNH NHÂN THỨC,成人式 (せいじんしき),Lễ thành nhân|成人式に着物を着ました。

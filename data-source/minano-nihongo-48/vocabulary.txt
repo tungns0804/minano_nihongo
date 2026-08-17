@@ -1,0 +1,31 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+GIÁNG,降ろします (おろします),cho xuống/ thả xuống|バス停で客を降ろします。
+HẠ,下ろします (おろします),hạ xuống/ rút (tiền)|銀行でお金を下ろします。
+GIỚI,届けます (とどけます),gửi đến/ chuyển đến|荷物を家まで届けます。
+THẾ THOẠI,世話をします (せわをします),chăm sóc|母の世話をしています。
+HIỀM,嫌 (いや),ngán/ không thích|嫌な仕事もしなければなりません。
+NGHIÊM,厳しい (きびしい),nghiêm/ nghiêm khắc|父は厳しい人です。
+THỤC,塾 (じゅく),cơ sở học thêm|息子を塾に通わせています。
+SINH ĐỒ,生徒 (せいと),học sinh/ học trò|先生は生徒に本を読ませました。
+GIẢ,者 (もの),người|会社の者に聞いてみます。
+NHẬP QUẢN,入管 (にゅうかん),Cục quản lý nhập cảnh|入管でビザの手続きをします。
+TÁI NHẬP QUỐC,再入国ビザ (さいにゅうこくビザ),thị thực tái nhập cảnh|再入国ビザを申請します。
+TỰ DO,自由に (じゆうに),tự do/ thoải mái|自由に使わせてください。
+MANG,お忙しいですか (おいそがしいですか),Anh/chị có bận không?|今、お忙しいですか。
+CỬU,久しぶり (ひさしぶり),lâu rồi (mới gặp lại)|久しぶりに友達に会いました。
+DOANH NGHIỆP,営業 (えいぎょう),kinh doanh/ bán hàng|営業の仕事をしています。
+LẠC,楽しみます (たのしみます),vui/ tận hưởng|みんなでパーティーを楽しみました。
+ĐẠI,代わりをします (かわりをします),thay thế/ làm thay|私が代わりをします。
+CẠNH TẨU,競走します (きょうそうします),chạy đua/ thi chạy|子どもたちを競走させます。
+NGHỆ,芸 (げい),trò diễn/ tiết mục|犬に芸をさせます。
+MỸ,美しい (うつくしい),đẹp|美しい景色ですね。
+TƯ,姿 (すがた),dáng điệu/ hình dáng|着物の姿が美しいです。
+TÂM,心 (こころ),trái tim/ tấm lòng|心から感謝しています。

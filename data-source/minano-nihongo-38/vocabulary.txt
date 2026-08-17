@@ -1,0 +1,38 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+DỤC,育てます (そだてます),nuôi/ trồng|庭で野菜を育てています。
+VẬN,運びます (はこびます),chở/ vận chuyển|みんなで荷物を運びました。
+VONG,亡くなります (なくなります),mất/ qua đời|祖母は3年前に亡くなりました。
+NHẬP VIỆN,入院します (にゅういんします),nhập viện|父が病気で入院しました。
+THOÁI VIỆN,退院します (たいいんします),xuất viện|来週退院できます。
+ĐIỆN NGUYÊN NHẬP,電源を入れます (でんげんをいれます),bật công tắc điện|電源を入れてから使ってください。
+ĐIỆN NGUYÊN THIẾT,電源を切ります (でんげんをきります),tắt công tắc điện|帰るとき、電源を切ってください。
+QUẢI,かぎを掛けます (かぎをかけます),khóa/ khóa bằng chìa|出かけるとき、かぎを掛けるのを忘れないでください。
+KHÍ TRÌ,気持ちがいい (きもちがいい),dễ chịu/ thoải mái|朝の空気は気持ちがいいです。
+KHÍ TRÌ ÁC,気持ちが悪い (きもちがわるい),khó chịu|車に乗ると気持ちが悪くなります。
+XÍCH,赤ちゃん (あかちゃん),em bé|赤ちゃんが寝ています。
+TIỂU HỌC HIỆU,小学校 (しょうがっこう),trường tiểu học|娘は小学校に通っています。
+TRUNG HỌC HIỆU,中学校 (ちゅうがっこう),trường trung học cơ sở|息子は中学校の先生です。
+DỊCH TIỀN,駅前 (えきまえ),khu vực trước nhà ga|駅前で友達を待ちます。
+HẢI NGẠN,海岸 (かいがん),bờ biển|海岸を散歩するのが好きです。
+THƯ LOẠI,書類 (しょるい),giấy tờ/ tài liệu|書類を整理するのは大変です。
+ĐIỆN NGUYÊN,電源 (でんげん),nguồn điện/ công tắc điện|電源はここにあります。
+TIÊN THẤT LỄ,お先に失礼します (おさきにしつれいします),Tôi xin phép về trước.|用事があるので、お先に失礼します。
+HỒI LÃM,回覧 (かいらん),tập thông báo (luân chuyển)|回覧を隣の家に回します。
+NGHIÊN CỨU THẤT,研究室 (けんきゅうしつ),phòng nghiên cứu|先生は研究室にいらっしゃいます。
+ÁP,はんこを押します (はんこをおします),đóng dấu|ここにはんこを押してください。
+SONG TỬ,双子 (ふたご),cặp sinh đôi|あの二人は双子です。
+TỶ MUỘI,姉妹 (しまい),chị em (gái)|姉妹はとてもよく似ています。
+TỰ,似ています (にています),giống|母に似ていると言われます。
+TÍNH CÁCH,性格 (せいかく),tính cách/ tính tình|明るい性格の人が好きです。
+THẾ THOẠI,世話をします (せわをします),chăm sóc/ giúp đỡ|子どもの世話をするのは大変です。
+THỜI GIAN,時間がたちます (じかんがたちます),thời gian trôi đi|時間がたつのは速いですね。
+ĐẠI HẢO,大好き (だいすき),rất thích|甘い物が大好きです。
+BẤT TƯ NGHỊ,不思議 (ふしぎ),bí ẩn/ kỳ lạ/ khó hiểu|不思議な話を聞きました。

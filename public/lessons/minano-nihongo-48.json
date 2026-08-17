@@ -1,0 +1,188 @@
+{
+  "id": "minano-nihongo-48",
+  "name": "皆の日本語 — Bài 48 · Từ vựng",
+  "description": "Từ vựng bài 48",
+  "kind": "vocabulary",
+  "itemCount": 22,
+  "words": [
+    {
+      "id": "17nsln9",
+      "hanViet": "GIÁNG",
+      "japanese": "降ろします",
+      "reading": "おろします",
+      "vietnamese": "cho xuống/ thả xuống",
+      "example": "バス停で客を降ろします。"
+    },
+    {
+      "id": "0zmhykd",
+      "hanViet": "HẠ",
+      "japanese": "下ろします",
+      "reading": "おろします",
+      "vietnamese": "hạ xuống/ rút (tiền)",
+      "example": "銀行でお金を下ろします。"
+    },
+    {
+      "id": "1lq1v8a",
+      "hanViet": "GIỚI",
+      "japanese": "届けます",
+      "reading": "とどけます",
+      "vietnamese": "gửi đến/ chuyển đến",
+      "example": "荷物を家まで届けます。"
+    },
+    {
+      "id": "18nhmni",
+      "hanViet": "THẾ THOẠI",
+      "japanese": "世話をします",
+      "reading": "せわをします",
+      "vietnamese": "chăm sóc",
+      "example": "母の世話をしています。"
+    },
+    {
+      "id": "0dfbv9l",
+      "hanViet": "HIỀM",
+      "japanese": "嫌",
+      "reading": "いや",
+      "vietnamese": "ngán/ không thích",
+      "example": "嫌な仕事もしなければなりません。"
+    },
+    {
+      "id": "1c8q5pq",
+      "hanViet": "NGHIÊM",
+      "japanese": "厳しい",
+      "reading": "きびしい",
+      "vietnamese": "nghiêm/ nghiêm khắc",
+      "example": "父は厳しい人です。"
+    },
+    {
+      "id": "1p8ttcy",
+      "hanViet": "THỤC",
+      "japanese": "塾",
+      "reading": "じゅく",
+      "vietnamese": "cơ sở học thêm",
+      "example": "息子を塾に通わせています。"
+    },
+    {
+      "id": "1v3ldjo",
+      "hanViet": "SINH ĐỒ",
+      "japanese": "生徒",
+      "reading": "せいと",
+      "vietnamese": "học sinh/ học trò",
+      "example": "先生は生徒に本を読ませました。"
+    },
+    {
+      "id": "185143q",
+      "hanViet": "GIẢ",
+      "japanese": "者",
+      "reading": "もの",
+      "vietnamese": "người",
+      "example": "会社の者に聞いてみます。"
+    },
+    {
+      "id": "127ow1r",
+      "hanViet": "NHẬP QUẢN",
+      "japanese": "入管",
+      "reading": "にゅうかん",
+      "vietnamese": "Cục quản lý nhập cảnh",
+      "example": "入管でビザの手続きをします。"
+    },
+    {
+      "id": "16v2li4",
+      "hanViet": "TÁI NHẬP QUỐC",
+      "japanese": "再入国ビザ",
+      "reading": "さいにゅうこくビザ",
+      "vietnamese": "thị thực tái nhập cảnh",
+      "example": "再入国ビザを申請します。"
+    },
+    {
+      "id": "0w1xuvw",
+      "hanViet": "TỰ DO",
+      "japanese": "自由に",
+      "reading": "じゆうに",
+      "vietnamese": "tự do/ thoải mái",
+      "example": "自由に使わせてください。"
+    },
+    {
+      "id": "0iki1y5",
+      "hanViet": "MANG",
+      "japanese": "お忙しいですか",
+      "reading": "おいそがしいですか",
+      "vietnamese": "Anh/chị có bận không?",
+      "example": "今、お忙しいですか。"
+    },
+    {
+      "id": "1mji313",
+      "hanViet": "CỬU",
+      "japanese": "久しぶり",
+      "reading": "ひさしぶり",
+      "vietnamese": "lâu rồi (mới gặp lại)",
+      "example": "久しぶりに友達に会いました。"
+    },
+    {
+      "id": "1mmmesw",
+      "hanViet": "DOANH NGHIỆP",
+      "japanese": "営業",
+      "reading": "えいぎょう",
+      "vietnamese": "kinh doanh/ bán hàng",
+      "example": "営業の仕事をしています。"
+    },
+    {
+      "id": "0qcnxny",
+      "hanViet": "LẠC",
+      "japanese": "楽しみます",
+      "reading": "たのしみます",
+      "vietnamese": "vui/ tận hưởng",
+      "example": "みんなでパーティーを楽しみました。"
+    },
+    {
+      "id": "1e402pu",
+      "hanViet": "ĐẠI",
+      "japanese": "代わりをします",
+      "reading": "かわりをします",
+      "vietnamese": "thay thế/ làm thay",
+      "example": "私が代わりをします。"
+    },
+    {
+      "id": "038bpy1",
+      "hanViet": "CẠNH TẨU",
+      "japanese": "競走します",
+      "reading": "きょうそうします",
+      "vietnamese": "chạy đua/ thi chạy",
+      "example": "子どもたちを競走させます。"
+    },
+    {
+      "id": "0ovdn8c",
+      "hanViet": "NGHỆ",
+      "japanese": "芸",
+      "reading": "げい",
+      "vietnamese": "trò diễn/ tiết mục",
+      "example": "犬に芸をさせます。"
+    },
+    {
+      "id": "1sf44fr",
+      "hanViet": "MỸ",
+      "japanese": "美しい",
+      "reading": "うつくしい",
+      "vietnamese": "đẹp",
+      "example": "美しい景色ですね。"
+    },
+    {
+      "id": "1kfd8p7",
+      "hanViet": "TƯ",
+      "japanese": "姿",
+      "reading": "すがた",
+      "vietnamese": "dáng điệu/ hình dáng",
+      "example": "着物の姿が美しいです。"
+    },
+    {
+      "id": "0kkupz3",
+      "hanViet": "TÂM",
+      "japanese": "心",
+      "reading": "こころ",
+      "vietnamese": "trái tim/ tấm lòng",
+      "example": "心から感謝しています。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,236 @@
+{
+  "id": "minano-nihongo-49",
+  "name": "皆の日本語 — Bài 49 · Từ vựng",
+  "description": "Từ vựng bài 49",
+  "kind": "vocabulary",
+  "itemCount": 28,
+  "words": [
+    {
+      "id": "0n9wicd",
+      "hanViet": "HỘI XÃ CẦN",
+      "japanese": "会社に勤めます",
+      "reading": "かいしゃにつとめます",
+      "vietnamese": "làm việc ở công ty",
+      "example": "兄は自動車の会社に勤めています。"
+    },
+    {
+      "id": "11qjp0o",
+      "hanViet": "HƯU",
+      "japanese": "休みます",
+      "reading": "やすみます",
+      "vietnamese": "nghỉ/ ngủ",
+      "example": "母はもう休みました。"
+    },
+    {
+      "id": "0ac46o5",
+      "hanViet": "QUẢI",
+      "japanese": "いすに掛けます",
+      "reading": "いすにかけます",
+      "vietnamese": "ngồi ghế",
+      "example": "どうぞ、いすにお掛けください。"
+    },
+    {
+      "id": "1hprlgs",
+      "hanViet": "QUÁ",
+      "japanese": "過ごします",
+      "reading": "すごします",
+      "vietnamese": "trải qua/ trải nghiệm",
+      "example": "休みは家族と過ごしました。"
+    },
+    {
+      "id": "1rr6f3x",
+      "hanViet": "NGÂN HÀNG KÝ",
+      "japanese": "銀行に寄ります",
+      "reading": "ぎんこうによります",
+      "vietnamese": "ghé qua ngân hàng",
+      "example": "帰りに銀行に寄ります。"
+    },
+    {
+      "id": "1blet2h",
+      "hanViet": "TRIỆU THƯỢNG",
+      "japanese": "召し上がります",
+      "reading": "めしあがります",
+      "vietnamese": "ăn/ uống (kính ngữ)",
+      "example": "何を召し上がりますか。"
+    },
+    {
+      "id": "06ojg7w",
+      "hanViet": "LÃM",
+      "japanese": "ご覧になります",
+      "reading": "ごらんになります",
+      "vietnamese": "xem/ nhìn (kính ngữ)",
+      "example": "この写真をご覧になりましたか。"
+    },
+    {
+      "id": "13b6ql7",
+      "hanViet": "TỒN",
+      "japanese": "ご存じです",
+      "reading": "ごぞんじです",
+      "vietnamese": "biết (kính ngữ)",
+      "example": "社長の電話番号をご存じですか。"
+    },
+    {
+      "id": "097vw3z",
+      "hanViet": "HỘI MÃNH",
+      "japanese": "灰皿",
+      "reading": "はいざら",
+      "vietnamese": "cái gạt tàn",
+      "example": "灰皿はどこにありますか。"
+    },
+    {
+      "id": "0351u27",
+      "hanViet": "LỮ QUÁN",
+      "japanese": "旅館",
+      "reading": "りょかん",
+      "vietnamese": "khách sạn kiểu Nhật",
+      "example": "旅館に泊まりました。"
+    },
+    {
+      "id": "16fa9b6",
+      "hanViet": "HỘI TRƯỜNG",
+      "japanese": "会場",
+      "reading": "かいじょう",
+      "vietnamese": "hội trường",
+      "example": "会場はあちらです。"
+    },
+    {
+      "id": "102db60",
+      "hanViet": "ĐÌNH",
+      "japanese": "バス停",
+      "reading": "バスてい",
+      "vietnamese": "điểm dừng xe buýt",
+      "example": "バス停で待っています。"
+    },
+    {
+      "id": "0zjy4ts",
+      "hanViet": "MẬU DỊCH",
+      "japanese": "貿易",
+      "reading": "ぼうえき",
+      "vietnamese": "mậu dịch/ thương mại quốc tế",
+      "example": "貿易の会社で働いています。"
+    },
+    {
+      "id": "0thuuxt",
+      "hanViet": "QUY",
+      "japanese": "帰りに",
+      "reading": "かえりに",
+      "vietnamese": "trên đường về",
+      "example": "帰りに買い物をします。"
+    },
+    {
+      "id": "0jgj2j1",
+      "hanViet": "VIỄN LỰ",
+      "japanese": "遠慮なく",
+      "reading": "えんりょなく",
+      "vietnamese": "đừng khách sáo/ không làm khách",
+      "example": "どうぞ遠慮なく召し上がってください。"
+    },
+    {
+      "id": "10zds16",
+      "hanViet": "NHIỆT XUẤT",
+      "japanese": "熱を出します",
+      "reading": "ねつをだします",
+      "vietnamese": "bị sốt",
+      "example": "子どもが熱を出しました。"
+    },
+    {
+      "id": "1f0wxcp",
+      "hanViet": "TRUYỀN",
+      "japanese": "よろしくお伝えください",
+      "reading": "よろしくおつたえください",
+      "vietnamese": "Cho tôi gửi lời hỏi thăm.",
+      "example": "奥様によろしくお伝えください。"
+    },
+    {
+      "id": "0hepz4f",
+      "hanViet": "THẤT LỄ",
+      "japanese": "失礼いたします",
+      "reading": "しつれいいたします",
+      "vietnamese": "Tôi xin phép.",
+      "example": "では、失礼いたします。"
+    },
+    {
+      "id": "088ev5c",
+      "hanViet": "GIẢNG SƯ",
+      "japanese": "講師",
+      "reading": "こうし",
+      "vietnamese": "giảng viên/ giáo viên",
+      "example": "大学の講師をしていらっしゃいます。"
+    },
+    {
+      "id": "1umvjxp",
+      "hanViet": "TÁC PHẨM",
+      "japanese": "作品",
+      "reading": "さくひん",
+      "vietnamese": "tác phẩm",
+      "example": "この作品はすばらしいです。"
+    },
+    {
+      "id": "0va60jq",
+      "hanViet": "THỤ THƯỞNG",
+      "japanese": "受賞します",
+      "reading": "じゅしょうします",
+      "vietnamese": "nhận giải thưởng",
+      "example": "先生の小説が賞を受賞しました。"
+    },
+    {
+      "id": "1avwwvp",
+      "hanViet": "THẾ GIỚI",
+      "japanese": "世界的に",
+      "reading": "せかいてきに",
+      "vietnamese": "tầm cỡ thế giới",
+      "example": "世界的に有名な音楽家です。"
+    },
+    {
+      "id": "0fdtwjk",
+      "hanViet": "TÁC GIA",
+      "japanese": "作家",
+      "reading": "さっか",
+      "vietnamese": "nhà văn",
+      "example": "有名な作家にお会いしました。"
+    },
+    {
+      "id": "1pgg2dz",
+      "hanViet": "TRƯỜNG NAM",
+      "japanese": "長男",
+      "reading": "ちょうなん",
+      "vietnamese": "trưởng nam/ con trai cả",
+      "example": "長男は今年大学に入りました。"
+    },
+    {
+      "id": "1mgoiaa",
+      "hanViet": "CHƯỚNG HẠI",
+      "japanese": "障害",
+      "reading": "しょうがい",
+      "vietnamese": "khuyết tật",
+      "example": "障害がある人を助ける仕事です。"
+    },
+    {
+      "id": "1g9uoxh",
+      "hanViet": "TRÌ",
+      "japanese": "お持ちです",
+      "reading": "おもちです",
+      "vietnamese": "có (kính ngữ)",
+      "example": "保険証をお持ちですか。"
+    },
+    {
+      "id": "1ap794t",
+      "hanViet": "TÁC KHÚC",
+      "japanese": "作曲",
+      "reading": "さっきょく",
+      "vietnamese": "sáng tác nhạc",
+      "example": "若いときにこの曲を作曲されました。"
+    },
+    {
+      "id": "1pqadgp",
+      "hanViet": "HOẠT ĐỘNG",
+      "japanese": "活動",
+      "reading": "かつどう",
+      "vietnamese": "hoạt động",
+      "example": "音楽の活動を続けていらっしゃいます。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,43 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+XỈ MA,歯を磨きます (はをみがきます),đánh răng|寝る前に歯を磨きます。
+TỔ LẬP,組み立てます (くみたてます),lắp/ lắp ráp/ lắp đặt|説明書のとおりに棚を組み立てました。
+TRIẾT,折ります (おります),gấp/ gập/ bẻ|紙を半分に折ってください。
+VONG VẬT KHÍ,忘れ物に気がつきます (わすれものにきがつきます),phát hiện ra đồ bỏ quên|電車を降りてから忘れ物に気がつきました。
+KIẾN,かぎが見つかります (かぎがみつかります),tìm thấy chìa khóa|なくしたかぎが見つかりました。
+CHẤT VẤN,質問します (しつもんします),hỏi/ đặt câu hỏi|分からないことは先生に質問します。
+TẾ,細い (ほそい),gầy/ hẹp/ thon|細い道を通ります。
+THÁI,太い (ふとい),béo/ to|太い線を引いてください。
+BỒN SŨNG,盆踊り (ぼんおどり),múa trong hội Bon|夏祭りで盆踊りを踊りました。
+GIA CỤ,家具 (かぐ),gia cụ/ đồ dùng nội thất|新しい家具を買いました。
+THUYẾT MINH THƯ,説明書 (せつめいしょ),quyển hướng dẫn/ bản hướng dẫn|説明書を読んでから使ってください。
+ĐỒ,図 (ず),sơ đồ/ hình vẽ|図のとおりに書いてください。
+TUYẾN,線 (せん),đường/ đường kẻ|ここに赤い線を引きます。
+THỈ ẤN,矢印 (やじるし),dấu mũi tên|矢印のとおりに進んでください。
+HẮC,黒 (くろ),màu đen|黒のペンで書いてください。
+BẠCH,白 (しろ),màu trắng|白と黒、どちらがいいですか。
+XÍCH,赤 (あか),màu đỏ|赤は目立つ色です。
+THANH,青 (あお),màu xanh da trời|青が好きです。
+CÁM,紺 (こん),màu xanh lam đậm/ xanh navy|紺のスーツを着ます。
+HOÀNG SẮC,黄色 (きいろ),màu vàng|黄色の花が咲いています。
+TRÀ SẮC,茶色 (ちゃいろ),màu nâu|茶色のかばんを買いました。
+TRÀ ĐẠO,茶道 (ちゃどう),trà đạo|大学で茶道を習っています。
+TRÀ,お茶をたてます (おちゃをたてます),pha trà/ khuấy trà|先生に教えていただいたとおりにお茶をたてます。
+TIÊN,先に (さきに),trước|私が先に行きます。
+TẢI,載せます (のせます),để lên/ đặt lên|皿にご飯を載せます。
+KHỔ,苦い (にがい),đắng|この薬は苦いです。
+THÂN TỬ,親子どんぶり (おやこどんぶり),món oyakodon (cơm gà trứng)|昼ご飯に親子どんぶりを食べました。
+TÀI LIỆU,材料 (ざいりょう),nguyên liệu|料理の材料を買いに行きます。
+ĐIỂU,鳥肉 (とりにく),thịt gà|鳥肉を小さく切ります。
+ĐIỀU VỊ LIỆU,調味料 (ちょうみりょう),gia vị|調味料を入れてよく混ぜます。
+HỎA,火 (ひ),lửa|火に気をつけてください。
+HỎA PHÓ,火にかけます (ひにかけます),cho qua lửa/ đun|なべを火にかけます。
+CHỬ,煮ます (にます),nấu/ hầm|野菜を弱火で煮ます。
+CHỬ THỤC,煮えます (にえます),chín/ được nấu chín|野菜が煮えたら、火を止めてください。

@@ -1,0 +1,316 @@
+{
+  "id": "minano-nihongo-37",
+  "name": "皆の日本語 — Bài 37 · Từ vựng",
+  "description": "Từ vựng bài 37",
+  "kind": "vocabulary",
+  "itemCount": 38,
+  "words": [
+    {
+      "id": "1oulry3",
+      "hanViet": "BAO",
+      "japanese": "褒めます",
+      "reading": "ほめます",
+      "vietnamese": "khen",
+      "example": "先生に褒められました。"
+    },
+    {
+      "id": "0dp300g",
+      "hanViet": "DỤ",
+      "japanese": "誘います",
+      "reading": "さそいます",
+      "vietnamese": "mời/ rủ",
+      "example": "友達を映画に誘いました。"
+    },
+    {
+      "id": "1mymshh",
+      "hanViet": "KHỞI",
+      "japanese": "起こします",
+      "reading": "おこします",
+      "vietnamese": "đánh thức",
+      "example": "毎朝母に起こされます。"
+    },
+    {
+      "id": "12xujso",
+      "hanViet": "CHIÊU ĐÃI",
+      "japanese": "招待します",
+      "reading": "しょうたいします",
+      "vietnamese": "mời",
+      "example": "結婚式に招待されました。"
+    },
+    {
+      "id": "1oa3qii",
+      "hanViet": "LẠI",
+      "japanese": "頼みます",
+      "reading": "たのみます",
+      "vietnamese": "nhờ",
+      "example": "友達に仕事を頼みました。"
+    },
+    {
+      "id": "01fhjso",
+      "hanViet": "CHÚ Ý",
+      "japanese": "注意します",
+      "reading": "ちゅういします",
+      "vietnamese": "chú ý/ nhắc nhở",
+      "example": "先生に注意されました。"
+    },
+    {
+      "id": "0lo3z9y",
+      "hanViet": "ĐẠP",
+      "japanese": "踏みます",
+      "reading": "ふみます",
+      "vietnamese": "giẫm/ giẫm lên",
+      "example": "電車の中で足を踏まれました。"
+    },
+    {
+      "id": "1hfvxr7",
+      "hanViet": "HOẠI",
+      "japanese": "壊します",
+      "reading": "こわします",
+      "vietnamese": "phá/ làm hỏng",
+      "example": "弟にカメラを壊されました。"
+    },
+    {
+      "id": "0om76j7",
+      "hanViet": "Ô",
+      "japanese": "汚します",
+      "reading": "よごします",
+      "vietnamese": "làm bẩn",
+      "example": "子どもに服を汚されました。"
+    },
+    {
+      "id": "1scvjru",
+      "hanViet": "HÀNH",
+      "japanese": "行います",
+      "reading": "おこないます",
+      "vietnamese": "thực hiện/ tiến hành",
+      "example": "会議は3時から行われます。"
+    },
+    {
+      "id": "0o7lp6d",
+      "hanViet": "THÂU XUẤT",
+      "japanese": "輸出します",
+      "reading": "ゆしゅつします",
+      "vietnamese": "xuất khẩu",
+      "example": "日本は車を輸出しています。"
+    },
+    {
+      "id": "14dh6sz",
+      "hanViet": "THÂU NHẬP",
+      "japanese": "輸入します",
+      "reading": "ゆにゅうします",
+      "vietnamese": "nhập khẩu",
+      "example": "石油を輸入しています。"
+    },
+    {
+      "id": "187c8cj",
+      "hanViet": "PHIÊN DỊCH",
+      "japanese": "翻訳します",
+      "reading": "ほんやくします",
+      "vietnamese": "dịch (sách, tài liệu)",
+      "example": "この本は日本語に翻訳されました。"
+    },
+    {
+      "id": "1rmfrpk",
+      "hanViet": "PHÁT MINH",
+      "japanese": "発明します",
+      "reading": "はつめいします",
+      "vietnamese": "phát minh",
+      "example": "電話はベルによって発明されました。"
+    },
+    {
+      "id": "002am6l",
+      "hanViet": "PHÁT KIẾN",
+      "japanese": "発見します",
+      "reading": "はっけんします",
+      "vietnamese": "phát hiện/ tìm ra",
+      "example": "新しい星が発見されました。"
+    },
+    {
+      "id": "1t6flxu",
+      "hanViet": "THIẾT KẾ",
+      "japanese": "設計します",
+      "reading": "せっけいします",
+      "vietnamese": "thiết kế",
+      "example": "この建物は有名な建築家によって設計されました。"
+    },
+    {
+      "id": "170978j",
+      "hanViet": "MỄ",
+      "japanese": "米",
+      "reading": "こめ",
+      "vietnamese": "gạo",
+      "example": "日本では米がたくさん作られます。"
+    },
+    {
+      "id": "0gze9nl",
+      "hanViet": "MẠCH",
+      "japanese": "麦",
+      "reading": "むぎ",
+      "vietnamese": "lúa mạch",
+      "example": "麦からビールが作られます。"
+    },
+    {
+      "id": "19tuwy1",
+      "hanViet": "THẠCH DU",
+      "japanese": "石油",
+      "reading": "せきゆ",
+      "vietnamese": "dầu mỏ",
+      "example": "石油の値段が上がりました。"
+    },
+    {
+      "id": "1w6hq3g",
+      "hanViet": "NGUYÊN LIỆU",
+      "japanese": "原料",
+      "reading": "げんりょう",
+      "vietnamese": "nguyên liệu",
+      "example": "ワインの原料はぶどうです。"
+    },
+    {
+      "id": "0qhtml7",
+      "hanViet": "NÊ BỔNG",
+      "japanese": "泥棒",
+      "reading": "どろぼう",
+      "vietnamese": "kẻ trộm",
+      "example": "泥棒に財布を取られました。"
+    },
+    {
+      "id": "0aux1nv",
+      "hanViet": "CẢNH QUAN",
+      "japanese": "警官",
+      "reading": "けいかん",
+      "vietnamese": "cảnh sát",
+      "example": "警官に道を聞かれました。"
+    },
+    {
+      "id": "1t591ys",
+      "hanViet": "KIẾN TRÚC GIA",
+      "japanese": "建築家",
+      "reading": "けんちくか",
+      "vietnamese": "kiến trúc sư",
+      "example": "有名な建築家に会いました。"
+    },
+    {
+      "id": "103bncr",
+      "hanViet": "KHOA HỌC GIẢ",
+      "japanese": "科学者",
+      "reading": "かがくしゃ",
+      "vietnamese": "nhà khoa học",
+      "example": "その研究は多くの科学者に知られています。"
+    },
+    {
+      "id": "1f5ce7l",
+      "hanViet": "MẠN HỌA",
+      "japanese": "漫画",
+      "reading": "まんが",
+      "vietnamese": "truyện tranh",
+      "example": "この漫画は世界中で読まれています。"
+    },
+    {
+      "id": "1srguv7",
+      "hanViet": "THẾ GIỚI TRUNG",
+      "japanese": "世界中",
+      "reading": "せかいじゅう",
+      "vietnamese": "khắp thế giới/ toàn thế giới",
+      "example": "この歌は世界中で歌われています。"
+    },
+    {
+      "id": "0xyw3uh",
+      "hanViet": "HUYNH ĐỆ",
+      "japanese": "ライト兄弟",
+      "reading": "ライトきょうだい",
+      "vietnamese": "anh em nhà Wright",
+      "example": "飛行機はライト兄弟によって発明されました。"
+    },
+    {
+      "id": "1skoums",
+      "hanViet": "MAI LẬP",
+      "japanese": "埋め立てます",
+      "reading": "うめたてます",
+      "vietnamese": "lấp (biển)",
+      "example": "海を埋め立てて空港を作りました。"
+    },
+    {
+      "id": "1ec6f7c",
+      "hanViet": "KỸ THUẬT",
+      "japanese": "技術",
+      "reading": "ぎじゅつ",
+      "vietnamese": "kỹ thuật",
+      "example": "日本の技術は進んでいます。"
+    },
+    {
+      "id": "0knpyk7",
+      "hanViet": "THỔ ĐỊA",
+      "japanese": "土地",
+      "reading": "とち",
+      "vietnamese": "đất/ diện tích đất",
+      "example": "この辺の土地は高いです。"
+    },
+    {
+      "id": "1g1xjuj",
+      "hanViet": "TAO ÂM",
+      "japanese": "騒音",
+      "reading": "そうおん",
+      "vietnamese": "tiếng ồn",
+      "example": "工事の騒音で眠れません。"
+    },
+    {
+      "id": "17tprt4",
+      "hanViet": "LỢI DỤNG",
+      "japanese": "利用します",
+      "reading": "りようします",
+      "vietnamese": "sử dụng/ lợi dụng",
+      "example": "会議室は誰でも利用できます。"
+    },
+    {
+      "id": "0zlqt3b",
+      "hanViet": "HÀO HOA",
+      "japanese": "豪華",
+      "reading": "ごうか",
+      "vietnamese": "hào hoa/ sang trọng",
+      "example": "豪華なホテルに泊まりました。"
+    },
+    {
+      "id": "1y5whjd",
+      "hanViet": "ĐIÊU KHẮC",
+      "japanese": "彫刻",
+      "reading": "ちょうこく",
+      "vietnamese": "điêu khắc",
+      "example": "公園に彫刻が置かれています。"
+    },
+    {
+      "id": "18fchl4",
+      "hanViet": "MIÊN",
+      "japanese": "眠ります",
+      "reading": "ねむります",
+      "vietnamese": "ngủ",
+      "example": "昨夜はよく眠れませんでした。"
+    },
+    {
+      "id": "06uqtxx",
+      "hanViet": "ĐIÊU",
+      "japanese": "彫ります",
+      "reading": "ほります",
+      "vietnamese": "khắc",
+      "example": "木で仏像を彫ります。"
+    },
+    {
+      "id": "01fo3aa",
+      "hanViet": "TRỌNG GIAN",
+      "japanese": "仲間",
+      "reading": "なかま",
+      "vietnamese": "bạn bè/ đồng nghiệp",
+      "example": "仕事の仲間と食事しました。"
+    },
+    {
+      "id": "0ifetug",
+      "hanViet": "NHẤT SINH HUYỀN MỆNH",
+      "japanese": "一生懸命",
+      "reading": "いっしょうけんめい",
+      "vietnamese": "chăm chỉ/ miệt mài",
+      "example": "一生懸命練習しました。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

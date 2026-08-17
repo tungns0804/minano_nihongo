@@ -1,0 +1,252 @@
+{
+  "id": "minano-nihongo-36",
+  "name": "皆の日本語 — Bài 36 · Từ vựng",
+  "description": "Từ vựng bài 36",
+  "kind": "vocabulary",
+  "itemCount": 30,
+  "words": [
+    {
+      "id": "06uogbo",
+      "hanViet": "HÀ VẬT GIỚI",
+      "japanese": "荷物が届きます",
+      "reading": "にもつがとどきます",
+      "vietnamese": "hành lý được gửi đến",
+      "example": "国から荷物が届きました。"
+    },
+    {
+      "id": "1dqkwhx",
+      "hanViet": "THỨC HỢP XUẤT",
+      "japanese": "試合に出ます",
+      "reading": "しあいにでます",
+      "vietnamese": "tham gia trận đấu/ ra sân thi đấu",
+      "example": "来週の試合に出ます。"
+    },
+    {
+      "id": "0ynvv71",
+      "hanViet": "ĐẢ",
+      "japanese": "ワープロを打ちます",
+      "reading": "ワープロをうちます",
+      "vietnamese": "đánh máy chữ/ gõ máy chữ",
+      "example": "速くワープロを打てるようになりました。"
+    },
+    {
+      "id": "06l1n70",
+      "hanViet": "TRỮ KIM",
+      "japanese": "貯金します",
+      "reading": "ちょきんします",
+      "vietnamese": "tiết kiệm tiền/ để dành tiền",
+      "example": "車を買うために貯金しています。"
+    },
+    {
+      "id": "0j43asu",
+      "hanViet": "THÁI",
+      "japanese": "太ります",
+      "reading": "ふとります",
+      "vietnamese": "béo lên/ tăng cân",
+      "example": "運動しないと太りますよ。"
+    },
+    {
+      "id": "1jfbuk6",
+      "hanViet": "THÌ QUÁ",
+      "japanese": "7時を過ぎます",
+      "reading": "7じをすぎます",
+      "vietnamese": "quá 7 giờ/ qua 7 giờ",
+      "example": "もう7時を過ぎました。"
+    },
+    {
+      "id": "0xi5prm",
+      "hanViet": "TẬP QUÁN",
+      "japanese": "習慣に慣れます",
+      "reading": "しゅうかんになれます",
+      "vietnamese": "làm quen với tập quán",
+      "example": "日本の習慣に慣れましたか。"
+    },
+    {
+      "id": "19mt29y",
+      "hanViet": "NGẠNH",
+      "japanese": "硬い",
+      "reading": "かたい",
+      "vietnamese": "cứng",
+      "example": "このパンは硬くて食べにくいです。"
+    },
+    {
+      "id": "1grpyts",
+      "hanViet": "NHUYỄN",
+      "japanese": "軟らかい",
+      "reading": "やわらかい",
+      "vietnamese": "mềm",
+      "example": "軟らかいベッドで寝たいです。"
+    },
+    {
+      "id": "0tkdl5m",
+      "hanViet": "CÔNG TRƯỜNG",
+      "japanese": "工場",
+      "reading": "こうじょう",
+      "vietnamese": "nhà máy/ phân xưởng",
+      "example": "父は自動車の工場で働いています。"
+    },
+    {
+      "id": "1hqfwk6",
+      "hanViet": "KIỆN KHANG",
+      "japanese": "健康",
+      "reading": "けんこう",
+      "vietnamese": "sức khỏe",
+      "example": "健康のために毎日歩いています。"
+    },
+    {
+      "id": "0pvp7i5",
+      "hanViet": "KIẾM ĐẠO",
+      "japanese": "剣道",
+      "reading": "けんどう",
+      "vietnamese": "kiếm đạo",
+      "example": "大学で剣道を始めました。"
+    },
+    {
+      "id": "0lb0qqw",
+      "hanViet": "MỖI CHU",
+      "japanese": "毎週",
+      "reading": "まいしゅう",
+      "vietnamese": "hàng tuần",
+      "example": "毎週日曜日にプールへ行きます。"
+    },
+    {
+      "id": "0z9i6s0",
+      "hanViet": "MỖI NGUYỆT",
+      "japanese": "毎月",
+      "reading": "まいつき",
+      "vietnamese": "hàng tháng",
+      "example": "毎月少しずつ貯金します。"
+    },
+    {
+      "id": "1a9wnl2",
+      "hanViet": "MỖI NIÊN",
+      "japanese": "毎年",
+      "reading": "まいとし",
+      "vietnamese": "hàng năm",
+      "example": "毎年国へ帰ります。"
+    },
+    {
+      "id": "11vwipi",
+      "hanViet": "TẤT",
+      "japanese": "必ず",
+      "reading": "かならず",
+      "vietnamese": "nhất định/ chắc chắn",
+      "example": "必ず連絡してください。"
+    },
+    {
+      "id": "0gsvg0h",
+      "hanViet": "TUYỆT ĐỐI",
+      "japanese": "絶対に",
+      "reading": "ぜったいに",
+      "vietnamese": "tuyệt đối/ nhất định",
+      "example": "絶対に忘れないようにします。"
+    },
+    {
+      "id": "0ipftq5",
+      "hanViet": "THƯỢNG THỦ",
+      "japanese": "上手に",
+      "reading": "じょうずに",
+      "vietnamese": "giỏi/ khéo",
+      "example": "日本語が上手に話せるようになりたいです。"
+    },
+    {
+      "id": "0f98v6p",
+      "hanViet": "KHÁCH DẠNG",
+      "japanese": "お客様",
+      "reading": "おきゃくさま",
+      "vietnamese": "quý khách/ khách hàng",
+      "example": "お客様がいらっしゃいました。"
+    },
+    {
+      "id": "113ydrj",
+      "hanViet": "ĐẶC BIỆT",
+      "japanese": "特別",
+      "reading": "とくべつ",
+      "vietnamese": "đặc biệt",
+      "example": "特別な料理を作りました。"
+    },
+    {
+      "id": "1040ysp",
+      "hanViet": "THỦY VỊNH",
+      "japanese": "水泳",
+      "reading": "すいえい",
+      "vietnamese": "bơi/ môn bơi",
+      "example": "水泳を習っています。"
+    },
+    {
+      "id": "128v9cw",
+      "hanViet": "KHÍ TRÌ",
+      "japanese": "気持ち",
+      "reading": "きもち",
+      "vietnamese": "cảm giác/ tâm trạng",
+      "example": "天気がいいと気持ちがいいです。"
+    },
+    {
+      "id": "0nmp5pi",
+      "hanViet": "THỪA VẬT",
+      "japanese": "乗り物",
+      "reading": "のりもの",
+      "vietnamese": "phương tiện đi lại",
+      "example": "この町は乗り物が便利です。"
+    },
+    {
+      "id": "0gthi73",
+      "hanViet": "LỊCH SỬ",
+      "japanese": "歴史",
+      "reading": "れきし",
+      "vietnamese": "lịch sử",
+      "example": "日本の歴史を勉強しています。"
+    },
+    {
+      "id": "08kskfa",
+      "hanViet": "THẾ KỶ",
+      "japanese": "世紀",
+      "reading": "せいき",
+      "vietnamese": "thế kỷ",
+      "example": "21世紀に入りました。"
+    },
+    {
+      "id": "1mlv1q7",
+      "hanViet": "VIỄN",
+      "japanese": "遠く",
+      "reading": "とおく",
+      "vietnamese": "xa/ ở xa",
+      "example": "遠くに富士山が見えます。"
+    },
+    {
+      "id": "1x0sa1f",
+      "hanViet": "KHÍ XA",
+      "japanese": "汽車",
+      "reading": "きしゃ",
+      "vietnamese": "tàu hỏa chạy bằng hơi nước",
+      "example": "昔は汽車で旅行しました。"
+    },
+    {
+      "id": "1alnpv7",
+      "hanViet": "KHÍ THUYỀN",
+      "japanese": "汽船",
+      "reading": "きせん",
+      "vietnamese": "thuyền chạy bằng hơi nước",
+      "example": "汽船で島へ渡りました。"
+    },
+    {
+      "id": "1nvloia",
+      "hanViet": "VẬN",
+      "japanese": "運びます",
+      "reading": "はこびます",
+      "vietnamese": "mang/ chở/ vận chuyển",
+      "example": "重い荷物を運びます。"
+    },
+    {
+      "id": "0vivkz5",
+      "hanViet": "PHI",
+      "japanese": "飛びます",
+      "reading": "とびます",
+      "vietnamese": "bay",
+      "example": "鳥が空を飛んでいます。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,39 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+HÀ VẬT GIỚI,荷物が届きます (にもつがとどきます),hành lý được gửi đến|国から荷物が届きました。
+THỨC HỢP XUẤT,試合に出ます (しあいにでます),tham gia trận đấu/ ra sân thi đấu|来週の試合に出ます。
+ĐẢ,ワープロを打ちます (ワープロをうちます),đánh máy chữ/ gõ máy chữ|速くワープロを打てるようになりました。
+TRỮ KIM,貯金します (ちょきんします),tiết kiệm tiền/ để dành tiền|車を買うために貯金しています。
+THÁI,太ります (ふとります),béo lên/ tăng cân|運動しないと太りますよ。
+THÌ QUÁ,7時を過ぎます (7じをすぎます),quá 7 giờ/ qua 7 giờ|もう7時を過ぎました。
+TẬP QUÁN,習慣に慣れます (しゅうかんになれます),làm quen với tập quán|日本の習慣に慣れましたか。
+NGẠNH,硬い (かたい),cứng|このパンは硬くて食べにくいです。
+NHUYỄN,軟らかい (やわらかい),mềm|軟らかいベッドで寝たいです。
+CÔNG TRƯỜNG,工場 (こうじょう),nhà máy/ phân xưởng|父は自動車の工場で働いています。
+KIỆN KHANG,健康 (けんこう),sức khỏe|健康のために毎日歩いています。
+KIẾM ĐẠO,剣道 (けんどう),kiếm đạo|大学で剣道を始めました。
+MỖI CHU,毎週 (まいしゅう),hàng tuần|毎週日曜日にプールへ行きます。
+MỖI NGUYỆT,毎月 (まいつき),hàng tháng|毎月少しずつ貯金します。
+MỖI NIÊN,毎年 (まいとし),hàng năm|毎年国へ帰ります。
+TẤT,必ず (かならず),nhất định/ chắc chắn|必ず連絡してください。
+TUYỆT ĐỐI,絶対に (ぜったいに),tuyệt đối/ nhất định|絶対に忘れないようにします。
+THƯỢNG THỦ,上手に (じょうずに),giỏi/ khéo|日本語が上手に話せるようになりたいです。
+KHÁCH DẠNG,お客様 (おきゃくさま),quý khách/ khách hàng|お客様がいらっしゃいました。
+ĐẶC BIỆT,特別 (とくべつ),đặc biệt|特別な料理を作りました。
+THỦY VỊNH,水泳 (すいえい),bơi/ môn bơi|水泳を習っています。
+KHÍ TRÌ,気持ち (きもち),cảm giác/ tâm trạng|天気がいいと気持ちがいいです。
+THỪA VẬT,乗り物 (のりもの),phương tiện đi lại|この町は乗り物が便利です。
+LỊCH SỬ,歴史 (れきし),lịch sử|日本の歴史を勉強しています。
+THẾ KỶ,世紀 (せいき),thế kỷ|21世紀に入りました。
+VIỄN,遠く (とおく),xa/ ở xa|遠くに富士山が見えます。
+KHÍ XA,汽車 (きしゃ),tàu hỏa chạy bằng hơi nước|昔は汽車で旅行しました。
+KHÍ THUYỀN,汽船 (きせん),thuyền chạy bằng hơi nước|汽船で島へ渡りました。
+VẬN,運びます (はこびます),mang/ chở/ vận chuyển|重い荷物を運びます。
+PHI,飛びます (とびます),bay|鳥が空を飛んでいます。

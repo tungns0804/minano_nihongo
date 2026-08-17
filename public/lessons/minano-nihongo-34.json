@@ -1,0 +1,284 @@
+{
+  "id": "minano-nihongo-34",
+  "name": "皆の日本語 — Bài 34 · Từ vựng",
+  "description": "Từ vựng bài 34",
+  "kind": "vocabulary",
+  "itemCount": 34,
+  "words": [
+    {
+      "id": "08o8syg",
+      "hanViet": "XỈ MA",
+      "japanese": "歯を磨きます",
+      "reading": "はをみがきます",
+      "vietnamese": "đánh răng",
+      "example": "寝る前に歯を磨きます。"
+    },
+    {
+      "id": "0ib4s0g",
+      "hanViet": "TỔ LẬP",
+      "japanese": "組み立てます",
+      "reading": "くみたてます",
+      "vietnamese": "lắp/ lắp ráp/ lắp đặt",
+      "example": "説明書のとおりに棚を組み立てました。"
+    },
+    {
+      "id": "1f358vh",
+      "hanViet": "TRIẾT",
+      "japanese": "折ります",
+      "reading": "おります",
+      "vietnamese": "gấp/ gập/ bẻ",
+      "example": "紙を半分に折ってください。"
+    },
+    {
+      "id": "17ihawg",
+      "hanViet": "VONG VẬT KHÍ",
+      "japanese": "忘れ物に気がつきます",
+      "reading": "わすれものにきがつきます",
+      "vietnamese": "phát hiện ra đồ bỏ quên",
+      "example": "電車を降りてから忘れ物に気がつきました。"
+    },
+    {
+      "id": "02k99pp",
+      "hanViet": "KIẾN",
+      "japanese": "かぎが見つかります",
+      "reading": "かぎがみつかります",
+      "vietnamese": "tìm thấy chìa khóa",
+      "example": "なくしたかぎが見つかりました。"
+    },
+    {
+      "id": "02qrn4d",
+      "hanViet": "CHẤT VẤN",
+      "japanese": "質問します",
+      "reading": "しつもんします",
+      "vietnamese": "hỏi/ đặt câu hỏi",
+      "example": "分からないことは先生に質問します。"
+    },
+    {
+      "id": "193vzhh",
+      "hanViet": "TẾ",
+      "japanese": "細い",
+      "reading": "ほそい",
+      "vietnamese": "gầy/ hẹp/ thon",
+      "example": "細い道を通ります。"
+    },
+    {
+      "id": "1gbkqpn",
+      "hanViet": "THÁI",
+      "japanese": "太い",
+      "reading": "ふとい",
+      "vietnamese": "béo/ to",
+      "example": "太い線を引いてください。"
+    },
+    {
+      "id": "1cu6dgp",
+      "hanViet": "BỒN SŨNG",
+      "japanese": "盆踊り",
+      "reading": "ぼんおどり",
+      "vietnamese": "múa trong hội Bon",
+      "example": "夏祭りで盆踊りを踊りました。"
+    },
+    {
+      "id": "1s7gzxw",
+      "hanViet": "GIA CỤ",
+      "japanese": "家具",
+      "reading": "かぐ",
+      "vietnamese": "gia cụ/ đồ dùng nội thất",
+      "example": "新しい家具を買いました。"
+    },
+    {
+      "id": "1l0zyi4",
+      "hanViet": "THUYẾT MINH THƯ",
+      "japanese": "説明書",
+      "reading": "せつめいしょ",
+      "vietnamese": "quyển hướng dẫn/ bản hướng dẫn",
+      "example": "説明書を読んでから使ってください。"
+    },
+    {
+      "id": "1gsp51g",
+      "hanViet": "ĐỒ",
+      "japanese": "図",
+      "reading": "ず",
+      "vietnamese": "sơ đồ/ hình vẽ",
+      "example": "図のとおりに書いてください。"
+    },
+    {
+      "id": "0pp34rn",
+      "hanViet": "TUYẾN",
+      "japanese": "線",
+      "reading": "せん",
+      "vietnamese": "đường/ đường kẻ",
+      "example": "ここに赤い線を引きます。"
+    },
+    {
+      "id": "0koi86n",
+      "hanViet": "THỈ ẤN",
+      "japanese": "矢印",
+      "reading": "やじるし",
+      "vietnamese": "dấu mũi tên",
+      "example": "矢印のとおりに進んでください。"
+    },
+    {
+      "id": "0y7n9pe",
+      "hanViet": "HẮC",
+      "japanese": "黒",
+      "reading": "くろ",
+      "vietnamese": "màu đen",
+      "example": "黒のペンで書いてください。"
+    },
+    {
+      "id": "0p65ofh",
+      "hanViet": "BẠCH",
+      "japanese": "白",
+      "reading": "しろ",
+      "vietnamese": "màu trắng",
+      "example": "白と黒、どちらがいいですか。"
+    },
+    {
+      "id": "19v02yt",
+      "hanViet": "XÍCH",
+      "japanese": "赤",
+      "reading": "あか",
+      "vietnamese": "màu đỏ",
+      "example": "赤は目立つ色です。"
+    },
+    {
+      "id": "1maanx8",
+      "hanViet": "THANH",
+      "japanese": "青",
+      "reading": "あお",
+      "vietnamese": "màu xanh da trời",
+      "example": "青が好きです。"
+    },
+    {
+      "id": "01mhooq",
+      "hanViet": "CÁM",
+      "japanese": "紺",
+      "reading": "こん",
+      "vietnamese": "màu xanh lam đậm/ xanh navy",
+      "example": "紺のスーツを着ます。"
+    },
+    {
+      "id": "1jwpoph",
+      "hanViet": "HOÀNG SẮC",
+      "japanese": "黄色",
+      "reading": "きいろ",
+      "vietnamese": "màu vàng",
+      "example": "黄色の花が咲いています。"
+    },
+    {
+      "id": "0l2q0e1",
+      "hanViet": "TRÀ SẮC",
+      "japanese": "茶色",
+      "reading": "ちゃいろ",
+      "vietnamese": "màu nâu",
+      "example": "茶色のかばんを買いました。"
+    },
+    {
+      "id": "09czu0p",
+      "hanViet": "TRÀ ĐẠO",
+      "japanese": "茶道",
+      "reading": "ちゃどう",
+      "vietnamese": "trà đạo",
+      "example": "大学で茶道を習っています。"
+    },
+    {
+      "id": "0cg1a2n",
+      "hanViet": "TRÀ",
+      "japanese": "お茶をたてます",
+      "reading": "おちゃをたてます",
+      "vietnamese": "pha trà/ khuấy trà",
+      "example": "先生に教えていただいたとおりにお茶をたてます。"
+    },
+    {
+      "id": "0y5dijv",
+      "hanViet": "TIÊN",
+      "japanese": "先に",
+      "reading": "さきに",
+      "vietnamese": "trước",
+      "example": "私が先に行きます。"
+    },
+    {
+      "id": "0uh3a4t",
+      "hanViet": "TẢI",
+      "japanese": "載せます",
+      "reading": "のせます",
+      "vietnamese": "để lên/ đặt lên",
+      "example": "皿にご飯を載せます。"
+    },
+    {
+      "id": "1sku5pe",
+      "hanViet": "KHỔ",
+      "japanese": "苦い",
+      "reading": "にがい",
+      "vietnamese": "đắng",
+      "example": "この薬は苦いです。"
+    },
+    {
+      "id": "0obq2x7",
+      "hanViet": "THÂN TỬ",
+      "japanese": "親子どんぶり",
+      "reading": "おやこどんぶり",
+      "vietnamese": "món oyakodon (cơm gà trứng)",
+      "example": "昼ご飯に親子どんぶりを食べました。"
+    },
+    {
+      "id": "1apc85x",
+      "hanViet": "TÀI LIỆU",
+      "japanese": "材料",
+      "reading": "ざいりょう",
+      "vietnamese": "nguyên liệu",
+      "example": "料理の材料を買いに行きます。"
+    },
+    {
+      "id": "0omvl4f",
+      "hanViet": "ĐIỂU",
+      "japanese": "鳥肉",
+      "reading": "とりにく",
+      "vietnamese": "thịt gà",
+      "example": "鳥肉を小さく切ります。"
+    },
+    {
+      "id": "0csv40k",
+      "hanViet": "ĐIỀU VỊ LIỆU",
+      "japanese": "調味料",
+      "reading": "ちょうみりょう",
+      "vietnamese": "gia vị",
+      "example": "調味料を入れてよく混ぜます。"
+    },
+    {
+      "id": "1ygsvz7",
+      "hanViet": "HỎA",
+      "japanese": "火",
+      "reading": "ひ",
+      "vietnamese": "lửa",
+      "example": "火に気をつけてください。"
+    },
+    {
+      "id": "1y5ff7q",
+      "hanViet": "HỎA PHÓ",
+      "japanese": "火にかけます",
+      "reading": "ひにかけます",
+      "vietnamese": "cho qua lửa/ đun",
+      "example": "なべを火にかけます。"
+    },
+    {
+      "id": "1sf9ea5",
+      "hanViet": "CHỬ",
+      "japanese": "煮ます",
+      "reading": "にます",
+      "vietnamese": "nấu/ hầm",
+      "example": "野菜を弱火で煮ます。"
+    },
+    {
+      "id": "1r207gs",
+      "hanViet": "CHỬ THỤC",
+      "japanese": "煮えます",
+      "reading": "にえます",
+      "vietnamese": "chín/ được nấu chín",
+      "example": "野菜が煮えたら、火を止めてください。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

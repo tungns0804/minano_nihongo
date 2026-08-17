@@ -1,0 +1,276 @@
+{
+  "id": "minano-nihongo-39",
+  "name": "皆の日本語 — Bài 39 · Từ vựng",
+  "description": "Từ vựng bài 39",
+  "kind": "vocabulary",
+  "itemCount": 33,
+  "words": [
+    {
+      "id": "0ipvs38",
+      "hanViet": "CHẤT VẤN ĐÁP",
+      "japanese": "質問に答えます",
+      "reading": "しつもんにこたえます",
+      "vietnamese": "trả lời câu hỏi",
+      "example": "学生の質問に答えました。"
+    },
+    {
+      "id": "0aa6qj5",
+      "hanViet": "ĐẢO",
+      "japanese": "ビルが倒れます",
+      "reading": "ビルがたおれます",
+      "vietnamese": "nhà cao tầng bị đổ",
+      "example": "地震でビルが倒れました。"
+    },
+    {
+      "id": "0vtisp5",
+      "hanViet": "THIÊU",
+      "japanese": "焼けます",
+      "reading": "やけます",
+      "vietnamese": "cháy/ chín (nướng)",
+      "example": "火事で家が焼けてしまいました。"
+    },
+    {
+      "id": "0snxasj",
+      "hanViet": "NHỤC THIÊU",
+      "japanese": "肉が焼けます",
+      "reading": "にくがやけます",
+      "vietnamese": "thịt được nướng chín",
+      "example": "肉が焼けたら、食べましょう。"
+    },
+    {
+      "id": "09j41t7",
+      "hanViet": "ĐẠO THÔNG",
+      "japanese": "道を通ります",
+      "reading": "みちをとおります",
+      "vietnamese": "đi qua đường",
+      "example": "この道を通って駅へ行きます。"
+    },
+    {
+      "id": "18ngq4a",
+      "hanViet": "TỬ",
+      "japanese": "死にます",
+      "reading": "しにます",
+      "vietnamese": "chết",
+      "example": "事故で人が死にました。"
+    },
+    {
+      "id": "0a5h04f",
+      "hanViet": "AN TÂM",
+      "japanese": "安心します",
+      "reading": "あんしんします",
+      "vietnamese": "yên tâm",
+      "example": "家族が元気だと聞いて安心しました。"
+    },
+    {
+      "id": "1qca757",
+      "hanViet": "TRÌ KHẮC",
+      "japanese": "遅刻します",
+      "reading": "ちこくします",
+      "vietnamese": "đến chậm/ đến muộn",
+      "example": "電車が遅れて、遅刻しました。"
+    },
+    {
+      "id": "0lqqwr4",
+      "hanViet": "TẢO THOÁI",
+      "japanese": "早退します",
+      "reading": "そうたいします",
+      "vietnamese": "về sớm/ ra sớm",
+      "example": "気分が悪くて早退しました。"
+    },
+    {
+      "id": "0sxbccg",
+      "hanViet": "LY HÔN",
+      "japanese": "離婚します",
+      "reading": "りこんします",
+      "vietnamese": "ly dị/ ly hôn",
+      "example": "二人は去年離婚しました。"
+    },
+    {
+      "id": "1yyd5x6",
+      "hanViet": "PHỨC TẠP",
+      "japanese": "複雑",
+      "reading": "ふくざつ",
+      "vietnamese": "phức tạp",
+      "example": "話が複雑で分かりません。"
+    },
+    {
+      "id": "16l6nl5",
+      "hanViet": "TÀ MA",
+      "japanese": "邪魔",
+      "reading": "じゃま",
+      "vietnamese": "cản trở/ choán chỗ",
+      "example": "この箱が邪魔で通れません。"
+    },
+    {
+      "id": "0nbmx9v",
+      "hanViet": "Ô",
+      "japanese": "汚い",
+      "reading": "きたない",
+      "vietnamese": "bẩn",
+      "example": "手が汚いので、洗ってください。"
+    },
+    {
+      "id": "1ntb3o7",
+      "hanViet": "BI",
+      "japanese": "悲しい",
+      "reading": "かなしい",
+      "vietnamese": "buồn/ đau thương",
+      "example": "悲しいニュースを聞きました。"
+    },
+    {
+      "id": "0tg53p7",
+      "hanViet": "SỈ",
+      "japanese": "恥ずかしい",
+      "reading": "はずかしい",
+      "vietnamese": "xấu hổ/ thẹn",
+      "example": "間違えて恥ずかしかったです。"
+    },
+    {
+      "id": "1seplzy",
+      "hanViet": "ĐỊA CHẤN",
+      "japanese": "地震",
+      "reading": "じしん",
+      "vietnamese": "động đất",
+      "example": "地震で電車が止まりました。"
+    },
+    {
+      "id": "070p1pw",
+      "hanViet": "ĐÀI PHONG",
+      "japanese": "台風",
+      "reading": "たいふう",
+      "vietnamese": "bão",
+      "example": "台風が来て、旅行に行けませんでした。"
+    },
+    {
+      "id": "01qi7rd",
+      "hanViet": "HỎA SỰ",
+      "japanese": "火事",
+      "reading": "かじ",
+      "vietnamese": "hỏa hoạn/ cháy",
+      "example": "火事でビルが焼けました。"
+    },
+    {
+      "id": "070w6or",
+      "hanViet": "SỰ CỐ",
+      "japanese": "事故",
+      "reading": "じこ",
+      "vietnamese": "tai nạn/ sự cố",
+      "example": "事故があって、道が込んでいます。"
+    },
+    {
+      "id": "1lm4u0c",
+      "hanViet": "KIẾN HỢP",
+      "japanese": "お見合い",
+      "reading": "おみあい",
+      "vietnamese": "xem mặt/ làm mối",
+      "example": "お見合いで結婚しました。"
+    },
+    {
+      "id": "1bbgo1s",
+      "hanViet": "ĐIỆN THOẠI ĐẠI",
+      "japanese": "電話代",
+      "reading": "でんわだい",
+      "vietnamese": "tiền điện thoại",
+      "example": "今月は電話代が高かったです。"
+    },
+    {
+      "id": "1ytwk93",
+      "hanViet": "HÃN",
+      "japanese": "汗",
+      "reading": "あせ",
+      "vietnamese": "mồ hôi",
+      "example": "暑くて汗をかきました。"
+    },
+    {
+      "id": "07h0scx",
+      "hanViet": "ĐẠI THẾ",
+      "japanese": "大勢",
+      "reading": "おおぜい",
+      "vietnamese": "nhiều người",
+      "example": "会場に大勢の人が集まりました。"
+    },
+    {
+      "id": "0t0gj1t",
+      "hanViet": "BÌ DẠNG",
+      "japanese": "お疲れ様でした",
+      "reading": "おつかれさまでした",
+      "vietnamese": "Anh/chị đã vất vả rồi.",
+      "example": "今日もお疲れ様でした。"
+    },
+    {
+      "id": "1o3rx1i",
+      "hanViet": "TỨ",
+      "japanese": "伺います",
+      "reading": "うかがいます",
+      "vietnamese": "xin đến thăm/ đến thăm",
+      "example": "明日3時にお宅へ伺います。"
+    },
+    {
+      "id": "1tbx91h",
+      "hanViet": "ĐỒ TRUNG",
+      "japanese": "途中で",
+      "reading": "とちゅうで",
+      "vietnamese": "giữa đường/ dọc đường",
+      "example": "学校へ行く途中で友達に会いました。"
+    },
+    {
+      "id": "1lye11x",
+      "hanViet": "TỊNH",
+      "japanese": "並びます",
+      "reading": "ならびます",
+      "vietnamese": "xếp hàng",
+      "example": "切符を買うために並びました。"
+    },
+    {
+      "id": "04fig43",
+      "hanViet": "ĐẠI NHÂN",
+      "japanese": "大人",
+      "reading": "おとな",
+      "vietnamese": "người lớn",
+      "example": "大人は千円、子どもは五百円です。"
+    },
+    {
+      "id": "0oi7dq2",
+      "hanViet": "DƯƠNG PHỤC",
+      "japanese": "洋服",
+      "reading": "ようふく",
+      "vietnamese": "quần áo kiểu Tây Âu",
+      "example": "洋服を着て出かけます。"
+    },
+    {
+      "id": "1rad244",
+      "hanViet": "TÂY DƯƠNG HÓA",
+      "japanese": "西洋化します",
+      "reading": "せいようかします",
+      "vietnamese": "Tây Âu hóa",
+      "example": "生活が西洋化しました。"
+    },
+    {
+      "id": "18x7aua",
+      "hanViet": "HỢP",
+      "japanese": "合います",
+      "reading": "あいます",
+      "vietnamese": "vừa/ hợp",
+      "example": "この靴は足に合いません。"
+    },
+    {
+      "id": "0csgv78",
+      "hanViet": "KIM",
+      "japanese": "今では",
+      "reading": "いまでは",
+      "vietnamese": "bây giờ thì",
+      "example": "今では日本の生活に慣れました。"
+    },
+    {
+      "id": "0x5jgt5",
+      "hanViet": "THÀNH NHÂN THỨC",
+      "japanese": "成人式",
+      "reading": "せいじんしき",
+      "vietnamese": "Lễ thành nhân",
+      "example": "成人式に着物を着ました。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

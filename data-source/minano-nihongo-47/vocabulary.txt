@@ -1,0 +1,40 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+NHÂN TẬP,人が集まります (ひとがあつまります),người tụ tập/ mọi người tập trung|会場に人が集まっているようです。
+NHÂN BIỆT,人が別れます (ひとがわかれます),người chia tay/ chia ra|二人は別れたそうです。
+TRƯỜNG SINH,長生きします (ながいきします),sống lâu|祖母は長生きしました。
+ÂM,音がします (おとがします),có tiếng/ nghe thấy tiếng động|台所で変な音がします。
+THANH,声がします (こえがします),có tiếng người/ nghe thấy giọng|隣の部屋で子どもの声がします。
+VỊ,味がします (あじがします),có vị|甘い味がします。
+TẢN,傘をさします (かさをさします),che ô|雨が降ってきたので、傘をさしました。
+BỐ,怖い (こわい),sợ/ đáng sợ|一人で夜道を歩くのは怖いです。
+THIÊN KHÍ DỰ BÁO,天気予報 (てんきよほう),dự báo thời tiết|天気予報によると、明日は雨だそうです。
+PHÁT BIỂU,発表 (はっぴょう),phát biểu/ báo cáo|研究の発表があります。
+THỰC NGHIỆM,実験 (じっけん),thí nghiệm/ thực nghiệm|実験は成功したそうです。
+NHÂN KHẨU,人口 (じんこう),dân số|この町の人口は増えているようです。
+KHOA HỌC,科学 (かがく),khoa học|科学の本を読みます。
+Y HỌC,医学 (いがく),y học|医学を勉強しています。
+VĂN HỌC,文学 (ぶんがく),văn học|大学で文学を専門にしました。
+CỨU CẤP XA,救急車 (きゅうきゅうしゃ),xe cấp cứu|すぐに救急車を呼んでください。
+TÁN THÀNH,賛成 (さんせい),tán thành/ đồng ý|その意見に賛成です。
+PHẢN ĐỐI,反対 (はんたい),phản đối|父は反対しているようです。
+NAM TÍNH,男性 (だんせい),nam giới|男性の声がしました。
+NỮ TÍNH,女性 (じょせい),nữ giới|女性の平均寿命は長いです。
+LUYẾN NHÂN,恋人 (こいびと),người yêu|恋人ができたそうです。
+HÔN ƯỚC,婚約します (こんやくします),đính hôn|二人は婚約したそうです。
+TƯỚNG THỦ,相手 (あいて),đối tác/ đối phương|結婚の相手を紹介されました。
+TRI HỢP,知り合います (しりあいます),làm quen/ gặp gỡ làm quen|二人は大学で知り合ったそうです。
+BÌNH QUÂN THỌ MỆNH,平均寿命 (へいきんじゅみょう),tuổi thọ trung bình|日本人の平均寿命は世界一だそうです。
+NAM TÍNH TỶ,男性と比べます (だんせいとくらべます),so sánh với nam giới|女性は男性と比べて長生きします。
+BÁC SĨ,博士 (はかせ),tiến sĩ|博士の研究が発表されました。
+NÃO,脳 (のう),não|脳の働きを調べています。
+HÓA TRANG PHẨM,化粧品 (けしょうひん),mỹ phẩm|デパートで化粧品を買いました。
+ĐIỀU,調べ (しらべ),điều tra/ khảo sát|調べによると、人口が減っているそうです。
+HÓA TRANG,化粧 (けしょう),sự trang điểm|姉は化粧をしているところです。

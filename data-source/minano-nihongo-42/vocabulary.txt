@@ -1,0 +1,31 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+#
+# LƯU Ý VỀ NGUỒN: trong "TỪ VỰNG N5.pdf", khối từ vựng gán nhãn bài 42 trùng
+# hoàn toàn với khối gán nhãn bài 43 (cùng 18 từ, cùng thứ tự). File này chép
+# đúng theo PDF; nếu có danh sách bài 42 khác thì thay nội dung bên dưới.
+THÂU XUẤT TĂNG,輸出が増えます (ゆしゅつがふえます),xuất khẩu tăng lên|車の輸出が増えています。
+THÂU XUẤT GIẢM,輸出が減ります (ゆしゅつがへります),xuất khẩu giảm xuống|今年は輸出が減りました。
+TRỊ ĐOẠN THƯỢNG,値段が上がります (ねだんがあがります),giá tăng lên|野菜の値段が上がりました。
+TRỊ ĐOẠN HẠ,値段が下がります (ねだんがさがります),giá giảm xuống|パソコンの値段が下がりました。
+THIẾT,ひもが切れます (ひもがきれます),sợi dây bị đứt|荷物のひもが切れました。
+THỦ,ボタンがとれます,cái cúc bị tuột|シャツのボタンがとれました。
+HÀ VẬT LẠC,荷物が落ちます (にもつがおちます),hành lý bị rơi|棚から荷物が落ちました。
+TRƯỢNG PHU,丈夫 (じょうぶ),chắc/ bền|丈夫なかばんを買いました。
+BIẾN,変 (へん),lạ/ kỳ quặc|変な人に会いました。
+HẠNH,幸せ (しあわせ),hạnh phúc|家族と一緒にいると幸せです。
+HỎA,火 (ひ),lửa|火を消してください。
+NOÃN PHÒNG,暖房 (だんぼう),lò sưởi/ thiết bị làm ấm|暖房のために電気をたくさん使います。
+LÃNH PHÒNG,冷房 (れいぼう),máy lạnh/ thiết bị làm mát|夏は冷房が必要です。
+KIM,今にも (いまにも),sắp/ chỉ chực|今にも雨が降りそうな空です。
+HỘI VIÊN,会員 (かいいん),hội viên/ thành viên|会員になるために申し込みます。
+THÍCH ĐƯƠNG,適当 (てきとう),thích hợp/ vừa phải|適当な大きさに切ってください。
+NIÊN LINH,年齢 (ねんれい),tuổi|申し込みに年齢を書きます。
+THÂU NHẬP,収入 (しゅうにゅう),thu nhập|生活のために収入が必要です。

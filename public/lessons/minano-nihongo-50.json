@@ -1,0 +1,276 @@
+{
+  "id": "minano-nihongo-50",
+  "name": "皆の日本語 — Bài 50 · Từ vựng",
+  "description": "Từ vựng bài 50",
+  "kind": "vocabulary",
+  "itemCount": 33,
+  "words": [
+    {
+      "id": "1q0y6ma",
+      "hanViet": "THAM",
+      "japanese": "参ります",
+      "reading": "まいります",
+      "vietnamese": "đi/ đến (khiêm nhường ngữ)",
+      "example": "明日、10時に参ります。"
+    },
+    {
+      "id": "028fggy",
+      "hanViet": "THÂN",
+      "japanese": "申します",
+      "reading": "もうします",
+      "vietnamese": "nói/ tên là (khiêm nhường ngữ)",
+      "example": "山田と申します。"
+    },
+    {
+      "id": "0fk6xj1",
+      "hanViet": "BÁI KIẾN",
+      "japanese": "拝見します",
+      "reading": "はいけんします",
+      "vietnamese": "xem/ nhìn (khiêm nhường ngữ)",
+      "example": "お手紙を拝見しました。"
+    },
+    {
+      "id": "0zvqf6g",
+      "hanViet": "TỒN",
+      "japanese": "存じます",
+      "reading": "ぞんじます",
+      "vietnamese": "biết (khiêm nhường ngữ)",
+      "example": "お名前は存じております。"
+    },
+    {
+      "id": "1o3rx1i",
+      "hanViet": "TỨ",
+      "japanese": "伺います",
+      "reading": "うかがいます",
+      "vietnamese": "hỏi/ nghe/ đến thăm (khiêm nhường ngữ)",
+      "example": "ちょっと伺いたいことがあります。"
+    },
+    {
+      "id": "0jnaon5",
+      "hanViet": "MỤC",
+      "japanese": "お目にかかります",
+      "reading": "おめにかかります",
+      "vietnamese": "gặp (khiêm nhường ngữ)",
+      "example": "社長にお目にかかりたいのですが。"
+    },
+    {
+      "id": "13e7jmh",
+      "hanViet": "TƯ",
+      "japanese": "私",
+      "reading": "わたくし",
+      "vietnamese": "tôi (cách nói lịch sự)",
+      "example": "私はミラーと申します。"
+    },
+    {
+      "id": "17yolmx",
+      "hanViet": "TRẠCH",
+      "japanese": "お宅",
+      "reading": "おたく",
+      "vietnamese": "nhà (của người khác)",
+      "example": "先生のお宅へ伺いました。"
+    },
+    {
+      "id": "1qfen3c",
+      "hanViet": "GIAO NGOẠI",
+      "japanese": "郊外",
+      "reading": "こうがい",
+      "vietnamese": "ngoại ô",
+      "example": "郊外に住んでいます。"
+    },
+    {
+      "id": "1mqtv88",
+      "hanViet": "TÁI LAI CHU",
+      "japanese": "再来週",
+      "reading": "さらいしゅう",
+      "vietnamese": "tuần sau nữa",
+      "example": "再来週、国へ帰ります。"
+    },
+    {
+      "id": "1vca2r8",
+      "hanViet": "TÁI LAI NGUYỆT",
+      "japanese": "再来月",
+      "reading": "さらいげつ",
+      "vietnamese": "tháng sau nữa",
+      "example": "再来月から新しい仕事を始めます。"
+    },
+    {
+      "id": "0b5ufvu",
+      "hanViet": "TÁI LAI NIÊN",
+      "japanese": "再来年",
+      "reading": "さらいねん",
+      "vietnamese": "năm sau nữa",
+      "example": "再来年、また日本へ参ります。"
+    },
+    {
+      "id": "1mvd68b",
+      "hanViet": "BÁN NIÊN",
+      "japanese": "半年",
+      "reading": "はんとし",
+      "vietnamese": "nửa năm",
+      "example": "日本に来て半年になります。"
+    },
+    {
+      "id": "0vou8u7",
+      "hanViet": "TỐI SƠ",
+      "japanese": "最初に",
+      "reading": "さいしょに",
+      "vietnamese": "đầu tiên/ trước hết",
+      "example": "最初に自己紹介をいたします。"
+    },
+    {
+      "id": "1n5anfy",
+      "hanViet": "TỐI HẬU",
+      "japanese": "最後に",
+      "reading": "さいごに",
+      "vietnamese": "cuối cùng",
+      "example": "最後にお礼を申し上げます。"
+    },
+    {
+      "id": "07pbj77",
+      "hanViet": "KIM",
+      "japanese": "ただ今",
+      "reading": "ただいま",
+      "vietnamese": "bây giờ/ vừa mới",
+      "example": "ただ今、社長は席を外しております。"
+    },
+    {
+      "id": "12in229",
+      "hanViet": "KHẨN TRƯƠNG",
+      "japanese": "緊張します",
+      "reading": "きんちょうします",
+      "vietnamese": "căng thẳng/ hồi hộp",
+      "example": "発表の前は緊張します。"
+    },
+    {
+      "id": "0qwsynd",
+      "hanViet": "PHÓNG TỐNG",
+      "japanese": "放送します",
+      "reading": "ほうそうします",
+      "vietnamese": "phát thanh/ phát sóng",
+      "example": "試合はテレビで放送されます。"
+    },
+    {
+      "id": "0vjigzn",
+      "hanViet": "TOÁT",
+      "japanese": "ビデオに撮ります",
+      "reading": "ビデオにとります",
+      "vietnamese": "thu video/ ghi hình",
+      "example": "式をビデオに撮りました。"
+    },
+    {
+      "id": "1taxhq1",
+      "hanViet": "THƯỞNG KIM",
+      "japanese": "賞金",
+      "reading": "しょうきん",
+      "vietnamese": "tiền thưởng",
+      "example": "賞金をいただきました。"
+    },
+    {
+      "id": "0953jr6",
+      "hanViet": "TỰ NHIÊN",
+      "japanese": "自然",
+      "reading": "しぜん",
+      "vietnamese": "tự nhiên/ thiên nhiên",
+      "example": "自然が豊かな所です。"
+    },
+    {
+      "id": "00swm2g",
+      "hanViet": "TƯỢNG",
+      "japanese": "像",
+      "reading": "ぞう",
+      "vietnamese": "tượng/ pho tượng",
+      "example": "公園に大きい像があります。"
+    },
+    {
+      "id": "18vvo13",
+      "hanViet": "MỘNG",
+      "japanese": "夢がかないます",
+      "reading": "ゆめがかないます",
+      "vietnamese": "ước mơ thành hiện thực",
+      "example": "やっと夢がかないました。"
+    },
+    {
+      "id": "13imvgk",
+      "hanViet": "HIỆP LỰC",
+      "japanese": "協力します",
+      "reading": "きょうりょくします",
+      "vietnamese": "hợp tác/ chung sức",
+      "example": "みんなで協力しました。"
+    },
+    {
+      "id": "0nywf6j",
+      "hanViet": "TÂM",
+      "japanese": "心から",
+      "reading": "こころから",
+      "vietnamese": "từ đáy lòng/ chân thành",
+      "example": "心からお礼を申し上げます。"
+    },
+    {
+      "id": "1blhzod",
+      "hanViet": "CẢM TẠ",
+      "japanese": "感謝します",
+      "reading": "かんしゃします",
+      "vietnamese": "cảm ơn/ biết ơn",
+      "example": "皆様に感謝しております。"
+    },
+    {
+      "id": "0olfykl",
+      "hanViet": "LỄ",
+      "japanese": "お礼",
+      "reading": "おれい",
+      "vietnamese": "lời cảm ơn/ sự cảm ơn",
+      "example": "お礼の手紙を書きました。"
+    },
+    {
+      "id": "0spc6th",
+      "hanViet": "BÁI KHẢI",
+      "japanese": "拝啓",
+      "reading": "はいけい",
+      "vietnamese": "Kính gửi (mở đầu thư)",
+      "example": "手紙は「拝啓」で始めます。"
+    },
+    {
+      "id": "04ogv2b",
+      "hanViet": "NGUYÊN KHÍ",
+      "japanese": "お元気でいらっしゃいますか",
+      "reading": "おげんきでいらっしゃいますか",
+      "vietnamese": "Anh/chị có khỏe không ạ?",
+      "example": "皆様、お元気でいらっしゃいますか。"
+    },
+    {
+      "id": "06bx90r",
+      "hanViet": "MÊ HOẶC",
+      "japanese": "迷惑をかけます",
+      "reading": "めいわくをかけます",
+      "vietnamese": "làm phiền",
+      "example": "ご迷惑をかけて申し訳ありません。"
+    },
+    {
+      "id": "0ctm20h",
+      "hanViet": "SINH",
+      "japanese": "生かします",
+      "reading": "いかします",
+      "vietnamese": "tận dụng/ phát huy",
+      "example": "日本で習ったことを国で生かしたいです。"
+    },
+    {
+      "id": "0gmj133",
+      "hanViet": "THÀNH",
+      "japanese": "お城",
+      "reading": "おしろ",
+      "vietnamese": "lâu đài/ thành",
+      "example": "お城を見に行きました。"
+    },
+    {
+      "id": "1i632rd",
+      "hanViet": "KÍNH CỤ",
+      "japanese": "敬具",
+      "reading": "けいぐ",
+      "vietnamese": "Kính thư (kết thúc thư)",
+      "example": "手紙の最後に「敬具」と書きます。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

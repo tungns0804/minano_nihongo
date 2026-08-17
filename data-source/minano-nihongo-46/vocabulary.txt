@@ -1,0 +1,31 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+THIÊU,焼きます (やきます),nướng/ rán|魚を焼いているところです。
+ĐỘ,渡します (わたします),đưa cho/ giao cho|書類を課長に渡しました。
+QUY LAI,帰って来ます (かえってきます),về/ trở về|父は今帰って来たばかりです。
+XUẤT,バスが出ます (バスがでます),xe buýt xuất phát/ xe chạy|バスはたった今出たところです。
+LƯU THỦ,留守 (るす),đi vắng/ không có nhà|隣は留守のはずです。
+TRẠCH PHỐI TIỆN,宅配便 (たくはいびん),dịch vụ chuyển đồ đến nhà|宅配便で荷物を送ります。
+NGUYÊN NHÂN,原因 (げんいん),nguyên nhân|事故の原因を調べています。
+CHÚ XẠ,注射 (ちゅうしゃ),tiêm|病院で注射をしてもらいました。
+THỰC DỤC,食欲 (しょくよく),sự thèm ăn/ cảm giác muốn ăn|暑くて食欲がありません。
+KIM,たった今 (たったいま),vừa mới rồi|たった今着いたところです。
+KIM HẢO,今いいでしょうか (いまいいでしょうか),Bây giờ có được không ạ?|課長、今いいでしょうか。
+CỤ HỢP,具合 (ぐあい),trạng thái/ tình hình|体の具合はどうですか。
+DẠNG,どちら様でしょうか (どちらさまでしょうか),Ai đấy ạ?|失礼ですが、どちら様でしょうか。
+HƯỚNG,向かいます (むかいます),đi hướng đến/ trên đường đến|今、会社に向かっているところです。
+ĐÃI,お待たせしました (おまたせしました),Xin lỗi vì để anh/chị phải đợi.|お待たせしました。どうぞ。
+TRI THỨC,知識 (ちしき),tri thức/ kiến thức|知識が豊富な人です。
+BẢO KHỐ,宝庫 (ほうこ),kho báu|この図書館は知識の宝庫です。
+TÌNH BÁO THỦ NHẬP,情報が手に入ります (じょうほうがてにはいります),lấy được thông tin|インターネットで情報が手に入ります。
+LỆ,例えば (たとえば),ví dụ/ chẳng hạn|例えばこの本はとても役に立ちます。
+NHẬP LỰC,入力します (にゅうりょくします),nhập (dữ liệu)|名前と住所を入力します。
+MIẾU,秒 (びょう),giây|あと30秒で始まります。
+BẢN XUẤT,本が出ます (ほんがでます),sách được xuất bản|来月新しい本が出るはずです。

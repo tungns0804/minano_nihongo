@@ -1,0 +1,244 @@
+{
+  "id": "minano-nihongo-38",
+  "name": "皆の日本語 — Bài 38 · Từ vựng",
+  "description": "Từ vựng bài 38",
+  "kind": "vocabulary",
+  "itemCount": 29,
+  "words": [
+    {
+      "id": "06jckah",
+      "hanViet": "DỤC",
+      "japanese": "育てます",
+      "reading": "そだてます",
+      "vietnamese": "nuôi/ trồng",
+      "example": "庭で野菜を育てています。"
+    },
+    {
+      "id": "1nvloia",
+      "hanViet": "VẬN",
+      "japanese": "運びます",
+      "reading": "はこびます",
+      "vietnamese": "chở/ vận chuyển",
+      "example": "みんなで荷物を運びました。"
+    },
+    {
+      "id": "1moji7g",
+      "hanViet": "VONG",
+      "japanese": "亡くなります",
+      "reading": "なくなります",
+      "vietnamese": "mất/ qua đời",
+      "example": "祖母は3年前に亡くなりました。"
+    },
+    {
+      "id": "1wl24gp",
+      "hanViet": "NHẬP VIỆN",
+      "japanese": "入院します",
+      "reading": "にゅういんします",
+      "vietnamese": "nhập viện",
+      "example": "父が病気で入院しました。"
+    },
+    {
+      "id": "1t9dg37",
+      "hanViet": "THOÁI VIỆN",
+      "japanese": "退院します",
+      "reading": "たいいんします",
+      "vietnamese": "xuất viện",
+      "example": "来週退院できます。"
+    },
+    {
+      "id": "128mwhi",
+      "hanViet": "ĐIỆN NGUYÊN NHẬP",
+      "japanese": "電源を入れます",
+      "reading": "でんげんをいれます",
+      "vietnamese": "bật công tắc điện",
+      "example": "電源を入れてから使ってください。"
+    },
+    {
+      "id": "04ot3lh",
+      "hanViet": "ĐIỆN NGUYÊN THIẾT",
+      "japanese": "電源を切ります",
+      "reading": "でんげんをきります",
+      "vietnamese": "tắt công tắc điện",
+      "example": "帰るとき、電源を切ってください。"
+    },
+    {
+      "id": "0bdk0ym",
+      "hanViet": "QUẢI",
+      "japanese": "かぎを掛けます",
+      "reading": "かぎをかけます",
+      "vietnamese": "khóa/ khóa bằng chìa",
+      "example": "出かけるとき、かぎを掛けるのを忘れないでください。"
+    },
+    {
+      "id": "08q1r0s",
+      "hanViet": "KHÍ TRÌ",
+      "japanese": "気持ちがいい",
+      "reading": "きもちがいい",
+      "vietnamese": "dễ chịu/ thoải mái",
+      "example": "朝の空気は気持ちがいいです。"
+    },
+    {
+      "id": "1xnud8i",
+      "hanViet": "KHÍ TRÌ ÁC",
+      "japanese": "気持ちが悪い",
+      "reading": "きもちがわるい",
+      "vietnamese": "khó chịu",
+      "example": "車に乗ると気持ちが悪くなります。"
+    },
+    {
+      "id": "1x5sva4",
+      "hanViet": "XÍCH",
+      "japanese": "赤ちゃん",
+      "reading": "あかちゃん",
+      "vietnamese": "em bé",
+      "example": "赤ちゃんが寝ています。"
+    },
+    {
+      "id": "1rgdots",
+      "hanViet": "TIỂU HỌC HIỆU",
+      "japanese": "小学校",
+      "reading": "しょうがっこう",
+      "vietnamese": "trường tiểu học",
+      "example": "娘は小学校に通っています。"
+    },
+    {
+      "id": "1hzuasw",
+      "hanViet": "TRUNG HỌC HIỆU",
+      "japanese": "中学校",
+      "reading": "ちゅうがっこう",
+      "vietnamese": "trường trung học cơ sở",
+      "example": "息子は中学校の先生です。"
+    },
+    {
+      "id": "0xnzg45",
+      "hanViet": "DỊCH TIỀN",
+      "japanese": "駅前",
+      "reading": "えきまえ",
+      "vietnamese": "khu vực trước nhà ga",
+      "example": "駅前で友達を待ちます。"
+    },
+    {
+      "id": "09jrigo",
+      "hanViet": "HẢI NGẠN",
+      "japanese": "海岸",
+      "reading": "かいがん",
+      "vietnamese": "bờ biển",
+      "example": "海岸を散歩するのが好きです。"
+    },
+    {
+      "id": "0a04jyg",
+      "hanViet": "THƯ LOẠI",
+      "japanese": "書類",
+      "reading": "しょるい",
+      "vietnamese": "giấy tờ/ tài liệu",
+      "example": "書類を整理するのは大変です。"
+    },
+    {
+      "id": "1io5ag2",
+      "hanViet": "ĐIỆN NGUYÊN",
+      "japanese": "電源",
+      "reading": "でんげん",
+      "vietnamese": "nguồn điện/ công tắc điện",
+      "example": "電源はここにあります。"
+    },
+    {
+      "id": "1kdohyu",
+      "hanViet": "TIÊN THẤT LỄ",
+      "japanese": "お先に失礼します",
+      "reading": "おさきにしつれいします",
+      "vietnamese": "Tôi xin phép về trước.",
+      "example": "用事があるので、お先に失礼します。"
+    },
+    {
+      "id": "0h0xp13",
+      "hanViet": "HỒI LÃM",
+      "japanese": "回覧",
+      "reading": "かいらん",
+      "vietnamese": "tập thông báo (luân chuyển)",
+      "example": "回覧を隣の家に回します。"
+    },
+    {
+      "id": "12nz8tf",
+      "hanViet": "NGHIÊN CỨU THẤT",
+      "japanese": "研究室",
+      "reading": "けんきゅうしつ",
+      "vietnamese": "phòng nghiên cứu",
+      "example": "先生は研究室にいらっしゃいます。"
+    },
+    {
+      "id": "0qdw9u7",
+      "hanViet": "ÁP",
+      "japanese": "はんこを押します",
+      "reading": "はんこをおします",
+      "vietnamese": "đóng dấu",
+      "example": "ここにはんこを押してください。"
+    },
+    {
+      "id": "111hyka",
+      "hanViet": "SONG TỬ",
+      "japanese": "双子",
+      "reading": "ふたご",
+      "vietnamese": "cặp sinh đôi",
+      "example": "あの二人は双子です。"
+    },
+    {
+      "id": "1vtltvc",
+      "hanViet": "TỶ MUỘI",
+      "japanese": "姉妹",
+      "reading": "しまい",
+      "vietnamese": "chị em (gái)",
+      "example": "姉妹はとてもよく似ています。"
+    },
+    {
+      "id": "0fcdfek",
+      "hanViet": "TỰ",
+      "japanese": "似ています",
+      "reading": "にています",
+      "vietnamese": "giống",
+      "example": "母に似ていると言われます。"
+    },
+    {
+      "id": "0ig03iy",
+      "hanViet": "TÍNH CÁCH",
+      "japanese": "性格",
+      "reading": "せいかく",
+      "vietnamese": "tính cách/ tính tình",
+      "example": "明るい性格の人が好きです。"
+    },
+    {
+      "id": "18nhmni",
+      "hanViet": "THẾ THOẠI",
+      "japanese": "世話をします",
+      "reading": "せわをします",
+      "vietnamese": "chăm sóc/ giúp đỡ",
+      "example": "子どもの世話をするのは大変です。"
+    },
+    {
+      "id": "0cn0ab1",
+      "hanViet": "THỜI GIAN",
+      "japanese": "時間がたちます",
+      "reading": "じかんがたちます",
+      "vietnamese": "thời gian trôi đi",
+      "example": "時間がたつのは速いですね。"
+    },
+    {
+      "id": "1w0eyd0",
+      "hanViet": "ĐẠI HẢO",
+      "japanese": "大好き",
+      "reading": "だいすき",
+      "vietnamese": "rất thích",
+      "example": "甘い物が大好きです。"
+    },
+    {
+      "id": "1a2r099",
+      "hanViet": "BẤT TƯ NGHỊ",
+      "japanese": "不思議",
+      "reading": "ふしぎ",
+      "vietnamese": "bí ẩn/ kỳ lạ/ khó hiểu",
+      "example": "不思議な話を聞きました。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,35 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+KHÁP,泣きます (なきます),khóc|赤ちゃんが泣いています。
+TIẾU,笑います (わらいます),cười|みんなで笑いました。
+CAN,乾きます (かわきます),khô|洗濯物がよく乾きました。
+NHU,濡れます (ぬれます),ướt|雨で服が濡れてしまいました。
+HOẠT,滑ります (すべります),trượt|雨の日は道が滑りやすいです。
+SỰ CỐ KHỞI,事故が起きます (じこがおきます),xảy ra tai nạn|交差点で事故が起きました。
+ĐIỀU TIẾT,調節します (ちょうせつします),điều tiết/ điều chỉnh|エアコンの温度を調節します。
+AN TOÀN,安全 (あんぜん),an toàn|子どもが安全に遊べる公園です。
+ĐINH NINH,丁寧 (ていねい),lịch sự/ cẩn thận|丁寧に説明してくださいました。
+TẾ,細かい (こまかい),nhỏ/ chi tiết/ tỉ mỉ|細かく切ってください。
+NỒNG,濃い (こい),đậm/ nồng|コーヒーが濃すぎます。
+BẠC,薄い (うすい),nhạt/ mỏng|味が薄いですね。
+KHÔNG KHÍ,空気 (くうき),không khí|山の空気はきれいです。
+LỆ,涙 (なみだ),nước mắt|涙が出ました。
+HÒA THỰC,和食 (わしょく),món ăn Nhật|和食が好きになりました。
+DƯƠNG THỰC,洋食 (ようしょく),món ăn Âu Mỹ|今日は洋食にしましょう。
+LƯỢNG,量 (りょう),lượng|ご飯の量が多すぎます。
+BÁN PHÂN,半分 (はんぶん),một nửa|ケーキを半分に切ります。
+TẨY TRẠC VẬT,洗濯物 (せんたくもの),quần áo giặt|洗濯物がまだ乾きません。
+LÝ DO,理由 (りゆう),lý do|遅れた理由を説明します。
+HIỀM,嫌がります (いやがります),không thích/ tỏ ra ghét|子どもが薬を嫌がります。
+THUẬN TỰ,順序 (じゅんじょ),thứ tự|順序を間違えました。
+BIỂU HIỆN,表現 (ひょうげん),cách nói/ cách diễn đạt|この表現は使いにくいです。
+LỆ NHƯ,例えば (たとえば),ví dụ/ chẳng hạn|例えばこんな言い方があります。
+BIỆT,別れます (わかれます),chia tay/ từ biệt|駅で友達と別れました。
+DUYÊN KHỞI ÁC,縁起が悪い (えんぎがわるい),không may/ không lành|4は縁起が悪い数字だと言われています。

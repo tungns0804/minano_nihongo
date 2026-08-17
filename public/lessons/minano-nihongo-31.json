@@ -1,0 +1,164 @@
+{
+  "id": "minano-nihongo-31",
+  "name": "皆の日本語 — Bài 31 · Từ vựng",
+  "description": "Từ vựng bài 31",
+  "kind": "vocabulary",
+  "itemCount": 19,
+  "words": [
+    {
+      "id": "1hwpkbc",
+      "hanViet": "THỨC THỦY",
+      "japanese": "式が始まります",
+      "reading": "しきがはじまります",
+      "vietnamese": "bắt đầu buổi lễ",
+      "example": "もうすぐ式が始まります。"
+    },
+    {
+      "id": "1nqfk3s",
+      "hanViet": "TỤC",
+      "japanese": "続けます",
+      "reading": "つづけます",
+      "vietnamese": "tiếp tục",
+      "example": "日本語の勉強を続けます。"
+    },
+    {
+      "id": "0bln5es",
+      "hanViet": "KIẾN",
+      "japanese": "見つけます",
+      "reading": "みつけます",
+      "vietnamese": "tìm/ tìm thấy",
+      "example": "いい仕事を見つけました。"
+    },
+    {
+      "id": "0rlshev",
+      "hanViet": "THỨC NGHIỆM THỤ",
+      "japanese": "試験を受けます",
+      "reading": "しけんをうけます",
+      "vietnamese": "thi/ dự kỳ thi",
+      "example": "来月、日本語の試験を受けます。"
+    },
+    {
+      "id": "0c8gyfj",
+      "hanViet": "ĐẠI HỌC NHẬP HỌC",
+      "japanese": "大学に入学します",
+      "reading": "だいがくににゅうがくします",
+      "vietnamese": "nhập học/ vào đại học",
+      "example": "来年、大学に入学するつもりです。"
+    },
+    {
+      "id": "0r860lf",
+      "hanViet": "ĐẠI HỌC TỐT NGHIỆP",
+      "japanese": "大学を卒業します",
+      "reading": "だいがくをそつぎょうします",
+      "vietnamese": "tốt nghiệp đại học",
+      "example": "去年、大学を卒業しました。"
+    },
+    {
+      "id": "0b3i4v9",
+      "hanViet": "HỘI NGHỊ XUẤT TỊCH",
+      "japanese": "会議に出席します",
+      "reading": "かいぎにしゅっせきします",
+      "vietnamese": "tham dự cuộc họp/ tham gia cuộc họp",
+      "example": "部長の代わりに会議に出席します。"
+    },
+    {
+      "id": "16afmue",
+      "hanViet": "HƯU KHÊ",
+      "japanese": "休憩します",
+      "reading": "きゅうけいします",
+      "vietnamese": "nghỉ/ giải lao",
+      "example": "ここで少し休憩しましょう。"
+    },
+    {
+      "id": "0f1iqeo",
+      "hanViet": "LIÊN HƯU",
+      "japanese": "連休",
+      "reading": "れんきゅう",
+      "vietnamese": "ngày nghỉ liền nhau/ kỳ nghỉ dài",
+      "example": "連休に旅行しようと思っています。"
+    },
+    {
+      "id": "0rm2atq",
+      "hanViet": "TÁC VĂN",
+      "japanese": "作文",
+      "reading": "さくぶん",
+      "vietnamese": "bài văn/ bài tập làm văn",
+      "example": "作文を書く宿題があります。"
+    },
+    {
+      "id": "0vfap6f",
+      "hanViet": "TRIỂN LÃM HỘI",
+      "japanese": "展覧会",
+      "reading": "てんらんかい",
+      "vietnamese": "triển lãm",
+      "example": "美術館で展覧会を見ました。"
+    },
+    {
+      "id": "0bedu3y",
+      "hanViet": "KẾT HÔN THỨC",
+      "japanese": "結婚式",
+      "reading": "けっこんしき",
+      "vietnamese": "lễ cưới/ đám cưới",
+      "example": "友達の結婚式に出席します。"
+    },
+    {
+      "id": "05jes7d",
+      "hanViet": "TÁNG THỨC",
+      "japanese": "お葬式",
+      "reading": "おそうしき",
+      "vietnamese": "lễ tang/ đám tang",
+      "example": "明日、お葬式に行かなければなりません。"
+    },
+    {
+      "id": "12qaw33",
+      "hanViet": "THỨC",
+      "japanese": "式",
+      "reading": "しき",
+      "vietnamese": "lễ/ buổi lễ",
+      "example": "式は10時に始まります。"
+    },
+    {
+      "id": "151820i",
+      "hanViet": "BẢN XÃ",
+      "japanese": "本社",
+      "reading": "ほんしゃ",
+      "vietnamese": "trụ sở chính",
+      "example": "本社は大阪にあります。"
+    },
+    {
+      "id": "1lyqojl",
+      "hanViet": "CHI ĐIẾM",
+      "japanese": "支店",
+      "reading": "してん",
+      "vietnamese": "chi nhánh",
+      "example": "東京に新しい支店ができました。"
+    },
+    {
+      "id": "1c2g5yl",
+      "hanViet": "GIÁO HỘI",
+      "japanese": "教会",
+      "reading": "きょうかい",
+      "vietnamese": "nhà thờ",
+      "example": "日曜日に教会へ行きます。"
+    },
+    {
+      "id": "0ac76wp",
+      "hanViet": "ĐẠI HỌC VIỆN",
+      "japanese": "大学院",
+      "reading": "だいがくいん",
+      "vietnamese": "cao học/ sau đại học",
+      "example": "大学院で経済を研究するつもりです。"
+    },
+    {
+      "id": "07bxlct",
+      "hanViet": "ĐỘNG VẬT VIÊN",
+      "japanese": "動物園",
+      "reading": "どうぶつえん",
+      "vietnamese": "vườn thú/ vườn bách thú",
+      "example": "子どもと動物園へ行きました。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

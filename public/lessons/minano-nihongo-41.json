@@ -1,0 +1,284 @@
+{
+  "id": "minano-nihongo-41",
+  "name": "皆の日本語 — Bài 41 · Từ vựng",
+  "description": "Từ vựng bài 41",
+  "kind": "vocabulary",
+  "itemCount": 34,
+  "words": [
+    {
+      "id": "1aqt55n",
+      "hanViet": "HÔ",
+      "japanese": "呼びます",
+      "reading": "よびます",
+      "vietnamese": "gọi/ mời",
+      "example": "タクシーを呼んでくださいませんか。"
+    },
+    {
+      "id": "0x43p8f",
+      "hanViet": "THỦ THẾ",
+      "japanese": "取り替えます",
+      "reading": "とりかえます",
+      "vietnamese": "đổi/ thay",
+      "example": "電池を取り替えていただけませんか。"
+    },
+    {
+      "id": "0q4qele",
+      "hanViet": "THÂN THIẾT",
+      "japanese": "親切にします",
+      "reading": "しんせつにします",
+      "vietnamese": "đối xử thân thiện/ tốt với",
+      "example": "先生はいつも親切にしてくださいます。"
+    },
+    {
+      "id": "1bgzswo",
+      "hanViet": "CHÚC",
+      "japanese": "お祝い",
+      "reading": "おいわい",
+      "vietnamese": "quà mừng/ lời chúc mừng",
+      "example": "入学のお祝いをいただきました。"
+    },
+    {
+      "id": "0446mtn",
+      "hanViet": "NIÊN NGỌC",
+      "japanese": "お年玉",
+      "reading": "おとしだま",
+      "vietnamese": "tiền mừng tuổi",
+      "example": "子どもにお年玉をあげます。"
+    },
+    {
+      "id": "1i2okt2",
+      "hanViet": "KIẾN VŨ",
+      "japanese": "お見舞い",
+      "reading": "おみまい",
+      "vietnamese": "việc thăm người ốm",
+      "example": "入院した友達のお見舞いに行きます。"
+    },
+    {
+      "id": "1rhfbke",
+      "hanViet": "HƯNG VỊ",
+      "japanese": "興味",
+      "reading": "きょうみ",
+      "vietnamese": "sự quan tâm/ hứng thú",
+      "example": "日本の文化に興味があります。"
+    },
+    {
+      "id": "12smilx",
+      "hanViet": "TÌNH BÁO",
+      "japanese": "情報",
+      "reading": "じょうほう",
+      "vietnamese": "thông tin",
+      "example": "新しい情報を教えてくださいませんか。"
+    },
+    {
+      "id": "0vlhngc",
+      "hanViet": "VĂN PHÁP",
+      "japanese": "文法",
+      "reading": "ぶんぽう",
+      "vietnamese": "ngữ pháp",
+      "example": "文法が難しいです。"
+    },
+    {
+      "id": "0ropnkg",
+      "hanViet": "PHÁT ÂM",
+      "japanese": "発音",
+      "reading": "はつおん",
+      "vietnamese": "phát âm",
+      "example": "発音を直していただきました。"
+    },
+    {
+      "id": "1s7efc7",
+      "hanViet": "VIÊN",
+      "japanese": "猿",
+      "reading": "さる",
+      "vietnamese": "con khỉ",
+      "example": "山で猿を見ました。"
+    },
+    {
+      "id": "0vxf1zl",
+      "hanViet": "HỘI",
+      "japanese": "絵はがき",
+      "reading": "えはがき",
+      "vietnamese": "bưu ảnh",
+      "example": "京都から絵はがきをくださいました。"
+    },
+    {
+      "id": "1oe2zlp",
+      "hanViet": "NGOA HẠ",
+      "japanese": "靴下",
+      "reading": "くつした",
+      "vietnamese": "cái tất",
+      "example": "靴下を買いました。"
+    },
+    {
+      "id": "18osn0i",
+      "hanViet": "THỦ ĐẠI",
+      "japanese": "手袋",
+      "reading": "てぶくろ",
+      "vietnamese": "cái găng tay",
+      "example": "母に手袋をいただきました。"
+    },
+    {
+      "id": "07zffig",
+      "hanViet": "CHỈ LUÂN",
+      "japanese": "指輪",
+      "reading": "ゆびわ",
+      "vietnamese": "cái nhẫn",
+      "example": "妻に指輪をあげました。"
+    },
+    {
+      "id": "1etlb93",
+      "hanViet": "TỔ PHỤ",
+      "japanese": "祖父",
+      "reading": "そふ",
+      "vietnamese": "ông (của mình)",
+      "example": "祖父に習字を教えてもらいました。"
+    },
+    {
+      "id": "0gjhun2",
+      "hanViet": "TỔ MẪU",
+      "japanese": "祖母",
+      "reading": "そぼ",
+      "vietnamese": "bà (của mình)",
+      "example": "祖母が作ってくださったお菓子です。"
+    },
+    {
+      "id": "16gqnic",
+      "hanViet": "TÔN",
+      "japanese": "孫",
+      "reading": "まご",
+      "vietnamese": "cháu",
+      "example": "孫が生まれました。"
+    },
+    {
+      "id": "1nhhr1l",
+      "hanViet": "THÂN DỊCH",
+      "japanese": "申し訳ありません",
+      "reading": "もうしわけありません",
+      "vietnamese": "Xin lỗi/ Thành thật xin lỗi.",
+      "example": "お待たせして申し訳ありません。"
+    },
+    {
+      "id": "0fo1p7h",
+      "hanViet": "DỰ",
+      "japanese": "預かります",
+      "reading": "あずかります",
+      "vietnamese": "giữ hộ/ nhận giữ",
+      "example": "荷物を預かっていただけませんか。"
+    },
+    {
+      "id": "1jqyt1p",
+      "hanViet": "TIÊN NHẬT",
+      "japanese": "先日",
+      "reading": "せんじつ",
+      "vietnamese": "hôm trước/ mấy hôm trước",
+      "example": "先日はごちそうさまでした。"
+    },
+    {
+      "id": "0gn2s5g",
+      "hanViet": "TRỢ",
+      "japanese": "助かります",
+      "reading": "たすかります",
+      "vietnamese": "được giúp/ đỡ được",
+      "example": "手伝ってくださって助かりました。"
+    },
+    {
+      "id": "1v2ou70",
+      "hanViet": "TÍCH THOẠI",
+      "japanese": "昔話",
+      "reading": "むかしばなし",
+      "vietnamese": "chuyện cổ tích",
+      "example": "子どもに昔話を読んであげます。"
+    },
+    {
+      "id": "0sdlmyy",
+      "hanViet": "NAM",
+      "japanese": "男",
+      "reading": "おとこ",
+      "vietnamese": "người đàn ông/ nam giới",
+      "example": "男の人が二人立っています。"
+    },
+    {
+      "id": "1kay4rb",
+      "hanViet": "TỬ CUNG",
+      "japanese": "子供たち",
+      "reading": "こどもたち",
+      "vietnamese": "trẻ em/ bọn trẻ",
+      "example": "子供たちにお菓子をあげました。"
+    },
+    {
+      "id": "04rbure",
+      "hanViet": "TRỢ",
+      "japanese": "助けます",
+      "reading": "たすけます",
+      "vietnamese": "giúp/ giúp đỡ",
+      "example": "困っている人を助けます。"
+    },
+    {
+      "id": "0gmj133",
+      "hanViet": "THÀNH",
+      "japanese": "お城",
+      "reading": "おしろ",
+      "vietnamese": "lâu đài/ thành",
+      "example": "日曜日にお城を見に行きました。"
+    },
+    {
+      "id": "0p9pvp4",
+      "hanViet": "CƠ DẠNG",
+      "japanese": "お姫様",
+      "reading": "おひめさま",
+      "vietnamese": "công chúa",
+      "example": "昔話にお姫様が出てきます。"
+    },
+    {
+      "id": "1mhgrc3",
+      "hanViet": "LẠC",
+      "japanese": "楽しく",
+      "reading": "たのしく",
+      "vietnamese": "vui/ vui vẻ",
+      "example": "みんなで楽しく歌いました。"
+    },
+    {
+      "id": "0sk7thl",
+      "hanViet": "MỘ",
+      "japanese": "暮らします",
+      "reading": "くらします",
+      "vietnamese": "sống/ sinh hoạt",
+      "example": "家族と楽しく暮らしています。"
+    },
+    {
+      "id": "12riu0u",
+      "hanViet": "LỤC",
+      "japanese": "陸",
+      "reading": "りく",
+      "vietnamese": "đất liền/ lục địa",
+      "example": "船が陸に着きました。"
+    },
+    {
+      "id": "1pypobz",
+      "hanViet": "YÊN",
+      "japanese": "煙",
+      "reading": "けむり",
+      "vietnamese": "khói",
+      "example": "工場から煙が出ています。"
+    },
+    {
+      "id": "0hwbn82",
+      "hanViet": "CHÂN BẠCH",
+      "japanese": "真っ白",
+      "reading": "まっしろ",
+      "vietnamese": "trắng toát/ trắng ngần",
+      "example": "山が雪で真っ白になりました。"
+    },
+    {
+      "id": "0r90g75",
+      "hanViet": "TRUNG THÂN",
+      "japanese": "中身",
+      "reading": "なかみ",
+      "vietnamese": "nội dung/ phần bên trong",
+      "example": "箱の中身は何ですか。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

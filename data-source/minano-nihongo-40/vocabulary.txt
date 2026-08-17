@@ -1,0 +1,49 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+SỐ,数えます (かぞえます),đếm|人数を数えてください。
+TRẮC,測ります (はかります),đo|部屋の広さを測ります。
+LƯỢNG,量ります (はかります),cân|荷物の重さを量ります。
+XÁC,確かめます (たしかめます),xác nhận/ kiểm tra lại|予約したかどうか確かめます。
+HỢP,サイズが合います (サイズがあいます),vừa kích thước/ hợp cỡ|サイズが合うかどうか着てみます。
+XUẤT PHÁT,出発します (しゅっぱつします),xuất phát/ khởi hành|何時に出発するか聞いてみます。
+ĐÁO TRƯỚC,到着します (とうちゃくします),đến/ đến nơi|飛行機は3時に到着します。
+TÚY,酔います (よいます),say|少し酔いました。
+NGUY HIỂM,危険 (きけん),nguy hiểm|ここは危険ですから、入らないでください。
+TẤT YẾU,必要 (ひつよう),cần thiết|何が必要か教えてください。
+VŨ TRỤ,宇宙 (うちゅう),vũ trụ|宇宙から地球を見てみたいです。
+ĐỊA CẦU,地球 (ちきゅう),trái đất|地球は丸いです。
+VONG NIÊN HỘI,忘年会 (ぼうねんかい),tiệc tất niên|12月に忘年会があります。
+TÂN NIÊN HỘI,新年会 (しんねんかい),tiệc tân niên|新年会に出席します。
+NHỊ THỨ HỘI,二次会 (にじかい),tiệc tăng hai/ bữa tiệc thứ hai|二次会に行きませんか。
+ĐẠI HỘI,大会 (たいかい),đại hội/ cuộc thi|マラソン大会に出ました。
+BIỂU,表 (おもて),mặt trước/ phía trước|紙の表に名前を書きます。
+LÝ,裏 (うら),mặt sau/ phía sau|裏に住所を書いてください。
+PHẢN SỰ,返事 (へんじ),hồi âm/ trả lời|まだ返事が来ません。
+THÂN VÀO,申し込み (もうしこみ),đăng ký|申し込みは今日までです。
+THƯƠNG,傷 (きず),vết thương|手に傷ができました。
+TRƯỜNG,長さ (ながさ),chiều dài|川の長さを調べます。
+TRỌNG,重さ (おもさ),cân nặng/ trọng lượng|荷物の重さは10キロです。
+CAO,高さ (たかさ),chiều cao|山の高さはどのくらいですか。
+ĐẠI,大きさ (おおきさ),cỡ/ kích thước|部屋の大きさを測ります。
+TIỆN,便 (びん),chuyến bay|何便で行きますか。
+TUYẾT TẾ,雪祭り (ゆきまつり),Lễ hội tuyết|札幌の雪祭りを見に行きました。
+THÀNH TÍCH,成績 (せいせき),kết quả/ thành tích|試験の成績がよかったです。
+DẠNG TỬ,様子 (ようす),vẻ/ tình hình|外の様子を見てきます。
+SỰ KIỆN,事件 (じけん),vụ án/ vụ việc|大きい事件が起きました。
+BỘC ĐẠN,爆弾 (ばくだん),bom|爆弾が見つかりました。
+TÍCH,積みます (つみます),xếp lên/ chất hàng lên|トラックに荷物を積みます。
+VẬN CHUYỂN THỦ,運転手 (うんてんしゅ),tài xế|タクシーの運転手に聞いてみます。
+LY,離れた (はなれた),xa/ cách xa|駅から離れた所に住んでいます。
+CẤP,急に (きゅうに),đột nhiên/ gấp|急に雨が降ってきました。
+ĐỘNG,動かします (うごかします),làm dịch chuyển/ khởi động|机を動かしてもいいですか。
+NHẤT SINH HUYỀN MỆNH,一生懸命 (いっしょうけんめい),hết sức/ chăm chỉ|一生懸命勉強しました。
+PHẠM NHÂN,犯人 (はんにん),thủ phạm|犯人はまだ見つかりません。
+THỦ NHẬP,手に入れます (てにいれます),có được/ lấy được|珍しい切手を手に入れました。
+KIM,今でも (いまでも),ngay cả bây giờ|今でもよく覚えています。

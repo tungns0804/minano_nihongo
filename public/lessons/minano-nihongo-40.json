@@ -1,0 +1,332 @@
+{
+  "id": "minano-nihongo-40",
+  "name": "皆の日本語 — Bài 40 · Từ vựng",
+  "description": "Từ vựng bài 40",
+  "kind": "vocabulary",
+  "itemCount": 40,
+  "words": [
+    {
+      "id": "0wghmgn",
+      "hanViet": "SỐ",
+      "japanese": "数えます",
+      "reading": "かぞえます",
+      "vietnamese": "đếm",
+      "example": "人数を数えてください。"
+    },
+    {
+      "id": "1yzzbrv",
+      "hanViet": "TRẮC",
+      "japanese": "測ります",
+      "reading": "はかります",
+      "vietnamese": "đo",
+      "example": "部屋の広さを測ります。"
+    },
+    {
+      "id": "0ix5w1v",
+      "hanViet": "LƯỢNG",
+      "japanese": "量ります",
+      "reading": "はかります",
+      "vietnamese": "cân",
+      "example": "荷物の重さを量ります。"
+    },
+    {
+      "id": "0qz1cw0",
+      "hanViet": "XÁC",
+      "japanese": "確かめます",
+      "reading": "たしかめます",
+      "vietnamese": "xác nhận/ kiểm tra lại",
+      "example": "予約したかどうか確かめます。"
+    },
+    {
+      "id": "1kiccbp",
+      "hanViet": "HỢP",
+      "japanese": "サイズが合います",
+      "reading": "サイズがあいます",
+      "vietnamese": "vừa kích thước/ hợp cỡ",
+      "example": "サイズが合うかどうか着てみます。"
+    },
+    {
+      "id": "0xc5847",
+      "hanViet": "XUẤT PHÁT",
+      "japanese": "出発します",
+      "reading": "しゅっぱつします",
+      "vietnamese": "xuất phát/ khởi hành",
+      "example": "何時に出発するか聞いてみます。"
+    },
+    {
+      "id": "0c3s2kz",
+      "hanViet": "ĐÁO TRƯỚC",
+      "japanese": "到着します",
+      "reading": "とうちゃくします",
+      "vietnamese": "đến/ đến nơi",
+      "example": "飛行機は3時に到着します。"
+    },
+    {
+      "id": "1dcur65",
+      "hanViet": "TÚY",
+      "japanese": "酔います",
+      "reading": "よいます",
+      "vietnamese": "say",
+      "example": "少し酔いました。"
+    },
+    {
+      "id": "1xglc6f",
+      "hanViet": "NGUY HIỂM",
+      "japanese": "危険",
+      "reading": "きけん",
+      "vietnamese": "nguy hiểm",
+      "example": "ここは危険ですから、入らないでください。"
+    },
+    {
+      "id": "1dv69b9",
+      "hanViet": "TẤT YẾU",
+      "japanese": "必要",
+      "reading": "ひつよう",
+      "vietnamese": "cần thiết",
+      "example": "何が必要か教えてください。"
+    },
+    {
+      "id": "17ym9yf",
+      "hanViet": "VŨ TRỤ",
+      "japanese": "宇宙",
+      "reading": "うちゅう",
+      "vietnamese": "vũ trụ",
+      "example": "宇宙から地球を見てみたいです。"
+    },
+    {
+      "id": "1e6yh4p",
+      "hanViet": "ĐỊA CẦU",
+      "japanese": "地球",
+      "reading": "ちきゅう",
+      "vietnamese": "trái đất",
+      "example": "地球は丸いです。"
+    },
+    {
+      "id": "1ken68n",
+      "hanViet": "VONG NIÊN HỘI",
+      "japanese": "忘年会",
+      "reading": "ぼうねんかい",
+      "vietnamese": "tiệc tất niên",
+      "example": "12月に忘年会があります。"
+    },
+    {
+      "id": "1piyvt5",
+      "hanViet": "TÂN NIÊN HỘI",
+      "japanese": "新年会",
+      "reading": "しんねんかい",
+      "vietnamese": "tiệc tân niên",
+      "example": "新年会に出席します。"
+    },
+    {
+      "id": "1qrx4eb",
+      "hanViet": "NHỊ THỨ HỘI",
+      "japanese": "二次会",
+      "reading": "にじかい",
+      "vietnamese": "tiệc tăng hai/ bữa tiệc thứ hai",
+      "example": "二次会に行きませんか。"
+    },
+    {
+      "id": "1h293pk",
+      "hanViet": "ĐẠI HỘI",
+      "japanese": "大会",
+      "reading": "たいかい",
+      "vietnamese": "đại hội/ cuộc thi",
+      "example": "マラソン大会に出ました。"
+    },
+    {
+      "id": "09ov8g9",
+      "hanViet": "BIỂU",
+      "japanese": "表",
+      "reading": "おもて",
+      "vietnamese": "mặt trước/ phía trước",
+      "example": "紙の表に名前を書きます。"
+    },
+    {
+      "id": "1v35v5l",
+      "hanViet": "LÝ",
+      "japanese": "裏",
+      "reading": "うら",
+      "vietnamese": "mặt sau/ phía sau",
+      "example": "裏に住所を書いてください。"
+    },
+    {
+      "id": "1ytqylj",
+      "hanViet": "PHẢN SỰ",
+      "japanese": "返事",
+      "reading": "へんじ",
+      "vietnamese": "hồi âm/ trả lời",
+      "example": "まだ返事が来ません。"
+    },
+    {
+      "id": "1ff5typ",
+      "hanViet": "THÂN VÀO",
+      "japanese": "申し込み",
+      "reading": "もうしこみ",
+      "vietnamese": "đăng ký",
+      "example": "申し込みは今日までです。"
+    },
+    {
+      "id": "1mero0i",
+      "hanViet": "THƯƠNG",
+      "japanese": "傷",
+      "reading": "きず",
+      "vietnamese": "vết thương",
+      "example": "手に傷ができました。"
+    },
+    {
+      "id": "1k9eygx",
+      "hanViet": "TRƯỜNG",
+      "japanese": "長さ",
+      "reading": "ながさ",
+      "vietnamese": "chiều dài",
+      "example": "川の長さを調べます。"
+    },
+    {
+      "id": "0t6ou4u",
+      "hanViet": "TRỌNG",
+      "japanese": "重さ",
+      "reading": "おもさ",
+      "vietnamese": "cân nặng/ trọng lượng",
+      "example": "荷物の重さは10キロです。"
+    },
+    {
+      "id": "1b3wz2f",
+      "hanViet": "CAO",
+      "japanese": "高さ",
+      "reading": "たかさ",
+      "vietnamese": "chiều cao",
+      "example": "山の高さはどのくらいですか。"
+    },
+    {
+      "id": "0edngnf",
+      "hanViet": "ĐẠI",
+      "japanese": "大きさ",
+      "reading": "おおきさ",
+      "vietnamese": "cỡ/ kích thước",
+      "example": "部屋の大きさを測ります。"
+    },
+    {
+      "id": "05nqv31",
+      "hanViet": "TIỆN",
+      "japanese": "便",
+      "reading": "びん",
+      "vietnamese": "chuyến bay",
+      "example": "何便で行きますか。"
+    },
+    {
+      "id": "1yzccxc",
+      "hanViet": "TUYẾT TẾ",
+      "japanese": "雪祭り",
+      "reading": "ゆきまつり",
+      "vietnamese": "Lễ hội tuyết",
+      "example": "札幌の雪祭りを見に行きました。"
+    },
+    {
+      "id": "04edkwn",
+      "hanViet": "THÀNH TÍCH",
+      "japanese": "成績",
+      "reading": "せいせき",
+      "vietnamese": "kết quả/ thành tích",
+      "example": "試験の成績がよかったです。"
+    },
+    {
+      "id": "0zvwuz0",
+      "hanViet": "DẠNG TỬ",
+      "japanese": "様子",
+      "reading": "ようす",
+      "vietnamese": "vẻ/ tình hình",
+      "example": "外の様子を見てきます。"
+    },
+    {
+      "id": "0kh3vfh",
+      "hanViet": "SỰ KIỆN",
+      "japanese": "事件",
+      "reading": "じけん",
+      "vietnamese": "vụ án/ vụ việc",
+      "example": "大きい事件が起きました。"
+    },
+    {
+      "id": "024lky4",
+      "hanViet": "BỘC ĐẠN",
+      "japanese": "爆弾",
+      "reading": "ばくだん",
+      "vietnamese": "bom",
+      "example": "爆弾が見つかりました。"
+    },
+    {
+      "id": "1fo75ms",
+      "hanViet": "TÍCH",
+      "japanese": "積みます",
+      "reading": "つみます",
+      "vietnamese": "xếp lên/ chất hàng lên",
+      "example": "トラックに荷物を積みます。"
+    },
+    {
+      "id": "1ndt8uc",
+      "hanViet": "VẬN CHUYỂN THỦ",
+      "japanese": "運転手",
+      "reading": "うんてんしゅ",
+      "vietnamese": "tài xế",
+      "example": "タクシーの運転手に聞いてみます。"
+    },
+    {
+      "id": "1i3v8p3",
+      "hanViet": "LY",
+      "japanese": "離れた",
+      "reading": "はなれた",
+      "vietnamese": "xa/ cách xa",
+      "example": "駅から離れた所に住んでいます。"
+    },
+    {
+      "id": "0eug894",
+      "hanViet": "CẤP",
+      "japanese": "急に",
+      "reading": "きゅうに",
+      "vietnamese": "đột nhiên/ gấp",
+      "example": "急に雨が降ってきました。"
+    },
+    {
+      "id": "0qm9r1a",
+      "hanViet": "ĐỘNG",
+      "japanese": "動かします",
+      "reading": "うごかします",
+      "vietnamese": "làm dịch chuyển/ khởi động",
+      "example": "机を動かしてもいいですか。"
+    },
+    {
+      "id": "0ifetug",
+      "hanViet": "NHẤT SINH HUYỀN MỆNH",
+      "japanese": "一生懸命",
+      "reading": "いっしょうけんめい",
+      "vietnamese": "hết sức/ chăm chỉ",
+      "example": "一生懸命勉強しました。"
+    },
+    {
+      "id": "0ua3m7b",
+      "hanViet": "PHẠM NHÂN",
+      "japanese": "犯人",
+      "reading": "はんにん",
+      "vietnamese": "thủ phạm",
+      "example": "犯人はまだ見つかりません。"
+    },
+    {
+      "id": "1supyd5",
+      "hanViet": "THỦ NHẬP",
+      "japanese": "手に入れます",
+      "reading": "てにいれます",
+      "vietnamese": "có được/ lấy được",
+      "example": "珍しい切手を手に入れました。"
+    },
+    {
+      "id": "1a7tdev",
+      "hanViet": "KIM",
+      "japanese": "今でも",
+      "reading": "いまでも",
+      "vietnamese": "ngay cả bây giờ",
+      "example": "今でもよく覚えています。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

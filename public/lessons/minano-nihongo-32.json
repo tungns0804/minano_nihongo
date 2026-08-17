@@ -1,0 +1,332 @@
+{
+  "id": "minano-nihongo-32",
+  "name": "皆の日本語 — Bài 32 · Từ vựng",
+  "description": "Từ vựng bài 32",
+  "kind": "vocabulary",
+  "itemCount": 40,
+  "words": [
+    {
+      "id": "0lxj51y",
+      "hanViet": "VẬN ĐỘNG",
+      "japanese": "運動します",
+      "reading": "うんどうします",
+      "vietnamese": "vận động/ tập thể thao",
+      "example": "毎朝公園で運動しています。"
+    },
+    {
+      "id": "1v0mcle",
+      "hanViet": "THÀNH CÔNG",
+      "japanese": "成功します",
+      "reading": "せいこうします",
+      "vietnamese": "thành công",
+      "example": "実験は成功しました。"
+    },
+    {
+      "id": "1ahoykg",
+      "hanViet": "THỨC NGHIỆM THẤT BẠI",
+      "japanese": "試験に失敗します",
+      "reading": "しけんにしっぱいします",
+      "vietnamese": "thất bại/ trượt thi",
+      "example": "試験に失敗してしまいました。"
+    },
+    {
+      "id": "0qt56xs",
+      "hanViet": "THỨC NGHIỆM HỢP CÁCH",
+      "japanese": "試験に合格します",
+      "reading": "しけんにごうかくします",
+      "vietnamese": "đỗ thi/ đậu kỳ thi",
+      "example": "息子が試験に合格しました。"
+    },
+    {
+      "id": "0p75xm5",
+      "hanViet": "LỆ",
+      "japanese": "戻ります",
+      "reading": "もどります",
+      "vietnamese": "quay lại/ trở lại",
+      "example": "3時までに会社に戻ります。"
+    },
+    {
+      "id": "08m5tw9",
+      "hanViet": "VŨ",
+      "japanese": "雨がやみます",
+      "reading": "あめがやみます",
+      "vietnamese": "tạnh mưa/ ngừng mưa",
+      "example": "雨がやんだら、出かけましょう。"
+    },
+    {
+      "id": "03lfd7m",
+      "hanViet": "TÌNH",
+      "japanese": "晴れます",
+      "reading": "はれます",
+      "vietnamese": "nắng/ quang đãng/ trời hửng",
+      "example": "明日は晴れるでしょう。"
+    },
+    {
+      "id": "06lujtm",
+      "hanViet": "ĐÀM",
+      "japanese": "曇ります",
+      "reading": "くもります",
+      "vietnamese": "có mây/ trời râm",
+      "example": "午後から曇るかもしれません。"
+    },
+    {
+      "id": "1ugdea5",
+      "hanViet": "PHONG XÚY",
+      "japanese": "風が吹きます",
+      "reading": "かぜがふきます",
+      "vietnamese": "gió thổi",
+      "example": "強い風が吹いています。"
+    },
+    {
+      "id": "14avj8d",
+      "hanViet": "BỆNH KHÍ TRỊ",
+      "japanese": "病気が治ります",
+      "reading": "びょうきがなおります",
+      "vietnamese": "khỏi bệnh/ bệnh khỏi",
+      "example": "薬を飲んだら、病気が治りました。"
+    },
+    {
+      "id": "18jjaxu",
+      "hanViet": "CỐ CHƯỚNG TRỰC",
+      "japanese": "故障が直ります",
+      "reading": "こしょうがなおります",
+      "vietnamese": "chỗ hỏng được sửa/ hết hỏng",
+      "example": "車の故障がやっと直りました。"
+    },
+    {
+      "id": "0ypdblu",
+      "hanViet": "NHIỆT TỤC",
+      "japanese": "熱が続きます",
+      "reading": "ねつがつづきます",
+      "vietnamese": "sốt kéo dài/ vẫn còn sốt",
+      "example": "三日も熱が続いています。"
+    },
+    {
+      "id": "1o4g7ud",
+      "hanViet": "LÃNH",
+      "japanese": "冷やします",
+      "reading": "ひやします",
+      "vietnamese": "làm lạnh/ ướp lạnh",
+      "example": "冷蔵庫でビールを冷やします。"
+    },
+    {
+      "id": "08vr1gr",
+      "hanViet": "TÂM PHỐI",
+      "japanese": "心配",
+      "reading": "しんぱい",
+      "vietnamese": "lo lắng",
+      "example": "息子のことが心配です。"
+    },
+    {
+      "id": "0yjqtjm",
+      "hanViet": "THẬP PHÂN",
+      "japanese": "十分",
+      "reading": "じゅうぶん",
+      "vietnamese": "đủ/ đầy đủ",
+      "example": "時間は十分あります。"
+    },
+    {
+      "id": "0ca7l8z",
+      "hanViet": "KHÔNG",
+      "japanese": "空",
+      "reading": "そら",
+      "vietnamese": "bầu trời",
+      "example": "空が青くてきれいです。"
+    },
+    {
+      "id": "1362goy",
+      "hanViet": "THÁI DƯƠNG",
+      "japanese": "太陽",
+      "reading": "たいよう",
+      "vietnamese": "mặt trời",
+      "example": "太陽が出てきました。"
+    },
+    {
+      "id": "1di5v2r",
+      "hanViet": "TINH",
+      "japanese": "星",
+      "reading": "ほし",
+      "vietnamese": "sao/ ngôi sao",
+      "example": "今夜は星がよく見えます。"
+    },
+    {
+      "id": "0orxt3e",
+      "hanViet": "NGUYỆT",
+      "japanese": "月",
+      "reading": "つき",
+      "vietnamese": "trăng/ mặt trăng",
+      "example": "月が明るい夜です。"
+    },
+    {
+      "id": "07a1hm9",
+      "hanViet": "PHONG",
+      "japanese": "風",
+      "reading": "かぜ",
+      "vietnamese": "gió",
+      "example": "冷たい風が入ってきます。"
+    },
+    {
+      "id": "09zgc1j",
+      "hanViet": "BẮC",
+      "japanese": "北",
+      "reading": "きた",
+      "vietnamese": "bắc/ phía bắc",
+      "example": "北の空が暗くなりました。"
+    },
+    {
+      "id": "0wjw6cq",
+      "hanViet": "NAM",
+      "japanese": "南",
+      "reading": "みなみ",
+      "vietnamese": "nam/ phía nam",
+      "example": "南の島へ旅行したいです。"
+    },
+    {
+      "id": "12t9uvj",
+      "hanViet": "TÂY",
+      "japanese": "西",
+      "reading": "にし",
+      "vietnamese": "tây/ phía tây",
+      "example": "西の方から雲が来ます。"
+    },
+    {
+      "id": "0j883sj",
+      "hanViet": "ĐÔNG",
+      "japanese": "東",
+      "reading": "ひがし",
+      "vietnamese": "đông/ phía đông",
+      "example": "東の空が明るくなりました。"
+    },
+    {
+      "id": "1nfpr9w",
+      "hanViet": "THỦY ĐẠO",
+      "japanese": "水道",
+      "reading": "すいどう",
+      "vietnamese": "nước máy",
+      "example": "水道の水が出ません。"
+    },
+    {
+      "id": "01umnnc",
+      "hanViet": "KIM DẠ",
+      "japanese": "今夜",
+      "reading": "こんや",
+      "vietnamese": "tối nay/ đêm nay",
+      "example": "今夜はうちで食事します。"
+    },
+    {
+      "id": "0wy5a5o",
+      "hanViet": "TỊCH PHƯƠNG",
+      "japanese": "夕方",
+      "reading": "ゆうがた",
+      "vietnamese": "chiều tối",
+      "example": "夕方までに帰ります。"
+    },
+    {
+      "id": "1ijlnvf",
+      "hanViet": "TRÌ",
+      "japanese": "遅く",
+      "reading": "おそく",
+      "vietnamese": "muộn/ khuya",
+      "example": "昨夜は遅くまで働きました。"
+    },
+    {
+      "id": "0wwaxki",
+      "hanViet": "NGUYÊN KHÍ",
+      "japanese": "元気",
+      "reading": "げんき",
+      "vietnamese": "khỏe/ khỏe mạnh",
+      "example": "祖母はとても元気です。"
+    },
+    {
+      "id": "0hq07cq",
+      "hanViet": "VỊ",
+      "japanese": "胃",
+      "reading": "い",
+      "vietnamese": "dạ dày",
+      "example": "胃の調子が悪いです。"
+    },
+    {
+      "id": "0nj3k7b",
+      "hanViet": "ĐỘNG",
+      "japanese": "働きすぎ",
+      "reading": "はたらきすぎ",
+      "vietnamese": "làm việc quá sức",
+      "example": "働きすぎで体を壊しました。"
+    },
+    {
+      "id": "0ca3ak1",
+      "hanViet": "VÔ LÝ",
+      "japanese": "無理をします",
+      "reading": "むりをします",
+      "vietnamese": "làm quá sức/ làm điều quá khả năng",
+      "example": "病気のときは無理をしないほうがいいです。"
+    },
+    {
+      "id": "0aj4qho",
+      "hanViet": "TINH CHIẾM",
+      "japanese": "星占い",
+      "reading": "ほしうらない",
+      "vietnamese": "bói sao/ chiêm tinh",
+      "example": "星占いを信じますか。"
+    },
+    {
+      "id": "0du6zww",
+      "hanViet": "MẪU NGƯU TỌA",
+      "japanese": "牡牛座",
+      "reading": "おうしざ",
+      "vietnamese": "chòm sao Kim Ngưu",
+      "example": "私は牡牛座です。"
+    },
+    {
+      "id": "0yh7jpn",
+      "hanViet": "KHỐN",
+      "japanese": "困ります",
+      "reading": "こまります",
+      "vietnamese": "rắc rối/ khó xử/ gặp khó",
+      "example": "道が分からなくて困りました。"
+    },
+    {
+      "id": "1h2i40a",
+      "hanViet": "BẢO",
+      "japanese": "宝くじ",
+      "reading": "たからくじ",
+      "vietnamese": "xổ số",
+      "example": "宝くじが当たったら、家を買います。"
+    },
+    {
+      "id": "1hqfwk6",
+      "hanViet": "KIỆN KHANG",
+      "japanese": "健康",
+      "reading": "けんこう",
+      "vietnamese": "sức khỏe/ khỏe mạnh",
+      "example": "健康に気をつけてください。"
+    },
+    {
+      "id": "02yuu6t",
+      "hanViet": "LUYẾN ÁI",
+      "japanese": "恋愛",
+      "reading": "れんあい",
+      "vietnamese": "tình yêu",
+      "example": "恋愛の話をしました。"
+    },
+    {
+      "id": "0it1384",
+      "hanViet": "LUYẾN NHÂN",
+      "japanese": "恋人",
+      "reading": "こいびと",
+      "vietnamese": "người yêu",
+      "example": "恋人と映画を見に行きます。"
+    },
+    {
+      "id": "1shczln",
+      "hanViet": "KIM TRÌ",
+      "japanese": "お金持ち",
+      "reading": "おかねもち",
+      "vietnamese": "người giàu có",
+      "example": "お金持ちになりたいです。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

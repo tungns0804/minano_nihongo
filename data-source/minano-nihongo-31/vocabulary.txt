@@ -1,0 +1,28 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+THỨC THỦY,式が始まります (しきがはじまります),bắt đầu buổi lễ|もうすぐ式が始まります。
+TỤC,続けます (つづけます),tiếp tục|日本語の勉強を続けます。
+KIẾN,見つけます (みつけます),tìm/ tìm thấy|いい仕事を見つけました。
+THỨC NGHIỆM THỤ,試験を受けます (しけんをうけます),thi/ dự kỳ thi|来月、日本語の試験を受けます。
+ĐẠI HỌC NHẬP HỌC,大学に入学します (だいがくににゅうがくします),nhập học/ vào đại học|来年、大学に入学するつもりです。
+ĐẠI HỌC TỐT NGHIỆP,大学を卒業します (だいがくをそつぎょうします),tốt nghiệp đại học|去年、大学を卒業しました。
+HỘI NGHỊ XUẤT TỊCH,会議に出席します (かいぎにしゅっせきします),tham dự cuộc họp/ tham gia cuộc họp|部長の代わりに会議に出席します。
+HƯU KHÊ,休憩します (きゅうけいします),nghỉ/ giải lao|ここで少し休憩しましょう。
+LIÊN HƯU,連休 (れんきゅう),ngày nghỉ liền nhau/ kỳ nghỉ dài|連休に旅行しようと思っています。
+TÁC VĂN,作文 (さくぶん),bài văn/ bài tập làm văn|作文を書く宿題があります。
+TRIỂN LÃM HỘI,展覧会 (てんらんかい),triển lãm|美術館で展覧会を見ました。
+KẾT HÔN THỨC,結婚式 (けっこんしき),lễ cưới/ đám cưới|友達の結婚式に出席します。
+TÁNG THỨC,お葬式 (おそうしき),lễ tang/ đám tang|明日、お葬式に行かなければなりません。
+THỨC,式 (しき),lễ/ buổi lễ|式は10時に始まります。
+BẢN XÃ,本社 (ほんしゃ),trụ sở chính|本社は大阪にあります。
+CHI ĐIẾM,支店 (してん),chi nhánh|東京に新しい支店ができました。
+GIÁO HỘI,教会 (きょうかい),nhà thờ|日曜日に教会へ行きます。
+ĐẠI HỌC VIỆN,大学院 (だいがくいん),cao học/ sau đại học|大学院で経済を研究するつもりです。
+ĐỘNG VẬT VIÊN,動物園 (どうぶつえん),vườn thú/ vườn bách thú|子どもと動物園へ行きました。

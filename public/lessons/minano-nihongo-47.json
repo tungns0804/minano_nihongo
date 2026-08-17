@@ -1,0 +1,260 @@
+{
+  "id": "minano-nihongo-47",
+  "name": "皆の日本語 — Bài 47 · Từ vựng",
+  "description": "Từ vựng bài 47",
+  "kind": "vocabulary",
+  "itemCount": 31,
+  "words": [
+    {
+      "id": "18e8nzw",
+      "hanViet": "NHÂN TẬP",
+      "japanese": "人が集まります",
+      "reading": "ひとがあつまります",
+      "vietnamese": "người tụ tập/ mọi người tập trung",
+      "example": "会場に人が集まっているようです。"
+    },
+    {
+      "id": "00qoetm",
+      "hanViet": "NHÂN BIỆT",
+      "japanese": "人が別れます",
+      "reading": "ひとがわかれます",
+      "vietnamese": "người chia tay/ chia ra",
+      "example": "二人は別れたそうです。"
+    },
+    {
+      "id": "13i9b4i",
+      "hanViet": "TRƯỜNG SINH",
+      "japanese": "長生きします",
+      "reading": "ながいきします",
+      "vietnamese": "sống lâu",
+      "example": "祖母は長生きしました。"
+    },
+    {
+      "id": "0udgwbv",
+      "hanViet": "ÂM",
+      "japanese": "音がします",
+      "reading": "おとがします",
+      "vietnamese": "có tiếng/ nghe thấy tiếng động",
+      "example": "台所で変な音がします。"
+    },
+    {
+      "id": "1s8tnb6",
+      "hanViet": "THANH",
+      "japanese": "声がします",
+      "reading": "こえがします",
+      "vietnamese": "có tiếng người/ nghe thấy giọng",
+      "example": "隣の部屋で子どもの声がします。"
+    },
+    {
+      "id": "15tz492",
+      "hanViet": "VỊ",
+      "japanese": "味がします",
+      "reading": "あじがします",
+      "vietnamese": "có vị",
+      "example": "甘い味がします。"
+    },
+    {
+      "id": "05s0ys2",
+      "hanViet": "TẢN",
+      "japanese": "傘をさします",
+      "reading": "かさをさします",
+      "vietnamese": "che ô",
+      "example": "雨が降ってきたので、傘をさしました。"
+    },
+    {
+      "id": "0xllzrv",
+      "hanViet": "BỐ",
+      "japanese": "怖い",
+      "reading": "こわい",
+      "vietnamese": "sợ/ đáng sợ",
+      "example": "一人で夜道を歩くのは怖いです。"
+    },
+    {
+      "id": "00xosi7",
+      "hanViet": "THIÊN KHÍ DỰ BÁO",
+      "japanese": "天気予報",
+      "reading": "てんきよほう",
+      "vietnamese": "dự báo thời tiết",
+      "example": "天気予報によると、明日は雨だそうです。"
+    },
+    {
+      "id": "1ilh4b0",
+      "hanViet": "PHÁT BIỂU",
+      "japanese": "発表",
+      "reading": "はっぴょう",
+      "vietnamese": "phát biểu/ báo cáo",
+      "example": "研究の発表があります。"
+    },
+    {
+      "id": "1x2w12t",
+      "hanViet": "THỰC NGHIỆM",
+      "japanese": "実験",
+      "reading": "じっけん",
+      "vietnamese": "thí nghiệm/ thực nghiệm",
+      "example": "実験は成功したそうです。"
+    },
+    {
+      "id": "03o174o",
+      "hanViet": "NHÂN KHẨU",
+      "japanese": "人口",
+      "reading": "じんこう",
+      "vietnamese": "dân số",
+      "example": "この町の人口は増えているようです。"
+    },
+    {
+      "id": "0nz29g8",
+      "hanViet": "KHOA HỌC",
+      "japanese": "科学",
+      "reading": "かがく",
+      "vietnamese": "khoa học",
+      "example": "科学の本を読みます。"
+    },
+    {
+      "id": "0pryn0q",
+      "hanViet": "Y HỌC",
+      "japanese": "医学",
+      "reading": "いがく",
+      "vietnamese": "y học",
+      "example": "医学を勉強しています。"
+    },
+    {
+      "id": "0ugtbgf",
+      "hanViet": "VĂN HỌC",
+      "japanese": "文学",
+      "reading": "ぶんがく",
+      "vietnamese": "văn học",
+      "example": "大学で文学を専門にしました。"
+    },
+    {
+      "id": "1jnqxpr",
+      "hanViet": "CỨU CẤP XA",
+      "japanese": "救急車",
+      "reading": "きゅうきゅうしゃ",
+      "vietnamese": "xe cấp cứu",
+      "example": "すぐに救急車を呼んでください。"
+    },
+    {
+      "id": "1pux6i3",
+      "hanViet": "TÁN THÀNH",
+      "japanese": "賛成",
+      "reading": "さんせい",
+      "vietnamese": "tán thành/ đồng ý",
+      "example": "その意見に賛成です。"
+    },
+    {
+      "id": "162nmlx",
+      "hanViet": "PHẢN ĐỐI",
+      "japanese": "反対",
+      "reading": "はんたい",
+      "vietnamese": "phản đối",
+      "example": "父は反対しているようです。"
+    },
+    {
+      "id": "1ndkdxg",
+      "hanViet": "NAM TÍNH",
+      "japanese": "男性",
+      "reading": "だんせい",
+      "vietnamese": "nam giới",
+      "example": "男性の声がしました。"
+    },
+    {
+      "id": "1rb8g7y",
+      "hanViet": "NỮ TÍNH",
+      "japanese": "女性",
+      "reading": "じょせい",
+      "vietnamese": "nữ giới",
+      "example": "女性の平均寿命は長いです。"
+    },
+    {
+      "id": "0it1384",
+      "hanViet": "LUYẾN NHÂN",
+      "japanese": "恋人",
+      "reading": "こいびと",
+      "vietnamese": "người yêu",
+      "example": "恋人ができたそうです。"
+    },
+    {
+      "id": "0dsuuih",
+      "hanViet": "HÔN ƯỚC",
+      "japanese": "婚約します",
+      "reading": "こんやくします",
+      "vietnamese": "đính hôn",
+      "example": "二人は婚約したそうです。"
+    },
+    {
+      "id": "1q8qk40",
+      "hanViet": "TƯỚNG THỦ",
+      "japanese": "相手",
+      "reading": "あいて",
+      "vietnamese": "đối tác/ đối phương",
+      "example": "結婚の相手を紹介されました。"
+    },
+    {
+      "id": "0y5o8gg",
+      "hanViet": "TRI HỢP",
+      "japanese": "知り合います",
+      "reading": "しりあいます",
+      "vietnamese": "làm quen/ gặp gỡ làm quen",
+      "example": "二人は大学で知り合ったそうです。"
+    },
+    {
+      "id": "015c8pa",
+      "hanViet": "BÌNH QUÂN THỌ MỆNH",
+      "japanese": "平均寿命",
+      "reading": "へいきんじゅみょう",
+      "vietnamese": "tuổi thọ trung bình",
+      "example": "日本人の平均寿命は世界一だそうです。"
+    },
+    {
+      "id": "02fh4ni",
+      "hanViet": "NAM TÍNH TỶ",
+      "japanese": "男性と比べます",
+      "reading": "だんせいとくらべます",
+      "vietnamese": "so sánh với nam giới",
+      "example": "女性は男性と比べて長生きします。"
+    },
+    {
+      "id": "1ormeez",
+      "hanViet": "BÁC SĨ",
+      "japanese": "博士",
+      "reading": "はかせ",
+      "vietnamese": "tiến sĩ",
+      "example": "博士の研究が発表されました。"
+    },
+    {
+      "id": "1vec16u",
+      "hanViet": "NÃO",
+      "japanese": "脳",
+      "reading": "のう",
+      "vietnamese": "não",
+      "example": "脳の働きを調べています。"
+    },
+    {
+      "id": "0t2mlpm",
+      "hanViet": "HÓA TRANG PHẨM",
+      "japanese": "化粧品",
+      "reading": "けしょうひん",
+      "vietnamese": "mỹ phẩm",
+      "example": "デパートで化粧品を買いました。"
+    },
+    {
+      "id": "0pmaron",
+      "hanViet": "ĐIỀU",
+      "japanese": "調べ",
+      "reading": "しらべ",
+      "vietnamese": "điều tra/ khảo sát",
+      "example": "調べによると、人口が減っているそうです。"
+    },
+    {
+      "id": "0rpur6c",
+      "hanViet": "HÓA TRANG",
+      "japanese": "化粧",
+      "reading": "けしょう",
+      "vietnamese": "sự trang điểm",
+      "example": "姉は化粧をしているところです。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

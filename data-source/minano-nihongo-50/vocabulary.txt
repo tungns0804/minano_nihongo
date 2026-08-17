@@ -1,0 +1,42 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+THAM,参ります (まいります),đi/ đến (khiêm nhường ngữ)|明日、10時に参ります。
+THÂN,申します (もうします),nói/ tên là (khiêm nhường ngữ)|山田と申します。
+BÁI KIẾN,拝見します (はいけんします),xem/ nhìn (khiêm nhường ngữ)|お手紙を拝見しました。
+TỒN,存じます (ぞんじます),biết (khiêm nhường ngữ)|お名前は存じております。
+TỨ,伺います (うかがいます),hỏi/ nghe/ đến thăm (khiêm nhường ngữ)|ちょっと伺いたいことがあります。
+MỤC,お目にかかります (おめにかかります),gặp (khiêm nhường ngữ)|社長にお目にかかりたいのですが。
+TƯ,私 (わたくし),tôi (cách nói lịch sự)|私はミラーと申します。
+TRẠCH,お宅 (おたく),nhà (của người khác)|先生のお宅へ伺いました。
+GIAO NGOẠI,郊外 (こうがい),ngoại ô|郊外に住んでいます。
+TÁI LAI CHU,再来週 (さらいしゅう),tuần sau nữa|再来週、国へ帰ります。
+TÁI LAI NGUYỆT,再来月 (さらいげつ),tháng sau nữa|再来月から新しい仕事を始めます。
+TÁI LAI NIÊN,再来年 (さらいねん),năm sau nữa|再来年、また日本へ参ります。
+BÁN NIÊN,半年 (はんとし),nửa năm|日本に来て半年になります。
+TỐI SƠ,最初に (さいしょに),đầu tiên/ trước hết|最初に自己紹介をいたします。
+TỐI HẬU,最後に (さいごに),cuối cùng|最後にお礼を申し上げます。
+KIM,ただ今 (ただいま),bây giờ/ vừa mới|ただ今、社長は席を外しております。
+KHẨN TRƯƠNG,緊張します (きんちょうします),căng thẳng/ hồi hộp|発表の前は緊張します。
+PHÓNG TỐNG,放送します (ほうそうします),phát thanh/ phát sóng|試合はテレビで放送されます。
+TOÁT,ビデオに撮ります (ビデオにとります),thu video/ ghi hình|式をビデオに撮りました。
+THƯỞNG KIM,賞金 (しょうきん),tiền thưởng|賞金をいただきました。
+TỰ NHIÊN,自然 (しぜん),tự nhiên/ thiên nhiên|自然が豊かな所です。
+TƯỢNG,像 (ぞう),tượng/ pho tượng|公園に大きい像があります。
+MỘNG,夢がかないます (ゆめがかないます),ước mơ thành hiện thực|やっと夢がかないました。
+HIỆP LỰC,協力します (きょうりょくします),hợp tác/ chung sức|みんなで協力しました。
+TÂM,心から (こころから),từ đáy lòng/ chân thành|心からお礼を申し上げます。
+CẢM TẠ,感謝します (かんしゃします),cảm ơn/ biết ơn|皆様に感謝しております。
+LỄ,お礼 (おれい),lời cảm ơn/ sự cảm ơn|お礼の手紙を書きました。
+BÁI KHẢI,拝啓 (はいけい),Kính gửi (mở đầu thư)|手紙は「拝啓」で始めます。
+NGUYÊN KHÍ,お元気でいらっしゃいますか (おげんきでいらっしゃいますか),Anh/chị có khỏe không ạ?|皆様、お元気でいらっしゃいますか。
+MÊ HOẶC,迷惑をかけます (めいわくをかけます),làm phiền|ご迷惑をかけて申し訳ありません。
+SINH,生かします (いかします),tận dụng/ phát huy|日本で習ったことを国で生かしたいです。
+THÀNH,お城 (おしろ),lâu đài/ thành|お城を見に行きました。
+KÍNH CỤ,敬具 (けいぐ),Kính thư (kết thúc thư)|手紙の最後に「敬具」と書きます。

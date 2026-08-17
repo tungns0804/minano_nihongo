@@ -1,0 +1,47 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+BAO,褒めます (ほめます),khen|先生に褒められました。
+DỤ,誘います (さそいます),mời/ rủ|友達を映画に誘いました。
+KHỞI,起こします (おこします),đánh thức|毎朝母に起こされます。
+CHIÊU ĐÃI,招待します (しょうたいします),mời|結婚式に招待されました。
+LẠI,頼みます (たのみます),nhờ|友達に仕事を頼みました。
+CHÚ Ý,注意します (ちゅういします),chú ý/ nhắc nhở|先生に注意されました。
+ĐẠP,踏みます (ふみます),giẫm/ giẫm lên|電車の中で足を踏まれました。
+HOẠI,壊します (こわします),phá/ làm hỏng|弟にカメラを壊されました。
+Ô,汚します (よごします),làm bẩn|子どもに服を汚されました。
+HÀNH,行います (おこないます),thực hiện/ tiến hành|会議は3時から行われます。
+THÂU XUẤT,輸出します (ゆしゅつします),xuất khẩu|日本は車を輸出しています。
+THÂU NHẬP,輸入します (ゆにゅうします),nhập khẩu|石油を輸入しています。
+PHIÊN DỊCH,翻訳します (ほんやくします),dịch (sách, tài liệu)|この本は日本語に翻訳されました。
+PHÁT MINH,発明します (はつめいします),phát minh|電話はベルによって発明されました。
+PHÁT KIẾN,発見します (はっけんします),phát hiện/ tìm ra|新しい星が発見されました。
+THIẾT KẾ,設計します (せっけいします),thiết kế|この建物は有名な建築家によって設計されました。
+MỄ,米 (こめ),gạo|日本では米がたくさん作られます。
+MẠCH,麦 (むぎ),lúa mạch|麦からビールが作られます。
+THẠCH DU,石油 (せきゆ),dầu mỏ|石油の値段が上がりました。
+NGUYÊN LIỆU,原料 (げんりょう),nguyên liệu|ワインの原料はぶどうです。
+NÊ BỔNG,泥棒 (どろぼう),kẻ trộm|泥棒に財布を取られました。
+CẢNH QUAN,警官 (けいかん),cảnh sát|警官に道を聞かれました。
+KIẾN TRÚC GIA,建築家 (けんちくか),kiến trúc sư|有名な建築家に会いました。
+KHOA HỌC GIẢ,科学者 (かがくしゃ),nhà khoa học|その研究は多くの科学者に知られています。
+MẠN HỌA,漫画 (まんが),truyện tranh|この漫画は世界中で読まれています。
+THẾ GIỚI TRUNG,世界中 (せかいじゅう),khắp thế giới/ toàn thế giới|この歌は世界中で歌われています。
+HUYNH ĐỆ,ライト兄弟 (ライトきょうだい),anh em nhà Wright|飛行機はライト兄弟によって発明されました。
+MAI LẬP,埋め立てます (うめたてます),lấp (biển)|海を埋め立てて空港を作りました。
+KỸ THUẬT,技術 (ぎじゅつ),kỹ thuật|日本の技術は進んでいます。
+THỔ ĐỊA,土地 (とち),đất/ diện tích đất|この辺の土地は高いです。
+TAO ÂM,騒音 (そうおん),tiếng ồn|工事の騒音で眠れません。
+LỢI DỤNG,利用します (りようします),sử dụng/ lợi dụng|会議室は誰でも利用できます。
+HÀO HOA,豪華 (ごうか),hào hoa/ sang trọng|豪華なホテルに泊まりました。
+ĐIÊU KHẮC,彫刻 (ちょうこく),điêu khắc|公園に彫刻が置かれています。
+MIÊN,眠ります (ねむります),ngủ|昨夜はよく眠れませんでした。
+ĐIÊU,彫ります (ほります),khắc|木で仏像を彫ります。
+TRỌNG GIAN,仲間 (なかま),bạn bè/ đồng nghiệp|仕事の仲間と食事しました。
+NHẤT SINH HUYỀN MỆNH,一生懸命 (いっしょうけんめい),chăm chỉ/ miệt mài|一生懸命練習しました。

@@ -1,0 +1,300 @@
+{
+  "id": "minano-nihongo-35",
+  "name": "皆の日本語 — Bài 35 · Từ vựng",
+  "description": "Từ vựng bài 35",
+  "kind": "vocabulary",
+  "itemCount": 36,
+  "words": [
+    {
+      "id": "07nhcxq",
+      "hanViet": "HOA TIẾU",
+      "japanese": "花が咲きます",
+      "reading": "はながさきます",
+      "vietnamese": "hoa nở",
+      "example": "春になると、桜の花が咲きます。"
+    },
+    {
+      "id": "0yojal8",
+      "hanViet": "SẮC PHẢN",
+      "japanese": "色が変わります",
+      "reading": "いろがかわります",
+      "vietnamese": "đổi màu/ thay đổi màu",
+      "example": "秋になると、葉の色が変わります。"
+    },
+    {
+      "id": "0yh7jpn",
+      "hanViet": "KHỐN",
+      "japanese": "困ります",
+      "reading": "こまります",
+      "vietnamese": "rắc rối/ khó xử/ gặp khó",
+      "example": "お金がなくて困っています。"
+    },
+    {
+      "id": "14c0t4h",
+      "hanViet": "HOÀN PHÓ",
+      "japanese": "丸を付けます",
+      "reading": "まるをつけます",
+      "vietnamese": "khoanh tròn/ đánh dấu tròn",
+      "example": "正しい答えに丸を付けてください。"
+    },
+    {
+      "id": "1dzw7di",
+      "hanViet": "THẬP",
+      "japanese": "拾います",
+      "reading": "ひろいます",
+      "vietnamese": "nhặt/ nhặt lên",
+      "example": "道でさいふを拾いました。"
+    },
+    {
+      "id": "1pvcuvg",
+      "hanViet": "ĐIỆN THOẠI QUẢI",
+      "japanese": "電話が掛かります",
+      "reading": "でんわがかかります",
+      "vietnamese": "có điện thoại gọi đến",
+      "example": "知らない人から電話が掛かってきました。"
+    },
+    {
+      "id": "0la98fd",
+      "hanViet": "LẠC",
+      "japanese": "楽",
+      "reading": "らく",
+      "vietnamese": "thoải mái/ nhàn hạ",
+      "example": "この仕事は思ったより楽です。"
+    },
+    {
+      "id": "1fmcu4d",
+      "hanViet": "CHÍNH",
+      "japanese": "正しい",
+      "reading": "ただしい",
+      "vietnamese": "đúng/ chính xác",
+      "example": "正しい答えを選んでください。"
+    },
+    {
+      "id": "06jnk7b",
+      "hanViet": "TRÂN",
+      "japanese": "珍しい",
+      "reading": "めずらしい",
+      "vietnamese": "hiếm/ hiếm có",
+      "example": "これは珍しい切手です。"
+    },
+    {
+      "id": "1n53ms4",
+      "hanViet": "PHƯƠNG",
+      "japanese": "方",
+      "reading": "かた",
+      "vietnamese": "vị/ người",
+      "example": "あちらの方はどなたですか。"
+    },
+    {
+      "id": "191nmfv",
+      "hanViet": "HƯỚNG",
+      "japanese": "向こう",
+      "reading": "むこう",
+      "vietnamese": "bên kia/ phía đằng kia",
+      "example": "川の向こうに山が見えます。"
+    },
+    {
+      "id": "1mp0ymu",
+      "hanViet": "ĐẢO",
+      "japanese": "島",
+      "reading": "しま",
+      "vietnamese": "đảo/ hòn đảo",
+      "example": "船で島へ行きます。"
+    },
+    {
+      "id": "13bkizm",
+      "hanViet": "THÔN",
+      "japanese": "村",
+      "reading": "むら",
+      "vietnamese": "làng",
+      "example": "祖父は小さい村に住んでいます。"
+    },
+    {
+      "id": "17palvo",
+      "hanViet": "CẢNG",
+      "japanese": "港",
+      "reading": "みなと",
+      "vietnamese": "cảng/ bến cảng",
+      "example": "港に大きい船が入りました。"
+    },
+    {
+      "id": "1w79ayg",
+      "hanViet": "CẬN SỞ",
+      "japanese": "近所",
+      "reading": "きんじょ",
+      "vietnamese": "khu lân cận/ gần nhà",
+      "example": "近所に新しい店ができました。"
+    },
+    {
+      "id": "1x3bv95",
+      "hanViet": "ỐC THƯỢNG",
+      "japanese": "屋上",
+      "reading": "おくじょう",
+      "vietnamese": "sân thượng/ nóc nhà",
+      "example": "屋上から町が見えます。"
+    },
+    {
+      "id": "1esnowq",
+      "hanViet": "HẢI NGOẠI",
+      "japanese": "海外",
+      "reading": "かいがい",
+      "vietnamese": "nước ngoài/ hải ngoại",
+      "example": "海外へ旅行したいです。"
+    },
+    {
+      "id": "1h8k87z",
+      "hanViet": "SƠN ĐĂNG",
+      "japanese": "山登り",
+      "reading": "やまのぼり",
+      "vietnamese": "leo núi",
+      "example": "天気がよければ、山登りに行きます。"
+    },
+    {
+      "id": "0x5pu4g",
+      "hanViet": "CƠ HỘI",
+      "japanese": "機会",
+      "reading": "きかい",
+      "vietnamese": "cơ hội",
+      "example": "機会があれば、また会いましょう。"
+    },
+    {
+      "id": "14vdpy5",
+      "hanViet": "HỨA KHẢ",
+      "japanese": "許可",
+      "reading": "きょか",
+      "vietnamese": "phép/ giấy phép",
+      "example": "許可をもらってから使ってください。"
+    },
+    {
+      "id": "1igndge",
+      "hanViet": "HOÀN",
+      "japanese": "丸",
+      "reading": "まる",
+      "vietnamese": "vòng tròn/ hình tròn",
+      "example": "紙に丸をかきます。"
+    },
+    {
+      "id": "1loo0dw",
+      "hanViet": "THAO TÁC",
+      "japanese": "操作",
+      "reading": "そうさ",
+      "vietnamese": "thao tác",
+      "example": "この機械の操作は簡単です。"
+    },
+    {
+      "id": "0bzotoq",
+      "hanViet": "PHƯƠNG PHÁP",
+      "japanese": "方法",
+      "reading": "ほうほう",
+      "vietnamese": "phương pháp/ cách làm",
+      "example": "もっといい方法を考えましょう。"
+    },
+    {
+      "id": "0juy93e",
+      "hanViet": "THIẾT BỊ",
+      "japanese": "設備",
+      "reading": "せつび",
+      "vietnamese": "thiết bị",
+      "example": "このホテルは設備が新しいです。"
+    },
+    {
+      "id": "0npqkix",
+      "hanViet": "DIỆP",
+      "japanese": "葉",
+      "reading": "は",
+      "vietnamese": "cái lá",
+      "example": "木の葉が赤くなりました。"
+    },
+    {
+      "id": "1vuzda7",
+      "hanViet": "KHÚC",
+      "japanese": "曲",
+      "reading": "きょく",
+      "vietnamese": "bài hát/ bản nhạc",
+      "example": "好きな曲を聞きます。"
+    },
+    {
+      "id": "168wc01",
+      "hanViet": "NHẠC",
+      "japanese": "楽しみ",
+      "reading": "たのしみ",
+      "vietnamese": "niềm vui/ điều mong đợi",
+      "example": "旅行が楽しみです。"
+    },
+    {
+      "id": "01sg1lr",
+      "hanViet": "SƠ",
+      "japanese": "初めに",
+      "reading": "はじめに",
+      "vietnamese": "đầu tiên/ trước hết",
+      "example": "初めに名前を書いてください。"
+    },
+    {
+      "id": "0kyyo84",
+      "hanViet": "DẠ HÀNH",
+      "japanese": "夜行バス",
+      "reading": "やこうバス",
+      "vietnamese": "xe buýt chạy đêm",
+      "example": "夜行バスで大阪へ行きます。"
+    },
+    {
+      "id": "189nbkf",
+      "hanViet": "LỮ HÀNH XÃ",
+      "japanese": "旅行社",
+      "reading": "りょこうしゃ",
+      "vietnamese": "công ty du lịch",
+      "example": "旅行社で切符を買いました。"
+    },
+    {
+      "id": "1xg54rl",
+      "hanViet": "TƯỜNG",
+      "japanese": "詳しい",
+      "reading": "くわしい",
+      "vietnamese": "cụ thể/ chi tiết",
+      "example": "詳しい地図があれば、便利です。"
+    },
+    {
+      "id": "0go0brb",
+      "hanViet": "TRƯỜNG",
+      "japanese": "スキー場",
+      "reading": "スキーじょう",
+      "vietnamese": "bãi trượt tuyết",
+      "example": "冬はスキー場が込みます。"
+    },
+    {
+      "id": "10x5c1e",
+      "hanViet": "CHÂU",
+      "japanese": "朱",
+      "reading": "しゅ",
+      "vietnamese": "đỏ/ màu đỏ son",
+      "example": "この門は朱に塗ってあります。"
+    },
+    {
+      "id": "0hqcxvp",
+      "hanViet": "GIAO",
+      "japanese": "交わります",
+      "reading": "まじわります",
+      "vietnamese": "giao lưu với/ quan hệ với",
+      "example": "いろいろな人と交わると、勉強になります。"
+    },
+    {
+      "id": "1mgd3s5",
+      "hanViet": "TRỌNG",
+      "japanese": "仲よくします",
+      "reading": "なかよくします",
+      "vietnamese": "chơi thân với/ quan hệ tốt với",
+      "example": "隣の人と仲よくしています。"
+    },
+    {
+      "id": "1dv69b9",
+      "hanViet": "TẤT YẾU",
+      "japanese": "必要",
+      "reading": "ひつよう",
+      "vietnamese": "cần thiết",
+      "example": "予約が必要ですか。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

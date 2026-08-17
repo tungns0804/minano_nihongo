@@ -1,0 +1,188 @@
+{
+  "id": "minano-nihongo-46",
+  "name": "皆の日本語 — Bài 46 · Từ vựng",
+  "description": "Từ vựng bài 46",
+  "kind": "vocabulary",
+  "itemCount": 22,
+  "words": [
+    {
+      "id": "0t2x3wd",
+      "hanViet": "THIÊU",
+      "japanese": "焼きます",
+      "reading": "やきます",
+      "vietnamese": "nướng/ rán",
+      "example": "魚を焼いているところです。"
+    },
+    {
+      "id": "03xfx6g",
+      "hanViet": "ĐỘ",
+      "japanese": "渡します",
+      "reading": "わたします",
+      "vietnamese": "đưa cho/ giao cho",
+      "example": "書類を課長に渡しました。"
+    },
+    {
+      "id": "0dbhicv",
+      "hanViet": "QUY LAI",
+      "japanese": "帰って来ます",
+      "reading": "かえってきます",
+      "vietnamese": "về/ trở về",
+      "example": "父は今帰って来たばかりです。"
+    },
+    {
+      "id": "1l50nhk",
+      "hanViet": "XUẤT",
+      "japanese": "バスが出ます",
+      "reading": "バスがでます",
+      "vietnamese": "xe buýt xuất phát/ xe chạy",
+      "example": "バスはたった今出たところです。"
+    },
+    {
+      "id": "1m942ea",
+      "hanViet": "LƯU THỦ",
+      "japanese": "留守",
+      "reading": "るす",
+      "vietnamese": "đi vắng/ không có nhà",
+      "example": "隣は留守のはずです。"
+    },
+    {
+      "id": "0cgcuon",
+      "hanViet": "TRẠCH PHỐI TIỆN",
+      "japanese": "宅配便",
+      "reading": "たくはいびん",
+      "vietnamese": "dịch vụ chuyển đồ đến nhà",
+      "example": "宅配便で荷物を送ります。"
+    },
+    {
+      "id": "1dts1x7",
+      "hanViet": "NGUYÊN NHÂN",
+      "japanese": "原因",
+      "reading": "げんいん",
+      "vietnamese": "nguyên nhân",
+      "example": "事故の原因を調べています。"
+    },
+    {
+      "id": "0xqdvye",
+      "hanViet": "CHÚ XẠ",
+      "japanese": "注射",
+      "reading": "ちゅうしゃ",
+      "vietnamese": "tiêm",
+      "example": "病院で注射をしてもらいました。"
+    },
+    {
+      "id": "0rk7xfg",
+      "hanViet": "THỰC DỤC",
+      "japanese": "食欲",
+      "reading": "しょくよく",
+      "vietnamese": "sự thèm ăn/ cảm giác muốn ăn",
+      "example": "暑くて食欲がありません。"
+    },
+    {
+      "id": "0nzvnil",
+      "hanViet": "KIM",
+      "japanese": "たった今",
+      "reading": "たったいま",
+      "vietnamese": "vừa mới rồi",
+      "example": "たった今着いたところです。"
+    },
+    {
+      "id": "14sx9xn",
+      "hanViet": "KIM HẢO",
+      "japanese": "今いいでしょうか",
+      "reading": "いまいいでしょうか",
+      "vietnamese": "Bây giờ có được không ạ?",
+      "example": "課長、今いいでしょうか。"
+    },
+    {
+      "id": "1p4ic3j",
+      "hanViet": "CỤ HỢP",
+      "japanese": "具合",
+      "reading": "ぐあい",
+      "vietnamese": "trạng thái/ tình hình",
+      "example": "体の具合はどうですか。"
+    },
+    {
+      "id": "1n0payt",
+      "hanViet": "DẠNG",
+      "japanese": "どちら様でしょうか",
+      "reading": "どちらさまでしょうか",
+      "vietnamese": "Ai đấy ạ?",
+      "example": "失礼ですが、どちら様でしょうか。"
+    },
+    {
+      "id": "014c760",
+      "hanViet": "HƯỚNG",
+      "japanese": "向かいます",
+      "reading": "むかいます",
+      "vietnamese": "đi hướng đến/ trên đường đến",
+      "example": "今、会社に向かっているところです。"
+    },
+    {
+      "id": "12zjw41",
+      "hanViet": "ĐÃI",
+      "japanese": "お待たせしました",
+      "reading": "おまたせしました",
+      "vietnamese": "Xin lỗi vì để anh/chị phải đợi.",
+      "example": "お待たせしました。どうぞ。"
+    },
+    {
+      "id": "09gd3v2",
+      "hanViet": "TRI THỨC",
+      "japanese": "知識",
+      "reading": "ちしき",
+      "vietnamese": "tri thức/ kiến thức",
+      "example": "知識が豊富な人です。"
+    },
+    {
+      "id": "1mimuld",
+      "hanViet": "BẢO KHỐ",
+      "japanese": "宝庫",
+      "reading": "ほうこ",
+      "vietnamese": "kho báu",
+      "example": "この図書館は知識の宝庫です。"
+    },
+    {
+      "id": "07u9tah",
+      "hanViet": "TÌNH BÁO THỦ NHẬP",
+      "japanese": "情報が手に入ります",
+      "reading": "じょうほうがてにはいります",
+      "vietnamese": "lấy được thông tin",
+      "example": "インターネットで情報が手に入ります。"
+    },
+    {
+      "id": "0lwlxvw",
+      "hanViet": "LỆ",
+      "japanese": "例えば",
+      "reading": "たとえば",
+      "vietnamese": "ví dụ/ chẳng hạn",
+      "example": "例えばこの本はとても役に立ちます。"
+    },
+    {
+      "id": "0lyv5ki",
+      "hanViet": "NHẬP LỰC",
+      "japanese": "入力します",
+      "reading": "にゅうりょくします",
+      "vietnamese": "nhập (dữ liệu)",
+      "example": "名前と住所を入力します。"
+    },
+    {
+      "id": "104u3u0",
+      "hanViet": "MIẾU",
+      "japanese": "秒",
+      "reading": "びょう",
+      "vietnamese": "giây",
+      "example": "あと30秒で始まります。"
+    },
+    {
+      "id": "05p1mqd",
+      "hanViet": "BẢN XUẤT",
+      "japanese": "本が出ます",
+      "reading": "ほんがでます",
+      "vietnamese": "sách được xuất bản",
+      "example": "来月新しい本が出るはずです。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,45 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+HOA TIẾU,花が咲きます (はながさきます),hoa nở|春になると、桜の花が咲きます。
+SẮC PHẢN,色が変わります (いろがかわります),đổi màu/ thay đổi màu|秋になると、葉の色が変わります。
+KHỐN,困ります (こまります),rắc rối/ khó xử/ gặp khó|お金がなくて困っています。
+HOÀN PHÓ,丸を付けます (まるをつけます),khoanh tròn/ đánh dấu tròn|正しい答えに丸を付けてください。
+THẬP,拾います (ひろいます),nhặt/ nhặt lên|道でさいふを拾いました。
+ĐIỆN THOẠI QUẢI,電話が掛かります (でんわがかかります),có điện thoại gọi đến|知らない人から電話が掛かってきました。
+LẠC,楽 (らく),thoải mái/ nhàn hạ|この仕事は思ったより楽です。
+CHÍNH,正しい (ただしい),đúng/ chính xác|正しい答えを選んでください。
+TRÂN,珍しい (めずらしい),hiếm/ hiếm có|これは珍しい切手です。
+PHƯƠNG,方 (かた),vị/ người|あちらの方はどなたですか。
+HƯỚNG,向こう (むこう),bên kia/ phía đằng kia|川の向こうに山が見えます。
+ĐẢO,島 (しま),đảo/ hòn đảo|船で島へ行きます。
+THÔN,村 (むら),làng|祖父は小さい村に住んでいます。
+CẢNG,港 (みなと),cảng/ bến cảng|港に大きい船が入りました。
+CẬN SỞ,近所 (きんじょ),khu lân cận/ gần nhà|近所に新しい店ができました。
+ỐC THƯỢNG,屋上 (おくじょう),sân thượng/ nóc nhà|屋上から町が見えます。
+HẢI NGOẠI,海外 (かいがい),nước ngoài/ hải ngoại|海外へ旅行したいです。
+SƠN ĐĂNG,山登り (やまのぼり),leo núi|天気がよければ、山登りに行きます。
+CƠ HỘI,機会 (きかい),cơ hội|機会があれば、また会いましょう。
+HỨA KHẢ,許可 (きょか),phép/ giấy phép|許可をもらってから使ってください。
+HOÀN,丸 (まる),vòng tròn/ hình tròn|紙に丸をかきます。
+THAO TÁC,操作 (そうさ),thao tác|この機械の操作は簡単です。
+PHƯƠNG PHÁP,方法 (ほうほう),phương pháp/ cách làm|もっといい方法を考えましょう。
+THIẾT BỊ,設備 (せつび),thiết bị|このホテルは設備が新しいです。
+DIỆP,葉 (は),cái lá|木の葉が赤くなりました。
+KHÚC,曲 (きょく),bài hát/ bản nhạc|好きな曲を聞きます。
+NHẠC,楽しみ (たのしみ),niềm vui/ điều mong đợi|旅行が楽しみです。
+SƠ,初めに (はじめに),đầu tiên/ trước hết|初めに名前を書いてください。
+DẠ HÀNH,夜行バス (やこうバス),xe buýt chạy đêm|夜行バスで大阪へ行きます。
+LỮ HÀNH XÃ,旅行社 (りょこうしゃ),công ty du lịch|旅行社で切符を買いました。
+TƯỜNG,詳しい (くわしい),cụ thể/ chi tiết|詳しい地図があれば、便利です。
+TRƯỜNG,スキー場 (スキーじょう),bãi trượt tuyết|冬はスキー場が込みます。
+CHÂU,朱 (しゅ),đỏ/ màu đỏ son|この門は朱に塗ってあります。
+GIAO,交わります (まじわります),giao lưu với/ quan hệ với|いろいろな人と交わると、勉強になります。
+TRỌNG,仲よくします (なかよくします),chơi thân với/ quan hệ tốt với|隣の人と仲よくしています。
+TẤT YẾU,必要 (ひつよう),cần thiết|予約が必要ですか。

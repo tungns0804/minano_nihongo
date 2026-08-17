@@ -1,0 +1,30 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+TẠ,謝ります (あやまります),xin lỗi/ tạ lỗi|遅刻したので、先生に謝りました。
+SỰ CỐ TAO,事故に遭います (じこにあいます),gặp tai nạn|事故に遭った場合は、すぐ連絡してください。
+TÍN,信じます (しんじます),tin/ tin tưởng|私はその話を信じません。
+DỤNG Ý,用意します (よういします),chuẩn bị|会議の資料を用意しておきます。
+BẢO CHỨNG THƯ,保証書 (ほしょうしょ),giấy bảo hành|保証書を持って来てください。
+LÃNH THÂU THƯ,領収書 (りょうしゅうしょ),hóa đơn/ biên lai|領収書をお願いします。
+TẶNG VẬT,贈り物 (おくりもの),quà tặng|贈り物を送りました。
+ĐIỆN THOẠI,まちがい電話 (まちがいでんわ),điện thoại gọi nhầm|さっきまちがい電話がありました。
+TRUNG CHỈ,中止 (ちゅうし),dừng/ đình chỉ|雨の場合は中止します。
+CẤP,急に (きゅうに),đột nhiên/ gấp|急に用事ができました。
+LẠC,楽しみにしています (たのしみにしています),đang mong đợi/ lấy làm vui|旅行を楽しみにしています。
+DĨ THƯỢNG,以上です (いじょうです),Trên đây là hết./ Tôi xin hết.|説明は以上です。
+HỆ VIÊN,係員 (かかりいん),nhân viên phụ trách|係員に聞いてください。
+ƯU THẮNG,優勝します (ゆうしょうします),vô địch/ đoạt giải nhất|大会で優勝しました。
+NÃO,悩み (なやみ),điều trăn trở/ nỗi phiền muộn|悩みがあったら、相談してください。
+MỤC GIÁC THỜI KẾ,目覚まし時計 (めざましどけい),đồng hồ báo thức|目覚まし時計が鳴りませんでした。
+MIÊN,眠ります (ねむります),ngủ|昨夜はよく眠れました。
+MỤC GIÁC,目が覚めます (めがさめます),tỉnh giấc|6時に目が覚めました。
+ĐẠI HỌC SINH,大学生 (だいがくせい),sinh viên đại học|息子は大学生です。
+HỒI ĐÁP,回答 (かいとう),câu trả lời/ lời giải|回答を紙に書いてください。
+MINH,鳴ります (なります),reo/ kêu|電話が鳴っています。

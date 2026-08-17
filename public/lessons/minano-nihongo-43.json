@@ -1,0 +1,156 @@
+{
+  "id": "minano-nihongo-43",
+  "name": "皆の日本語 — Bài 43 · Từ vựng",
+  "description": "Từ vựng bài 43",
+  "kind": "vocabulary",
+  "itemCount": 18,
+  "words": [
+    {
+      "id": "1uz0zt0",
+      "hanViet": "THÂU XUẤT TĂNG",
+      "japanese": "輸出が増えます",
+      "reading": "ゆしゅつがふえます",
+      "vietnamese": "xuất khẩu tăng lên",
+      "example": "車の輸出が増えてきました。"
+    },
+    {
+      "id": "1f879g6",
+      "hanViet": "THÂU XUẤT GIẢM",
+      "japanese": "輸出が減ります",
+      "reading": "ゆしゅつがへります",
+      "vietnamese": "xuất khẩu giảm xuống",
+      "example": "今年は輸出が減りそうです。"
+    },
+    {
+      "id": "0084zz8",
+      "hanViet": "TRỊ ĐOẠN THƯỢNG",
+      "japanese": "値段が上がります",
+      "reading": "ねだんがあがります",
+      "vietnamese": "giá tăng lên",
+      "example": "来月から値段が上がるそうです。"
+    },
+    {
+      "id": "13s0x59",
+      "hanViet": "TRỊ ĐOẠN HẠ",
+      "japanese": "値段が下がります",
+      "reading": "ねだんがさがります",
+      "vietnamese": "giá giảm xuống",
+      "example": "パソコンの値段が下がってきました。"
+    },
+    {
+      "id": "0yv4x0s",
+      "hanViet": "THIẾT",
+      "japanese": "ひもが切れます",
+      "reading": "ひもがきれます",
+      "vietnamese": "sợi dây bị đứt",
+      "example": "荷物のひもが切れそうです。"
+    },
+    {
+      "id": "0v4n9gs",
+      "hanViet": "THỦ",
+      "japanese": "ボタンがとれます",
+      "reading": "",
+      "vietnamese": "cái cúc bị tuột",
+      "example": "シャツのボタンがとれそうです。"
+    },
+    {
+      "id": "05990l7",
+      "hanViet": "HÀ VẬT LẠC",
+      "japanese": "荷物が落ちます",
+      "reading": "にもつがおちます",
+      "vietnamese": "hành lý bị rơi",
+      "example": "棚から荷物が落ちそうです。"
+    },
+    {
+      "id": "1gcfcbf",
+      "hanViet": "TRƯỢNG PHU",
+      "japanese": "丈夫",
+      "reading": "じょうぶ",
+      "vietnamese": "chắc/ bền",
+      "example": "この靴は丈夫そうです。"
+    },
+    {
+      "id": "18j523x",
+      "hanViet": "BIẾN",
+      "japanese": "変",
+      "reading": "へん",
+      "vietnamese": "lạ/ kỳ quặc",
+      "example": "変な音がします。"
+    },
+    {
+      "id": "171233q",
+      "hanViet": "HẠNH",
+      "japanese": "幸せ",
+      "reading": "しあわせ",
+      "vietnamese": "hạnh phúc",
+      "example": "二人は幸せそうです。"
+    },
+    {
+      "id": "1ygsvz7",
+      "hanViet": "HỎA",
+      "japanese": "火",
+      "reading": "ひ",
+      "vietnamese": "lửa",
+      "example": "火が消えそうです。"
+    },
+    {
+      "id": "1yrvs45",
+      "hanViet": "NOÃN PHÒNG",
+      "japanese": "暖房",
+      "reading": "だんぼう",
+      "vietnamese": "lò sưởi/ thiết bị làm ấm",
+      "example": "寒いので暖房をつけます。"
+    },
+    {
+      "id": "0sy7n07",
+      "hanViet": "LÃNH PHÒNG",
+      "japanese": "冷房",
+      "reading": "れいぼう",
+      "vietnamese": "máy lạnh/ thiết bị làm mát",
+      "example": "冷房が効きすぎています。"
+    },
+    {
+      "id": "1h3j4z7",
+      "hanViet": "KIM",
+      "japanese": "今にも",
+      "reading": "いまにも",
+      "vietnamese": "sắp/ chỉ chực",
+      "example": "今にも雨が降りそうです。"
+    },
+    {
+      "id": "1ov4pec",
+      "hanViet": "HỘI VIÊN",
+      "japanese": "会員",
+      "reading": "かいいん",
+      "vietnamese": "hội viên/ thành viên",
+      "example": "スポーツクラブの会員になりました。"
+    },
+    {
+      "id": "06qu27t",
+      "hanViet": "THÍCH ĐƯƠNG",
+      "japanese": "適当",
+      "reading": "てきとう",
+      "vietnamese": "thích hợp/ vừa phải",
+      "example": "適当な運動を続けてください。"
+    },
+    {
+      "id": "1h83xvd",
+      "hanViet": "NIÊN LINH",
+      "japanese": "年齢",
+      "reading": "ねんれい",
+      "vietnamese": "tuổi",
+      "example": "年齢を書いてください。"
+    },
+    {
+      "id": "0z53zhp",
+      "hanViet": "THÂU NHẬP",
+      "japanese": "収入",
+      "reading": "しゅうにゅう",
+      "vietnamese": "thu nhập",
+      "example": "収入が増えました。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,220 @@
+{
+  "id": "minano-nihongo-44",
+  "name": "皆の日本語 — Bài 44 · Từ vựng",
+  "description": "Từ vựng bài 44",
+  "kind": "vocabulary",
+  "itemCount": 26,
+  "words": [
+    {
+      "id": "0sb0ioe",
+      "hanViet": "KHÁP",
+      "japanese": "泣きます",
+      "reading": "なきます",
+      "vietnamese": "khóc",
+      "example": "赤ちゃんが泣いています。"
+    },
+    {
+      "id": "1bg4yu5",
+      "hanViet": "TIẾU",
+      "japanese": "笑います",
+      "reading": "わらいます",
+      "vietnamese": "cười",
+      "example": "みんなで笑いました。"
+    },
+    {
+      "id": "13erp2n",
+      "hanViet": "CAN",
+      "japanese": "乾きます",
+      "reading": "かわきます",
+      "vietnamese": "khô",
+      "example": "洗濯物がよく乾きました。"
+    },
+    {
+      "id": "0rzcovg",
+      "hanViet": "NHU",
+      "japanese": "濡れます",
+      "reading": "ぬれます",
+      "vietnamese": "ướt",
+      "example": "雨で服が濡れてしまいました。"
+    },
+    {
+      "id": "0xlk9pc",
+      "hanViet": "HOẠT",
+      "japanese": "滑ります",
+      "reading": "すべります",
+      "vietnamese": "trượt",
+      "example": "雨の日は道が滑りやすいです。"
+    },
+    {
+      "id": "0uq6qmy",
+      "hanViet": "SỰ CỐ KHỞI",
+      "japanese": "事故が起きます",
+      "reading": "じこがおきます",
+      "vietnamese": "xảy ra tai nạn",
+      "example": "交差点で事故が起きました。"
+    },
+    {
+      "id": "1aqwazz",
+      "hanViet": "ĐIỀU TIẾT",
+      "japanese": "調節します",
+      "reading": "ちょうせつします",
+      "vietnamese": "điều tiết/ điều chỉnh",
+      "example": "エアコンの温度を調節します。"
+    },
+    {
+      "id": "1i1gpji",
+      "hanViet": "AN TOÀN",
+      "japanese": "安全",
+      "reading": "あんぜん",
+      "vietnamese": "an toàn",
+      "example": "子どもが安全に遊べる公園です。"
+    },
+    {
+      "id": "0yubkfh",
+      "hanViet": "ĐINH NINH",
+      "japanese": "丁寧",
+      "reading": "ていねい",
+      "vietnamese": "lịch sự/ cẩn thận",
+      "example": "丁寧に説明してくださいました。"
+    },
+    {
+      "id": "1qe2282",
+      "hanViet": "TẾ",
+      "japanese": "細かい",
+      "reading": "こまかい",
+      "vietnamese": "nhỏ/ chi tiết/ tỉ mỉ",
+      "example": "細かく切ってください。"
+    },
+    {
+      "id": "0od5bht",
+      "hanViet": "NỒNG",
+      "japanese": "濃い",
+      "reading": "こい",
+      "vietnamese": "đậm/ nồng",
+      "example": "コーヒーが濃すぎます。"
+    },
+    {
+      "id": "1jsrxiu",
+      "hanViet": "BẠC",
+      "japanese": "薄い",
+      "reading": "うすい",
+      "vietnamese": "nhạt/ mỏng",
+      "example": "味が薄いですね。"
+    },
+    {
+      "id": "03xqkka",
+      "hanViet": "KHÔNG KHÍ",
+      "japanese": "空気",
+      "reading": "くうき",
+      "vietnamese": "không khí",
+      "example": "山の空気はきれいです。"
+    },
+    {
+      "id": "06kat4e",
+      "hanViet": "LỆ",
+      "japanese": "涙",
+      "reading": "なみだ",
+      "vietnamese": "nước mắt",
+      "example": "涙が出ました。"
+    },
+    {
+      "id": "1e3yzry",
+      "hanViet": "HÒA THỰC",
+      "japanese": "和食",
+      "reading": "わしょく",
+      "vietnamese": "món ăn Nhật",
+      "example": "和食が好きになりました。"
+    },
+    {
+      "id": "0dy3y94",
+      "hanViet": "DƯƠNG THỰC",
+      "japanese": "洋食",
+      "reading": "ようしょく",
+      "vietnamese": "món ăn Âu Mỹ",
+      "example": "今日は洋食にしましょう。"
+    },
+    {
+      "id": "0dqdl7k",
+      "hanViet": "LƯỢNG",
+      "japanese": "量",
+      "reading": "りょう",
+      "vietnamese": "lượng",
+      "example": "ご飯の量が多すぎます。"
+    },
+    {
+      "id": "0o9hh64",
+      "hanViet": "BÁN PHÂN",
+      "japanese": "半分",
+      "reading": "はんぶん",
+      "vietnamese": "một nửa",
+      "example": "ケーキを半分に切ります。"
+    },
+    {
+      "id": "19wxgfq",
+      "hanViet": "TẨY TRẠC VẬT",
+      "japanese": "洗濯物",
+      "reading": "せんたくもの",
+      "vietnamese": "quần áo giặt",
+      "example": "洗濯物がまだ乾きません。"
+    },
+    {
+      "id": "08i9gvo",
+      "hanViet": "LÝ DO",
+      "japanese": "理由",
+      "reading": "りゆう",
+      "vietnamese": "lý do",
+      "example": "遅れた理由を説明します。"
+    },
+    {
+      "id": "0u5tzzs",
+      "hanViet": "HIỀM",
+      "japanese": "嫌がります",
+      "reading": "いやがります",
+      "vietnamese": "không thích/ tỏ ra ghét",
+      "example": "子どもが薬を嫌がります。"
+    },
+    {
+      "id": "1msmc4l",
+      "hanViet": "THUẬN TỰ",
+      "japanese": "順序",
+      "reading": "じゅんじょ",
+      "vietnamese": "thứ tự",
+      "example": "順序を間違えました。"
+    },
+    {
+      "id": "1ct1xzs",
+      "hanViet": "BIỂU HIỆN",
+      "japanese": "表現",
+      "reading": "ひょうげん",
+      "vietnamese": "cách nói/ cách diễn đạt",
+      "example": "この表現は使いにくいです。"
+    },
+    {
+      "id": "1iu3pw7",
+      "hanViet": "LỆ NHƯ",
+      "japanese": "例えば",
+      "reading": "たとえば",
+      "vietnamese": "ví dụ/ chẳng hạn",
+      "example": "例えばこんな言い方があります。"
+    },
+    {
+      "id": "0kj7464",
+      "hanViet": "BIỆT",
+      "japanese": "別れます",
+      "reading": "わかれます",
+      "vietnamese": "chia tay/ từ biệt",
+      "example": "駅で友達と別れました。"
+    },
+    {
+      "id": "0bz3p6d",
+      "hanViet": "DUYÊN KHỞI ÁC",
+      "japanese": "縁起が悪い",
+      "reading": "えんぎがわるい",
+      "vietnamese": "không may/ không lành",
+      "example": "4は縁起が悪い数字だと言われています。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

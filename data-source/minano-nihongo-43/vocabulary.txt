@@ -1,0 +1,27 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+THÂU XUẤT TĂNG,輸出が増えます (ゆしゅつがふえます),xuất khẩu tăng lên|車の輸出が増えてきました。
+THÂU XUẤT GIẢM,輸出が減ります (ゆしゅつがへります),xuất khẩu giảm xuống|今年は輸出が減りそうです。
+TRỊ ĐOẠN THƯỢNG,値段が上がります (ねだんがあがります),giá tăng lên|来月から値段が上がるそうです。
+TRỊ ĐOẠN HẠ,値段が下がります (ねだんがさがります),giá giảm xuống|パソコンの値段が下がってきました。
+THIẾT,ひもが切れます (ひもがきれます),sợi dây bị đứt|荷物のひもが切れそうです。
+THỦ,ボタンがとれます,cái cúc bị tuột|シャツのボタンがとれそうです。
+HÀ VẬT LẠC,荷物が落ちます (にもつがおちます),hành lý bị rơi|棚から荷物が落ちそうです。
+TRƯỢNG PHU,丈夫 (じょうぶ),chắc/ bền|この靴は丈夫そうです。
+BIẾN,変 (へん),lạ/ kỳ quặc|変な音がします。
+HẠNH,幸せ (しあわせ),hạnh phúc|二人は幸せそうです。
+HỎA,火 (ひ),lửa|火が消えそうです。
+NOÃN PHÒNG,暖房 (だんぼう),lò sưởi/ thiết bị làm ấm|寒いので暖房をつけます。
+LÃNH PHÒNG,冷房 (れいぼう),máy lạnh/ thiết bị làm mát|冷房が効きすぎています。
+KIM,今にも (いまにも),sắp/ chỉ chực|今にも雨が降りそうです。
+HỘI VIÊN,会員 (かいいん),hội viên/ thành viên|スポーツクラブの会員になりました。
+THÍCH ĐƯƠNG,適当 (てきとう),thích hợp/ vừa phải|適当な運動を続けてください。
+NIÊN LINH,年齢 (ねんれい),tuổi|年齢を書いてください。
+THÂU NHẬP,収入 (しゅうにゅう),thu nhập|収入が増えました。
