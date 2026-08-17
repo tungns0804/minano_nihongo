@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "japanese-practice": {
+    "minano-nihongo": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -59,10 +59,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "japanese-practice:build:production"
+              "buildTarget": "minano-nihongo:build:production"
             },
             "development": {
-              "buildTarget": "japanese-practice:build:development"
+              "buildTarget": "minano-nihongo:build:development"
             }
           },
           "defaultConfiguration": "development"
