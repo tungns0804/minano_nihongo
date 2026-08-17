@@ -1,0 +1,57 @@
+<header class="app-header">
+  <div class="container app-header-inner">
+    <a routerLink="/" class="brand">
+      <span class="brand-mark jp" aria-hidden="true">語</span>
+      <span class="brand-text">
+        <span class="brand-title">
+          <!-- &ngsp; là dấu cách thật, không bị Angular gộp bỏ. Đặt bên trong thẻ này
+               để khi ẩn phần mô tả ở màn hình hẹp thì dấu cách cũng biến mất theo. -->
+          <span class="brand-prefix"><app-t key="app.namePrefix" />&ngsp;</span>
+          <span class="jp brand-jp">皆の日本語</span>
+        </span>
+        <span class="brand-sub"><app-t key="app.tagline" /></span>
+      </span>
+    </a>
+
+    <div class="app-actions">
+      <nav class="app-nav" [attr.aria-label]="t('app.nav')">
+        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+          <app-t key="app.nav.lessons" />
+        </a>
+        <a routerLink="/import" routerLinkActive="is-active"><app-t key="app.nav.import" /></a>
+      </nav>
+
+      <button
+        type="button"
+        class="icon-btn lang-btn"
+        (click)="lang.toggle()"
+        [title]="t('app.language.switch', { name: lang.nextName() })"
+        [attr.aria-label]="t('app.language.switch', { name: lang.nextName() })"
+      >
+        <span class="icon-btn-glyph" aria-hidden="true">🌐</span>
+        <span class="icon-btn-label lang-label">{{ lang.short() }}</span>
+      </button>
+
+      <button
+        type="button"
+        class="icon-btn theme-btn"
+        (click)="theme.cycle()"
+        [title]="
+          t('theme.title', { current: t(theme.labelKey()), next: t(theme.nextLabelKey()) })
+        "
+        [attr.aria-label]="
+          t('theme.title', { current: t(theme.labelKey()), next: t(theme.nextLabelKey()) })
+        "
+      >
+        <span class="icon-btn-glyph" aria-hidden="true">{{ theme.icon() }}</span>
+        <span class="icon-btn-label">
+          <app-t [key]="theme.labelKey()" />
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <router-outlet />
+</main>

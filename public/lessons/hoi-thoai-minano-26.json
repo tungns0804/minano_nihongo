@@ -1,0 +1,186 @@
+{
+  "id": "hoi-thoai-minano-26",
+  "name": "皆の日本語 — Bài 26 · Hội thoại",
+  "description": "Dịch câu mẫu, ví dụ và hội thoại bài 26 giữa Nhật và Việt",
+  "kind": "conversation",
+  "itemCount": 25,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "19cnz0b",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "あしたから 旅行なんです。",
+      "vietnamese": "Từ ngày mai tôi sẽ đi du lịch."
+    },
+    {
+      "id": "1herrqo",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "生け花を 習いたいんですが、いい 先生を 紹介して いただけませんか。",
+      "vietnamese": "Tôi muốn học cắm hoa. Anh/Chị giới thiệu cho tôi một giáo viên tốt có được không?"
+    },
+    {
+      "id": "0u96tjj",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "渡辺さんは 時々 大阪弁を 使いますね。大阪に 住んで いたんですか。",
+      "vietnamese": "Chị Watanabe đôi lúc nói giọng Osaka nhỉ. Chị đã sống ở Osaka à?"
+    },
+    {
+      "id": "02pb3lz",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "ええ、15歳まで 大阪に 住んで いました。",
+      "vietnamese": "Vâng, tôi sống ở Osaka cho đến năm 15 tuổi."
+    },
+    {
+      "id": "038v7ys",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "おもしろい デザインの 靴ですね。どこで 買ったんですか。",
+      "vietnamese": "Kiểu thiết kế đôi giầy của anh/chị thú vị nhỉ. Anh/Chị mua ở đâu thế?"
+    },
+    {
+      "id": "0347fmr",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "エドヤストアで 買いました。スペインの 靴です。",
+      "vietnamese": "Tôi mua ở Cửa hàng Edo-ya Store. Giầy của Tây Ban Nha."
+    },
+    {
+      "id": "1dq0vfz",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "どうして 遅れたんですか。",
+      "vietnamese": "Tại sao anh/chị đến muộn?"
+    },
+    {
+      "id": "117q3kp",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "バスが 来なかったんです。",
+      "vietnamese": "Vì xe buýt không đến."
+    },
+    {
+      "id": "0su3re5",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "よく カラオケに 行きますか。",
+      "vietnamese": "Anh/Chị có hay đi hát karaoke không?"
+    },
+    {
+      "id": "0bdy8p7",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いいえ、あまり 行きません。カラオケは 好きじゃ ないんです。",
+      "vietnamese": "Không, tôi ít đi. Tôi không thích karaoke."
+    },
+    {
+      "id": "0nbirbk",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "日本語で レポートを 書いたんですが、ちょっと 見て いただけませんか。",
+      "vietnamese": "Tôi viết báo cáo bằng tiếng Nhật, nhờ anh/chị xem giúp tôi một chút có được không?"
+    },
+    {
+      "id": "009icqf",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いいですよ。",
+      "vietnamese": "Được chứ."
+    },
+    {
+      "id": "15a87wn",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "国会議事堂を 見学したいんですが、どう したら いいですか。",
+      "vietnamese": "Tôi muốn đến tham quan tòa nhà quốc hội, tôi phải làm thế nào nhỉ?"
+    },
+    {
+      "id": "0ezyei1",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "直接 行ったら いいですよ。平日は いつでも 見る ことが できます。",
+      "vietnamese": "Anh/Chị cứ đến thẳng đó. Ngày thường thì lúc nào cũng tham quan được."
+    },
+    {
+      "id": "0qzsc2o",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "管理人",
+      "japanese": "ミラーさん、引っ越しの 荷物は 片づきましたか。",
+      "vietnamese": "Anh Miller, đồ đạc chuyển nhà của anh đã dọn dẹp xong chưa?"
+    },
+    {
+      "id": "0aym3uf",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "ミラー",
+      "japanese": "はい、だいたい 片づきました。",
+      "vietnamese": "Vâng, phần lớn là xong rồi."
+    },
+    {
+      "id": "0w2manx",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "ミラー",
+      "japanese": "あのう、ごみを 捨てたいんですが、どこに 出したら いいですか。",
+      "vietnamese": "À bác ơi, tôi muốn vứt rác. Tôi phải đổ rác ở đâu ạ?"
+    },
+    {
+      "id": "0vyfbft",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "管理人",
+      "japanese": "燃える ごみは 月曜日と 木曜日の 朝 出して ください。",
+      "vietnamese": "Nếu là rác cháy được thì anh đổ vào sáng thứ hai và thứ năm."
+    },
+    {
+      "id": "1k27hec",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "管理人",
+      "japanese": "ごみ置き場は 駐車場の 横です。",
+      "vietnamese": "Chỗ để rác ở bên cạnh bãi đỗ xe."
+    },
+    {
+      "id": "0nob8zb",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "ミラー",
+      "japanese": "瓶や 缶は いつですか。",
+      "vietnamese": "Vỏ chai và vỏ đồ hộp, vỏ lon bia thì là thứ mấy ạ?"
+    },
+    {
+      "id": "06532r5",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "管理人",
+      "japanese": "土曜日です。",
+      "vietnamese": "Thứ bảy."
+    },
+    {
+      "id": "07uy4p4",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "ミラー",
+      "japanese": "わかりました。それから お湯が 出ないんですが……。",
+      "vietnamese": "Tôi biết rồi ạ. Thêm một việc nữa là nước nóng không chảy ra...."
+    },
+    {
+      "id": "0vi8hl1",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "管理人",
+      "japanese": "ガス会社に 連絡したら、すぐ 来て くれますよ。",
+      "vietnamese": "Nếu anh liên lạc với công ty ga thì họ sẽ đến ngay đấy."
+    },
+    {
+      "id": "12vvajh",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "ミラー",
+      "japanese": "すみませんが、電話番号を 教えて いただけませんか。",
+      "vietnamese": "Xin lỗi, ông có thể cho tôi xin số điện thoại có được không?"
+    },
+    {
+      "id": "1c5rseu",
+      "section": "Hội thoại — ごみは どこに 出したら いいですか",
+      "speaker": "管理人",
+      "japanese": "ええ、いいですよ。",
+      "vietnamese": "Ừ, được rồi."
+    }
+  ]
+}

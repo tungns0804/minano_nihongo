@@ -1,0 +1,315 @@
+{
+  "id": "minano-nihongo-33",
+  "name": "皆の日本語 — Bài 33 · Từ vựng",
+  "description": "Từ vựng bài 33",
+  "kind": "vocabulary",
+  "itemCount": 38,
+  "words": [
+    {
+      "id": "0taha54",
+      "hanViet": "ĐÀO",
+      "japanese": "逃げます",
+      "reading": "にげます",
+      "vietnamese": "chạy trốn/ bỏ chạy/ trốn thoát",
+      "example": "犯人は窓から逃げました。"
+    },
+    {
+      "id": "16fiae0",
+      "hanViet": "TAO",
+      "japanese": "騒ぎます",
+      "reading": "さわぎます",
+      "vietnamese": "làm ồn/ ồn ào/ làm huyên náo",
+      "example": "子どもたちが教室で騒いでいます。"
+    },
+    {
+      "id": "1bxfr8y",
+      "hanViet": "ĐẦU",
+      "japanese": "投げます",
+      "reading": "なげます",
+      "vietnamese": "ném/ quăng",
+      "example": "ボールを投げないでください。"
+    },
+    {
+      "id": "1hqgopo",
+      "hanViet": "THỦ",
+      "japanese": "守ります",
+      "reading": "まもります",
+      "vietnamese": "bảo vệ/ tuân thủ/ giữ",
+      "example": "規則を守ってください。"
+    },
+    {
+      "id": "0atlyoi",
+      "hanViet": "THƯỢNG",
+      "japanese": "上げます",
+      "reading": "あげます",
+      "vietnamese": "nâng lên/ giơ lên/ tăng lên",
+      "example": "わかる人は手を上げてください。"
+    },
+    {
+      "id": "1mxqu9z",
+      "hanViet": "HẠ",
+      "japanese": "下げます",
+      "reading": "さげます",
+      "vietnamese": "hạ xuống/ giảm xuống/ hạ",
+      "example": "エアコンの温度を下げましょう。"
+    },
+    {
+      "id": "0ej1lwx",
+      "hanViet": "TRUYỀN",
+      "japanese": "伝えます",
+      "reading": "つたえます",
+      "vietnamese": "truyền đạt/ nhắn lại/ báo lại",
+      "example": "部長に伝えていただけませんか。"
+    },
+    {
+      "id": "19y462c",
+      "hanViet": "XA CHÚ Ý",
+      "japanese": "車に注意します",
+      "reading": "くるまにちゅういします",
+      "vietnamese": "chú ý xe cộ/ coi chừng xe",
+      "example": "道を渡るとき、車に注意してください。"
+    },
+    {
+      "id": "194cqny",
+      "hanViet": "TỊCH NGOẠI",
+      "japanese": "席を外します",
+      "reading": "せきをはずします",
+      "vietnamese": "rời khỏi chỗ ngồi/ đi vắng/ không có ở chỗ",
+      "example": "田中はただいま席を外しております。"
+    },
+    {
+      "id": "0v1os7p",
+      "hanViet": "TỊCH",
+      "japanese": "席",
+      "reading": "せき",
+      "vietnamese": "chỗ ngồi/ ghế",
+      "example": "窓側の席に座りたいです。"
+    },
+    {
+      "id": "0xofqop",
+      "hanViet": "TẨY TRẠC CƠ",
+      "japanese": "洗濯機",
+      "reading": "せんたくき",
+      "vietnamese": "máy giặt",
+      "example": "洗濯機が壊れてしまいました。"
+    },
+    {
+      "id": "1usu3z9",
+      "hanViet": "QUY TẮC",
+      "japanese": "規則",
+      "reading": "きそく",
+      "vietnamese": "quy định/ nội quy/ quy tắc",
+      "example": "会社の規則を守らなければなりません。"
+    },
+    {
+      "id": "0bcxw8k",
+      "hanViet": "SỬ DỤNG CẤM CHỈ",
+      "japanese": "使用禁止",
+      "reading": "しようきんし",
+      "vietnamese": "cấm sử dụng",
+      "example": "このトイレは使用禁止です。"
+    },
+    {
+      "id": "0kcbxxf",
+      "hanViet": "LẬP NHẬP CẤM CHỈ",
+      "japanese": "立入禁止",
+      "reading": "たちいりきんし",
+      "vietnamese": "cấm vào/ cấm vào khu vực này",
+      "example": "工事中ですから、立入禁止です。"
+    },
+    {
+      "id": "0jkqqt7",
+      "hanViet": "NHẬP KHẨU",
+      "japanese": "入口",
+      "reading": "いりぐち",
+      "vietnamese": "lối vào/ cửa vào",
+      "example": "入口はあちらです。"
+    },
+    {
+      "id": "0ew8frb",
+      "hanViet": "XUẤT KHẨU",
+      "japanese": "出口",
+      "reading": "でぐち",
+      "vietnamese": "lối ra/ cửa ra",
+      "example": "出口はどこですか。"
+    },
+    {
+      "id": "0mbp40f",
+      "hanViet": "PHI THƯỜNG KHẨU",
+      "japanese": "非常口",
+      "reading": "ひじょうぐち",
+      "vietnamese": "lối thoát hiểm/ cửa thoát hiểm",
+      "example": "地震のときは非常口から出てください。"
+    },
+    {
+      "id": "1gywuhf",
+      "hanViet": "VÔ LIỆU",
+      "japanese": "無料",
+      "reading": "むりょう",
+      "vietnamese": "miễn phí",
+      "example": "子どもは無料で入れます。"
+    },
+    {
+      "id": "0tld7p2",
+      "hanViet": "BẢN NHẬT HƯU NGHIỆP",
+      "japanese": "本日休業",
+      "reading": "ほんじつきゅうぎょう",
+      "vietnamese": "hôm nay nghỉ/ hôm nay đóng cửa",
+      "example": "本日休業と書いてあります。"
+    },
+    {
+      "id": "1n8399n",
+      "hanViet": "DOANH NGHIỆP TRUNG",
+      "japanese": "営業中",
+      "reading": "えいぎょうちゅう",
+      "vietnamese": "đang mở cửa/ đang kinh doanh",
+      "example": "あの店はまだ営業中です。"
+    },
+    {
+      "id": "1v497jx",
+      "hanViet": "SỬ DỤNG TRUNG",
+      "japanese": "使用中",
+      "reading": "しようちゅう",
+      "vietnamese": "đang sử dụng/ đang có người dùng",
+      "example": "会議室は使用中です。"
+    },
+    {
+      "id": "0e5jpun",
+      "hanViet": "TRÚ XA VI PHẢN",
+      "japanese": "駐車違反",
+      "reading": "ちゅうしゃいはん",
+      "vietnamese": "đỗ xe sai quy định/ đỗ xe trái phép",
+      "example": "ここに止めると駐車違反になります。"
+    },
+    {
+      "id": "0zowig1",
+      "hanViet": "CẢNH SÁT",
+      "japanese": "警察",
+      "reading": "けいさつ",
+      "vietnamese": "cảnh sát",
+      "example": "すぐに警察に電話してください。"
+    },
+    {
+      "id": "16zyqmh",
+      "hanViet": "PHẠT KIM",
+      "japanese": "罰金",
+      "reading": "ばっきん",
+      "vietnamese": "tiền phạt",
+      "example": "スピード違反で罰金を払いました。"
+    },
+    {
+      "id": "0kbd5za",
+      "hanViet": "ĐIỆN BÁO",
+      "japanese": "電報",
+      "reading": "でんぽう",
+      "vietnamese": "bức điện/ điện báo/ điện tín",
+      "example": "お祝いの電報が届きました。"
+    },
+    {
+      "id": "04hfy8w",
+      "hanViet": "CẤP DỤNG",
+      "japanese": "急用",
+      "reading": "きゅうよう",
+      "vietnamese": "việc gấp/ việc khẩn",
+      "example": "急用ができて、行けなくなりました。"
+    },
+    {
+      "id": "1arvc81",
+      "hanViet": "ĐIỆN BÁO ĐẢ",
+      "japanese": "電報を打ちます",
+      "reading": "でんぽうをうちます",
+      "vietnamese": "đánh điện/ gửi điện báo",
+      "example": "国の家族に電報を打ちました。"
+    },
+    {
+      "id": "1srljlk",
+      "hanViet": "ĐIỆN BÁO ĐẠI",
+      "japanese": "電報代",
+      "reading": "でんぽうだい",
+      "vietnamese": "tiền điện báo/ cước điện báo",
+      "example": "電報代はいくらかかりますか。"
+    },
+    {
+      "id": "076az2a",
+      "hanViet": "ĐOẢN",
+      "japanese": "短く",
+      "reading": "みじかく",
+      "vietnamese": "ngắn/ ngắn gọn",
+      "example": "短く説明してください。"
+    },
+    {
+      "id": "0lwlxvw",
+      "hanViet": "LỆ",
+      "japanese": "例えば",
+      "reading": "たとえば",
+      "vietnamese": "ví dụ như/ chẳng hạn/ ví dụ",
+      "example": "果物、例えばりんごが好きです。"
+    },
+    {
+      "id": "0lne6kv",
+      "hanViet": "TRỌNG BỆNH KHÍ",
+      "japanese": "重い病気",
+      "reading": "おもいびょうき",
+      "vietnamese": "bệnh nặng",
+      "example": "父は重い病気で入院しています。"
+    },
+    {
+      "id": "1m0yih6",
+      "hanViet": "MINH NHẬT",
+      "japanese": "明日",
+      "reading": "あした",
+      "vietnamese": "ngày mai",
+      "example": "明日は雨が降るそうです。"
+    },
+    {
+      "id": "1m942ea",
+      "hanViet": "LƯU THỦ",
+      "japanese": "留守",
+      "reading": "るす",
+      "vietnamese": "vắng nhà/ không có nhà",
+      "example": "昨日、友達の家へ行きましたが留守でした。"
+    },
+    {
+      "id": "02y1wpr",
+      "hanViet": "LƯU THỦ PHIÊN",
+      "japanese": "留守番",
+      "reading": "るすばん",
+      "vietnamese": "trông nhà/ giữ nhà",
+      "example": "子どもが一人で留守番をしています。"
+    },
+    {
+      "id": "1bgzswo",
+      "hanViet": "CHÚC",
+      "japanese": "お祝い",
+      "reading": "おいわい",
+      "vietnamese": "quà mừng/ lời chúc mừng/ lễ mừng",
+      "example": "結婚のお祝いを送りました。"
+    },
+    {
+      "id": "1moji7g",
+      "hanViet": "VONG",
+      "japanese": "亡くなります",
+      "reading": "なくなります",
+      "vietnamese": "mất/ qua đời",
+      "example": "祖父は去年亡くなりました。"
+    },
+    {
+      "id": "1gbwbus",
+      "hanViet": "BI",
+      "japanese": "悲しみ",
+      "reading": "かなしみ",
+      "vietnamese": "nỗi buồn/ niềm đau",
+      "example": "彼の悲しみは言葉にできません。"
+    },
+    {
+      "id": "17tprt4",
+      "hanViet": "LỢI DỤNG",
+      "japanese": "利用します",
+      "reading": "りようします",
+      "vietnamese": "sử dụng/ dùng/ tận dụng",
+      "example": "この図書館は誰でも利用できます。"
+    }
+  ],
+  "verbs": [],
+  "lines": []
+}

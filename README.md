@@ -1,0 +1,392 @@
+# Ôn tập từ vựng 皆の日本語
+
+Ứng dụng web ôn tập từ vựng theo giáo trình 皆の日本語 (Minna no Nihongo): Kanji, âm Hán Việt và
+nghĩa tiếng Việt. Chỉ có frontend (Angular 20) và dữ liệu JSON tĩnh — **không cần backend**.
+
+> Tên ứng dụng nằm ở một chỗ duy nhất: hằng số `APP_NAME` trong
+> [`src/app/core/app-title.ts`](src/app/core/app-title.ts). Đổi tên thì sửa ở đó, cộng thêm thẻ
+> `<title>` tĩnh trong `src/index.html` và `scripts/build-offline.mjs`.
+
+## Chạy nhanh
+
+```bash
+npm install
+npm start          # tự chạy generate rồi mở dev server ở http://localhost:4200
+```
+
+## Build
+
+### Bản một file — chỉ cần double-click
+
+```bash
+npm run build:offline
+```
+
+Kết quả: **`dist/offline/index.html`** — một file HTML duy nhất (~370 kB) chứa sẵn toàn bộ giao
+diện, mã nguồn và dữ liệu từ vựng. Double-click để mở, không cần cài gì, không cần web server,
+không cần mạng. Copy đi đâu cũng chạy.
+
+Chạy lại lệnh này mỗi khi thêm bài học mới hoặc sửa từ vựng, vì dữ liệu được nhúng cứng vào file.
+
+Ba việc script phải xử lý để chạy được bằng `file://` (trình duyệt coi trang là origin `null`):
+
+| Vấn đề | Cách xử lý |
+| --- | --- |
+| `<script type="module">` bị CORS chặn | Gói lại thành IIFE bằng esbuild rồi nhúng thẳng vào HTML |
+| `fetch()` file JSON bị chặn | Nhúng bài học vào thẻ `<script type="application/json">` |
+| History pushState bị chặn | App tự phát hiện `file://` và chuyển sang định tuyến bằng `#` |
+
+Đã kiểm thử thực tế trên Chrome và Microsoft Edge, mở trực tiếp từ ổ đĩa.
+
+### Bản chạy qua web server
+
+```bash
+npm run build      # kết quả nằm ở dist/japanese-practice/browser
+```
+
+Thư mục này là file tĩnh thuần, đưa lên bất kỳ web server nào cũng chạy, URL sạch không có `#`.
+Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài mới chỉ cần chạy lại
+`npm run generate`, không phải build lại toàn bộ.
+
+## Hai loại bài học
+
+| Loại | Nội dung | Dữ liệu |
+| --- | --- | --- |
+| **Từ vựng** | Nghĩa từ vựng, Kanji, âm Hán Việt | 3 cột |
+| **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) |
+
+Trang chủ gom bài học theo hai nhóm này, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
+Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
+Bộ lọc chỉ xuất hiện khi có từ hai loại trở lên.
+
+## Chia động từ
+
+**Bốn dạng câu hỏi**
+
+| Dạng | Ví dụ |
+| --- | --- |
+| Thể Mậu → thể khác | 逃げます → thể Te? → 逃げて |
+| Thể khác → thể Mậu | 逃げて (thể Te) → thể Mậu? → 逃げます |
+| Nhận diện nhóm động từ | 帰ります thuộc nhóm mấy? → Nhóm 1 |
+| Nghĩa tiếng Việt → thể yêu cầu | "chạy trốn" → thể Te? → 逃げて |
+
+Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi một câu cho từng thể đã chọn.
+
+**Không phải khai báo các thể.** Dữ liệu chỉ ghi thể ます + nhóm, app tự chia theo luật. Sửa một
+động từ là sửa một dòng, không sợ gõ sai chính tả ở 4 cột khác nhau. Bảng chia đầy đủ hiện ngay
+ở màn hình chi tiết bài học để tra cứu.
+
+**Động từ đặc biệt.** Ba loại đều được xử lý:
+
+- *Nhóm 1 nhìn như nhóm 2* — 帰ります, 入ります, 走ります, 切ります, 知ります… Đánh dấu bằng
+  dấu `*` sau số nhóm; app gắn nhãn “đặc biệt” và cho **lọc riêng ra luyện** (phạm vi
+  “Động từ đặc biệt”).
+- *Ngoại lệ thể Te/Ta* — 行きます → 行って (không phải 行いて), あります → ない (không phải
+  あらない). Nằm trong bảng bất quy tắc dựng sẵn, gắn nhãn “bất quy tắc”.
+- *Nhóm 3* — します, 来ます và mọi động từ ghép ～します (勉強します, 結婚します…).
+
+**Đáp án nhiễu bám sát lỗi thật.** Câu trắc nghiệm không lấy đại động từ khác mà ưu tiên theo thứ tự:
+
+1. Chính động từ đó **chia nhầm nhóm** — hỏi thể Te của 走ります thì có đáp án 走りて (lỗi chia
+   như nhóm 2). Đây là lỗi phổ biến nhất của người học.
+2. Chính động từ đó ở **thể khác** — 走る, 走った, 走らない. Kiểm tra xem có phân biệt được các thể không.
+3. Cùng thể đó của động từ khác, khi hai nguồn trên không đủ.
+
+## Tính năng chung
+
+**Bốn chiều luyện tập (bài từ vựng)**
+
+| Chiều | Câu hỏi | Đáp án |
+| --- | --- | --- |
+| Nhật → Việt | 逃げます | chạy trốn/ bỏ chạy |
+| Việt → Nhật | chạy trốn/ bỏ chạy | 逃げます |
+| Nhật → Hán Việt | 逃げます | ĐÀO |
+| Hán Việt → Nhật | ĐÀO | 逃げます |
+
+**Hai cách trả lời**
+
+- **Trắc nghiệm 4 đáp án** — bấm chuột hoặc nhấn phím `1`–`4`.
+- **Gõ đáp án** — gõ rồi nhấn `Enter`.
+
+**Quy tắc chấm**
+
+- Trả lời đúng → hiện phản hồi, nhấn `Space` để sang câu tiếp theo.
+- Trả lời sai → được thử lại. Sai **4 lần** thì hiện đáp án và **tính sai** câu đó; xem xong
+  nhấn `Space` để đi tiếp.
+- Riêng trắc nghiệm, số lượt sai tối đa bằng số đáp án nhiễu (3 với câu 4 lựa chọn) — chọn hết
+  đáp án sai là đã lộ đáp án đúng nên tính sai luôn.
+- Nút **“Chịu, xem đáp án”** cho phép bỏ qua sớm, câu đó tính là sai.
+
+**Tuỳ chọn độ khó**
+
+- Hiện/ẩn âm Hán Việt kèm câu hỏi (chỉ ở hai chiều Nhật ↔ Việt; tắt đi để khó hơn).
+- Trộn thứ tự câu hỏi.
+- Giới hạn số câu (10 / 20 / 30 / 50 / tất cả).
+- Bỏ qua dấu tiếng Việt khi chấm (chỉ áp dụng cho chế độ gõ).
+
+**Favorite — luyện từ chưa nhớ**
+
+Bấm ngôi sao ở bảng từ vựng, trong lúc luyện, hoặc ở màn hình kết quả để đánh dấu từ hay quên.
+Khi bắt đầu luyện, chọn phạm vi **“★ Chưa nhớ”** để chỉ luyện nhóm này thay vì toàn bài.
+Đây là dữ liệu duy nhất được lưu lại giữa các phiên (trong `localStorage`).
+
+**Giao diện hai ngôn ngữ: Tiếng Việt / 日本語**
+
+Nút 🌐 ở header đổi ngôn ngữ ngay lập tức, kể cả đang làm dở một câu. Lựa chọn được nhớ cho lần
+mở sau, và `<html lang>` cũng đổi theo.
+
+**Đổi ngôn ngữ không làm layout xê dịch** — chữ đổi còn mọi khung, cột, nút đứng nguyên tại chỗ.
+
+Phần **dịch** là giao diện: nút, nhãn, thông báo lỗi, tiêu đề tab, tên các thể động từ, tên nhóm.
+Phần **không dịch** là nội dung bài học — nghĩa tiếng Việt của từ vựng, tên và mô tả bài học lấy
+từ `meta.json`. Đó là dữ liệu học chứ không phải giao diện; muốn tên bài hiện bằng tiếng Nhật thì
+sửa `name` trong `data-source/<bài>/meta.json`.
+
+**Giao diện sáng / tối**
+
+Nút ở góc phải header xoay vòng **Tự động → Sáng → Tối**. “Tự động” đi theo cài đặt sáng/tối của
+hệ điều hành và đổi ngay khi bạn đổi cài đặt đó; hai lựa chọn còn lại ép cứng bất kể hệ thống
+đang để gì. Lựa chọn được nhớ lại cho lần mở sau.
+
+**Kết quả**
+
+Mỗi lần luyện là một lần mới, không lưu lịch sử. Kết thúc phiên sẽ hiện tỉ lệ đúng, số câu đúng
+ngay lần đầu / đúng sau khi thử lại / sai, thời gian làm, danh sách chi tiết từng câu, kèm nút
+“Luyện lại các câu sai” và “Đánh dấu ★ tất cả câu sai”.
+
+## Định dạng dữ liệu
+
+### Bài động từ — 4 cột
+
+```
+ÂM HÁN VIỆT,THỂ MẬU,NGHĨA TIẾNG VIỆT,NHÓM
+```
+
+```
+ĐÀO,逃げます,chạy trốn,2
+THỦ,守ります,bảo vệ/ giữ,1
+QUY,帰ります,về/ trở về,1*
+VI,します,làm,3
+```
+
+- Cột nhóm: `1`, `2` hoặc `3`. Thêm `*` để đánh dấu động từ đặc biệt (nhóm 1 dễ nhầm thành nhóm 2).
+- Động từ phải ở thể ます; script báo lỗi nếu không.
+- Nghĩa vẫn chứa được dấu phẩy — chỉ cột đầu, cột hai và cột cuối là cố định.
+- File phải đặt tên là `verbs.txt` / `dong-tu.txt` (xem [`data-source/README.md`](data-source/README.md)).
+
+Nếu khai báo sai nhóm (ví dụ ghi 食べます là nhóm 1), app báo lỗi ngay ở màn hình chi tiết bài
+học và bỏ qua động từ đó khi luyện — chạy `npm run verify:conjugation` để phát hiện sớm hơn.
+
+### Bài từ vựng — 3 cột
+
+Mỗi dòng một từ, ba cột:
+
+```
+ÂM HÁN VIỆT,TIẾNG NHẬT,NGHĨA TIẾNG VIỆT
+```
+
+Ví dụ:
+
+```
+ĐÀO,逃げます,chạy trốn/ bỏ chạy
+XA CHÚ Ý,車に注意します,chú ý ô tô
+TỊCH,席,chỗ ngồi/ ghế
+```
+
+Quy tắc:
+
+- Chỉ tách ở **hai dấu phẩy đầu tiên** — nghĩa tiếng Việt có chứa dấu phẩy vẫn đúng.
+- **Câu ví dụ (tuỳ chọn)** viết sau dấu `|` ở cuối cột nghĩa:
+  `ĐÀO,逃げます,chạy trốn/ bỏ chạy|犯人は窓から逃げました。` — hoặc đặt ở cột thứ 4 khi dán bằng TAB.
+  Dùng `|` chứ không thêm dấu phẩy để nghĩa vẫn chứa được dấu phẩy. Cột ví dụ chỉ hiện khi bài
+  có ít nhất một câu.
+- Dòng có ký tự TAB thì tách bằng TAB (tiện khi copy từ Excel / Google Sheet).
+- Dòng trống và dòng bắt đầu bằng `#` bị bỏ qua.
+- Dấu `/` tách các nghĩa tương đương. Khi gõ đáp án, gõ đúng **một trong các nghĩa** đó là được
+  tính đúng (`chạy trốn` khớp với `chạy trốn/ bỏ chạy`).
+- Dòng trùng nhau (cùng tiếng Nhật + cùng âm Hán Việt) tự động bị loại, có báo cảnh báo.
+
+## Thêm bài học mới
+
+### Cách 1 — Bằng script (bài học nằm trong mã nguồn)
+
+Hướng dẫn đầy đủ nằm ngay cạnh dữ liệu: [`data-source/README.md`](data-source/README.md).
+Tóm tắt:
+
+1. Tạo thư mục con trong `data-source/`. **Tên thư mục chính là id bài học**, và id là khoá
+   lưu danh sách ★ — đổi tên thư mục sau này sẽ mất ★ của bài đó.
+
+   ```
+   data-source/minna-34-tu-vung/
+   ```
+
+2. Đặt file dữ liệu vào. **Tên file quyết định loại bài học**, không phải tên thư mục:
+
+   | Loại bài | Đặt tên file là |
+   | --- | --- |
+   | Từ vựng | `vocabulary.txt`, `vocab.txt`, `tu-vung.txt`, `tuvung.txt` |
+   | Chia động từ | `verbs.txt`, `verb.txt`, `dong-tu.txt`, `dongtu.txt` |
+
+   Tên khác thì script báo lỗi và dừng chứ không đoán. Một thư mục chỉ được chứa một loại;
+   bài 34 có cả từ vựng lẫn động từ thì tách thành hai thư mục.
+
+3. *(Tuỳ chọn)* Thêm `meta.json`:
+
+   ```json
+   {
+     "name": "皆の日本語 — Bài 34",
+     "description": "Từ vựng bài 34",
+     "order": 3401
+   }
+   ```
+
+   `order` quyết định thứ tự hiển thị (bài không có `order` xếp sau cùng). Quy ước đang dùng:
+   `<số bài><thứ tự trong bài>` — bài 34 từ vựng là `3401`, động từ là `3402`, chuyên đề từ
+   `9001` trở lên.
+
+4. Chạy script:
+
+   ```bash
+   npm run generate
+   ```
+
+   Script sinh `public/lessons/<id>.json` cho từng thư mục và cập nhật
+   `public/lessons/index.json`. Ứng dụng đọc `index.json` để biết có những bài nào.
+
+Các lệnh khác của script:
+
+```bash
+npm run generate:check    # chỉ kiểm tra dữ liệu, không ghi file
+npm run generate:clean    # sinh lại và xoá luôn file .json không còn thư mục nguồn
+```
+
+Script báo rõ từng dòng lỗi (thiếu cột, cột rỗng) và từng dòng trùng, kèm số dòng.
+
+### Cách 2 — Nạp trực tiếp trên giao diện
+
+Vào menu **“Nạp bài mới”**, dán danh sách từ vựng hoặc chọn file `.txt`. Màn hình hiện ngay số
+từ hợp lệ, các dòng lỗi và bảng xem trước. Sau đó chọn:
+
+- **Lưu và mở bài học** — lưu vào `localStorage` của trình duyệt, dùng được ngay.
+- **Tải file JSON** — tải file `<id>.json` về để đặt vào `public/lessons/` nếu muốn bài học đi
+  kèm mã nguồn (nhớ thêm bài đó vào `index.json`, hoặc tốt hơn là dùng Cách 1).
+
+Bài tự nạp có nhãn **“Tự nạp”** và xoá được bất cứ lúc nào.
+
+## Cấu trúc dự án
+
+```
+data-source/                     Nguồn dữ liệu dạng text, mỗi thư mục là một bài
+  minano-nihongo-33/
+    meta.json                    Tên hiển thị + loại bài (tuỳ chọn)
+    vocabulary.txt               Danh sách từ vựng
+  dong-tu-dac-biet/
+    meta.json
+    verbs.txt                    Danh sách động từ
+scripts/
+  vocab-core.mjs                 Lõi phân tích từ vựng + động từ (Node)
+  generate-lessons.mjs           Sinh public/lessons/*.json + index.json
+  build-offline.mjs              Gộp bản build thành dist/offline/index.html một file
+  verify-parser-parity.mjs       Kiểm tra hai bản parser cho kết quả giống nhau
+  verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
+public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
+  index.json
+  minano-nihongo-33.json
+src/app/
+  core/
+    japanese/
+      conjugation.ts             Luật chia động từ — bản cài đặt DUY NHẤT
+    models/                      Kiểu dữ liệu bài học và phiên luyện tập
+    practice/
+      build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
+      vocabulary-questions.ts    Câu hỏi cho bài từ vựng
+      verb-questions.ts          Câu hỏi cho bài động từ + đáp án nhiễu
+    services/
+      lesson-store.ts            Nạp bài học từ JSON + localStorage
+      favorite-store.ts          Danh sách mục chưa nhớ
+      practice-session-store.ts  Chạy phiên và chấm điểm
+      theme-store.ts             Lựa chọn giao diện sáng/tối
+    utils/
+      vocabulary-parser.ts       Bản TypeScript của vocab-core.mjs
+      answer-check.ts            So khớp đáp án gõ tay
+    guards/                      Chặn vào /practice và /result khi không có phiên
+  features/
+    lesson-list/                 Trang chủ
+    lesson-detail/               Bảng từ vựng + thiết lập luyện tập
+    practice/                    Màn hình làm bài
+    result/                      Màn hình kết quả
+    import-lesson/               Nạp bài mới
+```
+
+## Lưu ý kỹ thuật
+
+**Hai bản parser phải giống nhau.** `scripts/vocab-core.mjs` (dùng bởi script) và
+`src/app/core/utils/vocabulary-parser.ts` (dùng bởi màn hình nạp bài) cài cùng một thuật toán.
+Id của từ vựng được băm từ nội dung (`FNV-1a`) và danh sách Favorite lưu theo id đó, nên nếu hai
+bản lệch nhau thì cùng một bài học nạp bằng hai đường sẽ có id khác nhau và Favorite mất tác
+dụng. **Sửa một bên thì phải sửa bên kia**, rồi chạy:
+
+```bash
+npm run verify           # chạy cả hai lệnh kiểm tra bên dưới
+npm run verify:parser    # hai bản parser cho kết quả giống nhau
+npm run verify:conjugation  # engine chia động từ + dữ liệu động từ thật
+```
+
+`verify:parser` so sánh kết quả của hai bản trên cùng bộ dữ liệu mẫu và đối chiếu id trong file
+JSON đã sinh. Cần Node 22+ (dùng `--experimental-strip-types` để nạp thẳng file `.ts`).
+
+**Engine chia động từ thì KHÔNG bị nhân đôi.** `src/app/core/japanese/conjugation.ts` là bản cài
+đặt duy nhất; dữ liệu JSON chỉ lưu thể ます + nhóm, còn các thể khác tính lúc chạy. Sửa luật chia
+là có hiệu lực ngay, không phải sinh lại dữ liệu. `npm run verify:conjugation` nạp thẳng file
+`.ts` đó để chạy 35 ca kiểm thử (đủ 9 âm cuối của nhóm 1, các trường hợp bất quy tắc, và các ca
+PHẢI bị từ chối), rồi quét toàn bộ động từ trong `public/lessons` xem có từ nào khai báo sai nhóm.
+
+**Id ổn định.** Vì id băm từ nội dung chứ không phải từ vị trí dòng, chạy lại `npm run generate`
+sau khi thêm/bớt/sắp xếp lại từ vựng sẽ không làm mất Favorite của các từ cũ. Chỉ khi sửa nội
+dung tiếng Nhật hoặc âm Hán Việt của một từ thì từ đó mới đổi id.
+
+**Đa ngôn ngữ dịch lúc chạy, không dùng i18n của Angular.** `ng build --localize` dịch lúc biên
+dịch: mỗi ngôn ngữ là một bundle riêng, đổi ngôn ngữ phải tải trang khác, và **bản offline một
+file sẽ không làm được** (thành 2 file, không có nút chuyển). Thay vào đó toàn bộ chữ nằm ở
+[`src/app/core/i18n/messages.ts`](src/app/core/i18n/messages.ts) dưới dạng `khoá → { vi, ja }`, và
+`LanguageStore` là một signal — template gọi `t('khoá')`, Angular ghi nhận phụ thuộc signal nên đổi
+ngôn ngữ là vẽ lại ngay.
+
+Hệ quả với code: nhãn trong model **không chứa chữ sẵn mà chứa khoá** (`labelKey`, `shortKey`,
+`exampleKey`…). Câu hỏi cũng lưu khoá chứ không lưu chữ đã dịch, nên đổi ngôn ngữ giữa phiên là
+cả nhãn câu hỏi lẫn các lựa chọn đều đổi theo. Riêng câu "nhận diện nhóm" lưu đáp án là mã
+`"1"/"2"/"3"` chứ không phải chữ — nếu lưu chữ thì đổi ngôn ngữ giữa câu sẽ làm chấm điểm sai.
+
+Chạy `npm run verify:i18n` để kiểm tra: khoá dùng trong code có trong từ điển, từ điển đủ cả hai
+ngôn ngữ, tham số `{ten}` khớp nhau giữa hai bản dịch (thiếu một tham số là lỗi im lặng — chữ vẫn
+hiện nhưng mất số liệu), và không còn chuỗi tiếng Việt cứng sót trong template.
+
+**Đổi ngôn ngữ không được làm layout xê dịch.** Chữ hai ngôn ngữ dài ngắn khác nhau nên xuống dòng
+khác nhau, làm mọi thứ bên dưới nhảy chỗ. Cách xử lý:
+
+- [`core/i18n/t.ts`](src/app/core/i18n/t.ts) — component `<app-t>` vẽ bản dịch của **mọi ngôn ngữ**
+  chồng lên nhau trong một ô grid, chỉ ngôn ngữ đang chọn là hiện, các bản kia `visibility: hidden`.
+  Chữ ẩn vẫn chiếm chỗ nên ô luôn rộng/cao bằng bản dài nhất. **Không dùng `min-width`/`min-height`
+  với số đo cố định** — loại đó đúng hôm nay và sai âm thầm vào hôm ai đó sửa một câu dịch.
+  Chỉ cần dùng ở chỗ kích thước ảnh hưởng tới vị trí phần khác; chữ nằm một mình thì `{{ t('key') }}`
+  là đủ.
+- Bảng dùng `table-layout: fixed` + bề rộng cột khai báo sẵn, nên cột không co giãn theo độ dài chữ.
+- `.icon-btn-glyph` có bề rộng cố định: cùng ký tự `◐`/`☀`/`🌐` nhưng khi `<html lang>` đổi thì
+  trình duyệt chọn font khác và ký tự render rộng hẹp khác nhau (đo được 13px ↔ 16px).
+
+**Bảng màu chỉ khai báo một lần.** `src/styles.css` dùng `light-dark(giá trị sáng, giá trị tối)`
+cho từng biến màu, nên không có chuyện bảng màu tối bị lệch khỏi bảng màu sáng khi sửa. Đổi tông
+thực chất chỉ là đổi thuộc tính `color-scheme`, do `ThemeStore` đặt qua `data-theme` trên thẻ
+`<html>`. Thêm màu mới thì viết đúng một dòng `light-dark(...)`.
+
+Trong `index.html` có một đoạn script nhỏ đọc lựa chọn đã lưu và đặt `data-theme` **trước khi**
+Angular khởi động, để trang không chớp sai màu một nhịp lúc mới mở. Nếu đổi khoá lưu trữ trong
+`ThemeStore` thì phải sửa đoạn script đó cho khớp (cả trong `src/index.html` lẫn
+`scripts/build-offline.mjs`).
+
+**Trạng thái phiên nằm trong bộ nhớ.** Tải lại trang giữa lúc đang luyện sẽ mất phiên và bị đưa
+về trang chủ — đúng với yêu cầu “mỗi lần luyện tập là một lần mới, không lưu lịch sử”.
+
+**Gõ tiếng Nhật.** Hai chiều có đáp án là tiếng Nhật (Việt → Nhật, Hán Việt → Nhật) cần bật bộ
+gõ tiếng Nhật (IME) khi dùng chế độ gõ đáp án. Nếu không có IME, dùng chế độ trắc nghiệm.
+Khi so khớp tiếng Nhật, mọi khoảng trắng đều được bỏ qua.

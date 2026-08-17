@@ -1,0 +1,536 @@
+/* ============================================================================
+   Design system dùng chung cho toàn ứng dụng.
+
+   Mỗi màu khai báo MỘT lần bằng light-dark(giá trị sáng, giá trị tối). Hàm này
+   chọn giá trị theo thuộc tính `color-scheme` đang có hiệu lực, nên muốn đổi tông
+   chỉ cần đổi color-scheme — không phải viết lại cả bảng màu lần thứ hai.
+
+   - Không có data-theme  -> color-scheme: light dark -> đi theo cài đặt hệ điều hành.
+   - data-theme="light"   -> ép sáng.
+   - data-theme="dark"    -> ép tối.
+
+   Thuộc tính data-theme do ThemeStore (src/app/core/services/theme-store.ts) đặt
+   trên thẻ <html>, và được khôi phục sớm bởi đoạn script nhỏ trong index.html để
+   trang không bị chớp sai màu lúc mới mở.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: light-dark(#f4f6fb, #12141c);
+  --bg-elevated: light-dark(#ffffff, #1b1e29);
+  --bg-subtle: light-dark(#eef1f7, #232735);
+  --bg-inset: light-dark(#e6eaf3, #2b3040);
+
+  --text: light-dark(#16192b, #eceef5);
+  --text-muted: light-dark(#5b6178, #a6adc2);
+  --text-faint: light-dark(#868ca3, #7d8499);
+
+  --border: light-dark(#dde2ec, #2f3446);
+  --border-strong: light-dark(#c3cad9, #434a61);
+
+  --accent: light-dark(#4f46e5, #8b85ff);
+  --accent-hover: light-dark(#4338ca, #a29dff);
+  --accent-soft: light-dark(#ecebfd, #272444);
+  --accent-text: light-dark(#ffffff, #12141c);
+
+  --success: light-dark(#15803d, #6ee7a0);
+  --success-soft: light-dark(#dcfce7, #14311f);
+  --success-border: light-dark(#86efac, #2f6b45);
+
+  --danger: light-dark(#be123c, #ff9aae);
+  --danger-soft: light-dark(#ffe4e9, #3a1420);
+  --danger-border: light-dark(#fda4af, #7d2a41);
+
+  --warning: light-dark(#b45309, #fcd34d);
+  --warning-soft: light-dark(#fef3c7, #38290b);
+  --warning-border: light-dark(#fcd34d, #7a5a15);
+
+  --star: light-dark(#f59e0b, #fbbf24);
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 18px;
+
+  --shadow-sm: 0 1px 2px light-dark(rgb(16 24 40 / 6%), rgb(0 0 0 / 30%));
+  --shadow: 0 4px 16px light-dark(rgb(16 24 40 / 8%), rgb(0 0 0 / 35%));
+  --shadow-lg: 0 12px 32px light-dark(rgb(16 24 40 / 12%), rgb(0 0 0 / 45%));
+
+  --font-ui: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-jp: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'MS Gothic', Meiryo,
+    var(--font-ui);
+  --font-mono: 'Cascadia Code', Consolas, 'SF Mono', Menlo, monospace;
+
+  --max-width: 1080px;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+/* --- Reset ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  font-weight: 650;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+h2 {
+  font-size: 1.25rem;
+}
+h3 {
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Layout --------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.page {
+  padding-block: 28px 64px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* --- Card ----------------------------------------------------------------- */
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* --- Button --------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 0.94rem;
+  font-weight: 550;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.05s;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--bg-subtle);
+  border-color: var(--text-faint);
+  text-decoration: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--accent-text);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-subtle);
+  border-color: transparent;
+  color: var(--text);
+}
+
+.btn-danger {
+  color: var(--danger);
+  border-color: var(--danger-border);
+  background: transparent;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.btn-lg {
+  padding: 13px 26px;
+  font-size: 1.02rem;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
+
+/* --- Form ----------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.82rem;
+  font-weight: 620;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.textarea {
+  min-height: 200px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+.checkbox:hover {
+  border-color: var(--border-strong);
+}
+
+.checkbox input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.checkbox.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --- Nhóm nút chọn (segmented control) ------------------------------------ */
+
+.options {
+  display: grid;
+  gap: 8px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  text-align: left;
+  font-weight: 500;
+  width: 100%;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  background: var(--bg-inset);
+}
+
+.option.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 620;
+}
+
+.option:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --- Badge ---------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--bg-inset);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.badge-accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.badge-success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.badge-danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.badge-warning {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+/* --- Chữ tiếng Nhật ------------------------------------------------------- */
+
+.jp {
+  font-family: var(--font-jp);
+  font-feature-settings: 'palt' 0;
+}
+
+/* --- Thông báo ------------------------------------------------------------ */
+
+.notice {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+  font-size: 0.92rem;
+}
+
+.notice-error {
+  border-color: var(--danger-border);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.notice-warning {
+  border-color: var(--warning-border);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.notice-success {
+  border-color: var(--success-border);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* --- Tiện ích ------------------------------------------------------------- */
+
+.muted {
+  color: var(--text-muted);
+}
+
+.faint {
+  color: var(--text-faint);
+}
+
+.small {
+  font-size: 0.86rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.scroll-x {
+  overflow-x: auto;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--bg-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-inline: 14px;
+  }
+
+  .card-body {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

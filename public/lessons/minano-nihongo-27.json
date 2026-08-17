@@ -1,0 +1,291 @@
+{
+  "id": "minano-nihongo-27",
+  "name": "皆の日本語 — Bài 27 · Từ vựng",
+  "description": "Từ vựng bài 27",
+  "kind": "vocabulary",
+  "itemCount": 35,
+  "words": [
+    {
+      "id": "0rjl4ow",
+      "hanViet": "TỰ",
+      "japanese": "飼います",
+      "reading": "かいます",
+      "vietnamese": "nuôi",
+      "example": "猫を飼います。"
+    },
+    {
+      "id": "15lrjas",
+      "hanViet": "KIẾN",
+      "japanese": "建てます",
+      "reading": "たてます",
+      "vietnamese": "xây/ xây dựng",
+      "example": "家を建てます。"
+    },
+    {
+      "id": "0ewiixd",
+      "hanViet": "ĐẠO TẨU",
+      "japanese": "道を走ります",
+      "reading": "みちをはしります",
+      "vietnamese": "chạy trên đường",
+      "example": "車が道を走ります。"
+    },
+    {
+      "id": "0zbkrei",
+      "hanViet": "HƯU THỦ",
+      "japanese": "休みを取ります",
+      "reading": "やすみをとります",
+      "vietnamese": "xin nghỉ/ nghỉ phép",
+      "example": "明日休みを取ります。"
+    },
+    {
+      "id": "04ci0fs",
+      "hanViet": "SƠN/SAN KIẾN",
+      "japanese": "山が見えます",
+      "reading": "やまがみえます",
+      "vietnamese": "có thể nhìn thấy núi",
+      "example": "窓から山が見えます。"
+    },
+    {
+      "id": "1qohe1l",
+      "hanViet": "ÂM VĂN",
+      "japanese": "音が聞こえます",
+      "reading": "おとがきこえます",
+      "vietnamese": "có thể nghe thấy âm thanh",
+      "example": "遠くで音が聞こえます。"
+    },
+    {
+      "id": "1e7faqt",
+      "hanViet": "KHÔNG CẢNG",
+      "japanese": "空港ができます",
+      "reading": "くうこうができます",
+      "vietnamese": "sân bay được hoàn thành",
+      "example": "町に新しい空港ができました。"
+    },
+    {
+      "id": "1xmcr3o",
+      "hanViet": "GIÁO THẤT KHAI",
+      "japanese": "教室を開きます",
+      "reading": "きょうしつをひらきます",
+      "vietnamese": "mở lớp học",
+      "example": "日本語の教室を開きます。"
+    },
+    {
+      "id": "100abjq",
+      "hanViet": "ĐIỂU",
+      "japanese": "鳥",
+      "reading": "とり",
+      "vietnamese": "chim",
+      "example": "空に鳥が飛んでいます。"
+    },
+    {
+      "id": "12688lu",
+      "hanViet": "THANH",
+      "japanese": "声",
+      "reading": "こえ",
+      "vietnamese": "tiếng nói/ giọng nói",
+      "example": "きれいな声ですね。"
+    },
+    {
+      "id": "16yo2jy",
+      "hanViet": "BA",
+      "japanese": "波",
+      "reading": "なみ",
+      "vietnamese": "sóng",
+      "example": "海で高い波があります。"
+    },
+    {
+      "id": "0peah64",
+      "hanViet": "HOA HỎA",
+      "japanese": "花火",
+      "reading": "はなび",
+      "vietnamese": "pháo hoa",
+      "example": "夜、花火を見に行きます。"
+    },
+    {
+      "id": "1r19fsl",
+      "hanViet": "CẢNH SẮC",
+      "japanese": "景色",
+      "reading": "けしき",
+      "vietnamese": "phong cảnh/ cảnh sắc",
+      "example": "この辺の景色はきれいです。"
+    },
+    {
+      "id": "1hik087",
+      "hanViet": "TRÚ GIAN",
+      "japanese": "昼間",
+      "reading": "ひるま",
+      "vietnamese": "ban ngày/ thời gian ban ngày",
+      "example": "昼間は暑いです。"
+    },
+    {
+      "id": "0szmcox",
+      "hanViet": "TÍCH",
+      "japanese": "昔",
+      "reading": "むかし",
+      "vietnamese": "ngày xưa/ trước đây",
+      "example": "昔、ここに公園がありました。"
+    },
+    {
+      "id": "1mxlcrd",
+      "hanViet": "ĐẠO CỤ",
+      "japanese": "道具",
+      "reading": "どうぐ",
+      "vietnamese": "dụng cụ/ công cụ",
+      "example": "料理の道具を買います。"
+    },
+    {
+      "id": "1sm8t13",
+      "hanViet": "TỰ ĐỘNG PHIÊN MẠI CƠ",
+      "japanese": "自動販売機",
+      "reading": "じどうはんばいき",
+      "vietnamese": "máy bán hàng tự động",
+      "example": "駅で自動販売機を使います。"
+    },
+    {
+      "id": "0h9crcg",
+      "hanViet": "THÔNG TÍN PHIÊN MẠI",
+      "japanese": "通信販売",
+      "reading": "つうしんはんばい",
+      "vietnamese": "bán hàng qua bưu điện/ thương mại viễn thông",
+      "example": "最近、通信販売をよく利用します。"
+    },
+    {
+      "id": "0b2na4n",
+      "hanViet": "ĐÀI SỞ",
+      "japanese": "台所",
+      "reading": "だいどころ",
+      "vietnamese": "bếp/ nhà bếp",
+      "example": "台所で料理を作ります。"
+    },
+    {
+      "id": "090ql84",
+      "hanViet": "BỔN BẰNG",
+      "japanese": "本棚",
+      "reading": "ほんだな",
+      "vietnamese": "giá sách/ kệ sách",
+      "example": "本棚に本を並べます。"
+    },
+    {
+      "id": "0b4fgsl",
+      "hanViet": "MỘNG",
+      "japanese": "夢",
+      "reading": "ゆめ",
+      "vietnamese": "giấc mơ/ ước mơ",
+      "example": "昨日の夜、変な夢を見ました。"
+    },
+    {
+      "id": "0j0tvgm",
+      "hanViet": "GIA",
+      "japanese": "家",
+      "reading": "いえ",
+      "vietnamese": "nhà",
+      "example": "新しい家を建てます。"
+    },
+    {
+      "id": "1l5rnca",
+      "hanViet": "TỬ/TÝ",
+      "japanese": "子どもたち",
+      "reading": "こどもたち",
+      "vietnamese": "trẻ em/ trẻ con/ con cái",
+      "example": "公園で子どもたちが遊んでいます。"
+    },
+    {
+      "id": "1w0eyd0",
+      "hanViet": "ĐẠI HẢO",
+      "japanese": "大好き",
+      "reading": "だいすき",
+      "vietnamese": "rất thích/ thích lắm",
+      "example": "私は猫が大好きです。"
+    },
+    {
+      "id": "1f5ce7l",
+      "hanViet": "MẠN HỌA",
+      "japanese": "漫画",
+      "reading": "まんが",
+      "vietnamese": "truyện tranh/ manga",
+      "example": "休みの日に漫画を読みます。"
+    },
+    {
+      "id": "064utyp",
+      "hanViet": "CHỦ NHÂN CÔNG",
+      "japanese": "主人公",
+      "reading": "しゅじんこう",
+      "vietnamese": "nhân vật chính",
+      "example": "この映画の主人公はかっこいいです。"
+    },
+    {
+      "id": "1j4k0q9",
+      "hanViet": "HÌNH",
+      "japanese": "形",
+      "reading": "かたち",
+      "vietnamese": "hình/ dạng/ hình dạng",
+      "example": "このチョコレートは星の形をしています。"
+    },
+    {
+      "id": "1a2r099",
+      "hanViet": "BẤT TƯ NGHỊ",
+      "japanese": "不思議",
+      "reading": "ふしぎ",
+      "vietnamese": "kỳ lạ/ khó tin/ bí ẩn",
+      "example": "この話はとても不思議です。"
+    },
+    {
+      "id": "0lwlxvw",
+      "hanViet": "LỆ",
+      "japanese": "例えば",
+      "reading": "たとえば",
+      "vietnamese": "ví dụ như/ chẳng hạn/ ví dụ",
+      "example": "例えば、この問題を見てください。"
+    },
+    {
+      "id": "0dmqak6",
+      "hanViet": "PHÓ",
+      "japanese": "付けます",
+      "reading": "つけます",
+      "vietnamese": "lắp/ gắn/ ghép thêm/ đặt tên",
+      "example": "ノートに名前を付けます。"
+    },
+    {
+      "id": "0w1xuvw",
+      "hanViet": "TỰ DO",
+      "japanese": "自由に",
+      "reading": "じゆうに",
+      "vietnamese": "tự do/ tuỳ thích/ thoải mái",
+      "example": "ここで自由に写真を撮ることができます。"
+    },
+    {
+      "id": "0ca7l8z",
+      "hanViet": "KHÔNG",
+      "japanese": "空",
+      "reading": "そら",
+      "vietnamese": "bầu trời/ trời",
+      "example": "今日の空は青くてきれいです。"
+    },
+    {
+      "id": "0vivkz5",
+      "hanViet": "PHI",
+      "japanese": "飛びます",
+      "reading": "とびます",
+      "vietnamese": "bay",
+      "example": "鳥が空を飛んでいます。"
+    },
+    {
+      "id": "1n4lfl1",
+      "hanViet": "TỰ PHÂN",
+      "japanese": "自分",
+      "reading": "じぶん",
+      "vietnamese": "bản thân/ mình/ tự mình",
+      "example": "自分一人でやります。"
+    },
+    {
+      "id": "0i08ib6",
+      "hanViet": "TƯƠNG LAI",
+      "japanese": "将来",
+      "reading": "しょうらい",
+      "vietnamese": "tương lai",
+      "example": "将来、医者になりたいです。"
+    }
+  ],
+  "verbs": [],
+  "lines": []
+}

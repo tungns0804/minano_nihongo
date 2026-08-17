@@ -1,0 +1,46 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+KHAI,ドアが開きます (ドアがあきます),cửa mở ra|自動でドアが開きます。
+BẾ,ドアが閉まります (ドアがしまります),cửa đóng lại|風でドアが閉まりました。
+ĐIỆN KHÍ,電気がつきます (でんきがつきます),điện bật sáng|部屋の電気がつきます。
+ĐIỆN KHÍ TIÊU,電気が消えます (でんきがきえます),điện tắt|急に電気が消えました。
+ĐẠO VÀO,道が込みます (みちがこみます),đường đông/ tắc đường|朝はいつも道が込みます。
+ĐẠO,道がすきます (みちがすきます),đường vắng/ đường thoáng|夜になると道がすきます。
+HOẠI,いすが壊れます (いすがこわれます),ghế bị hỏng|古いいすが壊れました。
+CÁT,コップが割れます (コップがわれます),cốc bị vỡ|落としてコップが割れました。
+MỘC TRIẾT,木が折れます (きがおれます),cây bị gãy|台風で木が折れました。
+CHỈ PHÁ,紙が破れます (かみがやぶれます),giấy bị rách|かばんの中で紙が破れました。
+PHỤC Ô,服が汚れます (ふくがよごれます),quần áo bị bẩn|遊んで服が汚れました。
+PHÓ,ポケットが付きます (ポケットがつきます),có gắn túi/ có kèm theo túi|このシャツはポケットが付いています。
+NGOẠI,ボタンが外れます (ボタンがはずれます),cúc bị tuột|シャツのボタンが外れました。
+CHỈ,エレベーターが止まります (エレベーターがとまります),thang máy dừng lại|地震でエレベーターが止まりました。
+LẠC,落とします (おとします),đánh rơi/ làm rơi|電車で財布を落としました。
+QUẢI,鍵が掛かります (かぎがかかります),cửa được khoá|ドアに鍵が掛かっています。
+MÃNH,お皿 (おさら),cái đĩa|お皿を洗います。
+ĐẠI,袋 (ふくろ),cái túi|パンを袋に入れます。
+TÀI BỐ,財布 (さいふ),cái ví|財布をなくしました。
+CHI,枝 (えだ),cành cây|木の枝が折れそうです。
+DỊCH VIÊN,駅員 (えきいん),nhân viên nhà ga|駅員に道を尋ねます。
+BIÊN,この辺 (このへん),xung quanh đây/ gần đây|この辺は静かです。
+TIÊN,お先にどうぞ (おさきにどうぞ),Xin mời anh/chị đi trước.|エレベーターで「お先にどうぞ」と言います。
+KIM ĐIỆN XA,今の電車 (いまのでんしゃ),đoàn tàu vừa rồi|今の電車に忘れ物をしました。
+VONG VẬT,忘れ物 (わすれもの),vật để quên|電車の中に忘れ物をしました。
+GIÁC,覚えていません (おぼえていません),Tôi không nhớ.|その人の名前は覚えていません。
+VÕNG BẰNG,網棚 (あみだな),giá lưới/ giá để hành lý (trên tàu)|網棚に荷物を置きます。
+XÁC,確か (たしか),nếu không lầm thì|確か来週だったと思います。
+TỨ CỐC,四ツ谷 (よつや),tên một nhà ga ở Tokyo|四ツ谷駅で降ります。
+ĐỊA CHẤN,地震 (じしん),động đất|ゆうべ大きな地震がありました。
+BÍCH,壁 (かべ),bức tường|壁に絵を掛けます。
+CHÂM,針 (はり),kim đồng hồ|時計の針が止まっています。
+CHỈ,指します (さします),chỉ/ trỏ|時計の針が12時を指しています。
+DỊCH TIỀN,駅前 (えきまえ),khu vực trước nhà ga|駅前で友達と待ち合わせます。
+ĐẢO,倒れます (たおれます),đổ/ ngã|地震で本棚が倒れました。
+TÂY,西 (にし),tây/ phía tây|太陽は西に沈みます。
+PHƯƠNG,方 (ほう),hướng/ phương hướng|駅はあっちの方です。

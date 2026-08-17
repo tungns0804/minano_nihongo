@@ -1,0 +1,504 @@
+<div class="container page">
+  @if (loading()) {
+    <div class="notice">{{ t('lesson.loading') }}</div>
+  } @else if (notFound()) {
+    <div class="stack">
+      <div class="notice notice-error">
+        {{ t('lesson.notFound', { id: lessonId() }) }}
+      </div>
+      <div><a class="btn" routerLink="/">{{ t('common.backToList') }}</a></div>
+    </div>
+  } @else if (lesson(); as data) {
+    <div class="stack" style="gap: 22px">
+      <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
+      <header class="stack" style="gap: 8px">
+        <a class="back-link" routerLink="/">{{ t('common.back') }}</a>
+        <div class="row">
+          <h1>{{ data.name }}</h1>
+          @if (data.origin === 'custom') {
+            <span class="badge badge-accent">{{ t('common.custom') }}</span>
+          }
+        </div>
+        @if (data.description) {
+          <p class="muted">{{ data.description }}</p>
+        }
+        <div class="row">
+          <span class="badge">
+            {{ t(kindLabelKeys().unit, { count: data.itemCount }) }}
+          </span>
+          <span class="badge badge-warning">
+            {{ t('home.favoriteCount', { count: favoriteCount() }) }}
+          </span>
+          @if (specialCount() > 0) {
+            <span class="badge badge-accent">{{ t('lesson.specialCount', { count: specialCount() }) }}</span>
+          }
+        </div>
+      </header>
+
+      @if (brokenVerbs().length > 0) {
+        <div class="notice notice-error">
+          <div class="stack" style="gap: 6px; width: 100%">
+            <strong>{{ t('lesson.brokenVerbs', { count: brokenVerbs().length }) }}</strong>
+            <ul class="issue-list">
+              @for (row of brokenVerbs(); track row.entry.id) {
+                <li><span class="jp">{{ row.entry.masu }}</span> — {{ row.error }}</li>
+              }
+            </ul>
+            <span class="small">{{ t('lesson.brokenVerbsNote') }}</span>
+          </div>
+        </div>
+      }
+
+      <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack" style="gap: 20px">
+          <h2>{{ t('lesson.setup') }}</h2>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.scope') }}</span>
+            <div class="options options-2">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'all'"
+                (click)="setScope('all')"
+              >
+                {{ t('lesson.scope.all', { count: data.itemCount }) }}
+              </button>
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'favorite'"
+                [disabled]="favoriteCount() === 0"
+                (click)="setScope('favorite')"
+              >
+                {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+              </button>
+              @if (specialCount() > 0) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="scope() === 'special'"
+                  (click)="setScope('special')"
+                  [title]="t('lesson.scope.specialTitle')"
+                >
+                  {{ t('lesson.scope.special', { count: specialCount() }) }}
+                </button>
+              }
+            </div>
+            @if (favoriteCount() === 0) {
+              <span class="hint">
+                <app-t key="lesson.scope.hint" block />
+              </span>
+            }
+          </div>
+
+          @if (isVerbLesson()) {
+            <!-- ── Thiết lập riêng bài động từ ──────────────────────────── -->
+            <div class="field">
+              <span class="label">{{ t('lesson.questionType') }}</span>
+              <div class="options options-2">
+                @for (mode of verbModes; track mode.id) {
+                  <button
+                    type="button"
+                    class="option option-stacked"
+                    [class.is-active]="verbMode() === mode.id"
+                    (click)="setVerbMode(mode.id)"
+                  >
+                    <strong><app-t [key]="mode.labelKey" block /></strong>
+                    <span class="option-example jp"><app-t [key]="mode.exampleKey" block /></span>
+                  </button>
+                }
+              </div>
+            </div>
+
+            @if (currentVerbMode().needsForms) {
+              <div class="field">
+                <span class="label">{{ t('lesson.forms') }}</span>
+                <div class="options options-limit">
+                  @for (form of availableForms(); track form) {
+                    <button
+                      type="button"
+                      class="option"
+                      [class.is-active]="isFormSelected(form)"
+                      (click)="toggleForm(form)"
+                    >
+                      {{ t(formLabelKey[form]) }}
+                    </button>
+                  }
+                </div>
+                <span class="hint">
+                  <app-t key="lesson.forms.hint" block />
+                </span>
+              </div>
+            }
+          } @else {
+            <!-- ── Thiết lập riêng bài từ vựng ──────────────────────────── -->
+            <div class="field">
+              <span class="label">{{ t('lesson.direction') }}</span>
+              <div class="options options-2">
+                @for (item of availableDirections(); track item.id) {
+                  <button
+                    type="button"
+                    class="option"
+                    [class.is-active]="direction() === item.id"
+                    (click)="setDirection(item.id)"
+                  >
+                    <app-t [key]="item.labelKey" block />
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- Bài hội thoại không có trắc nghiệm: chỉ báo cho biết là gõ đáp án. -->
+          @if (answerModeLocked()) {
+            <div class="field">
+              <span class="label">{{ t('lesson.answerMode') }}</span>
+              <p class="muted small">
+<app-t key="lesson.answerMode.typingOnly" block />
+              </p>
+            </div>
+          } @else {
+            <div class="field">
+              <span class="label">{{ t('lesson.answerMode') }}</span>
+              <div class="options options-2">
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="answerMode() === 'choice'"
+                  (click)="setAnswerMode('choice')"
+                >
+                  {{ t('lesson.answerMode.choice') }}
+                </button>
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="answerMode() === 'typing'"
+                  (click)="setAnswerMode('typing')"
+                >
+                  {{ t('lesson.answerMode.typing') }}
+                </button>
+              </div>
+            </div>
+          }
+
+          <div class="field">
+            <span class="label">{{ t('lesson.questionCount') }}</span>
+            <div class="options options-limit">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === null"
+                (click)="setQuestionLimit(null)"
+              >
+                {{ t('common.all') }}
+              </button>
+              @for (limit of limitChoices(); track limit) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="questionLimit() === limit"
+                  (click)="setQuestionLimit(limit)"
+                >
+                  {{ t('lesson.questionCount.n', { count: limit }) }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.options') }}</span>
+            <div class="options options-2">
+              @if (isVerbLesson()) {
+                <label class="checkbox">
+                  <input type="checkbox" [checked]="showHanViet()" (change)="toggleShowHanViet($event)" />
+                  <span>
+                    <strong><app-t key="lesson.option.showMeaning" block /></strong>
+                    <span class="hint"><app-t key="lesson.option.harder" block /></span>
+                  </span>
+                </label>
+              } @else {
+                <label
+                  class="checkbox"
+                  [class.is-disabled]="!currentDirection().supportsHanVietHint"
+                  [title]="
+                    currentDirection().supportsHanVietHint
+                      ? t('lesson.option.hanVietEnabled')
+                      : t('lesson.option.hanVietDisabled')
+                  "
+                >
+                  <input
+                    type="checkbox"
+                    [checked]="showHanViet() && currentDirection().supportsHanVietHint"
+                    [disabled]="!currentDirection().supportsHanVietHint"
+                    (change)="toggleShowHanViet($event)"
+                  />
+                  <span>
+                    <strong><app-t key="lesson.option.showHanViet" block /></strong>
+                    <span class="hint"><app-t key="lesson.option.harder" block /></span>
+                  </span>
+                </label>
+              }
+
+              <label class="checkbox">
+                <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+                <span>
+                  <strong><app-t key="lesson.option.shuffle" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                </span>
+              </label>
+
+              <label
+                class="checkbox"
+                [class.is-disabled]="answerMode() !== 'typing'"
+                [title]="answerMode() === 'typing' ? '' : t('lesson.option.typingOnly')"
+              >
+                <input
+                  type="checkbox"
+                  [checked]="ignoreDiacritics() && answerMode() === 'typing'"
+                  [disabled]="answerMode() !== 'typing'"
+                  (change)="toggleIgnoreDiacritics($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="start-bar">
+            <div class="small muted">
+              <app-t
+                key="lesson.plan"
+                block
+                [params]="{
+                  count: plannedQuestionCount(),
+                  mode: modeShort(),
+                  answer: t(answerMode() === 'choice' ? 'lesson.plan.choice' : 'lesson.plan.typing'),
+                  max: maxWrongAttempts
+                }"
+              />
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" [disabled]="!canStart()" (click)="start()">
+              {{ t('lesson.start') }}
+            </button>
+          </div>
+
+          @if (!canStart()) {
+            <div class="notice notice-warning">{{ t('lesson.emptyScope') }}</div>
+          }
+        </div>
+      </section>
+
+      <!-- ── Bảng nội dung ──────────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack">
+          <div class="row">
+            <h2>{{ t(kindLabelKeys().title) }}</h2>
+            <span class="spacer"></span>
+            @if (data.origin === 'custom') {
+              <button type="button" class="btn btn-sm btn-danger" (click)="deleteCustomLesson()">
+                {{ t('lesson.deleteLesson') }}
+              </button>
+            }
+            @if (specialCount() > 0) {
+              <button type="button" class="btn btn-sm" (click)="markSpecialAsFavorite()">
+                {{ t('lesson.markSpecial') }}
+              </button>
+            }
+            @if (favoriteCount() > 0) {
+              <button type="button" class="btn btn-sm" (click)="clearFavorites()">
+                {{ t('lesson.clearFavorites') }}
+              </button>
+            }
+          </div>
+
+          <div class="row filter-row">
+            <input
+              type="search"
+              class="input search-input"
+              [placeholder]="t(kindLabelKeys().search)"
+              [value]="search()"
+              (input)="onSearch($event)"
+              [attr.aria-label]="t('lesson.search.aria')"
+            />
+            <label class="checkbox filter-check">
+              <input type="checkbox" [checked]="onlyFavorites()" (change)="toggleOnlyFavorites($event)" />
+              <span><app-t key="lesson.onlyFavorites" /></span>
+            </label>
+          </div>
+
+          @if (isConversationLesson()) {
+            @if (filteredLines().length === 0) {
+              <p class="muted">{{ t('lesson.noWordMatch') }}</p>
+            } @else {
+              <ul class="line-list">
+                @for (line of filteredLines(); track line.id) {
+                  <li class="line-item" [class.is-favorite]="isFavorite(line.id)">
+                    <button
+                      type="button"
+                      class="star-btn"
+                      [class.is-on]="isFavorite(line.id)"
+                      (click)="toggleFavorite(line.id)"
+                      [attr.aria-pressed]="isFavorite(line.id)"
+                      [attr.aria-label]="
+                        isFavorite(line.id)
+                          ? t('favorite.remove', { name: line.japanese })
+                          : t('favorite.add', { name: line.japanese })
+                      "
+                    >
+                      {{ isFavorite(line.id) ? '★' : '☆' }}
+                    </button>
+                    <div class="line-body">
+                      @if (line.speaker || line.section) {
+                        <span class="line-meta">
+                          {{ line.speaker || line.section }}
+                        </span>
+                      }
+                      <p class="line-jp jp">{{ line.japanese }}</p>
+                      <p class="line-vi">{{ line.vietnamese }}</p>
+                    </div>
+                  </li>
+                }
+              </ul>
+              <p class="small faint">
+                {{ t('lesson.showingLines', { shown: filteredLines().length, total: lines().length }) }}
+              </p>
+            }
+          } @else if (isVerbLesson()) {
+            @if (filteredVerbRows().length === 0) {
+              <p class="muted">{{ t('lesson.noVerbMatch') }}</p>
+            } @else {
+              <div class="scroll-x">
+                <table class="word-table verb-table">
+                  <thead>
+                    <tr>
+                      <th class="col-star"><span class="sr-only">{{ t('lesson.col.star') }}</span>★</th>
+                      <th>{{ t('lesson.col.hanViet') }}</th>
+                      <th>ます</th>
+                      <th>{{ t('lesson.col.group') }}</th>
+                      <th>る</th>
+                      <th>て</th>
+                      <th>た</th>
+                      <th>ない</th>
+                      <th>{{ t('lesson.col.meaningShort') }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (row of filteredVerbRows(); track row.entry.id) {
+                      <tr [class.is-favorite]="isFavorite(row.entry.id)">
+                        <td class="col-star">
+                          <button
+                            type="button"
+                            class="star-btn"
+                            [class.is-on]="isFavorite(row.entry.id)"
+                            (click)="toggleFavorite(row.entry.id)"
+                            [attr.aria-pressed]="isFavorite(row.entry.id)"
+                            [attr.aria-label]="
+                              isFavorite(row.entry.id)
+                                ? t('favorite.remove', { name: row.entry.masu })
+                                : t('favorite.add', { name: row.entry.masu })
+                            "
+                          >
+                            {{ isFavorite(row.entry.id) ? '★' : '☆' }}
+                          </button>
+                        </td>
+                        <td class="col-han">{{ row.entry.hanViet }}</td>
+                        <td class="col-jp jp">{{ row.entry.masu }}</td>
+                        <td class="col-group">
+                          <span class="badge"><app-t [key]="groupKeyOf(row.entry.group)" /></span>
+                          @if (row.entry.deceptive) {
+                            <span
+                              class="badge badge-warning"
+                              [title]="t('lesson.badge.specialTitle')"
+                            >{{ t('lesson.badge.special') }}</span>
+                          }
+                          @if (row.irregular) {
+                            <span class="badge badge-danger" [title]="t('lesson.badge.irregularTitle')">{{ t('lesson.badge.irregular') }}</span>
+                          }
+                        </td>
+                        @if (row.forms; as forms) {
+                          <td class="col-jp jp">{{ forms.dictionary }}</td>
+                          <td class="col-jp jp form-te">{{ forms.te }}</td>
+                          <td class="col-jp jp">{{ forms.ta }}</td>
+                          <td class="col-jp jp">{{ forms.nai }}</td>
+                        } @else {
+                          <td colspan="4" class="col-error">{{ row.error }}</td>
+                        }
+                        <td>{{ row.entry.vietnamese }}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+              <p class="small faint">
+                {{ t('lesson.showingVerbs', { shown: filteredVerbRows().length, total: verbs().length }) }}
+              </p>
+            }
+          } @else {
+            @if (filteredWords().length === 0) {
+              <p class="muted">{{ t('lesson.noWordMatch') }}</p>
+            } @else {
+              <div class="scroll-x">
+                <table
+                  class="word-table"
+                  [class.has-example]="hasExamples()"
+                  [class.has-reading]="hasReadings()"
+                >
+                  <thead>
+                    <tr>
+                      <th class="col-star"><span class="sr-only">{{ t('lesson.col.star') }}</span>★</th>
+                      <th>{{ t('lesson.col.hanViet') }}</th>
+                      <th>{{ t('lesson.col.japanese') }}</th>
+                      @if (hasReadings()) {
+                        <th>{{ t('lesson.col.reading') }}</th>
+                      }
+                      <th>{{ t('lesson.col.meaning') }}</th>
+                      @if (hasExamples()) {
+                        <th>{{ t('lesson.col.example') }}</th>
+                      }
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (word of filteredWords(); track word.id) {
+                      <tr [class.is-favorite]="isFavorite(word.id)">
+                        <td class="col-star">
+                          <button
+                            type="button"
+                            class="star-btn"
+                            [class.is-on]="isFavorite(word.id)"
+                            (click)="toggleFavorite(word.id)"
+                            [attr.aria-pressed]="isFavorite(word.id)"
+                            [attr.aria-label]="
+                              isFavorite(word.id)
+                                ? t('favorite.remove', { name: word.japanese })
+                                : t('favorite.add', { name: word.japanese })
+                            "
+                          >
+                            {{ isFavorite(word.id) ? '★' : '☆' }}
+                          </button>
+                        </td>
+                        <td class="col-han">{{ word.hanViet }}</td>
+                        <td class="col-jp jp">{{ word.japanese }}</td>
+                        @if (hasReadings()) {
+                          <td class="col-reading jp">{{ word.reading }}</td>
+                        }
+                        <td>{{ word.vietnamese }}</td>
+                        @if (hasExamples()) {
+                          <td class="col-example jp">{{ word.example }}</td>
+                        }
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+              <p class="small faint">{{ t('lesson.showingWords', { shown: filteredWords().length, total: words().length }) }}</p>
+            }
+          }
+        </div>
+      </section>
+    </div>
+  }
+</div>

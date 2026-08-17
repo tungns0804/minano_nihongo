@@ -1,0 +1,598 @@
+/**
+ * Toàn bộ chữ hiển thị của ứng dụng, hai ngôn ngữ đặt cạnh nhau để dễ soát.
+ *
+ * Quy ước:
+ *  - Khoá đặt theo màn hình: `home.*`, `lesson.*`, `practice.*`, `result.*`, `import.*`.
+ *  - Chỗ cần chèn giá trị dùng `{ten}`, ví dụ `Câu {current}/{total}`.
+ *  - Vài khoá có vi và ja giống hệt nhau (ます, る, て…) là cố ý: đó là thuật ngữ
+ *    tiếng Nhật, giữ nguyên ở cả hai ngôn ngữ.
+ *
+ * KHÔNG dịch nội dung bài học (nghĩa tiếng Việt của từ vựng) — đó là dữ liệu học,
+ * không phải giao diện.
+ */
+
+export const LANGUAGES = ['vi', 'ja'] as const;
+export type Language = (typeof LANGUAGES)[number];
+
+export const LANGUAGE_NAME: Record<Language, string> = {
+  vi: 'Tiếng Việt',
+  ja: '日本語',
+};
+
+/** Nhãn ngắn hiện trên nút chuyển ngôn ngữ. */
+export const LANGUAGE_SHORT: Record<Language, string> = {
+  vi: 'VI',
+  ja: '日本',
+};
+
+type Entry = { vi: string; ja: string };
+
+export const MESSAGES = {
+  // ── Chung ──────────────────────────────────────────────────────────────
+  'common.retry': { vi: 'Thử lại', ja: '再試行' },
+  'common.back': { vi: '← Danh sách bài học', ja: '← レッスン一覧' },
+  'common.backToList': { vi: '← Về danh sách bài học', ja: '← レッスン一覧へ' },
+  'common.custom': { vi: 'Tự nạp', ja: '自作' },
+  'common.customTitle': {
+    vi: 'Bài học bạn tự nạp, lưu trong trình duyệt',
+    ja: 'ブラウザに保存された自作レッスン',
+  },
+  'common.all': { vi: 'Tất cả', ja: 'すべて' },
+  'common.delete': { vi: 'Xoá', ja: '削除' },
+
+  // ── Vỏ ứng dụng ────────────────────────────────────────────────────────
+  'app.namePrefix': { vi: 'Ôn tập từ vựng', ja: '単語練習' },
+  'app.title': { vi: 'Ôn tập từ vựng 皆の日本語', ja: '皆の日本語 単語練習' },
+  'app.tagline': {
+    vi: 'Kanji · Âm Hán Việt · Nghĩa tiếng Việt',
+    ja: '漢字・漢越音・ベトナム語訳',
+  },
+  'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
+  'app.nav.lessons': { vi: 'Bài học', ja: 'レッスン' },
+  'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
+  'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
+
+  // ── Giao diện sáng/tối ─────────────────────────────────────────────────
+  'theme.system': { vi: 'Tự động', ja: '自動' },
+  'theme.light': { vi: 'Sáng', ja: 'ライト' },
+  'theme.dark': { vi: 'Tối', ja: 'ダーク' },
+  'theme.title': {
+    vi: 'Giao diện: {current} — bấm để chuyển sang {next}',
+    ja: 'テーマ: {current} — クリックで{next}に切り替え',
+  },
+
+  // ── Loại bài học ───────────────────────────────────────────────────────
+  'kind.vocabulary': { vi: 'Từ vựng', ja: '単語' },
+  'kind.verb': { vi: 'Chia động từ', ja: '動詞の活用' },
+  'kind.vocabulary.unit': { vi: '{count} từ', ja: '{count}語' },
+  'kind.verb.unit': { vi: '{count} động từ', ja: '動詞{count}語' },
+  'kind.vocabulary.desc': {
+    vi: 'Luyện nghĩa từ vựng theo 4 chiều: Nhật → Việt, Việt → Nhật, Nhật → Hán Việt, Hán Việt → Nhật.',
+    ja: '4つの方向で単語の意味を練習：日→越、越→日、日→漢越音、漢越音→日。',
+  },
+  'kind.verb.desc': {
+    vi: 'Luyện chia động từ sang thể Te, Ta, Ru, Nai và nhận diện nhóm động từ.',
+    ja: 'て形・た形・辞書形・ない形への活用と、動詞グループの判別を練習。',
+  },
+  'kind.conversation': { vi: 'Dịch hội thoại', ja: '会話の翻訳' },
+  'kind.conversation.unit': { vi: '{count} câu', ja: '{count}文' },
+  'kind.conversation.desc': {
+    vi: 'Dịch từng câu qua lại giữa tiếng Việt và tiếng Nhật, gõ tay cả câu.',
+    ja: 'ベトナム語と日本語の間で一文ずつ翻訳し、文全体を入力します。',
+  },
+
+  // ── Trang chủ ──────────────────────────────────────────────────────────
+  'home.title': { vi: 'Chọn bài học để luyện tập', ja: '練習するレッスンを選ぶ' },
+  'home.subtitle': {
+    vi: 'Kết quả hiện ngay sau khi làm xong và không được lưu lại — mỗi lần luyện là một lần mới.',
+    ja: '結果は終了後すぐに表示され、保存されません。毎回が新しい練習です。',
+  },
+  'home.loading': { vi: 'Đang tải danh sách bài học…', ja: 'レッスン一覧を読み込み中…' },
+  'home.loadError': { vi: 'Không tải được bài học có sẵn', ja: '既存レッスンを読み込めません' },
+  'home.filter': { vi: 'Loại bài học', ja: 'レッスンの種類' },
+  'home.filter.all': { vi: 'Tất cả', ja: 'すべて' },
+  'home.lessonCount': { vi: '{count} bài học', ja: '{count}レッスン' },
+  'home.itemCount': { vi: '{count} mục', ja: '{count}項目' },
+  'home.categoryCount': { vi: '{count} bài', ja: '{count}レッスン' },
+  'home.favoriteCount': { vi: '★ {count} chưa nhớ', ja: '★ 未習得{count}' },
+  'home.empty.title': { vi: 'Chưa có bài học nào', ja: 'レッスンがまだありません' },
+  'home.empty.intro': { vi: 'Có hai cách để thêm bài học:', ja: 'レッスンを追加する方法は2つあります：' },
+  'home.empty.step1': {
+    vi: 'Tạo thư mục data-source/<tên-bài>/, đặt file .txt vào rồi chạy npm run generate.',
+    ja: 'data-source/<レッスン名>/ を作り、.txt ファイルを置いて npm run generate を実行。',
+  },
+  'home.empty.step2': {
+    vi: 'Hoặc dán trực tiếp danh sách ở màn hình “Nạp bài mới”.',
+    ja: 'または「レッスン追加」画面にリストを直接貼り付ける。',
+  },
+
+  // ── Chi tiết bài học ───────────────────────────────────────────────────
+  'lesson.loading': { vi: 'Đang tải bài học…', ja: 'レッスンを読み込み中…' },
+  'lesson.notFound': { vi: 'Không tìm thấy bài học {id}.', ja: 'レッスン {id} が見つかりません。' },
+  'lesson.specialCount': { vi: '{count} động từ đặc biệt', ja: '特殊動詞{count}語' },
+  'lesson.brokenVerbs': {
+    vi: '{count} động từ khai báo sai nhóm, không chia được:',
+    ja: 'グループ指定が誤っていて活用できない動詞が{count}語あります：',
+  },
+  'lesson.brokenVerbsNote': {
+    vi: 'Những động từ này bị bỏ qua khi luyện tập.',
+    ja: 'これらの動詞は練習から除外されます。',
+  },
+
+  'lesson.setup': { vi: 'Thiết lập luyện tập', ja: '練習の設定' },
+  'lesson.scope': { vi: 'Phạm vi', ja: '範囲' },
+  'lesson.scope.all': { vi: 'Toàn bộ bài ({count})', ja: 'レッスン全体（{count}）' },
+  'lesson.scope.favorite': { vi: '★ Chưa nhớ ({count})', ja: '★ 未習得（{count}）' },
+  'lesson.scope.special': { vi: 'Động từ đặc biệt ({count})', ja: '特殊動詞（{count}）' },
+  'lesson.scope.specialTitle': {
+    vi: 'Động từ nhóm 1 nhưng hình dạng dễ nhầm sang nhóm 2',
+    ja: '1グループなのに2グループと間違えやすい形の動詞',
+  },
+  'lesson.scope.hint': {
+    vi: 'Bấm ngôi sao ở bảng bên dưới để đánh dấu những mục bạn hay quên.',
+    ja: '下の表の星印を押して、覚えにくい項目に印を付けます。',
+  },
+
+  'lesson.questionType': { vi: 'Dạng câu hỏi', ja: '出題形式' },
+  'lesson.forms': { vi: 'Thể đem ra hỏi (chọn nhiều được)', ja: '出題する活用形（複数選択可）' },
+  'lesson.forms.hint': {
+    vi: 'Mỗi động từ sẽ được hỏi một câu cho từng thể đã chọn.',
+    ja: '選んだ活用形ごとに、動詞1語につき1問出題されます。',
+  },
+  'lesson.direction': { vi: 'Chiều luyện tập', ja: '出題の方向' },
+  'lesson.answerMode': { vi: 'Cách trả lời', ja: '解答方法' },
+  'lesson.answerMode.choice': { vi: 'Trắc nghiệm 4 đáp án', ja: '4択問題' },
+  'lesson.answerMode.typing': { vi: 'Gõ đáp án', ja: '入力して解答' },
+  'lesson.questionCount': { vi: 'Số câu', ja: '問題数' },
+  'lesson.questionCount.n': { vi: '{count} câu', ja: '{count}問' },
+
+  'lesson.options': { vi: 'Tuỳ chọn', ja: 'オプション' },
+  'lesson.option.showMeaning': {
+    vi: 'Hiện nghĩa tiếng Việt kèm câu hỏi',
+    ja: '問題にベトナム語訳を表示',
+  },
+  'lesson.option.showHanViet': {
+    vi: 'Hiện âm Hán Việt kèm câu hỏi',
+    ja: '問題に漢越音を表示',
+  },
+  'lesson.option.harder': { vi: 'Tắt đi để tăng độ khó.', ja: 'オフにすると難易度が上がります。' },
+  'lesson.option.hanVietDisabled': {
+    vi: 'Chiều này đã có âm Hán Việt ở câu hỏi hoặc đáp án',
+    ja: 'この方向では漢越音が問題か解答に含まれています',
+  },
+  'lesson.option.hanVietEnabled': { vi: 'Tắt đi để luyện khó hơn', ja: 'オフにすると難しくなります' },
+  'lesson.option.shuffle': { vi: 'Trộn thứ tự câu hỏi', ja: '出題順をシャッフル' },
+  'lesson.option.shuffleHint': {
+    vi: 'Tắt đi để hỏi đúng thứ tự trong bài.',
+    ja: 'オフにするとレッスンの順番どおりに出題します。',
+  },
+  'lesson.option.ignoreDiacritics': {
+    vi: 'Bỏ qua dấu tiếng Việt khi chấm',
+    ja: 'ベトナム語の声調記号を無視して採点',
+  },
+  'lesson.option.ignoreDiacriticsHint': {
+    vi: '“chay tron” vẫn được tính đúng cho “chạy trốn”.',
+    ja: '「chay tron」でも「chạy trốn」として正解になります。',
+  },
+  'lesson.option.typingOnly': {
+    vi: 'Chỉ áp dụng cho chế độ gõ đáp án',
+    ja: '入力解答モードのみ有効',
+  },
+
+  'lesson.plan': {
+    vi: 'Sẽ luyện {count} câu · {mode} · {answer}. Sai {max} lần thì hiện đáp án và tính sai câu đó.',
+    ja: '{count}問・{mode}・{answer}。{max}回間違えると解答を表示し、その問題は不正解になります。',
+  },
+  'lesson.plan.choice': { vi: 'trắc nghiệm', ja: '4択' },
+  'lesson.plan.typing': { vi: 'gõ đáp án', ja: '入力解答' },
+  'lesson.start': { vi: 'Bắt đầu luyện tập', ja: '練習を始める' },
+  'lesson.emptyScope': { vi: 'Chưa có mục nào trong phạm vi đã chọn.', ja: '選んだ範囲に項目がありません。' },
+
+  'lesson.table.verb': { vi: 'Bảng chia động từ', ja: '動詞活用表' },
+  'lesson.table.vocabulary': { vi: 'Từ vựng', ja: '単語' },
+  'lesson.table.conversation': { vi: 'Các câu trong bài', ja: 'この課の文' },
+  'lesson.search.conversation': {
+    vi: 'Tìm theo câu tiếng Nhật, câu tiếng Việt hoặc người nói...',
+    ja: '日本語の文・ベトナム語の文・話者で検索...',
+  },
+  'lesson.col.speaker': { vi: 'Người nói', ja: '話者' },
+  'lesson.col.sentenceJp': { vi: 'Câu tiếng Nhật', ja: '日本語の文' },
+  'lesson.col.sentenceVi': { vi: 'Câu tiếng Việt', ja: 'ベトナム語の文' },
+  'lesson.answerMode.typingOnly': {
+    vi: 'Bài này chỉ có gõ đáp án. Chọn trong bốn câu dài thì đọc lướt là ra, không còn là dịch nữa.',
+    ja: 'この課は入力解答のみです。長文を4択にすると、訳さずに見比べるだけで当たってしまいます。',
+  },
+  'lesson.showingLines': {
+    vi: 'Hiện {shown}/{total} câu.',
+    ja: '{total}文中{shown}文を表示。',
+  },
+  'lesson.deleteLesson': { vi: 'Xoá bài học này', ja: 'このレッスンを削除' },
+  'lesson.markSpecial': { vi: '★ Đánh dấu động từ đặc biệt', ja: '★ 特殊動詞に印を付ける' },
+  'lesson.clearFavorites': { vi: 'Bỏ đánh dấu tất cả', ja: 'すべての印を外す' },
+  'lesson.search.verb': {
+    vi: 'Tìm theo âm Hán Việt, động từ, nghĩa hoặc thể đã chia…',
+    ja: '漢越音・動詞・意味・活用形で検索…',
+  },
+  'lesson.search.vocabulary': {
+    vi: 'Tìm theo âm Hán Việt, tiếng Nhật hoặc nghĩa…',
+    ja: '漢越音・日本語・意味で検索…',
+  },
+  'lesson.search.aria': { vi: 'Tìm trong bài học', ja: 'レッスン内を検索' },
+  'lesson.onlyFavorites': { vi: 'Chỉ hiện ★', ja: '★ のみ表示' },
+  'lesson.noVerbMatch': { vi: 'Không có động từ nào khớp.', ja: '一致する動詞がありません。' },
+  'lesson.noWordMatch': { vi: 'Không có từ nào khớp.', ja: '一致する単語がありません。' },
+  'lesson.showingVerbs': { vi: 'Hiện {shown}/{total} động từ.', ja: '{total}語中{shown}語を表示。' },
+  'lesson.showingWords': { vi: 'Hiện {shown}/{total} từ.', ja: '{total}語中{shown}語を表示。' },
+
+  'lesson.col.star': { vi: 'Đánh dấu chưa nhớ', ja: '未習得の印' },
+  'lesson.col.hanViet': { vi: 'Âm Hán Việt', ja: '漢越音' },
+  'lesson.col.japanese': { vi: 'Tiếng Nhật', ja: '日本語' },
+  'lesson.col.reading': { vi: 'Cách đọc', ja: '読み方' },
+  'lesson.col.meaning': { vi: 'Nghĩa tiếng Việt', ja: 'ベトナム語訳' },
+  'lesson.col.meaningShort': { vi: 'Nghĩa', ja: '意味' },
+  'lesson.col.group': { vi: 'Nhóm', ja: 'グループ' },
+  'lesson.col.example': { vi: 'Ví dụ', ja: '例文' },
+
+  'lesson.badge.special': { vi: 'đặc biệt', ja: '特殊' },
+  'lesson.badge.specialTitle': {
+    vi: 'Nhóm 1 nhưng hình dạng dễ nhầm sang nhóm 2',
+    ja: '1グループだが2グループと紛らわしい形',
+  },
+  'lesson.badge.irregular': { vi: 'bất quy tắc', ja: '不規則' },
+  'lesson.badge.irregularTitle': { vi: 'Chia bất quy tắc', ja: '不規則な活用' },
+
+  'lesson.confirm.clearFavorites': {
+    vi: 'Bỏ đánh dấu toàn bộ {count} mục chưa nhớ của bài này?',
+    ja: 'このレッスンの未習得{count}項目すべての印を外しますか？',
+  },
+  'lesson.confirm.delete': {
+    vi: 'Xoá bài học tự nạp "{name}"? Thao tác này không khôi phục được.',
+    ja: '自作レッスン「{name}」を削除しますか？元に戻せません。',
+  },
+
+  // ── Nhãn phạm vi (dùng ở màn kết quả) ──────────────────────────────────
+  'scope.all': { vi: 'Toàn bộ bài', ja: 'レッスン全体' },
+  'scope.favorite': { vi: '★ Mục chưa nhớ', ja: '★ 未習得の項目' },
+  'scope.special': { vi: 'Động từ đặc biệt', ja: '特殊動詞' },
+
+  // ── Chiều luyện tập (bài từ vựng) ──────────────────────────────────────
+  'direction.jp-vi': { vi: 'Tiếng Nhật → Nghĩa tiếng Việt', ja: '日本語 → ベトナム語訳' },
+  'direction.jp-vi.short': { vi: 'Nhật → Việt', ja: '日 → 越' },
+  'direction.vi-jp': { vi: 'Nghĩa tiếng Việt → Tiếng Nhật', ja: 'ベトナム語訳 → 日本語' },
+  'direction.vi-jp.short': { vi: 'Việt → Nhật', ja: '越 → 日' },
+  'direction.jp-han': { vi: 'Tiếng Nhật → Âm Hán Việt', ja: '日本語 → 漢越音' },
+  'direction.jp-han.short': { vi: 'Nhật → Hán Việt', ja: '日 → 漢越音' },
+  'direction.han-jp': { vi: 'Âm Hán Việt → Tiếng Nhật', ja: '漢越音 → 日本語' },
+  'direction.han-jp.short': { vi: 'Hán Việt → Nhật', ja: '漢越音 → 日' },
+  'direction.jp-kana': { vi: 'Tiếng Nhật → Cách đọc', ja: '日本語 → 読み方' },
+  'direction.jp-kana.short': { vi: 'Nhật → Cách đọc', ja: '日 → 読み方' },
+  'direction.kana-jp': { vi: 'Cách đọc → Tiếng Nhật', ja: '読み方 → 日本語' },
+  'direction.kana-jp.short': { vi: 'Cách đọc → Nhật', ja: '読み方 → 日' },
+
+  // ── Dạng câu hỏi động từ ───────────────────────────────────────────────
+  'verbMode.masu-to-form': { vi: 'Thể Mậu → thể khác', ja: 'ます形 → 他の活用形' },
+  'verbMode.masu-to-form.short': { vi: 'ます → thể khác', ja: 'ます → 他の形' },
+  'verbMode.masu-to-form.example': {
+    vi: '逃げます → thể Te?  →  逃げて',
+    ja: '逃げます → て形は？  →  逃げて',
+  },
+  'verbMode.form-to-masu': { vi: 'Thể khác → thể Mậu', ja: '他の活用形 → ます形' },
+  'verbMode.form-to-masu.short': { vi: 'thể khác → ます', ja: '他の形 → ます' },
+  'verbMode.form-to-masu.example': {
+    vi: '逃げて (thể Te) → thể Mậu?  →  逃げます',
+    ja: '逃げて（て形）→ ます形は？  →  逃げます',
+  },
+  'verbMode.identify-group': { vi: 'Nhận diện nhóm động từ', ja: '動詞グループの判別' },
+  'verbMode.identify-group.short': { vi: 'Nhận diện nhóm', ja: 'グループ判別' },
+  'verbMode.identify-group.example': {
+    vi: '帰ります thuộc nhóm mấy?  →  Nhóm 1',
+    ja: '帰ります は何グループ？  →  1グループ',
+  },
+  'verbMode.meaning-to-form': { vi: 'Nghĩa tiếng Việt → thể yêu cầu', ja: 'ベトナム語訳 → 指定の活用形' },
+  'verbMode.meaning-to-form.short': { vi: 'Nghĩa → thể', ja: '意味 → 活用形' },
+  'verbMode.meaning-to-form.example': {
+    vi: '"chạy trốn" → thể Te?  →  逃げて',
+    ja: '「chạy trốn」→ て形は？  →  逃げて',
+  },
+
+  // ── Thể động từ ────────────────────────────────────────────────────────
+  'verbForm.masu': { vi: 'Thể Mậu (ます)', ja: 'ます形' },
+  'verbForm.dictionary': { vi: 'Thể từ điển (る)', ja: '辞書形' },
+  'verbForm.te': { vi: 'Thể Te (て)', ja: 'て形' },
+  'verbForm.ta': { vi: 'Thể Ta (た)', ja: 'た形' },
+  'verbForm.nai': { vi: 'Thể Nai (ない)', ja: 'ない形' },
+  // Nhãn cột trong bảng chia — thuật ngữ tiếng Nhật, giữ nguyên ở cả hai ngôn ngữ.
+  'verbForm.masu.short': { vi: 'ます', ja: 'ます' },
+  'verbForm.dictionary.short': { vi: 'る', ja: 'る' },
+  'verbForm.te.short': { vi: 'て', ja: 'て' },
+  'verbForm.ta.short': { vi: 'た', ja: 'た' },
+  'verbForm.nai.short': { vi: 'ない', ja: 'ない' },
+
+  'group.1': { vi: 'Nhóm 1', ja: '1グループ' },
+  'group.2': { vi: 'Nhóm 2', ja: '2グループ' },
+  'group.3': { vi: 'Nhóm 3', ja: '3グループ' },
+
+  // ── Màn hình luyện tập ─────────────────────────────────────────────────
+  'practice.progress': { vi: 'Câu {current}/{total}', ja: '{current}/{total}問' },
+  'practice.correctSoFar': { vi: 'Đúng {count}', ja: '正解{count}' },
+  'practice.quit': { vi: 'Thoát', ja: '中断' },
+  'practice.progressAria': {
+    vi: 'Tiến độ: câu {current} trên {total}',
+    ja: '進捗：{total}問中{current}問目',
+  },
+  'practice.star': { vi: 'Đánh dấu mục này là chưa nhớ', ja: 'この項目を未習得にする' },
+  'practice.starTitle': {
+    vi: 'Đánh dấu chưa nhớ để luyện riêng sau',
+    ja: '後で個別に練習するため未習得にする',
+  },
+  'practice.check': { vi: 'Kiểm tra', ja: '確認' },
+  'practice.placeholder': { vi: 'Gõ đáp án rồi nhấn Enter…', ja: '解答を入力して Enter…' },
+  'practice.imeHint': {
+    vi: 'Cần bật bộ gõ tiếng Nhật (IME) để nhập kanji/kana.',
+    ja: '漢字・かなの入力には日本語IMEが必要です。',
+  },
+
+  'practice.answerPrompt.japanese': { vi: 'Nhập từ tiếng Nhật', ja: '日本語を入力' },
+  'practice.answerPrompt.vietnamese': { vi: 'Nhập nghĩa tiếng Việt', ja: 'ベトナム語訳を入力' },
+  'practice.answerPrompt.hanViet': { vi: 'Nhập âm Hán Việt', ja: '漢越音を入力' },
+  'practice.answerPrompt.reading': { vi: 'Nhập cách đọc (hiragana/katakana)', ja: '読み方（ひらがな・カタカナ）を入力' },
+  'practice.answerPrompt.sentenceJapanese': {
+    vi: 'Dịch sang tiếng Nhật',
+    ja: '日本語に訳して入力',
+  },
+  'practice.answerPrompt.sentenceVietnamese': {
+    vi: 'Dịch sang tiếng Việt',
+    ja: 'ベトナム語に訳して入力',
+  },
+  'practice.punctuationNote': {
+    vi: 'Dấu câu và khoảng trắng không tính khi chấm.',
+    ja: '句読点とスペースは採点に影響しません。',
+  },
+  'practice.answerPrompt.masu': { vi: 'Nhập thể ます', ja: 'ます形を入力' },
+  'practice.answerPrompt.form': { vi: 'Nhập {form}', ja: '{form}を入力' },
+  'practice.answerPrompt.group': { vi: 'Nhập số nhóm (1, 2 hoặc 3)', ja: 'グループ番号（1・2・3）を入力' },
+
+  'practice.label.toForm': { vi: '{from} → {to}', ja: '{from} → {to}' },
+  'practice.label.identifyGroup': { vi: 'Động từ này thuộc nhóm mấy?', ja: 'この動詞は何グループ？' },
+  'practice.label.meaningToForm': { vi: 'Nghĩa tiếng Việt → {to}', ja: 'ベトナム語訳 → {to}' },
+
+  'practice.correct': { vi: 'Chính xác!', ja: '正解！' },
+  'practice.correctAfter': { vi: '(sai {count} lần trước đó)', ja: '（{count}回間違えました）' },
+  'practice.wrong': { vi: 'Chưa đúng — câu này tính là sai.', ja: '不正解 — この問題は誤答になります。' },
+  'practice.yourAnswer': { vi: 'Bạn trả lời:', ja: 'あなたの解答：' },
+  'practice.answer': { vi: 'Đáp án:', ja: '正解：' },
+  'practice.next': { vi: 'Câu tiếp theo', ja: '次の問題' },
+  'practice.seeResult': { vi: 'Xem kết quả', ja: '結果を見る' },
+  'practice.spaceHintNext': { vi: 'để sang câu tiếp theo', ja: 'で次の問題へ' },
+  'practice.spaceHintResult': { vi: 'để xem kết quả', ja: 'で結果を表示' },
+  'practice.spacePrefix': { vi: 'Nhấn', ja: '' },
+  'practice.attempts': {
+    vi: 'Sai {count}/{max} — còn {left} lượt',
+    ja: '{max}回中{count}回誤答 — 残り{left}回',
+  },
+  'practice.lastAnswer': { vi: 'vừa trả lời:', ja: '直前の解答：' },
+  'practice.hintChoice': { vi: 'Chọn đáp án đúng hoặc nhấn phím', ja: '正解を選ぶか、キーを押す' },
+  'practice.hintTyping': { vi: 'Gõ đáp án rồi nhấn', ja: '解答を入力して押す' },
+  'practice.hintMax': {
+    vi: 'Sai {max} lần sẽ hiện đáp án và tính sai câu này.',
+    ja: '{max}回間違えると解答を表示し、この問題は誤答になります。',
+  },
+  'practice.giveUp': { vi: 'Chịu, xem đáp án', ja: '降参：解答を見る' },
+  'practice.confirmQuit': {
+    vi: 'Thoát phiên luyện tập? Kết quả đang làm dở sẽ không được tính.',
+    ja: '練習を中断しますか？途中の結果は記録されません。',
+  },
+
+  // ── Màn hình kết quả ───────────────────────────────────────────────────
+  'result.title': { vi: 'Kết quả luyện tập', ja: '練習結果' },
+  'result.fraction': { vi: '{correct}/{total} câu đúng', ja: '{total}問中{correct}問正解' },
+  'result.perfect': { vi: 'đúng ngay lần đầu', ja: '一発正解' },
+  'result.retried': { vi: 'đúng sau khi thử lại', ja: '再挑戦で正解' },
+  'result.wrong': { vi: 'sai', ja: '誤答' },
+  'result.duration': { vi: 'thời gian', ja: '所要時間' },
+  'result.minutesSeconds': { vi: '{minutes} phút {seconds} giây', ja: '{minutes}分{seconds}秒' },
+  'result.seconds': { vi: '{seconds} giây', ja: '{seconds}秒' },
+  'result.retryWrong': { vi: 'Luyện lại {count} câu sai', ja: '誤答{count}問をやり直す' },
+  'result.markWrong': { vi: '★ Đánh dấu mục sai là chưa nhớ', ja: '★ 誤答した項目を未習得にする' },
+  'result.retryAll': { vi: 'Làm lại toàn bộ', ja: 'すべてやり直す' },
+  'result.backToLesson': { vi: 'Về bài học', ja: 'レッスンへ戻る' },
+  'result.home': { vi: 'Trang chủ', ja: 'ホーム' },
+  'result.markedNotice': {
+    vi: 'Đã đánh dấu ★ thêm {count} mục. Lần sau chọn phạm vi “Mục chưa nhớ” để luyện riêng nhóm này.',
+    ja: '{count}項目に★を付けました。次回は範囲「未習得の項目」を選ぶとこれだけ練習できます。',
+  },
+  'result.allMarked': { vi: 'Tất cả mục sai đều đã được đánh dấu ★.', ja: '誤答した項目はすべて★が付いています。' },
+  'result.flawless': {
+    vi: 'Đúng hết {count} câu. Thử tắt gợi ý hoặc đổi sang chế độ gõ đáp án để luyện khó hơn.',
+    ja: '{count}問すべて正解。ヒントを消すか入力解答に変えると、さらに難しくできます。',
+  },
+  'result.details': { vi: 'Chi tiết', ja: '詳細' },
+  'result.filter.all': { vi: 'Tất cả ({count})', ja: 'すべて（{count}）' },
+  'result.filter.wrong': { vi: 'Sai ({count})', ja: '誤答（{count}）' },
+  'result.filter.retried': { vi: 'Thử lại ({count})', ja: '再挑戦（{count}）' },
+  'result.emptyFilter': { vi: 'Không có câu nào trong nhóm này.', ja: 'この区分に該当する問題はありません。' },
+  'result.correctAnswer': { vi: 'Đáp án đúng:', ja: '正解：' },
+  'result.youAnswered': { vi: '· bạn trả lời: {answers}', ja: '・あなたの解答：{answers}' },
+  'result.correctAfterTries': { vi: 'Đúng sau {count} lần sai', ja: '{count}回間違えてから正解' },
+  'result.markCorrect': { vi: 'Đúng', ja: '正解' },
+  'result.markWrongLabel': { vi: 'Sai', ja: '誤答' },
+
+  // ── Đánh dấu ★ (dùng chung nhiều màn) ──────────────────────────────────
+  'favorite.add': { vi: 'Đánh dấu chưa nhớ {name}', ja: '{name} を未習得にする' },
+  'favorite.remove': { vi: 'Bỏ đánh dấu {name}', ja: '{name} の印を外す' },
+
+  // ── Màn hình nạp bài mới ───────────────────────────────────────────────
+  'import.title': { vi: 'Nạp từ vựng của bài tập mới', ja: '新しいレッスンを追加' },
+  'import.subtitle': {
+    vi: 'Dán danh sách vào đây để dùng ngay trong trình duyệt, hoặc tải file JSON về đặt vào mã nguồn để bài học đi kèm dự án.',
+    ja: 'リストを貼り付けてブラウザですぐ使うか、JSONをダウンロードしてソースに含めます。',
+  },
+  'import.kind': { vi: 'Loại bài học', ja: 'レッスンの種類' },
+  'import.format': { vi: 'Định dạng dữ liệu', ja: 'データ形式' },
+  'import.format.verb': {
+    vi: 'Mỗi dòng một động từ, bốn cột. Cột cuối là nhóm động từ (1, 2 hoặc 3). Các thể còn lại app tự chia, không cần khai báo.',
+    ja: '1行1動詞、4列。最後の列はグループ（1・2・3）。他の活用形はアプリが自動生成します。',
+  },
+  'import.format.verbNote': {
+    vi: 'Thêm dấu * sau số nhóm để đánh dấu động từ đặc biệt — nhóm 1 nhưng hình dạng dễ nhầm sang nhóm 2 (帰ります, 入ります, 走ります…). Những động từ này lọc riêng ra luyện được.',
+    ja: 'グループ番号の後に * を付けると特殊動詞の印になります — 1グループなのに2グループと紛らわしい形（帰ります・入ります・走ります…）。この動詞だけ絞って練習できます。',
+  },
+  'import.format.vocabulary': {
+    vi: 'Mỗi dòng một từ, ba cột ngăn cách bằng dấu phẩy (hoặc TAB nếu copy từ Excel). Dấu phẩy thứ ba trở đi thuộc về phần nghĩa, nên nghĩa có chứa dấu phẩy vẫn đúng. Dòng bắt đầu bằng # là ghi chú.',
+    ja: '1行1語、カンマ区切りの3列（Excelから貼る場合はTABも可）。3つ目以降のカンマは意味の一部なので、意味にカンマが入っても大丈夫です。# で始まる行はコメントです。',
+  },
+  'import.format.example': {
+    vi: 'Câu ví dụ là tuỳ chọn: viết sau dấu | ở cuối cột nghĩa. Dùng | chứ không thêm dấu phẩy, để nghĩa vẫn chứa được dấu phẩy. Nếu dán từ Excel bằng TAB thì đặt câu ví dụ ở cột thứ 4.',
+    ja: '例文は任意です。意味の列の末尾に | を書いてその後に続けます。意味にカンマを使えるようにするため、カンマではなく | で区切ります。ExcelからTABで貼る場合は4列目に置きます。',
+  },
+  'import.format.vocabularyNote': {
+    vi: 'Dấu / dùng để tách các nghĩa tương đương. Khi luyện ở chế độ gõ đáp án, gõ đúng một trong các nghĩa đó là được tính đúng.',
+    ja: '/ は同義の区切りです。入力解答では、そのうち1つを正しく入力すれば正解になります。',
+  },
+  'import.format.reading': {
+    vi: 'Cách đọc là tuỳ chọn: viết trong ngoặc ở cuối cột tiếng Nhật, ví dụ 新聞社 (しんぶんしゃ). Phần trong ngoặc được tách ra thành cột riêng chứ không tính là một phần của từ, nên khi luyện gõ đáp án bạn vẫn chỉ cần gõ 新聞社.',
+    ja: '読み方は任意です。日本語の列の末尾に括弧で書きます。例：新聞社 (しんぶんしゃ)。括弧の中は別の列として切り出され、単語自体には含まれません。入力解答では 新聞社 だけ入力すれば正解です。',
+  },
+  // Khối ví dụ định dạng: dòng tiêu đề cột được dịch, còn các dòng dữ liệu giữ
+  // nguyên vì nghĩa của từ vốn là tiếng Việt — đó là nội dung học, không phải giao diện.
+  'import.sample.verb': {
+    vi: 'ÂM HÁN VIỆT,THỂ MẬU,NGHĨA TIẾNG VIỆT,NHÓM\nĐÀO,逃げます,chạy trốn,2\nTHỦ,守ります,bảo vệ/ giữ,1\nQUY,帰ります,về nhà,1*\nVI,します,làm,3',
+    ja: '漢越音,ます形,ベトナム語訳,グループ\nĐÀO,逃げます,chạy trốn,2\nTHỦ,守ります,bảo vệ/ giữ,1\nQUY,帰ります,về nhà,1*\nVI,します,làm,3',
+  },
+  'import.sample.vocabulary': {
+    vi: 'ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT\nĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy\nTỊCH,席 (せき),chỗ ngồi/ ghế\nTÂN VĂN XÃ,新聞社,toà soạn báo',
+    ja: '漢越音,日本語（読み方）,ベトナム語訳\nĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy\nTỊCH,席 (せき),chỗ ngồi/ ghế\nTÂN VĂN XÃ,新聞社,toà soạn báo',
+  },
+  'import.sample.meta': {
+    vi: '{ "name": "皆の日本語 — Bài 34", "order": 3401 }',
+    ja: '{ "name": "皆の日本語 — 第34課", "order": 3401 }',
+  },
+  'import.textareaPlaceholder': {
+    vi: 'ĐÀO,逃げます,chạy trốn/ bỏ chạy\nTAO,騒ぎます,làm ồn/ làm rùm beng',
+    ja: 'ĐÀO,逃げます,chạy trốn/ bỏ chạy\nTAO,騒ぎます,làm ồn/ làm rùm beng',
+  },
+  'import.content': { vi: 'Nội dung bài học', ja: 'レッスンの内容' },
+  'import.name': { vi: 'Tên bài học', ja: 'レッスン名' },
+  'import.namePlaceholder': { vi: 'Ví dụ: 皆の日本語 — Bài 34', ja: '例：皆の日本語 — 第34課' },
+  'import.lessonId': { vi: 'Mã bài học:', ja: 'レッスンID：' },
+  'import.listVerb': { vi: 'Danh sách động từ', ja: '動詞リスト' },
+  'import.listVocabulary': { vi: 'Danh sách từ vựng', ja: '単語リスト' },
+  'import.pickFile': { vi: 'Chọn file .txt / .csv', ja: '.txt / .csv を選ぶ' },
+  'import.clear': { vi: 'Xoá hết', ja: 'すべて消去' },
+  'import.loadedFrom': { vi: 'Đã nạp nội dung từ {name}.', ja: '{name} から読み込みました。' },
+  'import.fileError': {
+    vi: 'Không đọc được nội dung file. Hãy thử dán trực tiếp vào ô bên dưới.',
+    ja: 'ファイルを読み込めません。下の欄に直接貼り付けてください。',
+  },
+  'import.validVerb': { vi: '{count} động từ hợp lệ', ja: '有効な動詞{count}語' },
+  'import.validVocabulary': { vi: '{count} từ hợp lệ', ja: '有効な単語{count}語' },
+  'import.errorLines': { vi: '{count} dòng lỗi', ja: 'エラー{count}行' },
+  'import.duplicateLines': { vi: '{count} dòng trùng', ja: '重複{count}行' },
+  'import.skippedLines': { vi: 'Các dòng sau bị bỏ qua:', ja: '次の行は無視されました：' },
+  'import.duplicateSkipped': { vi: 'Dòng trùng lặp đã được bỏ qua:', ja: '重複行は無視されました：' },
+  'import.line': { vi: 'Dòng {line}', ja: '{line}行目' },
+  'import.brokenVerbs': { vi: '{count} động từ khai báo sai nhóm:', ja: 'グループ指定が誤っている動詞が{count}語：' },
+  'import.brokenVerbsNote': { vi: 'Sửa lại nhóm cho đúng rồi mới lưu được.', ja: 'グループを直さないと保存できません。' },
+  'import.preview.masu': { vi: 'Thể Mậu', ja: 'ます形' },
+  'import.preview.forms': { vi: 'Nhóm và các thể app tự chia', ja: 'グループと自動生成された活用形' },
+  'import.moreVerbs': { vi: '…và {count} động từ nữa.', ja: '…他{count}語。' },
+  'import.moreWords': { vi: '…và {count} từ nữa.', ja: '…他{count}語。' },
+  'import.conflict.custom': {
+    vi: 'Đã có bài tự nạp cùng mã {id}. Lưu tiếp sẽ ghi đè bài đó.',
+    ja: '同じID {id} の自作レッスンがあります。保存すると上書きされます。',
+  },
+  'import.conflict.builtin': {
+    vi: 'Mã {id} đang thuộc về bài có sẵn “{name}”. Bài tự nạp sẽ che mất bài đó — nên đổi tên khác.',
+    ja: 'ID {id} は既存レッスン「{name}」のものです。自作レッスンが上書き表示されるため、別名を推奨します。',
+  },
+  'import.confirmShadow': {
+    vi: 'Đã có bài học sẵn với mã "{id}". Bài tự nạp sẽ che mất bài đó. Vẫn tiếp tục?',
+    ja: 'ID「{id}」の既存レッスンがあります。自作レッスンが上書き表示されます。続けますか？',
+  },
+  'import.needMore': {
+    vi: 'Cần nhập tên bài học và ít nhất một dòng dữ liệu hợp lệ.',
+    ja: 'レッスン名と、有効なデータ行が最低1行必要です。',
+  },
+  'import.saveHint': {
+    vi: 'Lưu vào trình duyệt để dùng ngay, hoặc tải JSON về đặt vào public/lessons/.',
+    ja: 'ブラウザに保存してすぐ使うか、JSONをダウンロードして public/lessons/ に置きます。',
+  },
+  'import.downloadJson': { vi: 'Tải file JSON', ja: 'JSONをダウンロード' },
+  'import.save': { vi: 'Lưu và mở bài học', ja: '保存して開く' },
+  'import.scriptTitle': { vi: 'Cách thêm bài học bằng script', ja: 'スクリプトで追加する方法' },
+  'import.scriptIntro': {
+    vi: 'Cách này giúp bài học nằm hẳn trong mã nguồn, ai mở dự án cũng có, không phụ thuộc trình duyệt của bạn.',
+    ja: 'この方法ならレッスンがソースに入るので、プロジェクトを開いた人全員が使え、ブラウザに依存しません。',
+  },
+  'import.step1': {
+    vi: 'Tạo thư mục data-source/<tên-bài>/, ví dụ data-source/minna-34-tu-vung/.',
+    ja: 'data-source/<レッスン名>/ を作成（例：data-source/minna-34-tu-vung/）。',
+  },
+  'import.step2': {
+    vi: 'Đặt file vocabulary.txt (hoặc verbs.txt) chứa dữ liệu theo đúng định dạng ở trên vào thư mục đó. Tên file quyết định loại bài học.',
+    ja: 'そのフォルダに vocabulary.txt（または verbs.txt）を置きます。ファイル名でレッスンの種類が決まります。',
+  },
+  'import.step3': { vi: '(Tuỳ chọn) Thêm meta.json để đặt tên hiển thị và thứ tự:', ja: '（任意）meta.json で表示名と並び順を指定：' },
+  'import.step4': {
+    vi: 'Chạy npm run generate. Script sẽ sinh public/lessons/<id>.json và cập nhật index.json.',
+    ja: 'npm run generate を実行。public/lessons/<id>.json が生成され、index.json が更新されます。',
+  },
+  'import.customLessons': {
+    vi: 'Bài học tự nạp đang lưu trong trình duyệt',
+    ja: 'ブラウザに保存されている自作レッスン',
+  },
+
+  // ── Thông báo lỗi dữ liệu (từ parser) ──────────────────────────────────
+  'parse.missingColumnsVocabulary': {
+    vi: 'Thiếu cột. Cần đủ 3 cột: ÂM HÁN VIỆT,TIẾNG NHẬT,NGHĨA TIẾNG VIỆT',
+    ja: '列が足りません。3列必要です：漢越音,日本語,ベトナム語訳',
+  },
+  'parse.missingColumnsVerb': {
+    vi: 'Thiếu cột. Cần đủ 4 cột: ÂM HÁN VIỆT,THỂ MẬU,NGHĨA TIẾNG VIỆT,NHÓM',
+    ja: '列が足りません。4列必要です：漢越音,ます形,ベトナム語訳,グループ',
+  },
+  'parse.emptyColumns': { vi: 'Cột rỗng: {columns}', ja: '空の列：{columns}' },
+  'parse.notMasuForm': {
+    vi: 'Động từ phải ở thể ます, nhận được "{value}"',
+    ja: '動詞はます形である必要があります（受け取った値：「{value}」）',
+  },
+  'parse.badGroup': {
+    vi: 'Nhóm phải là 1, 2 hoặc 3 (thêm * để đánh dấu đặc biệt), nhận được "{value}"',
+    ja: 'グループは1・2・3のいずれかです（*で特殊動詞の印）。受け取った値：「{value}」',
+  },
+  'parse.duplicateWord': {
+    vi: 'Trùng với một từ đã có ở phía trên, dòng này bị bỏ qua',
+    ja: '上に同じ単語があるため、この行は無視されます',
+  },
+  'parse.duplicateVerb': {
+    vi: 'Trùng với một động từ đã có ở phía trên, dòng này bị bỏ qua',
+    ja: '上に同じ動詞があるため、この行は無視されます',
+  },
+  'parse.badColumnsConversation': {
+    vi: 'Mỗi dòng phải là "TIẾNG NHẬT|TIẾNG VIỆT" hoặc "NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT"',
+    ja: '各行は「日本語|ベトナム語」または「話者|日本語|ベトナム語」の形式にしてください',
+  },
+  'parse.duplicateSentence': {
+    vi: 'Trùng với một câu đã có ở phía trên, dòng này bị bỏ qua',
+    ja: '上に同じ文があるため、この行は無視されます',
+  },
+  'parse.column.hanViet': { vi: 'âm Hán Việt', ja: '漢越音' },
+  'parse.column.japanese': { vi: 'tiếng Nhật', ja: '日本語' },
+  'parse.column.vietnamese': { vi: 'nghĩa tiếng Việt', ja: 'ベトナム語訳' },
+  'parse.column.masu': { vi: 'thể Mậu', ja: 'ます形' },
+  'parse.column.group': { vi: 'nhóm', ja: 'グループ' },
+
+  // ── Lỗi tải dữ liệu ────────────────────────────────────────────────────
+  'error.lessonIndex': {
+    vi: 'Không đọc được danh sách bài học (public/lessons/index.json). Hãy chạy "npm run generate" để sinh dữ liệu từ thư mục data-source/.',
+    ja: 'レッスン一覧（public/lessons/index.json）を読み込めません。"npm run generate" を実行して data-source/ からデータを生成してください。',
+  },
+
+  // ── Tiêu đề tab theo trang ─────────────────────────────────────────────
+  'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
+  'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
+  'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
+  'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
+} as const satisfies Record<string, Entry>;
+
+export type MessageKey = keyof typeof MESSAGES;

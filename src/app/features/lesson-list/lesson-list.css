@@ -1,0 +1,118 @@
+.intro {
+  max-width: 62ch;
+}
+
+.intro p {
+  margin-top: 6px;
+}
+
+/* --- Bộ lọc loại bài học --- */
+
+.filter-options {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.filter-options .option {
+  justify-content: space-between;
+}
+
+.filter-count {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--bg-inset);
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--text-muted);
+}
+
+.option.is-active .filter-count {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-head h2 {
+  font-size: 1.15rem;
+}
+
+.category-desc {
+  margin-bottom: 10px;
+  max-width: 70ch;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.lesson-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.lesson-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lesson-name {
+  font-size: 1.05rem;
+  font-weight: 640;
+}
+
+.lesson-desc {
+  flex: 1;
+}
+
+.lesson-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.lesson-go {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.empty-steps {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+code.mono {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: var(--bg-inset);
+  font-size: 0.88em;
+}

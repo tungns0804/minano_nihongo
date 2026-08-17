@@ -1,0 +1,217 @@
+@if (question(); as q) {
+  <div class="container page practice-page">
+    <!-- ── Thanh tiến độ ────────────────────────────────────────────────── -->
+    <header class="practice-header">
+      <div class="row">
+        <span class="badge badge-accent">
+          {{ t('practice.progress', { current: questionNumber(), total: total() }) }}
+        </span>
+        <span class="badge badge-success">{{ t('practice.correctSoFar', { count: correctSoFar() }) }}</span>
+        <span class="badge">{{ modeLabel() }}</span>
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-sm btn-ghost" (click)="quit()">{{ t('practice.quit') }}</button>
+      </div>
+      <div
+        class="progress"
+        role="progressbar"
+        [attr.aria-valuenow]="index()"
+        [attr.aria-valuemin]="0"
+        [attr.aria-valuemax]="total()"
+        [attr.aria-label]="t('practice.progressAria', { current: questionNumber(), total: total() })"
+      >
+        <div class="progress-fill" [style.width.%]="progressPercent()"></div>
+      </div>
+    </header>
+
+    <!-- ── Câu hỏi ──────────────────────────────────────────────────────── -->
+    <section class="card question-card">
+      <div class="card-body">
+        <div class="question-top">
+          <span class="question-label">{{ questionLabel() }}</span>
+          <button
+            type="button"
+            class="star-btn"
+            [class.is-on]="isCurrentFavorite()"
+            (click)="toggleFavorite()"
+            [attr.aria-pressed]="isCurrentFavorite()"
+            [attr.aria-label]="t('practice.star')"
+            [title]="t('practice.starTitle')"
+          >
+            {{ isCurrentFavorite() ? '★' : '☆' }}
+          </button>
+        </div>
+
+        <p class="prompt" [class.jp]="q.promptIsJapanese" [class.is-sentence]="q.isSentence">
+          {{ q.prompt }}
+        </p>
+
+        @if (q.hint) {
+          <p class="prompt-hint">{{ q.hint }}</p>
+        }
+      </div>
+    </section>
+
+    <!-- ── Vùng trả lời ─────────────────────────────────────────────────── -->
+    <div #answerArea class="answer-area">
+      @if (isChoiceMode()) {
+        <div class="choices">
+          @for (choice of q.choices; track choice; let i = $index) {
+            <button
+              type="button"
+              class="choice"
+              [class.is-rejected]="isRejected(choice)"
+              [class.is-correct]="isRevealedCorrect(choice)"
+              [disabled]="isResolved() || isRejected(choice)"
+              (click)="selectChoice(choice)"
+            >
+              <span class="choice-key" aria-hidden="true">{{ i + 1 }}</span>
+              <span class="choice-text" [class.jp]="q.answerIsJapanese">{{ choiceLabel(choice) }}</span>
+              @if (isRevealedCorrect(choice)) {
+                <span class="choice-mark" aria-hidden="true">✓</span>
+              } @else if (isRejected(choice)) {
+                <span class="choice-mark" aria-hidden="true">✕</span>
+              }
+            </button>
+          }
+        </div>
+      } @else {
+        <div class="typing-area">
+          <label class="label" for="answer-input">{{ answerPrompt() }}</label>
+          <div class="typing-row">
+            <input
+              #answerInput
+              id="answer-input"
+              type="text"
+              class="input answer-input"
+              [class.jp]="q.answerIsJapanese"
+              [class.is-sentence]="q.isSentence"
+              [value]="typedAnswer()"
+              [disabled]="isResolved()"
+              (input)="onTypedInput($event)"
+              (keydown.enter)="onAnswerEnter($event)"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              [placeholder]="t('practice.placeholder')"
+            />
+            <button
+              type="button"
+              class="btn btn-primary"
+              [disabled]="isResolved() || !typedAnswer().trim()"
+              (click)="submitTyped()"
+            >
+              {{ t('practice.check') }}
+            </button>
+          </div>
+          @if (q.answerIsJapanese) {
+            <p class="hint">{{ t('practice.imeHint') }}</p>
+          }
+          @if (q.ignorePunctuation) {
+            <p class="hint">{{ t('practice.punctuationNote') }}</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- ── Phản hồi ─────────────────────────────────────────────────────── -->
+    @if (isResolved()) {
+      <section
+        #feedbackPanel
+        class="card feedback"
+        [class.is-correct]="isCorrect()"
+        [class.is-wrong]="isRevealed()"
+        tabindex="-1"
+        role="status"
+        aria-live="polite"
+      >
+        <div class="card-body">
+          @if (isCorrect()) {
+            <p class="feedback-title">
+              <span aria-hidden="true">✓</span> {{ t('practice.correct') }}
+              @if (wrongAttempts() > 0) {
+                <span class="feedback-note">
+                  {{ t('practice.correctAfter', { count: wrongAttempts() }) }}
+                </span>
+              }
+            </p>
+          } @else {
+            <p class="feedback-title">
+              <span aria-hidden="true">✕</span> {{ t('practice.wrong') }}
+            </p>
+            @if (lastWrongAnswer(); as wrong) {
+              <p class="feedback-line">
+                {{ t('practice.yourAnswer') }}
+                <span class="wrong-answer" [class.jp]="q.answerIsJapanese">{{ choiceLabel(wrong) }}</span>
+              </p>
+            }
+          }
+
+          <p class="feedback-line">
+            {{ t('practice.answer') }}
+            <strong class="right-answer" [class.jp]="q.answerIsJapanese">{{ correctAnswerText() }}</strong>
+          </p>
+
+          <dl class="word-recap">
+            @for (item of q.subject.recap; track item.labelKey) {
+              <div class="recap-item">
+                <dt><app-t [key]="item.labelKey" /></dt>
+                <dd [class.jp]="item.japanese">
+                  @if (item.valueKey; as valueKey) {
+                    <app-t [key]="valueKey" />
+                  } @else {
+                    {{ item.value }}
+                  }
+                </dd>
+              </div>
+            }
+          </dl>
+
+          <div class="feedback-actions">
+            <button type="button" class="btn btn-primary btn-lg" (click)="goNext()">
+              {{ isLastQuestion() ? t('practice.seeResult') : t('practice.next') }}
+            </button>
+            <span class="small muted">
+              {{ t('practice.spacePrefix') }} <kbd>Space</kbd>
+              {{ isLastQuestion() ? t('practice.spaceHintResult') : t('practice.spaceHintNext') }}
+            </span>
+          </div>
+        </div>
+      </section>
+    } @else {
+      <div class="attempts-bar">
+        @if (wrongAttempts() > 0) {
+          <span class="badge badge-danger">
+            <app-t
+              key="practice.attempts"
+              [params]="{
+                count: wrongAttempts(),
+                max: q.maxWrongAttempts,
+                left: remainingAttempts()
+              }"
+            />
+          </span>
+          @if (lastWrongAnswer(); as wrong) {
+            <span class="small muted">
+              {{ t('practice.lastAnswer') }}
+              <span [class.jp]="q.answerIsJapanese">{{ choiceLabel(wrong) }}</span>
+            </span>
+          }
+        } @else {
+          <span class="small muted hint-line">
+            @if (isChoiceMode()) {
+              <app-t key="practice.hintChoice" /> <kbd>1</kbd>–<kbd>{{ q.choices.length }}</kbd>.
+            } @else {
+              <app-t key="practice.hintTyping" /> <kbd>Enter</kbd>.
+            }
+            <app-t key="practice.hintMax" [params]="{ max: q.maxWrongAttempts }" />
+          </span>
+        }
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-sm btn-ghost" (click)="giveUp()">
+          {{ t('practice.giveUp') }}
+        </button>
+      </div>
+    }
+  </div>
+}

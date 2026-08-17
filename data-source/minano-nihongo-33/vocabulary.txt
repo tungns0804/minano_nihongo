@@ -1,0 +1,47 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy/ trốn thoát|犯人は窓から逃げました。
+TAO,騒ぎます (さわぎます),làm ồn/ ồn ào/ làm huyên náo|子どもたちが教室で騒いでいます。
+ĐẦU,投げます (なげます),ném/ quăng|ボールを投げないでください。
+THỦ,守ります (まもります),bảo vệ/ tuân thủ/ giữ|規則を守ってください。
+THƯỢNG,上げます (あげます),nâng lên/ giơ lên/ tăng lên|わかる人は手を上げてください。
+HẠ,下げます (さげます),hạ xuống/ giảm xuống/ hạ|エアコンの温度を下げましょう。
+TRUYỀN,伝えます (つたえます),truyền đạt/ nhắn lại/ báo lại|部長に伝えていただけませんか。
+XA CHÚ Ý,車に注意します (くるまにちゅういします),chú ý xe cộ/ coi chừng xe|道を渡るとき、車に注意してください。
+TỊCH NGOẠI,席を外します (せきをはずします),rời khỏi chỗ ngồi/ đi vắng/ không có ở chỗ|田中はただいま席を外しております。
+TỊCH,席 (せき),chỗ ngồi/ ghế|窓側の席に座りたいです。
+TẨY TRẠC CƠ,洗濯機 (せんたくき),máy giặt|洗濯機が壊れてしまいました。
+QUY TẮC,規則 (きそく),quy định/ nội quy/ quy tắc|会社の規則を守らなければなりません。
+SỬ DỤNG CẤM CHỈ,使用禁止 (しようきんし),cấm sử dụng|このトイレは使用禁止です。
+LẬP NHẬP CẤM CHỈ,立入禁止 (たちいりきんし),cấm vào/ cấm vào khu vực này|工事中ですから、立入禁止です。
+NHẬP KHẨU,入口 (いりぐち),lối vào/ cửa vào|入口はあちらです。
+XUẤT KHẨU,出口 (でぐち),lối ra/ cửa ra|出口はどこですか。
+PHI THƯỜNG KHẨU,非常口 (ひじょうぐち),lối thoát hiểm/ cửa thoát hiểm|地震のときは非常口から出てください。
+VÔ LIỆU,無料 (むりょう),miễn phí|子どもは無料で入れます。
+BẢN NHẬT HƯU NGHIỆP,本日休業 (ほんじつきゅうぎょう),hôm nay nghỉ/ hôm nay đóng cửa|本日休業と書いてあります。
+DOANH NGHIỆP TRUNG,営業中 (えいぎょうちゅう),đang mở cửa/ đang kinh doanh|あの店はまだ営業中です。
+SỬ DỤNG TRUNG,使用中 (しようちゅう),đang sử dụng/ đang có người dùng|会議室は使用中です。
+TRÚ XA VI PHẢN,駐車違反 (ちゅうしゃいはん),đỗ xe sai quy định/ đỗ xe trái phép|ここに止めると駐車違反になります。
+CẢNH SÁT,警察 (けいさつ),cảnh sát|すぐに警察に電話してください。
+PHẠT KIM,罰金 (ばっきん),tiền phạt|スピード違反で罰金を払いました。
+ĐIỆN BÁO,電報 (でんぽう),bức điện/ điện báo/ điện tín|お祝いの電報が届きました。
+CẤP DỤNG,急用 (きゅうよう),việc gấp/ việc khẩn|急用ができて、行けなくなりました。
+ĐIỆN BÁO ĐẢ,電報を打ちます (でんぽうをうちます),đánh điện/ gửi điện báo|国の家族に電報を打ちました。
+ĐIỆN BÁO ĐẠI,電報代 (でんぽうだい),tiền điện báo/ cước điện báo|電報代はいくらかかりますか。
+ĐOẢN,短く (みじかく),ngắn/ ngắn gọn|短く説明してください。
+LỆ,例えば (たとえば),ví dụ như/ chẳng hạn/ ví dụ|果物、例えばりんごが好きです。
+TRỌNG BỆNH KHÍ,重い病気 (おもいびょうき),bệnh nặng|父は重い病気で入院しています。
+MINH NHẬT,明日 (あした),ngày mai|明日は雨が降るそうです。
+LƯU THỦ,留守 (るす),vắng nhà/ không có nhà|昨日、友達の家へ行きましたが留守でした。
+LƯU THỦ PHIÊN,留守番 (るすばん),trông nhà/ giữ nhà|子どもが一人で留守番をしています。
+CHÚC,お祝い (おいわい),quà mừng/ lời chúc mừng/ lễ mừng|結婚のお祝いを送りました。
+VONG,亡くなります (なくなります),mất/ qua đời|祖父は去年亡くなりました。
+BI,悲しみ (かなしみ),nỗi buồn/ niềm đau|彼の悲しみは言葉にできません。
+LỢI DỤNG,利用します (りようします),sử dụng/ dùng/ tận dụng|この図書館は誰でも利用できます。

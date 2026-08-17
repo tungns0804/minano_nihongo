@@ -1,0 +1,299 @@
+{
+  "id": "minano-nihongo-28",
+  "name": "皆の日本語 — Bài 28 · Từ vựng",
+  "description": "Từ vựng bài 28",
+  "kind": "vocabulary",
+  "itemCount": 36,
+  "words": [
+    {
+      "id": "1dv1p2a",
+      "hanViet": "MẠI",
+      "japanese": "売れます",
+      "reading": "うれます",
+      "vietnamese": "bán chạy/ được bán",
+      "example": "このパンはよく売れます。"
+    },
+    {
+      "id": "0fulqnb",
+      "hanViet": "DŨNG",
+      "japanese": "踊ります",
+      "reading": "おどります",
+      "vietnamese": "nhảy/ khiêu vũ",
+      "example": "みんなで踊ります。"
+    },
+    {
+      "id": "1pe7zyn",
+      "hanViet": "TUYỂN",
+      "japanese": "選びます",
+      "reading": "えらびます",
+      "vietnamese": "chọn/ lựa chọn",
+      "example": "好きなのを選びます。"
+    },
+    {
+      "id": "0zzpt02",
+      "hanViet": "VI",
+      "japanese": "違います",
+      "reading": "ちがいます",
+      "vietnamese": "khác/ không đúng",
+      "example": "意見が違います。"
+    },
+    {
+      "id": "0szy5rj",
+      "hanViet": "ĐẠI HỌC THÔNG",
+      "japanese": "大学に通います",
+      "reading": "だいがくにかよいます",
+      "vietnamese": "đi đi về về trường đại học",
+      "example": "毎日大学に通います。"
+    },
+    {
+      "id": "1ngk1sf",
+      "hanViet": "NHIỆT TÂM",
+      "japanese": "熱心",
+      "reading": "ねっしん",
+      "vietnamese": "nhiệt tâm/ nhiệt tình/ hết lòng",
+      "example": "彼は仕事に熱心です。"
+    },
+    {
+      "id": "1kq2zu2",
+      "hanViet": "ƯU",
+      "japanese": "優しい",
+      "reading": "やさしい",
+      "vietnamese": "tình cảm/ hiền lành",
+      "example": "先生はとても優しいです。"
+    },
+    {
+      "id": "0ebrk22",
+      "hanViet": "VĨ",
+      "japanese": "偉い",
+      "reading": "えらい",
+      "vietnamese": "vĩ đại/ đáng kính/ đáng khâm phục",
+      "example": "彼は偉い人です。"
+    },
+    {
+      "id": "1kh1ldv",
+      "hanViet": "TẬP QUÁN",
+      "japanese": "習慣",
+      "reading": "しゅうかん",
+      "vietnamese": "tập quán/ thói quen",
+      "example": "朝の習慣があります。"
+    },
+    {
+      "id": "0smxvkz",
+      "hanViet": "KINH NGHIỆM",
+      "japanese": "経験",
+      "reading": "けいけん",
+      "vietnamese": "kinh nghiệm",
+      "example": "仕事の経験があります。"
+    },
+    {
+      "id": "1m8v0kn",
+      "hanViet": "LỰC",
+      "japanese": "力",
+      "reading": "ちから",
+      "vietnamese": "sức lực/ năng lực",
+      "example": "力があります。"
+    },
+    {
+      "id": "14kk0lm",
+      "hanViet": "NHÂN KHÍ",
+      "japanese": "人気",
+      "reading": "にんき",
+      "vietnamese": "sự hâm mộ/ sự nổi tiếng",
+      "example": "この歌手は人気があります。"
+    },
+    {
+      "id": "1j4k0q9",
+      "hanViet": "HÌNH",
+      "japanese": "形",
+      "reading": "かたち",
+      "vietnamese": "hình/ hình dáng",
+      "example": "きれいな形ですね。"
+    },
+    {
+      "id": "0c3iwhv",
+      "hanViet": "SẮC",
+      "japanese": "色",
+      "reading": "いろ",
+      "vietnamese": "màu/ màu sắc",
+      "example": "好きな色は何ですか。"
+    },
+    {
+      "id": "0qvrs2y",
+      "hanViet": "VỊ",
+      "japanese": "味",
+      "reading": "あじ",
+      "vietnamese": "vị/ mùi vị",
+      "example": "このスープは良い味です。"
+    },
+    {
+      "id": "1bsrbfc",
+      "hanViet": "PHẨM VẬT",
+      "japanese": "品物",
+      "reading": "しなもの",
+      "vietnamese": "hàng hóa/ mặt hàng",
+      "example": "品物を見ます。"
+    },
+    {
+      "id": "0i8fesd",
+      "hanViet": "TRỊ ĐOẠN",
+      "japanese": "値段",
+      "reading": "ねだん",
+      "vietnamese": "giá/ giá cả",
+      "example": "この服は値段が高いです。"
+    },
+    {
+      "id": "0z81o89",
+      "hanViet": "CẤP LIỆU",
+      "japanese": "給料",
+      "reading": "きゅうりょう",
+      "vietnamese": "lương",
+      "example": "毎月給料をもらいます。"
+    },
+    {
+      "id": "1uq2u18",
+      "hanViet": "PHIÊN TỔ",
+      "japanese": "番組",
+      "reading": "ばんぐみ",
+      "vietnamese": "chương trình phát thanh/ chương trình truyền hình",
+      "example": "面白い番組を見ます。"
+    },
+    {
+      "id": "03jsxic",
+      "hanViet": "TIỂU THUYẾT",
+      "japanese": "小説",
+      "reading": "しょうせつ",
+      "vietnamese": "tiểu thuyết",
+      "example": "面白い小説を読みます。"
+    },
+    {
+      "id": "0k91ne9",
+      "hanViet": "TIỂU THUYẾT GIA",
+      "japanese": "小説家",
+      "reading": "しょうせつか",
+      "vietnamese": "tiểu thuyết gia/ nhà văn",
+      "example": "彼は有名な小説家です。"
+    },
+    {
+      "id": "18kcere",
+      "hanViet": "CA THỦ",
+      "japanese": "歌手",
+      "reading": "かしゅ",
+      "vietnamese": "ca sĩ",
+      "example": "あの歌手は歌が上手です。"
+    },
+    {
+      "id": "0z96kop",
+      "hanViet": "QUẢN LÝ NHÂN",
+      "japanese": "管理人",
+      "reading": "かんりにん",
+      "vietnamese": "người quản lý",
+      "example": "寮の管理人と話します。"
+    },
+    {
+      "id": "07mg0m5",
+      "hanViet": "TỨC TỬ",
+      "japanese": "息子",
+      "reading": "むすこ",
+      "vietnamese": "con trai",
+      "example": "私の息子は大学生です。"
+    },
+    {
+      "id": "1dc8vkd",
+      "hanViet": "TỨC TỬ",
+      "japanese": "息子さん",
+      "reading": "むすこさん",
+      "vietnamese": "con trai (của người khác)",
+      "example": "息子さんはおいくつですか。"
+    },
+    {
+      "id": "0ao4oft",
+      "hanViet": "NƯƠNG",
+      "japanese": "娘",
+      "reading": "むすめ",
+      "vietnamese": "con gái",
+      "example": "娘は学校へ行きます。"
+    },
+    {
+      "id": "01dgbe9",
+      "hanViet": "NƯƠNG",
+      "japanese": "娘さん",
+      "reading": "むすめさん",
+      "vietnamese": "con gái (của người khác)",
+      "example": "娘さんは元気がいいですね。"
+    },
+    {
+      "id": "1n4lfl1",
+      "hanViet": "TỰ PHÂN",
+      "japanese": "自分",
+      "reading": "じぶん",
+      "vietnamese": "bản thân/ mình",
+      "example": "自分で考えます。"
+    },
+    {
+      "id": "0i08ib6",
+      "hanViet": "TƯƠNG LAI",
+      "japanese": "将来",
+      "reading": "しょうらい",
+      "vietnamese": "tương lai",
+      "example": "将来の夢を語ります。"
+    },
+    {
+      "id": "02ru36d",
+      "hanViet": "NGUYỆN",
+      "japanese": "ちょっとお願いがあるんですが",
+      "reading": "ちょっとおねがいがあるんですが",
+      "vietnamese": "Tôi có chút việc muốn nhờ anh chị.",
+      "example": "ちょっとお願いがあるんですが、いいですか。"
+    },
+    {
+      "id": "1lna6e9",
+      "hanViet": "HỘI THOẠI",
+      "japanese": "会話",
+      "reading": "かいわ",
+      "vietnamese": "hội thoại",
+      "example": "日本語の会話を練習します。"
+    },
+    {
+      "id": "0aw14th",
+      "hanViet": "TRI",
+      "japanese": "お知らせ",
+      "reading": "おしらせ",
+      "vietnamese": "thông báo",
+      "example": "掲示板のお知らせを見ます。"
+    },
+    {
+      "id": "1rqr062",
+      "hanViet": "NHẬT",
+      "japanese": "日にち",
+      "reading": "ひにち",
+      "vietnamese": "ngày",
+      "example": "会議の日にちを決めます。"
+    },
+    {
+      "id": "0qbc2ai",
+      "hanViet": "THỔ",
+      "japanese": "土",
+      "reading": "ど",
+      "vietnamese": "thứ bảy",
+      "example": "毎週土曜日に休みます。"
+    },
+    {
+      "id": "04ko9n8",
+      "hanViet": "THỂ DỤC QUÁN",
+      "japanese": "体育館",
+      "reading": "たいいくかん",
+      "vietnamese": "nhà tập/ nhà thi đấu thể thao",
+      "example": "体育館で運動をします。"
+    },
+    {
+      "id": "1gywuhf",
+      "hanViet": "VÔ LIỆU",
+      "japanese": "無料",
+      "reading": "むりょう",
+      "vietnamese": "miễn phí",
+      "example": "このサービスは無料です。"
+    }
+  ],
+  "verbs": [],
+  "lines": []
+}

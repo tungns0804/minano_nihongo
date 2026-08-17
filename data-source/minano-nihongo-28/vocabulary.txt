@@ -1,0 +1,45 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+MẠI,売れます (うれます),bán chạy/ được bán|このパンはよく売れます。
+DŨNG,踊ります (おどります),nhảy/ khiêu vũ|みんなで踊ります。
+TUYỂN,選びます (えらびます),chọn/ lựa chọn|好きなのを選びます。
+VI,違います (ちがいます),khác/ không đúng|意見が違います。
+ĐẠI HỌC THÔNG,大学に通います (だいがくにかよいます),đi đi về về trường đại học|毎日大学に通います。
+NHIỆT TÂM,熱心 (ねっしん),nhiệt tâm/ nhiệt tình/ hết lòng|彼は仕事に熱心です。
+ƯU,優しい (やさしい),tình cảm/ hiền lành|先生はとても優しいです。
+VĨ,偉い (えらい),vĩ đại/ đáng kính/ đáng khâm phục|彼は偉い人です。
+TẬP QUÁN,習慣 (しゅうかん),tập quán/ thói quen|朝の習慣があります。
+KINH NGHIỆM,経験 (けいけん),kinh nghiệm|仕事の経験があります。
+LỰC,力 (ちから),sức lực/ năng lực|力があります。
+NHÂN KHÍ,人気 (にんき),sự hâm mộ/ sự nổi tiếng|この歌手は人気があります。
+HÌNH,形 (かたち),hình/ hình dáng|きれいな形ですね。
+SẮC,色 (いろ),màu/ màu sắc|好きな色は何ですか。
+VỊ,味 (あじ),vị/ mùi vị|このスープは良い味です。
+PHẨM VẬT,品物 (しなもの),hàng hóa/ mặt hàng|品物を見ます。
+TRỊ ĐOẠN,値段 (ねだん),giá/ giá cả|この服は値段が高いです。
+CẤP LIỆU,給料 (きゅうりょう),lương|毎月給料をもらいます。
+PHIÊN TỔ,番組 (ばんぐみ),chương trình phát thanh/ chương trình truyền hình|面白い番組を見ます。
+TIỂU THUYẾT,小説 (しょうせつ),tiểu thuyết|面白い小説を読みます。
+TIỂU THUYẾT GIA,小説家 (しょうせつか),tiểu thuyết gia/ nhà văn|彼は有名な小説家です。
+CA THỦ,歌手 (かしゅ),ca sĩ|あの歌手は歌が上手です。
+QUẢN LÝ NHÂN,管理人 (かんりにん),người quản lý|寮の管理人と話します。
+TỨC TỬ,息子 (むすこ),con trai|私の息子は大学生です。
+TỨC TỬ,息子さん (むすこさん),con trai (của người khác)|息子さんはおいくつですか。
+NƯƠNG,娘 (むすめ),con gái|娘は学校へ行きます。
+NƯƠNG,娘さん (むすめさん),con gái (của người khác)|娘さんは元気がいいですね。
+TỰ PHÂN,自分 (じぶん),bản thân/ mình|自分で考えます。
+TƯƠNG LAI,将来 (しょうらい),tương lai|将来の夢を語ります。
+NGUYỆN,ちょっとお願いがあるんですが (ちょっとおねがいがあるんですが),Tôi có chút việc muốn nhờ anh chị.|ちょっとお願いがあるんですが、いいですか。
+HỘI THOẠI,会話 (かいわ),hội thoại|日本語の会話を練習します。
+TRI,お知らせ (おしらせ),thông báo|掲示板のお知らせを見ます。
+NHẬT,日にち (ひにち),ngày|会議の日にちを決めます。
+THỔ,土 (ど),thứ bảy|毎週土曜日に休みます。
+THỂ DỤC QUÁN,体育館 (たいいくかん),nhà tập/ nhà thi đấu thể thao|体育館で運動をします。
+VÔ LIỆU,無料 (むりょう),miễn phí|このサービスは無料です。

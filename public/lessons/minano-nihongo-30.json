@@ -1,0 +1,307 @@
+{
+  "id": "minano-nihongo-30",
+  "name": "皆の日本語 — Bài 30 · Từ vựng",
+  "description": "Từ vựng bài 30",
+  "kind": "vocabulary",
+  "itemCount": 37,
+  "words": [
+    {
+      "id": "04psta3",
+      "hanViet": "QUẢI",
+      "japanese": "掛けます",
+      "reading": "かけます",
+      "vietnamese": "treo",
+      "example": "壁に絵を掛けます。"
+    },
+    {
+      "id": "0e01dxc",
+      "hanViet": "SỨC",
+      "japanese": "飾ります",
+      "reading": "かざります",
+      "vietnamese": "trang trí",
+      "example": "部屋に花を飾ります。"
+    },
+    {
+      "id": "1owjsrz",
+      "hanViet": "TỊNH",
+      "japanese": "並べます",
+      "reading": "ならべます",
+      "vietnamese": "xếp thành hàng",
+      "example": "本棚に本を並べます。"
+    },
+    {
+      "id": "14h4rom",
+      "hanViet": "THỰC",
+      "japanese": "植えます",
+      "reading": "うえます",
+      "vietnamese": "trồng cây",
+      "example": "庭に木を植えます。"
+    },
+    {
+      "id": "1v0bqj4",
+      "hanViet": "LỆ",
+      "japanese": "戻します",
+      "reading": "もどします",
+      "vietnamese": "trả về/ để lại vị trí ban đầu",
+      "example": "本を元の場所に戻します。"
+    },
+    {
+      "id": "1lxr1t2",
+      "hanViet": "PHIẾN",
+      "japanese": "片づけます",
+      "reading": "かたづけます",
+      "vietnamese": "dọn dẹp/ sắp xếp",
+      "example": "部屋を片づけます。"
+    },
+    {
+      "id": "0pzzk2q",
+      "hanViet": "QUYẾT",
+      "japanese": "決めます",
+      "reading": "きめます",
+      "vietnamese": "quyết định",
+      "example": "旅行の計画を決めます。"
+    },
+    {
+      "id": "0keideo",
+      "hanViet": "TRI",
+      "japanese": "知らせます",
+      "reading": "しらせます",
+      "vietnamese": "thông báo/ báo",
+      "example": "時間をみんなに知らせます。"
+    },
+    {
+      "id": "15d5mzf",
+      "hanViet": "TƯƠNG ĐÀM",
+      "japanese": "相談します",
+      "reading": "そうだんします",
+      "vietnamese": "trao đổi/ bàn bạc/ tư vấn",
+      "example": "先生に相談します。"
+    },
+    {
+      "id": "087zzsb",
+      "hanViet": "DỰ TẬP",
+      "japanese": "予習します",
+      "reading": "よしゅうします",
+      "vietnamese": "chuẩn bị bài mới",
+      "example": "明日勉強するところを予習します。"
+    },
+    {
+      "id": "0lc7grb",
+      "hanViet": "PHỤC TẬP",
+      "japanese": "復習します",
+      "reading": "ふくしゅうします",
+      "vietnamese": "ôn bài cũ",
+      "example": "今日習ったことを復習します。"
+    },
+    {
+      "id": "1rd6qdt",
+      "hanViet": "TỬ",
+      "japanese": "お子さん",
+      "reading": "おこさん",
+      "vietnamese": "con (của người khác)",
+      "example": "お子さんはおいくつですか。"
+    },
+    {
+      "id": "17wlenw",
+      "hanViet": "THỤ NGHIỆP",
+      "japanese": "授業",
+      "reading": "じゅぎょう",
+      "vietnamese": "giờ học",
+      "example": "もうすぐ授業が始まります。"
+    },
+    {
+      "id": "15zsvve",
+      "hanViet": "GIẢNG NGHĨA",
+      "japanese": "講義",
+      "reading": "こうぎ",
+      "vietnamese": "bài giảng",
+      "example": "大学で講義を聞きます。"
+    },
+    {
+      "id": "0ucaw8j",
+      "hanViet": "DỰ ĐỊNH",
+      "japanese": "予定",
+      "reading": "よてい",
+      "vietnamese": "kế hoạch/ dự định",
+      "example": "明日の予定を話します。"
+    },
+    {
+      "id": "0aw14th",
+      "hanViet": "TRI",
+      "japanese": "お知らせ",
+      "reading": "おしらせ",
+      "vietnamese": "bản thông báo",
+      "example": "掲示板のお知らせを見ます。"
+    },
+    {
+      "id": "08xqqlt",
+      "hanViet": "ÁN NỘI THƯ",
+      "japanese": "案内書",
+      "reading": "あんないしょ",
+      "vietnamese": "sách hướng dẫn/ tài liệu hướng dẫn",
+      "example": "旅行の案内書を読みます。"
+    },
+    {
+      "id": "047zfvj",
+      "hanViet": "TƯƠNG",
+      "japanese": "ごみ箱",
+      "reading": "ごみばこ",
+      "vietnamese": "thùng rác",
+      "example": "ごみをごみ箱に捨てます。"
+    },
+    {
+      "id": "1r7xw8h",
+      "hanViet": "NHÂN HÌNH",
+      "japanese": "人形",
+      "reading": "にんぎょう",
+      "vietnamese": "con búp bê/ con rối",
+      "example": "可愛い人形を買いました。"
+    },
+    {
+      "id": "0pc9126",
+      "hanViet": "HOA BÌNH",
+      "japanese": "花瓶",
+      "reading": "かびん",
+      "vietnamese": "lọ hoa",
+      "example": "花瓶に花を挿します。"
+    },
+    {
+      "id": "0hx10le",
+      "hanViet": "KÍNH",
+      "japanese": "鏡",
+      "reading": "かがみ",
+      "vietnamese": "cái gương",
+      "example": "鏡で顔を見ます。"
+    },
+    {
+      "id": "11w905j",
+      "hanViet": "DẪN XUẤT",
+      "japanese": "引き出し",
+      "reading": "ひきだし",
+      "vietnamese": "ngăn kéo",
+      "example": "引き出しに鍵を入れます。"
+    },
+    {
+      "id": "1pvww1w",
+      "hanViet": "HUYỀN QUAN",
+      "japanese": "玄関",
+      "reading": "げんかん",
+      "vietnamese": "cửa vào",
+      "example": "玄関で靴を脱ぎます。"
+    },
+    {
+      "id": "15tonlm",
+      "hanViet": "LANG HẠ",
+      "japanese": "廊下",
+      "reading": "ろうか",
+      "vietnamese": "hành lang",
+      "example": "廊下を走ってはいけません。"
+    },
+    {
+      "id": "04n5fl6",
+      "hanViet": "BÍCH",
+      "japanese": "壁",
+      "reading": "かべ",
+      "vietnamese": "bức tường",
+      "example": "壁にポスターを貼ります。"
+    },
+    {
+      "id": "1g6xre1",
+      "hanViet": "TRÌ",
+      "japanese": "池",
+      "reading": "いけ",
+      "vietnamese": "cái ao",
+      "example": "池に魚がいます。"
+    },
+    {
+      "id": "1r10lee",
+      "hanViet": "GIAO PHIÊN",
+      "japanese": "交番",
+      "reading": "こうばん",
+      "vietnamese": "đồn cảnh sát",
+      "example": "交番で道を尋ねます。"
+    },
+    {
+      "id": "14sesne",
+      "hanViet": "NGUYÊN SỞ",
+      "japanese": "元の所",
+      "reading": "もとのところ",
+      "vietnamese": "địa điểm ban đầu/ địa điểm gốc",
+      "example": "使ったら元の所に戻してください。"
+    },
+    {
+      "id": "1thn6p9",
+      "hanViet": "CHU",
+      "japanese": "周り",
+      "reading": "まわり",
+      "vietnamese": "xung quanh",
+      "example": "家の周りを散歩します。"
+    },
+    {
+      "id": "0t863lj",
+      "hanViet": "CHÂN TRUNG",
+      "japanese": "真ん中",
+      "reading": "まんなか",
+      "vietnamese": "giữa/ trung tâm",
+      "example": "テーブルの真ん中に花を置きます。"
+    },
+    {
+      "id": "15tospt",
+      "hanViet": "NGUNG",
+      "japanese": "隅",
+      "reading": "すみ",
+      "vietnamese": "góc",
+      "example": "部屋の隅に机を置きます。"
+    },
+    {
+      "id": "0ezfrfv",
+      "hanViet": "DỰ ĐỊNH BIỂU",
+      "japanese": "予定表",
+      "reading": "よていひょう",
+      "vietnamese": "lịch/ thời khóa biểu",
+      "example": "予定表を確認します。"
+    },
+    {
+      "id": "1ai9ki4",
+      "hanViet": "HOÀN",
+      "japanese": "丸い",
+      "reading": "まるい",
+      "vietnamese": "tròn",
+      "example": "丸いテーブルを買いました。"
+    },
+    {
+      "id": "0orxt3e",
+      "hanViet": "NGUYỆT",
+      "japanese": "月",
+      "reading": "つき",
+      "vietnamese": "mặt trăng/ trăng",
+      "example": "今夜は月がきれいです。"
+    },
+    {
+      "id": "1e6yh4p",
+      "hanViet": "ĐỊA CẦU",
+      "japanese": "地球",
+      "reading": "ちきゅう",
+      "vietnamese": "trái đất",
+      "example": "地球を守りましょう。"
+    },
+    {
+      "id": "0dfbv9l",
+      "hanViet": "HIỀM",
+      "japanese": "嫌",
+      "reading": "いや",
+      "vietnamese": "chán/ ghét",
+      "example": "嫌なことを忘れます。"
+    },
+    {
+      "id": "08r9pdv",
+      "hanViet": "MỤC GIÁC",
+      "japanese": "目が覚めます",
+      "reading": "めがさめます",
+      "vietnamese": "tỉnh giấc/ mở mắt",
+      "example": "朝6時に目が覚めました。"
+    }
+  ],
+  "verbs": [],
+  "lines": []
+}

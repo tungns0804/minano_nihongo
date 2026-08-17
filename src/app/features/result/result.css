@@ -1,0 +1,255 @@
+/* --- Điểm số --- */
+
+.score-body {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.score-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 168px;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border);
+}
+
+.score-main[data-tone='great'] {
+  border-color: var(--success-border);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.score-main[data-tone='ok'] {
+  border-color: var(--warning-border);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.score-main[data-tone='low'] {
+  border-color: var(--danger-border);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.score-value {
+  font-size: 3.1rem;
+  font-weight: 720;
+  line-height: 1;
+}
+
+.score-percent {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.score-fraction {
+  font-size: 0.88rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.score-meta {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 12px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 680;
+  line-height: 1.2;
+}
+
+.stat-great {
+  color: var(--success);
+}
+
+.stat-bad {
+  color: var(--danger);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+
+.config-recap {
+  margin-top: 12px;
+}
+
+/* --- Bộ lọc --- */
+
+.filter-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 5px 11px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  font-size: 0.85rem;
+  font-weight: 550;
+  color: var(--text-muted);
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.tab:hover:not(:disabled):not(.is-active) {
+  color: var(--text);
+}
+
+.tab.is-active {
+  background: var(--bg-elevated);
+  color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* --- Danh sách chi tiết --- */
+
+.result-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.result-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 12px;
+  border-radius: var(--radius-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item.is-wrong {
+  background: color-mix(in srgb, var(--danger-soft) 40%, transparent);
+}
+
+.result-mark {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background: var(--success-soft);
+  color: var(--success);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.result-mark.is-wrong {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.result-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-word {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.result-jp {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.result-han {
+  font-size: 0.82rem;
+  font-weight: 620;
+  letter-spacing: 0.04em;
+  color: var(--text-faint);
+}
+
+.result-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 1px 7px;
+}
+
+.result-meaning {
+  font-size: 0.92rem;
+}
+
+.result-detail {
+  margin-top: 3px;
+}
+
+.star-btn {
+  flex-shrink: 0;
+  border: none;
+  background: none;
+  padding: 2px 5px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+.star-btn:hover {
+  color: var(--star);
+  transform: scale(1.15);
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+@media (max-width: 600px) {
+  .score-body {
+    gap: 18px;
+  }
+
+  .score-main {
+    width: 100%;
+  }
+
+  .score-value {
+    font-size: 2.6rem;
+  }
+}

@@ -1,0 +1,44 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+TỰ,飼います (かいます),nuôi|猫を飼います。
+KIẾN,建てます (たてます),xây/ xây dựng|家を建てます。
+ĐẠO TẨU,道を走ります (みちをはしります),chạy trên đường|車が道を走ります。
+HƯU THỦ,休みを取ります (やすみをとります),xin nghỉ/ nghỉ phép|明日休みを取ります。
+SƠN/SAN KIẾN,山が見えます (やまがみえます),có thể nhìn thấy núi|窓から山が見えます。
+ÂM VĂN,音が聞こえます (おとがきこえます),có thể nghe thấy âm thanh|遠くで音が聞こえます。
+KHÔNG CẢNG,空港ができます (くうこうができます),sân bay được hoàn thành|町に新しい空港ができました。
+GIÁO THẤT KHAI,教室を開きます (きょうしつをひらきます),mở lớp học|日本語の教室を開きます。
+ĐIỂU,鳥 (とり),chim|空に鳥が飛んでいます。
+THANH,声 (こえ),tiếng nói/ giọng nói|きれいな声ですね。
+BA,波 (なみ),sóng|海で高い波があります。
+HOA HỎA,花火 (はなび),pháo hoa|夜、花火を見に行きます。
+CẢNH SẮC,景色 (けしき),phong cảnh/ cảnh sắc|この辺の景色はきれいです。
+TRÚ GIAN,昼間 (ひるま),ban ngày/ thời gian ban ngày|昼間は暑いです。
+TÍCH,昔 (むかし),ngày xưa/ trước đây|昔、ここに公園がありました。
+ĐẠO CỤ,道具 (どうぐ),dụng cụ/ công cụ|料理の道具を買います。
+TỰ ĐỘNG PHIÊN MẠI CƠ,自動販売機 (じどうはんばいき),máy bán hàng tự động|駅で自動販売機を使います。
+THÔNG TÍN PHIÊN MẠI,通信販売 (つうしんはんばい),bán hàng qua bưu điện/ thương mại viễn thông|最近、通信販売をよく利用します。
+ĐÀI SỞ,台所 (だいどころ),bếp/ nhà bếp|台所で料理を作ります。
+BỔN BẰNG,本棚 (ほんだな),giá sách/ kệ sách|本棚に本を並べます。
+MỘNG,夢 (ゆめ),giấc mơ/ ước mơ|昨日の夜、変な夢を見ました。
+GIA,家 (いえ),nhà|新しい家を建てます。
+TỬ/TÝ,子どもたち (こどもたち),trẻ em/ trẻ con/ con cái|公園で子どもたちが遊んでいます。
+ĐẠI HẢO,大好き (だいすき),rất thích/ thích lắm|私は猫が大好きです。
+MẠN HỌA,漫画 (まんが),truyện tranh/ manga|休みの日に漫画を読みます。
+CHỦ NHÂN CÔNG,主人公 (しゅじんこう),nhân vật chính|この映画の主人公はかっこいいです。
+HÌNH,形 (かたち),hình/ dạng/ hình dạng|このチョコレートは星の形をしています。
+BẤT TƯ NGHỊ,不思議 (ふしぎ),kỳ lạ/ khó tin/ bí ẩn|この話はとても不思議です。
+LỆ,例えば (たとえば),ví dụ như/ chẳng hạn/ ví dụ|例えば、この問題を見てください。
+PHÓ,付けます (つけます),lắp/ gắn/ ghép thêm/ đặt tên|ノートに名前を付けます。
+TỰ DO,自由に (じゆうに),tự do/ tuỳ thích/ thoải mái|ここで自由に写真を撮ることができます。
+KHÔNG,空 (そら),bầu trời/ trời|今日の空は青くてきれいです。
+PHI,飛びます (とびます),bay|鳥が空を飛んでいます。
+TỰ PHÂN,自分 (じぶん),bản thân/ mình/ tự mình|自分一人でやります。
+TƯƠNG LAI,将来 (しょうらい),tương lai|将来、医者になりたいです。

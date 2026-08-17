@@ -1,0 +1,43 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+KIẾN,見ます (みます),xem/ nhìn|資料を見ます。
+CHÂN,診ます (みます),khám/ khám bệnh|医者が病人を診ます。
+THÁM,探します (さがします),tìm/ tìm kiếm/ tìm cái mình cần|鍵を探します。
+SƯU,捜します (さがします),tìm/ tìm kiếm/ tìm cái bị mất|警察が犯人を捜します。
+THỜI GIAN TRÌ,時間に遅れます (じかんにおくれます),muộn giờ/ trễ giờ/ đến muộn|会議の時間に遅れます。
+THAM GIA,参加します (さんかします),tham gia/ tham dự|パーティーに参加します。
+THÂN VÀO,申し込みます (もうしこみます),đăng ký/ nộp đơn|大会に申し込みます。
+ĐÔ HỢP,都合がいい (つごうがいい),tiện/ thuận tiện/ có thời gian|明日、都合がいいですか。
+ĐÔ HỢP ÁC,都合が悪い (つごうがわるい),không tiện/ bận/ vướng việc|その日は都合が悪いです。
+KHÍ PHÂN,気分がいい (きぶんがいい),thấy khỏe/ thấy dễ chịu/ tâm trạng tốt|今日は気分がいいです。
+KHÍ PHÂN ÁC,気分が悪い (きぶんがわるい),thấy khó chịu/ thấy mệt/ tâm trạng tệ|少し気分が悪いです。
+TÂN VĂN XÃ,新聞社 (しんぶんしゃ),toà soạn báo/ công ty báo chí|新聞社で働いています。
+NHU ĐẠO,柔道 (じゅうどう),judo/ nhu đạo|柔道を習います。
+VẬN ĐỘNG HỘI,運動会 (うんどうかい),hội thao/ đại hội thể thao|学校で運動会があります。
+TRƯỜNG SỞ,場所 (ばしょ),địa điểm/ nơi/ chỗ|約束の場所に行きます。
+TRỰC TIẾP,直接 (ちょくせつ),trực tiếp|社長と直接話します。
+HÀ,何でも (なんでも),cái gì cũng/ bất cứ thứ gì|何でも食べられます。
+HÀ VẬT PHIẾN PHÓ,荷物が片付きます (にもつがかたづきます),đồ đạc được dọn gọn/ đồ đạc được sắp xếp ngăn nắp|荷物が片付きました。
+XUẤT,出します (だします),đổ rác/ vứt rác/ mang rác đi đổ|毎朝ごみを出します。
+NHIÊN,燃えます (もえます),cháy/ rác cháy được|ごみが燃えます。
+NGUYỆT THỦY KIM,月・水・金 (げつ・すい・きん),thứ hai, thứ tư, thứ sáu|ごみは月・水・金に出します。
+TRÍ TRƯỜNG,置き場 (おきば),nơi để/ chỗ để/ bãi để|自転車の置き場はここです。
+HOÀNH,横 (よこ),bên cạnh/ cạnh|駅の横にスーパーがあります。
+BÌNH,瓶 (びん),chai/ cái chai/ lọ|空の瓶を捨てます。
+PHỮU,缶 (かん),lon/ cái lon/ hộp thiếc|空き缶をリサイクルします。
+THANG,お湯 (おゆ),nước nóng/ nước sôi|お湯を沸かします。
+HỘI XÃ,～会社 (～かいしゃ),công ty ~|トヨタ会社で働いています。
+LIÊN LẠC,連絡します (れんらくします),liên lạc/ liên hệ|すぐに連絡します。
+KHỐN,困ったなあ (こまったなあ),Khổ quá!/ Làm thế nào đây!/ Biết làm sao bây giờ!|道に迷って、困ったなあ。
+ĐIỆN TỬ,電子メール (でんしメール),thư điện tử/ email|電子メールを送ります。
+VŨ TRỤ,宇宙 (うちゅう),vũ trụ|宇宙に行ってみたいです。
+BỐ,怖い (こわい),sợ/ đáng sợ|私はお化けが怖いです。
+VŨ TRỤ THUYỀN,宇宙船 (うちゅうせん),tàu vũ trụ|宇宙船が発射します。
+BIỆT,別の (べつの),khác/ một cái khác|別の日に会いましょう。

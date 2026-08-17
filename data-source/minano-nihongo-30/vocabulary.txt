@@ -1,0 +1,46 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Cách đọc là TUỲ CHỌN: viết trong ngoặc ở cuối cột tiếng Nhật.
+#   TỊCH,席 (せき),chỗ ngồi/ ghế
+# Phần trong ngoặc được tách thành cột riêng, không tính là một phần của từ —
+# khi luyện gõ đáp án vẫn chỉ cần gõ 席.
+# Câu ví dụ cũng TUỲ CHỌN: viết sau dấu | ở cuối cột nghĩa.
+#   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
+# Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
+# Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
+QUẢI,掛けます (かけます),treo|壁に絵を掛けます。
+SỨC,飾ります (かざります),trang trí|部屋に花を飾ります。
+TỊNH,並べます (ならべます),xếp thành hàng|本棚に本を並べます。
+THỰC,植えます (うえます),trồng cây|庭に木を植えます。
+LỆ,戻します (もどします),trả về/ để lại vị trí ban đầu|本を元の場所に戻します。
+PHIẾN,片づけます (かたづけます),dọn dẹp/ sắp xếp|部屋を片づけます。
+QUYẾT,決めます (きめます),quyết định|旅行の計画を決めます。
+TRI,知らせます (しらせます),thông báo/ báo|時間をみんなに知らせます。
+TƯƠNG ĐÀM,相談します (そうだんします),trao đổi/ bàn bạc/ tư vấn|先生に相談します。
+DỰ TẬP,予習します (よしゅうします),chuẩn bị bài mới|明日勉強するところを予習します。
+PHỤC TẬP,復習します (ふくしゅうします),ôn bài cũ|今日習ったことを復習します。
+TỬ,お子さん (おこさん),con (của người khác)|お子さんはおいくつですか。
+THỤ NGHIỆP,授業 (じゅぎょう),giờ học|もうすぐ授業が始まります。
+GIẢNG NGHĨA,講義 (こうぎ),bài giảng|大学で講義を聞きます。
+DỰ ĐỊNH,予定 (よてい),kế hoạch/ dự định|明日の予定を話します。
+TRI,お知らせ (おしらせ),bản thông báo|掲示板のお知らせを見ます。
+ÁN NỘI THƯ,案内書 (あんないしょ),sách hướng dẫn/ tài liệu hướng dẫn|旅行の案内書を読みます。
+TƯƠNG,ごみ箱 (ごみばこ),thùng rác|ごみをごみ箱に捨てます。
+NHÂN HÌNH,人形 (にんぎょう),con búp bê/ con rối|可愛い人形を買いました。
+HOA BÌNH,花瓶 (かびん),lọ hoa|花瓶に花を挿します。
+KÍNH,鏡 (かがみ),cái gương|鏡で顔を見ます。
+DẪN XUẤT,引き出し (ひきだし),ngăn kéo|引き出しに鍵を入れます。
+HUYỀN QUAN,玄関 (げんかん),cửa vào|玄関で靴を脱ぎます。
+LANG HẠ,廊下 (ろうか),hành lang|廊下を走ってはいけません。
+BÍCH,壁 (かべ),bức tường|壁にポスターを貼ります。
+TRÌ,池 (いけ),cái ao|池に魚がいます。
+GIAO PHIÊN,交番 (こうばん),đồn cảnh sát|交番で道を尋ねます。
+NGUYÊN SỞ,元の所 (もとのところ),địa điểm ban đầu/ địa điểm gốc|使ったら元の所に戻してください。
+CHU,周り (まわり),xung quanh|家の周りを散歩します。
+CHÂN TRUNG,真ん中 (まんなか),giữa/ trung tâm|テーブルの真ん中に花を置きます。
+NGUNG,隅 (すみ),góc|部屋の隅に机を置きます。
+DỰ ĐỊNH BIỂU,予定表 (よていひょう),lịch/ thời khóa biểu|予定表を確認します。
+HOÀN,丸い (まるい),tròn|丸いテーブルを買いました。
+NGUYỆT,月 (つき),mặt trăng/ trăng|今夜は月がきれいです。
+ĐỊA CẦU,地球 (ちきゅう),trái đất|地球を守りましょう。
+HIỀM,嫌 (いや),chán/ ghét|嫌なことを忘れます。
+MỤC GIÁC,目が覚めます (めがさめます),tỉnh giấc/ mở mắt|朝6時に目が覚めました。

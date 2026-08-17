@@ -1,0 +1,334 @@
+.back-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  width: fit-content;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+/* Phần chữ co lại thay vì đẩy nút xuống dòng: nếu để nút tự xuống dòng thì chỉ
+   cần bản dịch dài hơn vài chữ là cả khối cao thêm một dòng. */
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Bộ lọc --- */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Bảng từ vựng --- */
+
+/* table-layout: fixed + bề rộng cột khai báo sẵn: cột KHÔNG co giãn theo độ dài
+   chữ nữa, nên đổi ngôn ngữ không làm cả bảng chạy lại. Cũng tránh việc thêm một
+   từ dài làm xô lệch toàn bộ cột. */
+.word-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+/* Bảng từ vựng: 4 cột, +1 khi bài có cách đọc, +1 nữa khi có câu ví dụ */
+.word-table:not(.verb-table) {
+  min-width: 640px;
+}
+
+.word-table:not(.verb-table) th:nth-child(1) { width: 44px; }
+.word-table:not(.verb-table) th:nth-child(2) { width: 190px; }
+.word-table:not(.verb-table) th:nth-child(3) { width: 210px; }
+
+/* Có cột ví dụ thì nới bảng ra và cho cuộn ngang, vì câu ví dụ khá dài. */
+.word-table.has-example {
+  min-width: 940px;
+}
+
+.word-table.has-example th:nth-child(2) { width: 170px; }
+.word-table.has-example th:nth-child(3) { width: 180px; }
+.word-table.has-example th:nth-child(4) { width: 210px; }
+
+/* Có thêm cột ví dụ thì cột Hán Việt hẹp lại, phải cho xuống dòng — bảng dùng
+   table-layout: fixed nên chữ nowrap sẽ tràn đè sang ô bên cạnh. */
+.word-table.has-example .col-han {
+  white-space: normal;
+}
+
+/* Cột cách đọc chèn vào GIỮA Tiếng Nhật và Nghĩa, nên mọi quy tắc nth-child ở
+   trên bị đẩy đi một cột. Phải khai báo lại thay vì sửa số thứ tự, vì cột này
+   có thể có hoặc không tuỳ bài. Bộ chọn ghép hai lớp nên thắng về độ ưu tiên. */
+.word-table.has-reading {
+  min-width: 820px;
+}
+
+.word-table.has-reading th:nth-child(4) { width: 170px; }
+
+.word-table.has-reading.has-example {
+  min-width: 1120px;
+}
+
+.word-table.has-reading.has-example th:nth-child(2) { width: 150px; }
+.word-table.has-reading.has-example th:nth-child(3) { width: 165px; }
+.word-table.has-reading.has-example th:nth-child(4) { width: 165px; }
+.word-table.has-reading.has-example th:nth-child(5) { width: 200px; }
+
+/* Cùng kiểu chữ với cột tiếng Nhật nhưng nhạt hơn — đây là thông tin phụ trợ,
+   không nên hút mắt hơn chính từ đang học. */
+.col-reading {
+  color: var(--text-muted);
+}
+
+.col-example {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* --- Danh sách câu hội thoại ---
+   Dùng danh sách chứ không dùng bảng: hai câu dài xếp chồng đọc dễ hơn nhiều so
+   với nhồi vào hai cột hẹp. */
+.line-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.line-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.line-item.is-favorite {
+  background: var(--surface-2);
+}
+
+.line-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.line-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.line-jp {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.line-vi {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Bảng chia động từ: 9 cột, rộng nên cho cuộn ngang khi màn hình hẹp */
+.verb-table {
+  min-width: 1000px;
+}
+
+.verb-table th:nth-child(1) { width: 44px; }
+.verb-table th:nth-child(2) { width: 130px; }
+.verb-table th:nth-child(3) { width: 125px; }
+.verb-table th:nth-child(4) { width: 185px; }
+.verb-table th:nth-child(5),
+.verb-table th:nth-child(6),
+.verb-table th:nth-child(7),
+.verb-table th:nth-child(8) { width: 105px; }
+
+/* Không dùng position:sticky ở đây: bảng nằm trong luồng trang bình thường nên
+   tiêu đề dính sẽ trôi xuống và chui xuống dưới header ứng dụng (cũng sticky). */
+.word-table th {
+  padding: 9px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.word-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.word-table tbody tr:hover {
+  background: var(--bg-subtle);
+}
+
+.word-table tr.is-favorite {
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.col-star {
+  width: 44px;
+  text-align: center;
+}
+
+.col-han {
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+
+.col-jp {
+  font-size: 1.08rem;
+  white-space: nowrap;
+}
+
+/* --- Bảng chia động từ --- */
+
+.option-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.option-stacked strong {
+  font-weight: 620;
+}
+
+.option-example {
+  font-size: 0.82rem;
+  font-weight: 450;
+  opacity: 0.75;
+}
+
+.verb-table {
+  font-size: 0.9rem;
+}
+
+.col-group {
+  white-space: normal;
+}
+
+.col-group .badge {
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}
+
+.col-group .badge + .badge {
+  margin-left: 3px;
+}
+
+.form-te {
+  font-weight: 650;
+  color: var(--accent);
+}
+
+.col-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+.issue-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 0.88rem;
+}
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+.star-btn:hover {
+  color: var(--star);
+  transform: scale(1.15);
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+@media (max-width: 640px) {
+  .filter-row {
+    flex-wrap: wrap;
+  }
+
+  .start-bar .btn {
+    width: 100%;
+  }
+
+  .col-jp {
+    font-size: 1rem;
+  }
+}

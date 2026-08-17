@@ -1,0 +1,195 @@
+{
+  "id": "dong-tu-dac-biet",
+  "name": "Động từ đặc biệt & bất quy tắc",
+  "description": "Nhóm 1 dễ nhầm thành nhóm 2, ngoại lệ thể Te/Ta, và động từ nhóm 3",
+  "kind": "verb",
+  "itemCount": 23,
+  "words": [],
+  "verbs": [
+    {
+      "id": "18tzdcr",
+      "hanViet": "QUY",
+      "masu": "帰ります",
+      "vietnamese": "về/ trở về",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "144vavz",
+      "hanViet": "NHẬP",
+      "masu": "入ります",
+      "vietnamese": "vào",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "1n6b1fh",
+      "hanViet": "TẨU",
+      "masu": "走ります",
+      "vietnamese": "chạy",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "00bzm3k",
+      "hanViet": "THIẾT",
+      "masu": "切ります",
+      "vietnamese": "cắt",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "12k46v2",
+      "hanViet": "TRI",
+      "masu": "知ります",
+      "vietnamese": "biết",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "15dfuol",
+      "hanViet": "YẾU",
+      "masu": "要ります",
+      "vietnamese": "cần",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "1v9rym2",
+      "hanViet": "GIẢM",
+      "masu": "減ります",
+      "vietnamese": "giảm/ ít đi",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "19tm834",
+      "hanViet": "HẠN",
+      "masu": "限ります",
+      "vietnamese": "giới hạn",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "0xlk9pc",
+      "hanViet": "HOẠT",
+      "masu": "滑ります",
+      "vietnamese": "trượt",
+      "group": 1,
+      "deceptive": true
+    },
+    {
+      "id": "0uyci2t",
+      "hanViet": "KIẾN",
+      "masu": "見ます",
+      "vietnamese": "xem/ nhìn",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "10jk8ax",
+      "hanViet": "THỰC",
+      "masu": "食べます",
+      "vietnamese": "ăn",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "0rf4a3m",
+      "hanViet": "KHỞI",
+      "masu": "起きます",
+      "vietnamese": "thức dậy",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "0etpssa",
+      "hanViet": "TẨM",
+      "masu": "寝ます",
+      "vietnamese": "ngủ",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "18rto0j",
+      "hanViet": "GIÁNG",
+      "masu": "降ります",
+      "vietnamese": "xuống xe",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "13n4jqq",
+      "hanViet": "TÍN",
+      "masu": "信じます",
+      "vietnamese": "tin tưởng",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "1pu9gvz",
+      "hanViet": "HÀNH",
+      "masu": "行きます",
+      "vietnamese": "đi",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "0w7yhep",
+      "hanViet": "HỮU",
+      "masu": "あります",
+      "vietnamese": "có (đồ vật)",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "0lko4w3",
+      "hanViet": "LAI",
+      "masu": "来ます",
+      "vietnamese": "đến",
+      "group": 3,
+      "deceptive": false
+    },
+    {
+      "id": "04mkp6w",
+      "hanViet": "VI",
+      "masu": "します",
+      "vietnamese": "làm",
+      "group": 3,
+      "deceptive": false
+    },
+    {
+      "id": "1gckaqg",
+      "hanViet": "MIỄN CƯỠNG",
+      "masu": "勉強します",
+      "vietnamese": "học",
+      "group": 3,
+      "deceptive": false
+    },
+    {
+      "id": "11lsfgo",
+      "hanViet": "KẾT HÔN",
+      "masu": "結婚します",
+      "vietnamese": "kết hôn",
+      "group": 3,
+      "deceptive": false
+    },
+    {
+      "id": "16y1mha",
+      "hanViet": "TÁN BỘ",
+      "masu": "散歩します",
+      "vietnamese": "đi dạo",
+      "group": 3,
+      "deceptive": false
+    },
+    {
+      "id": "0azvpwx",
+      "hanViet": "TU LÝ",
+      "masu": "修理します",
+      "vietnamese": "sửa chữa",
+      "group": 3,
+      "deceptive": false
+    }
+  ],
+  "lines": []
+}

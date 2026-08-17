@@ -1,0 +1,77 @@
+{
+  "generatedAt": "2026-08-16T11:20:00.447Z",
+  "lessons": [
+    {
+      "id": "minano-nihongo-26",
+      "name": "皆の日本語 — Bài 26 · Từ vựng",
+      "description": "Từ vựng bài 26",
+      "kind": "vocabulary",
+      "itemCount": 34,
+      "file": "minano-nihongo-26.json"
+    },
+    {
+      "id": "hoi-thoai-minano-26",
+      "name": "皆の日本語 — Bài 26 · Hội thoại",
+      "description": "Dịch câu mẫu, ví dụ và hội thoại bài 26 giữa Nhật và Việt",
+      "kind": "conversation",
+      "itemCount": 25,
+      "file": "hoi-thoai-minano-26.json"
+    },
+    {
+      "id": "minano-nihongo-27",
+      "name": "皆の日本語 — Bài 27 · Từ vựng",
+      "description": "Từ vựng bài 27",
+      "kind": "vocabulary",
+      "itemCount": 35,
+      "file": "minano-nihongo-27.json"
+    },
+    {
+      "id": "minano-nihongo-28",
+      "name": "皆の日本語 — Bài 28 · Từ vựng",
+      "description": "Từ vựng bài 28",
+      "kind": "vocabulary",
+      "itemCount": 36,
+      "file": "minano-nihongo-28.json"
+    },
+    {
+      "id": "minano-nihongo-29",
+      "name": "皆の日本語 — Bài 29 · Từ vựng",
+      "description": "Từ vựng bài 29",
+      "kind": "vocabulary",
+      "itemCount": 37,
+      "file": "minano-nihongo-29.json"
+    },
+    {
+      "id": "minano-nihongo-30",
+      "name": "皆の日本語 — Bài 30 · Từ vựng",
+      "description": "Từ vựng bài 30",
+      "kind": "vocabulary",
+      "itemCount": 37,
+      "file": "minano-nihongo-30.json"
+    },
+    {
+      "id": "minano-nihongo-33",
+      "name": "皆の日本語 — Bài 33 · Từ vựng",
+      "description": "Từ vựng bài 33",
+      "kind": "vocabulary",
+      "itemCount": 38,
+      "file": "minano-nihongo-33.json"
+    },
+    {
+      "id": "dong-tu-minano-33",
+      "name": "皆の日本語 — Bài 33 · Động từ",
+      "description": "Chia thể Te / Ta / Ru / Nai cho động từ bài 33",
+      "kind": "verb",
+      "itemCount": 12,
+      "file": "dong-tu-minano-33.json"
+    },
+    {
+      "id": "dong-tu-dac-biet",
+      "name": "Động từ đặc biệt & bất quy tắc",
+      "description": "Nhóm 1 dễ nhầm thành nhóm 2, ngoại lệ thể Te/Ta, và động từ nhóm 3",
+      "kind": "verb",
+      "itemCount": 23,
+      "file": "dong-tu-dac-biet.json"
+    }
+  ]
+}

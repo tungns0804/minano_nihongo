@@ -1,0 +1,107 @@
+{
+  "id": "dong-tu-minano-33",
+  "name": "皆の日本語 — Bài 33 · Động từ",
+  "description": "Chia thể Te / Ta / Ru / Nai cho động từ bài 33",
+  "kind": "verb",
+  "itemCount": 12,
+  "words": [],
+  "verbs": [
+    {
+      "id": "0taha54",
+      "hanViet": "ĐÀO",
+      "masu": "逃げます",
+      "vietnamese": "chạy trốn/ bỏ chạy",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "1bxfr8y",
+      "hanViet": "ĐẦU",
+      "masu": "投げます",
+      "vietnamese": "ném",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "0atlyoi",
+      "hanViet": "THƯỢNG",
+      "masu": "上げます",
+      "vietnamese": "nâng/ nâng lên/ tăng lên",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "1mxqu9z",
+      "hanViet": "HẠ",
+      "masu": "下げます",
+      "vietnamese": "hạ/ hạ xuống/ giảm xuống",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "0ej1lwx",
+      "hanViet": "TRUYỀN",
+      "masu": "伝えます",
+      "vietnamese": "truyền/ truyền đạt",
+      "group": 2,
+      "deceptive": false
+    },
+    {
+      "id": "16fiae0",
+      "hanViet": "TAO",
+      "masu": "騒ぎます",
+      "vietnamese": "làm ồn/ làm rùm beng",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "1hqgopo",
+      "hanViet": "THỦ",
+      "masu": "守ります",
+      "vietnamese": "bảo vệ/ tuân thủ/ giữ",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "17polwu",
+      "hanViet": "ĐẢ",
+      "masu": "打ちます",
+      "vietnamese": "đánh/ gõ",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "1moji7g",
+      "hanViet": "VONG",
+      "masu": "亡くなります",
+      "vietnamese": "mất/ qua đời",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "1svxcg8",
+      "hanViet": "NGOẠI",
+      "masu": "外します",
+      "vietnamese": "rời/ bỏ ra",
+      "group": 1,
+      "deceptive": false
+    },
+    {
+      "id": "01fhjso",
+      "hanViet": "CHÚ Ý",
+      "masu": "注意します",
+      "vietnamese": "chú ý",
+      "group": 3,
+      "deceptive": false
+    },
+    {
+      "id": "17tprt4",
+      "hanViet": "LỢI DỤNG",
+      "masu": "利用します",
+      "vietnamese": "sử dụng/ lợi dụng",
+      "group": 3,
+      "deceptive": false
+    }
+  ],
+  "lines": []
+}

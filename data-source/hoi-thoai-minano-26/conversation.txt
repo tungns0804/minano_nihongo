@@ -1,0 +1,40 @@
+# Bài 26 — 文型 / 例文 / 会話
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT                     (câu không thuộc lời của ai)
+#   NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT           (lời thoại)
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+#
+# Dùng | chứ không dùng dấu phẩy vì cả câu tiếng Việt lẫn tiếng Nhật đều đầy
+# dấu phẩy (, và 、) — tách bằng dấu phẩy sẽ cắt vụn câu.
+
+## Mẫu câu
+あしたから 旅行なんです。|Từ ngày mai tôi sẽ đi du lịch.
+生け花を 習いたいんですが、いい 先生を 紹介して いただけませんか。|Tôi muốn học cắm hoa. Anh/Chị giới thiệu cho tôi một giáo viên tốt có được không?
+
+## Ví dụ
+渡辺さんは 時々 大阪弁を 使いますね。大阪に 住んで いたんですか。|Chị Watanabe đôi lúc nói giọng Osaka nhỉ. Chị đã sống ở Osaka à?
+ええ、15歳まで 大阪に 住んで いました。|Vâng, tôi sống ở Osaka cho đến năm 15 tuổi.
+おもしろい デザインの 靴ですね。どこで 買ったんですか。|Kiểu thiết kế đôi giầy của anh/chị thú vị nhỉ. Anh/Chị mua ở đâu thế?
+エドヤストアで 買いました。スペインの 靴です。|Tôi mua ở Cửa hàng Edo-ya Store. Giầy của Tây Ban Nha.
+どうして 遅れたんですか。|Tại sao anh/chị đến muộn?
+バスが 来なかったんです。|Vì xe buýt không đến.
+よく カラオケに 行きますか。|Anh/Chị có hay đi hát karaoke không?
+いいえ、あまり 行きません。カラオケは 好きじゃ ないんです。|Không, tôi ít đi. Tôi không thích karaoke.
+日本語で レポートを 書いたんですが、ちょっと 見て いただけませんか。|Tôi viết báo cáo bằng tiếng Nhật, nhờ anh/chị xem giúp tôi một chút có được không?
+いいですよ。|Được chứ.
+国会議事堂を 見学したいんですが、どう したら いいですか。|Tôi muốn đến tham quan tòa nhà quốc hội, tôi phải làm thế nào nhỉ?
+直接 行ったら いいですよ。平日は いつでも 見る ことが できます。|Anh/Chị cứ đến thẳng đó. Ngày thường thì lúc nào cũng tham quan được.
+
+## Hội thoại — ごみは どこに 出したら いいですか
+管理人|ミラーさん、引っ越しの 荷物は 片づきましたか。|Anh Miller, đồ đạc chuyển nhà của anh đã dọn dẹp xong chưa?
+ミラー|はい、だいたい 片づきました。|Vâng, phần lớn là xong rồi.
+ミラー|あのう、ごみを 捨てたいんですが、どこに 出したら いいですか。|À bác ơi, tôi muốn vứt rác. Tôi phải đổ rác ở đâu ạ?
+管理人|燃える ごみは 月曜日と 木曜日の 朝 出して ください。|Nếu là rác cháy được thì anh đổ vào sáng thứ hai và thứ năm.
+管理人|ごみ置き場は 駐車場の 横です。|Chỗ để rác ở bên cạnh bãi đỗ xe.
+ミラー|瓶や 缶は いつですか。|Vỏ chai và vỏ đồ hộp, vỏ lon bia thì là thứ mấy ạ?
+管理人|土曜日です。|Thứ bảy.
+ミラー|わかりました。それから お湯が 出ないんですが……。|Tôi biết rồi ạ. Thêm một việc nữa là nước nóng không chảy ra....
+管理人|ガス会社に 連絡したら、すぐ 来て くれますよ。|Nếu anh liên lạc với công ty ga thì họ sẽ đến ngay đấy.
+ミラー|すみませんが、電話番号を 教えて いただけませんか。|Xin lỗi, ông có thể cho tôi xin số điện thoại có được không?
+管理人|ええ、いいですよ。|Ừ, được rồi.

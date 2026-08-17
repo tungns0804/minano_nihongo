@@ -1,0 +1,316 @@
+<div class="container page">
+  <div class="stack" style="gap: 20px">
+    <header class="stack" style="gap: 6px">
+      <a class="back-link" routerLink="/">{{ t('common.back') }}</a>
+      <h1>{{ t('import.title') }}</h1>
+      <p class="muted">
+<app-t key="import.subtitle" block />
+      </p>
+    </header>
+
+    <!-- ── Loại bài + định dạng ─────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack" style="gap: 14px">
+        <div class="field">
+          <span class="label">{{ t('import.kind') }}</span>
+          <div class="options options-2">
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="!isVerb()"
+              (click)="setKind('vocabulary')"
+            >
+              {{ t('kind.vocabulary') }}
+            </button>
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="isVerb()"
+              (click)="setKind('verb')"
+            >
+              {{ t('kind.verb') }}
+            </button>
+          </div>
+        </div>
+
+        <h2>{{ t('import.format') }}</h2>
+        @if (isVerb()) {
+          <p class="muted small">
+<app-t key="import.format.verb" block />
+          </p>
+          <pre class="format-sample mono">{{ t('import.sample.verb') }}</pre>
+          <p class="muted small">
+<app-t key="import.format.verbNote" block />
+          </p>
+        } @else {
+          <p class="muted small">
+<app-t key="import.format.vocabulary" block />
+          </p>
+          <pre class="format-sample mono">{{ t('import.sample.vocabulary') }}</pre>
+          <p class="muted small">
+<app-t key="import.format.vocabularyNote" block />
+          </p>
+          <p class="muted small">
+<app-t key="import.format.reading" block />
+          </p>
+          <p class="muted small">
+<app-t key="import.format.example" block />
+          </p>
+        }
+      </div>
+    </section>
+
+    <!-- ── Nhập liệu ────────────────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack" style="gap: 16px">
+        <h2>{{ t('import.content') }}</h2>
+
+        <div class="field">
+          <label class="label" for="lesson-name">{{ t('import.name') }}</label>
+          <input
+            id="lesson-name"
+            type="text"
+            class="input"
+            [placeholder]="t('import.namePlaceholder')"
+            [value]="lessonName()"
+            (input)="onNameInput($event)"
+          />
+          @if (lessonId()) {
+            <span class="hint">
+              {{ t('import.lessonId') }} <code class="mono">{{ lessonId() }}</code>
+            </span>
+          }
+        </div>
+
+        <div class="field">
+          <div class="row">
+            <span class="label" style="margin: 0">
+              {{ t(isVerb() ? 'import.listVerb' : 'import.listVocabulary') }}
+            </span>
+            <span class="spacer"></span>
+            <label class="btn btn-sm file-btn">
+              {{ t('import.pickFile') }}
+              <input
+                type="file"
+                accept=".txt,.csv,.tsv,text/plain"
+                class="sr-only"
+                (change)="onFileSelected($event)"
+              />
+            </label>
+            @if (rawText()) {
+              <button type="button" class="btn btn-sm btn-ghost" (click)="clearAll()">{{ t('import.clear') }}</button>
+            }
+          </div>
+
+          <textarea
+            class="textarea"
+            [placeholder]="t('import.textareaPlaceholder')"
+            [value]="rawText()"
+            (input)="onTextInput($event)"
+            [attr.aria-label]="t(isVerb() ? 'import.listVerb' : 'import.listVocabulary')"
+          ></textarea>
+
+          @if (loadedFileName(); as name) {
+            <span class="hint">{{ t('import.loadedFrom', { name }) }}</span>
+          }
+        </div>
+
+        @if (hasFileError()) {
+          <div class="notice notice-error">{{ t('import.fileError') }}</div>
+        }
+
+        <!-- ── Kết quả phân tích ──────────────────────────────────────── -->
+        @if (rawText().trim()) {
+          <div class="stack" style="gap: 10px">
+            <div class="row">
+              <span class="badge badge-success">
+                {{ t(isVerb() ? 'import.validVerb' : 'import.validVocabulary', { count: validCount() }) }}
+              </span>
+              @if (errors().length > 0) {
+                <span class="badge badge-danger">{{ t('import.errorLines', { count: errors().length }) }}</span>
+              }
+              @if (warnings().length > 0) {
+                <span class="badge badge-warning">{{ t('import.duplicateLines', { count: warnings().length }) }}</span>
+              }
+            </div>
+
+            @if (brokenVerbs().length > 0) {
+              <div class="notice notice-error">
+                <div class="stack" style="gap: 6px; width: 100%">
+                  <strong>{{ t('import.brokenVerbs', { count: brokenVerbs().length }) }}</strong>
+                  <ul class="issue-list">
+                    @for (item of brokenVerbs(); track item.entry.id) {
+                      <li><span class="jp">{{ item.entry.masu }}</span> — {{ item.reason }}</li>
+                    }
+                  </ul>
+                  <span class="small">{{ t('import.brokenVerbsNote') }}</span>
+                </div>
+              </div>
+            }
+
+            @if (errors().length > 0) {
+              <div class="notice notice-error">
+                <div class="stack" style="gap: 6px; width: 100%">
+                  <strong>{{ t('import.skippedLines') }}</strong>
+                  <ul class="issue-list">
+                    @for (issue of errors(); track issue.line) {
+                      <li>
+                        <span class="issue-line">{{ t('import.line', { line: issue.line }) }}</span>
+                        {{ issueText(issue) }}
+                        <div class="issue-text mono">{{ issue.text }}</div>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
+
+            @if (warnings().length > 0) {
+              <div class="notice notice-warning">
+                <div class="stack" style="gap: 6px; width: 100%">
+                  <strong>{{ t('import.duplicateSkipped') }}</strong>
+                  <ul class="issue-list">
+                    @for (issue of warnings(); track issue.line) {
+                      <li>
+                        <span class="issue-line">{{ t('import.line', { line: issue.line }) }}</span>
+                        <span class="issue-text mono">{{ issue.text }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
+
+            @if (previewRows().length > 0) {
+              <div class="scroll-x">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>{{ t('lesson.col.hanViet') }}</th>
+                      <th>{{ t(isVerb() ? 'import.preview.masu' : 'lesson.col.japanese') }}</th>
+                      @if (hasReadings()) {
+                        <th>{{ t('lesson.col.reading') }}</th>
+                      }
+                      <th>{{ t('lesson.col.meaning') }}</th>
+                      @if (isVerb()) {
+                        <th>{{ t('import.preview.forms') }}</th>
+                      } @else if (hasExamples()) {
+                        <th>{{ t('lesson.col.example') }}</th>
+                      }
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (row of previewRows(); track row.id) {
+                      <tr>
+                        <td class="col-han">{{ row.hanViet }}</td>
+                        <td class="jp col-jp">{{ row.japanese }}</td>
+                        @if (hasReadings()) {
+                          <td class="jp col-reading">{{ row.reading }}</td>
+                        }
+                        <td>{{ row.vietnamese }}</td>
+                        @if (isVerb()) {
+                          <td class="col-forms" [class.jp]="!row.error">
+                            {{ row.error ? row.error : row.extra }}
+                          </td>
+                        } @else if (hasExamples()) {
+                          <td class="jp col-example">{{ row.example }}</td>
+                        }
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+              @if (hiddenPreviewCount() > 0) {
+                <p class="small faint">
+                  {{ t(isVerb() ? 'import.moreVerbs' : 'import.moreWords', { count: hiddenPreviewCount() }) }}
+                </p>
+              }
+            }
+          </div>
+        }
+
+        @if (conflict(); as existing) {
+          <div class="notice notice-warning">
+            @if (existing.origin === 'custom') {
+              {{ t('import.conflict.custom', { id: existing.id }) }}
+            } @else {
+              {{ t('import.conflict.builtin', { id: existing.id, name: existing.name }) }}
+            }
+          </div>
+        }
+
+        <div class="save-bar">
+          <div class="small muted">
+            @if (!canSave()) {
+              <app-t key="import.needMore" block />
+            } @else {
+              <app-t key="import.saveHint" block />
+            }
+          </div>
+          <div class="row">
+            <button type="button" class="btn" [disabled]="!canSave()" (click)="downloadJson()">
+              {{ t('import.downloadJson') }}
+            </button>
+            <button type="button" class="btn btn-primary" [disabled]="!canSave()" (click)="save()">
+              {{ t('import.save') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Cách dùng script ─────────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack" style="gap: 10px">
+        <h2>{{ t('import.scriptTitle') }}</h2>
+        <p class="muted small">
+<app-t key="import.scriptIntro" block />
+        </p>
+        <ol class="steps">
+          <li>
+            <app-t key="import.step1" block />
+          </li>
+          <li>
+            <app-t key="import.step2" block />
+          </li>
+          <li>
+            <app-t key="import.step3" block />
+            <pre class="format-sample mono">{{ t('import.sample.meta') }}</pre>
+          </li>
+          <li>
+            <app-t key="import.step4" block />
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── Bài tự nạp hiện có ───────────────────────────────────────────── -->
+    @if (customLessons().length > 0) {
+      <section class="card">
+        <div class="card-body stack">
+          <h2>{{ t('import.customLessons') }}</h2>
+          <ul class="custom-list">
+            @for (lesson of customLessons(); track lesson.id) {
+              <li class="custom-item">
+                <div class="custom-info">
+                  <a [routerLink]="['/lesson', lesson.id]" class="custom-name">{{ lesson.name }}</a>
+                  <span class="small faint">
+                    <code class="mono">{{ lesson.id }}</code> ·
+                    {{ t(unitKeyOf(lesson.kind), { count: lesson.itemCount }) }}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-sm btn-danger"
+                  (click)="deleteCustomLesson(lesson.id, lesson.name)"
+                >
+                  {{ t('common.delete') }}
+                </button>
+              </li>
+            }
+          </ul>
+        </div>
+      </section>
+    }
+  </div>
+</div>

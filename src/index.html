@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Ôn tập từ vựng 皆の日本語</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ôn tập từ vựng 皆の日本語: luyện Kanji, âm Hán Việt và nghĩa tiếng Việt theo 4 chiều, có chế độ trắc nghiệm và gõ đáp án.">
+  <meta name="theme-color" content="#4f46e5">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+    // Áp dụng tông màu đã lưu NGAY trước khi Angular khởi động, nếu không trang sẽ
+    // chớp màu hệ thống một nhịp rồi mới đổi. Giữ đoạn này đồng bộ với ThemeStore.
+    try {
+      var saved = JSON.parse(localStorage.getItem('jp-practice:theme') || '""');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+      var lang = JSON.parse(localStorage.getItem('jp-practice:language') || '""');
+      if (lang === 'vi' || lang === 'ja') document.documentElement.lang = lang;
+    } catch (e) { /* localStorage bị chặn thì cứ theo mặc định */ }
+  </script>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

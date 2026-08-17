@@ -1,0 +1,307 @@
+{
+  "id": "minano-nihongo-29",
+  "name": "皆の日本語 — Bài 29 · Từ vựng",
+  "description": "Từ vựng bài 29",
+  "kind": "vocabulary",
+  "itemCount": 37,
+  "words": [
+    {
+      "id": "19n8v3s",
+      "hanViet": "KHAI",
+      "japanese": "ドアが開きます",
+      "reading": "ドアがあきます",
+      "vietnamese": "cửa mở ra",
+      "example": "自動でドアが開きます。"
+    },
+    {
+      "id": "137mvvo",
+      "hanViet": "BẾ",
+      "japanese": "ドアが閉まります",
+      "reading": "ドアがしまります",
+      "vietnamese": "cửa đóng lại",
+      "example": "風でドアが閉まりました。"
+    },
+    {
+      "id": "062ynvo",
+      "hanViet": "ĐIỆN KHÍ",
+      "japanese": "電気がつきます",
+      "reading": "でんきがつきます",
+      "vietnamese": "điện bật sáng",
+      "example": "部屋の電気がつきます。"
+    },
+    {
+      "id": "18u6d2x",
+      "hanViet": "ĐIỆN KHÍ TIÊU",
+      "japanese": "電気が消えます",
+      "reading": "でんきがきえます",
+      "vietnamese": "điện tắt",
+      "example": "急に電気が消えました。"
+    },
+    {
+      "id": "0gk6ofc",
+      "hanViet": "ĐẠO VÀO",
+      "japanese": "道が込みます",
+      "reading": "みちがこみます",
+      "vietnamese": "đường đông/ tắc đường",
+      "example": "朝はいつも道が込みます。"
+    },
+    {
+      "id": "1dltfuk",
+      "hanViet": "ĐẠO",
+      "japanese": "道がすきます",
+      "reading": "みちがすきます",
+      "vietnamese": "đường vắng/ đường thoáng",
+      "example": "夜になると道がすきます。"
+    },
+    {
+      "id": "0z17ar5",
+      "hanViet": "HOẠI",
+      "japanese": "いすが壊れます",
+      "reading": "いすがこわれます",
+      "vietnamese": "ghế bị hỏng",
+      "example": "古いいすが壊れました。"
+    },
+    {
+      "id": "0342oif",
+      "hanViet": "CÁT",
+      "japanese": "コップが割れます",
+      "reading": "コップがわれます",
+      "vietnamese": "cốc bị vỡ",
+      "example": "落としてコップが割れました。"
+    },
+    {
+      "id": "1gu7qc1",
+      "hanViet": "MỘC TRIẾT",
+      "japanese": "木が折れます",
+      "reading": "きがおれます",
+      "vietnamese": "cây bị gãy",
+      "example": "台風で木が折れました。"
+    },
+    {
+      "id": "12onlfr",
+      "hanViet": "CHỈ PHÁ",
+      "japanese": "紙が破れます",
+      "reading": "かみがやぶれます",
+      "vietnamese": "giấy bị rách",
+      "example": "かばんの中で紙が破れました。"
+    },
+    {
+      "id": "1ld2dls",
+      "hanViet": "PHỤC Ô",
+      "japanese": "服が汚れます",
+      "reading": "ふくがよごれます",
+      "vietnamese": "quần áo bị bẩn",
+      "example": "遊んで服が汚れました。"
+    },
+    {
+      "id": "0o7zelv",
+      "hanViet": "PHÓ",
+      "japanese": "ポケットが付きます",
+      "reading": "ポケットがつきます",
+      "vietnamese": "có gắn túi/ có kèm theo túi",
+      "example": "このシャツはポケットが付いています。"
+    },
+    {
+      "id": "0vlwkqz",
+      "hanViet": "NGOẠI",
+      "japanese": "ボタンが外れます",
+      "reading": "ボタンがはずれます",
+      "vietnamese": "cúc bị tuột",
+      "example": "シャツのボタンが外れました。"
+    },
+    {
+      "id": "0p3bakl",
+      "hanViet": "CHỈ",
+      "japanese": "エレベーターが止まります",
+      "reading": "エレベーターがとまります",
+      "vietnamese": "thang máy dừng lại",
+      "example": "地震でエレベーターが止まりました。"
+    },
+    {
+      "id": "18vgbsp",
+      "hanViet": "LẠC",
+      "japanese": "落とします",
+      "reading": "おとします",
+      "vietnamese": "đánh rơi/ làm rơi",
+      "example": "電車で財布を落としました。"
+    },
+    {
+      "id": "1shx75w",
+      "hanViet": "QUẢI",
+      "japanese": "鍵が掛かります",
+      "reading": "かぎがかかります",
+      "vietnamese": "cửa được khoá",
+      "example": "ドアに鍵が掛かっています。"
+    },
+    {
+      "id": "0o2ae3c",
+      "hanViet": "MÃNH",
+      "japanese": "お皿",
+      "reading": "おさら",
+      "vietnamese": "cái đĩa",
+      "example": "お皿を洗います。"
+    },
+    {
+      "id": "0svn6q9",
+      "hanViet": "ĐẠI",
+      "japanese": "袋",
+      "reading": "ふくろ",
+      "vietnamese": "cái túi",
+      "example": "パンを袋に入れます。"
+    },
+    {
+      "id": "0bpsj78",
+      "hanViet": "TÀI BỐ",
+      "japanese": "財布",
+      "reading": "さいふ",
+      "vietnamese": "cái ví",
+      "example": "財布をなくしました。"
+    },
+    {
+      "id": "14nc5lu",
+      "hanViet": "CHI",
+      "japanese": "枝",
+      "reading": "えだ",
+      "vietnamese": "cành cây",
+      "example": "木の枝が折れそうです。"
+    },
+    {
+      "id": "00ul2ut",
+      "hanViet": "DỊCH VIÊN",
+      "japanese": "駅員",
+      "reading": "えきいん",
+      "vietnamese": "nhân viên nhà ga",
+      "example": "駅員に道を尋ねます。"
+    },
+    {
+      "id": "09k2oon",
+      "hanViet": "BIÊN",
+      "japanese": "この辺",
+      "reading": "このへん",
+      "vietnamese": "xung quanh đây/ gần đây",
+      "example": "この辺は静かです。"
+    },
+    {
+      "id": "12pba1m",
+      "hanViet": "TIÊN",
+      "japanese": "お先にどうぞ",
+      "reading": "おさきにどうぞ",
+      "vietnamese": "Xin mời anh/chị đi trước.",
+      "example": "エレベーターで「お先にどうぞ」と言います。"
+    },
+    {
+      "id": "0jpyctp",
+      "hanViet": "KIM ĐIỆN XA",
+      "japanese": "今の電車",
+      "reading": "いまのでんしゃ",
+      "vietnamese": "đoàn tàu vừa rồi",
+      "example": "今の電車に忘れ物をしました。"
+    },
+    {
+      "id": "1ce1a16",
+      "hanViet": "VONG VẬT",
+      "japanese": "忘れ物",
+      "reading": "わすれもの",
+      "vietnamese": "vật để quên",
+      "example": "電車の中に忘れ物をしました。"
+    },
+    {
+      "id": "1k35lk1",
+      "hanViet": "GIÁC",
+      "japanese": "覚えていません",
+      "reading": "おぼえていません",
+      "vietnamese": "Tôi không nhớ.",
+      "example": "その人の名前は覚えていません。"
+    },
+    {
+      "id": "0vl38g2",
+      "hanViet": "VÕNG BẰNG",
+      "japanese": "網棚",
+      "reading": "あみだな",
+      "vietnamese": "giá lưới/ giá để hành lý (trên tàu)",
+      "example": "網棚に荷物を置きます。"
+    },
+    {
+      "id": "1luaftu",
+      "hanViet": "XÁC",
+      "japanese": "確か",
+      "reading": "たしか",
+      "vietnamese": "nếu không lầm thì",
+      "example": "確か来週だったと思います。"
+    },
+    {
+      "id": "0ey81cd",
+      "hanViet": "TỨ CỐC",
+      "japanese": "四ツ谷",
+      "reading": "よつや",
+      "vietnamese": "tên một nhà ga ở Tokyo",
+      "example": "四ツ谷駅で降ります。"
+    },
+    {
+      "id": "1seplzy",
+      "hanViet": "ĐỊA CHẤN",
+      "japanese": "地震",
+      "reading": "じしん",
+      "vietnamese": "động đất",
+      "example": "ゆうべ大きな地震がありました。"
+    },
+    {
+      "id": "04n5fl6",
+      "hanViet": "BÍCH",
+      "japanese": "壁",
+      "reading": "かべ",
+      "vietnamese": "bức tường",
+      "example": "壁に絵を掛けます。"
+    },
+    {
+      "id": "0usz8pq",
+      "hanViet": "CHÂM",
+      "japanese": "針",
+      "reading": "はり",
+      "vietnamese": "kim đồng hồ",
+      "example": "時計の針が止まっています。"
+    },
+    {
+      "id": "0cpsie3",
+      "hanViet": "CHỈ",
+      "japanese": "指します",
+      "reading": "さします",
+      "vietnamese": "chỉ/ trỏ",
+      "example": "時計の針が12時を指しています。"
+    },
+    {
+      "id": "0xnzg45",
+      "hanViet": "DỊCH TIỀN",
+      "japanese": "駅前",
+      "reading": "えきまえ",
+      "vietnamese": "khu vực trước nhà ga",
+      "example": "駅前で友達と待ち合わせます。"
+    },
+    {
+      "id": "1pnt3w1",
+      "hanViet": "ĐẢO",
+      "japanese": "倒れます",
+      "reading": "たおれます",
+      "vietnamese": "đổ/ ngã",
+      "example": "地震で本棚が倒れました。"
+    },
+    {
+      "id": "12t9uvj",
+      "hanViet": "TÂY",
+      "japanese": "西",
+      "reading": "にし",
+      "vietnamese": "tây/ phía tây",
+      "example": "太陽は西に沈みます。"
+    },
+    {
+      "id": "1n53ms4",
+      "hanViet": "PHƯƠNG",
+      "japanese": "方",
+      "reading": "ほう",
+      "vietnamese": "hướng/ phương hướng",
+      "example": "駅はあっちの方です。"
+    }
+  ],
+  "verbs": [],
+  "lines": []
+}

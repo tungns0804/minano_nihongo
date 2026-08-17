@@ -1,0 +1,283 @@
+{
+  "id": "minano-nihongo-26",
+  "name": "皆の日本語 — Bài 26 · Từ vựng",
+  "description": "Từ vựng bài 26",
+  "kind": "vocabulary",
+  "itemCount": 34,
+  "words": [
+    {
+      "id": "0uyci2t",
+      "hanViet": "KIẾN",
+      "japanese": "見ます",
+      "reading": "みます",
+      "vietnamese": "xem/ nhìn",
+      "example": "資料を見ます。"
+    },
+    {
+      "id": "070hywj",
+      "hanViet": "CHÂN",
+      "japanese": "診ます",
+      "reading": "みます",
+      "vietnamese": "khám/ khám bệnh",
+      "example": "医者が病人を診ます。"
+    },
+    {
+      "id": "0ecgr9b",
+      "hanViet": "THÁM",
+      "japanese": "探します",
+      "reading": "さがします",
+      "vietnamese": "tìm/ tìm kiếm/ tìm cái mình cần",
+      "example": "鍵を探します。"
+    },
+    {
+      "id": "1vb1kk0",
+      "hanViet": "SƯU",
+      "japanese": "捜します",
+      "reading": "さがします",
+      "vietnamese": "tìm/ tìm kiếm/ tìm cái bị mất",
+      "example": "警察が犯人を捜します。"
+    },
+    {
+      "id": "19082gv",
+      "hanViet": "THỜI GIAN TRÌ",
+      "japanese": "時間に遅れます",
+      "reading": "じかんにおくれます",
+      "vietnamese": "muộn giờ/ trễ giờ/ đến muộn",
+      "example": "会議の時間に遅れます。"
+    },
+    {
+      "id": "0g4vagq",
+      "hanViet": "THAM GIA",
+      "japanese": "参加します",
+      "reading": "さんかします",
+      "vietnamese": "tham gia/ tham dự",
+      "example": "パーティーに参加します。"
+    },
+    {
+      "id": "0d2d2w6",
+      "hanViet": "THÂN VÀO",
+      "japanese": "申し込みます",
+      "reading": "もうしこみます",
+      "vietnamese": "đăng ký/ nộp đơn",
+      "example": "大会に申し込みます。"
+    },
+    {
+      "id": "1h4z1zq",
+      "hanViet": "ĐÔ HỢP",
+      "japanese": "都合がいい",
+      "reading": "つごうがいい",
+      "vietnamese": "tiện/ thuận tiện/ có thời gian",
+      "example": "明日、都合がいいですか。"
+    },
+    {
+      "id": "1b5mcuc",
+      "hanViet": "ĐÔ HỢP ÁC",
+      "japanese": "都合が悪い",
+      "reading": "つごうがわるい",
+      "vietnamese": "không tiện/ bận/ vướng việc",
+      "example": "その日は都合が悪いです。"
+    },
+    {
+      "id": "1rsbrda",
+      "hanViet": "KHÍ PHÂN",
+      "japanese": "気分がいい",
+      "reading": "きぶんがいい",
+      "vietnamese": "thấy khỏe/ thấy dễ chịu/ tâm trạng tốt",
+      "example": "今日は気分がいいです。"
+    },
+    {
+      "id": "1szmsis",
+      "hanViet": "KHÍ PHÂN ÁC",
+      "japanese": "気分が悪い",
+      "reading": "きぶんがわるい",
+      "vietnamese": "thấy khó chịu/ thấy mệt/ tâm trạng tệ",
+      "example": "少し気分が悪いです。"
+    },
+    {
+      "id": "0x0jnqu",
+      "hanViet": "TÂN VĂN XÃ",
+      "japanese": "新聞社",
+      "reading": "しんぶんしゃ",
+      "vietnamese": "toà soạn báo/ công ty báo chí",
+      "example": "新聞社で働いています。"
+    },
+    {
+      "id": "13j8otk",
+      "hanViet": "NHU ĐẠO",
+      "japanese": "柔道",
+      "reading": "じゅうどう",
+      "vietnamese": "judo/ nhu đạo",
+      "example": "柔道を習います。"
+    },
+    {
+      "id": "11lb367",
+      "hanViet": "VẬN ĐỘNG HỘI",
+      "japanese": "運動会",
+      "reading": "うんどうかい",
+      "vietnamese": "hội thao/ đại hội thể thao",
+      "example": "学校で運動会があります。"
+    },
+    {
+      "id": "1ab1g4a",
+      "hanViet": "TRƯỜNG SỞ",
+      "japanese": "場所",
+      "reading": "ばしょ",
+      "vietnamese": "địa điểm/ nơi/ chỗ",
+      "example": "約束の場所に行きます。"
+    },
+    {
+      "id": "17vc5ve",
+      "hanViet": "TRỰC TIẾP",
+      "japanese": "直接",
+      "reading": "ちょくせつ",
+      "vietnamese": "trực tiếp",
+      "example": "社長と直接話します。"
+    },
+    {
+      "id": "0ay3pkr",
+      "hanViet": "HÀ",
+      "japanese": "何でも",
+      "reading": "なんでも",
+      "vietnamese": "cái gì cũng/ bất cứ thứ gì",
+      "example": "何でも食べられます。"
+    },
+    {
+      "id": "1v99rj2",
+      "hanViet": "HÀ VẬT PHIẾN PHÓ",
+      "japanese": "荷物が片付きます",
+      "reading": "にもつがかたづきます",
+      "vietnamese": "đồ đạc được dọn gọn/ đồ đạc được sắp xếp ngăn nắp",
+      "example": "荷物が片付きました。"
+    },
+    {
+      "id": "1vvjnxy",
+      "hanViet": "XUẤT",
+      "japanese": "出します",
+      "reading": "だします",
+      "vietnamese": "đổ rác/ vứt rác/ mang rác đi đổ",
+      "example": "毎朝ごみを出します。"
+    },
+    {
+      "id": "11vy45a",
+      "hanViet": "NHIÊN",
+      "japanese": "燃えます",
+      "reading": "もえます",
+      "vietnamese": "cháy/ rác cháy được",
+      "example": "ごみが燃えます。"
+    },
+    {
+      "id": "0efvhvj",
+      "hanViet": "NGUYỆT THỦY KIM",
+      "japanese": "月・水・金",
+      "reading": "げつ・すい・きん",
+      "vietnamese": "thứ hai, thứ tư, thứ sáu",
+      "example": "ごみは月・水・金に出します。"
+    },
+    {
+      "id": "0txnykd",
+      "hanViet": "TRÍ TRƯỜNG",
+      "japanese": "置き場",
+      "reading": "おきば",
+      "vietnamese": "nơi để/ chỗ để/ bãi để",
+      "example": "自転車の置き場はここです。"
+    },
+    {
+      "id": "0slll8o",
+      "hanViet": "HOÀNH",
+      "japanese": "横",
+      "reading": "よこ",
+      "vietnamese": "bên cạnh/ cạnh",
+      "example": "駅の横にスーパーがあります。"
+    },
+    {
+      "id": "01x1cb3",
+      "hanViet": "BÌNH",
+      "japanese": "瓶",
+      "reading": "びん",
+      "vietnamese": "chai/ cái chai/ lọ",
+      "example": "空の瓶を捨てます。"
+    },
+    {
+      "id": "08tr1pe",
+      "hanViet": "PHỮU",
+      "japanese": "缶",
+      "reading": "かん",
+      "vietnamese": "lon/ cái lon/ hộp thiếc",
+      "example": "空き缶をリサイクルします。"
+    },
+    {
+      "id": "1twd1fa",
+      "hanViet": "THANG",
+      "japanese": "お湯",
+      "reading": "おゆ",
+      "vietnamese": "nước nóng/ nước sôi",
+      "example": "お湯を沸かします。"
+    },
+    {
+      "id": "17k4z47",
+      "hanViet": "HỘI XÃ",
+      "japanese": "～会社",
+      "reading": "～かいしゃ",
+      "vietnamese": "công ty ~",
+      "example": "トヨタ会社で働いています。"
+    },
+    {
+      "id": "06p62wr",
+      "hanViet": "LIÊN LẠC",
+      "japanese": "連絡します",
+      "reading": "れんらくします",
+      "vietnamese": "liên lạc/ liên hệ",
+      "example": "すぐに連絡します。"
+    },
+    {
+      "id": "15jgi26",
+      "hanViet": "KHỐN",
+      "japanese": "困ったなあ",
+      "reading": "こまったなあ",
+      "vietnamese": "Khổ quá!/ Làm thế nào đây!/ Biết làm sao bây giờ!",
+      "example": "道に迷って、困ったなあ。"
+    },
+    {
+      "id": "01piqpp",
+      "hanViet": "ĐIỆN TỬ",
+      "japanese": "電子メール",
+      "reading": "でんしメール",
+      "vietnamese": "thư điện tử/ email",
+      "example": "電子メールを送ります。"
+    },
+    {
+      "id": "17ym9yf",
+      "hanViet": "VŨ TRỤ",
+      "japanese": "宇宙",
+      "reading": "うちゅう",
+      "vietnamese": "vũ trụ",
+      "example": "宇宙に行ってみたいです。"
+    },
+    {
+      "id": "0xllzrv",
+      "hanViet": "BỐ",
+      "japanese": "怖い",
+      "reading": "こわい",
+      "vietnamese": "sợ/ đáng sợ",
+      "example": "私はお化けが怖いです。"
+    },
+    {
+      "id": "1oga4k8",
+      "hanViet": "VŨ TRỤ THUYỀN",
+      "japanese": "宇宙船",
+      "reading": "うちゅうせん",
+      "vietnamese": "tàu vũ trụ",
+      "example": "宇宙船が発射します。"
+    },
+    {
+      "id": "0cc3gmx",
+      "hanViet": "BIỆT",
+      "japanese": "別の",
+      "reading": "べつの",
+      "vietnamese": "khác/ một cái khác",
+      "example": "別の日に会いましょう。"
+    }
+  ],
+  "verbs": [],
+  "lines": []
+}

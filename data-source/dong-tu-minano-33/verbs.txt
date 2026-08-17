@@ -1,0 +1,15 @@
+# Định dạng: ÂM HÁN VIỆT,THỂ MẬU,NGHĨA TIẾNG VIỆT,NHÓM
+# NHÓM: 1, 2 hoặc 3. Thêm dấu * để đánh dấu động từ nhóm 1 dễ nhầm sang nhóm 2.
+# Các thể còn lại (る / て / た / ない) app tự chia, không cần khai báo.
+ĐÀO,逃げます,chạy trốn/ bỏ chạy,2
+ĐẦU,投げます,ném,2
+THƯỢNG,上げます,nâng/ nâng lên/ tăng lên,2
+HẠ,下げます,hạ/ hạ xuống/ giảm xuống,2
+TRUYỀN,伝えます,truyền/ truyền đạt,2
+TAO,騒ぎます,làm ồn/ làm rùm beng,1
+THỦ,守ります,bảo vệ/ tuân thủ/ giữ,1
+ĐẢ,打ちます,đánh/ gõ,1
+VONG,亡くなります,mất/ qua đời,1
+NGOẠI,外します,rời/ bỏ ra,1
+CHÚ Ý,注意します,chú ý,3
+LỢI DỤNG,利用します,sử dụng/ lợi dụng,3
