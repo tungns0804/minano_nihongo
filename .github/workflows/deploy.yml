@@ -1,0 +1,58 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Cho phép bấm chạy tay trong tab Actions.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Đang deploy dở mà có push mới thì huỷ lượt cũ, không xếp hàng.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Sinh lại public/lessons/ từ data-source/ để bản deploy luôn khớp nguồn.
+      - run: npm run generate
+
+      # base-href phải là tên repo vì trang nằm ở <user>.github.io/japanese_practice/
+      - run: npx ng build --base-href /japanese_practice/
+
+      - name: Thêm SPA fallback và tắt Jekyll
+        run: |
+          # GitHub Pages không biết route của Angular: mở thẳng /lesson/abc rồi F5
+          # sẽ ra 404. Trả chính index.html cho mọi đường dẫn lạ để router tự xử lý.
+          cp dist/japanese-practice/browser/index.html dist/japanese-practice/browser/404.html
+          # Không có file này thì Jekyll bỏ qua các file/thư mục bắt đầu bằng _ .
+          touch dist/japanese-practice/browser/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/japanese-practice/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
