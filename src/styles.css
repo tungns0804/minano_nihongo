@@ -104,7 +104,11 @@ html {
 }
 
 body {
+  /* 100dvh chứ không phải 100vh: trên điện thoại, 100vh tính cả phần thanh địa chỉ
+     của trình duyệt nên trang luôn cao hơn khung nhìn thật, sinh ra một khoảng cuộn
+     dọc vô nghĩa. dvh co lại theo thanh địa chỉ. */
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-ui);
@@ -171,15 +175,17 @@ a:hover {
 
 /* --- Layout --------------------------------------------------------------- */
 
+/* Lề ngang dùng max(...env(safe-area-inset...)): trên iPhone có tai thỏ, ở chế độ
+   ngang phần bo góc và thanh gạt ăn vào hai bên màn hình, chữ sát lề sẽ bị che. */
 .container {
   width: 100%;
   max-width: var(--max-width);
   margin-inline: auto;
-  padding-inline: 20px;
+  padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
 }
 
 .page {
-  padding-block: 28px 64px;
+  padding-block: 28px calc(64px + env(safe-area-inset-bottom));
 }
 
 .stack {
@@ -512,6 +518,10 @@ a:hover {
 
 .scroll-x {
   overflow-x: auto;
+  /* Cuộn ngang không được "lây" ra ngoài: thiếu dòng này thì trên điện thoại, vuốt
+     ngang tới cuối bảng sẽ làm cả trang trượt theo hoặc kích hoạt cử chỉ back. */
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 kbd {
@@ -533,11 +543,36 @@ kbd {
   }
 
   .container {
-    padding-inline: 14px;
+    padding-inline: max(14px, env(safe-area-inset-left)) max(14px, env(safe-area-inset-right));
   }
 
   .card-body {
     padding: 16px;
+  }
+
+  /* Đúng 16px, không phải 0.95rem: Safari trên iOS tự phóng to cả trang khi con trỏ
+     nhảy vào ô nhập có chữ NHỎ HƠN 16px, và không thu lại sau khi gõ xong. Đặt đủ
+     16px là cách duy nhất tắt được hành vi đó mà không phải chặn zoom của người dùng. */
+  .input,
+  .textarea,
+  .select {
+    font-size: 16px;
+  }
+}
+
+/* --- Thiết bị chạm ---------------------------------------------------------
+   Phân biệt bằng (hover: none) chứ không bằng bề rộng: máy tính cửa sổ hẹp vẫn có
+   chuột nên vẫn cần hiệu ứng hover, còn tablet rộng thì vẫn cần vùng bấm to. */
+
+@media (hover: none) {
+  /* 44px là ngưỡng vùng bấm tối thiểu để ngón tay không bấm trượt. */
+  .btn:not(.btn-sm),
+  .option {
+    min-height: 44px;
+  }
+
+  .btn-sm {
+    min-height: 36px;
   }
 }
 

@@ -2,6 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 20;
+  /* Header dính sát đỉnh màn hình nên phải tự chừa chỗ cho tai thỏ / thanh trạng
+     thái khi trang chạy toàn màn hình trên điện thoại. */
+  padding-top: env(safe-area-inset-top);
   background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
@@ -81,6 +84,9 @@
   display: flex;
   gap: 4px;
   flex-shrink: 0;
+  /* Đẩy menu sang sát khối nút bên phải, để thương hiệu một mình giữ lề trái —
+     nếu không thì justify-content: space-between của header sẽ dồn menu vào giữa. */
+  margin-left: auto;
 }
 
 .app-nav a {
@@ -171,24 +177,47 @@
   }
 }
 
-/* Bậc 4: bỏ hẳn phần chữ, giữ logo 語 (vẫn là link về trang chủ). */
-@media (max-width: 470px) {
-  .brand-text {
-    display: none;
+/* Bậc 4 — ĐIỆN THOẠI: header xuống hai hàng.
+
+   Vì sao không thu nhỏ tiếp theo từng bậc như ba bậc trên: ba mục menu cộng hai nút
+   cần khoảng 368px (khi đã bỏ chữ của nút ngôn ngữ) đến 433px (khi còn chữ). Đo thực
+   tế thì máy 360px tràn 8px, và iPhone Pro Max 430px tràn 3px — đúng hai khổ máy phổ
+   biến. Bề rộng cần luôn chạy trước bề rộng máy, nên cách nào còn dựa vào việc đoán
+   đúng khổ máy cũng sẽ hụt ở đâu đó.
+
+   Cho menu chiếm trọn một hàng riêng thì tổng bề rộng cần chỉ còn bằng hàng dài hơn
+   trong hai hàng, và mỗi mục menu cũng rộng ra thành vùng bấm dễ trúng hơn. */
+@media (max-width: 520px) {
+  .app-header-inner {
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    padding-block: 6px;
+    /* min-height của một hàng không còn đúng khi có hai hàng. */
+    min-height: 0;
   }
 
   .app-actions {
     gap: 6px;
   }
 
+  .app-nav {
+    /* order 3 để menu luôn nằm dưới, kể cả khi thương hiệu bị cắt ngắn. */
+    order: 3;
+    flex: 1 0 100%;
+    gap: 2px;
+    margin-left: 0;
+  }
+
+  /* Ba mục chia đều hàng dưới. */
   .app-nav a {
-    padding: 7px 10px;
-    font-size: 0.88rem;
+    flex: 1;
+    padding: 8px 6px;
+    text-align: center;
   }
 }
 
-/* Bậc 5: máy rất hẹp — thu gọn menu và bỏ nốt chữ của nút ngôn ngữ. */
-@media (max-width: 400px) {
+/* Bậc 5: máy rất hẹp — bỏ chữ của nút ngôn ngữ, chỉ còn biểu tượng 🌐. */
+@media (max-width: 360px) {
   .lang-btn .icon-btn-label {
     display: none;
   }
@@ -198,11 +227,7 @@
   }
 
   .app-nav a {
-    padding: 6px 8px;
-    font-size: 0.85rem;
-  }
-
-  .app-nav {
-    gap: 2px;
+    padding: 8px 4px;
+    font-size: 0.86rem;
   }
 }

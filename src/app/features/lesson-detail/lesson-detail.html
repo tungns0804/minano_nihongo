@@ -419,11 +419,13 @@
                             <span class="badge badge-danger" [title]="t('lesson.badge.irregularTitle')">{{ t('lesson.badge.irregular') }}</span>
                           }
                         </td>
+                        <!-- data-label: ở khổ điện thoại bảng đổi thành thẻ xếp dọc,
+                             hàng tiêu đề bị ẩn nên bốn ô này tự mang nhãn thể theo mình. -->
                         @if (row.forms; as forms) {
-                          <td class="col-jp jp">{{ forms.dictionary }}</td>
-                          <td class="col-jp jp form-te">{{ forms.te }}</td>
-                          <td class="col-jp jp">{{ forms.ta }}</td>
-                          <td class="col-jp jp">{{ forms.nai }}</td>
+                          <td class="col-jp jp" data-label="る">{{ forms.dictionary }}</td>
+                          <td class="col-jp jp form-te" data-label="て">{{ forms.te }}</td>
+                          <td class="col-jp jp" data-label="た">{{ forms.ta }}</td>
+                          <td class="col-jp jp" data-label="ない">{{ forms.nai }}</td>
                         } @else {
                           <td colspan="4" class="col-error">{{ row.error }}</td>
                         }

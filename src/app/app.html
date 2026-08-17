@@ -13,15 +13,18 @@
       </span>
     </a>
 
-    <div class="app-actions">
-      <nav class="app-nav" [attr.aria-label]="t('app.nav')">
-        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
-          <app-t key="app.nav.lessons" />
-        </a>
-        <a routerLink="/grammar" routerLinkActive="is-active"><app-t key="app.nav.grammar" /></a>
-        <a routerLink="/import" routerLinkActive="is-active"><app-t key="app.nav.import" /></a>
-      </nav>
+    <!-- Menu là em ruột của .app-actions, không nằm trong đó: ở khổ điện thoại nó phải
+         xuống được một hàng riêng chiếm trọn bề ngang, mà một flex item chỉ xuống hàng
+         được so với các em ruột của chính nó. -->
+    <nav class="app-nav" [attr.aria-label]="t('app.nav')">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
+        <app-t key="app.nav.lessons" />
+      </a>
+      <a routerLink="/grammar" routerLinkActive="is-active"><app-t key="app.nav.grammar" /></a>
+      <a routerLink="/import" routerLinkActive="is-active"><app-t key="app.nav.import" /></a>
+    </nav>
 
+    <div class="app-actions">
       <button
         type="button"
         class="icon-btn lang-btn"

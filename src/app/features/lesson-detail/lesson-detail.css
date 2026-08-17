@@ -82,19 +82,37 @@
   font-size: 0.94rem;
 }
 
-/* Bảng từ vựng: 4 cột, +1 khi bài có cách đọc, +1 nữa khi có câu ví dụ */
-.word-table:not(.verb-table) {
-  min-width: 640px;
+/* Các bề rộng tối thiểu dưới đây CHỈ dành cho màn hình từ 641px trở lên. Dưới ngưỡng
+   đó bảng không còn là bảng nữa mà đổi thành thẻ xếp dọc (xem cuối file), nên nếu để
+   min-width áp dụng luôn cho điện thoại thì thẻ sẽ rộng 1120px và tràn ra ngoài. */
+@media (min-width: 641px) {
+  /* Bảng từ vựng: 4 cột, +1 khi bài có cách đọc, +1 nữa khi có câu ví dụ */
+  .word-table:not(.verb-table) {
+    min-width: 640px;
+  }
+
+  /* Có cột ví dụ thì nới bảng ra và cho cuộn ngang, vì câu ví dụ khá dài. */
+  .word-table.has-example {
+    min-width: 940px;
+  }
+
+  .word-table.has-reading {
+    min-width: 820px;
+  }
+
+  .word-table.has-reading.has-example {
+    min-width: 1120px;
+  }
+
+  /* Bảng chia động từ: 9 cột, rộng nên cho cuộn ngang khi màn hình hẹp */
+  .verb-table {
+    min-width: 1000px;
+  }
 }
 
 .word-table:not(.verb-table) th:nth-child(1) { width: 44px; }
 .word-table:not(.verb-table) th:nth-child(2) { width: 190px; }
 .word-table:not(.verb-table) th:nth-child(3) { width: 210px; }
-
-/* Có cột ví dụ thì nới bảng ra và cho cuộn ngang, vì câu ví dụ khá dài. */
-.word-table.has-example {
-  min-width: 940px;
-}
 
 .word-table.has-example th:nth-child(2) { width: 170px; }
 .word-table.has-example th:nth-child(3) { width: 180px; }
@@ -109,15 +127,7 @@
 /* Cột cách đọc chèn vào GIỮA Tiếng Nhật và Nghĩa, nên mọi quy tắc nth-child ở
    trên bị đẩy đi một cột. Phải khai báo lại thay vì sửa số thứ tự, vì cột này
    có thể có hoặc không tuỳ bài. Bộ chọn ghép hai lớp nên thắng về độ ưu tiên. */
-.word-table.has-reading {
-  min-width: 820px;
-}
-
 .word-table.has-reading th:nth-child(4) { width: 170px; }
-
-.word-table.has-reading.has-example {
-  min-width: 1120px;
-}
 
 .word-table.has-reading.has-example th:nth-child(2) { width: 150px; }
 .word-table.has-reading.has-example th:nth-child(3) { width: 165px; }
@@ -186,11 +196,6 @@
   line-height: 1.5;
 }
 
-/* Bảng chia động từ: 9 cột, rộng nên cho cuộn ngang khi màn hình hẹp */
-.verb-table {
-  min-width: 1000px;
-}
-
 .verb-table th:nth-child(1) { width: 44px; }
 .verb-table th:nth-child(2) { width: 130px; }
 .verb-table th:nth-child(3) { width: 125px; }
@@ -221,8 +226,12 @@
   vertical-align: top;
 }
 
-.word-table tbody tr:hover {
-  background: var(--bg-subtle);
+/* Chỉ tô sáng dòng khi thiết bị thật sự có con trỏ. Trên điện thoại, "hover" dính
+   lại sau khi bấm, làm một dòng bất kỳ trông như đang được chọn. */
+@media (hover: hover) {
+  .word-table tbody tr:hover {
+    background: var(--bg-subtle);
+  }
 }
 
 .word-table tr.is-favorite {
@@ -310,25 +319,165 @@
   transition: color 0.15s, transform 0.1s;
 }
 
-.star-btn:hover {
-  color: var(--star);
-  transform: scale(1.15);
+@media (hover: hover) {
+  .star-btn:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+/* Ngôi sao là thứ được bấm nhiều nhất khi vừa học vừa đánh dấu — trên màn hình chạm
+   phải đủ to để không bấm trượt sang dòng bên cạnh. */
+@media (hover: none) {
+  .star-btn {
+    padding: 8px 10px;
+    font-size: 1.35rem;
+  }
 }
 
 .star-btn.is-on {
   color: var(--star);
 }
 
+/* ============================================================================
+   ĐIỆN THOẠI: bảng đổi thành thẻ xếp dọc
+
+   Bảng từ vựng rộng 640–1120px, bảng động từ 1000px. Trên màn hình 390px, giữ
+   nguyên dạng bảng thì mỗi lần muốn xem nghĩa của một từ đều phải vuốt ngang rồi
+   vuốt về — tức là không dùng được để học.
+
+   Nên dưới 640px, mỗi DÒNG trở thành một THẺ: âm Hán Việt và ngôi sao ở hàng đầu,
+   rồi tiếng Nhật cỡ lớn, cách đọc, nghĩa, và câu ví dụ xếp xuống dưới. Toàn bộ làm
+   bằng CSS trên đúng markup bảng đang có, nên dữ liệu vẫn chỉ khai báo một lần và
+   bản desktop không đổi gì.
+   ========================================================================== */
+
 @media (max-width: 640px) {
   .filter-row {
     flex-wrap: wrap;
+  }
+
+  /* Ô tìm kiếm chiếm trọn một dòng, đẩy ô "chỉ hiện ★" xuống dòng dưới — để chung
+     một dòng thì ô nhập co lại chỉ còn vài chữ. */
+  .search-input {
+    flex: 1 1 100%;
   }
 
   .start-bar .btn {
     width: 100%;
   }
 
-  .col-jp {
+  /* Thẻ tự vừa bề rộng màn hình nên không còn gì phải cuộn ngang. */
+  .scroll-x {
+    overflow-x: visible;
+  }
+
+  .word-table {
     font-size: 1rem;
+  }
+
+  /* Ẩn hàng tiêu đề: mỗi ô trong thẻ đã tự nhận ra được nhờ cỡ chữ và màu. */
+  .word-table thead {
+    display: none;
+  }
+
+  .word-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .word-table tr {
+    display: grid;
+    /* Cột 2 chỉ vừa đúng ngôi sao; mọi thứ khác nằm ở cột 1. */
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1px 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+  }
+
+  .word-table tr.is-favorite {
+    border-color: var(--warning-border);
+  }
+
+  .word-table td {
+    display: block;
+    grid-column: 1;
+    padding: 0;
+    border: 0;
+  }
+
+  /* Từ không có cách đọc hoặc không có ví dụ thì bỏ hẳn dòng trống đó, tránh thẻ
+     tự nhiên hở ra một khoảng không hiểu vì sao. */
+  .word-table td:empty {
+    display: none;
+  }
+
+  .word-table .col-star {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    align-self: start;
+  }
+
+  .word-table .col-han {
+    grid-row: 1;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    /* Hết dạng bảng thì không sợ tràn sang ô bên cạnh nữa, cho xuống dòng thoải mái. */
+    white-space: normal;
+  }
+
+  .word-table .col-jp {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .word-table .col-reading {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .word-table .col-example {
+    margin-top: 7px;
+    padding-left: 10px;
+    border-left: 2px solid var(--border-strong);
+    font-size: 0.97rem;
+  }
+
+  /* --- Thẻ động từ --- */
+
+  .verb-table {
+    font-size: 0.98rem;
+  }
+
+  .verb-table .col-jp {
+    font-size: 1.2rem;
+  }
+
+  .verb-table .col-group {
+    margin-top: 4px;
+  }
+
+  /* Bốn thể る/て/た/ない mất hàng tiêu đề nên phải tự mang nhãn theo mình, nếu không
+     bốn dòng chữ Nhật xếp cạnh nhau chẳng biết dòng nào là thể nào. */
+  .verb-table td[data-label] {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-top: 3px;
+    font-size: 1.05rem;
+  }
+
+  .verb-table td[data-label]::before {
+    content: attr(data-label);
+    flex: 0 0 3.2em;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
   }
 }
