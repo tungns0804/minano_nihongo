@@ -1,0 +1,235 @@
+{
+  "id": "ngu-phap-minano-28",
+  "name": "皆の日本語 — Bài 28 · Ngữ pháp",
+  "description": "～ながら, Vています (thói quen), ～し～し, それで",
+  "kind": "grammar",
+  "itemCount": 4,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1h9rx04",
+      "title": "V1ます ＋ ながら、V2",
+      "summary": "Vừa làm việc này vừa làm việc kia, hai việc cùng một người làm cùng lúc.",
+      "structures": [
+        "V1 bỏ ます ＋ ながら、V2"
+      ],
+      "explanation": [
+        "Hai vế phải CÙNG một chủ ngữ. Hai người làm hai việc thì không dùng mẫu này.",
+        "Thì của cả câu do V2 quyết định — V1 luôn giữ nguyên dạng ながら.",
+        "V2 mới là việc chính, V1 chỉ là việc làm kèm. Nói ngược lại là đổi trọng tâm câu."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hai việc làm cùng lúc",
+          "detail": "Việc chính đứng ở vế sau.",
+          "examples": [
+            {
+              "id": "1x3783l",
+              "japanese": "ごはんを たべながら、えいがを みます。",
+              "reading": "",
+              "vietnamese": "Tôi vừa ăn cơm vừa xem phim.",
+              "note": ""
+            },
+            {
+              "id": "11vzxpu",
+              "japanese": "でんわを つかいながら、うんてんしては いけません。",
+              "reading": "",
+              "vietnamese": "Không được vừa dùng điện thoại vừa lái xe.",
+              "note": ""
+            },
+            {
+              "id": "1lz6d9c",
+              "japanese": "かいしゃで はたらきながら、レストランで アルバイトを します。",
+              "reading": "",
+              "vietnamese": "Tôi vừa làm ở công ty vừa làm thêm ở nhà hàng.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1xmjhiw",
+      "title": "Vて います / Vて いました — thói quen",
+      "summary": "Việc lặp đi lặp lại thành thói quen: hiện tại dùng ています, quá khứ dùng ていました.",
+      "structures": [
+        "Vて ＋ います (thói quen bây giờ)",
+        "Vて ＋ いました (thói quen ngày trước)"
+      ],
+      "explanation": [
+        "Khác với ています nghĩa \"đang làm\": ở đây không phải đang làm lúc này mà là ngày nào cũng làm.",
+        "Thường đi kèm từ chỉ tần suất: まいにち, よく, いつも, ～のとき."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Thói quen hiện tại",
+          "detail": "Việc lặp lại hằng ngày.",
+          "examples": [
+            {
+              "id": "077uvow",
+              "japanese": "まいにち、8じかん はたらいて います。",
+              "reading": "",
+              "vietnamese": "Mỗi ngày tôi đều làm việc 8 tiếng.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Thói quen trong quá khứ",
+          "detail": "Ngày trước hay làm, giờ thì không.",
+          "examples": [
+            {
+              "id": "00cclar",
+              "japanese": "がくせいの とき、この ゲームを して いました。",
+              "reading": "",
+              "vietnamese": "Hồi còn là học sinh tôi hay chơi trò này.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0uzz91y",
+      "title": "～し、～し",
+      "summary": "Liệt kê nhiều lý do hoặc nhiều tính chất cùng chiều: vừa ~ lại vừa ~.",
+      "structures": [
+        "V thể ngắn ＋ し",
+        "Aい thể ngắn ＋ し",
+        "Aな だ ＋ し",
+        "N だ ＋ し"
+      ],
+      "explanation": [
+        "Các vế nối bằng し phải cùng chiều: toàn điểm tốt hoặc toàn điểm xấu, không trộn lẫn.",
+        "Hay dùng kèm も để nhấn: はなしも すてきだし、イメージも きれいです.",
+        "それに đặt trước vế cuối để ý tăng dần thêm một bậc."
+      ],
+      "notes": [
+        "Khác から: から chỉ nêu MỘT lý do và coi đó là lý do duy nhất; ～し、～し nêu vài lý do tiêu biểu, ngụ ý còn lý do khác chưa kể ra."
+      ],
+      "tables": [
+        {
+          "caption": "Cách nối",
+          "headers": [
+            "Loại từ",
+            "Nối với し"
+          ],
+          "rows": [
+            [
+              "V",
+              "たべる し / たべた し"
+            ],
+            [
+              "Aい",
+              "あつい し"
+            ],
+            [
+              "Aな",
+              "ひまだ し"
+            ],
+            [
+              "N",
+              "がくせいだ し"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Liệt kê tính chất cùng chiều",
+          "detail": "Vừa ~ lại vừa ~.",
+          "examples": [
+            {
+              "id": "14uyxmk",
+              "japanese": "ベトナムの りょうりは おいしいし、やすいです。",
+              "reading": "",
+              "vietnamese": "Món ăn Việt Nam vừa ngon lại vừa rẻ.",
+              "note": ""
+            },
+            {
+              "id": "1232zym",
+              "japanese": "この まんがは はなしも すてきだし、イメージも きれいです。",
+              "reading": "",
+              "vietnamese": "Cuốn truyện tranh này câu chuyện hay mà hình vẽ cũng đẹp.",
+              "note": ""
+            },
+            {
+              "id": "0n2a7qo",
+              "japanese": "かれは しんせつだし、あたまも いいし、それに ユーモアも あります。",
+              "reading": "",
+              "vietnamese": "Anh ấy vừa tốt bụng, vừa thông minh, lại còn hài hước nữa.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "So với から",
+          "detail": "から nêu một lý do duy nhất, し nêu vài lý do tiêu biểu.",
+          "examples": [
+            {
+              "id": "0yxfo39",
+              "japanese": "たかいですから、かいません。",
+              "reading": "",
+              "vietnamese": "Vì đắt nên tôi không mua.",
+              "note": ""
+            },
+            {
+              "id": "0iyvw1z",
+              "japanese": "たかいし、すてきじゃないし、かいません。",
+              "reading": "",
+              "vietnamese": "Vừa đắt lại vừa không đẹp nên tôi không mua.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1rvfunl",
+      "title": "それで",
+      "summary": "Liên từ nối hai câu: vế trước là nguyên nhân, vế sau là kết quả — \"vì thế\".",
+      "structures": [
+        "Mệnh đề 1。それで、mệnh đề 2。"
+      ],
+      "explanation": [
+        "Thường đi sau một chuỗi ～し、～し để chốt lại kết quả của các lý do vừa nêu."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nguyên nhân → kết quả",
+          "detail": "Nêu lý do trước, kết quả sau それで.",
+          "examples": [
+            {
+              "id": "14hq5hg",
+              "japanese": "ざんぎょうしなければ ならないし、ボーナスも ないし、それで かいしゃを やめたいです。",
+              "reading": "",
+              "vietnamese": "Vừa phải tăng ca, thưởng lại không có, vì thế tôi muốn nghỉ việc.",
+              "note": ""
+            },
+            {
+              "id": "0cw0h3r",
+              "japanese": "その かしゅは うたも じょうずだし、ダンスも すてきだし、それで みんなに にんきが あります。",
+              "reading": "",
+              "vietnamese": "Ca sĩ đó hát hay lại nhảy đẹp, vì thế được mọi người yêu thích.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

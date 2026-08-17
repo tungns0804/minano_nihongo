@@ -1,0 +1,236 @@
+{
+  "points": [
+    {
+      "title": "～んです",
+      "summary": "Gắn câu nói vào tình huống trước mắt: hỏi hoặc giải thích lý do, tình hình của điều mình vừa nhìn thấy, vừa nghe được.",
+      "structures": [
+        "V thể ngắn ＋ んです",
+        "Aい thể ngắn ＋ んです",
+        "Aな [だ → な] ＋ んです",
+        "N [だ → な] ＋ んです"
+      ],
+      "explanation": [
+        "んです không thêm thông tin mới vào câu, nó thêm thái độ. Người nói lấy một chuyện vừa nhìn thấy, vừa nghe được làm điểm tựa, rồi hỏi lý do của chuyện đó hoặc tự giải thích lý do cho người nghe.",
+        "Phần đứng trước んです luôn ở thể ngắn. Riêng tính từ đuôi な và danh từ thì だ đổi thành な: きれいだ → きれいなんです, せんせいだ → せんせいなんです.",
+        "Ba dạng hay gặp: んですか để hỏi, んです để trả lời hoặc kể rõ lý do, んですが để mở lời trước khi nhờ vả, xin phép, mời mọc."
+      ],
+      "tables": [
+        {
+          "caption": "Động từ",
+          "headers": ["Thể lịch sự", "Thêm ～んです"],
+          "rows": [
+            ["みます", "みるんです"],
+            ["みました", "みたんです"],
+            ["みません", "みないんです"],
+            ["みませんでした", "みなかったんです"]
+          ]
+        },
+        {
+          "caption": "Tính từ đuôi い",
+          "headers": ["Thể lịch sự", "Thêm ～んです"],
+          "rows": [
+            ["おいしいです", "おいしいんです"],
+            ["おいしかったです", "おいしかったんです"],
+            ["おいしくないです", "おいしくないんです"],
+            ["おいしくなかったです", "おいしくなかったんです"]
+          ]
+        },
+        {
+          "caption": "Tính từ đuôi な (だ → な)",
+          "headers": ["Thể lịch sự", "Thêm ～んです"],
+          "rows": [
+            ["きれいです", "きれいなんです"],
+            ["きれいでした", "きれいだったんです"],
+            ["きれいじゃありません", "きれいじゃないんです"],
+            ["きれいじゃありませんでした", "きれいじゃなかったんです"]
+          ]
+        },
+        {
+          "caption": "Danh từ (だ → な)",
+          "headers": ["Thể lịch sự", "Thêm ～んです"],
+          "rows": [
+            ["せんせいです", "せんせいなんです"],
+            ["せんせいでした", "せんせいだったんです"],
+            ["せんせいじゃありません", "せんせいじゃないんです"],
+            ["せんせいじゃありませんでした", "せんせいじゃなかったんです"]
+          ]
+        }
+      ],
+      "notes": [
+        "Không nói んですから. Muốn nêu lý do bằng から thì dùng thể lịch sự bình thường: ようじが ありますから。",
+        "Không dùng cho sự thật hiển nhiên, không dính gì tới tình huống trước mắt: ×わたしは ナムなんです。→ ○わたしは ナムです。",
+        "んです là văn nói. Văn viết (báo cáo, luận văn) dùng のです."
+      ],
+      "usages": [
+        {
+          "title": "Phỏng đoán rồi xác nhận lại — ～んですか",
+          "detail": "Nhìn thấy một dấu hiệu, đoán ra chuyện gì đó rồi hỏi lại cho chắc.",
+          "examples": [
+            {
+              "japanese": "きのうの ばん、たべなかったんですか。",
+              "vietnamese": "Tối qua bạn đã không ăn gì à?"
+            },
+            {
+              "japanese": "りょこうを するんですか。",
+              "vietnamese": "Bạn sắp đi du lịch à?"
+            },
+            {
+              "japanese": "りょこうなんですか。",
+              "vietnamese": "Là đi du lịch à?",
+              "note": "Danh từ りょこう + な + んですか."
+            }
+          ]
+        },
+        {
+          "title": "Hỏi thêm thông tin về điều vừa thấy, vừa nghe",
+          "detail": "Đã biết chuyện đó xảy ra, muốn hỏi thêm chi tiết ở đâu, khi nào, với ai.",
+          "examples": [
+            {
+              "japanese": "シャツ、きれいですね。どこで かったんですか。",
+              "vietnamese": "Cái áo đẹp nhỉ. Bạn đã mua ở đâu vậy?"
+            }
+          ]
+        },
+        {
+          "title": "Hỏi lý do — どうして ～んですか",
+          "detail": "Muốn người nghe giải thích lý do của việc vừa xảy ra.",
+          "examples": [
+            {
+              "japanese": "どうして おくれたんですか。",
+              "vietnamese": "Tại sao bạn lại đến muộn vậy?"
+            },
+            {
+              "japanese": "どうして べんきょうしないんですか。",
+              "vietnamese": "Tại sao bạn lại không học vậy?"
+            },
+            {
+              "japanese": "どうして ねないんですか。",
+              "vietnamese": "Tại sao bạn lại không ngủ vậy?"
+            }
+          ]
+        },
+        {
+          "title": "Hỏi tình trạng — どうしたんですか",
+          "detail": "Thấy vẻ mặt, dáng vẻ khác thường thì hỏi han.",
+          "examples": [
+            {
+              "japanese": "どうしたんですか。",
+              "vietnamese": "Bạn bị sao vậy?/ Có chuyện gì vậy?"
+            }
+          ]
+        },
+        {
+          "title": "Trả lời câu hỏi ～んですか",
+          "detail": "Câu hỏi dùng んですか thì câu trả lời cũng dùng んです.",
+          "examples": [
+            {
+              "japanese": "べんきょうが おわったんです。",
+              "vietnamese": "Vì tôi học xong rồi.",
+              "note": "Trả lời cho どうして べんきょうしないんですか。"
+            },
+            {
+              "japanese": "びょうきなんです。",
+              "vietnamese": "Vì tôi bị ốm.",
+              "note": "Trả lời cho どうしたんですか。"
+            }
+          ]
+        },
+        {
+          "title": "Bổ sung thông tin, nêu lý do cho lời từ chối",
+          "detail": "Từ chối xong thì thêm một câu んです để người nghe hiểu vì sao.",
+          "examples": [
+            {
+              "japanese": "すみません、ちょっと ようじが あるんです。",
+              "vietnamese": "Xin lỗi, tôi có chút việc bận.",
+              "note": "Từ chối lời mời いっしょに みずを のみに いきませんか。"
+            }
+          ]
+        },
+        {
+          "title": "～んですが — mở đầu trước khi nhờ vả, xin phép",
+          "detail": "Nêu hoàn cảnh bằng んですが rồi mới nói ra điều mình muốn.",
+          "examples": [
+            {
+              "japanese": "ここは わからないんですが、ちょっと おしえて いただけませんか。",
+              "vietnamese": "Chỗ này tôi không hiểu, chỉ giúp tôi một chút được không ạ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ていただけませんか",
+      "summary": "Nhờ người khác làm gì đó cho mình một cách lịch sự: “Có thể ~ giúp tôi được không ạ?”.",
+      "structures": ["V thể て ＋ いただけませんか"],
+      "explanation": [
+        "Dùng khi nhờ cấp trên, người lớn tuổi, người chưa thân. Lịch sự hơn hẳn Vてください — câu đó mang sắc thái “hãy làm ~”, nghe như sai bảo.",
+        "Thang lịch sự tăng dần: Vてください ＜ Vてくださいませんか ＜ Vていただけませんか.",
+        "Thường có một câu ～んですが đứng trước để nêu hoàn cảnh, rồi mới nhờ."
+      ],
+      "notes": [
+        "Luôn là mình nhờ người trên làm cho mình. Với bạn bè thân thì ～てくれない？ hoặc ～てください là đủ."
+      ],
+      "usages": [
+        {
+          "title": "Nhờ vả lịch sự",
+          "detail": "Nêu hoàn cảnh bằng ～んですが, rồi nhờ bằng ～ていただけませんか.",
+          "examples": [
+            {
+              "japanese": "かいしゃへ いきたいんですが、おしえて いただけませんか。",
+              "vietnamese": "Tôi muốn đến công ty, anh chỉ đường giúp tôi được không ạ?"
+            },
+            {
+              "japanese": "レポートを かいたんですが、チェックして いただけませんか。",
+              "vietnamese": "Tôi đã viết xong báo cáo, anh kiểm tra giúp tôi được không ạ?"
+            },
+            {
+              "japanese": "みちが わからないんですが、えきまで あんないして いただけませんか。",
+              "vietnamese": "Tôi không biết đường, anh dẫn tôi đến ga giúp được không ạ?"
+            },
+            {
+              "japanese": "せんせい、もう いちど せつめいして いただけませんか。",
+              "vietnamese": "Thưa thầy, thầy giải thích lại một lần nữa giúp em được không ạ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～たら いいですか",
+      "summary": "Xin lời khuyên: “Nên làm ~ thì được nhỉ?”. Trả lời bằng Vたら いいです — “~ thì được đấy”.",
+      "structures": ["～んですが、V thể た ＋ ら いいですか。", "V thể た ＋ ら いいです"],
+      "explanation": [
+        "Người nói nêu hoàn cảnh của mình bằng ～んですが, rồi hỏi nên làm gì, ở đâu, thế nào.",
+        "Luôn đi cùng một nghi vấn từ: どこで / なにを / どう / どんな… ＋ Vたら いいですか。",
+        "Người được hỏi trả lời bằng Vたら いいです(よ) để đưa ra lời khuyên."
+      ],
+      "notes": [
+        "どうしたら いいですか。là câu xin lời khuyên rất hay dùng mỗi khi gặp rắc rối."
+      ],
+      "usages": [
+        {
+          "title": "Xin lời khuyên",
+          "detail": "Nêu hoàn cảnh trước, hỏi sau.",
+          "examples": [
+            {
+              "japanese": "あたらしい でんわを かいたいんですが、どこで かったら いいですか。",
+              "vietnamese": "Tôi muốn mua điện thoại mới, nên mua ở đâu thì được nhỉ?"
+            },
+            {
+              "japanese": "おかねを なくしたんですが、どうしたら いいですか。",
+              "vietnamese": "Tôi bị mất tiền, tôi nên làm thế nào đây?"
+            },
+            {
+              "japanese": "ともだちが けっこんするんですが、どんな プレゼントを かったら いいですか。",
+              "vietnamese": "Bạn tôi sắp cưới, tôi nên mua quà gì thì được nhỉ?"
+            },
+            {
+              "japanese": "にほんへ りゅうがくしたいんですが、なにを べんきょうしたら いいですか。",
+              "vietnamese": "Tôi muốn đi du học Nhật, tôi nên học gì thì được nhỉ?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

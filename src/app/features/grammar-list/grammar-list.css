@@ -1,0 +1,63 @@
+/* Thẻ bài học ở đây cố tình giống hệt trang chủ (features/lesson-list). Style của
+   Angular bị đóng gói theo component nên không dùng lại được lớp bên đó — nếu sửa
+   dáng thẻ ở một nơi thì nhớ sửa cả nơi kia. */
+
+.intro {
+  max-width: 62ch;
+}
+
+.intro p {
+  margin-top: 6px;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+.lesson-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.lesson-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.lesson-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lesson-name {
+  font-size: 1.05rem;
+  font-weight: 640;
+}
+
+.lesson-desc {
+  flex: 1;
+}
+
+.lesson-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.lesson-go {
+  color: var(--accent);
+  font-weight: 700;
+}

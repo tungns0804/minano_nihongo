@@ -1,0 +1,145 @@
+{
+  "points": [
+    {
+      "title": "～ように、V2",
+      "summary": "Nêu mục tiêu mong đạt được ở vế trước, rồi nói hành động làm để đạt nó ở vế sau.",
+      "structures": ["V る ＋ ように、V2", "V ない ＋ ように、V2"],
+      "explanation": [
+        "Động từ trước ように thường là động từ KHÔNG chủ ý: thể khả năng (はいれる, みえる), động từ trạng thái (わかる, なる), hoặc thể phủ định.",
+        "Vế 1 là điều mong muốn, vế 2 là việc mình chủ động làm."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Để có thể ~",
+          "detail": "Vế 1 dùng thể khả năng.",
+          "examples": [
+            {
+              "japanese": "だいがくに はいれる ように、まいばん べんきょうして います。",
+              "vietnamese": "Để vào được đại học, tối nào tôi cũng học."
+            }
+          ]
+        },
+        {
+          "title": "Để không ~",
+          "detail": "Vế 1 dùng thể ない.",
+          "examples": [
+            {
+              "japanese": "うんてんする とき、ねむく ならない ように、コーヒーを のみます。",
+              "vietnamese": "Khi lái xe, để không buồn ngủ thì tôi uống cà phê."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ように なります",
+      "summary": "Diễn tả sự thay đổi: trở nên làm được, trở nên không làm được, hoặc đổi thói quen.",
+      "structures": [
+        "V thể khả năng る ＋ ように なります — trở nên có thể",
+        "V thể khả năng ない bỏ い ＋ く なります — trở nên không thể",
+        "V る／V ない ＋ ように なりました — đổi thói quen"
+      ],
+      "explanation": [
+        "Trường hợp 1 và 2 dùng động từ khả năng: わかる, できる, みえる, きこえる, たべられる…",
+        "Trường hợp 3 nói về thói quen thì KHÔNG dùng động từ khả năng."
+      ],
+      "tables": [
+        {
+          "caption": "Ba trường hợp",
+          "headers": ["Ý nghĩa", "Cấu trúc"],
+          "rows": [
+            ["Trở nên có thể", "V khả năng る ＋ ように なりました"],
+            ["Trở nên không thể", "V khả năng ない bỏ い ＋ く なりました"],
+            ["Đổi thói quen", "V る／V ない ＋ ように なりました"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Trở nên có thể làm được",
+          "detail": "Trước không làm được, giờ làm được.",
+          "examples": [
+            {
+              "japanese": "いま、なっとうが たべられる ように なりました。",
+              "vietnamese": "Bây giờ tôi đã ăn được natto rồi."
+            },
+            {
+              "japanese": "いま、けいたいで おかねが おくれる ように なりました。",
+              "vietnamese": "Bây giờ đã gửi tiền bằng điện thoại được rồi."
+            }
+          ]
+        },
+        {
+          "title": "Trở nên không làm được",
+          "detail": "Trước làm được, giờ thì không.",
+          "examples": [
+            {
+              "japanese": "ふとりましたから、この シャツが きられなく なりました。",
+              "vietnamese": "Vì béo lên nên tôi không mặc được cái áo này nữa."
+            },
+            {
+              "japanese": "はが わるく なりましたから、かたい ものが たべられなく なりました。",
+              "vietnamese": "Vì răng yếu đi nên tôi không ăn được đồ cứng nữa."
+            }
+          ]
+        },
+        {
+          "title": "Thay đổi thói quen",
+          "detail": "Không dùng động từ khả năng.",
+          "examples": [
+            {
+              "japanese": "まえは よく たばこを すいましたが、さいきん すわない ように なりました。",
+              "vietnamese": "Trước đây tôi hay hút thuốc nhưng gần đây thì không hút nữa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ように します",
+      "summary": "Cố gắng làm hoặc cố gắng không làm việc gì — nói về sự nỗ lực.",
+      "structures": [
+        "V る／V ない ＋ ように します — cố gắng ~",
+        "V る／V ない ＋ ように して います — đang cố duy trì thói quen",
+        "V る／V ない ＋ ように して ください — xin hãy cố gắng ~"
+      ],
+      "explanation": [
+        "ように して います nhấn rằng đây là việc mình đang duy trì đều đặn chứ không phải quyết tâm nhất thời.",
+        "ように して ください nhẹ nhàng hơn Vてください và Vないでください: là nhờ người ta lưu ý chứ không phải ra lệnh."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Cố gắng duy trì",
+          "detail": "Việc mình đang nỗ lực làm đều.",
+          "examples": [
+            {
+              "japanese": "げんきに なる ように、まいにち うんどうする ように して います。",
+              "vietnamese": "Để khoẻ lên, ngày nào tôi cũng cố tập thể dục."
+            },
+            {
+              "japanese": "ふとらない ように して いますから、あまい ものを たべません。",
+              "vietnamese": "Vì đang cố để không béo lên nên tôi không ăn đồ ngọt."
+            }
+          ]
+        },
+        {
+          "title": "Nhờ người khác lưu ý",
+          "detail": "Nhẹ hơn Vてください.",
+          "examples": [
+            {
+              "japanese": "ぜったいに パスポートを なくさない ように して ください。",
+              "vietnamese": "Tuyệt đối cố gắng đừng làm mất hộ chiếu."
+            },
+            {
+              "japanese": "もっと やさいを たべる ように して ください。",
+              "vietnamese": "Hãy cố ăn nhiều rau hơn."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

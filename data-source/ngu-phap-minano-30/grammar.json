@@ -1,0 +1,131 @@
+{
+  "points": [
+    {
+      "title": "N1に N2が V tha động từ ＋ て あります",
+      "summary": "Tả trạng thái do một hành động CÓ CHỦ Ý để lại — ai đó đã làm và kết quả vẫn còn đó.",
+      "structures": [
+        "N1（nơi chốn）に ＋ N2が ＋ V tha động từ thể て ＋ あります",
+        "N2は ＋ N1に ＋ V tha động từ thể て ＋ あります (đưa N2 lên làm chủ đề)"
+      ],
+      "explanation": [
+        "Luôn dùng THA động từ: điểm nhấn là có người đã cố ý làm việc đó, chỉ không nói ra là ai.",
+        "Muốn nói về N2 (nhấn vào vật) thì đưa nó lên đầu và đổi が thành は."
+      ],
+      "tables": [
+        {
+          "caption": "So với V tự động từ ＋ て います (bài 29)",
+          "headers": ["Cách nói", "Sắc thái"],
+          "rows": [
+            ["エアコンが ついて います", "Tự động từ — chỉ tả cái đang nhìn thấy"],
+            ["エアコンが つけて あります", "Tha động từ — có người đã cố ý bật, và vẫn đang bật"]
+          ]
+        }
+      ],
+      "notes": [
+        "Thêm もう phía trước để nói việc đã được chuẩn bị xong xuôi: もう コピーして あります."
+      ],
+      "usages": [
+        {
+          "title": "Trạng thái do người cố ý tạo ra",
+          "detail": "Kết quả của việc ai đó đã làm vẫn còn đó.",
+          "examples": [
+            {
+              "japanese": "かべに カレンダーが かけて あります。",
+              "vietnamese": "Trên tường có treo cuốn lịch."
+            },
+            {
+              "japanese": "ふうとうに きってが はって あります。",
+              "vietnamese": "Trên phong bì có dán tem."
+            },
+            {
+              "japanese": "にわに はなが うえて あります。",
+              "vietnamese": "Ở vườn có trồng hoa."
+            }
+          ]
+        },
+        {
+          "title": "Đưa vật lên làm chủ đề",
+          "detail": "N2は N1に ～て あります.",
+          "examples": [
+            {
+              "japanese": "ほんは たなに おいて あります。",
+              "vietnamese": "Sách thì được để trên giá."
+            },
+            {
+              "japanese": "きっては ふうとうに はって あります。",
+              "vietnamese": "Tem thì được dán trên phong bì."
+            }
+          ]
+        },
+        {
+          "title": "もう ～て あります — đã chuẩn bị xong",
+          "detail": "Nhấn rằng việc cần làm đã làm rồi.",
+          "examples": [
+            {
+              "japanese": "ばんごはんは もう つくって ありますよ。",
+              "vietnamese": "Bữa tối đã nấu xong rồi đấy."
+            },
+            {
+              "japanese": "しりょうは もう コピーして あります。",
+              "vietnamese": "Tài liệu đã photo xong rồi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N を Vて ＋ おきます",
+      "summary": "Làm sẵn để chuẩn bị cho việc sau, hoặc cứ để nguyên như vậy.",
+      "structures": ["N を ＋ Vて ＋ おきます"],
+      "explanation": [
+        "おきます là động từ nhóm 1, chia được sang mọi thể: ～ておいてください, ～ておかなければ なりません, ～ておこう…",
+        "Trong hội thoại, ～ておきます rút gọn thành ～ときます (bỏ て thêm とく): かって おく → かっとく."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Chuẩn bị sẵn",
+          "detail": "Làm trước để lát nữa dùng.",
+          "examples": [
+            {
+              "japanese": "かいぎの まえに しりょうを コピーして おきます。",
+              "vietnamese": "Trước cuộc họp tôi sẽ photo sẵn tài liệu."
+            },
+            {
+              "japanese": "りょこうの まえに ホテルを よやくして おいて ください。",
+              "vietnamese": "Trước chuyến đi hãy đặt sẵn khách sạn."
+            }
+          ]
+        },
+        {
+          "title": "Việc cần thiết phải làm cho xong",
+          "detail": "Không làm thì việc sau không chạy được.",
+          "examples": [
+            {
+              "japanese": "ごはんを たべてから、おちゃわんを あらって おかなければ なりません。",
+              "vietnamese": "Ăn cơm xong thì phải rửa bát."
+            },
+            {
+              "japanese": "じしょを つかってから、もとの ところに もどして おいて ください。",
+              "vietnamese": "Dùng từ điển xong hãy trả về chỗ cũ."
+            }
+          ]
+        },
+        {
+          "title": "Cứ để nguyên như vậy",
+          "detail": "Không đụng vào, giữ nguyên hiện trạng.",
+          "examples": [
+            {
+              "japanese": "あついですから、そのままに して おいて ください。",
+              "vietnamese": "Vì nóng nên cứ để mở như vậy đi."
+            },
+            {
+              "japanese": "ちちは まだ たべて いませんから、そのままに して おいて ください。",
+              "vietnamese": "Bố vẫn chưa ăn nên cứ để nguyên vậy đi."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

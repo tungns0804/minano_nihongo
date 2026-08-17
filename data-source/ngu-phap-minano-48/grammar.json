@@ -1,0 +1,127 @@
+{
+  "points": [
+    {
+      "title": "Động từ thể sai khiến 使役形",
+      "summary": "A bắt B làm việc gì, hoặc A cho phép B làm việc gì.",
+      "structures": [
+        "A は B を ＋ V sai khiến (động từ không có tân ngữ)",
+        "A は B に N を ＋ V sai khiến (động từ đã có tân ngữ)"
+      ],
+      "explanation": [
+        "Câu chỉ có một tân ngữ thì người bị sai khiến đi với を.",
+        "Câu đã có tân ngữ rồi (N を) thì người bị sai khiến chuyển sang に — không thể có hai を trong một câu.",
+        "Nghĩa \"bắt\" hay \"cho phép\" tuỳ ngữ cảnh chứ không nằm ở cấu trúc.",
+        "Động từ sai khiến luôn chia như nhóm 2."
+      ],
+      "tables": [
+        {
+          "caption": "Nhóm 1 — hàng い đổi sang hàng あ ＋ せます",
+          "headers": ["Thể ます", "Thể sai khiến"],
+          "rows": [
+            ["かきます", "かかせます"],
+            ["いそぎます", "いそがせます"],
+            ["のみます", "のませます"],
+            ["はこびます", "はこばせます"],
+            ["てつだいます", "てつだわせます"],
+            ["もちます", "もたせます"],
+            ["なおします", "なおさせます"]
+          ]
+        },
+        {
+          "caption": "Nhóm 2 và 3",
+          "headers": ["Thể ます", "Thể sai khiến"],
+          "rows": [
+            ["たべます", "たべさせます"],
+            ["しらべます", "しらべさせます"],
+            ["います", "いさせます"],
+            ["します", "させます"],
+            ["べんきょうします", "べんきょうさせます"],
+            ["きます", "こさせます"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Một tân ngữ — người bị sai khiến đi với を",
+          "detail": "Động từ vốn không có tân ngữ.",
+          "examples": [
+            {
+              "japanese": "おかあさんは こどもを はやく ねさせます。",
+              "vietnamese": "Mẹ bắt con đi ngủ sớm."
+            },
+            {
+              "japanese": "おかあさんは こどもを そとで あそばせました。",
+              "vietnamese": "Mẹ cho phép con chơi ở ngoài."
+            },
+            {
+              "japanese": "ははは ちちを のみに いかせなかった。",
+              "vietnamese": "Mẹ đã không cho bố đi nhậu."
+            }
+          ]
+        },
+        {
+          "title": "Hai tân ngữ — người bị sai khiến đi với に",
+          "detail": "Động từ đã có N を rồi.",
+          "examples": [
+            {
+              "japanese": "せんせいは いつも わたしたちに しゅくだいを たくさん させます。",
+              "vietnamese": "Cô giáo lúc nào cũng bắt chúng tôi làm nhiều bài tập."
+            },
+            {
+              "japanese": "ははは まいにち わたしに えいごを べんきょうさせます。",
+              "vietnamese": "Ngày nào mẹ cũng bắt tôi học tiếng Anh."
+            },
+            {
+              "japanese": "ぶちょうは たなかさんに ビールを たくさん のませました。",
+              "vietnamese": "Trưởng phòng đã bắt anh Tanaka uống rất nhiều bia."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V sai khiến thể て ＋ いただけませんか",
+      "summary": "Xin phép được làm việc gì — \"cho phép tôi ~ được không ạ?\".",
+      "structures": ["V sai khiến chia thể て ＋ いただけませんか"],
+      "explanation": [
+        "Đây là mẫu XIN PHÉP cho MÌNH làm, khác hẳn Vて いただけませんか (bài 26) là nhờ NGƯỜI KHÁC làm."
+      ],
+      "tables": [
+        {
+          "caption": "Hai mẫu dễ nhầm",
+          "headers": ["Mẫu", "Ai làm việc đó"],
+          "rows": [
+            ["Vて いただけませんか", "Nhờ người khác làm cho mình"],
+            ["V sai khiến て いただけませんか", "Xin phép để chính mình làm"]
+          ]
+        },
+        {
+          "caption": "Ví dụ đối chiếu",
+          "headers": ["Câu", "Nghĩa"],
+          "rows": [
+            ["おかねを はらって いただけませんか", "Anh trả tiền giúp tôi được không?"],
+            ["おかねを はらわせて いただけませんか", "Hãy để tôi trả tiền nhé"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Xin phép được làm",
+          "detail": "Cách nói rất lịch sự.",
+          "examples": [
+            {
+              "japanese": "きょうは がっこうを やすませて いただけませんか。",
+              "vietnamese": "Hôm nay cho phép em nghỉ học được không ạ?"
+            },
+            {
+              "japanese": "ここに にもつを おかせて いただけませんか。",
+              "vietnamese": "Cho phép tôi để hành lý ở đây được không ạ?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

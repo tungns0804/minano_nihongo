@@ -1,0 +1,138 @@
+{
+  "points": [
+    {
+      "title": "～すぎます",
+      "summary": "Quá mức, vượt quá giới hạn cho phép — hầu như luôn mang nghĩa không tốt.",
+      "structures": ["V ます bỏ ます ＋ すぎます", "Aい bỏ い ＋ すぎます", "Aな bỏ な ＋ すぎます"],
+      "explanation": [
+        "すぎます chia như động từ nhóm 2: すぎました, すぎない, すぎて…",
+        "Vì mang nghĩa vượt ngưỡng nên câu thường hàm ý chê hoặc hối tiếc."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Làm quá nhiều",
+          "detail": "Vượt quá mức nên không tốt.",
+          "examples": [
+            {
+              "japanese": "ゆうべ、おさけを のみすぎました。",
+              "vietnamese": "Tối qua tôi uống rượu quá nhiều."
+            },
+            {
+              "japanese": "ふくを かいすぎました。",
+              "vietnamese": "Tôi đã mua quá nhiều quần áo."
+            },
+            {
+              "japanese": "つかれすぎたので、なにも たべたく なかったです。",
+              "vietnamese": "Vì mệt quá nên tôi chẳng muốn ăn gì."
+            }
+          ]
+        },
+        {
+          "title": "Tính chất quá mức",
+          "detail": "Dùng với tính từ.",
+          "examples": [
+            {
+              "japanese": "この かばんは たかすぎます。",
+              "vietnamese": "Cái cặp này đắt quá."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～やすいです / ～にくいです",
+      "summary": "Dễ làm / khó làm việc gì, hoặc dễ / khó xảy ra chuyện gì.",
+      "structures": ["V ます bỏ ます ＋ やすいです — dễ", "V ます bỏ ます ＋ にくいです — khó"],
+      "explanation": [
+        "Cả hai chia như tính từ đuôi い: やすかったです, にくくない…",
+        "Ngoài にくい còn có づらい (khó vì lý do chủ quan của người nói) và がたい (khó về mặt tinh thần, cảm xúc)."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Khó làm",
+          "detail": "Dùng にくい.",
+          "examples": [
+            {
+              "japanese": "この パソコンは つかいにくいです。",
+              "vietnamese": "Cái máy tính này khó dùng."
+            },
+            {
+              "japanese": "あめの ひは せんたくものが かわきにくいです。",
+              "vietnamese": "Ngày mưa thì quần áo giặt khó khô."
+            }
+          ]
+        },
+        {
+          "title": "Dễ làm, dễ xảy ra",
+          "detail": "Dùng やすい.",
+          "examples": [
+            {
+              "japanese": "しろい シャツは よごれやすいです。",
+              "vietnamese": "Áo sơ mi trắng thì dễ bẩn."
+            },
+            {
+              "japanese": "かのじょの こえは ききやすいです。",
+              "vietnamese": "Giọng cô ấy rất dễ nghe."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～く します / ～に します",
+      "summary": "Chủ động làm cho cái gì đó biến đổi, hoặc chọn lấy cái gì.",
+      "structures": ["Aい bỏ い ＋ く します", "Aな bỏ な ＋ に します", "N ＋ に します"],
+      "explanation": [
+        "なります là biến đổi tự nhiên; します là CÓ NGƯỜI làm cho nó biến đổi.",
+        "N に します còn mang nghĩa lựa chọn, quyết định: chọn cái này, hẹn vào lúc này."
+      ],
+      "tables": [
+        {
+          "caption": "So sánh với なります (bài 19)",
+          "headers": ["Câu", "Sắc thái"],
+          "rows": [
+            ["へやが きれいに なりました", "Căn phòng đã trở nên sạch — biến đổi tự nhiên"],
+            ["へやを きれいに しました", "Tôi đã dọn sạch căn phòng — có người làm"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Làm cho biến đổi",
+          "detail": "Có người chủ động tác động.",
+          "examples": [
+            {
+              "japanese": "おとを おおきく します。",
+              "vietnamese": "Tôi vặn âm thanh to lên."
+            },
+            {
+              "japanese": "かんたんに して ください。",
+              "vietnamese": "Hãy làm cho đơn giản hơn đi."
+            },
+            {
+              "japanese": "にばいに して ください。",
+              "vietnamese": "Hãy tăng lên gấp đôi."
+            }
+          ]
+        },
+        {
+          "title": "Lựa chọn, quyết định — N に します",
+          "detail": "Chọn lấy cái gì, chốt lúc nào.",
+          "examples": [
+            {
+              "japanese": "ラーメンに します。",
+              "vietnamese": "Tôi chọn mì ramen."
+            },
+            {
+              "japanese": "かいぎは あしたに します。",
+              "vietnamese": "Cuộc họp để sang ngày mai."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

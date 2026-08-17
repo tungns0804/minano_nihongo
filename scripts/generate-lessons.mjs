@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   parseConversation,
+  parseGrammar,
   parseVerbList,
   parseVocabulary,
   slugify,
@@ -99,6 +100,16 @@ function readMeta(folderPath, folderName) {
  * nào — vì parser từ vựng chỉ tách ở 2 dấu phẩy đầu nên dòng nào cũng "hợp lệ".
  * Nay tên file không khớp danh sách dưới đây là báo lỗi và dừng, không đoán nữa.
  */
+/**
+ * Bài NGỮ PHÁP nằm trong file JSON chứ không phải .txt, vì một mẫu ngữ pháp là cả
+ * một cụm lồng nhau (công thức, bảng biến đổi, các cách dùng, ví dụ của từng cách
+ * dùng) chứ không phải một dòng phẳng. Xem `parseGrammar` trong vocab-core.mjs.
+ *
+ * Pattern phải KHÔNG khớp `meta.json` — file đó cũng là .json và nằm cùng thư mục.
+ */
+const GRAMMAR_PATTERN = /^(?:grammar|ngu-?phap)(?:[-_].+)?\.json$/i;
+const GRAMMAR_ACCEPTED = 'grammar.json, ngu-phap.json, nguphap.json';
+
 const FILE_KINDS = [
   {
     kind: 'vocabulary',
@@ -117,7 +128,9 @@ const FILE_KINDS = [
   },
 ];
 
-const ACCEPTED_NAMES = FILE_KINDS.map((entry) => entry.accepted).join('\n              ');
+const ACCEPTED_NAMES = [...FILE_KINDS.map((entry) => entry.accepted), GRAMMAR_ACCEPTED].join(
+  '\n              ',
+);
 
 /**
  * Bảng tra parser theo loại bài. Mỗi hàm trả về { items, issues } đã chuẩn hoá,
@@ -137,6 +150,10 @@ const PARSE_BY_KIND = {
     const parsed = parseConversation(text);
     return { items: parsed.lines, issues: parsed.issues };
   },
+  grammar: (text) => {
+    const parsed = parseGrammar(text);
+    return { items: parsed.points, issues: parsed.issues };
+  },
 };
 
 /** Trả về loại dữ liệu của một file, hoặc null nếu tên file không nhận dạng được. */
@@ -150,10 +167,37 @@ function classifyFile(fileName) {
  * Một thư mục chỉ được chứa dữ liệu của MỘT loại.
  */
 function readSourceFiles(folderPath, folderName) {
-  const files = readdirSync(folderPath)
-    .filter((name) => VOCAB_EXTENSIONS.has(extname(name).toLowerCase()))
+  const allFiles = readdirSync(folderPath)
     .filter((name) => statSync(join(folderPath, name)).isFile())
     .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+
+  const files = allFiles.filter((name) => VOCAB_EXTENSIONS.has(extname(name).toLowerCase()));
+  const grammarFiles = allFiles.filter((name) => GRAMMAR_PATTERN.test(name));
+
+  if (grammarFiles.length > 0) {
+    if (files.length > 0) {
+      fail(
+        `[${folderName}] trộn lẫn hai loại dữ liệu trong cùng một thư mục:\n` +
+          `              grammar: ${grammarFiles.join(', ')}\n` +
+          `              text: ${files.join(', ')}\n` +
+          `              Mỗi thư mục là một bài học và chỉ chứa một loại. Hãy tách ra hai thư mục.`,
+      );
+      return null;
+    }
+    // Nội dung ngữ pháp là JSON nên không nối nhiều file lại được như .txt.
+    if (grammarFiles.length > 1) {
+      fail(
+        `[${folderName}] có ${grammarFiles.length} file ngữ pháp (${grammarFiles.join(', ')}).\n` +
+          `              Bài ngữ pháp chỉ được có MỘT file JSON — gộp các mẫu vào cùng mảng "points".`,
+      );
+      return null;
+    }
+    return {
+      files: grammarFiles,
+      kind: 'grammar',
+      content: readFileSync(join(folderPath, grammarFiles[0]), 'utf8'),
+    };
+  }
 
   if (files.length === 0) {
     fail(`[${folderName}] không có file .txt/.csv/.tsv nào, bỏ qua thư mục này`);
@@ -206,6 +250,14 @@ function checkMetaKind(meta, kind, folderName) {
   return false;
 }
 
+/**
+ * Chỗ xảy ra lỗi, viết theo đúng loại dữ liệu: bài .txt thì là số dòng, bài ngữ pháp
+ * (JSON) thì là đường dẫn trong cây như `points[0].usages[1].examples[2]`.
+ */
+function issueLocation(issue) {
+  return issue.line > 0 ? `dòng ${issue.line}` : issue.path || 'dữ liệu';
+}
+
 function buildLesson(folderName) {
   const folderPath = join(SOURCE_DIR, folderName);
   const meta = readMeta(folderPath, folderName);
@@ -236,12 +288,12 @@ function buildLesson(folderName) {
   );
 
   for (const issue of warnings) {
-    log(`  ${c.yellow}[CANH BAO] dòng ${issue.line}: ${issue.message}${c.reset}`);
-    log(`    ${c.dim}${issue.text}${c.reset}`);
+    log(`  ${c.yellow}[CANH BAO] ${issueLocation(issue)}: ${issue.message}${c.reset}`);
+    if (issue.text) log(`    ${c.dim}${issue.text}${c.reset}`);
   }
   for (const issue of errors) {
-    fail(`  dòng ${issue.line}: ${issue.message}`);
-    log(`    ${c.dim}${issue.text}${c.reset}`);
+    fail(`  ${issueLocation(issue)}: ${issue.message}`);
+    if (issue.text) log(`    ${c.dim}${issue.text}${c.reset}`);
   }
 
   if (items.length === 0) {
@@ -266,10 +318,11 @@ function buildLesson(folderName) {
       description: meta.description ? String(meta.description).trim() : '',
       kind,
       itemCount: items.length,
-      // Chỉ trường ứng với loại bài mới có dữ liệu, hai trường kia là mảng rỗng.
+      // Chỉ trường ứng với loại bài mới có dữ liệu, các trường kia là mảng rỗng.
       words: kind === 'vocabulary' ? items : [],
       verbs: kind === 'verb' ? items : [],
       lines: kind === 'conversation' ? items : [],
+      grammarPoints: kind === 'grammar' ? items : [],
     },
     fileName: `${id}.json`,
   };

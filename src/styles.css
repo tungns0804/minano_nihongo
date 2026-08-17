@@ -57,8 +57,23 @@
   --shadow-lg: 0 12px 32px light-dark(rgb(16 24 40 / 12%), rgb(0 0 0 / 45%));
 
   --font-ui: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
-  --font-jp: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'MS Gothic', Meiryo,
-    var(--font-ui);
+
+  /* Font Latin đứng TRƯỚC font Nhật là có chủ ý, không phải nhầm thứ tự.
+
+     Trình duyệt chọn font theo TỪNG ký tự, nên chữ kana/kanji vẫn rơi xuống Yu Gothic
+     như thường — nhưng chữ Latin thì được lấy từ font giao diện.
+
+     Vì sao cần: font Nhật không có các ký tự tiếng Việt hai dấu (ồ ấ ể ộ ữ ợ…, khối
+     Latin Extended Additional). Gặp chúng, trình duyệt phải tách thành chữ gốc + dấu
+     rời rồi ghép lại, ra "rô`i nhâ´n" thay vì "rồi nhấn". Mà app này đầy chỗ trộn hai
+     thứ tiếng trong cùng một khối .jp: công thức ngữ pháp ("V thể ngắn ＋ んです"), ví
+     dụ dạng câu hỏi động từ ("逃げます → thể Te?"), bảng cặp tự/tha động từ
+     ("つけます — bật"). Đặt font Latin lên trước là sửa một chỗ, hết ở mọi chỗ.
+
+     Không dùng system-ui ở đây: trên máy đặt ngôn ngữ Nhật nó trỏ về Yu Gothic UI,
+     tức là quay lại đúng lỗi vừa tránh. */
+  --font-jp: 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, 'Yu Gothic',
+    'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'MS Gothic', Meiryo, var(--font-ui);
   --font-mono: 'Cascadia Code', Consolas, 'SF Mono', Menlo, monospace;
 
   --max-width: 1080px;

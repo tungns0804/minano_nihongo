@@ -1,0 +1,216 @@
+{
+  "id": "ngu-phap-minano-44",
+  "name": "皆の日本語 — Bài 44 · Ngữ pháp",
+  "description": "～すぎます, ～やすい／～にくい, ～く／～に します",
+  "kind": "grammar",
+  "itemCount": 3,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1fpu2tj",
+      "title": "～すぎます",
+      "summary": "Quá mức, vượt quá giới hạn cho phép — hầu như luôn mang nghĩa không tốt.",
+      "structures": [
+        "V ます bỏ ます ＋ すぎます",
+        "Aい bỏ い ＋ すぎます",
+        "Aな bỏ な ＋ すぎます"
+      ],
+      "explanation": [
+        "すぎます chia như động từ nhóm 2: すぎました, すぎない, すぎて…",
+        "Vì mang nghĩa vượt ngưỡng nên câu thường hàm ý chê hoặc hối tiếc."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Làm quá nhiều",
+          "detail": "Vượt quá mức nên không tốt.",
+          "examples": [
+            {
+              "id": "10xk9mt",
+              "japanese": "ゆうべ、おさけを のみすぎました。",
+              "reading": "",
+              "vietnamese": "Tối qua tôi uống rượu quá nhiều.",
+              "note": ""
+            },
+            {
+              "id": "1bhwvv5",
+              "japanese": "ふくを かいすぎました。",
+              "reading": "",
+              "vietnamese": "Tôi đã mua quá nhiều quần áo.",
+              "note": ""
+            },
+            {
+              "id": "0afwz0o",
+              "japanese": "つかれすぎたので、なにも たべたく なかったです。",
+              "reading": "",
+              "vietnamese": "Vì mệt quá nên tôi chẳng muốn ăn gì.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Tính chất quá mức",
+          "detail": "Dùng với tính từ.",
+          "examples": [
+            {
+              "id": "1y27vwz",
+              "japanese": "この かばんは たかすぎます。",
+              "reading": "",
+              "vietnamese": "Cái cặp này đắt quá.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0xzuluh",
+      "title": "～やすいです / ～にくいです",
+      "summary": "Dễ làm / khó làm việc gì, hoặc dễ / khó xảy ra chuyện gì.",
+      "structures": [
+        "V ます bỏ ます ＋ やすいです — dễ",
+        "V ます bỏ ます ＋ にくいです — khó"
+      ],
+      "explanation": [
+        "Cả hai chia như tính từ đuôi い: やすかったです, にくくない…",
+        "Ngoài にくい còn có づらい (khó vì lý do chủ quan của người nói) và がたい (khó về mặt tinh thần, cảm xúc)."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Khó làm",
+          "detail": "Dùng にくい.",
+          "examples": [
+            {
+              "id": "0s2yrvu",
+              "japanese": "この パソコンは つかいにくいです。",
+              "reading": "",
+              "vietnamese": "Cái máy tính này khó dùng.",
+              "note": ""
+            },
+            {
+              "id": "1g91y28",
+              "japanese": "あめの ひは せんたくものが かわきにくいです。",
+              "reading": "",
+              "vietnamese": "Ngày mưa thì quần áo giặt khó khô.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Dễ làm, dễ xảy ra",
+          "detail": "Dùng やすい.",
+          "examples": [
+            {
+              "id": "13hebsj",
+              "japanese": "しろい シャツは よごれやすいです。",
+              "reading": "",
+              "vietnamese": "Áo sơ mi trắng thì dễ bẩn.",
+              "note": ""
+            },
+            {
+              "id": "0de9jpg",
+              "japanese": "かのじょの こえは ききやすいです。",
+              "reading": "",
+              "vietnamese": "Giọng cô ấy rất dễ nghe.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0uk6jy2",
+      "title": "～く します / ～に します",
+      "summary": "Chủ động làm cho cái gì đó biến đổi, hoặc chọn lấy cái gì.",
+      "structures": [
+        "Aい bỏ い ＋ く します",
+        "Aな bỏ な ＋ に します",
+        "N ＋ に します"
+      ],
+      "explanation": [
+        "なります là biến đổi tự nhiên; します là CÓ NGƯỜI làm cho nó biến đổi.",
+        "N に します còn mang nghĩa lựa chọn, quyết định: chọn cái này, hẹn vào lúc này."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "So sánh với なります (bài 19)",
+          "headers": [
+            "Câu",
+            "Sắc thái"
+          ],
+          "rows": [
+            [
+              "へやが きれいに なりました",
+              "Căn phòng đã trở nên sạch — biến đổi tự nhiên"
+            ],
+            [
+              "へやを きれいに しました",
+              "Tôi đã dọn sạch căn phòng — có người làm"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Làm cho biến đổi",
+          "detail": "Có người chủ động tác động.",
+          "examples": [
+            {
+              "id": "0e0ufyh",
+              "japanese": "おとを おおきく します。",
+              "reading": "",
+              "vietnamese": "Tôi vặn âm thanh to lên.",
+              "note": ""
+            },
+            {
+              "id": "1modz9v",
+              "japanese": "かんたんに して ください。",
+              "reading": "",
+              "vietnamese": "Hãy làm cho đơn giản hơn đi.",
+              "note": ""
+            },
+            {
+              "id": "0ariyr8",
+              "japanese": "にばいに して ください。",
+              "reading": "",
+              "vietnamese": "Hãy tăng lên gấp đôi.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Lựa chọn, quyết định — N に します",
+          "detail": "Chọn lấy cái gì, chốt lúc nào.",
+          "examples": [
+            {
+              "id": "1x21r6d",
+              "japanese": "ラーメンに します。",
+              "reading": "",
+              "vietnamese": "Tôi chọn mì ramen.",
+              "note": ""
+            },
+            {
+              "id": "0bcc1ek",
+              "japanese": "かいぎは あしたに します。",
+              "reading": "",
+              "vietnamese": "Cuộc họp để sang ngày mai.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

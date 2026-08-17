@@ -1,0 +1,107 @@
+{
+  "points": [
+    {
+      "title": "～とおりに、V2",
+      "summary": "Làm việc thứ hai đúng y như việc thứ nhất — \"theo như\".",
+      "structures": ["V る ＋ とおりに、V2", "V た ＋ とおりに、V2", "N の ＋ とおりに、V2"],
+      "explanation": [
+        "Vる とおりに: làm theo cái đang được chỉ ngay lúc đó.",
+        "Vた とおりに: làm theo cái đã thấy, đã nghe, đã được dạy trước đó.",
+        "Nの とおりに: làm theo một hình mẫu có sẵn (đường kẻ, bản vẽ, hướng dẫn)."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Làm theo như đã thấy, đã nghe",
+          "detail": "Dùng thể た.",
+          "examples": [
+            {
+              "japanese": "みた とおりに、はなして ください。",
+              "vietnamese": "Hãy kể lại đúng như bạn đã thấy."
+            },
+            {
+              "japanese": "せんせいが いった とおりに、いって ください。",
+              "vietnamese": "Hãy nói theo đúng như giáo viên đã nói."
+            }
+          ]
+        },
+        {
+          "title": "Làm theo một hình mẫu",
+          "detail": "Dùng Nの.",
+          "examples": [
+            {
+              "japanese": "この せんの とおりに、きって ください。",
+              "vietnamese": "Hãy cắt theo đường kẻ này."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～あとで、V2",
+      "summary": "Làm việc thứ hai sau khi việc thứ nhất đã xong.",
+      "structures": ["V た ＋ あとで、V2", "N の ＋ あとで、V2"],
+      "explanation": [
+        "Trước あとで luôn là thể た, kể cả khi cả câu nói về tương lai.",
+        "Nhấn vào thứ tự trước sau: việc 1 xong hẳn rồi mới tới việc 2."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Sau khi ~ thì ~",
+          "detail": "Thứ tự trước sau rõ ràng.",
+          "examples": [
+            {
+              "japanese": "あさごはんの あとで、くすりを のんで ください。",
+              "vietnamese": "Hãy uống thuốc sau bữa sáng."
+            },
+            {
+              "japanese": "まいばん、たべた あとで、はを みがいて います。",
+              "vietnamese": "Tối nào ăn xong tôi cũng đánh răng."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Vて、V2 / Vないで、V2",
+      "summary": "Làm V1 rồi làm V2, hoặc làm V2 mà không làm V1.",
+      "structures": ["V て、V2 — làm V1 rồi làm V2", "V ないで、V2 — không làm V1 mà làm V2"],
+      "explanation": [
+        "Hai vế cùng một chủ ngữ.",
+        "Vないで nhấn rằng người nói CHỦ Ý bỏ qua việc 1 — thường vì không thể làm cả hai."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Làm V1 rồi làm V2",
+          "detail": "Thứ tự bình thường.",
+          "examples": [
+            {
+              "japanese": "あさごはんを たべて、かいしゃへ いきます。",
+              "vietnamese": "Tôi ăn sáng rồi đi làm."
+            }
+          ]
+        },
+        {
+          "title": "Không làm V1 mà làm V2",
+          "detail": "Chủ ý bỏ qua việc thứ nhất.",
+          "examples": [
+            {
+              "japanese": "あさごはんを たべないで、かいしゃへ いきます。",
+              "vietnamese": "Tôi không ăn sáng mà đi làm luôn."
+            },
+            {
+              "japanese": "にちようび、どこも いかないで、いえで やすみます。",
+              "vietnamese": "Chủ nhật tôi không đi đâu cả mà ở nhà nghỉ."
+            },
+            {
+              "japanese": "ゆうべ、ねないで、べんきょうしました。",
+              "vietnamese": "Tối qua tôi đã không ngủ mà thức học bài."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

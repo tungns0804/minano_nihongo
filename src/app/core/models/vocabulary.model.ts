@@ -26,19 +26,29 @@ export interface VocabularyWord {
 /** Bài học nằm sẵn trong `public/lessons` hay do người dùng tự nạp. */
 export type LessonOrigin = 'builtin' | 'custom';
 
-/** Loại bài học: học nghĩa từ vựng, luyện chia động từ, hay dịch câu hội thoại. */
-export type LessonKind = 'vocabulary' | 'verb' | 'conversation';
+/**
+ * Loại bài học: học nghĩa từ vựng, luyện chia động từ, dịch câu hội thoại, hay học
+ * mẫu ngữ pháp.
+ *
+ * Bài ngữ pháp KHÔNG hiện ở trang chủ mà có tab riêng (`/grammar`) — xem
+ * `CATEGORY_ORDER` trong `features/lesson-list/lesson-list.ts`. Lý do: mỗi bài ngữ
+ * pháp là một trang lý thuyết dài, gom chung vào lưới thẻ của trang chủ thì danh
+ * sách 25 bài (26–50) sẽ đè bẹp phần từ vựng và động từ.
+ */
+export type LessonKind = 'vocabulary' | 'verb' | 'conversation' | 'grammar';
 
 export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary',
   verb: 'kind.verb',
   conversation: 'kind.conversation',
+  grammar: 'kind.grammar',
 };
 
 export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary.desc',
   verb: 'kind.verb.desc',
   conversation: 'kind.conversation.desc',
+  grammar: 'kind.grammar.desc',
 };
 
 /** Khoá đếm số mục, ví dụ "38 từ" / "38語". */
@@ -46,6 +56,7 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary.unit',
   verb: 'kind.verb.unit',
   conversation: 'kind.conversation.unit',
+  grammar: 'kind.grammar.unit',
 };
 
 /**
@@ -84,18 +95,94 @@ export interface VerbEntry {
   deceptive: boolean;
 }
 
-/** Bài học đầy đủ. Tuỳ `kind` mà dùng `words`, `verbs` hoặc `lines`. */
+/**
+ * Một câu ví dụ của mẫu ngữ pháp — luôn có cặp Nhật/Việt để dịch qua lại.
+ *
+ * Id băm từ RIÊNG câu tiếng Nhật (giống `ConversationLine`): sửa lại bản dịch tiếng
+ * Việt cho sát nghĩa hơn thì id giữ nguyên, dấu ★ của câu đó không mất.
+ */
+export interface GrammarExample {
+  id: string;
+  japanese: string;
+  /** Cách đọc toàn câu bằng kana. Rỗng khi câu đã viết sẵn bằng kana. */
+  reading: string;
+  vietnamese: string;
+  /** Ghi chú ngắn cho riêng câu này, ví dụ câu hỏi mà nó đang trả lời. Rỗng nếu không có. */
+  note: string;
+}
+
+/** Một cách dùng của mẫu ngữ pháp, kèm các câu ví dụ minh hoạ cho đúng cách dùng đó. */
+export interface GrammarUsage {
+  /** Chỉ duy nhất trong phạm vi một mẫu ngữ pháp ("u1", "u2"…). */
+  id: string;
+  title: string;
+  /** Giải thích thêm cho cách dùng này. Rỗng nếu không có. */
+  detail: string;
+  examples: GrammarExample[];
+}
+
+/** Bảng biến đổi kèm theo mẫu ngữ pháp, ví dụ bảng ます → んです của bài 26. */
+export interface GrammarTable {
+  /** Tiêu đề bảng, ví dụ "Động từ". Rỗng nếu không có. */
+  caption: string;
+  /** Tiêu đề các cột. Rỗng hết nghĩa là bảng không có hàng tiêu đề. */
+  headers: string[];
+  /** Mỗi dòng có đúng `headers.length` ô (script sinh dữ liệu đã kiểm tra). */
+  rows: string[][];
+}
+
+/** Một mẫu ngữ pháp: công thức, giải thích, bảng biến đổi và các cách dùng. */
+export interface GrammarPoint {
+  id: string;
+  /** Tên mẫu, ví dụ "～んです". */
+  title: string;
+  /** Một câu tóm tắt ý nghĩa. Rỗng nếu không có. */
+  summary: string;
+  /** Các dòng công thức, ví dụ "V thể ngắn ＋ んです". */
+  structures: string[];
+  /** Các đoạn giải thích. */
+  explanation: string[];
+  /** Các lưu ý / lỗi hay gặp. */
+  notes: string[];
+  tables: GrammarTable[];
+  usages: GrammarUsage[];
+}
+
+/** Bài học đầy đủ. Tuỳ `kind` mà dùng `words`, `verbs`, `lines` hoặc `grammarPoints`. */
 export interface Lesson {
   id: string;
   name: string;
   description: string;
   kind: LessonKind;
-  /** Số mục trong bài: số từ vựng, số động từ, hoặc số câu hội thoại. */
+  /** Số mục trong bài: số từ vựng, số động từ, số câu hội thoại, hoặc số mẫu ngữ pháp. */
   itemCount: number;
   words: VocabularyWord[];
   verbs: VerbEntry[];
   lines: ConversationLine[];
+  grammarPoints: GrammarPoint[];
   origin: LessonOrigin;
+}
+
+/**
+ * Một câu ví dụ đã gắn kèm mẫu ngữ pháp và cách dùng sinh ra nó.
+ *
+ * Câu ví dụ nằm lồng hai tầng (mẫu → cách dùng → ví dụ), nhưng lúc luyện tập thì
+ * cần một danh sách phẳng để trộn và cắt. Kiểu này giữ lại đường dẫn ngược lên để
+ * câu hỏi vẫn hiện được tên mẫu ngữ pháp và công thức làm gợi ý.
+ */
+export interface GrammarExampleRef {
+  example: GrammarExample;
+  point: GrammarPoint;
+  usage: GrammarUsage;
+}
+
+/** Trải phẳng toàn bộ câu ví dụ của một bài ngữ pháp, giữ nguyên thứ tự trong bài. */
+export function flattenGrammarExamples(points: readonly GrammarPoint[]): GrammarExampleRef[] {
+  return points.flatMap((point) =>
+    point.usages.flatMap((usage) =>
+      usage.examples.map((example) => ({ example, point, usage })),
+    ),
+  );
 }
 
 /** Thông tin tóm tắt để hiển thị ở màn hình danh sách (chưa cần tải nội dung). */

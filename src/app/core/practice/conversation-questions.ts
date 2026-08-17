@@ -48,6 +48,7 @@ export function buildConversationQuestions(
       promptIsJapanese: !toJapanese,
       // Không dùng gợi ý âm Hán Việt: câu hội thoại không có trường đó.
       hint: null,
+      hintIsJapanese: false,
       correctAnswer,
       correctAnswerKey: null,
       // Cả câu là một đáp án duy nhất — không tách theo dấu / như bài từ vựng, vì

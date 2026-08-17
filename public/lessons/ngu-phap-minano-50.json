@@ -1,0 +1,247 @@
+{
+  "id": "ngu-phap-minano-50",
+  "name": "皆の日本語 — Bài 50 · Ngữ pháp",
+  "description": "Khiêm nhường ngữ 謙譲語, động từ đặc biệt, 丁寧語 ございます",
+  "kind": "grammar",
+  "itemCount": 3,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1wgzujj",
+      "title": "謙譲語 — khiêm nhường ngữ",
+      "summary": "Hạ hành động của CHÍNH MÌNH xuống, qua đó thể hiện kính trọng với người nghe.",
+      "structures": [
+        "お ＋ V bỏ ます ＋ します (động từ nhóm 1, 2)",
+        "ご ＋ danh động từ ＋ します (động từ nhóm 3)"
+      ],
+      "explanation": [
+        "Chỉ dùng cho hành động của mình. Nói về hành động của người trên thì phải dùng tôn kính ngữ (bài 49).",
+        "Nhóm 3 gốc Hán dùng ご: せつめいします → ごせつめいします, あんないします → ごあんないします.",
+        "Có vài ngoại lệ dùng お thay vì ご: おでんわします, おやくそくします. Từ ngoại lai thì không thêm gì."
+      ],
+      "notes": [
+        "Không dùng với động từ chỉ có một âm tiết trước ます: みます, います."
+      ],
+      "tables": [
+        {
+          "caption": "Cách chia",
+          "headers": [
+            "Nhóm",
+            "Quy tắc",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Nhóm 1, 2",
+              "お ＋ V bỏ ます ＋ します",
+              "もちます → おもちします"
+            ],
+            [
+              "Nhóm 3 (gốc Hán)",
+              "ご ＋ danh động từ ＋ します",
+              "せつめいします → ごせつめいします"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Động từ nhóm 1, 2 — お ～ します",
+          "detail": "Ngỏ ý giúp người trên.",
+          "examples": [
+            {
+              "id": "0nu99jm",
+              "japanese": "おもそうですね。おもちしましょうか。",
+              "reading": "",
+              "vietnamese": "Trông có vẻ nặng nhỉ. Để cháu xách giúp nhé ạ?",
+              "note": ""
+            },
+            {
+              "id": "0b1287e",
+              "japanese": "あにが くるまで おおくりします。",
+              "reading": "",
+              "vietnamese": "Anh cháu sẽ đưa bác về bằng ô tô ạ.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Động từ nhóm 3 — ご ～ します",
+          "detail": "Dùng với danh động từ gốc Hán.",
+          "examples": [
+            {
+              "id": "1uxsz50",
+              "japanese": "わたしが きょうの よていを ごせつめいします。",
+              "reading": "",
+              "vietnamese": "Tôi xin phép giải thích về lịch trình hôm nay.",
+              "note": ""
+            },
+            {
+              "id": "1fw34ga",
+              "japanese": "びじゅつかんまでの いきかたを ごあんないします。",
+              "reading": "",
+              "vietnamese": "Tôi xin hướng dẫn đường đến bảo tàng mỹ thuật.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e4rd7x",
+      "title": "Khiêm nhường ngữ — động từ đặc biệt",
+      "summary": "Một số động từ có dạng khiêm nhường riêng. Dùng chúng lịch sự hơn cách chia お～します.",
+      "structures": [
+        "Dùng thẳng động từ khiêm nhường tương ứng"
+      ],
+      "explanation": [
+        "Đây là cách dùng phổ biến nhất trong tiếng Nhật công sở."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Các động từ đặc biệt",
+          "headers": [
+            "Thông thường",
+            "Khiêm nhường ngữ"
+          ],
+          "rows": [
+            [
+              "いきます、きます",
+              "まいります"
+            ],
+            [
+              "います",
+              "おります"
+            ],
+            [
+              "たべます、のみます、もらいます",
+              "いただきます"
+            ],
+            [
+              "みます",
+              "はいけんします"
+            ],
+            [
+              "いいます",
+              "もうします"
+            ],
+            [
+              "ききます、たずねます",
+              "うかがいます"
+            ],
+            [
+              "しって います、しりません",
+              "ぞんじて おります、ぞんじません"
+            ],
+            [
+              "あいます",
+              "おめに かかります"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Dùng động từ đặc biệt",
+          "detail": "Cách nói lịch sự nhất về hành động của mình.",
+          "examples": [
+            {
+              "id": "1kgdbzb",
+              "japanese": "しゃちょうの おくさんに おめに かかりました。",
+              "reading": "",
+              "vietnamese": "Tôi đã được gặp phu nhân giám đốc.",
+              "note": ""
+            },
+            {
+              "id": "0coaurn",
+              "japanese": "わたしは ナムと もうします。",
+              "reading": "",
+              "vietnamese": "Tôi tên là Nam ạ.",
+              "note": ""
+            },
+            {
+              "id": "1onwvfr",
+              "japanese": "せんせいの さくぶんを はいけんしました。",
+              "reading": "",
+              "vietnamese": "Em đã xem bài văn của thầy ạ.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1kpg677",
+      "title": "丁寧語 — ございます・でございます",
+      "summary": "Cách nói trang trọng hơn あります và です, hay dùng ở cửa hàng, khách sạn, tổng đài.",
+      "structures": [
+        "あります → ございます",
+        "です → でございます",
+        "いいですか → よろしいでしょうか"
+      ],
+      "explanation": [
+        "Không hạ mình cũng không tôn người kia lên, chỉ đơn thuần nâng độ trang trọng của câu nói."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Đối chiếu",
+          "headers": [
+            "Thông thường",
+            "Trang trọng"
+          ],
+          "rows": [
+            [
+              "あります",
+              "ございます"
+            ],
+            [
+              "です",
+              "でございます"
+            ],
+            [
+              "いいですか",
+              "よろしいでしょうか"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói trang trọng trong công việc",
+          "detail": "Nghe nhiều ở tổng đài, quầy lễ tân.",
+          "examples": [
+            {
+              "id": "02jpc7s",
+              "japanese": "はい、IMCで ございます。",
+              "reading": "",
+              "vietnamese": "Vâng, đây là công ty IMC ạ.",
+              "note": ""
+            },
+            {
+              "id": "07h7bj9",
+              "japanese": "でんわは かいだんの となりに ございます。",
+              "reading": "",
+              "vietnamese": "Điện thoại ở cạnh cầu thang ạ.",
+              "note": ""
+            },
+            {
+              "id": "1m9splp",
+              "japanese": "この パンフレットを いただいても よろしいでしょうか。",
+              "reading": "",
+              "vietnamese": "Tôi lấy tờ quảng cáo này có được không ạ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

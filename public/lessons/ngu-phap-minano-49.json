@@ -1,0 +1,372 @@
+{
+  "id": "ngu-phap-minano-49",
+  "name": "皆の日本語 — Bài 49 · Ngữ pháp",
+  "description": "Tôn kính ngữ 尊敬語: thể bị động, お～に なります, động từ đặc biệt, お～ください",
+  "kind": "grammar",
+  "itemCount": 6,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "12oo9v3",
+      "title": "敬語 — ba loại kính ngữ",
+      "summary": "Cách nói thể hiện sự kính trọng với người nghe hoặc người được nhắc tới.",
+      "structures": [
+        "尊敬語 そんけいご — tôn người kia lên",
+        "謙譲語 けんじょうご — hạ mình xuống",
+        "丁寧語 ていねいご — nói lịch sự, trang trọng"
+      ],
+      "explanation": [
+        "Bài 49 học 尊敬語 (tôn kính ngữ) — nói về hành động của NGƯỜI TRÊN.",
+        "Bài 50 học 謙譲語 (khiêm nhường ngữ) — nói về hành động của CHÍNH MÌNH."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Phân biệt ba loại",
+          "detail": "Chọn đúng loại theo người thực hiện hành động.",
+          "examples": [
+            {
+              "id": "02vn9ao",
+              "japanese": "しゃちょうは この ほんを よまれましたか。",
+              "reading": "",
+              "vietnamese": "Giám đốc đã đọc cuốn sách này chưa ạ?",
+              "note": "Tôn kính ngữ — nói về hành động của người trên."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15m7bkb",
+      "title": "Tôn kính ngữ 1 — dùng thể bị động",
+      "summary": "Chia động từ sang thể bị động là thành tôn kính ngữ. Mức tôn kính nhẹ nhất.",
+      "structures": [
+        "V thể bị động"
+      ],
+      "explanation": [
+        "Cách chia y hệt thể bị động của bài 37, chỉ khác ở nghĩa: đây không phải \"bị\" mà là kính trọng.",
+        "Là cách dễ dùng nhất vì không phải nhớ thêm dạng nào mới."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Cách chia",
+          "headers": [
+            "Nhóm",
+            "Quy tắc",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Nhóm 1",
+              "Hàng い đổi sang hàng あ ＋ れます",
+              "よみます → よまれます"
+            ],
+            [
+              "Nhóm 2",
+              "Bỏ ます ＋ られます",
+              "でます → でられます"
+            ],
+            [
+              "Nhóm 3",
+              "します → されます、きます → こられます",
+              "べんきょうします → べんきょうされます"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi về hành động của người trên",
+          "detail": "Dùng thể bị động cho lịch sự.",
+          "examples": [
+            {
+              "id": "1jal4t2",
+              "japanese": "ぶちょう、きのうの かいぎに でられましたか。",
+              "reading": "",
+              "vietnamese": "Thưa trưởng phòng, hôm qua sếp có dự họp không ạ?",
+              "note": ""
+            },
+            {
+              "id": "1uxm79i",
+              "japanese": "ミラーさんは おさけを やめられました。",
+              "reading": "",
+              "vietnamese": "Anh Miller đã bỏ rượu rồi ạ.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09qm76s",
+      "title": "Tôn kính ngữ 2 — お ＋ V ます ＋ に なります",
+      "summary": "Mức tôn kính cao hơn cách dùng thể bị động.",
+      "structures": [
+        "お ＋ V bỏ ます ＋ に なります"
+      ],
+      "explanation": [],
+      "notes": [
+        "Không dùng với động từ chỉ có một âm tiết trước ます: みます, ねます, います.",
+        "Không dùng với động từ nhóm 3 (べんきょうします…)."
+      ],
+      "tables": [
+        {
+          "caption": "Cách chia",
+          "headers": [
+            "Thể ます",
+            "Tôn kính ngữ"
+          ],
+          "rows": [
+            [
+              "かえります",
+              "おかえりに なります"
+            ],
+            [
+              "さがします",
+              "おさがしに なります"
+            ],
+            [
+              "すいます",
+              "おすいに なります"
+            ],
+            [
+              "よみます",
+              "およみに なります"
+            ],
+            [
+              "かいます",
+              "おかいに なります"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói về hành động của người trên",
+          "detail": "Lịch sự hơn thể bị động.",
+          "examples": [
+            {
+              "id": "1dx9orz",
+              "japanese": "せんせい、いつ あたらしい パソコンを おかいに なりましたか。",
+              "reading": "",
+              "vietnamese": "Thưa thầy, thầy mua máy tính mới khi nào vậy ạ?",
+              "note": ""
+            },
+            {
+              "id": "129qcth",
+              "japanese": "コーヒーを おのみに なりませんか。",
+              "reading": "",
+              "vietnamese": "Anh có dùng cà phê không ạ?",
+              "note": ""
+            },
+            {
+              "id": "1q9v7rd",
+              "japanese": "しゃちょうは いつ たばこを おやめに なりましたか。",
+              "reading": "",
+              "vietnamese": "Giám đốc bỏ thuốc lá từ khi nào vậy ạ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0vrgqt7",
+      "title": "Tôn kính ngữ 3 — động từ đặc biệt",
+      "summary": "Một số động từ có dạng tôn kính riêng, không theo quy tắc nào.",
+      "structures": [
+        "Dùng thẳng động từ tôn kính tương ứng"
+      ],
+      "explanation": [
+        "いらっしゃいます, なさいます, くださいます, おっしゃいます trông như nhóm 1 hàng い nhưng khi chia lại theo hàng ら: いらっしゃる, いらっしゃらない, いらっしゃった."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Các động từ đặc biệt",
+          "headers": [
+            "Thông thường",
+            "Tôn kính ngữ"
+          ],
+          "rows": [
+            [
+              "います、いきます、きます",
+              "いらっしゃいます"
+            ],
+            [
+              "します",
+              "なさいます"
+            ],
+            [
+              "くれます",
+              "くださいます"
+            ],
+            [
+              "いいます",
+              "おっしゃいます"
+            ],
+            [
+              "たべます、のみます",
+              "めしあがります"
+            ],
+            [
+              "みます",
+              "ごらんに なります"
+            ],
+            [
+              "しって います",
+              "ごぞんじです"
+            ]
+          ]
+        },
+        {
+          "caption": "Cách chia bốn động từ hàng ら",
+          "headers": [
+            "Thể ます",
+            "Thể từ điển",
+            "Thể ない",
+            "Thể quá khứ"
+          ],
+          "rows": [
+            [
+              "いらっしゃいます",
+              "いらっしゃる",
+              "いらっしゃらない",
+              "いらっしゃった"
+            ],
+            [
+              "なさいます",
+              "なさる",
+              "なさらない",
+              "なさった"
+            ],
+            [
+              "くださいます",
+              "くださる",
+              "くださらない",
+              "くださった"
+            ],
+            [
+              "おっしゃいます",
+              "おっしゃる",
+              "おっしゃらない",
+              "おっしゃった"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Dùng động từ đặc biệt",
+          "detail": "Cách lịch sự nhất và phổ biến nhất.",
+          "examples": [
+            {
+              "id": "0kfcxp4",
+              "japanese": "ワットせんせいは テニスを なさいますか。",
+              "reading": "",
+              "vietnamese": "Thầy Watt có chơi tennis không ạ?",
+              "note": ""
+            },
+            {
+              "id": "00q9yp2",
+              "japanese": "これ、よかったら、どうぞ めしあがって ください。",
+              "reading": "",
+              "vietnamese": "Cái này, nếu được thì xin mời anh dùng ạ.",
+              "note": ""
+            },
+            {
+              "id": "0xl7lzp",
+              "japanese": "せんせい、わたしの さくぶんを ごらんに なりましたか。",
+              "reading": "",
+              "vietnamese": "Thưa thầy, thầy đã xem bài văn của em chưa ạ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1dc7cbs",
+      "title": "お ＋ V ます ＋ ください",
+      "summary": "Mời mọc, hướng dẫn một cách kính trọng — \"xin mời ~\".",
+      "structures": [
+        "お ＋ V bỏ ます ＋ ください"
+      ],
+      "explanation": [
+        "Lịch sự hơn hẳn Vてください, hay gặp ở nơi công cộng, cửa hàng, thông báo."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Xin mời ~",
+          "detail": "Dùng ở nơi công cộng và với khách.",
+          "examples": [
+            {
+              "id": "17mup0m",
+              "japanese": "どうぞ こちらに おかけ ください。",
+              "reading": "",
+              "vietnamese": "Xin mời anh chị ngồi ở đây ạ.",
+              "note": ""
+            },
+            {
+              "id": "1s33j2t",
+              "japanese": "この ボタンを おつかい ください。",
+              "reading": "",
+              "vietnamese": "Xin hãy dùng nút bấm này ạ.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ofalrr",
+      "title": "お / ご ＋ danh từ, tính từ",
+      "summary": "Thêm お hoặc ご vào trước từ để nói lịch sự về đồ vật, tính chất của người trên.",
+      "structures": [
+        "お ＋ từ thuần Nhật",
+        "ご ＋ từ gốc Hán"
+      ],
+      "explanation": [
+        "お đi với từ thuần Nhật: おくに, おなまえ, おしごと, おげんき, おいそがしい.",
+        "ご đi với từ gốc Hán: ごかぞく, ごいけん, ごちゅうもん, ごしんせつ, ごじゆう.",
+        "Từ ngoại lai thì không thêm gì cả."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi lịch sự về người khác",
+          "detail": "Chọn お hay ご theo gốc của từ.",
+          "examples": [
+            {
+              "id": "1p1lbh3",
+              "japanese": "おなまえを おしえて いただけませんか。",
+              "reading": "",
+              "vietnamese": "Anh cho tôi biết tên được không ạ?",
+              "note": ""
+            },
+            {
+              "id": "17qrbkd",
+              "japanese": "ごかぞくは おげんきですか。",
+              "reading": "",
+              "vietnamese": "Gia đình anh vẫn khoẻ chứ ạ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

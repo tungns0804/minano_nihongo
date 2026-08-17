@@ -140,6 +140,14 @@ export class LessonDetail {
         search: 'lesson.search.conversation',
         unit: 'kind.conversation.unit',
       },
+      // Bài ngữ pháp không bao giờ được vẽ ở màn hình này (xem `load` — nó chuyển
+      // hướng sang /grammar/:id). Vẫn phải khai báo vì bảng là Record đủ mọi loại,
+      // và chính đòi hỏi đó là thứ nhắc người thêm loại bài thứ năm phải ghé qua đây.
+      grammar: {
+        title: 'kind.grammar',
+        search: 'lesson.search.vocabulary',
+        unit: 'kind.grammar.unit',
+      },
     };
     return table[kind];
   });
@@ -203,9 +211,19 @@ export class LessonDetail {
 
   readonly poolSize = computed(() => {
     const pool = this.pool();
-    if (pool.kind === 'verb') return pool.verbs.length;
-    if (pool.kind === 'conversation') return pool.lines.length;
-    return pool.words.length;
+    // switch chứ không phải chuỗi if: màn hình này không bao giờ dựng pool ngữ pháp
+    // (bài đó đã được chuyển hướng đi từ `load`), nhưng để nhánh mặc định trả về
+    // `pool.words` thì thêm loại pool mới sẽ đếm nhầm mà chẳng báo gì.
+    switch (pool.kind) {
+      case 'verb':
+        return pool.verbs.length;
+      case 'conversation':
+        return pool.lines.length;
+      case 'vocabulary':
+        return pool.words.length;
+      case 'grammar':
+        return pool.examples.length;
+    }
   });
 
   /**
@@ -286,6 +304,15 @@ export class LessonDetail {
     this.loading.set(true);
     this.notFound.set(false);
     const lesson = await this.lessonStore.getLesson(id);
+
+    // Bài ngữ pháp có màn hình riêng. Đường dẫn cũ hoặc link chép tay vẫn có thể trỏ
+    // vào đây, nên đưa sang đúng chỗ thay vì vẽ ra một trang trống (bài ngữ pháp
+    // không có words/verbs/lines nên mọi bảng ở màn hình này đều rỗng).
+    if (lesson?.kind === 'grammar') {
+      void this.router.navigate(['/grammar', id], { replaceUrl: true });
+      return;
+    }
+
     this.lesson.set(lesson);
     this.notFound.set(lesson === null);
     this.loading.set(false);
@@ -440,6 +467,9 @@ export class LessonDetail {
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
       showHanViet: this.showHanViet(),
+      // Chỉ bài ngữ pháp dùng tới, nhưng PracticeConfig là một khối thiết lập đầy đủ
+      // chứ không phải union theo loại bài, nên trường nào cũng phải có giá trị.
+      showGrammarHint: true,
       verbMode: this.verbMode(),
       verbForms: this.selectedForms(),
     };

@@ -7,7 +7,7 @@ Mỗi thư mục con ở đây là **một bài học**. Chạy `npm run generat
 data-source/
   <ten-thu-muc>/          ← tên thư mục chính là id của bài học
     meta.json             ← tuỳ chọn: tên hiển thị, mô tả, thứ tự
-    vocabulary.txt        ← HOẶC verbs.txt, không được có cả hai
+    vocabulary.txt        ← HOẶC verbs.txt / conversation.txt / grammar.json — chỉ một loại
 ```
 
 ## Quy tắc bắt buộc
@@ -18,9 +18,13 @@ data-source/
 | --- | --- |
 | Từ vựng | `vocabulary.txt`, `vocab.txt`, `tu-vung.txt`, `tuvung.txt` |
 | Chia động từ | `verbs.txt`, `verb.txt`, `dong-tu.txt`, `dongtu.txt` |
+| Dịch hội thoại | `conversation.txt`, `dialog.txt`, `hoi-thoai.txt`, `hoithoai.txt` |
+| Ngữ pháp | `grammar.json`, `ngu-phap.json`, `nguphap.json` |
 
 Thêm hậu tố sau dấu `-` hay `_` để tách thành nhiều file, chúng sẽ được gộp lại:
-`verbs-1.txt`, `verbs-2.txt`, `tu-vung_bai33.txt`.
+`verbs-1.txt`, `verbs-2.txt`, `tu-vung_bai33.txt`. Riêng bài ngữ pháp **chỉ được một
+file** — nội dung là JSON nên không nối nhiều file lại được; gộp các mẫu vào cùng
+mảng `points`.
 
 Tên file không khớp danh sách trên thì script **báo lỗi và dừng**, không đoán bừa.
 Đây là chủ ý: dữ liệu động từ (4 cột) nếu bị đọc nhầm bằng parser từ vựng (3 cột) sẽ
@@ -133,7 +137,79 @@ VI,します,làm,3
 - **Không khai báo các thể còn lại.** App tự chia ra る / て / た / ない theo luật.
 - Cột nhóm là cột **cuối cùng**, nên nghĩa vẫn chứa được dấu phẩy.
 
-### Quy tắc chung cho cả hai loại
+### Ngữ pháp — JSON
+
+Ngữ pháp là loại bài duy nhất dùng JSON, vì một mẫu ngữ pháp không phải một dòng phẳng
+mà là cả một cụm lồng nhau: công thức, giải thích, bảng biến đổi, các cách dùng, và mỗi
+cách dùng lại có nhiều câu ví dụ.
+
+```json
+{
+  "points": [
+    {
+      "title": "～んです",
+      "summary": "Hỏi hoặc giải thích lý do của điều vừa nhìn thấy, vừa nghe được.",
+      "structures": ["V thể ngắn ＋ んです", "N [だ → な] ＋ んです"],
+      "explanation": ["Phần đứng trước んです luôn ở thể ngắn."],
+      "notes": ["Không nói んですから."],
+      "tables": [
+        {
+          "caption": "Động từ",
+          "headers": ["Thể lịch sự", "Thêm ～んです"],
+          "rows": [["みます", "みるんです"], ["みました", "みたんです"]]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Hỏi lý do — どうして ～んですか",
+          "detail": "Muốn người nghe giải thích lý do.",
+          "examples": [
+            {
+              "japanese": "どうして おくれたんですか。",
+              "vietnamese": "Tại sao bạn lại đến muộn vậy?",
+              "note": "Ghi chú tuỳ chọn cho riêng câu này."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+| Trường | Bắt buộc | Ý nghĩa |
+| --- | --- | --- |
+| `points[].title` | ✔ | Tên mẫu, ví dụ `～んです`. Hiện làm tiêu đề và làm gợi ý lúc luyện. |
+| `points[].summary` | | Một câu tóm tắt ý nghĩa. |
+| `points[].structures` | | Các dòng công thức. Dòng đầu được ghép vào gợi ý khi luyện. |
+| `points[].explanation` | | Các đoạn giải thích, mỗi phần tử là một đoạn. |
+| `points[].notes` | | Lưu ý / lỗi hay gặp, hiện trong khung vàng. |
+| `points[].tables` | | Bảng biến đổi. Mỗi dòng phải đủ số ô bằng số `headers`. |
+| `points[].usages[].title` | ✔ | Tên cách dùng. |
+| `points[].usages[].detail` | | Giải thích thêm cho cách dùng đó. |
+| `usages[].examples[].japanese` | ✔ | Câu tiếng Nhật. Cũng là khoá sinh id, xem bên dưới. |
+| `usages[].examples[].vietnamese` | ✔ | Bản dịch tiếng Việt. |
+| `usages[].examples[].reading` | | Cách đọc cả câu bằng kana, khi câu có kanji khó. |
+| `usages[].examples[].note` | | Ghi chú ngắn cho riêng câu, ví dụ câu hỏi mà nó đang trả lời. |
+
+Mọi trường dạng danh sách (`structures`, `explanation`, `notes`) viết được cả bằng một
+chuỗi đơn lẻ khi chỉ có một dòng.
+
+- **Id câu ví dụ băm từ RIÊNG câu tiếng Nhật**, giống bài hội thoại: sửa lại bản dịch
+  tiếng Việt cho sát nghĩa hơn thì dấu ★ của câu đó không mất. Đổi câu tiếng Nhật thì mất.
+- Hai câu tiếng Nhật giống hệt nhau trong cùng một bài sẽ bị loại bớt kèm cảnh báo.
+- Dấu `/` trong bản dịch tiếng Việt tách các **cách dịch tương đương**: gõ đúng một
+  trong số đó là được tính đúng ở chiều Nhật → Việt. Vì vậy **đừng dùng `/` với nghĩa
+  khác** trong cột này (chiều Việt → Nhật thì không tách, vì `/` không xuất hiện trong
+  câu tiếng Nhật).
+- Script báo lỗi kèm **đường dẫn trong cây JSON** (`points[0].usages[1].examples[2]`)
+  thay cho số dòng.
+
+Bài ngữ pháp không hiện ở trang chủ mà nằm ở tab **Ngữ pháp** (`/grammar`) — mỗi bài là
+một trang lý thuyết dài, gom chung vào lưới thẻ trang chủ thì phần từ vựng và động từ
+không còn nhìn thấy được nữa.
+
+### Quy tắc chung cho các loại bài dạng .txt
 
 - Dòng trống và dòng bắt đầu bằng `#` bị bỏ qua.
 - Dòng có ký tự TAB được tách bằng TAB (tiện khi dán từ Excel / Google Sheet).

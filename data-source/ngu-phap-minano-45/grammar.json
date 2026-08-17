@@ -1,0 +1,104 @@
+{
+  "points": [
+    {
+      "title": "～ばあいは",
+      "summary": "Trong trường hợp ~ thì ~. Giả định một tình huống, thường là tình huống xấu hoặc khẩn cấp.",
+      "structures": ["V thể ngắn ＋ ばあいは", "Aい ＋ ばあいは", "Aな な ＋ ばあいは", "N の ＋ ばあいは"],
+      "explanation": [
+        "ばあい bản thân là một danh từ, nên Aな và N nối vào bằng な và の như với danh từ.",
+        "Hay dùng để hướng dẫn xử lý sự cố: hỏng hóc, cháy nổ, lỡ tàu."
+      ],
+      "notes": [
+        "Không dùng cho giả định không bao giờ xảy ra được. ○もし わたしが とりだったら nhưng ×もし わたしが とりの ばあい."
+      ],
+      "usages": [
+        {
+          "title": "Trường hợp có sự cố",
+          "detail": "Hướng dẫn cách xử lý.",
+          "examples": [
+            {
+              "japanese": "でんしゃに まにあわない ばあいは、れんらくして ください。",
+              "vietnamese": "Trong trường hợp không kịp tàu, hãy liên lạc lại."
+            },
+            {
+              "japanese": "パソコンが こしょうの ばあいは、ミラーさんに れんらくして ください。",
+              "vietnamese": "Trong trường hợp máy tính hỏng, hãy liên lạc với anh Miller."
+            },
+            {
+              "japanese": "かじの ばあいは、119ばんに でんわして ください。",
+              "vietnamese": "Trong trường hợp hoả hoạn, hãy gọi số 119."
+            },
+            {
+              "japanese": "せきが ひどい ばあいは、この くすりを のんで ください。",
+              "vietnamese": "Trong trường hợp ho nặng, hãy uống thuốc này."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～のに",
+      "summary": "Thế mà, vậy mà — kết quả trái ngược hẳn với điều dự đoán, kèm sự bất ngờ hoặc bất mãn.",
+      "structures": ["V thể ngắn ＋ のに", "Aい ＋ のに", "Aな な ＋ のに", "N な ＋ のに"],
+      "explanation": [
+        "Vế sau là kết quả ngược với những gì vế trước khiến người ta chờ đợi.",
+        "Luôn kèm cảm xúc của người nói: ngạc nhiên, thất vọng, hoặc trách móc."
+      ],
+      "tables": [
+        {
+          "caption": "Phân biệt のに / が / ても",
+          "headers": ["Từ nối", "Khi nào dùng"],
+          "rows": [
+            ["が", "Nêu hai thông tin thực tế trái nhau, không kèm bất mãn"],
+            ["ても", "Nêu một khả năng: dù A thì vẫn B"],
+            ["のに", "Việc thật đã xảy ra, kết quả ngược lại gây bất ngờ hoặc khó chịu"]
+          ]
+        },
+        {
+          "caption": "Cùng một nội dung, ba cách nói",
+          "headers": ["Câu", "Sắc thái"],
+          "rows": [
+            ["あねは たくさん たべましたが、ふとりません", "Chỉ nêu sự thật"],
+            ["あねは たくさん たべても、ふとりません", "Dù có ăn nhiều thì vẫn vậy"],
+            ["あねは たくさん たべるのに、ふとりません", "Ăn nhiều thế mà vẫn không béo — thấy lạ"]
+          ]
+        }
+      ],
+      "notes": ["Danh từ nối bằng な chứ không phải の: ○にちようびなのに, ×にちようびののに."],
+      "usages": [
+        {
+          "title": "Kết quả trái ngược, thấy bất ngờ",
+          "detail": "Người nói ngạc nhiên.",
+          "examples": [
+            {
+              "japanese": "ダイエットして いるのに、ふとって しまいました。",
+              "vietnamese": "Tôi đang ăn kiêng thế mà lại tăng cân."
+            },
+            {
+              "japanese": "ねこなのに、ねずみが こわいです。",
+              "vietnamese": "Là mèo mà lại sợ chuột."
+            }
+          ]
+        },
+        {
+          "title": "Kết quả trái ngược, thấy bất mãn",
+          "detail": "Người nói khó chịu, trách móc.",
+          "examples": [
+            {
+              "japanese": "きょうは にちようびなのに、はたらかないと いけません。",
+              "vietnamese": "Hôm nay là chủ nhật thế mà vẫn phải làm việc."
+            },
+            {
+              "japanese": "しごとは たいへんなのに、きゅうりょうは やすいです。",
+              "vietnamese": "Công việc thì vất vả vậy mà lương lại thấp."
+            },
+            {
+              "japanese": "やくそくしたのに、どうして こなかったんですか。",
+              "vietnamese": "Đã hẹn rồi thế mà sao lại không đến?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

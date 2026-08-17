@@ -168,10 +168,22 @@ export class Result {
     }
   }
 
+  /**
+   * Quay lại đúng màn hình của bài vừa luyện.
+   *
+   * Bài ngữ pháp nằm ở nhánh /grammar/:id chứ không phải /lesson/:id — dùng
+   * `config.lessonKind` chứ không đoán theo id, vì id chỉ là một chuỗi bất kỳ.
+   */
   backToLesson(): void {
-    const lessonId = this.summary()?.lessonId;
+    const summary = this.summary();
     this.session.clearSummary();
-    void this.router.navigate(lessonId ? ['/lesson', lessonId] : ['/']);
+    if (!summary) {
+      void this.router.navigate(['/']);
+      return;
+    }
+
+    const base = summary.config.lessonKind === 'grammar' ? '/grammar' : '/lesson';
+    void this.router.navigate([base, summary.lessonId]);
   }
 
   backHome(): void {

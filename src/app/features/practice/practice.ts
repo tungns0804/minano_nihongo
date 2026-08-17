@@ -32,7 +32,9 @@ export class Practice {
 
   readonly t = this.lang.t.bind(this.lang);
 
-  private readonly answerInput = viewChild<ElementRef<HTMLInputElement>>('answerInput');
+  /** Ô nhập đáp án — <input> với từ đơn, <textarea> với câu dài. */
+  private readonly answerInput =
+    viewChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('answerInput');
   private readonly answerArea = viewChild<ElementRef<HTMLElement>>('answerArea');
   private readonly feedbackPanel = viewChild<ElementRef<HTMLElement>>('feedbackPanel');
 
@@ -130,7 +132,7 @@ export class Practice {
   // --- Gõ đáp án ---
 
   onTypedInput(event: Event): void {
-    this.typedAnswer.set((event.target as HTMLInputElement).value);
+    this.typedAnswer.set((event.target as HTMLInputElement | HTMLTextAreaElement).value);
   }
 
   submitTyped(): void {
@@ -146,9 +148,14 @@ export class Practice {
    * Nếu để sự kiện nổi lên document thì chính phím Enter đó sẽ chạy tiếp handler
    * "sang câu tiếp theo" (lúc ấy câu đã chuyển sang trạng thái đã chấm), khiến
    * người dùng bị nhảy câu mà chưa kịp nhìn đáp án.
+   *
+   * preventDefault là để ô <textarea> của câu dài không chèn thêm một dòng mới
+   * trước khi bị chấm. Muốn xuống dòng thật thì Shift+Enter — Angular chỉ khớp
+   * (keydown.enter) khi không giữ phím bổ trợ nào, nên tổ hợp đó không vào đây.
    */
   onAnswerEnter(event: Event): void {
     event.stopPropagation();
+    event.preventDefault();
     this.submitTyped();
   }
 

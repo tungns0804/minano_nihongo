@@ -33,7 +33,7 @@ import { build } from 'esbuild';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
-const DIST_BROWSER = join(ROOT, 'dist', 'japanese-practice', 'browser');
+const DIST_BROWSER = join(ROOT, 'dist', 'minano-nihongo', 'browser');
 const LESSONS_DIR = join(ROOT, 'public', 'lessons');
 const OUT_DIR = join(ROOT, 'dist', 'offline');
 const OUT_FILE = join(OUT_DIR, 'index.html');
@@ -164,13 +164,15 @@ async function main() {
 
   const lessons = readLessons();
   // Mỗi loại bài dùng một mảng khác nhau: từ vựng `words`, động từ `verbs`,
-  // hội thoại `lines` — cộng cả ba, thiếu một cái là số tổng in ra bị hụt.
+  // hội thoại `lines`, ngữ pháp `grammarPoints` — cộng hết, thiếu một cái là số
+  // tổng in ra bị hụt.
   const totalItems = lessons.reduce(
     (sum, lesson) =>
       sum +
       (lesson.words?.length ?? 0) +
       (lesson.verbs?.length ?? 0) +
-      (lesson.lines?.length ?? 0),
+      (lesson.lines?.length ?? 0) +
+      (lesson.grammarPoints?.length ?? 0),
     0,
   );
   const payload = JSON.stringify({ lessons });

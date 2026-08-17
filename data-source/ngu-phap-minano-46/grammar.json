@@ -1,0 +1,149 @@
+{
+  "points": [
+    {
+      "title": "～ところです",
+      "summary": "Chỉ THỜI ĐIỂM của một hành động: sắp bắt đầu, đang diễn ra, hay vừa mới xong.",
+      "structures": [
+        "V る ＋ ところです — chuẩn bị làm",
+        "V て いる ＋ ところです — đang làm",
+        "V た ＋ ところです — vừa mới làm xong"
+      ],
+      "explanation": [
+        "ところ vốn nghĩa là \"nơi chốn\", ở bài này mang nghĩa \"thời điểm\".",
+        "Ba dạng ứng với ba mốc của cùng một việc: べんきょうする ところ → べんきょうして いる ところ → べんきょうした ところ."
+      ],
+      "tables": [
+        {
+          "caption": "Ba mốc thời gian và phó từ đi kèm",
+          "headers": ["Dạng", "Nghĩa", "Phó từ hay dùng"],
+          "rows": [
+            ["V る ところです", "Chuẩn bị làm", "これから、いまから、ちょうど いまから"],
+            ["V て いる ところです", "Đang làm", "いま"],
+            ["V た ところです", "Vừa mới xong", "さっき、たった いま"]
+          ]
+        }
+      ],
+      "notes": [
+        "Không dùng V る ところです cho hiện tượng tự nhiên — cái đó dùng ～そうです (bài 43).",
+        "V て いる ところです nhấn vào đúng thời điểm nên hay mang ẩn ý \"đang dở, đừng làm phiền\". Nó KHÔNG thay được ています khi nói về thói quen."
+      ],
+      "usages": [
+        {
+          "title": "Chuẩn bị làm",
+          "detail": "Việc chưa bắt đầu.",
+          "examples": [
+            {
+              "japanese": "これから としょかんへ いく ところです。",
+              "vietnamese": "Bây giờ tôi chuẩn bị đi đến thư viện."
+            },
+            {
+              "japanese": "いまから ごはんを つくる ところです。",
+              "vietnamese": "Bây giờ tôi chuẩn bị nấu cơm."
+            },
+            {
+              "japanese": "ちょうど いまから しあいが はじまる ところです。",
+              "vietnamese": "Vừa đúng lúc trận đấu chuẩn bị bắt đầu."
+            }
+          ]
+        },
+        {
+          "title": "Đang làm",
+          "detail": "Việc đang diễn ra ngay lúc này.",
+          "examples": [
+            {
+              "japanese": "いま テレビを みて いる ところです。",
+              "vietnamese": "Bây giờ tôi đang xem tivi.",
+              "note": "Có ẩn ý: đang dở, đừng tắt."
+            },
+            {
+              "japanese": "いま りょうりを つくって いる ところです。",
+              "vietnamese": "Bây giờ tôi đang nấu ăn."
+            }
+          ]
+        },
+        {
+          "title": "Vừa mới xong",
+          "detail": "Việc vừa kết thúc.",
+          "examples": [
+            {
+              "japanese": "かれは たった いま かえった ところです。",
+              "vietnamese": "Anh ấy vừa mới về."
+            },
+            {
+              "japanese": "その えいがは たった いま おわった ところです。",
+              "vietnamese": "Bộ phim đó vừa mới kết thúc."
+            },
+            {
+              "japanese": "9じの バスは でた ところです。",
+              "vietnamese": "Chuyến buýt 9 giờ vừa mới chạy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～た ばかりです",
+      "summary": "Vừa mới ~, theo CẢM NHẬN của người nói là mới xảy ra cách đây không lâu.",
+      "structures": ["V た ＋ ばかりです"],
+      "explanation": [
+        "Khác ～た ところです ở chỗ: ところ là vừa xong theo đồng hồ (vài giây, vài phút trước), còn ばかり là vừa xong theo cảm nhận — có thể là một tháng, một năm trước.",
+        "ばかり được coi như một danh từ nên nối được với なのに, なので…"
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Vừa mới, theo cảm nhận",
+          "detail": "Khoảng thời gian tuỳ người nói thấy.",
+          "examples": [
+            {
+              "japanese": "かのじょは せんげつ かいしゃに はいった ばかりです。",
+              "vietnamese": "Cô ấy vừa vào công ty tháng trước."
+            },
+            {
+              "japanese": "きょねん だいがくを そつぎょうした ばかりです。",
+              "vietnamese": "Tôi vừa tốt nghiệp đại học năm ngoái."
+            },
+            {
+              "japanese": "せんしゅう にほんへ きた ばかりです。",
+              "vietnamese": "Tôi vừa mới đến Nhật tuần trước."
+            },
+            {
+              "japanese": "きのう そうじを した ばかりなのに、もう きたなく なりました。",
+              "vietnamese": "Hôm qua vừa dọn dẹp xong thế mà hôm nay đã bẩn rồi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～はずです",
+      "summary": "Chắc chắn là ~ (khoảng 90%), dựa trên một căn cứ rõ ràng.",
+      "structures": ["V る／V ない／V た ＋ はずです", "Aい ＋ はずです", "Aな な ＋ はずです", "N の ＋ はずです"],
+      "explanation": [
+        "Độ chắc chắn cao hơn hẳn でしょう (bài 32) vì người nói có căn cứ cụ thể.",
+        "はず là danh từ nên Aな nối bằng な, N nối bằng の."
+      ],
+      "notes": ["Không dùng để phán đoán về hành động của chính mình."],
+      "usages": [
+        {
+          "title": "Chắc chắn là ~",
+          "detail": "Luôn có căn cứ đi kèm.",
+          "examples": [
+            {
+              "japanese": "かのじょは びょうきに なったから、こない はずです。",
+              "vietnamese": "Vì cô ấy bị ốm nên chắc là sẽ không đến đâu."
+            },
+            {
+              "japanese": "かのじょは 15ねんも にほんに すんで いるので、にほんごが じょうずな はずです。",
+              "vietnamese": "Cô ấy sống ở Nhật tận 15 năm nên chắc chắn giỏi tiếng Nhật."
+            },
+            {
+              "japanese": "その レストランは いつも ひとが たくさん いますから、りょうりが おいしい はずです。",
+              "vietnamese": "Nhà hàng đó lúc nào cũng đông người nên chắc là đồ ăn ngon."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

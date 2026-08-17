@@ -46,7 +46,7 @@
         </p>
 
         @if (q.hint) {
-          <p class="prompt-hint">{{ q.hint }}</p>
+          <p class="prompt-hint" [class.jp]="q.hintIsJapanese">{{ q.hint }}</p>
         }
       </div>
     </section>
@@ -77,24 +77,44 @@
       } @else {
         <div class="typing-area">
           <label class="label" for="answer-input">{{ answerPrompt() }}</label>
-          <div class="typing-row">
-            <input
-              #answerInput
-              id="answer-input"
-              type="text"
-              class="input answer-input"
-              [class.jp]="q.answerIsJapanese"
-              [class.is-sentence]="q.isSentence"
-              [value]="typedAnswer()"
-              [disabled]="isResolved()"
-              (input)="onTypedInput($event)"
-              (keydown.enter)="onAnswerEnter($event)"
-              autocomplete="off"
-              autocapitalize="off"
-              autocorrect="off"
-              spellcheck="false"
-              [placeholder]="t('practice.placeholder')"
-            />
+          <div class="typing-row" [class.is-sentence]="q.isSentence">
+            <!-- Câu dài dùng <textarea> để chữ tự xuống dòng: trong ô một dòng thì
+                 phần đầu câu bị đẩy khuất, gõ xong không soát lại được. Từ đơn vẫn
+                 dùng <input>. Cả hai đều nộp bài bằng Enter (xem onAnswerEnter). -->
+            @if (q.isSentence) {
+              <textarea
+                #answerInput
+                id="answer-input"
+                class="input answer-textarea"
+                [class.jp]="q.answerIsJapanese"
+                [value]="typedAnswer()"
+                [disabled]="isResolved()"
+                (input)="onTypedInput($event)"
+                (keydown.enter)="onAnswerEnter($event)"
+                autocomplete="off"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+                [placeholder]="t('practice.placeholder')"
+              ></textarea>
+            } @else {
+              <input
+                #answerInput
+                id="answer-input"
+                type="text"
+                class="input answer-input"
+                [class.jp]="q.answerIsJapanese"
+                [value]="typedAnswer()"
+                [disabled]="isResolved()"
+                (input)="onTypedInput($event)"
+                (keydown.enter)="onAnswerEnter($event)"
+                autocomplete="off"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+                [placeholder]="t('practice.placeholder')"
+              />
+            }
             <button
               type="button"
               class="btn btn-primary"

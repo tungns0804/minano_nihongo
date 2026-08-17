@@ -49,6 +49,7 @@ export const MESSAGES = {
   },
   'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
   'app.nav.lessons': { vi: 'Bài học', ja: 'レッスン' },
+  'app.nav.grammar': { vi: 'Ngữ pháp', ja: '文法' },
   'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
 
@@ -79,6 +80,12 @@ export const MESSAGES = {
   'kind.conversation.desc': {
     vi: 'Dịch từng câu qua lại giữa tiếng Việt và tiếng Nhật, gõ tay cả câu.',
     ja: 'ベトナム語と日本語の間で一文ずつ翻訳し、文全体を入力します。',
+  },
+  'kind.grammar': { vi: 'Ngữ pháp', ja: '文法' },
+  'kind.grammar.unit': { vi: '{count} mẫu ngữ pháp', ja: '文型{count}個' },
+  'kind.grammar.desc': {
+    vi: 'Học mẫu ngữ pháp kèm giải thích, rồi luyện viết câu đúng mẫu theo cả hai chiều Việt ↔ Nhật.',
+    ja: '文型と解説を学び、越↔日の両方向で文型どおりに文を書く練習をします。',
   },
 
   // ── Trang chủ ──────────────────────────────────────────────────────────
@@ -249,6 +256,59 @@ export const MESSAGES = {
     vi: 'Xoá bài học tự nạp "{name}"? Thao tác này không khôi phục được.',
     ja: '自作レッスン「{name}」を削除しますか？元に戻せません。',
   },
+
+  // ── Tab ngữ pháp ───────────────────────────────────────────────────────
+  // Bài ngữ pháp có màn hình riêng chứ không dùng chung với /lesson/:id: nội dung
+  // của nó là trang lý thuyết (công thức, bảng biến đổi, các cách dùng) chứ không
+  // phải một bảng dữ liệu như ba loại bài kia.
+  'grammar.title': { vi: 'Ngữ pháp 皆の日本語', ja: '皆の日本語の文法' },
+  'grammar.subtitle': {
+    vi: 'Chọn một bài để xem mẫu ngữ pháp kèm giải thích, rồi luyện viết câu theo đúng mẫu đó.',
+    ja: 'レッスンを選ぶと文型と解説が表示され、その文型どおりに文を書く練習ができます。',
+  },
+  'grammar.roadmap': {
+    vi: 'Phần ngữ pháp dự kiến phủ từ bài 26 đến bài 50. Bài chưa có trong danh sách là chưa được thêm vào.',
+    ja: '文法は第26課から第50課までを順次追加します。一覧にない課はまだ未収録です。',
+  },
+  'grammar.empty': { vi: 'Chưa có bài ngữ pháp nào.', ja: '文法レッスンがまだありません。' },
+  'grammar.empty.hint': {
+    vi: 'Tạo thư mục data-source/<tên-bài>/ với file grammar.json rồi chạy npm run generate.',
+    ja: 'data-source/<レッスン名>/ に grammar.json を置き、npm run generate を実行してください。',
+  },
+  'grammar.back': { vi: '← Danh sách bài ngữ pháp', ja: '← 文法レッスン一覧' },
+  'grammar.contents': { vi: 'Mẫu ngữ pháp trong bài', ja: 'この課の文型' },
+  'grammar.exampleCount': { vi: '{count} câu ví dụ', ja: '例文{count}文' },
+  'grammar.structure': { vi: 'Công thức', ja: '接続' },
+  'grammar.explanation': { vi: 'Giải thích', ja: '解説' },
+  'grammar.notes': { vi: 'Lưu ý', ja: '注意' },
+  'grammar.usages': { vi: 'Cách dùng', ja: '使い方' },
+  'grammar.practice': { vi: 'Luyện viết câu theo mẫu', ja: '文型どおりに書く練習' },
+  'grammar.points': { vi: 'Mẫu đem ra luyện (chọn nhiều được)', ja: '練習する文型（複数選択可）' },
+  'grammar.points.hint': {
+    vi: 'Bỏ chọn bớt để luyện riêng một mẫu.',
+    ja: 'チェックを外すと1つの文型だけ練習できます。',
+  },
+  'grammar.scope.hint': {
+    vi: 'Bấm ngôi sao ở các câu ví dụ phía trên để đánh dấu câu hay quên.',
+    ja: '上の例文の星印を押して、覚えにくい文に印を付けます。',
+  },
+  'grammar.option.showHint': { vi: 'Hiện mẫu ngữ pháp kèm câu hỏi', ja: '問題に文型を表示' },
+  'grammar.option.diacriticsDisabled': {
+    vi: 'Chỉ có tác dụng ở chiều Nhật → Việt, vì đáp án khi đó mới là tiếng Việt',
+    ja: '解答がベトナム語になる「日→越」でのみ有効です',
+  },
+  'grammar.option.showHintHint': {
+    vi: 'Tắt đi để tự nhớ ra mẫu phải dùng.',
+    ja: 'オフにすると、使う文型を自分で思い出す必要があります。',
+  },
+  'grammar.typingOnly': {
+    vi: 'Bài ngữ pháp chỉ có gõ đáp án. Chọn trong bốn câu dài thì đọc lướt là ra, không còn là viết theo mẫu nữa.',
+    ja: '文法レッスンは入力解答のみです。長文を4択にすると、文型を使わずに見比べるだけで当たってしまいます。',
+  },
+  'grammar.star': { vi: 'Đánh dấu câu này là chưa nhớ', ja: 'この文を未習得にする' },
+  'grammar.recap.pattern': { vi: 'Mẫu ngữ pháp', ja: '文型' },
+  'grammar.recap.usage': { vi: 'Cách dùng', ja: '使い方' },
+  'grammar.recap.note': { vi: 'Ghi chú', ja: 'メモ' },
 
   // ── Nhãn phạm vi (dùng ở màn kết quả) ──────────────────────────────────
   'scope.all': { vi: 'Toàn bộ bài', ja: 'レッスン全体' },
@@ -591,6 +651,8 @@ export const MESSAGES = {
   // ── Tiêu đề tab theo trang ─────────────────────────────────────────────
   'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
   'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
+  'route.grammar': { vi: 'Ngữ pháp', ja: '文法' },
+  'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
   'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
   'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
 } as const satisfies Record<string, Entry>;

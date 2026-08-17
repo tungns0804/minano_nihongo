@@ -1,0 +1,300 @@
+/* Trang lý thuyết + thiết lập luyện tập của một bài ngữ pháp.
+
+   Vài lớp (.back-link, .options-2, .start-bar, .star-btn…) cố tình giống hệt
+   features/lesson-detail: style của Angular đóng gói theo component nên không dùng
+   lại được, nhưng hai màn hình phải nhìn như một. Sửa dáng ở đây thì xem lại bên kia. */
+
+.back-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  width: fit-content;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.option-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.option-stacked strong {
+  font-weight: 620;
+  font-size: 1.02rem;
+}
+
+.option-example {
+  font-size: 0.82rem;
+  font-weight: 450;
+  opacity: 0.75;
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+/* Phần chữ co lại thay vì đẩy nút xuống dòng: nếu để nút tự xuống dòng thì chỉ
+   cần bản dịch dài hơn vài chữ là cả khối cao thêm một dòng. */
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Mục lục --- */
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toc-link {
+  padding: 6px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 550;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.toc-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* --- Một mẫu ngữ pháp --- */
+
+/* Chừa chỗ cho header dính ở trên khi cuộn tới bằng mục lục. */
+.point-card {
+  scroll-margin-top: 76px;
+}
+
+.point-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.point-index {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.point-title {
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+}
+
+.structure-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Công thức là thứ người học liếc vào đầu tiên — cho nó một khung riêng thay vì
+   để lẫn vào đoạn văn giải thích. */
+.structure {
+  padding: 7px 14px;
+  border: 1px solid var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.explain {
+  max-width: 78ch;
+  line-height: 1.65;
+}
+
+.note-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* --- Bảng biến đổi (ます → んです…) --- */
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.grammar-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.grammar-table th {
+  padding: 8px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: 0.76rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.grammar-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  font-size: 1.02rem;
+}
+
+/* Bảng BIẾN ĐỔI (đúng 2 cột: gốc → kết quả) thì tô đậm cột phải, vì đó mới là dạng
+   cần nhớ. Bộ chọn :nth-child(2):last-child khớp ô thứ hai chỉ khi nó cũng là ô cuối,
+   nên bảng so sánh 3–4 cột (ように/ために, そう/そう/よう, bảng chia bốn thể) không bị
+   tô màu vào một cột bất kỳ chẳng có nghĩa gì. */
+.grammar-table td:nth-child(2):last-child {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.grammar-table tbody tr:hover {
+  background: var(--bg-subtle);
+}
+
+/* --- Cách dùng + ví dụ --- */
+
+.usage {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 14px;
+  border-left: 2px solid var(--border);
+}
+
+.usage-title {
+  font-size: 1rem;
+  font-weight: 640;
+}
+
+.example-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.example {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.example-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.example-jp {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.example-vi {
+  font-size: 0.95rem;
+}
+
+.example-note {
+  font-style: italic;
+}
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  flex-shrink: 0;
+  transition: color 0.15s, transform 0.1s;
+}
+
+.star-btn:hover {
+  color: var(--star);
+  transform: scale(1.15);
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+@media (max-width: 640px) {
+  .start-bar .btn {
+    width: 100%;
+  }
+
+  .point-title {
+    font-size: 1.2rem;
+  }
+
+  .usage {
+    padding-left: 10px;
+  }
+}

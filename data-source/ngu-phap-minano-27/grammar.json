@@ -1,0 +1,229 @@
+{
+  "points": [
+    {
+      "title": "Động từ thể khả năng — N が V khả năng",
+      "summary": "Nói về năng lực làm được việc gì, hoặc về một việc được phép làm trong hoàn cảnh nào đó.",
+      "structures": ["N が ＋ V thể khả năng", "V る ＋ ことが できます (cùng nghĩa, trang trọng hơn)"],
+      "explanation": [
+        "Tân ngữ của câu đổi trợ từ を thành が: ほんを よみます → ほんが よめます.",
+        "Vることが できます và thể khả năng cùng nghĩa. Vることができます lịch sự, hợp văn viết và tình huống trang trọng; thể khả năng ngắn gọn hơn, hay dùng trong hội thoại.",
+        "Động từ thể khả năng luôn chia như động từ nhóm 2 (đuôi えます / られます)."
+      ],
+      "tables": [
+        {
+          "caption": "Nhóm 1 — hàng い đổi sang hàng え",
+          "headers": ["Thể ます", "Thể khả năng"],
+          "rows": [
+            ["いきます", "いけます"],
+            ["およぎます", "およげます"],
+            ["すいます", "すえます"],
+            ["よみます", "よめます"]
+          ]
+        },
+        {
+          "caption": "Nhóm 2 — bỏ ます thêm られます",
+          "headers": ["Thể ます", "Thể khả năng"],
+          "rows": [
+            ["たべます", "たべられます"],
+            ["みます", "みられます"],
+            ["あびます", "あびられます"]
+          ]
+        },
+        {
+          "caption": "Nhóm 3 — bất quy tắc",
+          "headers": ["Thể ます", "Thể khả năng"],
+          "rows": [
+            ["します", "できます"],
+            ["べんきょうします", "べんきょうできます"],
+            ["コピーします", "コピーできます"],
+            ["きます", "こられます"]
+          ]
+        }
+      ],
+      "notes": [
+        "わかります và しります bản thân đã mang nghĩa khả năng nên KHÔNG chia thể khả năng: ×かんじが わかれます、×かんじが わかることが できます → ○かんじが わかります."
+      ],
+      "usages": [
+        {
+          "title": "Thể hiện năng lực làm được việc gì",
+          "detail": "Nói mình có đủ khả năng để làm việc đó.",
+          "examples": [
+            {
+              "japanese": "にほんの しんぶんが よめます。",
+              "vietnamese": "Tôi đọc được báo tiếng Nhật."
+            },
+            {
+              "japanese": "コンピューターが じぶんで しゅうりできます。",
+              "vietnamese": "Tôi tự sửa được máy tính."
+            }
+          ]
+        },
+        {
+          "title": "Thể hiện một điều kiện, một việc được phép làm",
+          "detail": "Không nói về năng lực của người mà nói hoàn cảnh cho phép.",
+          "examples": [
+            {
+              "japanese": "この マンションで いぬが かえます。",
+              "vietnamese": "Ở chung cư này nuôi chó được."
+            }
+          ]
+        },
+        {
+          "title": "Dạng trang trọng — V る ことが できます",
+          "detail": "Cùng nghĩa nhưng lịch sự hơn, hay dùng trong văn viết.",
+          "examples": [
+            {
+              "japanese": "わたしは ピアノを ひくことが できます。",
+              "vietnamese": "Tôi chơi được đàn piano."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "みえます・きこえます",
+      "summary": "Nhìn thấy / nghe thấy một cách tự nhiên, không do mình chủ ý.",
+      "structures": ["N が みえます", "N が きこえます"],
+      "explanation": [
+        "みえます・きこえます: cảnh vật hay âm thanh tự lọt vào mắt, vào tai — mình không cố ý làm gì cả.",
+        "みられます・きけます (thể khả năng của みます・ききます): mình CHỦ Ý xem, chủ ý nghe và hoàn cảnh cho phép làm việc đó."
+      ],
+      "tables": [
+        {
+          "caption": "Phân biệt",
+          "headers": ["Cách nói", "Sắc thái"],
+          "rows": [
+            ["みえます・きこえます", "Tự nhiên lọt vào mắt, vào tai"],
+            ["みられます・きけます", "Mình chủ ý xem/nghe và làm được"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Tự nhiên nhìn thấy, nghe thấy",
+          "detail": "Không có chủ ý của người nói.",
+          "examples": [
+            {
+              "japanese": "くらいですね、なにも みえません。",
+              "vietnamese": "Tối quá nhỉ, tôi chẳng nhìn thấy gì cả."
+            },
+            {
+              "japanese": "へやから あめの おとが きこえます。",
+              "vietnamese": "Từ trong phòng nghe thấy tiếng mưa."
+            }
+          ]
+        },
+        {
+          "title": "Chủ ý xem, chủ ý nghe — みられます・きけます",
+          "detail": "Hoàn cảnh cho phép mình xem, nghe.",
+          "examples": [
+            {
+              "japanese": "テレビで えいがが みられます。",
+              "vietnamese": "Xem phim bằng tivi được."
+            },
+            {
+              "japanese": "ラジオで おんがくが きけます。",
+              "vietnamese": "Nghe nhạc bằng radio được."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N が できます",
+      "summary": "Cái gì đó hoàn thành, xong, hoặc mới phát sinh ra.",
+      "structures": ["N が できます"],
+      "explanation": [
+        "できます ở đây KHÔNG phải nghĩa \"có thể\" mà là \"xong rồi\", \"có rồi\", \"mọc lên rồi\"."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Hoàn thành, xuất hiện",
+          "detail": "Việc gì đó vừa xong hoặc vừa mới có.",
+          "examples": [
+            {
+              "japanese": "あさごはんが できました。",
+              "vietnamese": "Bữa sáng xong rồi đấy."
+            },
+            {
+              "japanese": "かのじょは こどもが できました。",
+              "vietnamese": "Cô ấy đã có em bé."
+            },
+            {
+              "japanese": "えきの まえに ビルが できました。",
+              "vietnamese": "Trước ga đã mọc lên một toà nhà."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Trợ từ は — nhấn mạnh và so sánh",
+      "summary": "Đưa một danh từ lên làm chủ đề để nhấn mạnh, hoặc đặt hai vế đối nhau để so sánh.",
+      "structures": ["N は … (thay cho を, が)"],
+      "explanation": [
+        "Khi đưa N lên đầu làm chủ đề, は thay chỗ của を hoặc が.",
+        "Dùng は ở CẢ HAI vế thì câu mang nghĩa so sánh: vế này thế này, còn vế kia thì khác."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Nhấn mạnh — đưa N lên làm chủ đề",
+          "detail": "Chuyển N cần nhấn ra đầu câu.",
+          "examples": [
+            {
+              "japanese": "にもつは ここに おいては いけない。",
+              "vietnamese": "Hành lý thì không được để ở đây."
+            }
+          ]
+        },
+        {
+          "title": "So sánh hai vế",
+          "detail": "Hai は đối nhau trong cùng một câu.",
+          "examples": [
+            {
+              "japanese": "にほんごは はなせますが、えいごは はなせません。",
+              "vietnamese": "Tiếng Nhật thì tôi nói được nhưng tiếng Anh thì không."
+            },
+            {
+              "japanese": "こどもは ミルクは のみますが、ジュースは のみません。",
+              "vietnamese": "Con tôi sữa thì uống còn nước ép thì không."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "しか ＋ phủ định",
+      "summary": "Chỉ có ~ mà thôi. Luôn đi với động từ ở thể phủ định.",
+      "structures": ["N ＋ しか ＋ V phủ định", "Lượng từ ＋ しか ＋ V phủ định"],
+      "explanation": [
+        "しか thay chỗ của trợ từ を・は・が.",
+        "だけ cũng nghĩa \"chỉ\" nhưng đi với thể khẳng định và trung tính; しか đi với phủ định và mang sắc thái tiếc nuối, \"chỉ có bấy nhiêu thôi\"."
+      ],
+      "notes": ["Sau しか BẮT BUỘC là thể phủ định — quên mất là câu sai ngay."],
+      "usages": [
+        {
+          "title": "Chỉ có ~ thôi",
+          "detail": "Nhấn vào chuyện số lượng ít hơn mong đợi.",
+          "examples": [
+            {
+              "japanese": "れいぞうこの なかに すいかしか ありません。",
+              "vietnamese": "Trong tủ lạnh chỉ có mỗi quả dưa hấu."
+            },
+            {
+              "japanese": "さいふの なかに 100えんしか ありません。",
+              "vietnamese": "Trong ví chỉ còn có 100 yên."
+            },
+            {
+              "japanese": "この へやでは にほんごしか はなせません。",
+              "vietnamese": "Trong phòng này chỉ được nói tiếng Nhật."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "id": "ngu-phap-minano-29",
+  "name": "皆の日本語 — Bài 29 · Ngữ pháp",
+  "description": "Tự / tha động từ, Vて います (trạng thái), ～てしまいます",
+  "kind": "grammar",
+  "itemCount": 3,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "0iamued",
+      "title": "Tự động từ 自動詞 và tha động từ 他動詞",
+      "summary": "Tha động từ có người tác động lên vật (dùng を); tự động từ tả việc tự xảy ra với vật (dùng が).",
+      "structures": [
+        "N を ＋ V tha động từ",
+        "N が ＋ V tự động từ"
+      ],
+      "explanation": [
+        "Tha động từ: có người ra tay tác động lên đối tượng — ドアを あけます (ai đó mở cửa).",
+        "Tự động từ: việc tự xảy ra, không nói ai làm — ドアが あきます (cửa mở ra).",
+        "Trợ từ を còn một cách dùng thứ hai không liên quan tới tha động từ: rời khỏi một nơi — かいしゃを やすみます, だいがくを でます, バスを おります, はしを わたります."
+      ],
+      "notes": [
+        "Mẹo nhớ: động từ đuôi します thì 100% là tha động từ. Từ đó suy ra cặp còn lại — だします là tha nên でます phải là tự."
+      ],
+      "tables": [
+        {
+          "caption": "Các cặp hay gặp",
+          "headers": [
+            "Tha động từ (N を)",
+            "Tự động từ (N が)"
+          ],
+          "rows": [
+            [
+              "つけます — bật",
+              "つきます — sáng lên"
+            ],
+            [
+              "けします — tắt",
+              "きえます — tắt đi"
+            ],
+            [
+              "あけます — mở",
+              "あきます — mở ra"
+            ],
+            [
+              "しめます — đóng",
+              "しまります — đóng lại"
+            ],
+            [
+              "いれます — bỏ vào",
+              "はいります — vào"
+            ],
+            [
+              "だします — lấy ra",
+              "でます — ra"
+            ],
+            [
+              "こわします — làm hỏng",
+              "こわれます — hỏng"
+            ],
+            [
+              "わります — làm vỡ",
+              "われます — vỡ"
+            ],
+            [
+              "おります — làm gãy",
+              "おれます — gãy"
+            ],
+            [
+              "やぶります — làm rách",
+              "やぶれます — rách"
+            ],
+            [
+              "よごします — làm bẩn",
+              "よごれます — bẩn"
+            ],
+            [
+              "おとします — làm rơi",
+              "おちます — rơi"
+            ],
+            [
+              "とめます — dừng lại",
+              "とまります — dừng"
+            ],
+            [
+              "なおします — sửa",
+              "なおります — được sửa, khỏi"
+            ],
+            [
+              "かたづけます — dọn",
+              "かたづきます — được dọn"
+            ],
+            [
+              "ならべます — xếp",
+              "ならびます — xếp hàng"
+            ],
+            [
+              "あつめます — thu thập",
+              "あつまります — tụ tập"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Phân biệt qua ví dụ",
+          "detail": "Cùng một sự việc, nhìn từ người làm hay nhìn từ vật.",
+          "examples": [
+            {
+              "id": "171nfqs",
+              "japanese": "わたしは ドアを しめました。",
+              "reading": "",
+              "vietnamese": "Tôi đã đóng cửa.",
+              "note": "Tha động từ — có người ra tay."
+            },
+            {
+              "id": "1kg5hy1",
+              "japanese": "かぜで ドアが しまりました。",
+              "reading": "",
+              "vietnamese": "Cửa đóng lại vì gió.",
+              "note": "Tự động từ — việc tự xảy ra."
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Trợ từ を chỉ nơi rời khỏi",
+          "detail": "Cách dùng thứ hai của を, không liên quan tới tha động từ.",
+          "examples": [
+            {
+              "id": "0t76zwl",
+              "japanese": "きょう かいしゃを やすみます。",
+              "reading": "",
+              "vietnamese": "Hôm nay tôi nghỉ làm.",
+              "note": ""
+            },
+            {
+              "id": "1kxskt1",
+              "japanese": "つぎの えきで バスを おります。",
+              "reading": "",
+              "vietnamese": "Tôi xuống xe buýt ở ga tiếp theo.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19assx2",
+      "title": "N が V tự động từ ＋ て います",
+      "summary": "Tả trạng thái đang nhìn thấy — kết quả còn lại của một việc đã xảy ra.",
+      "structures": [
+        "N が ＋ V tự động từ thể て ＋ います",
+        "N が ＋ V tự động từ thể て ＋ いました (trạng thái trong quá khứ)"
+      ],
+      "explanation": [
+        "Không phải \"đang làm\" mà là \"đang ở trạng thái đó\": ドアが しまって います = cửa (đã đóng và) đang đóng.",
+        "Muốn nhấn mạnh N thì đổi が thành は."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Trạng thái hiện tại",
+          "detail": "Cái đang nhìn thấy trước mắt.",
+          "examples": [
+            {
+              "id": "0hv5hf0",
+              "japanese": "かみが やぶれて います。",
+              "reading": "",
+              "vietnamese": "Giấy bị rách.",
+              "note": ""
+            },
+            {
+              "id": "016vib0",
+              "japanese": "まどが われて います。",
+              "reading": "",
+              "vietnamese": "Cửa sổ bị vỡ.",
+              "note": ""
+            },
+            {
+              "id": "090ozpb",
+              "japanese": "ドアが しまって います。",
+              "reading": "",
+              "vietnamese": "Cửa đang đóng.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Trạng thái trong quá khứ",
+          "detail": "Lúc đó nó ở trạng thái như vậy.",
+          "examples": [
+            {
+              "id": "05wfyaj",
+              "japanese": "けさ、みちが こんで いました。",
+              "reading": "",
+              "vietnamese": "Sáng nay đường rất đông.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1yfvfin",
+      "title": "Vて しまいます / Vて しまいました",
+      "summary": "Làm xong triệt để, hoặc lỡ tay làm mất rồi — mang sắc thái tiếc nuối.",
+      "structures": [
+        "N を ＋ Vて ＋ しまいます (sẽ làm cho xong)",
+        "N を ＋ Vて ＋ しまいました (đã làm xong / đã trót làm)"
+      ],
+      "explanation": [
+        "Nghĩa 1 — làm cho xong hẳn, không còn sót lại gì.",
+        "Nghĩa 2 — trót, lỡ. Việc đã xảy ra ngoài ý muốn và người nói tiếc.",
+        "Trong hội thoại thân mật, てしまった rút thành ちゃった, でしまった rút thành じゃった."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Dạng rút gọn khi nói",
+          "headers": [
+            "Dạng đầy đủ",
+            "Dạng rút gọn"
+          ],
+          "rows": [
+            [
+              "たべて しまった",
+              "たべちゃった"
+            ],
+            [
+              "わすれて しまった",
+              "わすれちゃった"
+            ],
+            [
+              "よんで しまった",
+              "よんじゃった"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Định làm cho xong triệt để",
+          "detail": "Việc chưa làm nhưng định làm dứt điểm.",
+          "examples": [
+            {
+              "id": "05pvq3n",
+              "japanese": "ねる まえに、しゅくだいを して しまいます。",
+              "reading": "",
+              "vietnamese": "Trước khi đi ngủ tôi sẽ làm cho xong bài tập.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Đã hoàn thành triệt để",
+          "detail": "Làm hết sạch, không còn sót.",
+          "examples": [
+            {
+              "id": "1avvo2f",
+              "japanese": "N5の ことばを ぜんぶ おぼえて しまいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã học thuộc hết toàn bộ từ vựng N5.",
+              "note": ""
+            },
+            {
+              "id": "10a4o40",
+              "japanese": "ははが つくった りょうりを たべて しまいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã ăn hết sạch món mẹ tôi nấu.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u3",
+          "title": "Trót, lỡ — tiếc nuối",
+          "detail": "Việc xảy ra ngoài ý muốn.",
+          "examples": [
+            {
+              "id": "0s6yixb",
+              "japanese": "さいふを おとして しまいました。",
+              "reading": "",
+              "vietnamese": "Tôi trót đánh rơi mất ví rồi.",
+              "note": ""
+            },
+            {
+              "id": "03ehdo2",
+              "japanese": "かのじょの なまえを わすれて しまった。",
+              "reading": "",
+              "vietnamese": "Tôi trót quên mất tên cô ấy rồi.",
+              "note": ""
+            },
+            {
+              "id": "09ui5az",
+              "japanese": "すてて しまった。",
+              "reading": "",
+              "vietnamese": "Tôi lỡ vứt mất rồi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

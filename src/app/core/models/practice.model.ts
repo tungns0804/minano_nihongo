@@ -177,6 +177,10 @@ export interface PracticeConfig {
   direction: PracticeDirection;
   showHanViet: boolean;
 
+  // --- Riêng bài ngữ pháp ---
+  /** Hiện tên mẫu ngữ pháp + công thức làm gợi ý dưới câu hỏi. */
+  showGrammarHint: boolean;
+
   // --- Riêng bài động từ ---
   verbMode: VerbPracticeMode;
   /** Các thể được đem ra hỏi; nhiều thể thì trộn lẫn trong một phiên. */
@@ -218,6 +222,14 @@ export interface PracticeQuestion {
   promptIsJapanese: boolean;
   /** Gợi ý hiện dưới câu hỏi, null nếu không bật. */
   hint: string | null;
+  /**
+   * Gợi ý viết bằng chữ Nhật — quyết định font khi hiển thị.
+   *
+   * Bài từ vựng và bài động từ gợi ý bằng âm Hán Việt / nghĩa tiếng Việt (chữ
+   * Latin), còn bài ngữ pháp gợi ý bằng chính mẫu ngữ pháp (～んです…). Không có
+   * cờ này thì mẫu ngữ pháp bị vẽ bằng font giao diện.
+   */
+  hintIsJapanese: boolean;
   /**
    * Đáp án đúng ở dạng giá trị ổn định, không phụ thuộc ngôn ngữ.
    * Với câu nhận diện nhóm thì đây là "1"/"2"/"3", chữ hiển thị lấy từ `correctAnswerKey`.
@@ -299,6 +311,9 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     if (mode.needsForms) {
       keys.push(...config.verbForms.map((form) => VERB_FORM_LABEL_KEY[form]));
     }
+  } else if (config.lessonKind === 'grammar') {
+    keys.push(directionInfo(config.direction).shortKey);
+    if (config.showGrammarHint) keys.push('grammar.option.showHint');
   } else {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showHanViet && directionInfo(config.direction).supportsHanVietHint) {

@@ -1,15 +1,26 @@
 import { PracticeConfig, PracticeQuestion } from '../models/practice.model';
-import { ConversationLine, Lesson, VerbEntry, VocabularyWord } from '../models/vocabulary.model';
+import {
+  ConversationLine,
+  GrammarExampleRef,
+  Lesson,
+  VerbEntry,
+  VocabularyWord,
+} from '../models/vocabulary.model';
 import { shuffle } from '../utils/random';
 import { buildConversationQuestions } from './conversation-questions';
+import { buildGrammarQuestions } from './grammar-questions';
 import { buildVerbQuestions } from './verb-questions';
 import { buildVocabularyQuestions } from './vocabulary-questions';
 
-/** Tập mục được đem ra hỏi, tuỳ loại bài mà là từ vựng, động từ hay câu hội thoại. */
+/**
+ * Tập mục được đem ra hỏi, tuỳ loại bài mà là từ vựng, động từ, câu hội thoại hay
+ * câu ví dụ ngữ pháp.
+ */
 export type PracticePool =
   | { kind: 'vocabulary'; words: readonly VocabularyWord[] }
   | { kind: 'verb'; verbs: readonly VerbEntry[] }
-  | { kind: 'conversation'; lines: readonly ConversationLine[] };
+  | { kind: 'conversation'; lines: readonly ConversationLine[] }
+  | { kind: 'grammar'; examples: readonly GrammarExampleRef[] };
 
 /**
  * Dựng danh sách câu hỏi cho một phiên luyện tập, rồi trộn và cắt theo thiết lập.
@@ -32,6 +43,9 @@ export function buildQuestions(
       break;
     case 'conversation':
       questions = buildConversationQuestions(pool.lines, config);
+      break;
+    case 'grammar':
+      questions = buildGrammarQuestions(pool.examples, config);
       break;
     case 'vocabulary':
       questions = buildVocabularyQuestions(pool.words, lesson.words, config);

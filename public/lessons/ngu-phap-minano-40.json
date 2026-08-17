@@ -1,0 +1,219 @@
+{
+  "id": "ngu-phap-minano-40",
+  "name": "皆の日本語 — Bài 40 · Ngữ pháp",
+  "description": "～か、～かどうか, ～てみます, Aい ＋ さ",
+  "kind": "grammar",
+  "itemCount": 4,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "11vm1w0",
+      "title": "～か、vế 2 — câu hỏi CÓ nghi vấn từ",
+      "summary": "Lồng một câu hỏi có nghi vấn từ vào trong câu lớn.",
+      "structures": [
+        "Nghi vấn từ … V／Aい thể thường ＋ か、vế 2",
+        "Nghi vấn từ … Aな／N thể thường (bỏ だ) ＋ か、vế 2"
+      ],
+      "explanation": [
+        "Câu hỏi con giữ nguyên nghi vấn từ (なに, だれ, どこ, なんにん…) rồi kết bằng か.",
+        "Vế 2 thường là những động từ liên quan tới nhận thức: しって いますか, おしえて ください, しらべて ください, かんがえて ください, わかりません."
+      ],
+      "notes": [
+        "Aな và N bỏ だ trước か: どんな ひとか、なにが いちばん すきか."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Lồng câu hỏi có nghi vấn từ",
+          "detail": "Nghi vấn từ giữ nguyên trong câu con.",
+          "examples": [
+            {
+              "id": "0x8xdvd",
+              "japanese": "きょうしつに がくせいが なんにん いるか、しって いますか。",
+              "reading": "",
+              "vietnamese": "Bạn có biết trong lớp có bao nhiêu học sinh không?",
+              "note": ""
+            },
+            {
+              "id": "1fu7vha",
+              "japanese": "たんじょうびの プレゼントは なにが いいか、おしえて ください。",
+              "reading": "",
+              "vietnamese": "Hãy cho tôi biết quà sinh nhật thì cái gì hợp.",
+              "note": ""
+            },
+            {
+              "id": "1rtk931",
+              "japanese": "かのじょは どんな ひとか、しらべて ください。",
+              "reading": "",
+              "vietnamese": "Hãy tìm hiểu xem cô ấy là người như thế nào.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0l6ngk2",
+      "title": "～かどうか、vế 2 — câu hỏi KHÔNG có nghi vấn từ",
+      "summary": "Lồng câu hỏi có/không vào trong câu lớn — \"có ~ hay không\".",
+      "structures": [
+        "V／Aい thể thường ＋ かどうか、vế 2",
+        "Aな／N thể thường (bỏ だ) ＋ かどうか、vế 2"
+      ],
+      "explanation": [
+        "Câu hỏi con không có nghi vấn từ thì thêm かどうか thay cho か."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Có ~ hay không",
+          "detail": "Câu hỏi con không có nghi vấn từ.",
+          "examples": [
+            {
+              "id": "1trx99g",
+              "japanese": "おかねが たりるかどうか、しんぱいして います。",
+              "reading": "",
+              "vietnamese": "Tôi đang lo không biết tiền có đủ hay không.",
+              "note": ""
+            },
+            {
+              "id": "1ymuoiv",
+              "japanese": "この りょうりは からいかどうか、きいて ください。",
+              "reading": "",
+              "vietnamese": "Hãy hỏi xem món này có cay hay không.",
+              "note": ""
+            },
+            {
+              "id": "1ixcden",
+              "japanese": "かのじょは にほんの りょうりが すきかどうか、しらべて ください。",
+              "reading": "",
+              "vietnamese": "Hãy tìm hiểu xem cô ấy có thích món Nhật hay không.",
+              "note": ""
+            },
+            {
+              "id": "0e97638",
+              "japanese": "かれは ほんとうに いい ひとかどうか、わかりません。",
+              "reading": "",
+              "vietnamese": "Tôi không biết anh ấy có thật sự là người tốt hay không.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03bzoex",
+      "title": "～て みます",
+      "summary": "Thử làm một việc gì đó xem sao.",
+      "structures": [
+        "V て ＋ みます"
+      ],
+      "explanation": [
+        "みます ở đây chia như động từ nhóm 2: みたい, みて ください, みた ほうが いい…"
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Thử làm xem sao",
+          "detail": "Làm để biết kết quả thế nào.",
+          "examples": [
+            {
+              "id": "0pzwfud",
+              "japanese": "ケーキを つくって みます。",
+              "reading": "",
+              "vietnamese": "Tôi thử làm bánh xem sao.",
+              "note": ""
+            },
+            {
+              "id": "1l4cquw",
+              "japanese": "からいかどうか、たべて みて ください。",
+              "reading": "",
+              "vietnamese": "Hãy thử ăn xem có cay hay không.",
+              "note": ""
+            },
+            {
+              "id": "1j5suhs",
+              "japanese": "この ほんを よんで みた ほうが いいと おもいます。",
+              "reading": "",
+              "vietnamese": "Tôi nghĩ bạn nên thử đọc cuốn sách này.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1xc4uy2",
+      "title": "Aい ＋ さ",
+      "summary": "Bỏ い của tính từ đuôi い rồi thêm さ để biến nó thành danh từ chỉ mức độ.",
+      "structures": [
+        "Aい bỏ い ＋ さ"
+      ],
+      "explanation": [
+        "Danh từ tạo ra mang nghĩa \"độ ~\", \"chiều ~\": chiều dài, chiều cao, cân nặng…"
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Các từ hay gặp",
+          "headers": [
+            "Tính từ",
+            "Danh từ ＋ さ"
+          ],
+          "rows": [
+            [
+              "おもい — nặng",
+              "おもさ — cân nặng"
+            ],
+            [
+              "おおきい — to",
+              "おおきさ — kích cỡ"
+            ],
+            [
+              "ちいさい — nhỏ",
+              "ちいささ — độ nhỏ"
+            ],
+            [
+              "ながい — dài",
+              "ながさ — chiều dài"
+            ],
+            [
+              "たかい — cao",
+              "たかさ — chiều cao"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi về mức độ",
+          "detail": "Danh từ hoá tính từ để hỏi số đo.",
+          "examples": [
+            {
+              "id": "0jsmrfj",
+              "japanese": "この にもつの おもさを おしえて ください。",
+              "reading": "",
+              "vietnamese": "Hãy cho tôi biết cân nặng của kiện hàng này.",
+              "note": ""
+            },
+            {
+              "id": "0cbsax7",
+              "japanese": "ふじさんの たかさは 3776メートルです。",
+              "reading": "",
+              "vietnamese": "Chiều cao của núi Phú Sĩ là 3776 mét.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

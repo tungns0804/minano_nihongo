@@ -1,0 +1,120 @@
+{
+  "points": [
+    {
+      "title": "Thể ngắn ＋ そうです — nghe nói là",
+      "summary": "Truyền đạt lại thông tin nghe được từ nguồn khác, không thêm ý kiến của mình.",
+      "structures": ["V／Aい／Aな だ／N だ thể ngắn ＋ そうです"],
+      "explanation": [
+        "Nguồn tin nêu bằng ～に よると: theo như ~.",
+        "Khác hẳn ～そうです của bài 43: bài 43 nối vào thể ます (ふりそう — trông có vẻ sắp mưa), bài này nối vào thể ngắn (ふるそう — nghe nói trời sẽ mưa)."
+      ],
+      "tables": [
+        {
+          "caption": "So với ～と いって いました (bài 33)",
+          "headers": ["", "～そうです", "～と いって いました"],
+          "rows": [
+            ["Nguồn tin", "Có thể là bất kỳ ai, không cần nghe trực tiếp", "Chính người đó nói, mình nghe trực tiếp"],
+            ["Cách nối", "Chỉ thể ngắn", "Trích nguyên văn hoặc thể thường"]
+          ]
+        },
+        {
+          "caption": "Ba mẫu suy đoán dễ nhầm",
+          "headers": ["Mẫu", "Nghĩa", "Căn cứ"],
+          "rows": [
+            ["V ます ＋ そうです (bài 43)", "Trông có vẻ ~", "Nhìn bằng mắt"],
+            ["Thể ngắn ＋ そうです (bài 47)", "Nghe nói là ~", "Nghe từ nguồn khác"],
+            ["Thể ngắn ＋ ようです (bài 47)", "Hình như là ~", "Cảm nhận của chính mình"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Truyền đạt tin nghe được",
+          "detail": "Nêu nguồn bằng ～に よると.",
+          "examples": [
+            {
+              "japanese": "てんきよほうに よると、あした あめが ふるそうです。",
+              "vietnamese": "Theo dự báo thời tiết thì mai trời sẽ mưa."
+            },
+            {
+              "japanese": "せんせいの はなしに よると、にほんの ぶんかは とても おもしろいそうです。",
+              "vietnamese": "Theo lời cô giáo thì văn hoá Nhật rất thú vị."
+            },
+            {
+              "japanese": "だいがくに ごうかくしたそうですね。おめでとうございます。",
+              "vietnamese": "Nghe nói cháu đã đỗ đại học. Chúc mừng nhé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ようです — hình như là",
+      "summary": "Suy đoán dựa trên cảm nhận của chính năm giác quan mình, nên có thể sai.",
+      "structures": ["V る／V ない／V た ＋ ようです", "Aい ＋ ようです", "Aな な ＋ ようです", "N の ＋ ようです"],
+      "explanation": [
+        "Người nói tự cảm thấy, tự suy ra từ những gì mình nghe, ngửi, nhìn, sờ thấy.",
+        "Hay đi kèm どうも với nghĩa \"không rõ có đúng không nhưng tôi thấy hình như là\"."
+      ],
+      "notes": ["Aな nối bằng な, N nối bằng の: ○きらいなようです, ×きらいようです."],
+      "usages": [
+        {
+          "title": "Suy đoán từ cảm nhận bản thân",
+          "detail": "Không chắc chắn, có thể sai.",
+          "examples": [
+            {
+              "japanese": "せきが でるし、あたまも いたい。どうも かぜを ひいたようです。",
+              "vietnamese": "Tôi vừa ho vừa đau đầu. Hình như bị cảm rồi."
+            },
+            {
+              "japanese": "へやに だれかが はいったようです。",
+              "vietnamese": "Hình như có ai đó đã vào phòng."
+            },
+            {
+              "japanese": "どうも じこのようですね。",
+              "vietnamese": "Có vẻ như là tai nạn nhỉ."
+            },
+            {
+              "japanese": "かれの おくさんは タバコの においが きらいなようです。",
+              "vietnamese": "Hình như vợ anh ấy rất ghét mùi thuốc lá."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N が します",
+      "summary": "Cảm nhận được bằng giác quan: có mùi, có tiếng, có cảm giác.",
+      "structures": ["N が します"],
+      "explanation": [
+        "Đứng trước が là danh từ chỉ mùi, hương, vị, tiếng động, cảm giác: におい, かおり, あじ, おと, こえ, きぶん, はきけ, さむけ."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Có mùi, có tiếng, có cảm giác",
+          "detail": "Nhận biết bằng giác quan.",
+          "examples": [
+            {
+              "japanese": "この はなは いい かおりが しますね。",
+              "vietnamese": "Bông hoa này có mùi thơm nhỉ."
+            },
+            {
+              "japanese": "どこか あかちゃんの なく こえが します。",
+              "vietnamese": "Có tiếng em bé khóc ở đâu đó."
+            },
+            {
+              "japanese": "しょくじを すると はきけが します。",
+              "vietnamese": "Cứ ăn vào là tôi thấy buồn nôn."
+            },
+            {
+              "japanese": "おおきな おとが します。こうつうじこが おこったようです。",
+              "vietnamese": "Có tiếng động lớn. Hình như đã xảy ra tai nạn giao thông."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

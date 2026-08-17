@@ -1,0 +1,204 @@
+{
+  "points": [
+    {
+      "title": "Động từ thể ý hướng 意向形",
+      "summary": "Dạng thể ngắn của ～ましょう: rủ rê, đáp lời mời, hoặc đề nghị giúp đỡ.",
+      "structures": ["V thể ý hướng（＝ ～ましょう ở thể ngắn）"],
+      "explanation": [
+        "Thể ý hướng chính là ～ましょう nói theo kiểu thân mật, dùng với bạn bè, người dưới.",
+        "Thêm か thành ～ようか để đề nghị được giúp ai đó (tương đương ～ましょうか)."
+      ],
+      "tables": [
+        {
+          "caption": "Nhóm 1 — hàng い đổi sang hàng お ＋ う",
+          "headers": ["Thể ます", "Thể ý hướng"],
+          "rows": [
+            ["いきます", "いこう"],
+            ["およぎます", "およごう"],
+            ["かいます", "かおう"],
+            ["のみます", "のもう"]
+          ]
+        },
+        {
+          "caption": "Nhóm 2 — bỏ ます thêm よう",
+          "headers": ["Thể ます", "Thể ý hướng"],
+          "rows": [
+            ["たべます", "たべよう"],
+            ["みます", "みよう"],
+            ["あびます", "あびよう"]
+          ]
+        },
+        {
+          "caption": "Nhóm 3",
+          "headers": ["Thể ます", "Thể ý hướng"],
+          "rows": [
+            ["します", "しよう"],
+            ["べんきょうします", "べんきょうしよう"],
+            ["きます", "こよう"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Rủ rê, mời mọc",
+          "detail": "Nói với bạn bè, người thân.",
+          "examples": [
+            {
+              "japanese": "こんばん、いっしょに ビールを のもう。",
+              "vietnamese": "Tối nay cùng đi uống bia nhé."
+            },
+            {
+              "japanese": "ねえ、いっしょに うたを うたおう。",
+              "vietnamese": "Này, cùng đi hát nhé."
+            }
+          ]
+        },
+        {
+          "title": "Đáp lại lời mời",
+          "detail": "Đồng ý với lời rủ.",
+          "examples": [
+            {
+              "japanese": "うん、やすもう。",
+              "vietnamese": "Ừ, cùng nghỉ đi.",
+              "note": "Trả lời cho ちょっと いっしょに やすまない。"
+            }
+          ]
+        },
+        {
+          "title": "Đề nghị được giúp — ～ようか",
+          "detail": "Dạng thân mật của ～ましょうか.",
+          "examples": [
+            {
+              "japanese": "てつだおうか。",
+              "vietnamese": "Để tôi giúp nhé."
+            },
+            {
+              "japanese": "にもつを もとうか。",
+              "vietnamese": "Để tôi xách hành lý cho nhé."
+            },
+            {
+              "japanese": "まどを あけようか。",
+              "vietnamese": "Để tôi mở cửa sổ nhé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V thể ý hướng ＋ と おもいます",
+      "summary": "Bày tỏ ý định của người nói: \"tôi định ~\".",
+      "structures": ["V thể ý hướng ＋ と おもいます", "V thể ý hướng ＋ と おもって います"],
+      "explanation": [
+        "と おもいます: ý định vừa nảy ra ngay lúc nói.",
+        "と おもって います: ý định đã có từ trước và vẫn đang giữ. Chỉ dạng này mới dùng được cho ngôi thứ ba."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Ý định của người nói",
+          "detail": "Định làm gì đó.",
+          "examples": [
+            {
+              "japanese": "しごとが おわったら、いえへ かえろうと おもいます。",
+              "vietnamese": "Xong việc là tôi định về nhà."
+            },
+            {
+              "japanese": "こうこうを でたら、がいこくに りゅうがくしようと おもって います。",
+              "vietnamese": "Học xong cấp ba tôi định đi du học nước ngoài."
+            },
+            {
+              "japanese": "かれは らいねん けっこんしようと おもって います。",
+              "vietnamese": "Anh ấy định sang năm sẽ kết hôn.",
+              "note": "Ngôi thứ ba chỉ dùng được と おもって います."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "つもりです",
+      "summary": "Ý định đã quyết, dứt khoát hơn ～と おもって います.",
+      "structures": ["V る ＋ つもりです", "V ない ＋ つもりです"],
+      "explanation": ["Người nói đã cân nhắc và quyết định rồi, không còn phân vân."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Định làm / không định làm",
+          "detail": "Ý định đã chốt.",
+          "examples": [
+            {
+              "japanese": "ことしの おわりに にほんごの しけんを うける つもりです。",
+              "vietnamese": "Cuối năm nay tôi định thi kỳ thi tiếng Nhật."
+            },
+            {
+              "japanese": "ことし、くにへ かえらない つもりです。",
+              "vietnamese": "Năm nay tôi không định về nước."
+            },
+            {
+              "japanese": "いまから、たばこを すわない つもりです。",
+              "vietnamese": "Từ giờ tôi định sẽ không hút thuốc nữa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "よていです",
+      "summary": "Dự định, kế hoạch đã sắp xếp — chắc chắn nhất trong ba cách nói.",
+      "structures": ["V る ＋ よていです", "N の ＋ よていです"],
+      "explanation": [
+        "Mức độ chắc chắn tăng dần: ～と おもって います ＜ つもりです ＜ よていです.",
+        "よていです thường là lịch đã lên, đã sắp đặt sẵn chứ không chỉ là ý muốn cá nhân."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Kế hoạch đã định",
+          "detail": "Lịch trình đã sắp xếp.",
+          "examples": [
+            {
+              "japanese": "ベトナムで にほんの かいしゃで はたらく よていです。",
+              "vietnamese": "Tôi dự định làm cho công ty Nhật ở Việt Nam."
+            },
+            {
+              "japanese": "かいしゃの りょこうは しゅうまつの よていです。",
+              "vietnamese": "Chuyến du lịch công ty dự định vào cuối tuần."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "まだ ～",
+      "summary": "Vẫn còn đang ~ (khẳng định), hoặc vẫn chưa ~ (phủ định).",
+      "structures": ["まだ ＋ Vて います (vẫn còn đang)", "まだ ＋ Vて いません (vẫn chưa)"],
+      "explanation": [
+        "Chú ý phủ định là ～ていません chứ không phải ～ませんでした: việc chưa xảy ra nhưng vẫn có thể sẽ xảy ra."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Vẫn còn đang",
+          "detail": "Việc bắt đầu rồi và chưa dứt.",
+          "examples": [
+            {
+              "japanese": "まだ あめが ふって います。",
+              "vietnamese": "Trời vẫn còn đang mưa."
+            }
+          ]
+        },
+        {
+          "title": "Vẫn chưa",
+          "detail": "Việc chưa xảy ra.",
+          "examples": [
+            {
+              "japanese": "ぎんこうは まだ あいて いません。",
+              "vietnamese": "Ngân hàng vẫn chưa mở cửa."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

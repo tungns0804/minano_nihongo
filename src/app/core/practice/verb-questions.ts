@@ -128,6 +128,7 @@ function buildGroupQuestion(verb: ConjugatedVerb, config: PracticeConfig): Pract
     prompt: verb.entry.masu,
     promptIsJapanese: true,
     hint: config.showHanViet ? verb.entry.vietnamese : null,
+    hintIsJapanese: false,
     correctAnswer,
     correctAnswerKey: VERB_GROUP_LABEL_KEY[verb.entry.group],
     // Gõ "1" hay tên nhóm ở BẤT KỲ ngôn ngữ nào cũng được tính đúng.
@@ -174,6 +175,7 @@ function buildFormQuestion(
     // Ở dạng "nghĩa → thể" thì nghĩa chính là câu hỏi nên không hiện lại làm gợi ý.
     hint:
       config.showHanViet && config.verbMode !== 'meaning-to-form' ? verb.entry.vietnamese : null,
+    hintIsJapanese: false,
     correctAnswer,
     correctAnswerKey: null,
     acceptedAnswers: [correctAnswer],

@@ -1,0 +1,134 @@
+{
+  "points": [
+    {
+      "title": "～か、vế 2 — câu hỏi CÓ nghi vấn từ",
+      "summary": "Lồng một câu hỏi có nghi vấn từ vào trong câu lớn.",
+      "structures": [
+        "Nghi vấn từ … V／Aい thể thường ＋ か、vế 2",
+        "Nghi vấn từ … Aな／N thể thường (bỏ だ) ＋ か、vế 2"
+      ],
+      "explanation": [
+        "Câu hỏi con giữ nguyên nghi vấn từ (なに, だれ, どこ, なんにん…) rồi kết bằng か.",
+        "Vế 2 thường là những động từ liên quan tới nhận thức: しって いますか, おしえて ください, しらべて ください, かんがえて ください, わかりません."
+      ],
+      "notes": ["Aな và N bỏ だ trước か: どんな ひとか、なにが いちばん すきか."],
+      "usages": [
+        {
+          "title": "Lồng câu hỏi có nghi vấn từ",
+          "detail": "Nghi vấn từ giữ nguyên trong câu con.",
+          "examples": [
+            {
+              "japanese": "きょうしつに がくせいが なんにん いるか、しって いますか。",
+              "vietnamese": "Bạn có biết trong lớp có bao nhiêu học sinh không?"
+            },
+            {
+              "japanese": "たんじょうびの プレゼントは なにが いいか、おしえて ください。",
+              "vietnamese": "Hãy cho tôi biết quà sinh nhật thì cái gì hợp."
+            },
+            {
+              "japanese": "かのじょは どんな ひとか、しらべて ください。",
+              "vietnamese": "Hãy tìm hiểu xem cô ấy là người như thế nào."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～かどうか、vế 2 — câu hỏi KHÔNG có nghi vấn từ",
+      "summary": "Lồng câu hỏi có/không vào trong câu lớn — \"có ~ hay không\".",
+      "structures": [
+        "V／Aい thể thường ＋ かどうか、vế 2",
+        "Aな／N thể thường (bỏ だ) ＋ かどうか、vế 2"
+      ],
+      "explanation": ["Câu hỏi con không có nghi vấn từ thì thêm かどうか thay cho か."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Có ~ hay không",
+          "detail": "Câu hỏi con không có nghi vấn từ.",
+          "examples": [
+            {
+              "japanese": "おかねが たりるかどうか、しんぱいして います。",
+              "vietnamese": "Tôi đang lo không biết tiền có đủ hay không."
+            },
+            {
+              "japanese": "この りょうりは からいかどうか、きいて ください。",
+              "vietnamese": "Hãy hỏi xem món này có cay hay không."
+            },
+            {
+              "japanese": "かのじょは にほんの りょうりが すきかどうか、しらべて ください。",
+              "vietnamese": "Hãy tìm hiểu xem cô ấy có thích món Nhật hay không."
+            },
+            {
+              "japanese": "かれは ほんとうに いい ひとかどうか、わかりません。",
+              "vietnamese": "Tôi không biết anh ấy có thật sự là người tốt hay không."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～て みます",
+      "summary": "Thử làm một việc gì đó xem sao.",
+      "structures": ["V て ＋ みます"],
+      "explanation": ["みます ở đây chia như động từ nhóm 2: みたい, みて ください, みた ほうが いい…"],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Thử làm xem sao",
+          "detail": "Làm để biết kết quả thế nào.",
+          "examples": [
+            {
+              "japanese": "ケーキを つくって みます。",
+              "vietnamese": "Tôi thử làm bánh xem sao."
+            },
+            {
+              "japanese": "からいかどうか、たべて みて ください。",
+              "vietnamese": "Hãy thử ăn xem có cay hay không."
+            },
+            {
+              "japanese": "この ほんを よんで みた ほうが いいと おもいます。",
+              "vietnamese": "Tôi nghĩ bạn nên thử đọc cuốn sách này."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aい ＋ さ",
+      "summary": "Bỏ い của tính từ đuôi い rồi thêm さ để biến nó thành danh từ chỉ mức độ.",
+      "structures": ["Aい bỏ い ＋ さ"],
+      "explanation": ["Danh từ tạo ra mang nghĩa \"độ ~\", \"chiều ~\": chiều dài, chiều cao, cân nặng…"],
+      "tables": [
+        {
+          "caption": "Các từ hay gặp",
+          "headers": ["Tính từ", "Danh từ ＋ さ"],
+          "rows": [
+            ["おもい — nặng", "おもさ — cân nặng"],
+            ["おおきい — to", "おおきさ — kích cỡ"],
+            ["ちいさい — nhỏ", "ちいささ — độ nhỏ"],
+            ["ながい — dài", "ながさ — chiều dài"],
+            ["たかい — cao", "たかさ — chiều cao"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Hỏi về mức độ",
+          "detail": "Danh từ hoá tính từ để hỏi số đo.",
+          "examples": [
+            {
+              "japanese": "この にもつの おもさを おしえて ください。",
+              "vietnamese": "Hãy cho tôi biết cân nặng của kiện hàng này."
+            },
+            {
+              "japanese": "ふじさんの たかさは 3776メートルです。",
+              "vietnamese": "Chiều cao của núi Phú Sĩ là 3776 mét."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "points": [
+    {
+      "title": "～そうです — trông có vẻ",
+      "summary": "Suy đoán bằng MẮT: nhìn vào là thấy có vẻ như vậy, hoặc sắp xảy ra đến nơi.",
+      "structures": ["V ます bỏ ます ＋ そうです", "Aい bỏ い ＋ そうです", "Aな bỏ な ＋ そうです"],
+      "explanation": [
+        "Chỉ dựa trên cái nhìn thấy trước mắt, chưa có bằng chứng nào khác.",
+        "Với động từ, mẫu này thường mang nghĩa \"sắp ~ đến nơi rồi\"."
+      ],
+      "notes": [
+        "Chỉ dùng để đoán về vật hoặc về người khác. KHÔNG dùng cho chính mình: ×わたしは さびしそうです.",
+        "Hai ngoại lệ: いい → よさそう, ない → なさそう."
+      ],
+      "usages": [
+        {
+          "title": "Sắp xảy ra đến nơi",
+          "detail": "Dùng với động từ.",
+          "examples": [
+            {
+              "japanese": "もうすぐ さくらが さきそうですね。",
+              "vietnamese": "Hoa anh đào có vẻ sắp nở rồi nhỉ."
+            },
+            {
+              "japanese": "いまにも あめが ふりそうです。",
+              "vietnamese": "Trời có vẻ sắp mưa đến nơi rồi."
+            },
+            {
+              "japanese": "たてものが たおれそうですよ。",
+              "vietnamese": "Toà nhà có vẻ sắp đổ đấy."
+            }
+          ]
+        },
+        {
+          "title": "Nhìn vào thấy có vẻ ~",
+          "detail": "Dùng với tính từ.",
+          "examples": [
+            {
+              "japanese": "この りょうりは からそうです。",
+              "vietnamese": "Món này trông có vẻ cay."
+            },
+            {
+              "japanese": "さむそうですね。まどを しめましょうか。",
+              "vietnamese": "Trông bạn có vẻ lạnh nhỉ. Tôi đóng cửa sổ nhé?"
+            },
+            {
+              "japanese": "あなたの おとうさんは しんせつそうです。",
+              "vietnamese": "Bố bạn trông có vẻ thân thiện."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～て きます",
+      "summary": "Đi đến chỗ nào đó làm việc gì rồi quay lại.",
+      "structures": ["V て ＋ きます"],
+      "explanation": ["Nhấn rằng người nói sẽ quay lại chỗ cũ, không đi luôn."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Làm rồi quay lại",
+          "detail": "Đi một lát rồi về.",
+          "examples": [
+            {
+              "japanese": "ちょっと たべものを かって きます。",
+              "vietnamese": "Tôi đi mua chút đồ ăn rồi quay lại ngay."
+            },
+            {
+              "japanese": "きょうしつに とけいを わすれたので、ちょっと とって きます。",
+              "vietnamese": "Vì quên đồng hồ ở lớp nên tôi đi lấy rồi quay lại."
+            },
+            {
+              "japanese": "あんないしょは いちまいしか ないので、コピーして きます。",
+              "vietnamese": "Vì tờ hướng dẫn chỉ còn một tờ nên tôi đi photo rồi quay lại."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～て くれませんか",
+      "summary": "Nhờ vả — lịch sự hơn Vてください nhưng thân mật hơn các mẫu ở bài 26 và 41.",
+      "structures": ["V て ＋ くれませんか"],
+      "explanation": ["Hợp với người ngang hàng hoặc người dưới mình."],
+      "tables": [
+        {
+          "caption": "Thang lịch sự của cách nhờ vả, từ cao xuống thấp",
+          "headers": ["Cách nói"],
+          "rows": [
+            ["V ていただけないでしょうか"],
+            ["V ていただけませんか"],
+            ["V てくださいませんか"],
+            ["V てもらえませんか"],
+            ["V てくれませんか"],
+            ["V てもらえますか"],
+            ["V てくれますか"],
+            ["V てください"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Nhờ người ngang hàng",
+          "detail": "Thân mật nhưng vẫn lịch sự.",
+          "examples": [
+            {
+              "japanese": "おべんとうを かって くれませんか。",
+              "vietnamese": "Mua giúp tôi hộp cơm được không?"
+            },
+            {
+              "japanese": "かさを わすれましたので、かして くれませんか。",
+              "vietnamese": "Tôi quên ô rồi, cho tôi mượn được không?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

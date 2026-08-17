@@ -1,0 +1,247 @@
+{
+  "points": [
+    {
+      "title": "Thể mệnh lệnh 命令形 và thể cấm chỉ 禁止形",
+      "summary": "Ra lệnh phải làm (mệnh lệnh) hoặc cấm không được làm (cấm chỉ) — mạnh hơn hẳn Vてください.",
+      "structures": ["V thể mệnh lệnh — bắt buộc làm", "V る ＋ な — cấm làm"],
+      "explanation": [
+        "Đây là cách nói áp đặt, mạnh hơn nhiều so với Vてください và Vないでください.",
+        "Đa phần nam giới dùng. Nữ giới chỉ dùng khi cổ vũ thể thao.",
+        "Cuối câu thêm よ để làm mềm bớt: あした、いえへ こいよ。"
+      ],
+      "tables": [
+        {
+          "caption": "Thể mệnh lệnh — nhóm 1 (hàng い đổi sang hàng え)",
+          "headers": ["Thể ます", "Thể mệnh lệnh"],
+          "rows": [
+            ["いきます", "いけ"],
+            ["およぎます", "およげ"],
+            ["かいます", "かえ"],
+            ["はしります", "はしれ"]
+          ]
+        },
+        {
+          "caption": "Thể mệnh lệnh — nhóm 2 và 3",
+          "headers": ["Thể ます", "Thể mệnh lệnh"],
+          "rows": [
+            ["たべます", "たべろ"],
+            ["みます", "みろ"],
+            ["します", "しろ"],
+            ["べんきょうします", "べんきょうしろ"],
+            ["きます", "こい"]
+          ]
+        },
+        {
+          "caption": "Thể cấm chỉ — thể từ điển ＋ な",
+          "headers": ["Thể ます", "Thể cấm chỉ"],
+          "rows": [
+            ["はずします", "はずすな"],
+            ["にげます", "にげるな"],
+            ["さわります", "さわるな"],
+            ["はいります", "はいるな"]
+          ]
+        }
+      ],
+      "notes": [
+        "Động từ chỉ trạng thái không có thể mệnh lệnh: わかります, できます, あります, います, しります."
+      ],
+      "usages": [
+        {
+          "title": "Bắt buộc người khác làm",
+          "detail": "Người lớn tuổi, người có chức vụ cao nói với người dưới.",
+          "examples": [
+            {
+              "japanese": "はやく ねろ！",
+              "vietnamese": "Ngủ sớm đi!"
+            },
+            {
+              "japanese": "ちゃんと べんきょうしろ！",
+              "vietnamese": "Học hành cho nghiêm túc vào!"
+            },
+            {
+              "japanese": "あした、いえへ こいよ。",
+              "vietnamese": "Ngày mai đến nhà tôi nhé."
+            }
+          ]
+        },
+        {
+          "title": "Hô khẩu hiệu, tình huống khẩn cấp",
+          "detail": "Diễn tập, thể thao, khẩn cấp.",
+          "examples": [
+            {
+              "japanese": "にげろ！",
+              "vietnamese": "Chạy đi!"
+            },
+            {
+              "japanese": "エレベーターを つかうな！",
+              "vietnamese": "Không được dùng thang máy!"
+            },
+            {
+              "japanese": "たて！",
+              "vietnamese": "Đứng lên!"
+            },
+            {
+              "japanese": "すわれ！",
+              "vietnamese": "Ngồi xuống!"
+            }
+          ]
+        },
+        {
+          "title": "Cổ vũ trong thể thao",
+          "detail": "Trường hợp duy nhất nữ giới cũng dùng.",
+          "examples": [
+            {
+              "japanese": "がんばれ！",
+              "vietnamese": "Cố lên!"
+            },
+            {
+              "japanese": "あきらめるな！",
+              "vietnamese": "Đừng bỏ cuộc!"
+            },
+            {
+              "japanese": "なくな！",
+              "vietnamese": "Đừng khóc!"
+            }
+          ]
+        },
+        {
+          "title": "Biển báo, ký hiệu giao thông",
+          "detail": "Chữ trên biển thường viết ở hai thể này cho ngắn.",
+          "examples": [
+            {
+              "japanese": "とまれ！",
+              "vietnamese": "Dừng lại!"
+            },
+            {
+              "japanese": "はいるな！",
+              "vietnamese": "Cấm vào!"
+            },
+            {
+              "japanese": "あぶない、およぐな！",
+              "vietnamese": "Nguy hiểm, cấm bơi!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ます ＋ なさい",
+      "summary": "Mệnh lệnh nhẹ nhàng hơn: \"hãy ~ đi\".",
+      "structures": ["V bỏ ます ＋ なさい"],
+      "explanation": [
+        "Nhẹ hơn thể mệnh lệnh nhưng vẫn là ra lệnh, nên chỉ dùng với người dưới.",
+        "Bố mẹ nói với con, giáo viên nói với học sinh. Nữ giới hay dùng dạng này thay cho thể mệnh lệnh."
+      ],
+      "notes": ["Tuyệt đối không dùng với cấp trên."],
+      "usages": [
+        {
+          "title": "Ra lệnh nhẹ nhàng",
+          "detail": "Người trên nói với người dưới.",
+          "examples": [
+            {
+              "japanese": "たべなさい。",
+              "vietnamese": "Ăn đi con."
+            },
+            {
+              "japanese": "べんきょうしなさい。",
+              "vietnamese": "Học bài đi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～と よみます / ～と かいて あります",
+      "summary": "Hỏi và trả lời về cách đọc một chữ, hoặc nội dung được viết ở đâu đó.",
+      "structures": ["… は なんと よみますか。— … と よみます。", "… に なんと かいて ありますか。— … と かいて あります。"],
+      "explanation": ["Trợ từ と đánh dấu phần nội dung được đọc hoặc được viết."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Hỏi cách đọc",
+          "detail": "Chữ này đọc là gì.",
+          "examples": [
+            {
+              "japanese": "あの かんじは なんと よみますか。",
+              "vietnamese": "Chữ Hán kia đọc là gì vậy?"
+            },
+            {
+              "japanese": "「むりょう」と よみます。",
+              "vietnamese": "Đọc là \"muryou\".",
+              "note": "Trả lời cho câu hỏi về cách đọc."
+            }
+          ]
+        },
+        {
+          "title": "Hỏi nội dung được viết",
+          "detail": "Trên biển, trên giấy viết gì.",
+          "examples": [
+            {
+              "japanese": "あそこに なんと かいて あるんですか。",
+              "vietnamese": "Đằng kia viết gì vậy?"
+            },
+            {
+              "japanese": "「しようきんし」と かいて あります。",
+              "vietnamese": "Có viết là \"cấm sử dụng\"."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～と いう いみです",
+      "summary": "Giải thích ý nghĩa của một từ, một câu, một ký hiệu.",
+      "structures": ["A は どういう いみですか。", "A は B と いう いみです。"],
+      "explanation": ["B chia ở thể thường."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Hỏi và giải thích nghĩa",
+          "detail": "Cái này nghĩa là gì.",
+          "examples": [
+            {
+              "japanese": "この マークは どういう いみですか。",
+              "vietnamese": "Ký hiệu này nghĩa là gì vậy?"
+            },
+            {
+              "japanese": "「ひだりへ まがるな」と いう いみです。",
+              "vietnamese": "Nghĩa là cấm rẽ trái."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～と いって いました / ～と つたえて いただけませんか",
+      "summary": "Truyền đạt lại lời của người thứ ba, và nhờ người khác nhắn hộ.",
+      "structures": ["… と いって いました — đã nói là ~", "… と つたえて いただけませんか — nhắn giúp tôi là ~"],
+      "explanation": [
+        "Lời nhắn có thể trích nguyên văn trong ngoặc, hoặc chia về thể thường rồi thêm と.",
+        "つたえて いただけませんか là cách nhờ lịch sự (xem lại ～ていただけませんか bài 26)."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Truyền đạt lời người khác",
+          "detail": "Nghe được từ chính người đó.",
+          "examples": [
+            {
+              "japanese": "30ぷんで もどると いって いました。",
+              "vietnamese": "Chị ấy nhắn là 30 phút nữa sẽ quay lại."
+            }
+          ]
+        },
+        {
+          "title": "Nhờ nhắn lại giúp",
+          "detail": "Cách nói lịch sự khi nhờ chuyển lời.",
+          "examples": [
+            {
+              "japanese": "すみませんが、あした こられないと つたえて いただけませんか。",
+              "vietnamese": "Xin lỗi, nhờ anh nhắn lại giúp là ngày mai tôi không đến được ạ."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

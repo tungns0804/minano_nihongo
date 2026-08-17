@@ -1,0 +1,359 @@
+<div class="container page">
+  @if (loading()) {
+    <div class="notice">{{ t('lesson.loading') }}</div>
+  } @else if (notFound()) {
+    <div class="stack">
+      <div class="notice notice-error">
+        {{ t('lesson.notFound', { id: lessonId() }) }}
+      </div>
+      <div><a class="btn" routerLink="/grammar">{{ t('grammar.back') }}</a></div>
+    </div>
+  } @else if (lesson(); as data) {
+    <div class="stack" style="gap: 22px">
+      <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
+      <header class="stack" style="gap: 8px">
+        <a class="back-link" routerLink="/grammar">{{ t('grammar.back') }}</a>
+        <div class="row">
+          <h1>{{ data.name }}</h1>
+          @if (data.origin === 'custom') {
+            <span class="badge badge-accent">{{ t('common.custom') }}</span>
+          }
+        </div>
+        @if (data.description) {
+          <p class="muted jp">{{ data.description }}</p>
+        }
+        <div class="row">
+          <span class="badge">
+            <app-t key="kind.grammar.unit" [params]="{ count: data.itemCount }" />
+          </span>
+          <span class="badge">
+            <app-t key="grammar.exampleCount" [params]="{ count: exampleCount() }" />
+          </span>
+          <span class="badge badge-warning">
+            {{ t('home.favoriteCount', { count: favoriteCount() }) }}
+          </span>
+        </div>
+      </header>
+
+      <!-- ── Mục lục: nhảy nhanh tới từng mẫu ────────────────────────────── -->
+      @if (points().length > 1) {
+        <nav class="field" [attr.aria-label]="t('grammar.contents')">
+          <span class="label">{{ t('grammar.contents') }}</span>
+          <!-- Nút cuộn chứ không phải <a href="#..."> : bản offline định tuyến bằng
+               dấu # (withHashLocation), nên một href bắt đầu bằng # sẽ bị router
+               hiểu thành đường dẫn và ném người dùng ra khỏi trang. -->
+          <div class="toc">
+            @for (point of points(); track point.id) {
+              <button type="button" class="toc-link jp" (click)="scrollToPoint(point.id)">
+                {{ point.title }}
+              </button>
+            }
+          </div>
+        </nav>
+      }
+
+      <!-- ── Lý thuyết: từng mẫu ngữ pháp một ────────────────────────────── -->
+      @for (point of points(); track point.id; let index = $index) {
+        <section class="card point-card" [id]="'point-' + point.id">
+          <div class="card-body stack" style="gap: 18px">
+            <div class="point-head">
+              <span class="point-index" aria-hidden="true">{{ index + 1 }}</span>
+              <div class="stack" style="gap: 4px">
+                <h2 class="jp point-title">{{ point.title }}</h2>
+                @if (point.summary) {
+                  <p class="muted">{{ point.summary }}</p>
+                }
+              </div>
+            </div>
+
+            @if (point.structures.length > 0) {
+              <div class="field">
+                <span class="label">{{ t('grammar.structure') }}</span>
+                <!-- Các danh sách chuỗi dưới đây track theo $index chứ không theo giá
+                     trị: chúng là danh sách theo vị trí, không có id, và hai phần tử
+                     trùng nội dung (ví dụ hai ô tiêu đề cùng để trống ở bảng so sánh)
+                     sẽ làm Angular ném lỗi trùng khoá. -->
+                <ul class="structure-list">
+                  @for (structure of point.structures; track $index) {
+                    <li class="structure jp">{{ structure }}</li>
+                  }
+                </ul>
+              </div>
+            }
+
+            @if (point.explanation.length > 0) {
+              <div class="field">
+                <span class="label">{{ t('grammar.explanation') }}</span>
+                <div class="stack" style="gap: 8px">
+                  @for (paragraph of point.explanation; track $index) {
+                    <p class="explain">{{ paragraph }}</p>
+                  }
+                </div>
+              </div>
+            }
+
+            @if (point.tables.length > 0) {
+              <div class="table-grid">
+                @for (table of point.tables; track $index) {
+                  <div class="stack" style="gap: 6px">
+                    @if (table.caption) {
+                      <span class="label">{{ table.caption }}</span>
+                    }
+                    <div class="scroll-x">
+                      <table class="grammar-table">
+                        @if (table.headers.length > 0) {
+                          <thead>
+                            <tr>
+                              @for (header of table.headers; track $index) {
+                                <th scope="col">{{ header }}</th>
+                              }
+                            </tr>
+                          </thead>
+                        }
+                        <tbody>
+                          @for (row of table.rows; track $index) {
+                            <tr>
+                              @for (cell of row; track $index) {
+                                <td class="jp">{{ cell }}</td>
+                              }
+                            </tr>
+                          }
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                }
+              </div>
+            }
+
+            @if (point.notes.length > 0) {
+              <div class="notice notice-warning">
+                <div class="stack" style="gap: 6px; width: 100%">
+                  <strong>{{ t('grammar.notes') }}</strong>
+                  <ul class="note-list">
+                    @for (note of point.notes; track $index) {
+                      <li>{{ note }}</li>
+                    }
+                  </ul>
+                </div>
+              </div>
+            }
+
+            <div class="field">
+              <span class="label">{{ t('grammar.usages') }}</span>
+              <div class="stack" style="gap: 14px">
+                @for (usage of point.usages; track usage.id) {
+                  <div class="usage">
+                    <h3 class="usage-title">{{ usage.title }}</h3>
+                    @if (usage.detail) {
+                      <p class="muted small">{{ usage.detail }}</p>
+                    }
+                    <ul class="example-list">
+                      @for (example of usage.examples; track example.id) {
+                        <li class="example">
+                          <button
+                            type="button"
+                            class="star-btn"
+                            [class.is-on]="isFavorite(example.id)"
+                            (click)="toggleFavorite(example.id)"
+                            [attr.aria-pressed]="isFavorite(example.id)"
+                            [attr.aria-label]="t('grammar.star')"
+                            [title]="t('grammar.star')"
+                          >
+                            {{ isFavorite(example.id) ? '★' : '☆' }}
+                          </button>
+                          <div class="example-body">
+                            <p class="example-jp jp">{{ example.japanese }}</p>
+                            @if (example.reading) {
+                              <p class="example-reading jp faint small">{{ example.reading }}</p>
+                            }
+                            <p class="example-vi muted">{{ example.vietnamese }}</p>
+                            @if (example.note) {
+                              <p class="example-note faint small">{{ example.note }}</p>
+                            }
+                          </div>
+                        </li>
+                      }
+                    </ul>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </section>
+      }
+
+      <!-- ── Thiết lập luyện tập ─────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack" style="gap: 20px">
+          <h2>{{ t('grammar.practice') }}</h2>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.scope') }}</span>
+            <div class="options options-2">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'all'"
+                (click)="setScope('all')"
+              >
+                {{ t('lesson.scope.all', { count: exampleCount() }) }}
+              </button>
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'favorite'"
+                [disabled]="favoriteCount() === 0"
+                (click)="setScope('favorite')"
+              >
+                {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+              </button>
+            </div>
+            @if (favoriteCount() === 0) {
+              <span class="hint"><app-t key="grammar.scope.hint" block /></span>
+            } @else {
+              <div>
+                <button type="button" class="btn btn-sm btn-ghost" (click)="clearFavorites()">
+                  {{ t('lesson.clearFavorites') }}
+                </button>
+              </div>
+            }
+          </div>
+
+          @if (points().length > 1) {
+            <div class="field">
+              <span class="label">{{ t('grammar.points') }}</span>
+              <div class="options options-2">
+                @for (point of points(); track point.id) {
+                  <button
+                    type="button"
+                    class="option option-stacked"
+                    [class.is-active]="isPointSelected(point.id)"
+                    (click)="togglePoint(point.id)"
+                    [attr.aria-pressed]="isPointSelected(point.id)"
+                  >
+                    <strong class="jp">{{ point.title }}</strong>
+                    <span class="option-example">
+                      <app-t key="grammar.exampleCount" [params]="{ count: exampleCountOf(point) }" />
+                    </span>
+                  </button>
+                }
+              </div>
+              <span class="hint"><app-t key="grammar.points.hint" block /></span>
+            </div>
+          }
+
+          <div class="field">
+            <span class="label">{{ t('lesson.direction') }}</span>
+            <div class="options options-2">
+              @for (item of directions; track item.id) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="direction() === item.id"
+                  (click)="setDirection(item.id)"
+                >
+                  <app-t [key]="item.labelKey" />
+                </button>
+              }
+            </div>
+            <span class="hint"><app-t key="grammar.typingOnly" block /></span>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.questionCount') }}</span>
+            <div class="options options-limit">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === null"
+                (click)="setQuestionLimit(null)"
+              >
+                {{ t('common.all') }}
+              </button>
+              @for (limit of limitChoices(); track limit) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="questionLimit() === limit"
+                  (click)="setQuestionLimit(limit)"
+                >
+                  {{ t('lesson.questionCount.n', { count: limit }) }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.options') }}</span>
+            <div class="options options-2">
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showGrammarHint()" (change)="toggleShowHint($event)" />
+                <span>
+                  <strong><app-t key="grammar.option.showHint" block /></strong>
+                  <span class="hint"><app-t key="grammar.option.showHintHint" block /></span>
+                </span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+                <span>
+                  <strong><app-t key="lesson.option.shuffle" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                </span>
+              </label>
+
+              <!-- Bỏ dấu tiếng Việt chỉ có nghĩa khi ĐÁP ÁN là tiếng Việt; ở chiều
+                   Việt → Nhật thì đáp án là kana nên tuỳ chọn này vô nghĩa. -->
+              <label
+                class="checkbox"
+                [class.is-disabled]="currentDirection().id !== 'jp-vi'"
+                [title]="
+                  currentDirection().id === 'jp-vi' ? '' : t('grammar.option.diacriticsDisabled')
+                "
+              >
+                <input
+                  type="checkbox"
+                  [checked]="ignoreDiacritics() && currentDirection().id === 'jp-vi'"
+                  [disabled]="currentDirection().id !== 'jp-vi'"
+                  (change)="toggleIgnoreDiacritics($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="start-bar">
+            <div class="small muted">
+              <app-t
+                key="lesson.plan"
+                block
+                [params]="{
+                  count: plannedQuestionCount(),
+                  mode: modeShort(),
+                  answer: t('lesson.plan.typing'),
+                  max: maxWrongAttempts
+                }"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              [disabled]="!canStart()"
+              (click)="start()"
+            >
+              {{ t('lesson.start') }}
+            </button>
+          </div>
+
+          @if (!canStart()) {
+            <p class="hint">{{ t('lesson.emptyScope') }}</p>
+          }
+        </div>
+      </section>
+    </div>
+  }
+</div>

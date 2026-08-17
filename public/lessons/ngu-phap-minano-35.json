@@ -1,0 +1,280 @@
+{
+  "id": "ngu-phap-minano-35",
+  "name": "皆の日本語 — Bài 35 · Ngữ pháp",
+  "description": "Thể điều kiện ば, N なら, ～ば いいですか, càng ~ càng ~",
+  "kind": "grammar",
+  "itemCount": 4,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "07wghid",
+      "title": "Thể điều kiện 条件形（ば形）",
+      "summary": "Nếu ~ thì ~. Nêu điều kiện dẫn tới một kết quả tất yếu, hoặc điều kiện để mình quyết định.",
+      "structures": [
+        "V thể điều kiện、vế 2",
+        "Aい bỏ い ＋ ければ",
+        "Aな ＋ なら",
+        "N ＋ なら"
+      ],
+      "explanation": [
+        "Điều kiện — kết quả: A xảy ra thì B tất yếu theo sau, đúng với quy luật tự nhiên hay quy định.",
+        "Điều kiện — quyết định: nếu A thì tôi sẽ làm B. Vế sau là ý chí của người nói."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Động từ nhóm 1 — hàng い đổi sang hàng え ＋ ば",
+          "headers": [
+            "Thể ます",
+            "Thể điều kiện"
+          ],
+          "rows": [
+            [
+              "いきます",
+              "いけば"
+            ],
+            [
+              "およぎます",
+              "およげば"
+            ],
+            [
+              "かいます",
+              "かえば"
+            ],
+            [
+              "のみます",
+              "のめば"
+            ]
+          ]
+        },
+        {
+          "caption": "Động từ nhóm 2 và 3",
+          "headers": [
+            "Thể ます",
+            "Thể điều kiện"
+          ],
+          "rows": [
+            [
+              "たべます",
+              "たべれば"
+            ],
+            [
+              "みます",
+              "みれば"
+            ],
+            [
+              "します",
+              "すれば"
+            ],
+            [
+              "べんきょうします",
+              "べんきょうすれば"
+            ],
+            [
+              "きます",
+              "くれば"
+            ]
+          ]
+        },
+        {
+          "caption": "Tính từ và danh từ",
+          "headers": [
+            "Từ gốc",
+            "Thể điều kiện"
+          ],
+          "rows": [
+            [
+              "たかい",
+              "たかければ"
+            ],
+            [
+              "やすい",
+              "やすければ"
+            ],
+            [
+              "ない",
+              "なければ"
+            ],
+            [
+              "ゆうめい (Aな)",
+              "ゆうめいなら"
+            ],
+            [
+              "げんき (Aな)",
+              "げんきなら"
+            ],
+            [
+              "あめ (N)",
+              "あめなら"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Điều kiện dẫn tới kết quả tất yếu",
+          "detail": "A thì tất nhiên B.",
+          "examples": [
+            {
+              "id": "1l105rb",
+              "japanese": "あきに なれば、はの いろが かわります。",
+              "reading": "",
+              "vietnamese": "Cứ sang thu là lá đổi màu.",
+              "note": ""
+            },
+            {
+              "id": "1090d7s",
+              "japanese": "この しけんに ごうかくすれば、だいがくに はいれます。",
+              "reading": "",
+              "vietnamese": "Nếu đỗ kỳ thi này thì vào được đại học.",
+              "note": ""
+            },
+            {
+              "id": "1xid4wo",
+              "japanese": "いしゃの いう とおりに くすりを のめば、びょうきが なおります。",
+              "reading": "",
+              "vietnamese": "Nếu uống thuốc theo đúng lời bác sĩ thì bệnh sẽ khỏi.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Điều kiện để người nói quyết định",
+          "detail": "Vế sau là ý định của mình.",
+          "examples": [
+            {
+              "id": "1gr3uur",
+              "japanese": "あした、あめなら かいしゃを やすもうと おもいます。",
+              "reading": "",
+              "vietnamese": "Nếu mai mưa thì tôi định nghỉ làm.",
+              "note": ""
+            },
+            {
+              "id": "0t2og0s",
+              "japanese": "やすければ、かいます。",
+              "reading": "",
+              "vietnamese": "Nếu rẻ thì tôi mua.",
+              "note": ""
+            },
+            {
+              "id": "1c2n7b4",
+              "japanese": "ほかの いけんが なければ、おわりましょう。",
+              "reading": "",
+              "vietnamese": "Nếu không còn ý kiến nào khác thì ta kết thúc thôi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13s7zeu",
+      "title": "N なら",
+      "summary": "Nhắc lại chủ đề mà người kia vừa nêu rồi mới trả lời — \"nếu là ~ thì\".",
+      "structures": [
+        "N ＋ なら、…"
+      ],
+      "explanation": [
+        "Người nói lấy đúng từ mà đối phương vừa dùng làm chủ đề, rồi đưa thông tin liên quan."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nhắc lại chủ đề đối phương nêu",
+          "detail": "Trả lời có trọng tâm.",
+          "examples": [
+            {
+              "id": "02lbo41",
+              "japanese": "ペットなら、いぬや ねこなど かえますよ。",
+              "reading": "",
+              "vietnamese": "Nếu là thú cưng thì chó với mèo nuôi được đấy.",
+              "note": "Trả lời cho この マンションで ペットが かえますか。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1gvb3ox",
+      "title": "V thể điều kiện ＋ いいですか",
+      "summary": "Xin lời khuyên — nên làm thế nào thì được. Cùng nghĩa với ～たら いいですか (bài 26).",
+      "structures": [
+        "… んですが、どう すれば いいですか。",
+        "V thể điều kiện ＋ いいです — nên ~"
+      ],
+      "explanation": [
+        "Hay đi cùng nghi vấn từ: どう, どこで, なにを, いつ…"
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Xin lời khuyên",
+          "detail": "Nêu hoàn cảnh rồi hỏi.",
+          "examples": [
+            {
+              "id": "11cojsh",
+              "japanese": "さいふを なくして しまったんですが、どう すれば いいですか。",
+              "reading": "",
+              "vietnamese": "Tôi trót đánh mất ví rồi, nên làm thế nào đây?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07skbm5",
+      "title": "～ば ～ほど — càng ~ càng ~",
+      "summary": "Mức độ của vế sau tăng theo mức độ của vế trước.",
+      "structures": [
+        "V điều kiện ＋ V る ＋ ほど",
+        "Aい điều kiện ＋ Aい ＋ ほど",
+        "Aな なら ＋ Aな ＋ ほど"
+      ],
+      "explanation": [
+        "Cùng một từ lặp lại hai lần: một lần ở thể điều kiện, một lần ở thể từ điển rồi thêm ほど.",
+        "Riêng động từ nhóm 3, phần trước ほど bỏ được danh từ: べんきょうすれば するほど."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Càng ~ càng ~",
+          "detail": "Hai vế cùng tăng.",
+          "examples": [
+            {
+              "id": "0ckbaru",
+              "japanese": "おおければ おおいほど いいです。",
+              "reading": "",
+              "vietnamese": "Càng nhiều càng tốt.",
+              "note": ""
+            },
+            {
+              "id": "1he4fgq",
+              "japanese": "たべれば たべるほど ふとります。",
+              "reading": "",
+              "vietnamese": "Càng ăn càng béo.",
+              "note": ""
+            },
+            {
+              "id": "15dj0uf",
+              "japanese": "べんきょうすれば するほど じょうずに なります。",
+              "reading": "",
+              "vietnamese": "Càng học càng giỏi lên.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

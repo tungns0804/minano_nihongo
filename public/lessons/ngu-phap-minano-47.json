@@ -1,0 +1,208 @@
+{
+  "id": "ngu-phap-minano-47",
+  "name": "皆の日本語 — Bài 47 · Ngữ pháp",
+  "description": "～そうです (nghe nói), ～ようです, N が します",
+  "kind": "grammar",
+  "itemCount": 3,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "0g1bese",
+      "title": "Thể ngắn ＋ そうです — nghe nói là",
+      "summary": "Truyền đạt lại thông tin nghe được từ nguồn khác, không thêm ý kiến của mình.",
+      "structures": [
+        "V／Aい／Aな だ／N だ thể ngắn ＋ そうです"
+      ],
+      "explanation": [
+        "Nguồn tin nêu bằng ～に よると: theo như ~.",
+        "Khác hẳn ～そうです của bài 43: bài 43 nối vào thể ます (ふりそう — trông có vẻ sắp mưa), bài này nối vào thể ngắn (ふるそう — nghe nói trời sẽ mưa)."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "So với ～と いって いました (bài 33)",
+          "headers": [
+            "",
+            "～そうです",
+            "～と いって いました"
+          ],
+          "rows": [
+            [
+              "Nguồn tin",
+              "Có thể là bất kỳ ai, không cần nghe trực tiếp",
+              "Chính người đó nói, mình nghe trực tiếp"
+            ],
+            [
+              "Cách nối",
+              "Chỉ thể ngắn",
+              "Trích nguyên văn hoặc thể thường"
+            ]
+          ]
+        },
+        {
+          "caption": "Ba mẫu suy đoán dễ nhầm",
+          "headers": [
+            "Mẫu",
+            "Nghĩa",
+            "Căn cứ"
+          ],
+          "rows": [
+            [
+              "V ます ＋ そうです (bài 43)",
+              "Trông có vẻ ~",
+              "Nhìn bằng mắt"
+            ],
+            [
+              "Thể ngắn ＋ そうです (bài 47)",
+              "Nghe nói là ~",
+              "Nghe từ nguồn khác"
+            ],
+            [
+              "Thể ngắn ＋ ようです (bài 47)",
+              "Hình như là ~",
+              "Cảm nhận của chính mình"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Truyền đạt tin nghe được",
+          "detail": "Nêu nguồn bằng ～に よると.",
+          "examples": [
+            {
+              "id": "059vg4h",
+              "japanese": "てんきよほうに よると、あした あめが ふるそうです。",
+              "reading": "",
+              "vietnamese": "Theo dự báo thời tiết thì mai trời sẽ mưa.",
+              "note": ""
+            },
+            {
+              "id": "1wlapxa",
+              "japanese": "せんせいの はなしに よると、にほんの ぶんかは とても おもしろいそうです。",
+              "reading": "",
+              "vietnamese": "Theo lời cô giáo thì văn hoá Nhật rất thú vị.",
+              "note": ""
+            },
+            {
+              "id": "0l44xv8",
+              "japanese": "だいがくに ごうかくしたそうですね。おめでとうございます。",
+              "reading": "",
+              "vietnamese": "Nghe nói cháu đã đỗ đại học. Chúc mừng nhé.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1isx8zb",
+      "title": "～ようです — hình như là",
+      "summary": "Suy đoán dựa trên cảm nhận của chính năm giác quan mình, nên có thể sai.",
+      "structures": [
+        "V る／V ない／V た ＋ ようです",
+        "Aい ＋ ようです",
+        "Aな な ＋ ようです",
+        "N の ＋ ようです"
+      ],
+      "explanation": [
+        "Người nói tự cảm thấy, tự suy ra từ những gì mình nghe, ngửi, nhìn, sờ thấy.",
+        "Hay đi kèm どうも với nghĩa \"không rõ có đúng không nhưng tôi thấy hình như là\"."
+      ],
+      "notes": [
+        "Aな nối bằng な, N nối bằng の: ○きらいなようです, ×きらいようです."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Suy đoán từ cảm nhận bản thân",
+          "detail": "Không chắc chắn, có thể sai.",
+          "examples": [
+            {
+              "id": "19el93y",
+              "japanese": "せきが でるし、あたまも いたい。どうも かぜを ひいたようです。",
+              "reading": "",
+              "vietnamese": "Tôi vừa ho vừa đau đầu. Hình như bị cảm rồi.",
+              "note": ""
+            },
+            {
+              "id": "0i1q8bm",
+              "japanese": "へやに だれかが はいったようです。",
+              "reading": "",
+              "vietnamese": "Hình như có ai đó đã vào phòng.",
+              "note": ""
+            },
+            {
+              "id": "0h3bh6o",
+              "japanese": "どうも じこのようですね。",
+              "reading": "",
+              "vietnamese": "Có vẻ như là tai nạn nhỉ.",
+              "note": ""
+            },
+            {
+              "id": "1m9dnv7",
+              "japanese": "かれの おくさんは タバコの においが きらいなようです。",
+              "reading": "",
+              "vietnamese": "Hình như vợ anh ấy rất ghét mùi thuốc lá.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0iy8u89",
+      "title": "N が します",
+      "summary": "Cảm nhận được bằng giác quan: có mùi, có tiếng, có cảm giác.",
+      "structures": [
+        "N が します"
+      ],
+      "explanation": [
+        "Đứng trước が là danh từ chỉ mùi, hương, vị, tiếng động, cảm giác: におい, かおり, あじ, おと, こえ, きぶん, はきけ, さむけ."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Có mùi, có tiếng, có cảm giác",
+          "detail": "Nhận biết bằng giác quan.",
+          "examples": [
+            {
+              "id": "14cudf6",
+              "japanese": "この はなは いい かおりが しますね。",
+              "reading": "",
+              "vietnamese": "Bông hoa này có mùi thơm nhỉ.",
+              "note": ""
+            },
+            {
+              "id": "1iu9f78",
+              "japanese": "どこか あかちゃんの なく こえが します。",
+              "reading": "",
+              "vietnamese": "Có tiếng em bé khóc ở đâu đó.",
+              "note": ""
+            },
+            {
+              "id": "0sb79rj",
+              "japanese": "しょくじを すると はきけが します。",
+              "reading": "",
+              "vietnamese": "Cứ ăn vào là tôi thấy buồn nôn.",
+              "note": ""
+            },
+            {
+              "id": "0d5tumj",
+              "japanese": "おおきな おとが します。こうつうじこが おこったようです。",
+              "reading": "",
+              "vietnamese": "Có tiếng động lớn. Hình như đã xảy ra tai nạn giao thông.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

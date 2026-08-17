@@ -1,0 +1,177 @@
+{
+  "points": [
+    {
+      "title": "さしあげます・あげます・やります",
+      "summary": "Mình cho ai đó cái gì. Chọn động từ theo vị thế của người nhận.",
+      "structures": ["わたしは ひとに N を ＋ さしあげます／あげます／やります"],
+      "explanation": [
+        "さしあげます — người nhận là người trên, thể hiện sự kính trọng.",
+        "あげます — người nhận ngang hàng với mình.",
+        "やります — người nhận là người dưới, trẻ nhỏ, động vật, cây cối."
+      ],
+      "tables": [
+        {
+          "caption": "Chọn theo người nhận",
+          "headers": ["Người nhận", "Động từ"],
+          "rows": [
+            ["Người trên", "さしあげます"],
+            ["Người ngang hàng", "あげます"],
+            ["Người dưới, con vật, cây cối", "やります"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Biếu người trên",
+          "detail": "Dùng さしあげます.",
+          "examples": [
+            {
+              "japanese": "わたしは ぶちょうに コーヒーを さしあげました。",
+              "vietnamese": "Tôi biếu trưởng phòng cà phê."
+            },
+            {
+              "japanese": "きょうしの ひに、せんせいに ネクタイを さしあげました。",
+              "vietnamese": "Ngày nhà giáo tôi biếu thầy cái cà vạt."
+            }
+          ]
+        },
+        {
+          "title": "Cho người dưới, con vật, cây cối",
+          "detail": "Dùng やります.",
+          "examples": [
+            {
+              "japanese": "わたしは むすこに ほんを よんで やりました。",
+              "vietnamese": "Tôi đọc sách cho con trai nghe."
+            },
+            {
+              "japanese": "まいあさ、いぬに えさを やります。",
+              "vietnamese": "Sáng nào tôi cũng cho chó ăn."
+            },
+            {
+              "japanese": "むすめと はなに みずを やります。",
+              "vietnamese": "Tôi cùng con gái tưới nước cho hoa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "くださいます・くれます",
+      "summary": "Ai đó cho TÔI cái gì. Chủ ngữ không bao giờ là わたし.",
+      "structures": ["Người trên は わたしに N を ＋ くださいます", "Người ngang hàng／người dưới は わたしに N を ＋ くれます"],
+      "explanation": [
+        "Chủ ngữ luôn là người khác — ngôi thứ hai hoặc thứ ba.",
+        "Người nhận có thể là mình hoặc người trong gia đình mình."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Người trên cho mình",
+          "detail": "Dùng くださいます.",
+          "examples": [
+            {
+              "japanese": "そつぎょうの とき、せんせいは わたしに ペンを くださいました。",
+              "vietnamese": "Khi tốt nghiệp, thầy giáo đã tặng tôi cây bút."
+            },
+            {
+              "japanese": "おかねが ないので、せんぱいは わたしに おかねを くださいました。",
+              "vietnamese": "Vì tôi không có tiền nên tiền bối đã cho tôi tiền."
+            }
+          ]
+        },
+        {
+          "title": "Người ngang hàng cho mình",
+          "detail": "Dùng くれます.",
+          "examples": [
+            {
+              "japanese": "たんじょうびに かいしゃの ひとは わたしに はなを くれました。",
+              "vietnamese": "Nhân sinh nhật, người trong công ty đã tặng hoa cho tôi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "いただきます・もらいます",
+      "summary": "Tôi nhận được cái gì, hoặc được ai đó làm cho việc gì. Chủ ngữ luôn là わたし.",
+      "structures": ["わたしは 人に N を ＋ いただきます／もらいます", "わたしは 人に V て ＋ いただきます／もらいます"],
+      "explanation": [
+        "いただきます dùng khi người cho là người trên; もらいます dùng với người ngang hàng hoặc dưới.",
+        "Ghép với thể て để nói mình được ai đó giúp việc gì — thể hiện lòng biết ơn."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Nhận đồ vật",
+          "detail": "N を いただきます／もらいます.",
+          "examples": [
+            {
+              "japanese": "わたしは しゃちょうに とけいを いただきました。",
+              "vietnamese": "Tôi nhận được cái đồng hồ từ giám đốc."
+            }
+          ]
+        },
+        {
+          "title": "Được ai đó làm cho việc gì",
+          "detail": "V て ＋ いただきます／もらいます.",
+          "examples": [
+            {
+              "japanese": "わたしは ともだちに ケーキを つくって もらいました。",
+              "vietnamese": "Tôi được bạn làm cho cái bánh."
+            },
+            {
+              "japanese": "わたしは すずきさんに にほんごを おしえて いただきました。",
+              "vietnamese": "Tôi được cô Suzuki dạy tiếng Nhật."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～て くださいませんか",
+      "summary": "Nhờ vả lịch sự — nằm giữa Vてください và Vていただけませんか.",
+      "structures": ["V て ＋ くださいませんか"],
+      "explanation": [
+        "Thang lịch sự: Vてください ＜ Vてくださいませんか ＜ Vていただけませんか (bài 26).",
+        "Dùng với người có địa vị, tuổi tác cao hơn hoặc người không quen."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Nhờ vả lịch sự",
+          "detail": "Nêu hoàn cảnh rồi mới nhờ.",
+          "examples": [
+            {
+              "japanese": "えきへ いきたいんですが、みちを おしえて くださいませんか。",
+              "vietnamese": "Tôi muốn đến ga, anh chỉ đường giúp tôi được không ạ?"
+            },
+            {
+              "japanese": "すみませんが、もう いちど せつめいして くださいませんか。",
+              "vietnamese": "Xin lỗi, anh giải thích lại một lần nữa giúp tôi được không ạ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N に — mục đích của hành động",
+      "summary": "Trợ từ に mang nghĩa \"để làm ~\": để làm quà, để làm kỷ niệm, để chúc mừng.",
+      "structures": ["N に ＋ V"],
+      "explanation": ["Danh từ đứng trước に là mục đích, không phải nơi chốn hay đối tượng."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Để làm ~",
+          "detail": "Nêu mục đích của việc làm.",
+          "examples": [
+            {
+              "japanese": "きねんに にんぎょうの しゃしんを とりました。",
+              "vietnamese": "Tôi chụp ảnh con búp bê để làm kỷ niệm."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

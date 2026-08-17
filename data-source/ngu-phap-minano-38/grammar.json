@@ -1,0 +1,147 @@
+{
+  "points": [
+    {
+      "title": "V る ＋ の は ＋ A です",
+      "summary": "Biến cả một hành động thành danh từ để làm chủ ngữ: \"việc làm ~ thì ~\".",
+      "structures": ["N を V る ＋ の は ＋ A です"],
+      "explanation": [
+        "の đứng sau động từ thể từ điển biến cả cụm đó thành một danh từ.",
+        "Tính từ hay đi cùng: むずかしい, やさしい, おもしろい, たいへん, きけん."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Việc làm ~ thì ~",
+          "detail": "Nhận xét về một hành động.",
+          "examples": [
+            {
+              "japanese": "サッカーを みるのは おもしろいです。",
+              "vietnamese": "Việc xem bóng đá thì thú vị."
+            },
+            {
+              "japanese": "しゅうかんを かえるのは むずかしいです。",
+              "vietnamese": "Việc thay đổi thói quen thì khó."
+            },
+            {
+              "japanese": "でんわを つかいながら、うんてんするのは きけんです。",
+              "vietnamese": "Việc vừa dùng điện thoại vừa lái xe thì nguy hiểm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V る ＋ の が ＋ A です",
+      "summary": "Nói về năng lực hoặc sở thích đối với một việc.",
+      "structures": ["N を V る ＋ の が ＋ A です"],
+      "explanation": [
+        "Tính từ chỉ năng lực: じょうず, へた, はやい, おそい.",
+        "Tính từ chỉ cảm xúc: すき, きらい."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Sở thích và năng lực",
+          "detail": "Giỏi, kém, thích, ghét việc gì.",
+          "examples": [
+            {
+              "japanese": "サッカーを みるのが すきです。",
+              "vietnamese": "Tôi thích xem bóng đá."
+            },
+            {
+              "japanese": "かのじょは はしるのが はやいです。",
+              "vietnamese": "Cô ấy chạy nhanh."
+            },
+            {
+              "japanese": "わたしは りょうりを つくるのが へたです。",
+              "vietnamese": "Tôi nấu ăn kém."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V る ＋ の を ＋ わすれました",
+      "summary": "Quên làm mất một việc.",
+      "structures": ["N を V る ＋ の を ＋ わすれました"],
+      "explanation": ["Khác với Nを わすれました (quên mang đồ): ở đây là quên THỰC HIỆN một hành động."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Quên làm việc gì",
+          "detail": "Hành động bị quên, không phải đồ vật.",
+          "examples": [
+            {
+              "japanese": "きのうの ばん、ねる とき、でんきを けすのを わすれました。",
+              "vietnamese": "Tối qua lúc đi ngủ tôi quên tắt đèn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V thể thường ＋ の を ＋ しって いますか",
+      "summary": "Hỏi người nghe có biết một thông tin hay không.",
+      "structures": ["V thể thường ＋ の を ＋ しって いますか"],
+      "explanation": [
+        "Trả lời khi không biết có hai kiểu: しりませんでした (nghe xong mới biết), しりません (nghe rồi vẫn không biết)."
+      ],
+      "tables": [
+        {
+          "caption": "Hai cách trả lời khi không biết",
+          "headers": ["Câu trả lời", "Ý nghĩa"],
+          "rows": [
+            ["いいえ、しりませんでした。", "Nghe câu hỏi xong thì mới biết"],
+            ["いいえ、しりません。", "Nghe rồi vẫn không biết"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Bạn có biết ~ không?",
+          "detail": "Hỏi về một thông tin cụ thể.",
+          "examples": [
+            {
+              "japanese": "きのう、しゃちょうが にゅういんしたのを しって いますか。",
+              "vietnamese": "Bạn có biết hôm qua giám đốc nhập viện không?"
+            },
+            {
+              "japanese": "この マンションで ペットが かえないのを しって いますか。",
+              "vietnamese": "Bạn có biết chung cư này không được nuôi thú cưng không?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～のは N です",
+      "summary": "Cách nói nhấn mạnh: đưa phần muốn nhấn ra cuối câu.",
+      "structures": ["V／Aい thể thường ＋ のは N です", "Aな／N thể thường bỏ だ thêm な ＋ のは N です"],
+      "explanation": ["Cùng một nội dung nhưng đổi trật tự để nhấn vào N ở cuối."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Nhấn vào danh từ ở cuối câu",
+          "detail": "So sánh hai cách nói cùng một ý.",
+          "examples": [
+            {
+              "japanese": "きせつで ふゆは いちばん さむいです。",
+              "vietnamese": "Trong các mùa thì mùa đông lạnh nhất.",
+              "note": "Cách nói bình thường."
+            },
+            {
+              "japanese": "きせつで いちばん さむいのは ふゆです。",
+              "vietnamese": "Mùa lạnh nhất trong các mùa là mùa đông.",
+              "note": "Cách nói nhấn mạnh."
+            },
+            {
+              "japanese": "たいてい、りょうりを つくるのは ははです。",
+              "vietnamese": "Người nấu ăn thường là mẹ tôi."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

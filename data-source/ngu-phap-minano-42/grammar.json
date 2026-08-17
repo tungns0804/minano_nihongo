@@ -1,0 +1,150 @@
+{
+  "points": [
+    {
+      "title": "～ために、vế 2",
+      "summary": "Nêu mục đích rõ ràng mà người nói quyết tâm đạt được — \"để\", \"vì\".",
+      "structures": ["V る ＋ ために、vế 2", "N の ＋ ために、vế 2"],
+      "explanation": [
+        "Động từ trước ために phải là động từ MANG Ý CHÍ — việc mình chủ động làm, thường là tha động từ đi với を.",
+        "Hai vế bắt buộc cùng một chủ ngữ."
+      ],
+      "tables": [
+        {
+          "caption": "Phân biệt với ように (bài 36)",
+          "headers": ["", "ように", "ために"],
+          "rows": [
+            ["Đứng trước", "V る／V ない, động từ không chủ ý, thể khả năng (が)", "V る／N の, động từ có ý chí (を)"],
+            ["Sắc thái", "Mong đạt được, không chắc chắn", "Mục đích rõ ràng, có quyết tâm"],
+            ["Chủ ngữ hai vế", "Có thể khác nhau", "Bắt buộc giống nhau"]
+          ]
+        },
+        {
+          "caption": "Cùng một ý, hai cách nói",
+          "headers": ["Câu", "Sắc thái"],
+          "rows": [
+            ["くるまが かえる ように、ちょきんして います", "Để có thể mua được ô tô — thuộc về khả năng"],
+            ["くるまを かう ために、ちょきんして います", "Để mua ô tô — mục đích rõ ràng"]
+          ]
+        }
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Để làm việc gì",
+          "detail": "Trước ために là động từ có ý chí.",
+          "examples": [
+            {
+              "japanese": "コンサートの チケットを かう ために、ならんで いるんです。",
+              "vietnamese": "Tôi đang xếp hàng để mua vé buổi hoà nhạc."
+            },
+            {
+              "japanese": "けんこうの ために、やさいを たくさん たべます。",
+              "vietnamese": "Tôi ăn nhiều rau để cho khoẻ."
+            }
+          ]
+        },
+        {
+          "title": "Vì ai đó, vì cái gì",
+          "detail": "Trước ために là Nの.",
+          "examples": [
+            {
+              "japanese": "かぞくの ために、おいしい りょうりを つくります。",
+              "vietnamese": "Tôi nấu món ngon cho gia đình."
+            },
+            {
+              "japanese": "しょうらいの ために、ちょきんして います。",
+              "vietnamese": "Tôi tiết kiệm tiền vì tương lai."
+            },
+            {
+              "japanese": "ひっこしの ために、くるまを かります。",
+              "vietnamese": "Tôi thuê xe để chuyển nhà."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N は V る ＋ のに つかいます",
+      "summary": "Nêu công dụng của một vật — \"cái này dùng để ~\".",
+      "structures": ["N は ＋ V る ＋ のに つかいます"],
+      "explanation": ["のに ở đây là の (danh từ hoá) ＋ に (mục đích), không phải のに nghĩa \"thế mà\" của bài 45."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Công dụng của vật",
+          "detail": "Vật này dùng vào việc gì.",
+          "examples": [
+            {
+              "japanese": "これは はを みがくのに つかいます。",
+              "vietnamese": "Cái này dùng để đánh răng."
+            },
+            {
+              "japanese": "この フォークは カニを たべるのに つかいます。",
+              "vietnamese": "Cái nĩa này dùng để ăn cua."
+            },
+            {
+              "japanese": "たいおんけいは ねつを はかるのに つかいます。",
+              "vietnamese": "Nhiệt kế dùng để đo nhiệt độ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N に / V る ＋ のに ＋ đánh giá",
+      "summary": "Đánh giá một việc là tiện, bất tiện, tốt, cần thiết cho mục đích nào đó.",
+      "structures": ["N に ＋ べんり／ふべん／いい／ひつよう です", "V る ＋ のに ＋ べんり／ふべん／いい／ひつよう です"],
+      "explanation": ["Tính từ hay dùng: べんり, ふべん, いい, ちょうどいい, ひつよう."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Tiện, tốt, cần thiết cho việc gì",
+          "detail": "Đưa ra nhận xét.",
+          "examples": [
+            {
+              "japanese": "パソコンは しごとに ひつようです。",
+              "vietnamese": "Máy tính thì cần thiết cho công việc."
+            },
+            {
+              "japanese": "この こうえんは みどりが おおくて、さんぽに いいです。",
+              "vietnamese": "Công viên này nhiều cây xanh, tốt cho việc đi dạo."
+            },
+            {
+              "japanese": "デパートは かいものに べんりです。",
+              "vietnamese": "Cửa hàng bách hoá thì tiện cho việc mua sắm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lượng từ ＋ は / も",
+      "summary": "は nhấn số lượng tối thiểu, も nhấn số lượng nhiều ngoài tưởng tượng.",
+      "structures": ["Lượng từ ＋ は — ít nhất là", "Lượng từ ＋ も — tận, những"],
+      "explanation": [],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Ít nhất là — は",
+          "detail": "Nhấn mức tối thiểu.",
+          "examples": [
+            {
+              "japanese": "えきまで いくのに 30ぷんは かかります。",
+              "vietnamese": "Đi đến ga mất ít nhất 30 phút."
+            }
+          ]
+        },
+        {
+          "title": "Tận, những — も",
+          "detail": "Nhấn số lượng nhiều bất ngờ.",
+          "examples": [
+            {
+              "japanese": "この たてものは まどが よっつも あります。",
+              "vietnamese": "Toà nhà này có tận bốn cái cửa sổ."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

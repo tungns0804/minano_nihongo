@@ -217,16 +217,41 @@
   font-size: 1.25rem;
 }
 
-/* Gõ cả một câu thì ô một dòng quá chật — nhưng vẫn dùng <input> chứ không đổi
-   sang <textarea>, để phím Enter giữ nguyên tác dụng nộp bài như các bài khác. */
-.answer-input.is-sentence,
-.answer-input.jp.is-sentence {
-  font-size: 1.05rem;
-  padding: 15px;
+/* Ô nhập cả một câu (bài hội thoại, bài ngữ pháp).
+
+   Trước đây đây cũng là <input> một dòng, và một câu tiếng Nhật dài luôn đẩy phần
+   đầu ra khỏi tầm nhìn: gõ xong không soát lại được câu mình vừa viết. <textarea>
+   cho chữ tự xuống dòng nên thấy trọn câu, và Enter vẫn nộp bài như cũ (Shift+Enter
+   mới xuống dòng) — xem `onAnswerEnter`. */
+.answer-textarea {
+  flex: 1;
+  min-width: 0;
+  min-height: 110px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  /* Kéo cao thêm được nếu câu dài, nhưng không kéo ngang để không phá bố cục hàng. */
+  resize: vertical;
+}
+
+.answer-textarea.jp {
+  font-size: 1.25rem;
+}
+
+/* Placeholder nhỏ hơn chữ người dùng gõ vào: nó chỉ là lời nhắc, không nên to ngang
+   nội dung thật — nhất là ở ô tiếng Nhật, nơi chữ được phóng lên 1.25rem. */
+.answer-input::placeholder,
+.answer-textarea::placeholder {
+  font-size: 0.88rem;
 }
 
 .typing-row .btn {
   flex-shrink: 0;
+}
+
+/* Nút bám đáy ô nhập cao thay vì bị kéo giãn hết chiều cao của nó. */
+.typing-row.is-sentence {
+  align-items: flex-end;
 }
 
 /* --- Thanh nhắc số lượt --- */
@@ -355,8 +380,12 @@
     min-height: 54px;
   }
 
-  .typing-row {
+  /* Xếp dọc thì ô nhập và nút đều chiếm trọn chiều ngang — bỏ căn phải của hàng
+     câu dài, nếu không hai thứ này co lại vừa bằng nội dung. */
+  .typing-row,
+  .typing-row.is-sentence {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .typing-row .btn {

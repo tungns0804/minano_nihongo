@@ -1,0 +1,142 @@
+{
+  "points": [
+    {
+      "title": "～ほうが いいです",
+      "summary": "Khuyên người nghe nên làm gì hoặc không nên làm gì.",
+      "structures": ["V た ＋ ほうが いいです (nên làm)", "V ない ＋ ほうが いいです (không nên làm)"],
+      "explanation": [
+        "Khẳng định dùng thể た chứ không phải thể る — đây là chỗ hay nhầm.",
+        "Người được khuyên vẫn tự quyết định làm hay không."
+      ],
+      "tables": [
+        {
+          "caption": "So với ～たら いいです (bài 26)",
+          "headers": ["Cách nói", "Sắc thái"],
+          "rows": [
+            ["～た ほうが いいです", "Khuyên nhủ, cảnh báo — không làm thì không ổn"],
+            ["～たら いいです", "Đề xuất, gợi ý — không làm cũng không sao"]
+          ]
+        }
+      ],
+      "notes": [
+        "Không dùng với người trên vì nghe như dạy đời. Với người trên thì dùng ～たら いいです cho nhẹ."
+      ],
+      "usages": [
+        {
+          "title": "Nên làm",
+          "detail": "Dùng thể た.",
+          "examples": [
+            {
+              "japanese": "びょうきですね。びょういんへ いった ほうが いいです。",
+              "vietnamese": "Bị ốm rồi nhỉ. Nên đi bệnh viện đi."
+            }
+          ]
+        },
+        {
+          "title": "Không nên làm",
+          "detail": "Dùng thể ない.",
+          "examples": [
+            {
+              "japanese": "おさけを のまない ほうが いいです。",
+              "vietnamese": "Không nên uống rượu."
+            },
+            {
+              "japanese": "ふとって いますから、あまい ものを たくさん たべない ほうが いいです。",
+              "vietnamese": "Vì đang béo nên không nên ăn nhiều đồ ngọt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "でしょう",
+      "summary": "Suy đoán có căn cứ, độ chắc chắn khoảng 70–80%.",
+      "structures": ["V thể ngắn ＋ でしょう", "Aい ＋ でしょう", "Aな (bỏ だ) ＋ でしょう", "N (bỏ だ) ＋ でしょう"],
+      "explanation": [
+        "Người nói dựa trên thông tin đang có mà phán đoán.",
+        "Hay đi kèm たぶん (chắc là) hoặc きっと (nhất định).",
+        "Nói với giọng lên cuối câu thì thành câu hỏi xác nhận: \"đúng không nhỉ?\"."
+      ],
+      "notes": ["Aな và N bỏ だ trước でしょう: げんきでしょう, あめでしょう."],
+      "usages": [
+        {
+          "title": "Suy đoán có căn cứ",
+          "detail": "Khoảng 70–80% chắc chắn.",
+          "examples": [
+            {
+              "japanese": "あした きっと あめが ふるでしょう。",
+              "vietnamese": "Ngày mai chắc chắn trời sẽ mưa."
+            },
+            {
+              "japanese": "てんきが いいですから、ふじさんが みえるでしょう。",
+              "vietnamese": "Vì trời đẹp nên chắc là nhìn thấy được núi Phú Sĩ."
+            },
+            {
+              "japanese": "たなかさんは びょうきなんですから、たぶん パーティーに さんかしないでしょう。",
+              "vietnamese": "Anh Tanaka bị ốm nên chắc là sẽ không dự tiệc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "かもしれません",
+      "summary": "Có thể là ~, độ chắc chắn chỉ khoảng 50% — thấp hơn hẳn でしょう.",
+      "structures": [
+        "V thể ngắn ＋ かもしれません",
+        "Aい ＋ かもしれません",
+        "Aな (bỏ だ) ＋ かもしれません",
+        "N (bỏ だ) ＋ かもしれません"
+      ],
+      "explanation": [
+        "Khả năng thấp nhưng vẫn có thể xảy ra.",
+        "Hay đi với もしかしたら (biết đâu).",
+        "Nói thân mật rút thành かもね, かもよ, hoặc chỉ かも."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Có thể là ~",
+          "detail": "Khả năng khoảng 50%.",
+          "examples": [
+            {
+              "japanese": "わたしは あした こられない かもしれません。",
+              "vietnamese": "Có thể ngày mai tôi không đến được."
+            },
+            {
+              "japanese": "もしかしたら らいねんの 3がつに そつぎょうしない かもしれません。",
+              "vietnamese": "Biết đâu tháng 3 năm sau tôi không tốt nghiệp được."
+            },
+            {
+              "japanese": "バスに まにあわない かもしれませんね。",
+              "vietnamese": "Có lẽ không kịp xe buýt rồi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lượng từ ＋ で",
+      "summary": "Nêu mức tiền, thời gian, số lượng cần thiết để làm được việc gì.",
+      "structures": ["Lượng từ ＋ で ＋ V"],
+      "explanation": ["で ở đây chỉ giới hạn: chỉ cần chừng đó là đủ."],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Mức cần thiết",
+          "detail": "Bao nhiêu tiền, bao lâu là đủ.",
+          "examples": [
+            {
+              "japanese": "20まんえんで パソコンが かえます。",
+              "vietnamese": "Có 20 vạn yên là mua được máy tính."
+            },
+            {
+              "japanese": "えきまで 30ぷんで いけますか。",
+              "vietnamese": "30 phút có đến được ga không?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -23,6 +23,19 @@ export const routes: Routes = [
     title: 'route.lesson',
     loadComponent: () => import('./features/lesson-detail/lesson-detail').then((m) => m.LessonDetail),
   },
+  // Bài ngữ pháp có nhánh riêng chứ không đi chung `lesson/:id`: nội dung của nó là
+  // một trang lý thuyết có phân cấp, không phải bảng dữ liệu như ba loại bài kia.
+  {
+    path: 'grammar',
+    title: 'route.grammar',
+    loadComponent: () => import('./features/grammar-list/grammar-list').then((m) => m.GrammarList),
+  },
+  {
+    path: 'grammar/:id',
+    title: 'route.grammarLesson',
+    loadComponent: () =>
+      import('./features/grammar-detail/grammar-detail').then((m) => m.GrammarDetail),
+  },
   {
     path: 'practice',
     title: 'route.practice',

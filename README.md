@@ -41,23 +41,64 @@ Ba việc script phải xử lý để chạy được bằng `file://` (trình 
 ### Bản chạy qua web server
 
 ```bash
-npm run build      # kết quả nằm ở dist/japanese-practice/browser
+npm run build      # kết quả nằm ở dist/minano-nihongo/browser
 ```
 
 Thư mục này là file tĩnh thuần, đưa lên bất kỳ web server nào cũng chạy, URL sạch không có `#`.
 Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài mới chỉ cần chạy lại
 `npm run generate`, không phải build lại toàn bộ.
 
-## Hai loại bài học
+## Các loại bài học
 
-| Loại | Nội dung | Dữ liệu |
-| --- | --- | --- |
-| **Từ vựng** | Nghĩa từ vựng, Kanji, âm Hán Việt | 3 cột |
-| **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) |
+| Loại | Nội dung | Dữ liệu | Nằm ở đâu |
+| --- | --- | --- | --- |
+| **Từ vựng** | Nghĩa từ vựng, Kanji, âm Hán Việt | 3 cột | Trang chủ |
+| **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) | Trang chủ |
+| **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Trang chủ |
+| **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp** |
 
-Trang chủ gom bài học theo hai nhóm này, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
+Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
 Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
 Bộ lọc chỉ xuất hiện khi có từ hai loại trở lên.
+
+**Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và kế hoạch là phủ
+hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
+một danh sách dài không đọc nổi.
+
+## Ngữ pháp
+
+Vào tab **Ngữ pháp** → chọn một bài. Trang bài gồm hai phần:
+
+**1. Lý thuyết.** Mỗi mẫu ngữ pháp là một thẻ riêng, có mục lục ở đầu trang để nhảy nhanh:
+
+- **Công thức** — `V thể ngắn ＋ んです`, `Aな [だ → な] ＋ んです`…
+- **Giải thích** bằng tiếng Việt.
+- **Bảng biến đổi** khi mẫu cần (bài 26 có 4 bảng: động từ, tính từ い, tính từ な, danh từ).
+- **Lưu ý** — các lỗi hay gặp, hiện trong khung vàng.
+- **Cách dùng**, mỗi cách dùng kèm các câu ví dụ minh hoạ đúng cách dùng đó. Bấm ★ ở câu nào
+  để đánh dấu câu hay quên.
+
+**2. Luyện viết câu theo mẫu.** Gõ tay cả câu, hai chiều:
+
+| Chiều | Câu hỏi | Đáp án |
+| --- | --- | --- |
+| Việt → Nhật | Tại sao bạn lại đến muộn vậy? | どうして おくれたんですか。 |
+| Nhật → Việt | どうして おくれたんですか。 | Tại sao bạn lại đến muộn vậy? |
+
+- **Chỉ có gõ đáp án**, không có trắc nghiệm — bốn câu dài bày ra để chọn thì đọc lướt là ra
+  đáp án mà chẳng phải nhớ mẫu ngữ pháp nào.
+- **Chọn mẫu đem ra luyện** — luyện riêng một mẫu hoặc trộn cả bài.
+- **Gợi ý mẫu ngữ pháp** hiện dưới câu hỏi (`～んです — V thể ngắn ＋ んです`). Tắt đi thì
+  phải tự nhớ ra mẫu nào hợp với câu.
+- Chấm điểm **bỏ qua dấu câu và khoảng trắng**: thiếu một dấu `。` không có nghĩa là dùng sai
+  ngữ pháp. Chiều Nhật → Việt còn nhận **các cách dịch tương đương** ngăn bằng dấu `/`.
+- Phạm vi **★ Chưa nhớ**, giới hạn số câu, trộn thứ tự — giống các loại bài khác.
+
+Bài ngữ pháp dùng lại nguyên màn hình luyện tập và màn hình kết quả của ba loại bài kia.
+
+**Hiện có: bài 26–50 trừ bài 39** — 24 bài, 87 mẫu ngữ pháp, 310 câu ví dụ, 48 bảng biến đổi.
+Bài 39 chưa có vì thư mục nguồn không có file `第39課.pptx`; thêm được ngay khi có nguồn, chỉ cần
+tạo `data-source/ngu-phap-minano-39/grammar.json` rồi chạy `npm run generate`.
 
 ## Chia động từ
 
@@ -226,6 +267,8 @@ Tóm tắt:
    | --- | --- |
    | Từ vựng | `vocabulary.txt`, `vocab.txt`, `tu-vung.txt`, `tuvung.txt` |
    | Chia động từ | `verbs.txt`, `verb.txt`, `dong-tu.txt`, `dongtu.txt` |
+   | Dịch hội thoại | `conversation.txt`, `dialog.txt`, `hoi-thoai.txt`, `hoithoai.txt` |
+   | Ngữ pháp | `grammar.json`, `ngu-phap.json`, `nguphap.json` |
 
    Tên khác thì script báo lỗi và dừng chứ không đoán. Một thư mục chỉ được chứa một loại;
    bài 34 có cả từ vựng lẫn động từ thì tách thành hai thư mục.
@@ -301,6 +344,8 @@ src/app/
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
       vocabulary-questions.ts    Câu hỏi cho bài từ vựng
       verb-questions.ts          Câu hỏi cho bài động từ + đáp án nhiễu
+      conversation-questions.ts  Câu hỏi cho bài hội thoại
+      grammar-questions.ts       Câu hỏi cho bài ngữ pháp
     services/
       lesson-store.ts            Nạp bài học từ JSON + localStorage
       favorite-store.ts          Danh sách mục chưa nhớ
@@ -313,6 +358,8 @@ src/app/
   features/
     lesson-list/                 Trang chủ
     lesson-detail/               Bảng từ vựng + thiết lập luyện tập
+    grammar-list/                Tab Ngữ pháp — danh sách bài
+    grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     practice/                    Màn hình làm bài
     result/                      Màn hình kết quả
     import-lesson/               Nạp bài mới

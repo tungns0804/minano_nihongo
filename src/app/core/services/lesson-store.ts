@@ -5,6 +5,10 @@ import { firstValueFrom } from 'rxjs';
 import type { MessageKey } from '../i18n/messages';
 import {
   ConversationLine,
+  GrammarExample,
+  GrammarPoint,
+  GrammarTable,
+  GrammarUsage,
   Lesson,
   LessonIndexEntry,
   LessonKind,
@@ -180,16 +184,21 @@ export class LessonStore {
   }
 }
 
-const KNOWN_KINDS: readonly LessonKind[] = ['vocabulary', 'verb', 'conversation'];
+const KNOWN_KINDS: readonly LessonKind[] = ['vocabulary', 'verb', 'conversation', 'grammar'];
 
 function sanitizeKind(raw: unknown): LessonKind {
   return KNOWN_KINDS.includes(raw as LessonKind) ? (raw as LessonKind) : 'vocabulary';
 }
 
 /** Số mục của một bài, tuỳ loại mà đếm mảng nào. */
-function countItems(lesson: Pick<Lesson, 'kind' | 'words' | 'verbs' | 'lines'>): number {
+function countItems(
+  lesson: Pick<Lesson, 'kind' | 'words' | 'verbs' | 'lines' | 'grammarPoints'>,
+): number {
   if (lesson.kind === 'verb') return lesson.verbs.length;
   if (lesson.kind === 'conversation') return lesson.lines.length;
+  // Bài ngữ pháp đếm theo số MẪU chứ không theo số câu ví dụ: "3 mẫu ngữ pháp" là
+  // thứ người học nhìn vào để biết bài nặng hay nhẹ, còn số ví dụ chỉ là hệ quả.
+  if (lesson.kind === 'grammar') return lesson.grammarPoints.length;
   return lesson.words.length;
 }
 
@@ -294,20 +303,146 @@ function sanitizeLines(raw: unknown): ConversationLine[] {
   });
 }
 
+/** Danh sách chuỗi: bỏ phần tử không phải chuỗi và phần tử rỗng. */
+function sanitizeTextList(raw: unknown): string[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.filter((item): item is string => typeof item === 'string' && item.length > 0);
+}
+
+function sanitizeGrammarTables(raw: unknown): GrammarTable[] {
+  if (!Array.isArray(raw)) return [];
+
+  return raw.flatMap((item): GrammarTable[] => {
+    if (!item || typeof item !== 'object') return [];
+    const { caption, headers, rows } = item as Record<string, unknown>;
+    if (!Array.isArray(rows)) return [];
+
+    const parsedRows = rows
+      .filter((row): row is unknown[] => Array.isArray(row))
+      .map((row) => row.map((cell) => (typeof cell === 'string' ? cell : '')))
+      .filter((row) => row.length > 0);
+    if (parsedRows.length === 0) return [];
+
+    // Tiêu đề cột giữ lại ô rỗng (bảng so sánh hay để trống ô góc), chỉ bỏ cả hàng
+    // khi không ô nào có chữ — xem ghi chú cùng nội dung trong scripts/vocab-core.mjs.
+    const parsedHeaders = Array.isArray(headers)
+      ? headers.map((cell) => (typeof cell === 'string' ? cell : ''))
+      : [];
+
+    return [
+      {
+        caption: typeof caption === 'string' ? caption : '',
+        headers: parsedHeaders.some((cell) => cell.length > 0) ? parsedHeaders : [],
+        rows: parsedRows,
+      },
+    ];
+  });
+}
+
+/**
+ * Câu ví dụ của bài ngữ pháp. `seen` dùng chung cho cả bài (không phải từng cách
+ * dùng) vì id là khoá của dấu ★ — hai câu trùng id thì bấm sao ở câu này sẽ sáng
+ * luôn ở câu kia.
+ */
+function sanitizeGrammarExamples(raw: unknown, seen: Set<string>): GrammarExample[] {
+  if (!Array.isArray(raw)) return [];
+
+  return raw.flatMap((item): GrammarExample[] => {
+    if (!item || typeof item !== 'object') return [];
+    const { id, japanese, reading, vietnamese, note } = item as Record<string, unknown>;
+    if (typeof id !== 'string' || typeof japanese !== 'string' || typeof vietnamese !== 'string') {
+      return [];
+    }
+    if (!id || !japanese || !vietnamese || seen.has(id)) return [];
+    seen.add(id);
+    return [
+      {
+        id,
+        japanese,
+        reading: typeof reading === 'string' ? reading : '',
+        vietnamese,
+        note: typeof note === 'string' ? note : '',
+      },
+    ];
+  });
+}
+
+function sanitizeGrammarUsages(raw: unknown, seen: Set<string>): GrammarUsage[] {
+  if (!Array.isArray(raw)) return [];
+
+  return raw.flatMap((item, index): GrammarUsage[] => {
+    if (!item || typeof item !== 'object') return [];
+    const { id, title, detail, examples } = item as Record<string, unknown>;
+    if (typeof title !== 'string' || !title) return [];
+
+    const parsedExamples = sanitizeGrammarExamples(examples, seen);
+    if (parsedExamples.length === 0) return [];
+
+    return [
+      {
+        id: typeof id === 'string' && id ? id : `u${index + 1}`,
+        title,
+        detail: typeof detail === 'string' ? detail : '',
+        examples: parsedExamples,
+      },
+    ];
+  });
+}
+
+function sanitizeGrammarPoints(raw: unknown): GrammarPoint[] {
+  if (!Array.isArray(raw)) return [];
+  const seenPointIds = new Set<string>();
+  const seenExampleIds = new Set<string>();
+
+  return raw.flatMap((item): GrammarPoint[] => {
+    if (!item || typeof item !== 'object') return [];
+    const { id, title, summary, structures, explanation, notes, tables, usages } = item as Record<
+      string,
+      unknown
+    >;
+    if (typeof id !== 'string' || !id || typeof title !== 'string' || !title) return [];
+    if (seenPointIds.has(id)) return [];
+
+    const parsedUsages = sanitizeGrammarUsages(usages, seenExampleIds);
+    // Mẫu không còn ví dụ nào thì không luyện được, và trang lý thuyết cũng trống —
+    // bỏ hẳn còn hơn hiện ra một mục cụt.
+    if (parsedUsages.length === 0) return [];
+    seenPointIds.add(id);
+
+    return [
+      {
+        id,
+        title,
+        summary: typeof summary === 'string' ? summary : '',
+        structures: sanitizeTextList(structures),
+        explanation: sanitizeTextList(explanation),
+        notes: sanitizeTextList(notes),
+        tables: sanitizeGrammarTables(tables),
+        usages: parsedUsages,
+      },
+    ];
+  });
+}
+
 function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
   if (!raw || typeof raw !== 'object') return null;
-  const { id, name, description, words, verbs, lines, kind } = raw as Record<string, unknown>;
+  const { id, name, description, words, verbs, lines, grammarPoints, kind } = raw as Record<
+    string,
+    unknown
+  >;
   if (typeof id !== 'string' || !id) return null;
 
   const lessonKind = sanitizeKind(kind);
   const parsedWords = lessonKind === 'vocabulary' ? sanitizeWords(words) : [];
   const parsedVerbs = lessonKind === 'verb' ? sanitizeVerbs(verbs) : [];
   const parsedLines = lessonKind === 'conversation' ? sanitizeLines(lines) : [];
+  const parsedPoints = lessonKind === 'grammar' ? sanitizeGrammarPoints(grammarPoints) : [];
   const itemCount = countItems({
     kind: lessonKind,
     words: parsedWords,
     verbs: parsedVerbs,
     lines: parsedLines,
+    grammarPoints: parsedPoints,
   });
   if (itemCount === 0) return null;
 
@@ -320,6 +455,7 @@ function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
     words: parsedWords,
     verbs: parsedVerbs,
     lines: parsedLines,
+    grammarPoints: parsedPoints,
     origin,
   };
 }

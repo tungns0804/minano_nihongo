@@ -425,6 +425,242 @@ export function parseConversation(raw) {
   return { lines: result, issues };
 }
 
+/**
+ * Phân tích bài NGỮ PHÁP từ một file JSON.
+ *
+ * Vì sao dùng JSON chứ không phải .txt như ba loại bài kia: một mẫu ngữ pháp không
+ * phải một dòng phẳng mà là cả một cụm — công thức, giải thích, bảng biến đổi, các
+ * cách dùng, và mỗi cách dùng lại có nhiều câu ví dụ. Nhồi cấu trúc lồng nhau đó vào
+ * định dạng dòng-và-dấu-phẩy thì phải bịa thêm ký hiệu phân cấp, sửa một chữ là hỏng
+ * cả bài mà không báo lỗi ở đâu.
+ *
+ * Hình dạng mong đợi (mọi trường ngoài `title` và `examples[].japanese/vietnamese`
+ * đều tuỳ chọn):
+ *
+ *   {
+ *     "points": [{
+ *       "title": "～んです",
+ *       "summary": "…",
+ *       "structures": ["V thể ngắn ＋ んです"],
+ *       "explanation": ["…"],
+ *       "notes": ["…"],
+ *       "tables": [{ "caption": "Động từ", "headers": ["…"], "rows": [["…"]] }],
+ *       "usages": [{
+ *         "title": "…",
+ *         "detail": "…",
+ *         "examples": [{ "japanese": "…", "vietnamese": "…", "note": "…" }]
+ *       }]
+ *     }]
+ *   }
+ *
+ * Id câu ví dụ băm từ RIÊNG câu tiếng Nhật, giống bài hội thoại: sửa lại bản dịch
+ * tiếng Việt cho sát nghĩa hơn thì id giữ nguyên, dấu ★ của câu đó không mất.
+ *
+ * Issue trả về mang `path` (ví dụ `points[0].usages[1].examples[2]`) thay cho số dòng,
+ * vì JSON không có khái niệm "dòng thứ mấy" khi đã parse xong.
+ *
+ * @returns {{ points: Array, issues: Array }}
+ */
+export function parseGrammar(raw) {
+  const issues = [];
+  const points = [];
+
+  /** Ghi nhận một lỗi tại vị trí `path` trong cây JSON. */
+  const fail = (path, message) => {
+    issues.push({ line: 0, path, text: '', level: 'error', code: 'grammar-invalid', params: {}, message });
+  };
+  const warn = (path, message, code) => {
+    issues.push({ line: 0, path, text: '', level: 'warning', code, params: {}, message });
+  };
+
+  let parsed;
+  try {
+    parsed = JSON.parse(stripBom(String(raw ?? '')));
+  } catch (error) {
+    fail('(file)', `Không phải JSON hợp lệ: ${error.message}`);
+    return { points, issues };
+  }
+
+  const rawPoints = parsed && typeof parsed === 'object' ? parsed.points : null;
+  if (!Array.isArray(rawPoints)) {
+    fail('points', 'Thiếu mảng "points" ở cấp ngoài cùng');
+    return { points, issues };
+  }
+
+  const seenSentences = new Set();
+  const usedExampleIds = new Set();
+  const usedPointIds = new Set();
+
+  rawPoints.forEach((rawPoint, pointIndex) => {
+    const pointPath = `points[${pointIndex}]`;
+    if (!rawPoint || typeof rawPoint !== 'object') {
+      fail(pointPath, 'Mỗi phần tử của "points" phải là một object');
+      return;
+    }
+
+    const title = normalizeField(rawPoint.title ?? '');
+    if (!title) {
+      fail(pointPath, 'Thiếu "title" — tên mẫu ngữ pháp, ví dụ "～んです"');
+      return;
+    }
+
+    const usages = [];
+
+    toArray(rawPoint.usages).forEach((rawUsage, usageIndex) => {
+      const usagePath = `${pointPath}.usages[${usageIndex}]`;
+      if (!rawUsage || typeof rawUsage !== 'object') {
+        fail(usagePath, 'Mỗi phần tử của "usages" phải là một object');
+        return;
+      }
+
+      const usageTitle = normalizeField(rawUsage.title ?? '');
+      if (!usageTitle) {
+        fail(usagePath, 'Thiếu "title" — tên cách dùng');
+        return;
+      }
+
+      const examples = [];
+
+      toArray(rawUsage.examples).forEach((rawExample, exampleIndex) => {
+        const examplePath = `${usagePath}.examples[${exampleIndex}]`;
+        if (!rawExample || typeof rawExample !== 'object') {
+          fail(examplePath, 'Mỗi câu ví dụ phải là một object');
+          return;
+        }
+
+        const japanese = normalizeField(rawExample.japanese ?? '');
+        const vietnamese = normalizeField(rawExample.vietnamese ?? '');
+
+        const empty = [];
+        if (!japanese) empty.push('japanese');
+        if (!vietnamese) empty.push('vietnamese');
+        if (empty.length > 0) {
+          fail(examplePath, `Câu ví dụ thiếu trường: ${empty.join(', ')}`);
+          return;
+        }
+
+        // Trùng câu tiếng Nhật thì id sẽ trùng theo, mà id là khoá của dấu ★.
+        if (seenSentences.has(japanese)) {
+          warn(examplePath, `Trùng câu "${japanese}" đã có ở trên, câu này bị bỏ qua`, 'duplicate-sentence');
+          return;
+        }
+        seenSentences.add(japanese);
+
+        let id = hashId(japanese);
+        if (usedExampleIds.has(id)) {
+          let suffix = 2;
+          while (usedExampleIds.has(`${id}-${suffix}`)) suffix++;
+          id = `${id}-${suffix}`;
+        }
+        usedExampleIds.add(id);
+
+        examples.push({
+          id,
+          japanese,
+          reading: normalizeField(rawExample.reading ?? ''),
+          vietnamese,
+          note: normalizeField(rawExample.note ?? ''),
+        });
+      });
+
+      if (examples.length === 0) {
+        fail(usagePath, 'Cách dùng nào cũng phải có ít nhất một câu ví dụ dùng được');
+        return;
+      }
+
+      usages.push({
+        id: `u${usageIndex + 1}`,
+        title: usageTitle,
+        detail: normalizeField(rawUsage.detail ?? ''),
+        examples,
+      });
+    });
+
+    if (usages.length === 0) {
+      fail(pointPath, `Mẫu ngữ pháp "${title}" không có cách dùng nào kèm ví dụ`);
+      return;
+    }
+
+    let id = hashId(title);
+    if (usedPointIds.has(id)) {
+      let suffix = 2;
+      while (usedPointIds.has(`${id}-${suffix}`)) suffix++;
+      id = `${id}-${suffix}`;
+    }
+    usedPointIds.add(id);
+
+    points.push({
+      id,
+      title,
+      summary: normalizeField(rawPoint.summary ?? ''),
+      structures: toTextList(rawPoint.structures),
+      explanation: toTextList(rawPoint.explanation),
+      notes: toTextList(rawPoint.notes),
+      tables: parseGrammarTables(rawPoint.tables, pointPath, fail),
+      usages,
+    });
+  });
+
+  return { points, issues };
+}
+
+/** Trả về mảng như đã cho, hoặc mảng rỗng nếu giá trị không phải mảng. */
+function toArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+/**
+ * Chuẩn hoá một danh sách chuỗi. Nhận cả một chuỗi đơn lẻ (viết cho gọn khi chỉ có
+ * một dòng) lẫn mảng chuỗi, và bỏ hết phần tử rỗng.
+ */
+function toTextList(value) {
+  const list = typeof value === 'string' ? [value] : toArray(value);
+  return list.map((item) => normalizeField(item ?? '')).filter((item) => item.length > 0);
+}
+
+/** Bảng biến đổi kèm theo một mẫu ngữ pháp (ví dụ bảng ます → んです). */
+function parseGrammarTables(value, pointPath, fail) {
+  const tables = [];
+
+  toArray(value).forEach((rawTable, tableIndex) => {
+    const tablePath = `${pointPath}.tables[${tableIndex}]`;
+    if (!rawTable || typeof rawTable !== 'object') {
+      fail(tablePath, 'Mỗi phần tử của "tables" phải là một object');
+      return;
+    }
+
+    // Tiêu đề cột GIỮ lại ô rỗng thay vì lọc như các danh sách khác: bảng so sánh
+    // hay để trống ô góc trên bên trái (["", "ように", "ために"]). Lọc mất ô đó thì
+    // số tiêu đề ít hơn số ô của mỗi dòng, và bảng đúng lại bị báo là lệch cột.
+    const headers = toArray(rawTable.headers).map((item) => normalizeField(item ?? ''));
+    // Không ô nào có chữ nghĩa là bảng không có hàng tiêu đề.
+    if (headers.every((item) => item.length === 0)) headers.length = 0;
+
+    const rows = toArray(rawTable.rows)
+      .map((row) => toArray(row).map((cell) => normalizeField(cell ?? '')))
+      .filter((row) => row.some((cell) => cell.length > 0));
+
+    if (rows.length === 0) {
+      fail(tablePath, 'Bảng không có dòng dữ liệu nào');
+      return;
+    }
+
+    // Dòng thiếu ô so với tiêu đề sẽ vẽ ra bảng lệch cột — bắt ngay ở đây.
+    const lopsided = rows.findIndex((row) => headers.length > 0 && row.length !== headers.length);
+    if (lopsided >= 0) {
+      fail(
+        `${tablePath}.rows[${lopsided}]`,
+        `Dòng có ${rows[lopsided].length} ô nhưng bảng khai báo ${headers.length} tiêu đề cột`,
+      );
+      return;
+    }
+
+    tables.push({ caption: normalizeField(rawTable.caption ?? ''), headers, rows });
+  });
+
+  return tables;
+}
+
 /** Biến tên thư mục / tên bài thành slug an toàn để làm id và tên file. */
 export function slugify(value) {
   return stripDiacritics(String(value))

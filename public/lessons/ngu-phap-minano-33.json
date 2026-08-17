@@ -1,0 +1,410 @@
+{
+  "id": "ngu-phap-minano-33",
+  "name": "皆の日本語 — Bài 33 · Ngữ pháp",
+  "description": "Thể mệnh lệnh / cấm chỉ, ～なさい, ～と読みます, ～という意味です, ～と言っていました",
+  "kind": "grammar",
+  "itemCount": 5,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "0ga947z",
+      "title": "Thể mệnh lệnh 命令形 và thể cấm chỉ 禁止形",
+      "summary": "Ra lệnh phải làm (mệnh lệnh) hoặc cấm không được làm (cấm chỉ) — mạnh hơn hẳn Vてください.",
+      "structures": [
+        "V thể mệnh lệnh — bắt buộc làm",
+        "V る ＋ な — cấm làm"
+      ],
+      "explanation": [
+        "Đây là cách nói áp đặt, mạnh hơn nhiều so với Vてください và Vないでください.",
+        "Đa phần nam giới dùng. Nữ giới chỉ dùng khi cổ vũ thể thao.",
+        "Cuối câu thêm よ để làm mềm bớt: あした、いえへ こいよ。"
+      ],
+      "notes": [
+        "Động từ chỉ trạng thái không có thể mệnh lệnh: わかります, できます, あります, います, しります."
+      ],
+      "tables": [
+        {
+          "caption": "Thể mệnh lệnh — nhóm 1 (hàng い đổi sang hàng え)",
+          "headers": [
+            "Thể ます",
+            "Thể mệnh lệnh"
+          ],
+          "rows": [
+            [
+              "いきます",
+              "いけ"
+            ],
+            [
+              "およぎます",
+              "およげ"
+            ],
+            [
+              "かいます",
+              "かえ"
+            ],
+            [
+              "はしります",
+              "はしれ"
+            ]
+          ]
+        },
+        {
+          "caption": "Thể mệnh lệnh — nhóm 2 và 3",
+          "headers": [
+            "Thể ます",
+            "Thể mệnh lệnh"
+          ],
+          "rows": [
+            [
+              "たべます",
+              "たべろ"
+            ],
+            [
+              "みます",
+              "みろ"
+            ],
+            [
+              "します",
+              "しろ"
+            ],
+            [
+              "べんきょうします",
+              "べんきょうしろ"
+            ],
+            [
+              "きます",
+              "こい"
+            ]
+          ]
+        },
+        {
+          "caption": "Thể cấm chỉ — thể từ điển ＋ な",
+          "headers": [
+            "Thể ます",
+            "Thể cấm chỉ"
+          ],
+          "rows": [
+            [
+              "はずします",
+              "はずすな"
+            ],
+            [
+              "にげます",
+              "にげるな"
+            ],
+            [
+              "さわります",
+              "さわるな"
+            ],
+            [
+              "はいります",
+              "はいるな"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Bắt buộc người khác làm",
+          "detail": "Người lớn tuổi, người có chức vụ cao nói với người dưới.",
+          "examples": [
+            {
+              "id": "1cehnfa",
+              "japanese": "はやく ねろ！",
+              "reading": "",
+              "vietnamese": "Ngủ sớm đi!",
+              "note": ""
+            },
+            {
+              "id": "0mgt7nj",
+              "japanese": "ちゃんと べんきょうしろ！",
+              "reading": "",
+              "vietnamese": "Học hành cho nghiêm túc vào!",
+              "note": ""
+            },
+            {
+              "id": "04l5mjb",
+              "japanese": "あした、いえへ こいよ。",
+              "reading": "",
+              "vietnamese": "Ngày mai đến nhà tôi nhé.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Hô khẩu hiệu, tình huống khẩn cấp",
+          "detail": "Diễn tập, thể thao, khẩn cấp.",
+          "examples": [
+            {
+              "id": "13177oa",
+              "japanese": "にげろ！",
+              "reading": "",
+              "vietnamese": "Chạy đi!",
+              "note": ""
+            },
+            {
+              "id": "0lr9uqr",
+              "japanese": "エレベーターを つかうな！",
+              "reading": "",
+              "vietnamese": "Không được dùng thang máy!",
+              "note": ""
+            },
+            {
+              "id": "0xau317",
+              "japanese": "たて！",
+              "reading": "",
+              "vietnamese": "Đứng lên!",
+              "note": ""
+            },
+            {
+              "id": "1c3jjk2",
+              "japanese": "すわれ！",
+              "reading": "",
+              "vietnamese": "Ngồi xuống!",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u3",
+          "title": "Cổ vũ trong thể thao",
+          "detail": "Trường hợp duy nhất nữ giới cũng dùng.",
+          "examples": [
+            {
+              "id": "1vq97hz",
+              "japanese": "がんばれ！",
+              "reading": "",
+              "vietnamese": "Cố lên!",
+              "note": ""
+            },
+            {
+              "id": "1i9szua",
+              "japanese": "あきらめるな！",
+              "reading": "",
+              "vietnamese": "Đừng bỏ cuộc!",
+              "note": ""
+            },
+            {
+              "id": "0zw73db",
+              "japanese": "なくな！",
+              "reading": "",
+              "vietnamese": "Đừng khóc!",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u4",
+          "title": "Biển báo, ký hiệu giao thông",
+          "detail": "Chữ trên biển thường viết ở hai thể này cho ngắn.",
+          "examples": [
+            {
+              "id": "1hbmrt8",
+              "japanese": "とまれ！",
+              "reading": "",
+              "vietnamese": "Dừng lại!",
+              "note": ""
+            },
+            {
+              "id": "01htwwa",
+              "japanese": "はいるな！",
+              "reading": "",
+              "vietnamese": "Cấm vào!",
+              "note": ""
+            },
+            {
+              "id": "15vxwcd",
+              "japanese": "あぶない、およぐな！",
+              "reading": "",
+              "vietnamese": "Nguy hiểm, cấm bơi!",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1bpm6pw",
+      "title": "V ます ＋ なさい",
+      "summary": "Mệnh lệnh nhẹ nhàng hơn: \"hãy ~ đi\".",
+      "structures": [
+        "V bỏ ます ＋ なさい"
+      ],
+      "explanation": [
+        "Nhẹ hơn thể mệnh lệnh nhưng vẫn là ra lệnh, nên chỉ dùng với người dưới.",
+        "Bố mẹ nói với con, giáo viên nói với học sinh. Nữ giới hay dùng dạng này thay cho thể mệnh lệnh."
+      ],
+      "notes": [
+        "Tuyệt đối không dùng với cấp trên."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Ra lệnh nhẹ nhàng",
+          "detail": "Người trên nói với người dưới.",
+          "examples": [
+            {
+              "id": "1pgu0ya",
+              "japanese": "たべなさい。",
+              "reading": "",
+              "vietnamese": "Ăn đi con.",
+              "note": ""
+            },
+            {
+              "id": "14rufs1",
+              "japanese": "べんきょうしなさい。",
+              "reading": "",
+              "vietnamese": "Học bài đi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1r43aoq",
+      "title": "～と よみます / ～と かいて あります",
+      "summary": "Hỏi và trả lời về cách đọc một chữ, hoặc nội dung được viết ở đâu đó.",
+      "structures": [
+        "… は なんと よみますか。— … と よみます。",
+        "… に なんと かいて ありますか。— … と かいて あります。"
+      ],
+      "explanation": [
+        "Trợ từ と đánh dấu phần nội dung được đọc hoặc được viết."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi cách đọc",
+          "detail": "Chữ này đọc là gì.",
+          "examples": [
+            {
+              "id": "052uboy",
+              "japanese": "あの かんじは なんと よみますか。",
+              "reading": "",
+              "vietnamese": "Chữ Hán kia đọc là gì vậy?",
+              "note": ""
+            },
+            {
+              "id": "0vamzs7",
+              "japanese": "「むりょう」と よみます。",
+              "reading": "",
+              "vietnamese": "Đọc là \"muryou\".",
+              "note": "Trả lời cho câu hỏi về cách đọc."
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Hỏi nội dung được viết",
+          "detail": "Trên biển, trên giấy viết gì.",
+          "examples": [
+            {
+              "id": "0d5m1j5",
+              "japanese": "あそこに なんと かいて あるんですか。",
+              "reading": "",
+              "vietnamese": "Đằng kia viết gì vậy?",
+              "note": ""
+            },
+            {
+              "id": "0e98a8w",
+              "japanese": "「しようきんし」と かいて あります。",
+              "reading": "",
+              "vietnamese": "Có viết là \"cấm sử dụng\".",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0hwgjgk",
+      "title": "～と いう いみです",
+      "summary": "Giải thích ý nghĩa của một từ, một câu, một ký hiệu.",
+      "structures": [
+        "A は どういう いみですか。",
+        "A は B と いう いみです。"
+      ],
+      "explanation": [
+        "B chia ở thể thường."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi và giải thích nghĩa",
+          "detail": "Cái này nghĩa là gì.",
+          "examples": [
+            {
+              "id": "0jlqo73",
+              "japanese": "この マークは どういう いみですか。",
+              "reading": "",
+              "vietnamese": "Ký hiệu này nghĩa là gì vậy?",
+              "note": ""
+            },
+            {
+              "id": "1f69mb6",
+              "japanese": "「ひだりへ まがるな」と いう いみです。",
+              "reading": "",
+              "vietnamese": "Nghĩa là cấm rẽ trái.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05i59wt",
+      "title": "～と いって いました / ～と つたえて いただけませんか",
+      "summary": "Truyền đạt lại lời của người thứ ba, và nhờ người khác nhắn hộ.",
+      "structures": [
+        "… と いって いました — đã nói là ~",
+        "… と つたえて いただけませんか — nhắn giúp tôi là ~"
+      ],
+      "explanation": [
+        "Lời nhắn có thể trích nguyên văn trong ngoặc, hoặc chia về thể thường rồi thêm と.",
+        "つたえて いただけませんか là cách nhờ lịch sự (xem lại ～ていただけませんか bài 26)."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Truyền đạt lời người khác",
+          "detail": "Nghe được từ chính người đó.",
+          "examples": [
+            {
+              "id": "13mku4u",
+              "japanese": "30ぷんで もどると いって いました。",
+              "reading": "",
+              "vietnamese": "Chị ấy nhắn là 30 phút nữa sẽ quay lại.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Nhờ nhắn lại giúp",
+          "detail": "Cách nói lịch sự khi nhờ chuyển lời.",
+          "examples": [
+            {
+              "id": "0qhew1q",
+              "japanese": "すみませんが、あした こられないと つたえて いただけませんか。",
+              "reading": "",
+              "vietnamese": "Xin lỗi, nhờ anh nhắn lại giúp là ngày mai tôi không đến được ạ.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

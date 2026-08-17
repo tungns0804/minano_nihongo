@@ -61,6 +61,7 @@ export function buildVocabularyQuestions(
       prompt: fieldValue(word, info.prompt),
       promptIsJapanese: fieldIsJapanese(info.prompt),
       hint: info.supportsHanVietHint && config.showHanViet ? word.hanViet : null,
+      hintIsJapanese: false,
       correctAnswer,
       correctAnswerKey: null,
       acceptedAnswers: acceptedAnswersOf(correctAnswer),

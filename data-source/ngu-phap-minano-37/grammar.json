@@ -1,0 +1,150 @@
+{
+  "points": [
+    {
+      "title": "Động từ thể bị động 受身形",
+      "summary": "Được / bị ai đó làm gì. Người chịu tác động đứng làm chủ ngữ.",
+      "structures": ["N1 は N2 に ＋ V bị động", "N1 は N2 に N3 を ＋ V bị động"],
+      "explanation": [
+        "Dạng 1: N1 (người) được hoặc bị N2 làm gì.",
+        "Dạng 2: N3 là đồ của N1 bị N2 làm sao đó — dạng này hầu như luôn mang nghĩa phiền toái, bực mình.",
+        "N2 không nhất thiết là người: có thể là chó, ô tô, vật chuyển động.",
+        "Động từ bị động luôn chia như nhóm 2."
+      ],
+      "tables": [
+        {
+          "caption": "Nhóm 1 — hàng い đổi sang hàng あ ＋ れます",
+          "headers": ["Thể ます", "Thể bị động"],
+          "rows": [
+            ["いきます", "いかれます"],
+            ["およぎます", "およがれます"],
+            ["かいます", "かわれます"],
+            ["よみます", "よまれます"]
+          ]
+        },
+        {
+          "caption": "Nhóm 2 và 3",
+          "headers": ["Thể ます", "Thể bị động"],
+          "rows": [
+            ["たべます", "たべられます"],
+            ["みます", "みられます"],
+            ["します", "されます"],
+            ["べんきょうします", "べんきょうされます"],
+            ["きます", "こられます"]
+          ]
+        }
+      ],
+      "notes": [
+        "Khi việc người khác làm cho mình là điều TỐT thì không dùng bị động mà dùng ～てもらいます: ははに ふくを せんたくして もらいます."
+      ],
+      "usages": [
+        {
+          "title": "Được / bị ai đó làm gì",
+          "detail": "N1 は N2 に V bị động.",
+          "examples": [
+            {
+              "japanese": "わたしは せんせいに ほめられました。",
+              "vietnamese": "Tôi được thầy giáo khen."
+            },
+            {
+              "japanese": "わたしは ぶちょうに しかられました。",
+              "vietnamese": "Tôi bị trưởng phòng mắng."
+            },
+            {
+              "japanese": "わたしは いぬに かまれました。",
+              "vietnamese": "Tôi bị chó cắn."
+            }
+          ]
+        },
+        {
+          "title": "Bị làm gì với đồ của mình",
+          "detail": "Luôn mang sắc thái phiền toái.",
+          "examples": [
+            {
+              "japanese": "わたしは おとうとに パソコンを こわされました。",
+              "vietnamese": "Tôi bị em trai làm hỏng máy tính."
+            },
+            {
+              "japanese": "わたしは こどもに ふくを よごされました。",
+              "vietnamese": "Tôi bị con làm bẩn quần áo."
+            }
+          ]
+        },
+        {
+          "title": "N が／は ＋ V bị động — sự việc được biết rộng rãi",
+          "detail": "Không cần nói ai làm, chỉ nói sự việc.",
+          "examples": [
+            {
+              "japanese": "ベトナムの こめは アメリカへ ゆしゅつされます。",
+              "vietnamese": "Gạo Việt Nam được xuất khẩu sang Mỹ."
+            },
+            {
+              "japanese": "この ビルは 2014ねんに たてられました。",
+              "vietnamese": "Toà nhà này được xây vào năm 2014."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N によって",
+      "summary": "Bởi N — nêu người tạo ra, phát minh ra, sáng tác ra.",
+      "structures": ["N は ＋ N によって ＋ V bị động"],
+      "explanation": [
+        "Dùng khi muốn nêu rõ tác giả của một tác phẩm, một phát minh. Nếu chỉ dùng に thì nghe như bị hại."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Tác giả, người phát minh",
+          "detail": "によって thay cho に.",
+          "examples": [
+            {
+              "japanese": "この えは ピカソに よって かかれました。",
+              "vietnamese": "Bức tranh này được vẽ bởi Picasso."
+            },
+            {
+              "japanese": "でんわは ベルに よって はつめいされました。",
+              "vietnamese": "Điện thoại được phát minh bởi Bell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N から / N で つくられます",
+      "summary": "Được làm từ nguyên liệu gì — から khi nhìn không ra, で khi nhìn là biết.",
+      "structures": ["N から つくられます — nguyên liệu đã biến đổi, nhìn không nhận ra", "N で つくられます — nhìn sản phẩm là biết nguyên liệu"],
+      "explanation": [
+        "から: nguyên liệu đã qua chế biến, nhìn thành phẩm không đoán ra được nó làm từ gì.",
+        "で: nguyên liệu còn giữ nguyên hình, nhìn là biết."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Nguyên liệu đã biến đổi — から",
+          "detail": "Nhìn sản phẩm không đoán ra.",
+          "examples": [
+            {
+              "japanese": "かみは きから つくられます。",
+              "vietnamese": "Giấy được làm từ gỗ."
+            },
+            {
+              "japanese": "ビールは むぎから つくられます。",
+              "vietnamese": "Bia được làm từ lúa mạch."
+            }
+          ]
+        },
+        {
+          "title": "Nguyên liệu còn nhận ra — で",
+          "detail": "Nhìn là biết làm bằng gì.",
+          "examples": [
+            {
+              "japanese": "この つくえは きで つくられます。",
+              "vietnamese": "Cái bàn này được làm bằng gỗ."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
