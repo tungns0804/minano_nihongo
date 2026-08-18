@@ -1,0 +1,607 @@
+{
+  "id": "ngu-phap-minano-13",
+  "name": "皆の日本語 — Bài 13 · Ngữ pháp",
+  "description": "Nがほしいです, Vたいです, ～に行きます, どこか/なにか",
+  "kind": "grammar",
+  "itemCount": 6,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1jof2t7",
+      "title": "N が ほしいです",
+      "summary": "Nói về đồ vật, thứ mà bản thân muốn có.",
+      "structures": [
+        "N が ほしいです",
+        "N が ほしくないです（phủ định）"
+      ],
+      "explanation": [
+        "ほしい là tính từ đuôi い, nên chia y hệt các tính từ い đã học ở bài 8, 12.",
+        "Thứ mình muốn có được đánh dấu bằng trợ từ が, không dùng を. Đây là lỗi hay gặp nhất của mẫu này.",
+        "ほしい chỉ đi với danh từ. Muốn nói tới một hành động thì phải dùng ～たいです ở mẫu tiếp theo."
+      ],
+      "notes": [
+        "Chỉ dùng cho ngôi thứ nhất (わたし), hoặc ngôi thứ hai trong câu hỏi. Không nói 「田中さんは 車が ほしいです」— ý muốn của người thứ ba phải dùng ～ほしがっています, học ở bài sau.",
+        "Không dùng ほしいですか để mời người trên. Hỏi thầy cô 「コーヒーが ほしいですか」 là bất lịch sự; hãy nói 「コーヒーは いかがですか」."
+      ],
+      "tables": [
+        {
+          "caption": "Cách chia ほしい",
+          "headers": [
+            "Thể",
+            "Câu"
+          ],
+          "rows": [
+            [
+              "Hiện tại khẳng định",
+              "ほしいです"
+            ],
+            [
+              "Hiện tại phủ định",
+              "ほしくないです"
+            ],
+            [
+              "Quá khứ khẳng định",
+              "ほしかったです"
+            ],
+            [
+              "Quá khứ phủ định",
+              "ほしくなかったです"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói thứ mình muốn có",
+          "detail": "Chủ ngữ là わたし, thường được lược bỏ.",
+          "examples": [
+            {
+              "id": "1upplrl",
+              "japanese": "わたしは くるまが ほしいです。",
+              "reading": "",
+              "vietnamese": "Tôi muốn có một chiếc ô tô.",
+              "note": ""
+            },
+            {
+              "id": "0ttu8v3",
+              "japanese": "いま なにが いちばん ほしいですか。",
+              "reading": "",
+              "vietnamese": "Bây giờ bạn muốn có cái gì nhất?",
+              "note": ""
+            },
+            {
+              "id": "00gae25",
+              "japanese": "ひろい うちが ほしいです。",
+              "reading": "",
+              "vietnamese": "Tôi muốn có một ngôi nhà rộng.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Phủ định — ほしくないです",
+          "detail": "Trả lời khi không muốn thứ gì.",
+          "examples": [
+            {
+              "id": "0pj6fks",
+              "japanese": "いまは なにも ほしくないです。",
+              "reading": "",
+              "vietnamese": "Bây giờ tôi không muốn gì cả.",
+              "note": "なにも luôn đi với vị ngữ phủ định."
+            },
+            {
+              "id": "06easwt",
+              "japanese": "こどもの とき、じてんしゃが ほしかったです。",
+              "reading": "",
+              "vietnamese": "Hồi bé tôi đã rất muốn có một chiếc xe đạp.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0lrq5zv",
+      "title": "V thể ます ＋ たいです",
+      "summary": "Nói về hành động mà chính bản thân mình muốn làm.",
+      "structures": [
+        "V（bỏ ます）＋ たいです",
+        "N を V たいです → N が V たいです"
+      ],
+      "explanation": [
+        "Bỏ ます của động từ rồi thêm たい. Sau khi thêm たい, cả cụm biến thành tính từ đuôi い và chia theo tính từ い.",
+        "Trợ từ を của tân ngữ có thể đổi thành が: 「てんぷらを たべたいです」 và 「てんぷらが たべたいです」 đều đúng. Các trợ từ khác (へ, に, で…) thì giữ nguyên."
+      ],
+      "notes": [
+        "Giống ほしいです, ～たいです chỉ dùng cho ý muốn của bản thân. Ý muốn của người thứ ba dùng ～たがっています, học ở bài sau.",
+        "Không dùng ～たいですか để rủ rê hay mời mọc. Rủ ai đó đi ăn phải nói 「いっしょに ひるごはんを たべませんか」 chứ không nói 「たべたいですか」.",
+        "～たいです là muốn TỰ MÌNH làm. Muốn NGƯỜI KHÁC làm gì đó thì tiếng Nhật dùng ～てほしい／～てもらいたい, nhưng mẫu đó không thuộc bài 13."
+      ],
+      "tables": [
+        {
+          "caption": "Cách lập thể たい",
+          "headers": [
+            "Thể ます",
+            "Thể たい"
+          ],
+          "rows": [
+            [
+              "のみます",
+              "のみたいです"
+            ],
+            [
+              "たべます",
+              "たべたいです"
+            ],
+            [
+              "いきます",
+              "いきたいです"
+            ],
+            [
+              "します",
+              "したいです"
+            ],
+            [
+              "きます",
+              "きたいです"
+            ]
+          ]
+        },
+        {
+          "caption": "Cách chia ～たい",
+          "headers": [
+            "Thể",
+            "Câu"
+          ],
+          "rows": [
+            [
+              "Hiện tại khẳng định",
+              "いきたいです"
+            ],
+            [
+              "Hiện tại phủ định",
+              "いきたくないです"
+            ],
+            [
+              "Quá khứ khẳng định",
+              "いきたかったです"
+            ],
+            [
+              "Quá khứ phủ định",
+              "いきたくなかったです"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói việc mình muốn làm",
+          "detail": "Chủ ngữ わたし thường được lược bỏ.",
+          "examples": [
+            {
+              "id": "0l2az01",
+              "japanese": "わたしは おきなわへ いきたいです。",
+              "reading": "",
+              "vietnamese": "Tôi muốn đi Okinawa.",
+              "note": ""
+            },
+            {
+              "id": "0w82cw4",
+              "japanese": "しゅうまつは かわで さかなを つりたいです。",
+              "reading": "",
+              "vietnamese": "Cuối tuần tôi muốn đi câu cá ở sông.",
+              "note": ""
+            },
+            {
+              "id": "1w5ng4z",
+              "japanese": "つかれましたから、ちょっと やすみたいです。",
+              "reading": "",
+              "vietnamese": "Vì mệt rồi nên tôi muốn nghỉ một chút.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Tân ngữ を đổi thành が",
+          "detail": "Rất hay gặp trong hội thoại.",
+          "examples": [
+            {
+              "id": "0tii1nb",
+              "japanese": "わたしは てんぷらが たべたいです。",
+              "reading": "",
+              "vietnamese": "Tôi muốn ăn món tempura.",
+              "note": "Nói 「てんぷらを たべたいです」 cũng đúng."
+            },
+            {
+              "id": "1bnvl6o",
+              "japanese": "つめたい みずが のみたいです。",
+              "reading": "",
+              "vietnamese": "Tôi muốn uống nước lạnh.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u3",
+          "title": "Phủ định và câu hỏi",
+          "detail": "Chia như tính từ い.",
+          "examples": [
+            {
+              "id": "0eqmloz",
+              "japanese": "きょうは どこも いきたくないです。",
+              "reading": "",
+              "vietnamese": "Hôm nay tôi không muốn đi đâu cả.",
+              "note": ""
+            },
+            {
+              "id": "1ms6irm",
+              "japanese": "なつやすみは なにを したいですか。",
+              "reading": "",
+              "vietnamese": "Nghỉ hè bạn muốn làm gì?",
+              "note": ""
+            },
+            {
+              "id": "1uvsly5",
+              "japanese": "おなかが いたいですから、なにも たべたくないです。",
+              "reading": "",
+              "vietnamese": "Vì đau bụng nên tôi không muốn ăn gì cả.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11mwy8y",
+      "title": "N（địa điểm）へ ～に いきます／きます／かえります",
+      "summary": "Nêu mục đích của việc đi, đến, trở về.",
+      "structures": [
+        "N（địa điểm）へ V thể ます ＋ に いきます／きます／かえります",
+        "N（địa điểm）へ N ＋ に いきます／きます／かえります"
+      ],
+      "explanation": [
+        "へ chỉ nơi đến, còn に đứng ngay trước động từ di chuyển để chỉ mục đích. Trật tự cố định: [nơi đến] へ [mục đích] に いきます.",
+        "Danh từ đứng trước に phải là danh từ mang tính động tác: かいもの、しょくじ、さんぽ、べんきょう、けっこんしき、おまつり… Không nói 「ほんに いきます」."
+      ],
+      "notes": [
+        "Với động từ nhóm 3 dạng 「N します」, có thể rút gọn: 「べんきょうしに いきます」 hoặc 「べんきょうに いきます」 đều được."
+      ],
+      "tables": [
+        {
+          "caption": "Hai cách nêu mục đích",
+          "headers": [
+            "Dạng",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "V thể ます ＋ に",
+              "たべます → たべに いきます"
+            ],
+            [
+              "N（động tác）＋ に",
+              "かいもの → かいものに いきます"
+            ],
+            [
+              "N を V ＋ に",
+              "インドりょうりを たべに いきます"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Mục đích là một hành động — V thể ます ＋ に",
+          "detail": "Bỏ ます của động từ rồi thêm に.",
+          "examples": [
+            {
+              "id": "04au809",
+              "japanese": "こうべへ インドりょうりを たべに いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đi Kobe để ăn món Ấn Độ.",
+              "note": ""
+            },
+            {
+              "id": "1j48g7q",
+              "japanese": "くうこうへ ともだちを むかえに いきます。",
+              "reading": "",
+              "vietnamese": "Tôi ra sân bay để đón bạn.",
+              "note": ""
+            },
+            {
+              "id": "0p86zpm",
+              "japanese": "うちへ ひるごはんを たべに かえります。",
+              "reading": "",
+              "vietnamese": "Tôi về nhà để ăn cơm trưa.",
+              "note": ""
+            },
+            {
+              "id": "0evgt5l",
+              "japanese": "ゆうびんきょくへ てがみを だしに いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đến bưu điện để gửi thư.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Mục đích là một danh từ động tác — N ＋ に",
+          "detail": "Dùng thẳng danh từ, không cần động từ.",
+          "examples": [
+            {
+              "id": "110y4rr",
+              "japanese": "デパートへ かいものに いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đi trung tâm thương mại để mua sắm.",
+              "note": ""
+            },
+            {
+              "id": "0fc01m4",
+              "japanese": "きょうとの おまつりに いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đi lễ hội ở Kyoto.",
+              "note": ""
+            },
+            {
+              "id": "0ydb6ha",
+              "japanese": "にほんへ びじゅつの べんきょうに きました。",
+              "reading": "",
+              "vietnamese": "Tôi đã đến Nhật để học mỹ thuật.",
+              "note": ""
+            },
+            {
+              "id": "0tjj920",
+              "japanese": "しやくしょへ とうろくに いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đến văn phòng hành chính thành phố để đăng ký.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0x1ydu3",
+      "title": "N に はいります ／ N を でます",
+      "summary": "Phân biệt trợ từ khi đi VÀO và khi RỜI KHỎI một nơi.",
+      "structures": [
+        "N（nơi chốn）に はいります",
+        "N（nơi chốn）を でます"
+      ],
+      "explanation": [
+        "に đánh dấu đích đến — nơi mà chủ thể đi vào bên trong.",
+        "を đánh dấu nơi mà chủ thể rời khỏi, tức điểm xuất phát. Đây là を chỉ nơi rời đi, khác với を chỉ tân ngữ."
+      ],
+      "notes": [
+        "Cùng kiểu này còn có 「でんしゃに のります」（lên tàu）／「でんしゃを おります」（xuống tàu）, sẽ học kỹ ở bài sau."
+      ],
+      "tables": [
+        {
+          "caption": "Cặp trợ từ đối nhau",
+          "headers": [
+            "Vào",
+            "Ra"
+          ],
+          "rows": [
+            [
+              "きっさてんに はいります",
+              "きっさてんを でます"
+            ],
+            [
+              "へやに はいります",
+              "へやを でます"
+            ],
+            [
+              "だいがくに はいります",
+              "だいがくを でます"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Đi vào — に はいります",
+          "detail": "Nơi chốn đi với に.",
+          "examples": [
+            {
+              "id": "12eadkj",
+              "japanese": "あの きっさてんに はいりましょう。",
+              "reading": "",
+              "vietnamese": "Chúng ta vào quán giải khát kia đi.",
+              "note": ""
+            },
+            {
+              "id": "1xgmg9k",
+              "japanese": "つかれましたから、あの みせに はいりませんか。",
+              "reading": "",
+              "vietnamese": "Vì mệt rồi, hay là mình vào quán kia nhé?",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Rời khỏi — を でます",
+          "detail": "Nơi chốn đi với を.",
+          "examples": [
+            {
+              "id": "1iooy4o",
+              "japanese": "７じに うちを でます。",
+              "reading": "",
+              "vietnamese": "7 giờ tôi ra khỏi nhà.",
+              "note": ""
+            },
+            {
+              "id": "1x3c2cy",
+              "japanese": "かいぎが おわりましたから、かいしゃを でました。",
+              "reading": "",
+              "vietnamese": "Vì cuộc họp đã kết thúc nên tôi ra khỏi công ty.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0873ytj",
+      "title": "どこか ／ なにか",
+      "summary": "Nói tới một nơi nào đó, một thứ gì đó chưa xác định.",
+      "structures": [
+        "どこか（へ）＋ V",
+        "なにか（を）＋ V"
+      ],
+      "explanation": [
+        "どこ hỏi cụ thể nơi nào, còn どこか chỉ hỏi có đi đâu hay không. Tương tự, なに hỏi cái gì, なにか chỉ hỏi có gì đó hay không.",
+        "Trợ từ へ và を đứng sau どこか／なにか thường được lược bỏ. Các trợ từ khác thì giữ lại."
+      ],
+      "notes": [
+        "Câu hỏi với どこか／なにか được trả lời bằng はい／いいえ trước, rồi mới nói chi tiết."
+      ],
+      "tables": [
+        {
+          "caption": "So sánh cách hỏi",
+          "headers": [
+            "Câu hỏi",
+            "Ý",
+            "Cách trả lời"
+          ],
+          "rows": [
+            [
+              "どこへ いきましたか。",
+              "Đi đâu?",
+              "きょうとへ いきました。"
+            ],
+            [
+              "どこか いきましたか。",
+              "Có đi đâu không?",
+              "はい、いきました。／ いいえ、どこも。"
+            ],
+            [
+              "なにを たべましたか。",
+              "Ăn gì?",
+              "すしを たべました。"
+            ],
+            [
+              "なにか たべましたか。",
+              "Có ăn gì không?",
+              "はい、たべました。"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi có đi đâu / có làm gì không",
+          "detail": "Người hỏi chưa biết là có hay không.",
+          "examples": [
+            {
+              "id": "1dzfqkn",
+              "japanese": "なつやすみは どこか いきましたか。",
+              "reading": "",
+              "vietnamese": "Nghỉ hè bạn có đi đâu không?",
+              "note": "Đầy đủ là どこかへ, nhưng へ thường được lược bỏ."
+            },
+            {
+              "id": "02drawu",
+              "japanese": "はい、おきなわへ いきました。",
+              "reading": "",
+              "vietnamese": "Có, tôi đã đi Okinawa.",
+              "note": "Trả lời cho どこか いきましたか。"
+            },
+            {
+              "id": "0wyg14u",
+              "japanese": "いいえ、どこも いきませんでした。",
+              "reading": "",
+              "vietnamese": "Không, tôi chẳng đi đâu cả.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Muốn một thứ gì đó chưa xác định",
+          "detail": "Hay đi kèm ～たいです.",
+          "examples": [
+            {
+              "id": "19bpxnw",
+              "japanese": "のどが かわきましたから、なにか のみたいです。",
+              "reading": "",
+              "vietnamese": "Vì khát nước nên tôi muốn uống cái gì đó.",
+              "note": ""
+            },
+            {
+              "id": "1kq60m0",
+              "japanese": "おなかが すきましたね。なにか たべませんか。",
+              "reading": "",
+              "vietnamese": "Đói rồi nhỉ. Mình ăn gì đó không?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18bhzwv",
+      "title": "ご注文は。",
+      "summary": "Mẫu hội thoại trong quán ăn: người phục vụ hỏi khách gọi món gì.",
+      "structures": [
+        "ご注文は。→ N を おねがいします。"
+      ],
+      "explanation": [
+        "「ご注文は。」 là cách nói tắt của 「ご注文は なんですか」. Bỏ lửng phần sau nghe lịch sự và tự nhiên hơn.",
+        "ご là tiếp đầu ngữ lịch sự gắn vào danh từ gốc Hán: ご注文、ご家族、ご意見."
+      ],
+      "notes": [
+        "Khi gọi món, dùng 「～を おねがいします」 hoặc 「～を ください」."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hội thoại gọi món",
+          "detail": "Các câu thường gặp trong quán ăn.",
+          "examples": [
+            {
+              "id": "18bhzwv",
+              "japanese": "ご注文は。",
+              "reading": "ごちゅうもんは。",
+              "vietnamese": "Anh/Chị dùng món gì ạ?",
+              "note": ""
+            },
+            {
+              "id": "1ngv1gf",
+              "japanese": "ぎゅうどんを おねがいします。",
+              "reading": "",
+              "vietnamese": "Cho tôi một suất cơm thịt bò.",
+              "note": ""
+            },
+            {
+              "id": "0otdp1d",
+              "japanese": "少々 お待ちください。",
+              "reading": "しょうしょう おまちください。",
+              "vietnamese": "Xin anh/chị vui lòng đợi một chút.",
+              "note": ""
+            },
+            {
+              "id": "0cixjrh",
+              "japanese": "べつべつに おねがいします。",
+              "reading": "",
+              "vietnamese": "Cho chúng tôi thanh toán riêng.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

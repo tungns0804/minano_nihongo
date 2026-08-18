@@ -1,0 +1,32 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 18-19 (các dòng đánh số bài 13).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+DU,遊びます (あそびます),chơi
+VĨNH,泳ぎます (およぎます),bơi
+NGHINH,迎えます (むかえます),đón
+BÌ,疲れます (つかれます),mệt
+THỦ CHỈ XUẤT,手紙を出します (てがみをだします),gửi thư
+NHẬP,喫茶店に入ります (きっさてんにはいります),vào quán giải khát
+KHIẾT TRÀ ĐIẾM XUẤT,喫茶店を出ます (きっさてんをでます),ra khỏi quán giải khát
+KẾT HÔN,結婚します (けっこんします),kết hôn, lập gia đình, cưới
+MÃI VẬT,買い物します (かいものします),mua hàng
+THỰC SỰ,食事します (しょくじします),ăn cơm
+CÔNG VIÊN TÁN BỘ,公園を散歩します (こうえんをさんぽします),đi dạo ở công viên
+ĐẠI BIẾN,大変 (たいへん),vất vả, khó khăn, khổ
+DỤC,欲しい (ほしい),muốn có
+TỊCH,寂しい (さびしい),buồn, cô đơn
+QUẢNG,広い (ひろい),rộng
+HIỆP,狭い (せまい),chật, hẹp
+THỊ DỊCH SỞ,市役所 (しやくしょ),văn phòng hành chính quận, thành phố
+XUYÊN,川 (かわ),sông
+KINH TẾ,経済 (けいざい),kinh tế
+MỸ THUẬT,美術 (びじゅつ),mỹ thuật
+ĐIẾU,釣り (つり),việc câu cá
+HỘI NGHỊ,会議 (かいぎ),họp, cuộc họp
+ĐĂNG LỤC,登録 (とうろく),việc đăng ký
+CHU MẠT,週末 (しゅうまつ),cuối tuần
+HÀ,何か (なにか),cái gì đó
+CHÚ VĂN,ご注文は？ (ごちゅうもん),anh/chị dùng món gì ạ
+NGƯU,牛どん (ぎゅうどん),món cơm thịt bò
+THIỂU ĐÃI,少々お待ちください。 (しょうしょうおまちください),xin anh/chị vui lòng đợi một chút
+BIỆT,別々に (べつべつに),riêng ra/ để riêng

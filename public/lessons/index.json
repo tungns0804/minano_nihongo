@@ -1,6 +1,22 @@
 {
-  "generatedAt": "2026-08-17T11:55:39.457Z",
+  "generatedAt": "2026-08-18T03:01:15.996Z",
   "lessons": [
+    {
+      "id": "minano-nihongo-13",
+      "name": "皆の日本語 — Bài 13 · Từ vựng",
+      "description": "Từ vựng bài 13",
+      "kind": "vocabulary",
+      "itemCount": 29,
+      "file": "minano-nihongo-13.json"
+    },
+    {
+      "id": "ngu-phap-minano-13",
+      "name": "皆の日本語 — Bài 13 · Ngữ pháp",
+      "description": "Nがほしいです, Vたいです, ～に行きます, どこか/なにか",
+      "kind": "grammar",
+      "itemCount": 6,
+      "file": "ngu-phap-minano-13.json"
+    },
     {
       "id": "minano-nihongo-26",
       "name": "皆の日本語 — Bài 26 · Từ vựng",

@@ -1,0 +1,244 @@
+{
+  "id": "minano-nihongo-13",
+  "name": "皆の日本語 — Bài 13 · Từ vựng",
+  "description": "Từ vựng bài 13",
+  "kind": "vocabulary",
+  "itemCount": 29,
+  "words": [
+    {
+      "id": "16aucie",
+      "hanViet": "DU",
+      "japanese": "遊びます",
+      "reading": "あそびます",
+      "vietnamese": "chơi",
+      "example": ""
+    },
+    {
+      "id": "0dmh59v",
+      "hanViet": "VĨNH",
+      "japanese": "泳ぎます",
+      "reading": "およぎます",
+      "vietnamese": "bơi",
+      "example": ""
+    },
+    {
+      "id": "1ihm5pc",
+      "hanViet": "NGHINH",
+      "japanese": "迎えます",
+      "reading": "むかえます",
+      "vietnamese": "đón",
+      "example": ""
+    },
+    {
+      "id": "099nbks",
+      "hanViet": "BÌ",
+      "japanese": "疲れます",
+      "reading": "つかれます",
+      "vietnamese": "mệt",
+      "example": ""
+    },
+    {
+      "id": "0hp8p5r",
+      "hanViet": "THỦ CHỈ XUẤT",
+      "japanese": "手紙を出します",
+      "reading": "てがみをだします",
+      "vietnamese": "gửi thư",
+      "example": ""
+    },
+    {
+      "id": "0wmzboy",
+      "hanViet": "NHẬP",
+      "japanese": "喫茶店に入ります",
+      "reading": "きっさてんにはいります",
+      "vietnamese": "vào quán giải khát",
+      "example": ""
+    },
+    {
+      "id": "1uxpzhb",
+      "hanViet": "KHIẾT TRÀ ĐIẾM XUẤT",
+      "japanese": "喫茶店を出ます",
+      "reading": "きっさてんをでます",
+      "vietnamese": "ra khỏi quán giải khát",
+      "example": ""
+    },
+    {
+      "id": "11lsfgo",
+      "hanViet": "KẾT HÔN",
+      "japanese": "結婚します",
+      "reading": "けっこんします",
+      "vietnamese": "kết hôn, lập gia đình, cưới",
+      "example": ""
+    },
+    {
+      "id": "1auyd3m",
+      "hanViet": "MÃI VẬT",
+      "japanese": "買い物します",
+      "reading": "かいものします",
+      "vietnamese": "mua hàng",
+      "example": ""
+    },
+    {
+      "id": "1412qxt",
+      "hanViet": "THỰC SỰ",
+      "japanese": "食事します",
+      "reading": "しょくじします",
+      "vietnamese": "ăn cơm",
+      "example": ""
+    },
+    {
+      "id": "0v4ootb",
+      "hanViet": "CÔNG VIÊN TÁN BỘ",
+      "japanese": "公園を散歩します",
+      "reading": "こうえんをさんぽします",
+      "vietnamese": "đi dạo ở công viên",
+      "example": ""
+    },
+    {
+      "id": "0av94qb",
+      "hanViet": "ĐẠI BIẾN",
+      "japanese": "大変",
+      "reading": "たいへん",
+      "vietnamese": "vất vả, khó khăn, khổ",
+      "example": ""
+    },
+    {
+      "id": "0vglajb",
+      "hanViet": "DỤC",
+      "japanese": "欲しい",
+      "reading": "ほしい",
+      "vietnamese": "muốn có",
+      "example": ""
+    },
+    {
+      "id": "1mjf6sf",
+      "hanViet": "TỊCH",
+      "japanese": "寂しい",
+      "reading": "さびしい",
+      "vietnamese": "buồn, cô đơn",
+      "example": ""
+    },
+    {
+      "id": "11a5h0x",
+      "hanViet": "QUẢNG",
+      "japanese": "広い",
+      "reading": "ひろい",
+      "vietnamese": "rộng",
+      "example": ""
+    },
+    {
+      "id": "1tf03ed",
+      "hanViet": "HIỆP",
+      "japanese": "狭い",
+      "reading": "せまい",
+      "vietnamese": "chật, hẹp",
+      "example": ""
+    },
+    {
+      "id": "0kx9o6c",
+      "hanViet": "THỊ DỊCH SỞ",
+      "japanese": "市役所",
+      "reading": "しやくしょ",
+      "vietnamese": "văn phòng hành chính quận, thành phố",
+      "example": ""
+    },
+    {
+      "id": "0t3j7cu",
+      "hanViet": "XUYÊN",
+      "japanese": "川",
+      "reading": "かわ",
+      "vietnamese": "sông",
+      "example": ""
+    },
+    {
+      "id": "1xrzosh",
+      "hanViet": "KINH TẾ",
+      "japanese": "経済",
+      "reading": "けいざい",
+      "vietnamese": "kinh tế",
+      "example": ""
+    },
+    {
+      "id": "0gh67iw",
+      "hanViet": "MỸ THUẬT",
+      "japanese": "美術",
+      "reading": "びじゅつ",
+      "vietnamese": "mỹ thuật",
+      "example": ""
+    },
+    {
+      "id": "0hjaj7e",
+      "hanViet": "ĐIẾU",
+      "japanese": "釣り",
+      "reading": "つり",
+      "vietnamese": "việc câu cá",
+      "example": ""
+    },
+    {
+      "id": "09np9k5",
+      "hanViet": "HỘI NGHỊ",
+      "japanese": "会議",
+      "reading": "かいぎ",
+      "vietnamese": "họp, cuộc họp",
+      "example": ""
+    },
+    {
+      "id": "01l8gu8",
+      "hanViet": "ĐĂNG LỤC",
+      "japanese": "登録",
+      "reading": "とうろく",
+      "vietnamese": "việc đăng ký",
+      "example": ""
+    },
+    {
+      "id": "0cz6jq4",
+      "hanViet": "CHU MẠT",
+      "japanese": "週末",
+      "reading": "しゅうまつ",
+      "vietnamese": "cuối tuần",
+      "example": ""
+    },
+    {
+      "id": "1v4sflz",
+      "hanViet": "HÀ",
+      "japanese": "何か",
+      "reading": "なにか",
+      "vietnamese": "cái gì đó",
+      "example": ""
+    },
+    {
+      "id": "0i0skyt",
+      "hanViet": "CHÚ VĂN",
+      "japanese": "ご注文は？",
+      "reading": "ごちゅうもん",
+      "vietnamese": "anh/chị dùng món gì ạ",
+      "example": ""
+    },
+    {
+      "id": "1wzt1ix",
+      "hanViet": "NGƯU",
+      "japanese": "牛どん",
+      "reading": "ぎゅうどん",
+      "vietnamese": "món cơm thịt bò",
+      "example": ""
+    },
+    {
+      "id": "1ivnpmp",
+      "hanViet": "THIỂU ĐÃI",
+      "japanese": "少々お待ちください。",
+      "reading": "しょうしょうおまちください",
+      "vietnamese": "xin anh/chị vui lòng đợi một chút",
+      "example": ""
+    },
+    {
+      "id": "1udiylr",
+      "hanViet": "BIỆT",
+      "japanese": "別々に",
+      "reading": "べつべつに",
+      "vietnamese": "riêng ra/ để riêng",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}
