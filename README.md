@@ -310,7 +310,18 @@ npm run generate:clean    # sinh lại và xoá luôn file .json không còn th�
 
 Script báo rõ từng dòng lỗi (thiếu cột, cột rỗng) và từng dòng trùng, kèm số dòng.
 
-### Cách 2 — Nạp trực tiếp trên giao diện
+### Cách 2 — Nạp trực tiếp trên giao diện — **ĐANG TẮT**
+
+> Màn hình này đã bị tắt. Cờ `IMPORT_LESSON_ENABLED` trong
+> [`src/app/core/feature-flags.ts`](src/app/core/feature-flags.ts) đang để `false`, nên mục
+> “Nạp bài mới” không hiện trên thanh điều hướng và đường dẫn `/import` cũng không được đăng
+> ký — gõ tay vào sẽ bị đưa về trang chủ. Đổi cờ đó thành `true` là có lại toàn bộ, mã màn
+> hình vẫn nằm nguyên trong `src/app/features/import-lesson/`.
+>
+> Các bài đã nạp từ trước KHÔNG bị đụng tới: vẫn nằm trong `localStorage`, vẫn hiện ở trang
+> chủ với nhãn “Tự nạp”, vẫn luyện và vẫn xoá được ở trang chi tiết bài.
+>
+> Phần dưới đây mô tả màn hình đó lúc đang bật.
 
 Vào menu **“Nạp bài mới”**, dán danh sách từ vựng hoặc chọn file `.txt`. Màn hình hiện ngay số
 từ hợp lệ, các dòng lỗi và bảng xem trước. Sau đó chọn:
@@ -367,7 +378,7 @@ src/app/
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     practice/                    Màn hình làm bài
     result/                      Màn hình kết quả
-    import-lesson/               Nạp bài mới
+    import-lesson/               Nạp bài mới (đang tắt, xem core/feature-flags.ts)
 ```
 
 ## Lưu ý kỹ thuật

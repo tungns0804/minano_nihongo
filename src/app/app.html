@@ -32,7 +32,9 @@
         <app-t key="app.nav.lessons" />
       </a>
       <a routerLink="/grammar" routerLinkActive="is-active"><app-t key="app.nav.grammar" /></a>
-      <a routerLink="/import" routerLinkActive="is-active"><app-t key="app.nav.import" /></a>
+      @if (importEnabled) {
+        <a routerLink="/import" routerLinkActive="is-active"><app-t key="app.nav.import" /></a>
+      }
     </nav>
 
     <div class="app-actions">

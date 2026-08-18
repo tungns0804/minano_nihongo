@@ -242,7 +242,11 @@ main:focus-visible {
   color: var(--accent);
 }
 
-/* Header có 2 nút + 3 mục menu, nên phải nhường chỗ theo từng bậc khi hẹp dần. */
+/* Header có 2 nút + các mục menu, nên phải nhường chỗ theo từng bậc khi hẹp dần.
+
+   Các số đo dưới đây đo hồi menu còn ĐỦ BA mục (mục "Nạp bài mới" nay đang tắt, xem
+   core/feature-flags.ts). Giữ nguyên chứ không đo lại theo hai mục: bật lại cờ đó là
+   mục thứ ba quay về, mà một bộ ngưỡng vừa khít hai mục thì lúc ấy sẽ tràn. */
 
 /* Bậc 1: bỏ chữ của nút sáng/tối, giữ chữ của nút ngôn ngữ vì biểu tượng 🌐
    một mình không cho biết đang ở ngôn ngữ nào. */
@@ -279,7 +283,8 @@ main:focus-visible {
    đúng khổ máy cũng sẽ hụt ở đâu đó.
 
    Cho menu chiếm trọn một hàng riêng thì tổng bề rộng cần chỉ còn bằng hàng dài hơn
-   trong hai hàng, và mỗi mục menu cũng rộng ra thành vùng bấm dễ trúng hơn. */
+   trong hai hàng, và mỗi mục menu cũng rộng ra thành vùng bấm dễ trúng hơn. Cách này
+   cũng không phụ thuộc menu có mấy mục: còn hai mục thì hai mục chia đôi hàng dưới. */
 @media (max-width: 520px) {
   .app-header-inner {
     flex-wrap: wrap;

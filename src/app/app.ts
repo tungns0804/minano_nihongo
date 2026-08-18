@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
+import { IMPORT_LESSON_ENABLED } from './core/feature-flags';
 import { LanguageStore } from './core/i18n/language-store';
 import { T } from './core/i18n/t';
 import { ThemeStore } from './core/services/theme-store';
@@ -20,6 +21,9 @@ export class App {
   protected readonly lang = inject(LanguageStore);
 
   protected readonly t = this.lang.t.bind(this.lang);
+
+  /** Có hiện mục "Nạp bài mới" trên thanh điều hướng không. */
+  protected readonly importEnabled = IMPORT_LESSON_ENABLED;
 
   /**
    * Đã cuộn đủ xa để cần nút quay lên đầu chưa.

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { IMPORT_LESSON_ENABLED } from './core/feature-flags';
 import { practiceGuard, resultGuard } from './core/guards/session.guards';
 
 /**
@@ -13,11 +14,20 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./features/lesson-list/lesson-list').then((m) => m.LessonList),
   },
-  {
-    path: 'import',
-    title: 'route.import',
-    loadComponent: () => import('./features/import-lesson/import-lesson').then((m) => m.ImportLesson),
-  },
+  // Màn hình "Nạp bài mới" đang tắt (xem core/feature-flags.ts). Không đăng ký route
+  // chứ không chỉ ẩn mục menu: ẩn menu thôi thì gõ thẳng /import vào thanh địa chỉ
+  // vẫn vào được màn hình mà giao diện đang cố tình không dẫn tới. Route `**` ở cuối
+  // sẽ đưa đường dẫn đó về trang chủ.
+  ...(IMPORT_LESSON_ENABLED
+    ? [
+        {
+          path: 'import',
+          title: 'route.import',
+          loadComponent: () =>
+            import('./features/import-lesson/import-lesson').then((m) => m.ImportLesson),
+        },
+      ]
+    : []),
   {
     path: 'lesson/:id',
     title: 'route.lesson',

@@ -150,14 +150,21 @@
       <div class="card">
         <div class="card-body stack">
           <h2>{{ t('home.empty.title') }}</h2>
-          <p class="muted">{{ t('home.empty.intro') }}</p>
-          <ol class="muted empty-steps">
-            <li>{{ t('home.empty.step1') }}</li>
-            <li>{{ t('home.empty.step2') }}</li>
-          </ol>
-          <div>
-            <a class="btn btn-primary" routerLink="/import">{{ t('app.nav.import') }}</a>
-          </div>
+          <!-- Màn hình "Nạp bài mới" tắt thì chỉ còn một cách thêm bài, mà một danh
+               sách đánh số chỉ có đúng mục "1." thì nhìn như bị thiếu mất phần còn lại. -->
+          @if (importEnabled) {
+            <p class="muted">{{ t('home.empty.intro') }}</p>
+            <ol class="muted empty-steps">
+              <li>{{ t('home.empty.step1') }}</li>
+              <li>{{ t('home.empty.step2') }}</li>
+            </ol>
+            <div>
+              <a class="btn btn-primary" routerLink="/import">{{ t('app.nav.import') }}</a>
+            </div>
+          } @else {
+            <p class="muted">{{ t('home.empty.introOnly') }}</p>
+            <p class="muted">{{ t('home.empty.step1') }}</p>
+          }
         </div>
       </div>
     }

@@ -115,6 +115,8 @@ export const MESSAGES = {
   'home.favoriteCount': { vi: '★ {count} chưa nhớ', ja: '★ 未習得{count}' },
   'home.empty.title': { vi: 'Chưa có bài học nào', ja: 'レッスンがまだありません' },
   'home.empty.intro': { vi: 'Có hai cách để thêm bài học:', ja: 'レッスンを追加する方法は2つあります：' },
+  // Dùng khi màn hình "Nạp bài mới" đang tắt: lúc đó chỉ còn đúng một cách.
+  'home.empty.introOnly': { vi: 'Cách thêm bài học:', ja: 'レッスンを追加する方法：' },
   'home.empty.step1': {
     vi: 'Tạo thư mục data-source/<tên-bài>/, đặt file .txt vào rồi chạy npm run generate.',
     ja: 'data-source/<レッスン名>/ を作り、.txt ファイルを置いて npm run generate を実行。',

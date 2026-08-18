@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
+import { IMPORT_LESSON_ENABLED } from '../../core/feature-flags';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import type { MessageKey } from '../../core/i18n/messages';
@@ -51,6 +52,9 @@ export class LessonList {
   private readonly lang = inject(LanguageStore);
 
   readonly t = this.lang.t.bind(this.lang);
+
+  /** Khối "chưa có bài học nào" có mời người dùng sang màn hình nạp bài không. */
+  readonly importEnabled = IMPORT_LESSON_ENABLED;
 
   readonly lessons = this.lessonStore.summaries;
   readonly status = this.lessonStore.status;
