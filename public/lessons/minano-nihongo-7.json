@@ -1,0 +1,165 @@
+{
+  "id": "minano-nihongo-7",
+  "lessonNumber": 7,
+  "name": "皆の日本語 — Bài 7 · Từ vựng",
+  "description": "Từ vựng bài 7",
+  "kind": "vocabulary",
+  "itemCount": 19,
+  "words": [
+    {
+      "id": "1vpmfwe",
+      "hanViet": "THIẾT",
+      "japanese": "切る",
+      "reading": "きる",
+      "vietnamese": "cắt",
+      "example": ""
+    },
+    {
+      "id": "02vratw",
+      "hanViet": "TỐNG",
+      "japanese": "送る",
+      "reading": "おくる",
+      "vietnamese": "gửi",
+      "example": ""
+    },
+    {
+      "id": "1g4m4pj",
+      "hanViet": "THẢI",
+      "japanese": "貸す",
+      "reading": "かす",
+      "vietnamese": "cho mượn, cho vay",
+      "example": ""
+    },
+    {
+      "id": "0mwmel0",
+      "hanViet": "TÁ",
+      "japanese": "借りる",
+      "reading": "かりる",
+      "vietnamese": "mượn, vay",
+      "example": ""
+    },
+    {
+      "id": "1awosb3",
+      "hanViet": "GIÁO",
+      "japanese": "教える",
+      "reading": "おしえる",
+      "vietnamese": "dạy",
+      "example": ""
+    },
+    {
+      "id": "0gypn51",
+      "hanViet": "TẬP",
+      "japanese": "習う",
+      "reading": "ならう",
+      "vietnamese": "học, tập",
+      "example": ""
+    },
+    {
+      "id": "0xb0zke",
+      "hanViet": "ĐIỆN THOẠI",
+      "japanese": "電話",
+      "reading": "でんわ",
+      "vietnamese": "điện thoại",
+      "example": ""
+    },
+    {
+      "id": "1xpo33c",
+      "hanViet": "THỦ",
+      "japanese": "手",
+      "reading": "て",
+      "vietnamese": "tay",
+      "example": ""
+    },
+    {
+      "id": "1n9azy1",
+      "hanViet": "CHỈ",
+      "japanese": "紙",
+      "reading": "かみ",
+      "vietnamese": "giấy",
+      "example": ""
+    },
+    {
+      "id": "0xb9sos",
+      "hanViet": "HOA",
+      "japanese": "花",
+      "reading": "はな",
+      "vietnamese": "hoa",
+      "example": ""
+    },
+    {
+      "id": "0s0mk1h",
+      "hanViet": "HÀ VẬT",
+      "japanese": "荷物",
+      "reading": "にもつ",
+      "vietnamese": "đồ đạc, hành lý",
+      "example": ""
+    },
+    {
+      "id": "01r1e93",
+      "hanViet": "KIM",
+      "japanese": "お金",
+      "reading": "おかね",
+      "vietnamese": "tiền",
+      "example": ""
+    },
+    {
+      "id": "177zzau",
+      "hanViet": "THIẾT PHÙ",
+      "japanese": "切符",
+      "reading": "きっぷ",
+      "vietnamese": "vé",
+      "example": ""
+    },
+    {
+      "id": "1h1qjsx",
+      "hanViet": "PHỤ",
+      "japanese": "父",
+      "reading": "ちち",
+      "vietnamese": "bố",
+      "example": ""
+    },
+    {
+      "id": "1nmrpze",
+      "hanViet": "MẪU",
+      "japanese": "母",
+      "reading": "はは",
+      "vietnamese": "mẹ",
+      "example": ""
+    },
+    {
+      "id": "0qpzd11",
+      "hanViet": "PHỤ",
+      "japanese": "お父さん",
+      "reading": "おとうさん",
+      "vietnamese": "bố",
+      "example": ""
+    },
+    {
+      "id": "0gfdtri",
+      "hanViet": "MẪU",
+      "japanese": "お母さん",
+      "reading": "おかあさん",
+      "vietnamese": "Mẹ",
+      "example": ""
+    },
+    {
+      "id": "1lz0hbg",
+      "hanViet": "LỮ HÀNH",
+      "japanese": "旅行",
+      "reading": "りょこう",
+      "vietnamese": "Du lịch, chuyến du lịch",
+      "example": ""
+    },
+    {
+      "id": "17tp6mu",
+      "hanViet": "THỔ SẢN",
+      "japanese": "お土産",
+      "reading": "おみやげ",
+      "vietnamese": "quà",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

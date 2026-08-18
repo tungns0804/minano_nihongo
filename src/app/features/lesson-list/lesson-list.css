@@ -24,6 +24,11 @@
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
+/* Nhãn cấp độ dài hơn nhãn loại ("N5 · bài 1–25") nên cần ô rộng hơn một chút. */
+.level-options {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
 .filter-count {
   padding: 1px 8px;
   border-radius: var(--radius-pill);

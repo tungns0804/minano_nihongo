@@ -1,0 +1,19 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 27-28 (các dòng đánh số bài 21).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TƯ,思います (おもいます),Nghĩ
+NGÔN,言います (いいます),Nói
+TÚC,足ります (たります),Đủ
+THẮNG,勝ちます (かちます),Thắng
+PHỤ,負けます (まけます),Thua
+TẾ,お祭りがあります (おまつりがあります),Được tổ chức, diễn ra, có lễ hội
+DỊCH LẬP,役に立ちます (やくにたちます),Giúp ích
+BẤT TIỆN,不便 (ふべん),Bất tiện
+THỦ TƯỚNG,首相 (しゅしょう),Thủ tướng
+ĐẠI THỐNG LÃNH,大統領 (だいとうりょう),Tổng thống
+CHÍNH TRỊ,政治 (せいじ),Chính trị
+THỨC HỢP,試合 (しあい),Trận đấu
+Ý KIẾN,意見 (いけん),Ý kiến
+THOẠI,お話 (おはなし),Câu chuyện, bài nói chuyện
+GIAO THÔNG,交通 (こうつう),Giao thông, đi lại
+TỐI CẬN,最近 (さいきん),Gần đây

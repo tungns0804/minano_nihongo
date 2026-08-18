@@ -1,0 +1,189 @@
+{
+  "id": "minano-nihongo-15",
+  "lessonNumber": 15,
+  "name": "皆の日本語 — Bài 15 · Từ vựng",
+  "description": "Từ vựng bài 15",
+  "kind": "vocabulary",
+  "itemCount": 22,
+  "words": [
+    {
+      "id": "11lteqw",
+      "hanViet": "LẬP",
+      "japanese": "立ちます",
+      "reading": "たちます",
+      "vietnamese": "Đứng",
+      "example": ""
+    },
+    {
+      "id": "15g7f4m",
+      "hanViet": "TỌA",
+      "japanese": "座ります",
+      "reading": "すわります",
+      "vietnamese": "Ngồi",
+      "example": ""
+    },
+    {
+      "id": "1x7zsl2",
+      "hanViet": "SỬ/ SỨ",
+      "japanese": "使います",
+      "reading": "つかいます",
+      "vietnamese": "Dùng, sử dụng",
+      "example": ""
+    },
+    {
+      "id": "1pkdfsg",
+      "hanViet": "TRÍ",
+      "japanese": "置きます",
+      "reading": "おきます",
+      "vietnamese": "Đặt, để",
+      "example": ""
+    },
+    {
+      "id": "19g682m",
+      "hanViet": "TÁC",
+      "japanese": "作ります",
+      "reading": "つくります",
+      "vietnamese": "Làm, chế tạo, sản xuất",
+      "example": ""
+    },
+    {
+      "id": "1bsvlfr",
+      "hanViet": "TẠO",
+      "japanese": "造ります",
+      "reading": "つくります",
+      "vietnamese": "Chế tạo, sản xuất",
+      "example": ""
+    },
+    {
+      "id": "01yj8a0",
+      "hanViet": "MẠI",
+      "japanese": "売ります",
+      "reading": "うります",
+      "vietnamese": "Bán",
+      "example": ""
+    },
+    {
+      "id": "12k46v2",
+      "hanViet": "TRI",
+      "japanese": "知ります",
+      "reading": "しります",
+      "vietnamese": "Biết",
+      "example": ""
+    },
+    {
+      "id": "0a70dhd",
+      "hanViet": "TRÚ/ TRỤ",
+      "japanese": "住みます",
+      "reading": "すみます",
+      "vietnamese": "Sống, ở",
+      "example": ""
+    },
+    {
+      "id": "0q9tp0d",
+      "hanViet": "NGHIÊN CỨU",
+      "japanese": "研究します",
+      "reading": "けんきゅうします",
+      "vietnamese": "Nghiên cứu",
+      "example": ""
+    },
+    {
+      "id": "12oqo6r",
+      "hanViet": "TRI",
+      "japanese": "知っています",
+      "reading": "しっています",
+      "vietnamese": "Biết",
+      "example": ""
+    },
+    {
+      "id": "1nchej4",
+      "hanViet": "TƯ LIỆU",
+      "japanese": "資料",
+      "reading": "しりょう",
+      "vietnamese": "Tài liệu, tư liệu",
+      "example": ""
+    },
+    {
+      "id": "0cljvwp",
+      "hanViet": "PHỤC",
+      "japanese": "服",
+      "reading": "ふく",
+      "vietnamese": "Quần áo",
+      "example": ""
+    },
+    {
+      "id": "0vt60af",
+      "hanViet": "CHẾ PHẨM",
+      "japanese": "製品",
+      "reading": "せいひん",
+      "vietnamese": "Sản phẩm",
+      "example": ""
+    },
+    {
+      "id": "0ioh7k9",
+      "hanViet": "CHUYÊN MÔN",
+      "japanese": "専門",
+      "reading": "せんもん",
+      "vietnamese": "Chuyên môn",
+      "example": ""
+    },
+    {
+      "id": "1oiamuf",
+      "hanViet": "XỈ Y GIẢ",
+      "japanese": "歯医者",
+      "reading": "はいしゃ",
+      "vietnamese": "Nha sĩ",
+      "example": ""
+    },
+    {
+      "id": "0bx5xif",
+      "hanViet": "SÀNG ỐC",
+      "japanese": "床屋",
+      "reading": "とこや",
+      "vietnamese": "Hiệu cắt tóc",
+      "example": ""
+    },
+    {
+      "id": "1klofmv",
+      "hanViet": "ĐỘC THÂN",
+      "japanese": "独身",
+      "reading": "どくしん",
+      "vietnamese": "Độc thân",
+      "example": ""
+    },
+    {
+      "id": "059fwiy",
+      "hanViet": "ĐẶC",
+      "japanese": "特に",
+      "reading": "とくに",
+      "vietnamese": "Đặc biệt",
+      "example": ""
+    },
+    {
+      "id": "14ffigy",
+      "hanViet": "TƯ XUẤT",
+      "japanese": "思い出します",
+      "reading": "おもいだします",
+      "vietnamese": "Nhớ lại, hồi tưởng",
+      "example": ""
+    },
+    {
+      "id": "0xjfe6i",
+      "hanViet": "GIA TỘC",
+      "japanese": "ご家族",
+      "reading": "ごかぞく",
+      "vietnamese": "Gia đình",
+      "example": ""
+    },
+    {
+      "id": "04xtz5z",
+      "hanViet": "CAO HIỆU",
+      "japanese": "高校",
+      "reading": "こうこう",
+      "vietnamese": "Trường trung học phổ thông",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

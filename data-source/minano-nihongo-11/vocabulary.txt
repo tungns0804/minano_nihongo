@@ -1,0 +1,34 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 14-16 (các dòng đánh số bài 11).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TỬ CUNG,子供がいます (こどもがいます),có con
+NHẬT BẢN,日本にいます (にほんにいます),ở Nhật
+HỘI XÃ,会社を休みます (かいしゃをやすみます),nghỉ làm việc
+NHÂN,１人 (ひとり),một người
+NHÂN,２人 (ふたり),hai người
+NHÂN,～人 (～にん),～ người
+ĐÀI,～台 (～だい),～ cái
+MAI,～枚 (～まい),～ tờ, tấm
+HỒI,～回 (～かい),～ lần
+THIẾT THỦ,切手 (きって),tem
+PHONG ĐỒNG,封筒 (ふうとう),phong bì
+TỐC ĐẠT,速達 (そくたつ),gửi nhanh
+THƯ LƯU,書留 (かきとめ),gửi bảo đảm
+HÀNG KHÔNG TIỆN,航空便 (こうくうびん),gửi bằng đường hàng không
+THUYỀN TIỆN,船便 (ふなびん),gửi bằng đường biển
+LƯỠNG THÂN,両親 (りょうしん),bố mẹ
+HUYNH ĐỆ,兄弟 (きょうだい),anh chị em
+HUYNH,兄 (あに),anh trai
+HUYNH,お兄さん (おにいさん),anh trai người khác
+TỶ,姉 (あね),chị gái
+TỶ,お姉さん (おねえさん),chị gái
+ĐỆ,弟 (おとうと),em trai
+ĐỆ,弟さん (おとうとさん),em trai
+MUỘI,妹 (いもうと),em gái
+MUỘI,妹さん (いもうとさん),em gái
+NGOẠI QUỐC,外国 (がいこく),nước ngoài
+THỜI GIAN,～時間 (～じかん),～ tiếng
+CHU GIAN,～週間 (～しゅうかん),～ tuần
+NGUYỆT,～か月 (～かげつ),～ tháng
+NIÊN,～年 (～ねん),～ năm
+TOÀN BỘ,全部で (ぜんぶで),tổng cộng

@@ -1,0 +1,14 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 31 (các dòng đánh số bài 25).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+KHẢO,考えます (かんがえます),nghĩ, suy nghĩ
+DỊCH TRƯỚC,駅に着きます (えきにつきます),đến ga
+LƯU HỌC,留学します (りゅうがくします),du học
+NIÊN THỦ,年を取ります (としをとります),thêm tuổi
+ĐIỀN XÁ,田舎 (いなか),quê, nông thôn
+ĐẠI SỨ QUÁN,大使館 (たいしかん),đại sứ quán
+ỨC,億 (おく),một trăm triệu
+CHUYỂN CẦN,転勤 (てんきん),việc chuyển địa điểm làm việc
+THẾ THOẠI,いろいろお世話になりました。 (いろいろおせわになりました),Anh/chị đã giúp tôi nhiều.
+NGOAN TRƯƠNG,頑張ります (がんばります),cố, cố gắng
+NGUYÊN KHÍ,どうぞお元気で。 (どうぞおげんきで),Chúc anh/chị mạnh khỏe.

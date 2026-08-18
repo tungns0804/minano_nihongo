@@ -1,0 +1,30 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 23-25 (các dòng đánh số bài 17).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+GIÁC,覚えます (おぼえます),Nhớ
+VONG,忘れます (わすれます),Quên
+XUẤT,レポートを出します (レポートをだします),Nộp bản báo cáo
+PHẤT,払います (はらいます),Trả tiền
+PHẢN,返します (かえします),Trả lại
+XUẤT,出かけます (でかけます),Ra ngoài
+THOÁT,脱ぎます (ぬぎます),Cởi
+TRÌ HÀNH,持って行きます (もっていきます),Mang đi, mang theo
+TRÌ LAI,持って来ます (もってきます),Mang đến
+TÂM PHỐI,心配します (しんぱいします),Lo lắng
+TÀN NGHIỆP,残業します (ざんぎょうします),Làm thêm, làm quá giờ
+XUẤT TRƯƠNG,出張します (しゅっちょうします),Đi công tác
+DƯỢC ẨM,薬を飲みます (くすりをのみます),Uống thuốc
+NHẬP,おふろに入ります (おふろにはいります),Tắm bồn, vào bồn tắm
+ĐẠI THIẾT,大切 (たいせつ),Quan trọng, quý giá
+ĐẠI TRƯỢNG PHU,大丈夫 (だいじょうぶ),Không sao, không có vấn đề gì
+NGUY,危ない (あぶない),Nguy hiểm
+VẤN ĐỀ,問題 (もんだい),Vấn đề
+ĐÁP,答え (こたえ),Câu trả lời
+CẤM YÊN,禁煙 (きんえん),Cấm hút thuốc
+KIỆN KHANG BẢO HIỂM CHỨNG,健康保険証 (けんこうほけんしょう),Thẻ bảo hiểm y tế
+NHIỆT,熱 (ねつ),Sốt
+BỆNH KHÍ,病気 (びょうき),ốm, bệnh
+DƯỢC,薬 (くすり),Thuốc
+THƯỢNG TRƯỚC,上着 (うわぎ),Áo khoác
+HẠ TRƯỚC,下着 (したぎ),Quần áo lót
+TIÊN SINH,先生 (せんせい),Bác sĩ

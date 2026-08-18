@@ -1,0 +1,49 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 5-7 (các dòng đánh số bài 5).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+HÀNH,行きます (いきます),đi
+LAI,来ます (きます),đến
+QUY,帰ります (かえります),về
+HỌC HIỆU,学校 (がっこう),trường học
+DỊCH,駅 (えき),ga, nhà ga
+PHI HÀNH CƠ,飛行機 (ひこうき),máy bay
+THUYỀN,船 (ふね),thuyền, tàu thủy
+ĐIỆN XA,電車 (でんしゃ),tàu điện
+ĐỊA HẠ THIẾT,地下鉄 (ちかてつ),tàu điện ngầm
+TÂN CAN TUYẾN,新幹線 (しんかんせん),tàu Shinkansen
+TỰ CHUYỂN XA,自転車 (じてんしゃ),xe đạp
+BỘ,歩いて (あるいて),đi bộ
+NHÂN,人 (ひと),người
+HỮU ĐẠT,友達 (ともだち),bạn, bạn bè
+BỈ,彼 (かれ),anh ấy, bạn trai
+BỈ NỮ,彼女 (かのじょ),chị ấy, bạn gái
+GIA TỘC,家族 (かぞく),gia đình
+NHẤT NHÂN,～人で (ひとりで),một mình
+TIÊN CHU,先週 (せんしゅう),tuần trước
+KIM CHU,今週 (こんしゅう),tuần này
+LAI CHU,来週 (らいしゅう),tuần sau
+TIÊN NGUYỆT,先月 (せんげつ),tháng trước
+KIM NGUYỆT,今月 (こんげつ),tháng này
+LAI NGUYỆT,来月 (らいげつ),tháng sau
+KHU NIÊN,去年 (きょねん),năm ngoái
+LAI NIÊN,来年 (らいねん),năm sau
+HÀ NGUYỆT,何月 (なんがつ),tháng mấy
+NHẬT,１日 (ついたち),ngày mồng 1
+NHẬT,２日 (ふつか),ngày mồng 2, 2 ngày
+NHẬT,３日 (みっか),ngày mồng 3, 3 ngày
+NHẬT,４日 (よっか),ngày mồng 4, 4 ngày
+NHẬT,５日 (いつか),ngày mồng 5, 5 ngày
+NHẬT,６日 (むいか),ngày mồng 6, 6 ngày
+NHẬT,７日 (なのか),ngày mồng 7, 7 ngày
+NHẬT,８日 (ようか),ngày mồng 8, 8 ngày
+NHẬT,９日 (ここのか),ngày mồng 9, 9 ngày
+NHẬT,１０日 (とおか),ngày mồng 10, 10 ngày
+NHẬT,１４日 (じゅうよっか),ngày 14, 14 ngày
+NHẬT,２０日 (はつか),ngày 20, 20 ngày
+NHẬT,２４日 (にじゅうよっか),ngày 24, 24 ngày
+HÀ NHẬT,何日 (なんにち),nhiêu, mấy ngày, bao nhiêu ngày
+ĐẢN SINH NHẬT,誕生日 (たんじょうび),sinh nhật
+PHỔ THÔNG,普通 (ふつう),tàu thường (dừng cả ở các ga lẻ)
+CẤP HÀNH,急行 (きゅうこう),tàu tốc hành
+ĐẶC CẤP,特急 (とっきゅう),tàu tốc hành đặc biệt
+THỨ,次の (つぎの),tiếp theo

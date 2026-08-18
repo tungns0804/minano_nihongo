@@ -1,0 +1,14 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 28-29 (các dòng đánh số bài 22).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TRƯỚC,シャツを着ます (シャツをきます),Mặc áo sơ mi
+NGOA,靴をはきます (くつをはきます),mang giầy
+MẠO TỬ,帽子をかぶります (ぼうしをかぶります),Đội mũ
+NHÃN KÍNH,眼鏡をかけます (めがねをかけます),Đeo kính
+SINH,生まれます (うまれます),Sinh ra
+MẠO TỬ,帽子 (ぼうし),Mũ
+NHÃN KÍNH,眼鏡 (めがね),Kính
+GIA NHẦM,家賃 (やちん),Tiền thuê nhà
+HÒA THẤT,和室 (わしつ),Phòng kiểu Nhật
+ÁP NHẬP,押入れ (おしいれ),Chỗ để chăn gối
+BỐ ĐOÀN,布団 (ふとん),Chăn, đệm

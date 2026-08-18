@@ -1,12 +1,121 @@
 {
-  "generatedAt": "2026-08-18T03:01:15.996Z",
+  "generatedAt": "2026-08-18T07:03:58.072Z",
   "lessons": [
+    {
+      "id": "minano-nihongo-1",
+      "name": "皆の日本語 — Bài 1 · Từ vựng",
+      "description": "Từ vựng bài 1",
+      "kind": "vocabulary",
+      "itemCount": 19,
+      "lessonNumber": 1,
+      "file": "minano-nihongo-1.json"
+    },
+    {
+      "id": "minano-nihongo-2",
+      "name": "皆の日本語 — Bài 2 · Từ vựng",
+      "description": "Từ vựng bài 2",
+      "kind": "vocabulary",
+      "itemCount": 15,
+      "lessonNumber": 2,
+      "file": "minano-nihongo-2.json"
+    },
+    {
+      "id": "minano-nihongo-3",
+      "name": "皆の日本語 — Bài 3 · Từ vựng",
+      "description": "Từ vựng bài 3",
+      "kind": "vocabulary",
+      "itemCount": 17,
+      "lessonNumber": 3,
+      "file": "minano-nihongo-3.json"
+    },
+    {
+      "id": "minano-nihongo-4",
+      "name": "皆の日本語 — Bài 4 · Từ vựng",
+      "description": "Từ vựng bài 4",
+      "kind": "vocabulary",
+      "itemCount": 36,
+      "lessonNumber": 4,
+      "file": "minano-nihongo-4.json"
+    },
+    {
+      "id": "minano-nihongo-5",
+      "name": "皆の日本語 — Bài 5 · Từ vựng",
+      "description": "Từ vựng bài 5",
+      "kind": "vocabulary",
+      "itemCount": 46,
+      "lessonNumber": 5,
+      "file": "minano-nihongo-5.json"
+    },
+    {
+      "id": "minano-nihongo-6",
+      "name": "皆の日本語 — Bài 6 · Từ vựng",
+      "description": "Từ vựng bài 6",
+      "kind": "vocabulary",
+      "itemCount": 32,
+      "lessonNumber": 6,
+      "file": "minano-nihongo-6.json"
+    },
+    {
+      "id": "minano-nihongo-7",
+      "name": "皆の日本語 — Bài 7 · Từ vựng",
+      "description": "Từ vựng bài 7",
+      "kind": "vocabulary",
+      "itemCount": 19,
+      "lessonNumber": 7,
+      "file": "minano-nihongo-7.json"
+    },
+    {
+      "id": "minano-nihongo-8",
+      "name": "皆の日本語 — Bài 8 · Từ vựng",
+      "description": "Từ vựng bài 8",
+      "kind": "vocabulary",
+      "itemCount": 35,
+      "lessonNumber": 8,
+      "file": "minano-nihongo-8.json"
+    },
+    {
+      "id": "minano-nihongo-9",
+      "name": "皆の日本語 — Bài 9 · Từ vựng",
+      "description": "Từ vựng bài 9",
+      "kind": "vocabulary",
+      "itemCount": 25,
+      "lessonNumber": 9,
+      "file": "minano-nihongo-9.json"
+    },
+    {
+      "id": "minano-nihongo-10",
+      "name": "皆の日本語 — Bài 10 · Từ vựng",
+      "description": "Từ vựng bài 10",
+      "kind": "vocabulary",
+      "itemCount": 29,
+      "lessonNumber": 10,
+      "file": "minano-nihongo-10.json"
+    },
+    {
+      "id": "minano-nihongo-11",
+      "name": "皆の日本語 — Bài 11 · Từ vựng",
+      "description": "Từ vựng bài 11",
+      "kind": "vocabulary",
+      "itemCount": 31,
+      "lessonNumber": 11,
+      "file": "minano-nihongo-11.json"
+    },
+    {
+      "id": "minano-nihongo-12",
+      "name": "皆の日本語 — Bài 12 · Từ vựng",
+      "description": "Từ vựng bài 12",
+      "kind": "vocabulary",
+      "itemCount": 37,
+      "lessonNumber": 12,
+      "file": "minano-nihongo-12.json"
+    },
     {
       "id": "minano-nihongo-13",
       "name": "皆の日本語 — Bài 13 · Từ vựng",
       "description": "Từ vựng bài 13",
       "kind": "vocabulary",
       "itemCount": 29,
+      "lessonNumber": 13,
       "file": "minano-nihongo-13.json"
     },
     {
@@ -15,7 +124,116 @@
       "description": "Nがほしいです, Vたいです, ～に行きます, どこか/なにか",
       "kind": "grammar",
       "itemCount": 6,
+      "lessonNumber": 13,
       "file": "ngu-phap-minano-13.json"
+    },
+    {
+      "id": "minano-nihongo-14",
+      "name": "皆の日本語 — Bài 14 · Từ vựng",
+      "description": "Từ vựng bài 14",
+      "kind": "vocabulary",
+      "itemCount": 26,
+      "lessonNumber": 14,
+      "file": "minano-nihongo-14.json"
+    },
+    {
+      "id": "minano-nihongo-15",
+      "name": "皆の日本語 — Bài 15 · Từ vựng",
+      "description": "Từ vựng bài 15",
+      "kind": "vocabulary",
+      "itemCount": 22,
+      "lessonNumber": 15,
+      "file": "minano-nihongo-15.json"
+    },
+    {
+      "id": "minano-nihongo-16",
+      "name": "皆の日本語 — Bài 16 · Từ vựng",
+      "description": "Từ vựng bài 16",
+      "kind": "vocabulary",
+      "itemCount": 35,
+      "lessonNumber": 16,
+      "file": "minano-nihongo-16.json"
+    },
+    {
+      "id": "minano-nihongo-17",
+      "name": "皆の日本語 — Bài 17 · Từ vựng",
+      "description": "Từ vựng bài 17",
+      "kind": "vocabulary",
+      "itemCount": 27,
+      "lessonNumber": 17,
+      "file": "minano-nihongo-17.json"
+    },
+    {
+      "id": "minano-nihongo-18",
+      "name": "皆の日本語 — Bài 18 · Từ vựng",
+      "description": "Từ vựng bài 18",
+      "kind": "vocabulary",
+      "itemCount": 20,
+      "lessonNumber": 18,
+      "file": "minano-nihongo-18.json"
+    },
+    {
+      "id": "minano-nihongo-19",
+      "name": "皆の日本語 — Bài 19 · Từ vựng",
+      "description": "Từ vựng bài 19",
+      "kind": "vocabulary",
+      "itemCount": 19,
+      "lessonNumber": 19,
+      "file": "minano-nihongo-19.json"
+    },
+    {
+      "id": "minano-nihongo-20",
+      "name": "皆の日本語 — Bài 20 · Từ vựng",
+      "description": "Từ vựng bài 20",
+      "kind": "vocabulary",
+      "itemCount": 13,
+      "lessonNumber": 20,
+      "file": "minano-nihongo-20.json"
+    },
+    {
+      "id": "minano-nihongo-21",
+      "name": "皆の日本語 — Bài 21 · Từ vựng",
+      "description": "Từ vựng bài 21",
+      "kind": "vocabulary",
+      "itemCount": 16,
+      "lessonNumber": 21,
+      "file": "minano-nihongo-21.json"
+    },
+    {
+      "id": "minano-nihongo-22",
+      "name": "皆の日本語 — Bài 22 · Từ vựng",
+      "description": "Từ vựng bài 22",
+      "kind": "vocabulary",
+      "itemCount": 11,
+      "lessonNumber": 22,
+      "file": "minano-nihongo-22.json"
+    },
+    {
+      "id": "minano-nihongo-23",
+      "name": "皆の日本語 — Bài 23 · Từ vựng",
+      "description": "Từ vựng bài 23",
+      "kind": "vocabulary",
+      "itemCount": 23,
+      "lessonNumber": 23,
+      "file": "minano-nihongo-23.json"
+    },
+    {
+      "id": "minano-nihongo-24",
+      "name": "皆の日本語 — Bài 24 · Từ vựng",
+      "description": "Từ vựng bài 24",
+      "kind": "vocabulary",
+      "itemCount": 13,
+      "lessonNumber": 24,
+      "file": "minano-nihongo-24.json"
+    },
+    {
+      "id": "minano-nihongo-25",
+      "name": "皆の日本語 — Bài 25 · Từ vựng",
+      "description": "Từ vựng bài 25",
+      "kind": "vocabulary",
+      "itemCount": 11,
+      "lessonNumber": 25,
+      "file": "minano-nihongo-25.json"
     },
     {
       "id": "minano-nihongo-26",
@@ -23,6 +241,7 @@
       "description": "Từ vựng bài 26",
       "kind": "vocabulary",
       "itemCount": 34,
+      "lessonNumber": 26,
       "file": "minano-nihongo-26.json"
     },
     {
@@ -31,6 +250,7 @@
       "description": "Dịch câu mẫu, ví dụ và hội thoại bài 26 giữa Nhật và Việt",
       "kind": "conversation",
       "itemCount": 25,
+      "lessonNumber": 26,
       "file": "hoi-thoai-minano-26.json"
     },
     {
@@ -39,6 +259,7 @@
       "description": "～んです, ～ていただけませんか, ～たら いいですか",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 26,
       "file": "ngu-phap-minano-26.json"
     },
     {
@@ -47,6 +268,7 @@
       "description": "Từ vựng bài 27",
       "kind": "vocabulary",
       "itemCount": 35,
+      "lessonNumber": 27,
       "file": "minano-nihongo-27.json"
     },
     {
@@ -55,6 +277,7 @@
       "description": "Thể khả năng, みえます・きこえます, できます, は so sánh, しか",
       "kind": "grammar",
       "itemCount": 5,
+      "lessonNumber": 27,
       "file": "ngu-phap-minano-27.json"
     },
     {
@@ -63,6 +286,7 @@
       "description": "Từ vựng bài 28",
       "kind": "vocabulary",
       "itemCount": 36,
+      "lessonNumber": 28,
       "file": "minano-nihongo-28.json"
     },
     {
@@ -71,6 +295,7 @@
       "description": "～ながら, Vています (thói quen), ～し～し, それで",
       "kind": "grammar",
       "itemCount": 4,
+      "lessonNumber": 28,
       "file": "ngu-phap-minano-28.json"
     },
     {
@@ -79,6 +304,7 @@
       "description": "Từ vựng bài 29",
       "kind": "vocabulary",
       "itemCount": 37,
+      "lessonNumber": 29,
       "file": "minano-nihongo-29.json"
     },
     {
@@ -87,6 +313,7 @@
       "description": "Tự / tha động từ, Vて います (trạng thái), ～てしまいます",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 29,
       "file": "ngu-phap-minano-29.json"
     },
     {
@@ -95,6 +322,7 @@
       "description": "Từ vựng bài 30",
       "kind": "vocabulary",
       "itemCount": 37,
+      "lessonNumber": 30,
       "file": "minano-nihongo-30.json"
     },
     {
@@ -103,6 +331,7 @@
       "description": "～てあります, ～ておきます",
       "kind": "grammar",
       "itemCount": 2,
+      "lessonNumber": 30,
       "file": "ngu-phap-minano-30.json"
     },
     {
@@ -111,6 +340,7 @@
       "description": "Từ vựng bài 31",
       "kind": "vocabulary",
       "itemCount": 19,
+      "lessonNumber": 31,
       "file": "minano-nihongo-31.json"
     },
     {
@@ -119,6 +349,7 @@
       "description": "Thể ý hướng, ～と思います, つもりです, 予定です, まだ～",
       "kind": "grammar",
       "itemCount": 5,
+      "lessonNumber": 31,
       "file": "ngu-phap-minano-31.json"
     },
     {
@@ -127,6 +358,7 @@
       "description": "Từ vựng bài 32",
       "kind": "vocabulary",
       "itemCount": 40,
+      "lessonNumber": 32,
       "file": "minano-nihongo-32.json"
     },
     {
@@ -135,6 +367,7 @@
       "description": "～ほうが いいです, でしょう, かもしれません, lượng từ ＋ で",
       "kind": "grammar",
       "itemCount": 4,
+      "lessonNumber": 32,
       "file": "ngu-phap-minano-32.json"
     },
     {
@@ -143,6 +376,7 @@
       "description": "Từ vựng bài 33",
       "kind": "vocabulary",
       "itemCount": 38,
+      "lessonNumber": 33,
       "file": "minano-nihongo-33.json"
     },
     {
@@ -151,6 +385,7 @@
       "description": "Chia thể Te / Ta / Ru / Nai cho động từ bài 33",
       "kind": "verb",
       "itemCount": 12,
+      "lessonNumber": 33,
       "file": "dong-tu-minano-33.json"
     },
     {
@@ -159,6 +394,7 @@
       "description": "Thể mệnh lệnh / cấm chỉ, ～なさい, ～と読みます, ～という意味です, ～と言っていました",
       "kind": "grammar",
       "itemCount": 5,
+      "lessonNumber": 33,
       "file": "ngu-phap-minano-33.json"
     },
     {
@@ -167,6 +403,7 @@
       "description": "Từ vựng bài 34",
       "kind": "vocabulary",
       "itemCount": 34,
+      "lessonNumber": 34,
       "file": "minano-nihongo-34.json"
     },
     {
@@ -175,6 +412,7 @@
       "description": "～とおりに, ～あとで, Vて／Vないで ＋ V2",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 34,
       "file": "ngu-phap-minano-34.json"
     },
     {
@@ -183,6 +421,7 @@
       "description": "Từ vựng bài 35",
       "kind": "vocabulary",
       "itemCount": 36,
+      "lessonNumber": 35,
       "file": "minano-nihongo-35.json"
     },
     {
@@ -191,6 +430,7 @@
       "description": "Thể điều kiện ば, N なら, ～ば いいですか, càng ~ càng ~",
       "kind": "grammar",
       "itemCount": 4,
+      "lessonNumber": 35,
       "file": "ngu-phap-minano-35.json"
     },
     {
@@ -199,6 +439,7 @@
       "description": "Từ vựng bài 36",
       "kind": "vocabulary",
       "itemCount": 30,
+      "lessonNumber": 36,
       "file": "minano-nihongo-36.json"
     },
     {
@@ -207,6 +448,7 @@
       "description": "～ように, ～ように なります, ～ように します",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 36,
       "file": "ngu-phap-minano-36.json"
     },
     {
@@ -215,6 +457,7 @@
       "description": "Từ vựng bài 37",
       "kind": "vocabulary",
       "itemCount": 38,
+      "lessonNumber": 37,
       "file": "minano-nihongo-37.json"
     },
     {
@@ -223,6 +466,7 @@
       "description": "Thể bị động, N によって, N から／N で つくられます",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 37,
       "file": "ngu-phap-minano-37.json"
     },
     {
@@ -231,6 +475,7 @@
       "description": "Từ vựng bài 38",
       "kind": "vocabulary",
       "itemCount": 29,
+      "lessonNumber": 38,
       "file": "minano-nihongo-38.json"
     },
     {
@@ -239,6 +484,7 @@
       "description": "Vる ＋ の danh từ hoá: のは, のが, のを, のを 知っていますか",
       "kind": "grammar",
       "itemCount": 5,
+      "lessonNumber": 38,
       "file": "ngu-phap-minano-38.json"
     },
     {
@@ -247,6 +493,7 @@
       "description": "Từ vựng bài 39",
       "kind": "vocabulary",
       "itemCount": 33,
+      "lessonNumber": 39,
       "file": "minano-nihongo-39.json"
     },
     {
@@ -255,6 +502,7 @@
       "description": "Từ vựng bài 40",
       "kind": "vocabulary",
       "itemCount": 40,
+      "lessonNumber": 40,
       "file": "minano-nihongo-40.json"
     },
     {
@@ -263,6 +511,7 @@
       "description": "～か、～かどうか, ～てみます, Aい ＋ さ",
       "kind": "grammar",
       "itemCount": 4,
+      "lessonNumber": 40,
       "file": "ngu-phap-minano-40.json"
     },
     {
@@ -271,6 +520,7 @@
       "description": "Từ vựng bài 41",
       "kind": "vocabulary",
       "itemCount": 34,
+      "lessonNumber": 41,
       "file": "minano-nihongo-41.json"
     },
     {
@@ -279,6 +529,7 @@
       "description": "さしあげます／くださいます／いただきます, ～てくださいませんか, N に",
       "kind": "grammar",
       "itemCount": 5,
+      "lessonNumber": 41,
       "file": "ngu-phap-minano-41.json"
     },
     {
@@ -287,6 +538,7 @@
       "description": "Từ vựng bài 42 (PDF nguồn ghi trùng danh sách với bài 43)",
       "kind": "vocabulary",
       "itemCount": 18,
+      "lessonNumber": 42,
       "file": "minano-nihongo-42.json"
     },
     {
@@ -295,6 +547,7 @@
       "description": "～ために, ～のに つかいます, ～のに べんりです, lượng từ ＋ は／も",
       "kind": "grammar",
       "itemCount": 4,
+      "lessonNumber": 42,
       "file": "ngu-phap-minano-42.json"
     },
     {
@@ -303,6 +556,7 @@
       "description": "Từ vựng bài 43",
       "kind": "vocabulary",
       "itemCount": 18,
+      "lessonNumber": 43,
       "file": "minano-nihongo-43.json"
     },
     {
@@ -311,6 +565,7 @@
       "description": "～そうです (trông có vẻ), ～てきます, ～てくれませんか",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 43,
       "file": "ngu-phap-minano-43.json"
     },
     {
@@ -319,6 +574,7 @@
       "description": "Từ vựng bài 44",
       "kind": "vocabulary",
       "itemCount": 26,
+      "lessonNumber": 44,
       "file": "minano-nihongo-44.json"
     },
     {
@@ -327,6 +583,7 @@
       "description": "～すぎます, ～やすい／～にくい, ～く／～に します",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 44,
       "file": "ngu-phap-minano-44.json"
     },
     {
@@ -335,6 +592,7 @@
       "description": "Từ vựng bài 45",
       "kind": "vocabulary",
       "itemCount": 21,
+      "lessonNumber": 45,
       "file": "minano-nihongo-45.json"
     },
     {
@@ -343,6 +601,7 @@
       "description": "～場合は, ～のに (thế mà), phân biệt のに／が／ても",
       "kind": "grammar",
       "itemCount": 2,
+      "lessonNumber": 45,
       "file": "ngu-phap-minano-45.json"
     },
     {
@@ -351,6 +610,7 @@
       "description": "Từ vựng bài 46",
       "kind": "vocabulary",
       "itemCount": 22,
+      "lessonNumber": 46,
       "file": "minano-nihongo-46.json"
     },
     {
@@ -359,6 +619,7 @@
       "description": "～ところです, ～たばかりです, ～はずです",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 46,
       "file": "ngu-phap-minano-46.json"
     },
     {
@@ -367,6 +628,7 @@
       "description": "Từ vựng bài 47",
       "kind": "vocabulary",
       "itemCount": 31,
+      "lessonNumber": 47,
       "file": "minano-nihongo-47.json"
     },
     {
@@ -375,6 +637,7 @@
       "description": "～そうです (nghe nói), ～ようです, N が します",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 47,
       "file": "ngu-phap-minano-47.json"
     },
     {
@@ -383,6 +646,7 @@
       "description": "Từ vựng bài 48",
       "kind": "vocabulary",
       "itemCount": 22,
+      "lessonNumber": 48,
       "file": "minano-nihongo-48.json"
     },
     {
@@ -391,6 +655,7 @@
       "description": "Thể sai khiến, ～させて いただけませんか",
       "kind": "grammar",
       "itemCount": 2,
+      "lessonNumber": 48,
       "file": "ngu-phap-minano-48.json"
     },
     {
@@ -399,6 +664,7 @@
       "description": "Từ vựng bài 49",
       "kind": "vocabulary",
       "itemCount": 28,
+      "lessonNumber": 49,
       "file": "minano-nihongo-49.json"
     },
     {
@@ -407,6 +673,7 @@
       "description": "Tôn kính ngữ 尊敬語: thể bị động, お～に なります, động từ đặc biệt, お～ください",
       "kind": "grammar",
       "itemCount": 6,
+      "lessonNumber": 49,
       "file": "ngu-phap-minano-49.json"
     },
     {
@@ -415,6 +682,7 @@
       "description": "Từ vựng bài 50",
       "kind": "vocabulary",
       "itemCount": 33,
+      "lessonNumber": 50,
       "file": "minano-nihongo-50.json"
     },
     {
@@ -423,6 +691,7 @@
       "description": "Khiêm nhường ngữ 謙譲語, động từ đặc biệt, 丁寧語 ございます",
       "kind": "grammar",
       "itemCount": 3,
+      "lessonNumber": 50,
       "file": "ngu-phap-minano-50.json"
     },
     {

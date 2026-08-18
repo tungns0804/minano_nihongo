@@ -1,0 +1,22 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 9-10 (các dòng đánh số bài 7).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+THIẾT,切る (きる),cắt
+TỐNG,送る (おくる),gửi
+THẢI,貸す (かす),cho mượn, cho vay
+TÁ,借りる (かりる),mượn, vay
+GIÁO,教える (おしえる),dạy
+TẬP,習う (ならう),học, tập
+ĐIỆN THOẠI,電話 (でんわ),điện thoại
+THỦ,手 (て),tay
+CHỈ,紙 (かみ),giấy
+HOA,花 (はな),hoa
+HÀ VẬT,荷物 (にもつ),đồ đạc, hành lý
+KIM,お金 (おかね),tiền
+THIẾT PHÙ,切符 (きっぷ),vé
+PHỤ,父 (ちち),bố
+MẪU,母 (はは),mẹ
+PHỤ,お父さん (おとうさん),bố
+MẪU,お母さん (おかあさん),Mẹ
+LỮ HÀNH,旅行 (りょこう),Du lịch, chuyến du lịch
+THỔ SẢN,お土産 (おみやげ),quà

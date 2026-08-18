@@ -1,0 +1,20 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 2-3 (các dòng đánh số bài 3).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+GIÁO THẤT,教室 (きょうしつ),lớp học, phòng học
+THỰC ĐƯỜNG,食堂 (しょくどう),nhà ăn
+SỰ VỤ SỞ,事務所 (じむしょ),văn phòng
+HỘI NGHỊ THẤT,会議室 (かいぎしつ),phòng họp
+THỤ PHÓ,受付 (うけつけ),bộ phận tiếp tân, phòng thường trực
+BỘ ÓC,部屋 (へや),căn phòng
+THỦ TẢY,お手洗い (おてあらい),nhà vệ sinh, phòng vệ sinh, toa-lét
+GIAI ĐOẠN,階段 (かいだん),Cầu thang
+QUỐC,お国 (おくに),đất nước
+HỘI XÃ,会社 (かいしゃ),công ty
+ĐIỆN THOẠI,電話 (でんわ),máy điện thoại, điện thoại
+NGOA,靴 (くつ),giầy
+MẠI TRƯỜNG,売り場 (うりば),quầy bán (trong một cửa hàng bách hóa)
+HÀ GIAI,何階 (なんがい),tầng mấy
+BÁCH,百 (ひゃく),Trăm
+THIÊN,千 (せん),nghìn
+VẠN,万 (まん),mười nghìn, vạn

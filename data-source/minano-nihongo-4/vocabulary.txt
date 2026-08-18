@@ -1,0 +1,39 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 3-5 (các dòng đánh số bài 4).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+KHỞI,起きます (おきます),Dậy, thức dậy
+TẨM,寝ます (ねます),Ngủ, đi ngủ
+ĐỘNG,働きます (はたらきます),Làm việc
+HƯU,休みます (やすみます),Nghỉ, nghỉ ngơi
+MIỄN CƯỜNG,勉強します (べんきょうします),Học
+CHUNG,終わります (おわります),Hết, kết thúc, xong
+NGÂN HÀNH,銀行 (ぎんこう),Ngân hàng
+BƯU TIỆN CỤC,郵便局 (ゆうびんきょく),Bưu điện
+ĐỒ THƯ QUÁN,図書館 (としょかん),Thư viện
+MỸ THUẬT QUÁN,美術館 (びじゅつかん),Bảo tàng mỹ thuật
+KIM,今 (いま),Bây giờ
+BÁN,半 (はん),Rưỡi, nửa
+HÀ THỜI,何時 (なんじ),Mấy giờ
+HÀ PHÂN,何分 (なんぷん),Mấy phút
+NGỌ TIỀN,午前 (ごぜん),Sáng, trước 12 giờ trưa
+NGỌ HẬU,午後 (ごご),Chiều, sau 12 giờ trưa
+TRIỀU,朝 (あさ),Buổi sáng, sáng
+TRÚ,昼 (ひる),Buổi trưa, trưa
+VÃN,晩 (ばん),Buổi tối, tối
+DẠ,夜 (よる),Buổi tối, khuya
+KIM VÃN,今晩 (こんばん),Tối nay
+HƯU,休み (やすみ),Nghỉ, nghỉ phép, ngày nghỉ
+TRÚ HƯU,昼休み (ひるやすみ),Nghỉ trưa
+MỖI TRIỀU,毎朝 (まいあさ),Hàng sáng, mỗi sáng
+MỖI VÃN,毎晩 (まいばん),Hàng tối, mỗi tối
+MỖI NHẬT,毎日 (まいにち),Hàng ngày, mỗi ngày
+NGUYỆT DIỆU NHẬT,月曜日 (げつようび),Thứ hai
+HỎA DIỆU NHẬT,火曜日 (かようび),Thứ ba
+THỦY DIỆU NHẬT,水曜日 (すいようび),Thứ tư
+MỘC DIỆU NHẬT,木曜日 (もくようび),Thứ năm
+KIM DIỆU NHẬT,金曜日 (きんようび),Thứ sáu
+THỔ DIỆU NHẬT,土曜日 (どようび),Thứ bảy
+NHẬT DIỆU NHẬT,日曜日 (にちようび),Chủ Nhật
+HÀ DIỆU NHẬT,何曜日 (なんようび),Thứ mấy
+PHIÊN HIỆU,番号 (ばんごう),Số (số điện thoại, số phòng)
+HÀ PHIÊN,何番 (なんばん),Số bao nhiêu, số mấy

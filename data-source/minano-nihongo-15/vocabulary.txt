@@ -1,0 +1,25 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 21-22 (các dòng đánh số bài 15).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+LẬP,立ちます (たちます),Đứng
+TỌA,座ります (すわります),Ngồi
+SỬ/ SỨ,使います (つかいます),Dùng, sử dụng
+TRÍ,置きます (おきます),Đặt, để
+TÁC,作ります (つくります),Làm, chế tạo, sản xuất
+TẠO,造ります (つくります),Chế tạo, sản xuất
+MẠI,売ります (うります),Bán
+TRI,知ります (しります),Biết
+TRÚ/ TRỤ,住みます (すみます),Sống, ở
+NGHIÊN CỨU,研究します (けんきゅうします),Nghiên cứu
+TRI,知っています (しっています),Biết
+TƯ LIỆU,資料 (しりょう),Tài liệu, tư liệu
+PHỤC,服 (ふく),Quần áo
+CHẾ PHẨM,製品 (せいひん),Sản phẩm
+CHUYÊN MÔN,専門 (せんもん),Chuyên môn
+XỈ Y GIẢ,歯医者 (はいしゃ),Nha sĩ
+SÀNG ỐC,床屋 (とこや),Hiệu cắt tóc
+ĐỘC THÂN,独身 (どくしん),Độc thân
+ĐẶC,特に (とくに),Đặc biệt
+TƯ XUẤT,思い出します (おもいだします),Nhớ lại, hồi tưởng
+GIA TỘC,ご家族 (ごかぞく),Gia đình
+CAO HIỆU,高校 (こうこう),Trường trung học phổ thông

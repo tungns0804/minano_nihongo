@@ -1,0 +1,309 @@
+{
+  "id": "minano-nihongo-12",
+  "lessonNumber": 12,
+  "name": "皆の日本語 — Bài 12 · Từ vựng",
+  "description": "Từ vựng bài 12",
+  "kind": "vocabulary",
+  "itemCount": 37,
+  "words": [
+    {
+      "id": "1jgo2cm",
+      "hanViet": "GIẢN ĐƠN",
+      "japanese": "簡単",
+      "reading": "かんたん",
+      "vietnamese": "Đơn giản, dễ",
+      "example": ""
+    },
+    {
+      "id": "1wlocrr",
+      "hanViet": "CẬN",
+      "japanese": "近い",
+      "reading": "ちかい",
+      "vietnamese": "Gần",
+      "example": ""
+    },
+    {
+      "id": "1c2f6cg",
+      "hanViet": "VIỄN",
+      "japanese": "遠い",
+      "reading": "とおい",
+      "vietnamese": "Xa",
+      "example": ""
+    },
+    {
+      "id": "036mwkj",
+      "hanViet": "TỐC",
+      "japanese": "速い",
+      "reading": "はやい",
+      "vietnamese": "Nhanh",
+      "example": ""
+    },
+    {
+      "id": "0zllnm3",
+      "hanViet": "TẢO",
+      "japanese": "早い",
+      "reading": "はやい",
+      "vietnamese": "sớm",
+      "example": ""
+    },
+    {
+      "id": "1lg55mq",
+      "hanViet": "TRÌ",
+      "japanese": "遅い",
+      "reading": "おそい",
+      "vietnamese": "Chậm, muộn",
+      "example": ""
+    },
+    {
+      "id": "1a9mrzk",
+      "hanViet": "NHÂN ĐA",
+      "japanese": "人が多い",
+      "reading": "ひとがおおい",
+      "vietnamese": "Nhiều người",
+      "example": ""
+    },
+    {
+      "id": "08j30ys",
+      "hanViet": "NHÂN THIỂU",
+      "japanese": "人が少ない",
+      "reading": "ひとがすくない",
+      "vietnamese": "Ít người",
+      "example": ""
+    },
+    {
+      "id": "1qgozh3",
+      "hanViet": "ÔN",
+      "japanese": "温かい",
+      "reading": "あたたかい",
+      "vietnamese": "ấm áp",
+      "example": ""
+    },
+    {
+      "id": "1xs89rw",
+      "hanViet": "NOÃN",
+      "japanese": "暖かい",
+      "reading": "あたたかい",
+      "vietnamese": "ấm áp",
+      "example": ""
+    },
+    {
+      "id": "06utass",
+      "hanViet": "LƯƠNG",
+      "japanese": "涼しい",
+      "reading": "すずしい",
+      "vietnamese": "Mát mẻ",
+      "example": ""
+    },
+    {
+      "id": "1elnm9y",
+      "hanViet": "CAM",
+      "japanese": "甘い",
+      "reading": "あまい",
+      "vietnamese": "Ngọt",
+      "example": ""
+    },
+    {
+      "id": "1paiwqi",
+      "hanViet": "TÂN",
+      "japanese": "辛い",
+      "reading": "からい",
+      "vietnamese": "Cay",
+      "example": ""
+    },
+    {
+      "id": "14o2tdd",
+      "hanViet": "TRỌNG",
+      "japanese": "重い",
+      "reading": "おもい",
+      "vietnamese": "Nặng",
+      "example": ""
+    },
+    {
+      "id": "14qvxfs",
+      "hanViet": "KHINH",
+      "japanese": "軽い",
+      "reading": "かるい",
+      "vietnamese": "Nhẹ",
+      "example": ""
+    },
+    {
+      "id": "1wqhs84",
+      "hanViet": "QUÝ TIẾT",
+      "japanese": "季節",
+      "reading": "きせつ",
+      "vietnamese": "Mùa",
+      "example": ""
+    },
+    {
+      "id": "19zn807",
+      "hanViet": "XUÂN",
+      "japanese": "春",
+      "reading": "はる",
+      "vietnamese": "Mùa xuân",
+      "example": ""
+    },
+    {
+      "id": "0e63c8u",
+      "hanViet": "HẠ",
+      "japanese": "夏",
+      "reading": "なつ",
+      "vietnamese": "Mùa hè",
+      "example": ""
+    },
+    {
+      "id": "0nw0mhd",
+      "hanViet": "THU",
+      "japanese": "秋",
+      "reading": "あき",
+      "vietnamese": "Mùa thu",
+      "example": ""
+    },
+    {
+      "id": "01fs05a",
+      "hanViet": "ĐÔNG",
+      "japanese": "冬",
+      "reading": "ふゆ",
+      "vietnamese": "Mùa đông",
+      "example": ""
+    },
+    {
+      "id": "02eafro",
+      "hanViet": "THIÊN KHÍ",
+      "japanese": "天気",
+      "reading": "てんき",
+      "vietnamese": "Thời tiết",
+      "example": ""
+    },
+    {
+      "id": "1mbvp6f",
+      "hanViet": "VŨ",
+      "japanese": "雨",
+      "reading": "あめ",
+      "vietnamese": "Mưa",
+      "example": ""
+    },
+    {
+      "id": "00hvtsx",
+      "hanViet": "TUYẾT",
+      "japanese": "雪",
+      "reading": "ゆき",
+      "vietnamese": "Tuyết",
+      "example": ""
+    },
+    {
+      "id": "0rs8t67",
+      "hanViet": "ĐÀM",
+      "japanese": "曇り",
+      "reading": "くもり",
+      "vietnamese": "Có mây",
+      "example": ""
+    },
+    {
+      "id": "0chsbla",
+      "hanViet": "KHÔNG CẢNG",
+      "japanese": "空港",
+      "reading": "くうこう",
+      "vietnamese": "Sân bay",
+      "example": ""
+    },
+    {
+      "id": "1e22gi3",
+      "hanViet": "HẢI",
+      "japanese": "海",
+      "reading": "うみ",
+      "vietnamese": "Biển, đại dương",
+      "example": ""
+    },
+    {
+      "id": "1k0dpy2",
+      "hanViet": "THẾ GIỚI",
+      "japanese": "世界",
+      "reading": "せかい",
+      "vietnamese": "Thế giới",
+      "example": ""
+    },
+    {
+      "id": "1inqdmw",
+      "hanViet": "TẾ",
+      "japanese": "お祭り",
+      "reading": "おまつり",
+      "vietnamese": "Lễ hội",
+      "example": ""
+    },
+    {
+      "id": "0s1thw2",
+      "hanViet": "THÍ NGHIỆM",
+      "japanese": "試験",
+      "reading": "しけん",
+      "vietnamese": "Kỳ thi, bài thi",
+      "example": ""
+    },
+    {
+      "id": "0qlbefm",
+      "hanViet": "THIÊU",
+      "japanese": "すき焼き",
+      "reading": "すきやき",
+      "vietnamese": "Món sukiyaki",
+      "example": ""
+    },
+    {
+      "id": "1jn4zpm",
+      "hanViet": "THÍCH THÂN",
+      "japanese": "刺身",
+      "reading": "さしみ",
+      "vietnamese": "Món sashimi",
+      "example": ""
+    },
+    {
+      "id": "10o0y7y",
+      "hanViet": "SINH HOA",
+      "japanese": "生け花",
+      "reading": "いけばな",
+      "vietnamese": "Nghệ thuật cắm hoa",
+      "example": ""
+    },
+    {
+      "id": "03cfeid",
+      "hanViet": "HỒNG DIỆP",
+      "japanese": "紅葉",
+      "reading": "もみじ",
+      "vietnamese": "Lá đỏ",
+      "example": ""
+    },
+    {
+      "id": "1dtkasy",
+      "hanViet": "SƠ",
+      "japanese": "初めて",
+      "reading": "はじめて",
+      "vietnamese": "Lần đầu tiên",
+      "example": ""
+    },
+    {
+      "id": "134azgx",
+      "hanViet": "QUY",
+      "japanese": "お帰りなさい。",
+      "reading": "おかえりなさい",
+      "vietnamese": "Anh/Chị đã về đấy à.",
+      "example": ""
+    },
+    {
+      "id": "07lnxq2",
+      "hanViet": "BÌ",
+      "japanese": "疲れる",
+      "reading": "つかれる",
+      "vietnamese": "Mệt mỏi",
+      "example": ""
+    },
+    {
+      "id": "1dd2305",
+      "hanViet": "HƯƠNG CẢNG",
+      "japanese": "香港",
+      "reading": "ホンコン",
+      "vietnamese": "Hồng kông",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

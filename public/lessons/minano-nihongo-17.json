@@ -1,0 +1,229 @@
+{
+  "id": "minano-nihongo-17",
+  "lessonNumber": 17,
+  "name": "皆の日本語 — Bài 17 · Từ vựng",
+  "description": "Từ vựng bài 17",
+  "kind": "vocabulary",
+  "itemCount": 27,
+  "words": [
+    {
+      "id": "1bj9hui",
+      "hanViet": "GIÁC",
+      "japanese": "覚えます",
+      "reading": "おぼえます",
+      "vietnamese": "Nhớ",
+      "example": ""
+    },
+    {
+      "id": "1n6a4xw",
+      "hanViet": "VONG",
+      "japanese": "忘れます",
+      "reading": "わすれます",
+      "vietnamese": "Quên",
+      "example": ""
+    },
+    {
+      "id": "0oq8l3h",
+      "hanViet": "XUẤT",
+      "japanese": "レポートを出します",
+      "reading": "レポートをだします",
+      "vietnamese": "Nộp bản báo cáo",
+      "example": ""
+    },
+    {
+      "id": "1o5b7o3",
+      "hanViet": "PHẤT",
+      "japanese": "払います",
+      "reading": "はらいます",
+      "vietnamese": "Trả tiền",
+      "example": ""
+    },
+    {
+      "id": "1eobg6v",
+      "hanViet": "PHẢN",
+      "japanese": "返します",
+      "reading": "かえします",
+      "vietnamese": "Trả lại",
+      "example": ""
+    },
+    {
+      "id": "1wzr067",
+      "hanViet": "XUẤT",
+      "japanese": "出かけます",
+      "reading": "でかけます",
+      "vietnamese": "Ra ngoài",
+      "example": ""
+    },
+    {
+      "id": "1g2akxj",
+      "hanViet": "THOÁT",
+      "japanese": "脱ぎます",
+      "reading": "ぬぎます",
+      "vietnamese": "Cởi",
+      "example": ""
+    },
+    {
+      "id": "1e38mll",
+      "hanViet": "TRÌ HÀNH",
+      "japanese": "持って行きます",
+      "reading": "もっていきます",
+      "vietnamese": "Mang đi, mang theo",
+      "example": ""
+    },
+    {
+      "id": "0fsko35",
+      "hanViet": "TRÌ LAI",
+      "japanese": "持って来ます",
+      "reading": "もってきます",
+      "vietnamese": "Mang đến",
+      "example": ""
+    },
+    {
+      "id": "1y87qlt",
+      "hanViet": "TÂM PHỐI",
+      "japanese": "心配します",
+      "reading": "しんぱいします",
+      "vietnamese": "Lo lắng",
+      "example": ""
+    },
+    {
+      "id": "1eqr66x",
+      "hanViet": "TÀN NGHIỆP",
+      "japanese": "残業します",
+      "reading": "ざんぎょうします",
+      "vietnamese": "Làm thêm, làm quá giờ",
+      "example": ""
+    },
+    {
+      "id": "1naa0hj",
+      "hanViet": "XUẤT TRƯƠNG",
+      "japanese": "出張します",
+      "reading": "しゅっちょうします",
+      "vietnamese": "Đi công tác",
+      "example": ""
+    },
+    {
+      "id": "0mc4j08",
+      "hanViet": "DƯỢC ẨM",
+      "japanese": "薬を飲みます",
+      "reading": "くすりをのみます",
+      "vietnamese": "Uống thuốc",
+      "example": ""
+    },
+    {
+      "id": "1wbhiig",
+      "hanViet": "NHẬP",
+      "japanese": "おふろに入ります",
+      "reading": "おふろにはいります",
+      "vietnamese": "Tắm bồn, vào bồn tắm",
+      "example": ""
+    },
+    {
+      "id": "1kfxoy9",
+      "hanViet": "ĐẠI THIẾT",
+      "japanese": "大切",
+      "reading": "たいせつ",
+      "vietnamese": "Quan trọng, quý giá",
+      "example": ""
+    },
+    {
+      "id": "079lu13",
+      "hanViet": "ĐẠI TRƯỢNG PHU",
+      "japanese": "大丈夫",
+      "reading": "だいじょうぶ",
+      "vietnamese": "Không sao, không có vấn đề gì",
+      "example": ""
+    },
+    {
+      "id": "1jl9gun",
+      "hanViet": "NGUY",
+      "japanese": "危ない",
+      "reading": "あぶない",
+      "vietnamese": "Nguy hiểm",
+      "example": ""
+    },
+    {
+      "id": "0u897ca",
+      "hanViet": "VẤN ĐỀ",
+      "japanese": "問題",
+      "reading": "もんだい",
+      "vietnamese": "Vấn đề",
+      "example": ""
+    },
+    {
+      "id": "1yqh3f8",
+      "hanViet": "ĐÁP",
+      "japanese": "答え",
+      "reading": "こたえ",
+      "vietnamese": "Câu trả lời",
+      "example": ""
+    },
+    {
+      "id": "0gvptpa",
+      "hanViet": "CẤM YÊN",
+      "japanese": "禁煙",
+      "reading": "きんえん",
+      "vietnamese": "Cấm hút thuốc",
+      "example": ""
+    },
+    {
+      "id": "0m4juum",
+      "hanViet": "KIỆN KHANG BẢO HIỂM CHỨNG",
+      "japanese": "健康保険証",
+      "reading": "けんこうほけんしょう",
+      "vietnamese": "Thẻ bảo hiểm y tế",
+      "example": ""
+    },
+    {
+      "id": "0wrj43z",
+      "hanViet": "NHIỆT",
+      "japanese": "熱",
+      "reading": "ねつ",
+      "vietnamese": "Sốt",
+      "example": ""
+    },
+    {
+      "id": "1a8sjyn",
+      "hanViet": "BỆNH KHÍ",
+      "japanese": "病気",
+      "reading": "びょうき",
+      "vietnamese": "ốm, bệnh",
+      "example": ""
+    },
+    {
+      "id": "0u7c3lv",
+      "hanViet": "DƯỢC",
+      "japanese": "薬",
+      "reading": "くすり",
+      "vietnamese": "Thuốc",
+      "example": ""
+    },
+    {
+      "id": "17458sv",
+      "hanViet": "THƯỢNG TRƯỚC",
+      "japanese": "上着",
+      "reading": "うわぎ",
+      "vietnamese": "Áo khoác",
+      "example": ""
+    },
+    {
+      "id": "1f6fccq",
+      "hanViet": "HẠ TRƯỚC",
+      "japanese": "下着",
+      "reading": "したぎ",
+      "vietnamese": "Quần áo lót",
+      "example": ""
+    },
+    {
+      "id": "1kemdqf",
+      "hanViet": "TIÊN SINH",
+      "japanese": "先生",
+      "reading": "せんせい",
+      "vietnamese": "Bác sĩ",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

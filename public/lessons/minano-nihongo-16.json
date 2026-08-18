@@ -1,0 +1,293 @@
+{
+  "id": "minano-nihongo-16",
+  "lessonNumber": 16,
+  "name": "皆の日本語 — Bài 16 · Từ vựng",
+  "description": "Từ vựng bài 16",
+  "kind": "vocabulary",
+  "itemCount": 35,
+  "words": [
+    {
+      "id": "0bctgbw",
+      "hanViet": "ĐIỆN XA THỪA",
+      "japanese": "電車に乗ります",
+      "reading": "でんしゃにのります",
+      "vietnamese": "Đi, lên tàu",
+      "example": ""
+    },
+    {
+      "id": "1a4pqds",
+      "hanViet": "ĐIỆN XA GIÁNG/HÀNG",
+      "japanese": "電車を降ります",
+      "reading": "でんしゃをおります",
+      "vietnamese": "Xuống tàu",
+      "example": ""
+    },
+    {
+      "id": "1jt0wmr",
+      "hanViet": "THỪA HOÁN",
+      "japanese": "乗り換えます",
+      "reading": "のりかえます",
+      "vietnamese": "Chuyển, đổi (tàu)",
+      "example": ""
+    },
+    {
+      "id": "0m9avno",
+      "hanViet": "DỤC",
+      "japanese": "浴びます",
+      "reading": "",
+      "vietnamese": "Tắm vòi hoa sen",
+      "example": ""
+    },
+    {
+      "id": "01aeodt",
+      "hanViet": "NHẬP",
+      "japanese": "入れます",
+      "reading": "いれます",
+      "vietnamese": "Cho vào, bỏ vào",
+      "example": ""
+    },
+    {
+      "id": "1vvjnxy",
+      "hanViet": "XUẤT",
+      "japanese": "出します",
+      "reading": "だします",
+      "vietnamese": "Lấy ra, rút (tiền)",
+      "example": ""
+    },
+    {
+      "id": "0yqkljx",
+      "hanViet": "ĐẠI HỌC NHẬP",
+      "japanese": "大学に入ります",
+      "reading": "だいがくにはいります",
+      "vietnamese": "Vào, nhập học đại học",
+      "example": ""
+    },
+    {
+      "id": "1piuvye",
+      "hanViet": "ĐẠI HỌC XUẤT",
+      "japanese": "大学を出ます",
+      "reading": "だいがくをでます",
+      "vietnamese": "Ra, tốt nghiệp đại học",
+      "example": ""
+    },
+    {
+      "id": "1egeqzd",
+      "hanViet": "HỘI XÃ",
+      "japanese": "会社をやめます",
+      "reading": "かいしゃをやめます",
+      "vietnamese": "Bỏ, thôi việc công ty",
+      "example": ""
+    },
+    {
+      "id": "1ictjgq",
+      "hanViet": "ÁP",
+      "japanese": "押します",
+      "reading": "おします",
+      "vietnamese": "Bấm, ấn (nút)",
+      "example": ""
+    },
+    {
+      "id": "06p9oy0",
+      "hanViet": "NHƯỢC",
+      "japanese": "若い",
+      "reading": "わかい",
+      "vietnamese": "Trẻ",
+      "example": ""
+    },
+    {
+      "id": "19wafp0",
+      "hanViet": "TRƯỜNG",
+      "japanese": "長い",
+      "reading": "ながい",
+      "vietnamese": "Dài",
+      "example": ""
+    },
+    {
+      "id": "1w0lz35",
+      "hanViet": "ĐOẢN",
+      "japanese": "短い",
+      "reading": "みじかい",
+      "vietnamese": "Ngắn",
+      "example": ""
+    },
+    {
+      "id": "0znhemm",
+      "hanViet": "MINH",
+      "japanese": "明るい",
+      "reading": "あかるい",
+      "vietnamese": "Sáng",
+      "example": ""
+    },
+    {
+      "id": "1hz9rwg",
+      "hanViet": "ÁM",
+      "japanese": "暗い",
+      "reading": "くらい",
+      "vietnamese": "Tối",
+      "example": ""
+    },
+    {
+      "id": "1y75gtt",
+      "hanViet": "BỐI CAO",
+      "japanese": "背が高い",
+      "reading": "せがたかい",
+      "vietnamese": "Cao",
+      "example": ""
+    },
+    {
+      "id": "0j4tlv1",
+      "hanViet": "ĐẦU",
+      "japanese": "頭がいい",
+      "reading": "あたまがいい",
+      "vietnamese": "Thông minh",
+      "example": ""
+    },
+    {
+      "id": "1ryzszw",
+      "hanViet": "THỂ",
+      "japanese": "体",
+      "reading": "からだ",
+      "vietnamese": "Người, cơ thể",
+      "example": ""
+    },
+    {
+      "id": "1ddjzkp",
+      "hanViet": "ĐẦU",
+      "japanese": "頭",
+      "reading": "あたま",
+      "vietnamese": "Đầu",
+      "example": ""
+    },
+    {
+      "id": "12uqdau",
+      "hanViet": "PHÁT",
+      "japanese": "髪",
+      "reading": "かみ",
+      "vietnamese": "Tóc",
+      "example": ""
+    },
+    {
+      "id": "1th4b08",
+      "hanViet": "NHAN",
+      "japanese": "顔",
+      "reading": "かお",
+      "vietnamese": "Mặt",
+      "example": ""
+    },
+    {
+      "id": "0tusrvr",
+      "hanViet": "MỤC",
+      "japanese": "目",
+      "reading": "め",
+      "vietnamese": "Mắt",
+      "example": ""
+    },
+    {
+      "id": "0pm8w64",
+      "hanViet": "NHĨ",
+      "japanese": "耳",
+      "reading": "みみ",
+      "vietnamese": "Tai",
+      "example": ""
+    },
+    {
+      "id": "1prd7h6",
+      "hanViet": "KHẨU",
+      "japanese": "口",
+      "reading": "くち",
+      "vietnamese": "Miệng",
+      "example": ""
+    },
+    {
+      "id": "1egerna",
+      "hanViet": "XỈ",
+      "japanese": "歯",
+      "reading": "は",
+      "vietnamese": "Răng",
+      "example": ""
+    },
+    {
+      "id": "0lg0x6x",
+      "hanViet": "TÚC",
+      "japanese": "足",
+      "reading": "あし",
+      "vietnamese": "Chân",
+      "example": ""
+    },
+    {
+      "id": "1j038l5",
+      "hanViet": "LỤC",
+      "japanese": "緑",
+      "reading": "みどり",
+      "vietnamese": "Màu xanh lá cây",
+      "example": ""
+    },
+    {
+      "id": "08vuimv",
+      "hanViet": "TỰ",
+      "japanese": "お寺",
+      "reading": "おてら",
+      "vietnamese": "Chùa",
+      "example": ""
+    },
+    {
+      "id": "0x7n4i4",
+      "hanViet": "THẦN XÃ",
+      "japanese": "神社",
+      "reading": "じんじゃ",
+      "vietnamese": "Đền thờ đạo thần",
+      "example": ""
+    },
+    {
+      "id": "1dj633o",
+      "hanViet": "LƯU HỌC SINH",
+      "japanese": "留学生",
+      "reading": "りゅうがくせい",
+      "vietnamese": "du học sinh",
+      "example": ""
+    },
+    {
+      "id": "0q6injo",
+      "hanViet": "DẪN XUẤT",
+      "japanese": "お引き出しですか",
+      "reading": "おひきだしですか",
+      "vietnamese": "Anh/ chị rút tiền ạ?",
+      "example": ""
+    },
+    {
+      "id": "1luke4u",
+      "hanViet": "ÁM CHỨNG PHIÊN HIỆU",
+      "japanese": "暗証番号",
+      "reading": "あんしょうばんごう",
+      "vietnamese": "Mật khẩu",
+      "example": ""
+    },
+    {
+      "id": "1bkv4at",
+      "hanViet": "THỨ",
+      "japanese": "次に",
+      "reading": "つぎに",
+      "vietnamese": "Tiếp theo",
+      "example": ""
+    },
+    {
+      "id": "1qilv42",
+      "hanViet": "KIM NGẠCH",
+      "japanese": "金額",
+      "reading": "きんがく",
+      "vietnamese": "Số tiền, khoản tiền",
+      "example": ""
+    },
+    {
+      "id": "0lmfkkk",
+      "hanViet": "XÁC NHẬN",
+      "japanese": "確認",
+      "reading": "かくにん",
+      "vietnamese": "Sự xác nhận, sự kiểm tra",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

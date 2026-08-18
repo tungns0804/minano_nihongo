@@ -1,0 +1,133 @@
+{
+  "id": "minano-nihongo-2",
+  "lessonNumber": 2,
+  "name": "皆の日本語 — Bài 2 · Từ vựng",
+  "description": "Từ vựng bài 2",
+  "kind": "vocabulary",
+  "itemCount": 15,
+  "words": [
+    {
+      "id": "18cgogu",
+      "hanViet": "BẢN/BỔN",
+      "japanese": "本",
+      "reading": "ほん",
+      "vietnamese": "Sách",
+      "example": ""
+    },
+    {
+      "id": "07q0nda",
+      "hanViet": "TỪ THƯ",
+      "japanese": "辞書",
+      "reading": "じしょ",
+      "vietnamese": "Từ điển",
+      "example": ""
+    },
+    {
+      "id": "16s93fu",
+      "hanViet": "TẠP CHÍ",
+      "japanese": "雑誌",
+      "reading": "ざっし",
+      "vietnamese": "Tạp chí",
+      "example": ""
+    },
+    {
+      "id": "05i7blx",
+      "hanViet": "TÂN VĂN",
+      "japanese": "新聞",
+      "reading": "しんぶん",
+      "vietnamese": "Báo",
+      "example": ""
+    },
+    {
+      "id": "1b7rny5",
+      "hanViet": "THỦ TRƯƠNG",
+      "japanese": "手帳",
+      "reading": "てちょう",
+      "vietnamese": "Sổ tay",
+      "example": ""
+    },
+    {
+      "id": "06zwosj",
+      "hanViet": "DANH THÍCH",
+      "japanese": "名刺",
+      "reading": "めいし",
+      "vietnamese": "Danh thiếp",
+      "example": ""
+    },
+    {
+      "id": "043k4pa",
+      "hanViet": "DUYÊN BÚT",
+      "japanese": "鉛筆",
+      "reading": "えんぴつ",
+      "vietnamese": "Bút chì",
+      "example": ""
+    },
+    {
+      "id": "0uvur1b",
+      "hanViet": "THỜI KẾ",
+      "japanese": "時計",
+      "reading": "とけい",
+      "vietnamese": "Đồng hồ",
+      "example": ""
+    },
+    {
+      "id": "1yu8t23",
+      "hanViet": "TẢN",
+      "japanese": "傘",
+      "reading": "かさ",
+      "vietnamese": "ô, dù",
+      "example": ""
+    },
+    {
+      "id": "1sse2ys",
+      "hanViet": "TỰ ĐỘNG XA",
+      "japanese": "自動車",
+      "reading": "じどうしゃ",
+      "vietnamese": "ô tô, xe hơi",
+      "example": ""
+    },
+    {
+      "id": "0093xka",
+      "hanViet": "KỶ",
+      "japanese": "机",
+      "reading": "つくえ",
+      "vietnamese": "Bàn",
+      "example": ""
+    },
+    {
+      "id": "0rm1qjc",
+      "hanViet": "ANH NGỮ",
+      "japanese": "英語",
+      "reading": "えいご",
+      "vietnamese": "Tiếng Anh",
+      "example": ""
+    },
+    {
+      "id": "1op4oid",
+      "hanViet": "NHẬT BẢN NGỮ",
+      "japanese": "日本語",
+      "reading": "にほんご",
+      "vietnamese": "Tiếng Nhật",
+      "example": ""
+    },
+    {
+      "id": "0clniq4",
+      "hanViet": "HÀ",
+      "japanese": "何",
+      "reading": "なん",
+      "vietnamese": "Cái gì, gì",
+      "example": ""
+    },
+    {
+      "id": "0zzpt02",
+      "hanViet": "VI",
+      "japanese": "違います",
+      "reading": "ちがいます",
+      "vietnamese": "Không phải./ không đúng./ sai rồi",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

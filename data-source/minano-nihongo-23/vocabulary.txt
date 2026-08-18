@@ -1,0 +1,26 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 29-30 (các dòng đánh số bài 23).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TIÊN SINH VĂN,先生に聞きます (せんせいにききます),Hỏi giáo viên
+HỒI,回します (まわします),Vặn, xoay
+DẪN,引きます (ひきます),Kéo
+BIẾN,変えます (かえます),Đổi
+XÚC,ドアに触ります (ドアにさわります),Sờ, chạm vào cửa
+ĐIẾU XUẤT,お釣りが出ます (おつりがでます),Ra, đi ra tiền thừa
+THỜI KẾ ĐỘNG,時計が動きます (とけいがうごきます),Chuyển động, chạy đồng hồ
+ĐẠO BỘ,道を歩きます (みちをあるきます),Đi bộ trên đường
+KIỀU ĐỘ,橋を渡ります (はしをわたります),Qua, đi qua cầu
+XA KHÍ,車に気をつけます (くるまにきをつけます),Chú ý, cẩn thận với ôtô
+DẪN VIỆT,引っ越しします (ひっこしします),Chuyển nhà
+ĐIỆN KHÍ ỐC,電気屋 (でんきや),Cửa hàng đồ điện
+ÂM,音 (おと),Âm thanh
+CƠ GIỚI,機械 (きかい),Máy, máy móc
+CỐ CHƯỚNG,故障 (こしょう),Hỏng
+ĐẠO,道 (みち),Đường
+GIAO SAI ĐIỂM,交差点 (こうさてん),Ngã tư
+TÍN HIỆU,信号 (しんごう),Đèn tín hiệu
+GIÁC,角 (かど),Góc
+KIỀU,橋 (はし),Cầu
+TRÚ XA TRƯỜNG,駐車場 (ちゅうしゃじょう),Bãi đỗ xe
+CHÍNH NGUYỆT,お正月 (おしょうがつ),Tết (Dương lịch)
+KIẾN VẬT,建物 (たてもの),Tòa nhà

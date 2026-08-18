@@ -1,0 +1,29 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 19-21 (các dòng đánh số bài 14).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TIÊU,消します (けします),Tắt
+KHAI,開けます (あけます),Mở
+BẾ,閉めます (しめます),Đóng
+CẤP,急ぎます (いそぎます),Vội, gấp
+ĐÃI,待ちます (まちます),Đợi, chờ
+CHỈ,止めます (とめます),Dừng, đỗ
+HỮU KHÚC,右へ曲がります (みぎへまがります),Rẽ, quẹo phải
+TRÌ,持ちます (もちます),Mang, cầm
+THỦ,取ります (とります),Lấy
+THỦ TRUYỀN,手伝います (てつだいます),Giúp
+HÔ,呼びます (よびます),Gọi
+THOẠI,話します (はなします),Nói, nói chuyện
+KIẾN,見せます (みせます),Cho xem, trình
+TRÚ SỞ GIÁO,住所を教えます (じゅうしょをおしえます),Nói, cho biết địa chỉ
+THỦY,始めます (はじめます),Bắt đầu
+VŨ GIÁNG/HÀNG,雨が降ります (あめがふります),Rơi mưa, tuyết
+DANH TIỀN,名前 (なまえ),Tên
+TRÚ SỞ,住所 (じゅうしょ),Địa chỉ
+ĐỊA ĐỒ,地図 (ちず),Bản đồ
+DIÊM,塩 (しお),Muối
+SA ĐƯỜNG,砂糖 (さとう),Đường
+ĐỘC PHƯƠNG,読み方 (よみかた),Cách đọc
+PHƯƠNG,～方 (～かた),Cách ~
+THIẾU,もう少し (もうすこし),Thêm một chút nữa thôi
+NGUYỆN,これでお願いします。 (これでおねがいします),Gởi anh tiền này.
+ĐIẾU,お釣り (おつり),Tiền lẻ

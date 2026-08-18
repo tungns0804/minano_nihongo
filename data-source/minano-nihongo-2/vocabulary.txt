@@ -1,0 +1,18 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 2 (các dòng đánh số bài 2).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+BẢN/BỔN,本 (ほん),Sách
+TỪ THƯ,辞書 (じしょ),Từ điển
+TẠP CHÍ,雑誌 (ざっし),Tạp chí
+TÂN VĂN,新聞 (しんぶん),Báo
+THỦ TRƯƠNG,手帳 (てちょう),Sổ tay
+DANH THÍCH,名刺 (めいし),Danh thiếp
+DUYÊN BÚT,鉛筆 (えんぴつ),Bút chì
+THỜI KẾ,時計 (とけい),Đồng hồ
+TẢN,傘 (かさ),ô, dù
+TỰ ĐỘNG XA,自動車 (じどうしゃ),ô tô, xe hơi
+KỶ,机 (つくえ),Bàn
+ANH NGỮ,英語 (えいご),Tiếng Anh
+NHẬT BẢN NGỮ,日本語 (にほんご),Tiếng Nhật
+HÀ,何 (なん),Cái gì, gì
+VI,違います (ちがいます),Không phải./ không đúng./ sai rồi

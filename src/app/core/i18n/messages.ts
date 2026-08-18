@@ -108,6 +108,15 @@ export const MESSAGES = {
   },
   'home.noMatch.reset': { vi: 'Xoá bộ lọc', ja: '絞り込みを解除' },
   'home.filter': { vi: 'Loại bài học', ja: 'レッスンの種類' },
+  'home.level': { vi: 'Cấp độ', ja: 'レベル' },
+  'home.level.all': { vi: 'Tất cả', ja: 'すべて' },
+  // Kèm luôn khoảng bài để khỏi phải nhớ N5 gồm những bài nào.
+  'home.level.range': { vi: '{level} · bài {from}–{to}', ja: '{level}・{from}〜{to}課' },
+  'home.level.none': { vi: 'Không theo bài', ja: '課に属さない' },
+  'home.level.noneTitle': {
+    vi: 'Bài không gắn với một bài số cụ thể, ví dụ bài gom động từ đặc biệt',
+    ja: '特定の課に属さないレッスン（特別な動詞をまとめたものなど）',
+  },
   'home.filter.all': { vi: 'Tất cả', ja: 'すべて' },
   'home.lessonCount': { vi: '{count} bài học', ja: '{count}レッスン' },
   'home.itemCount': { vi: '{count} mục', ja: '{count}項目' },

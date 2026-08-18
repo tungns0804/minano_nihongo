@@ -1,0 +1,32 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 13-14 (các dòng đánh số bài 10).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+NAM NHÂN,男の人 (おとこのひと),người đàn ông
+NỮ NHÂN,女の人 (おんなのひと),người đàn bà
+NAM TỬ,男の子 (おとこのこ),cậu con trai
+NỮ TỬ,女の子 (おんなのこ),cô con gái
+KHUYỂN,犬 (いぬ),chó
+MIÊU,猫 (ねこ),Mèo
+MỘC,木 (き),cây, gỗ
+VẬT,物 (もの),vật, đồ vật
+ĐIỆN TRÌ,電池 (でんち),Pin
+TƯƠNG,箱 (はこ),hộp
+LÃNH TÀNG KHỐ,冷蔵庫 (れいぞうこ),tủ lạnh
+BẰNG,棚 (たな),giá sách
+SONG,窓 (まど),cửa sổ
+CÔNG VIÊN,公園 (こうえん),công viên
+KHIẾT TRÀ ĐIẾM,喫茶店 (きっさてん),quán giải khát, quán cà phê
+BỔN ỐC,本屋 (ほんや),hiệu sách
+THỪA TRƯỜNG,乗り場 (のりば),bến xe, điểm lên xuống xe
+HUYỆN,県 (けん),tỉnh
+THƯỢNG,上 (うえ),Trên
+HẠ,下 (した),dưới
+TIỀN,前 (まえ),trước
+HỮU,右 (みぎ),phải
+TẢ,左 (ひだり),Trái
+TRUNG,中 (なか),trong, giữa
+NGOẠI,外 (そと),Ngoài
+LÂN,隣 (となり),bên cạnh
+CẬN,近く (ちかく),gần
+GIAN,間 (あいだ),giữa
+ÁO,奥 (おく),bên trong cùng, phía sâu bên trong

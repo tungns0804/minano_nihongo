@@ -1,0 +1,293 @@
+{
+  "id": "minano-nihongo-8",
+  "lessonNumber": 8,
+  "name": "皆の日本語 — Bài 8 · Từ vựng",
+  "description": "Từ vựng bài 8",
+  "kind": "vocabulary",
+  "itemCount": 35,
+  "words": [
+    {
+      "id": "1vafsm1",
+      "hanViet": "TĨNH",
+      "japanese": "静か",
+      "reading": "しずか",
+      "vietnamese": "yên tĩnh",
+      "example": ""
+    },
+    {
+      "id": "0zk426b",
+      "hanViet": "HỮU DANH",
+      "japanese": "有名",
+      "reading": "ゆうめい",
+      "vietnamese": "nổi tiếng",
+      "example": ""
+    },
+    {
+      "id": "1i4pwdv",
+      "hanViet": "THÂN THIẾT",
+      "japanese": "親切",
+      "reading": "しんせつ",
+      "vietnamese": "tốt bụng, thân thiện",
+      "example": ""
+    },
+    {
+      "id": "0wwaxki",
+      "hanViet": "NGUYÊN KHÍ",
+      "japanese": "元気",
+      "reading": "げんき",
+      "vietnamese": "khỏe",
+      "example": ""
+    },
+    {
+      "id": "1j5s1o6",
+      "hanViet": "HẠ",
+      "japanese": "暇",
+      "reading": "ひま",
+      "vietnamese": "rảnh rỗi",
+      "example": ""
+    },
+    {
+      "id": "09eusw1",
+      "hanViet": "TIỆN LỢI",
+      "japanese": "便利",
+      "reading": "べんり",
+      "vietnamese": "tiện lợi",
+      "example": ""
+    },
+    {
+      "id": "03w4ri0",
+      "hanViet": "ĐẠI",
+      "japanese": "大きい",
+      "reading": "おおきい",
+      "vietnamese": "lớn, to",
+      "example": ""
+    },
+    {
+      "id": "0xs55vb",
+      "hanViet": "TIỂU",
+      "japanese": "小さい",
+      "reading": "ちいさい",
+      "vietnamese": "bé, nhỏ",
+      "example": ""
+    },
+    {
+      "id": "0l21dgk",
+      "hanViet": "TÂN",
+      "japanese": "新しい",
+      "reading": "あたらしい",
+      "vietnamese": "mới",
+      "example": ""
+    },
+    {
+      "id": "09j5v38",
+      "hanViet": "CỔ",
+      "japanese": "古い",
+      "reading": "ふるい",
+      "vietnamese": "cũ",
+      "example": ""
+    },
+    {
+      "id": "1bhovod",
+      "hanViet": "ÁC",
+      "japanese": "悪い",
+      "reading": "わるい",
+      "vietnamese": "xấu",
+      "example": ""
+    },
+    {
+      "id": "054xoac",
+      "hanViet": "THỬ",
+      "japanese": "暑い",
+      "reading": "あつい",
+      "vietnamese": "nóng",
+      "example": ""
+    },
+    {
+      "id": "0lc9crv",
+      "hanViet": "NHIỆT",
+      "japanese": "熱い",
+      "reading": "あつい",
+      "vietnamese": "nóng",
+      "example": ""
+    },
+    {
+      "id": "1y6kt2x",
+      "hanViet": "HÀN",
+      "japanese": "寒い",
+      "reading": "さむい",
+      "vietnamese": "lạnh, rét",
+      "example": ""
+    },
+    {
+      "id": "0pyct2k",
+      "hanViet": "LÃNH",
+      "japanese": "冷たい",
+      "reading": "つめたい",
+      "vietnamese": "lạnh, buốt",
+      "example": ""
+    },
+    {
+      "id": "13dumcw",
+      "hanViet": "NAN",
+      "japanese": "難しい",
+      "reading": "むずかしい",
+      "vietnamese": "khó",
+      "example": ""
+    },
+    {
+      "id": "0ys5eyh",
+      "hanViet": "DỊ",
+      "japanese": "易しい",
+      "reading": "やさしい",
+      "vietnamese": "dễ",
+      "example": ""
+    },
+    {
+      "id": "0j6er6o",
+      "hanViet": "CAO",
+      "japanese": "高い",
+      "reading": "たかい",
+      "vietnamese": "đắt, cao",
+      "example": ""
+    },
+    {
+      "id": "05dm0cz",
+      "hanViet": "AN",
+      "japanese": "安い",
+      "reading": "やすい",
+      "vietnamese": "rẻ",
+      "example": ""
+    },
+    {
+      "id": "1j3htqb",
+      "hanViet": "ĐÊ",
+      "japanese": "低い",
+      "reading": "ひくい",
+      "vietnamese": "thấp",
+      "example": ""
+    },
+    {
+      "id": "17ub3ik",
+      "hanViet": "MANG",
+      "japanese": "忙しい",
+      "reading": "いそがしい",
+      "vietnamese": "bận",
+      "example": ""
+    },
+    {
+      "id": "0p9e8qy",
+      "hanViet": "LẠC/ NHẠC",
+      "japanese": "楽しい",
+      "reading": "たのしい",
+      "vietnamese": "vui",
+      "example": ""
+    },
+    {
+      "id": "0zcald5",
+      "hanViet": "BẠCH",
+      "japanese": "白い",
+      "reading": "しろい",
+      "vietnamese": "trắng",
+      "example": ""
+    },
+    {
+      "id": "0wavoww",
+      "hanViet": "HẮC",
+      "japanese": "黒い",
+      "reading": "くろい",
+      "vietnamese": "Đen",
+      "example": ""
+    },
+    {
+      "id": "1d7bfsf",
+      "hanViet": "XÍCH",
+      "japanese": "赤い",
+      "reading": "あかい",
+      "vietnamese": "đỏ",
+      "example": ""
+    },
+    {
+      "id": "0unl2im",
+      "hanViet": "THANH",
+      "japanese": "青い",
+      "reading": "あおい",
+      "vietnamese": "xanh da trời",
+      "example": ""
+    },
+    {
+      "id": "1x2lc7e",
+      "hanViet": "ANH",
+      "japanese": "桜",
+      "reading": "さくら",
+      "vietnamese": "anh đào",
+      "example": ""
+    },
+    {
+      "id": "0cr7jki",
+      "hanViet": "SƠN/ SAN",
+      "japanese": "山",
+      "reading": "やま",
+      "vietnamese": "núi",
+      "example": ""
+    },
+    {
+      "id": "17ndwee",
+      "hanViet": "ĐINH",
+      "japanese": "町",
+      "reading": "まち",
+      "vietnamese": "thị trấn, thị xã, thành phố",
+      "example": ""
+    },
+    {
+      "id": "0z2ycrf",
+      "hanViet": "THỰC VẬT",
+      "japanese": "食べ物",
+      "reading": "たべもの",
+      "vietnamese": "đồ ăn",
+      "example": ""
+    },
+    {
+      "id": "0f8wr68",
+      "hanViet": "XA",
+      "japanese": "車",
+      "reading": "くるま",
+      "vietnamese": "xe ô tô",
+      "example": ""
+    },
+    {
+      "id": "1ordujk",
+      "hanViet": "SỞ",
+      "japanese": "所",
+      "reading": "ところ",
+      "vietnamese": "nơi, chỗ",
+      "example": ""
+    },
+    {
+      "id": "0frjnkp",
+      "hanViet": "LIÊU",
+      "japanese": "寮",
+      "reading": "りょう",
+      "vietnamese": "kí túc xá",
+      "example": ""
+    },
+    {
+      "id": "143drgm",
+      "hanViet": "MIỄN CƯỜNG",
+      "japanese": "勉強",
+      "reading": "べんきょう",
+      "vietnamese": "học",
+      "example": ""
+    },
+    {
+      "id": "178j9xs",
+      "hanViet": "SINH HOẠT",
+      "japanese": "生活",
+      "reading": "せいかつ",
+      "vietnamese": "cuộc sống, sinh hoạt",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

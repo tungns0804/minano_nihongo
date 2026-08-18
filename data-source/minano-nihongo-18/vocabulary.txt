@@ -1,0 +1,23 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 25-26 (các dòng đánh số bài 18).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TẨY,洗います (あらいます),Rửa
+ĐÀN/ ĐẠN,弾きます (ひきます),Chơi (nhạc cụ)
+CA,歌います (うたいます),Hát
+TẬP,集めます (あつめます),Sưu tầm, thu thập
+SẢ,捨てます (すてます),Vứt, bỏ đi
+HOÁN,換えます (かえます),Đổi
+VẬN CHUYỂN,運転します (うんてんします),Lái
+DỰ ƯỚC,予約します (よやくします),Đặt chỗ, đặt trước
+KIẾN HỌC,見学します (けんがくします),Thăm quan với mục đích học tập
+QUỐC TẾ,国際～ (こくさい～),~ Quốc tế
+HIỆN KIM,現金 (げんきん),Tiền mặt
+THÚ VỊ,趣味 (しゅみ),Sở thích, thú vui
+NHẬT KÝ,日記 (にっき),Nhật ký
+KỲ,お祈り (おいのり),Việc cầu nguyện
+KHOA TRƯỜNG,課長 (かちょう),Tổ trưởng
+BỘ TRƯỞNG,部長 (ぶちょう),Trưởng phòng
+XÃ TRƯỞNG,社長 (しゃちょう),Giám đốc
+ĐỘNG VẬT,動物 (どうぶつ),Động vật
+MÃ,馬 (うま),Ngựa
+MỤC TRƯỜNG,牧場 (ぼくじょう),Trang trại chăn nuôi

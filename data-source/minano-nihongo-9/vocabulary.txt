@@ -1,0 +1,28 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 12-13 (các dòng đánh số bài 9).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+THƯỢNG THỦ,上手 (じょうず),giỏi, khéo
+HẠ THỦ,下手 (へた),kém
+LIỆU LÝ,料理 (りょうり),món ăn, việc nấu ăn
+ẨM VẬT,飲み物 (のみもの),đồ uống
+DÃ CẦU,野球 (やきゅう),bóng chày
+ÂM NHẠC/LẠC,音楽 (おんがく),âm nhạc
+CA,歌 (うた),bài hát
+CA VŨ KỸ,歌舞伎 (かぶき),Kabuki
+HỘI,絵 (え),Tranh, hội họa
+TỰ,字 (じ),chữ
+HÁN TỰ,漢字 (かんじ),chữ hán
+TẾ KIM,細かいお金 (こまかいおかね),tiền lẻ
+THÌ/THỜI GIAN,時間 (じかん),thời gian
+DỤNG SỰ,用事 (ようじ),việc bận, công chuyện
+ƯỚC THÚC,約束 (やくそく),cuộc hẹn, lời hứa
+PHU,夫 (おっと),chồng
+CHỦ NHÂN,主人 (しゅじん),chồng
+ÁO,奥さん (おくさん),vợ
+THÊ,妻 (つま),vợ
+GIA NỘI,家内 (かない),vợ
+TỬ,子ども (こども),con cái
+THIẾU/ THIỂU,少し (すこし),ít, một ít
+TOÀN NHIÊN,全然 (ぜんぜん),hoàn toàn ~ không
+TẢO,早く (はやく),sớm, nhanh
+TỐC,速く (はやく),sớm, nhanh

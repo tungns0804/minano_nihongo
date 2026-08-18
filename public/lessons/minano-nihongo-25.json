@@ -1,0 +1,101 @@
+{
+  "id": "minano-nihongo-25",
+  "lessonNumber": 25,
+  "name": "皆の日本語 — Bài 25 · Từ vựng",
+  "description": "Từ vựng bài 25",
+  "kind": "vocabulary",
+  "itemCount": 11,
+  "words": [
+    {
+      "id": "0pwjiw9",
+      "hanViet": "KHẢO",
+      "japanese": "考えます",
+      "reading": "かんがえます",
+      "vietnamese": "nghĩ, suy nghĩ",
+      "example": ""
+    },
+    {
+      "id": "1a442ts",
+      "hanViet": "DỊCH TRƯỚC",
+      "japanese": "駅に着きます",
+      "reading": "えきにつきます",
+      "vietnamese": "đến ga",
+      "example": ""
+    },
+    {
+      "id": "07lr56f",
+      "hanViet": "LƯU HỌC",
+      "japanese": "留学します",
+      "reading": "りゅうがくします",
+      "vietnamese": "du học",
+      "example": ""
+    },
+    {
+      "id": "0amy8ql",
+      "hanViet": "NIÊN THỦ",
+      "japanese": "年を取ります",
+      "reading": "としをとります",
+      "vietnamese": "thêm tuổi",
+      "example": ""
+    },
+    {
+      "id": "0msknor",
+      "hanViet": "ĐIỀN XÁ",
+      "japanese": "田舎",
+      "reading": "いなか",
+      "vietnamese": "quê, nông thôn",
+      "example": ""
+    },
+    {
+      "id": "020jqs6",
+      "hanViet": "ĐẠI SỨ QUÁN",
+      "japanese": "大使館",
+      "reading": "たいしかん",
+      "vietnamese": "đại sứ quán",
+      "example": ""
+    },
+    {
+      "id": "1ptt5b8",
+      "hanViet": "ỨC",
+      "japanese": "億",
+      "reading": "おく",
+      "vietnamese": "một trăm triệu",
+      "example": ""
+    },
+    {
+      "id": "1svmzfl",
+      "hanViet": "CHUYỂN CẦN",
+      "japanese": "転勤",
+      "reading": "てんきん",
+      "vietnamese": "việc chuyển địa điểm làm việc",
+      "example": ""
+    },
+    {
+      "id": "0peu2uf",
+      "hanViet": "THẾ THOẠI",
+      "japanese": "いろいろお世話になりました。",
+      "reading": "いろいろおせわになりました",
+      "vietnamese": "Anh/chị đã giúp tôi nhiều.",
+      "example": ""
+    },
+    {
+      "id": "06cwghp",
+      "hanViet": "NGOAN TRƯƠNG",
+      "japanese": "頑張ります",
+      "reading": "がんばります",
+      "vietnamese": "cố, cố gắng",
+      "example": ""
+    },
+    {
+      "id": "0jikvi8",
+      "hanViet": "NGUYÊN KHÍ",
+      "japanese": "どうぞお元気で。",
+      "reading": "どうぞおげんきで",
+      "vietnamese": "Chúc anh/chị mạnh khỏe.",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

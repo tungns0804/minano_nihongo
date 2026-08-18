@@ -1,0 +1,213 @@
+{
+  "id": "minano-nihongo-9",
+  "lessonNumber": 9,
+  "name": "皆の日本語 — Bài 9 · Từ vựng",
+  "description": "Từ vựng bài 9",
+  "kind": "vocabulary",
+  "itemCount": 25,
+  "words": [
+    {
+      "id": "0m54e7a",
+      "hanViet": "THƯỢNG THỦ",
+      "japanese": "上手",
+      "reading": "じょうず",
+      "vietnamese": "giỏi, khéo",
+      "example": ""
+    },
+    {
+      "id": "0qci9u7",
+      "hanViet": "HẠ THỦ",
+      "japanese": "下手",
+      "reading": "へた",
+      "vietnamese": "kém",
+      "example": ""
+    },
+    {
+      "id": "1t2cm73",
+      "hanViet": "LIỆU LÝ",
+      "japanese": "料理",
+      "reading": "りょうり",
+      "vietnamese": "món ăn, việc nấu ăn",
+      "example": ""
+    },
+    {
+      "id": "1gnbpi6",
+      "hanViet": "ẨM VẬT",
+      "japanese": "飲み物",
+      "reading": "のみもの",
+      "vietnamese": "đồ uống",
+      "example": ""
+    },
+    {
+      "id": "1noadej",
+      "hanViet": "DÃ CẦU",
+      "japanese": "野球",
+      "reading": "やきゅう",
+      "vietnamese": "bóng chày",
+      "example": ""
+    },
+    {
+      "id": "1tkp56n",
+      "hanViet": "ÂM NHẠC/LẠC",
+      "japanese": "音楽",
+      "reading": "おんがく",
+      "vietnamese": "âm nhạc",
+      "example": ""
+    },
+    {
+      "id": "16i4589",
+      "hanViet": "CA",
+      "japanese": "歌",
+      "reading": "うた",
+      "vietnamese": "bài hát",
+      "example": ""
+    },
+    {
+      "id": "1g3vk3g",
+      "hanViet": "CA VŨ KỸ",
+      "japanese": "歌舞伎",
+      "reading": "かぶき",
+      "vietnamese": "Kabuki",
+      "example": ""
+    },
+    {
+      "id": "1o445on",
+      "hanViet": "HỘI",
+      "japanese": "絵",
+      "reading": "え",
+      "vietnamese": "Tranh, hội họa",
+      "example": ""
+    },
+    {
+      "id": "0dq8s96",
+      "hanViet": "TỰ",
+      "japanese": "字",
+      "reading": "じ",
+      "vietnamese": "chữ",
+      "example": ""
+    },
+    {
+      "id": "0jalwqr",
+      "hanViet": "HÁN TỰ",
+      "japanese": "漢字",
+      "reading": "かんじ",
+      "vietnamese": "chữ hán",
+      "example": ""
+    },
+    {
+      "id": "0rf3jdu",
+      "hanViet": "TẾ KIM",
+      "japanese": "細かいお金",
+      "reading": "こまかいおかね",
+      "vietnamese": "tiền lẻ",
+      "example": ""
+    },
+    {
+      "id": "035rlor",
+      "hanViet": "THÌ/THỜI GIAN",
+      "japanese": "時間",
+      "reading": "じかん",
+      "vietnamese": "thời gian",
+      "example": ""
+    },
+    {
+      "id": "1jt874m",
+      "hanViet": "DỤNG SỰ",
+      "japanese": "用事",
+      "reading": "ようじ",
+      "vietnamese": "việc bận, công chuyện",
+      "example": ""
+    },
+    {
+      "id": "0i9ze29",
+      "hanViet": "ƯỚC THÚC",
+      "japanese": "約束",
+      "reading": "やくそく",
+      "vietnamese": "cuộc hẹn, lời hứa",
+      "example": ""
+    },
+    {
+      "id": "0hzlhnh",
+      "hanViet": "PHU",
+      "japanese": "夫",
+      "reading": "おっと",
+      "vietnamese": "chồng",
+      "example": ""
+    },
+    {
+      "id": "1qg8bdf",
+      "hanViet": "CHỦ NHÂN",
+      "japanese": "主人",
+      "reading": "しゅじん",
+      "vietnamese": "chồng",
+      "example": ""
+    },
+    {
+      "id": "16hj75o",
+      "hanViet": "ÁO",
+      "japanese": "奥さん",
+      "reading": "おくさん",
+      "vietnamese": "vợ",
+      "example": ""
+    },
+    {
+      "id": "1rp7ozw",
+      "hanViet": "THÊ",
+      "japanese": "妻",
+      "reading": "つま",
+      "vietnamese": "vợ",
+      "example": ""
+    },
+    {
+      "id": "1317wx2",
+      "hanViet": "GIA NỘI",
+      "japanese": "家内",
+      "reading": "かない",
+      "vietnamese": "vợ",
+      "example": ""
+    },
+    {
+      "id": "1do6510",
+      "hanViet": "TỬ",
+      "japanese": "子ども",
+      "reading": "こども",
+      "vietnamese": "con cái",
+      "example": ""
+    },
+    {
+      "id": "1oc3jye",
+      "hanViet": "THIẾU/ THIỂU",
+      "japanese": "少し",
+      "reading": "すこし",
+      "vietnamese": "ít, một ít",
+      "example": ""
+    },
+    {
+      "id": "0ytq8tf",
+      "hanViet": "TOÀN NHIÊN",
+      "japanese": "全然",
+      "reading": "ぜんぜん",
+      "vietnamese": "hoàn toàn ~ không",
+      "example": ""
+    },
+    {
+      "id": "1mivj62",
+      "hanViet": "TẢO",
+      "japanese": "早く",
+      "reading": "はやく",
+      "vietnamese": "sớm, nhanh",
+      "example": ""
+    },
+    {
+      "id": "0prt806",
+      "hanViet": "TỐC",
+      "japanese": "速く",
+      "reading": "はやく",
+      "vietnamese": "sớm, nhanh",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

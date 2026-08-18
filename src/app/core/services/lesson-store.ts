@@ -66,6 +66,7 @@ export class LessonStore {
       description: entry.description ?? '',
       kind: entry.kind,
       itemCount: entry.itemCount,
+      lessonNumber: entry.lessonNumber,
       origin: 'builtin' as const,
     })),
     ...this.customLessons().map((lesson) => ({
@@ -104,6 +105,7 @@ export class LessonStore {
           description: lesson.description,
           kind: lesson.kind,
           itemCount: lesson.itemCount,
+          lessonNumber: lesson.lessonNumber,
           file: '',
         })),
       );
@@ -208,7 +210,10 @@ function sanitizeIndex(raw: unknown): LessonIndexEntry[] {
 
   return lessons.flatMap((entry): LessonIndexEntry[] => {
     if (!entry || typeof entry !== 'object') return [];
-    const { id, name, file, itemCount, description, kind } = entry as Record<string, unknown>;
+    const { id, name, file, itemCount, description, kind, lessonNumber } = entry as Record<
+      string,
+      unknown
+    >;
     if (typeof id !== 'string' || !id) return [];
     if (typeof file !== 'string' || !file) return [];
     return [
@@ -219,6 +224,8 @@ function sanitizeIndex(raw: unknown): LessonIndexEntry[] {
         description: typeof description === 'string' ? description : '',
         kind: sanitizeKind(kind),
         itemCount: typeof itemCount === 'number' ? itemCount : 0,
+        // Bài cũ sinh trước khi có trường này thì đơn giản là không có cấp độ.
+        ...(typeof lessonNumber === 'number' ? { lessonNumber } : {}),
       },
     ];
   });
@@ -426,10 +433,8 @@ function sanitizeGrammarPoints(raw: unknown): GrammarPoint[] {
 
 function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
   if (!raw || typeof raw !== 'object') return null;
-  const { id, name, description, words, verbs, lines, grammarPoints, kind } = raw as Record<
-    string,
-    unknown
-  >;
+  const { id, name, description, words, verbs, lines, grammarPoints, kind, lessonNumber } =
+    raw as Record<string, unknown>;
   if (typeof id !== 'string' || !id) return null;
 
   const lessonKind = sanitizeKind(kind);
@@ -452,6 +457,7 @@ function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
     description: typeof description === 'string' ? description : '',
     kind: lessonKind,
     itemCount,
+    ...(typeof lessonNumber === 'number' ? { lessonNumber } : {}),
     words: parsedWords,
     verbs: parsedVerbs,
     lines: parsedLines,

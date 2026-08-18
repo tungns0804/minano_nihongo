@@ -1,0 +1,40 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 16-18 (các dòng đánh số bài 12).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+GIẢN ĐƠN,簡単 (かんたん),Đơn giản, dễ
+CẬN,近い (ちかい),Gần
+VIỄN,遠い (とおい),Xa
+TỐC,速い (はやい),Nhanh
+TẢO,早い (はやい),sớm
+TRÌ,遅い (おそい),Chậm, muộn
+NHÂN ĐA,人が多い (ひとがおおい),Nhiều người
+NHÂN THIỂU,人が少ない (ひとがすくない),Ít người
+ÔN,温かい (あたたかい),ấm áp
+NOÃN,暖かい (あたたかい),ấm áp
+LƯƠNG,涼しい (すずしい),Mát mẻ
+CAM,甘い (あまい),Ngọt
+TÂN,辛い (からい),Cay
+TRỌNG,重い (おもい),Nặng
+KHINH,軽い (かるい),Nhẹ
+QUÝ TIẾT,季節 (きせつ),Mùa
+XUÂN,春 (はる),Mùa xuân
+HẠ,夏 (なつ),Mùa hè
+THU,秋 (あき),Mùa thu
+ĐÔNG,冬 (ふゆ),Mùa đông
+THIÊN KHÍ,天気 (てんき),Thời tiết
+VŨ,雨 (あめ),Mưa
+TUYẾT,雪 (ゆき),Tuyết
+ĐÀM,曇り (くもり),Có mây
+KHÔNG CẢNG,空港 (くうこう),Sân bay
+HẢI,海 (うみ),Biển, đại dương
+THẾ GIỚI,世界 (せかい),Thế giới
+TẾ,お祭り (おまつり),Lễ hội
+THÍ NGHIỆM,試験 (しけん),Kỳ thi, bài thi
+THIÊU,すき焼き (すきやき),Món sukiyaki
+THÍCH THÂN,刺身 (さしみ),Món sashimi
+SINH HOA,生け花 (いけばな),Nghệ thuật cắm hoa
+HỒNG DIỆP,紅葉 (もみじ),Lá đỏ
+SƠ,初めて (はじめて),Lần đầu tiên
+QUY,お帰りなさい。 (おかえりなさい),Anh/Chị đã về đấy à.
+BÌ,疲れる (つかれる),Mệt mỏi
+HƯƠNG CẢNG,香港 (ホンコン),Hồng kông

@@ -1,0 +1,173 @@
+{
+  "id": "minano-nihongo-18",
+  "lessonNumber": 18,
+  "name": "皆の日本語 — Bài 18 · Từ vựng",
+  "description": "Từ vựng bài 18",
+  "kind": "vocabulary",
+  "itemCount": 20,
+  "words": [
+    {
+      "id": "0xtkvxc",
+      "hanViet": "TẨY",
+      "japanese": "洗います",
+      "reading": "あらいます",
+      "vietnamese": "Rửa",
+      "example": ""
+    },
+    {
+      "id": "1lg4k02",
+      "hanViet": "ĐÀN/ ĐẠN",
+      "japanese": "弾きます",
+      "reading": "ひきます",
+      "vietnamese": "Chơi (nhạc cụ)",
+      "example": ""
+    },
+    {
+      "id": "1tkvc64",
+      "hanViet": "CA",
+      "japanese": "歌います",
+      "reading": "うたいます",
+      "vietnamese": "Hát",
+      "example": ""
+    },
+    {
+      "id": "0kck5kt",
+      "hanViet": "TẬP",
+      "japanese": "集めます",
+      "reading": "あつめます",
+      "vietnamese": "Sưu tầm, thu thập",
+      "example": ""
+    },
+    {
+      "id": "0delk6b",
+      "hanViet": "SẢ",
+      "japanese": "捨てます",
+      "reading": "すてます",
+      "vietnamese": "Vứt, bỏ đi",
+      "example": ""
+    },
+    {
+      "id": "151jwg7",
+      "hanViet": "HOÁN",
+      "japanese": "換えます",
+      "reading": "かえます",
+      "vietnamese": "Đổi",
+      "example": ""
+    },
+    {
+      "id": "0xfiffp",
+      "hanViet": "VẬN CHUYỂN",
+      "japanese": "運転します",
+      "reading": "うんてんします",
+      "vietnamese": "Lái",
+      "example": ""
+    },
+    {
+      "id": "0pdxo2v",
+      "hanViet": "DỰ ƯỚC",
+      "japanese": "予約します",
+      "reading": "よやくします",
+      "vietnamese": "Đặt chỗ, đặt trước",
+      "example": ""
+    },
+    {
+      "id": "110kso1",
+      "hanViet": "KIẾN HỌC",
+      "japanese": "見学します",
+      "reading": "けんがくします",
+      "vietnamese": "Thăm quan với mục đích học tập",
+      "example": ""
+    },
+    {
+      "id": "1t115s6",
+      "hanViet": "QUỐC TẾ",
+      "japanese": "国際～",
+      "reading": "こくさい～",
+      "vietnamese": "~ Quốc tế",
+      "example": ""
+    },
+    {
+      "id": "0n1sdrg",
+      "hanViet": "HIỆN KIM",
+      "japanese": "現金",
+      "reading": "げんきん",
+      "vietnamese": "Tiền mặt",
+      "example": ""
+    },
+    {
+      "id": "0wuzw93",
+      "hanViet": "THÚ VỊ",
+      "japanese": "趣味",
+      "reading": "しゅみ",
+      "vietnamese": "Sở thích, thú vui",
+      "example": ""
+    },
+    {
+      "id": "1miri0u",
+      "hanViet": "NHẬT KÝ",
+      "japanese": "日記",
+      "reading": "にっき",
+      "vietnamese": "Nhật ký",
+      "example": ""
+    },
+    {
+      "id": "1yvl25o",
+      "hanViet": "KỲ",
+      "japanese": "お祈り",
+      "reading": "おいのり",
+      "vietnamese": "Việc cầu nguyện",
+      "example": ""
+    },
+    {
+      "id": "1ohg0xl",
+      "hanViet": "KHOA TRƯỜNG",
+      "japanese": "課長",
+      "reading": "かちょう",
+      "vietnamese": "Tổ trưởng",
+      "example": ""
+    },
+    {
+      "id": "0gvkq2m",
+      "hanViet": "BỘ TRƯỞNG",
+      "japanese": "部長",
+      "reading": "ぶちょう",
+      "vietnamese": "Trưởng phòng",
+      "example": ""
+    },
+    {
+      "id": "17czj0d",
+      "hanViet": "XÃ TRƯỞNG",
+      "japanese": "社長",
+      "reading": "しゃちょう",
+      "vietnamese": "Giám đốc",
+      "example": ""
+    },
+    {
+      "id": "16qvzsg",
+      "hanViet": "ĐỘNG VẬT",
+      "japanese": "動物",
+      "reading": "どうぶつ",
+      "vietnamese": "Động vật",
+      "example": ""
+    },
+    {
+      "id": "1n9td3l",
+      "hanViet": "MÃ",
+      "japanese": "馬",
+      "reading": "うま",
+      "vietnamese": "Ngựa",
+      "example": ""
+    },
+    {
+      "id": "1mqupoi",
+      "hanViet": "MỤC TRƯỜNG",
+      "japanese": "牧場",
+      "reading": "ぼくじょう",
+      "vietnamese": "Trang trại chăn nuôi",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

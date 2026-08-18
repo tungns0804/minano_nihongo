@@ -1,0 +1,301 @@
+{
+  "id": "minano-nihongo-4",
+  "lessonNumber": 4,
+  "name": "皆の日本語 — Bài 4 · Từ vựng",
+  "description": "Từ vựng bài 4",
+  "kind": "vocabulary",
+  "itemCount": 36,
+  "words": [
+    {
+      "id": "0rf4a3m",
+      "hanViet": "KHỞI",
+      "japanese": "起きます",
+      "reading": "おきます",
+      "vietnamese": "Dậy, thức dậy",
+      "example": ""
+    },
+    {
+      "id": "0etpssa",
+      "hanViet": "TẨM",
+      "japanese": "寝ます",
+      "reading": "ねます",
+      "vietnamese": "Ngủ, đi ngủ",
+      "example": ""
+    },
+    {
+      "id": "191blh1",
+      "hanViet": "ĐỘNG",
+      "japanese": "働きます",
+      "reading": "はたらきます",
+      "vietnamese": "Làm việc",
+      "example": ""
+    },
+    {
+      "id": "11qjp0o",
+      "hanViet": "HƯU",
+      "japanese": "休みます",
+      "reading": "やすみます",
+      "vietnamese": "Nghỉ, nghỉ ngơi",
+      "example": ""
+    },
+    {
+      "id": "02ebm7g",
+      "hanViet": "MIỄN CƯỜNG",
+      "japanese": "勉強します",
+      "reading": "べんきょうします",
+      "vietnamese": "Học",
+      "example": ""
+    },
+    {
+      "id": "19vbo5w",
+      "hanViet": "CHUNG",
+      "japanese": "終わります",
+      "reading": "おわります",
+      "vietnamese": "Hết, kết thúc, xong",
+      "example": ""
+    },
+    {
+      "id": "04g6knu",
+      "hanViet": "NGÂN HÀNH",
+      "japanese": "銀行",
+      "reading": "ぎんこう",
+      "vietnamese": "Ngân hàng",
+      "example": ""
+    },
+    {
+      "id": "1t0ozkw",
+      "hanViet": "BƯU TIỆN CỤC",
+      "japanese": "郵便局",
+      "reading": "ゆうびんきょく",
+      "vietnamese": "Bưu điện",
+      "example": ""
+    },
+    {
+      "id": "1c3347a",
+      "hanViet": "ĐỒ THƯ QUÁN",
+      "japanese": "図書館",
+      "reading": "としょかん",
+      "vietnamese": "Thư viện",
+      "example": ""
+    },
+    {
+      "id": "0q9lq8h",
+      "hanViet": "MỸ THUẬT QUÁN",
+      "japanese": "美術館",
+      "reading": "びじゅつかん",
+      "vietnamese": "Bảo tàng mỹ thuật",
+      "example": ""
+    },
+    {
+      "id": "18jevmi",
+      "hanViet": "KIM",
+      "japanese": "今",
+      "reading": "いま",
+      "vietnamese": "Bây giờ",
+      "example": ""
+    },
+    {
+      "id": "0n8kzfc",
+      "hanViet": "BÁN",
+      "japanese": "半",
+      "reading": "はん",
+      "vietnamese": "Rưỡi, nửa",
+      "example": ""
+    },
+    {
+      "id": "11lb5d9",
+      "hanViet": "HÀ THỜI",
+      "japanese": "何時",
+      "reading": "なんじ",
+      "vietnamese": "Mấy giờ",
+      "example": ""
+    },
+    {
+      "id": "1ne2hvy",
+      "hanViet": "HÀ PHÂN",
+      "japanese": "何分",
+      "reading": "なんぷん",
+      "vietnamese": "Mấy phút",
+      "example": ""
+    },
+    {
+      "id": "1mz31xc",
+      "hanViet": "NGỌ TIỀN",
+      "japanese": "午前",
+      "reading": "ごぜん",
+      "vietnamese": "Sáng, trước 12 giờ trưa",
+      "example": ""
+    },
+    {
+      "id": "0pcjj2b",
+      "hanViet": "NGỌ HẬU",
+      "japanese": "午後",
+      "reading": "ごご",
+      "vietnamese": "Chiều, sau 12 giờ trưa",
+      "example": ""
+    },
+    {
+      "id": "03247xq",
+      "hanViet": "TRIỀU",
+      "japanese": "朝",
+      "reading": "あさ",
+      "vietnamese": "Buổi sáng, sáng",
+      "example": ""
+    },
+    {
+      "id": "1764pwb",
+      "hanViet": "TRÚ",
+      "japanese": "昼",
+      "reading": "ひる",
+      "vietnamese": "Buổi trưa, trưa",
+      "example": ""
+    },
+    {
+      "id": "02o998v",
+      "hanViet": "VÃN",
+      "japanese": "晩",
+      "reading": "ばん",
+      "vietnamese": "Buổi tối, tối",
+      "example": ""
+    },
+    {
+      "id": "0i6vyax",
+      "hanViet": "DẠ",
+      "japanese": "夜",
+      "reading": "よる",
+      "vietnamese": "Buổi tối, khuya",
+      "example": ""
+    },
+    {
+      "id": "1e8vnso",
+      "hanViet": "KIM VÃN",
+      "japanese": "今晩",
+      "reading": "こんばん",
+      "vietnamese": "Tối nay",
+      "example": ""
+    },
+    {
+      "id": "0ojiw2p",
+      "hanViet": "HƯU",
+      "japanese": "休み",
+      "reading": "やすみ",
+      "vietnamese": "Nghỉ, nghỉ phép, ngày nghỉ",
+      "example": ""
+    },
+    {
+      "id": "0g0u5cj",
+      "hanViet": "TRÚ HƯU",
+      "japanese": "昼休み",
+      "reading": "ひるやすみ",
+      "vietnamese": "Nghỉ trưa",
+      "example": ""
+    },
+    {
+      "id": "1jed0uk",
+      "hanViet": "MỖI TRIỀU",
+      "japanese": "毎朝",
+      "reading": "まいあさ",
+      "vietnamese": "Hàng sáng, mỗi sáng",
+      "example": ""
+    },
+    {
+      "id": "1ss88vp",
+      "hanViet": "MỖI VÃN",
+      "japanese": "毎晩",
+      "reading": "まいばん",
+      "vietnamese": "Hàng tối, mỗi tối",
+      "example": ""
+    },
+    {
+      "id": "0do0bq4",
+      "hanViet": "MỖI NHẬT",
+      "japanese": "毎日",
+      "reading": "まいにち",
+      "vietnamese": "Hàng ngày, mỗi ngày",
+      "example": ""
+    },
+    {
+      "id": "0ad3nmj",
+      "hanViet": "NGUYỆT DIỆU NHẬT",
+      "japanese": "月曜日",
+      "reading": "げつようび",
+      "vietnamese": "Thứ hai",
+      "example": ""
+    },
+    {
+      "id": "1x5xg1g",
+      "hanViet": "HỎA DIỆU NHẬT",
+      "japanese": "火曜日",
+      "reading": "かようび",
+      "vietnamese": "Thứ ba",
+      "example": ""
+    },
+    {
+      "id": "1ys61h9",
+      "hanViet": "THỦY DIỆU NHẬT",
+      "japanese": "水曜日",
+      "reading": "すいようび",
+      "vietnamese": "Thứ tư",
+      "example": ""
+    },
+    {
+      "id": "0dv8bb6",
+      "hanViet": "MỘC DIỆU NHẬT",
+      "japanese": "木曜日",
+      "reading": "もくようび",
+      "vietnamese": "Thứ năm",
+      "example": ""
+    },
+    {
+      "id": "0giyhns",
+      "hanViet": "KIM DIỆU NHẬT",
+      "japanese": "金曜日",
+      "reading": "きんようび",
+      "vietnamese": "Thứ sáu",
+      "example": ""
+    },
+    {
+      "id": "1gj01pl",
+      "hanViet": "THỔ DIỆU NHẬT",
+      "japanese": "土曜日",
+      "reading": "どようび",
+      "vietnamese": "Thứ bảy",
+      "example": ""
+    },
+    {
+      "id": "1mc6bk7",
+      "hanViet": "NHẬT DIỆU NHẬT",
+      "japanese": "日曜日",
+      "reading": "にちようび",
+      "vietnamese": "Chủ Nhật",
+      "example": ""
+    },
+    {
+      "id": "1r0nme1",
+      "hanViet": "HÀ DIỆU NHẬT",
+      "japanese": "何曜日",
+      "reading": "なんようび",
+      "vietnamese": "Thứ mấy",
+      "example": ""
+    },
+    {
+      "id": "0xrp1s5",
+      "hanViet": "PHIÊN HIỆU",
+      "japanese": "番号",
+      "reading": "ばんごう",
+      "vietnamese": "Số (số điện thoại, số phòng)",
+      "example": ""
+    },
+    {
+      "id": "1qc4njh",
+      "hanViet": "HÀ PHIÊN",
+      "japanese": "何番",
+      "reading": "なんばん",
+      "vietnamese": "Số bao nhiêu, số mấy",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

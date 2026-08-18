@@ -1,0 +1,165 @@
+{
+  "id": "minano-nihongo-1",
+  "lessonNumber": 1,
+  "name": "皆の日本語 — Bài 1 · Từ vựng",
+  "description": "Từ vựng bài 1",
+  "kind": "vocabulary",
+  "itemCount": 19,
+  "words": [
+    {
+      "id": "13e7jmh",
+      "hanViet": "TƯ",
+      "japanese": "私",
+      "reading": "わたし",
+      "vietnamese": "Tôi",
+      "example": ""
+    },
+    {
+      "id": "12qfvq1",
+      "hanViet": "TƯ ĐẠT",
+      "japanese": "私達",
+      "reading": "わたしたち",
+      "vietnamese": "Chúng tôi, chúng ta",
+      "example": ""
+    },
+    {
+      "id": "0ixtfal",
+      "hanViet": "NHÂN",
+      "japanese": "あの人",
+      "reading": "あのひと",
+      "vietnamese": "Người kia, người đó",
+      "example": ""
+    },
+    {
+      "id": "1m7nmtc",
+      "hanViet": "PHƯƠNG",
+      "japanese": "あの方",
+      "reading": "あのかた",
+      "vietnamese": "Vị kia",
+      "example": ""
+    },
+    {
+      "id": "16l1sk1",
+      "hanViet": "GIAI",
+      "japanese": "皆さん",
+      "reading": "みなさん",
+      "vietnamese": "Các anh chị, các ông bà, các bạn, quý vị",
+      "example": ""
+    },
+    {
+      "id": "1kemdqf",
+      "hanViet": "TIÊN SINH",
+      "japanese": "先生",
+      "reading": "せんせい",
+      "vietnamese": "Thầy/ cô",
+      "example": ""
+    },
+    {
+      "id": "0swn5tr",
+      "hanViet": "GIÁO SƯ",
+      "japanese": "教師",
+      "reading": "きょうし",
+      "vietnamese": "Giáo viên",
+      "example": ""
+    },
+    {
+      "id": "10cht33",
+      "hanViet": "HỌC SINH",
+      "japanese": "学生",
+      "reading": "がくせい",
+      "vietnamese": "Học sinh, sinh viên",
+      "example": ""
+    },
+    {
+      "id": "0kfbm0p",
+      "hanViet": "HỘI XÃ VIÊN",
+      "japanese": "会社員",
+      "reading": "かいしゃいん",
+      "vietnamese": "Nhân viên công ty",
+      "example": ""
+    },
+    {
+      "id": "1v9ol1a",
+      "hanViet": "XÃ VIÊN",
+      "japanese": "社員",
+      "reading": "しゃいん",
+      "vietnamese": "Nhân viên công ty ~",
+      "example": ""
+    },
+    {
+      "id": "1gmhmho",
+      "hanViet": "NGÂN HÀNH VIÊN",
+      "japanese": "銀行員",
+      "reading": "ぎんこういん",
+      "vietnamese": "Nhân viên ngân hàng",
+      "example": ""
+    },
+    {
+      "id": "01stle0",
+      "hanViet": "Y GIẢ",
+      "japanese": "医者",
+      "reading": "いしゃ",
+      "vietnamese": "Bác sĩ",
+      "example": ""
+    },
+    {
+      "id": "1u4fwnm",
+      "hanViet": "NGHIÊN CỨU GIẢ",
+      "japanese": "研究者",
+      "reading": "けんきゅうしゃ",
+      "vietnamese": "Nhà nghiên cứu",
+      "example": ""
+    },
+    {
+      "id": "0pv4cba",
+      "hanViet": "ĐẠI HỌC",
+      "japanese": "大学",
+      "reading": "だいがく",
+      "vietnamese": "Đại học, Trường đại học",
+      "example": ""
+    },
+    {
+      "id": "109rw5t",
+      "hanViet": "BỆNH VIỆN",
+      "japanese": "病院",
+      "reading": "びょういん",
+      "vietnamese": "Bệnh viện",
+      "example": ""
+    },
+    {
+      "id": "0n174kg",
+      "hanViet": "ĐIỆN KHÍ",
+      "japanese": "電気",
+      "reading": "でんき",
+      "vietnamese": "Điện, Đèn điện",
+      "example": ""
+    },
+    {
+      "id": "0u6k20c",
+      "hanViet": "HÀ TUẾ",
+      "japanese": "何歳",
+      "reading": "なんさい",
+      "vietnamese": "Mấy tuổi, bao nhiêu tuổi",
+      "example": ""
+    },
+    {
+      "id": "198ojoc",
+      "hanViet": "TRUNG QUỐC",
+      "japanese": "中国",
+      "reading": "ちゅうごく",
+      "vietnamese": "Trung Quốc",
+      "example": ""
+    },
+    {
+      "id": "0mb5kt4",
+      "hanViet": "NHẬT BẢN",
+      "japanese": "日本",
+      "reading": "にほん",
+      "vietnamese": "Nhật Bản",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

@@ -1,0 +1,221 @@
+{
+  "id": "minano-nihongo-14",
+  "lessonNumber": 14,
+  "name": "皆の日本語 — Bài 14 · Từ vựng",
+  "description": "Từ vựng bài 14",
+  "kind": "vocabulary",
+  "itemCount": 26,
+  "words": [
+    {
+      "id": "19ajxrd",
+      "hanViet": "TIÊU",
+      "japanese": "消します",
+      "reading": "けします",
+      "vietnamese": "Tắt",
+      "example": ""
+    },
+    {
+      "id": "0ec2cn9",
+      "hanViet": "KHAI",
+      "japanese": "開けます",
+      "reading": "あけます",
+      "vietnamese": "Mở",
+      "example": ""
+    },
+    {
+      "id": "0qi4kly",
+      "hanViet": "BẾ",
+      "japanese": "閉めます",
+      "reading": "しめます",
+      "vietnamese": "Đóng",
+      "example": ""
+    },
+    {
+      "id": "1urv8wa",
+      "hanViet": "CẤP",
+      "japanese": "急ぎます",
+      "reading": "いそぎます",
+      "vietnamese": "Vội, gấp",
+      "example": ""
+    },
+    {
+      "id": "0e863gy",
+      "hanViet": "ĐÃI",
+      "japanese": "待ちます",
+      "reading": "まちます",
+      "vietnamese": "Đợi, chờ",
+      "example": ""
+    },
+    {
+      "id": "10rc8w0",
+      "hanViet": "CHỈ",
+      "japanese": "止めます",
+      "reading": "とめます",
+      "vietnamese": "Dừng, đỗ",
+      "example": ""
+    },
+    {
+      "id": "18dl44i",
+      "hanViet": "HỮU KHÚC",
+      "japanese": "右へ曲がります",
+      "reading": "みぎへまがります",
+      "vietnamese": "Rẽ, quẹo phải",
+      "example": ""
+    },
+    {
+      "id": "1ica61k",
+      "hanViet": "TRÌ",
+      "japanese": "持ちます",
+      "reading": "もちます",
+      "vietnamese": "Mang, cầm",
+      "example": ""
+    },
+    {
+      "id": "0tqt0sm",
+      "hanViet": "THỦ",
+      "japanese": "取ります",
+      "reading": "とります",
+      "vietnamese": "Lấy",
+      "example": ""
+    },
+    {
+      "id": "0av6kba",
+      "hanViet": "THỦ TRUYỀN",
+      "japanese": "手伝います",
+      "reading": "てつだいます",
+      "vietnamese": "Giúp",
+      "example": ""
+    },
+    {
+      "id": "1aqt55n",
+      "hanViet": "HÔ",
+      "japanese": "呼びます",
+      "reading": "よびます",
+      "vietnamese": "Gọi",
+      "example": ""
+    },
+    {
+      "id": "1kw44fq",
+      "hanViet": "THOẠI",
+      "japanese": "話します",
+      "reading": "はなします",
+      "vietnamese": "Nói, nói chuyện",
+      "example": ""
+    },
+    {
+      "id": "1u060pu",
+      "hanViet": "KIẾN",
+      "japanese": "見せます",
+      "reading": "みせます",
+      "vietnamese": "Cho xem, trình",
+      "example": ""
+    },
+    {
+      "id": "0pr520r",
+      "hanViet": "TRÚ SỞ GIÁO",
+      "japanese": "住所を教えます",
+      "reading": "じゅうしょをおしえます",
+      "vietnamese": "Nói, cho biết địa chỉ",
+      "example": ""
+    },
+    {
+      "id": "0q8zgkl",
+      "hanViet": "THỦY",
+      "japanese": "始めます",
+      "reading": "はじめます",
+      "vietnamese": "Bắt đầu",
+      "example": ""
+    },
+    {
+      "id": "1nr41b7",
+      "hanViet": "VŨ GIÁNG/HÀNG",
+      "japanese": "雨が降ります",
+      "reading": "あめがふります",
+      "vietnamese": "Rơi mưa, tuyết",
+      "example": ""
+    },
+    {
+      "id": "03zsd39",
+      "hanViet": "DANH TIỀN",
+      "japanese": "名前",
+      "reading": "なまえ",
+      "vietnamese": "Tên",
+      "example": ""
+    },
+    {
+      "id": "1nt503j",
+      "hanViet": "TRÚ SỞ",
+      "japanese": "住所",
+      "reading": "じゅうしょ",
+      "vietnamese": "Địa chỉ",
+      "example": ""
+    },
+    {
+      "id": "1psqqwd",
+      "hanViet": "ĐỊA ĐỒ",
+      "japanese": "地図",
+      "reading": "ちず",
+      "vietnamese": "Bản đồ",
+      "example": ""
+    },
+    {
+      "id": "0pih9ha",
+      "hanViet": "DIÊM",
+      "japanese": "塩",
+      "reading": "しお",
+      "vietnamese": "Muối",
+      "example": ""
+    },
+    {
+      "id": "1go6mpv",
+      "hanViet": "SA ĐƯỜNG",
+      "japanese": "砂糖",
+      "reading": "さとう",
+      "vietnamese": "Đường",
+      "example": ""
+    },
+    {
+      "id": "0h9tht7",
+      "hanViet": "ĐỘC PHƯƠNG",
+      "japanese": "読み方",
+      "reading": "よみかた",
+      "vietnamese": "Cách đọc",
+      "example": ""
+    },
+    {
+      "id": "1b54egg",
+      "hanViet": "PHƯƠNG",
+      "japanese": "～方",
+      "reading": "～かた",
+      "vietnamese": "Cách ~",
+      "example": ""
+    },
+    {
+      "id": "0e65vcr",
+      "hanViet": "THIẾU",
+      "japanese": "もう少し",
+      "reading": "もうすこし",
+      "vietnamese": "Thêm một chút nữa thôi",
+      "example": ""
+    },
+    {
+      "id": "0mbqm9q",
+      "hanViet": "NGUYỆN",
+      "japanese": "これでお願いします。",
+      "reading": "これでおねがいします",
+      "vietnamese": "Gởi anh tiền này.",
+      "example": ""
+    },
+    {
+      "id": "0eab8ci",
+      "hanViet": "ĐIẾU",
+      "japanese": "お釣り",
+      "reading": "おつり",
+      "vietnamese": "Tiền lẻ",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

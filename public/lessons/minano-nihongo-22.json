@@ -1,0 +1,101 @@
+{
+  "id": "minano-nihongo-22",
+  "lessonNumber": 22,
+  "name": "皆の日本語 — Bài 22 · Từ vựng",
+  "description": "Từ vựng bài 22",
+  "kind": "vocabulary",
+  "itemCount": 11,
+  "words": [
+    {
+      "id": "1cclk4a",
+      "hanViet": "TRƯỚC",
+      "japanese": "シャツを着ます",
+      "reading": "シャツをきます",
+      "vietnamese": "Mặc áo sơ mi",
+      "example": ""
+    },
+    {
+      "id": "13ypvox",
+      "hanViet": "NGOA",
+      "japanese": "靴をはきます",
+      "reading": "くつをはきます",
+      "vietnamese": "mang giầy",
+      "example": ""
+    },
+    {
+      "id": "19xzcw8",
+      "hanViet": "MẠO TỬ",
+      "japanese": "帽子をかぶります",
+      "reading": "ぼうしをかぶります",
+      "vietnamese": "Đội mũ",
+      "example": ""
+    },
+    {
+      "id": "01d5vgu",
+      "hanViet": "NHÃN KÍNH",
+      "japanese": "眼鏡をかけます",
+      "reading": "めがねをかけます",
+      "vietnamese": "Đeo kính",
+      "example": ""
+    },
+    {
+      "id": "07kj94d",
+      "hanViet": "SINH",
+      "japanese": "生まれます",
+      "reading": "うまれます",
+      "vietnamese": "Sinh ra",
+      "example": ""
+    },
+    {
+      "id": "1mx9slq",
+      "hanViet": "MẠO TỬ",
+      "japanese": "帽子",
+      "reading": "ぼうし",
+      "vietnamese": "Mũ",
+      "example": ""
+    },
+    {
+      "id": "1wwoqzh",
+      "hanViet": "NHÃN KÍNH",
+      "japanese": "眼鏡",
+      "reading": "めがね",
+      "vietnamese": "Kính",
+      "example": ""
+    },
+    {
+      "id": "02l0hgg",
+      "hanViet": "GIA NHẦM",
+      "japanese": "家賃",
+      "reading": "やちん",
+      "vietnamese": "Tiền thuê nhà",
+      "example": ""
+    },
+    {
+      "id": "0i2cvl8",
+      "hanViet": "HÒA THẤT",
+      "japanese": "和室",
+      "reading": "わしつ",
+      "vietnamese": "Phòng kiểu Nhật",
+      "example": ""
+    },
+    {
+      "id": "01j6m2b",
+      "hanViet": "ÁP NHẬP",
+      "japanese": "押入れ",
+      "reading": "おしいれ",
+      "vietnamese": "Chỗ để chăn gối",
+      "example": ""
+    },
+    {
+      "id": "1r3cpyy",
+      "hanViet": "BỐ ĐOÀN",
+      "japanese": "布団",
+      "reading": "ふとん",
+      "vietnamese": "Chăn, đệm",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

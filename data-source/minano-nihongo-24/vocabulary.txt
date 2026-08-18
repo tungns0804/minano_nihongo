@@ -1,0 +1,16 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 30-31 (các dòng đánh số bài 24).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+LIÊN HÀNH,連れて行きます (つれていきます),Dẫn đi
+LIÊN LAI,連れて来ます (つれてきます),Dẫn đến
+NHÂN TỐNG,人を送ります (ひとをおくります),Đưa đi, đưa đến, tiễn một ai đó
+THIỆU GIỚI,紹介します (しょうかいします),Giới thiệu
+ÁN NỘI,案内します (あんないします),Hướng dẫn, giới thiệu
+THUYẾT MINH,説明します (せつめいします),Giải thích, trình bày
+CHUẨN BỊ,準備 (じゅんび),Chuẩn bị
+Ý VỊ,意味 (いみ),Ý nghĩa
+QUẢ TỬ,お菓子 (おかし),Bánh kẹo
+TOÀN BỘ,全部 (ぜんぶ),Toàn bộ, tất cả
+BỘ PHÂN,自分で (じぶんで),Tự mình
+BIỆN ĐƯƠNG,お弁当 (おべんとう),Cơm hộp
+MẪU NHẬT,母の日 (ははのひ),Ngày của Mẹ

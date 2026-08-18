@@ -1,0 +1,381 @@
+{
+  "id": "minano-nihongo-5",
+  "lessonNumber": 5,
+  "name": "皆の日本語 — Bài 5 · Từ vựng",
+  "description": "Từ vựng bài 5",
+  "kind": "vocabulary",
+  "itemCount": 46,
+  "words": [
+    {
+      "id": "1pu9gvz",
+      "hanViet": "HÀNH",
+      "japanese": "行きます",
+      "reading": "いきます",
+      "vietnamese": "đi",
+      "example": ""
+    },
+    {
+      "id": "0lko4w3",
+      "hanViet": "LAI",
+      "japanese": "来ます",
+      "reading": "きます",
+      "vietnamese": "đến",
+      "example": ""
+    },
+    {
+      "id": "18tzdcr",
+      "hanViet": "QUY",
+      "japanese": "帰ります",
+      "reading": "かえります",
+      "vietnamese": "về",
+      "example": ""
+    },
+    {
+      "id": "0u4dlg5",
+      "hanViet": "HỌC HIỆU",
+      "japanese": "学校",
+      "reading": "がっこう",
+      "vietnamese": "trường học",
+      "example": ""
+    },
+    {
+      "id": "0hwuqtp",
+      "hanViet": "DỊCH",
+      "japanese": "駅",
+      "reading": "えき",
+      "vietnamese": "ga, nhà ga",
+      "example": ""
+    },
+    {
+      "id": "1wlnsnd",
+      "hanViet": "PHI HÀNH CƠ",
+      "japanese": "飛行機",
+      "reading": "ひこうき",
+      "vietnamese": "máy bay",
+      "example": ""
+    },
+    {
+      "id": "1mjkqb0",
+      "hanViet": "THUYỀN",
+      "japanese": "船",
+      "reading": "ふね",
+      "vietnamese": "thuyền, tàu thủy",
+      "example": ""
+    },
+    {
+      "id": "1jd1gcq",
+      "hanViet": "ĐIỆN XA",
+      "japanese": "電車",
+      "reading": "でんしゃ",
+      "vietnamese": "tàu điện",
+      "example": ""
+    },
+    {
+      "id": "03hprsm",
+      "hanViet": "ĐỊA HẠ THIẾT",
+      "japanese": "地下鉄",
+      "reading": "ちかてつ",
+      "vietnamese": "tàu điện ngầm",
+      "example": ""
+    },
+    {
+      "id": "0mmketo",
+      "hanViet": "TÂN CAN TUYẾN",
+      "japanese": "新幹線",
+      "reading": "しんかんせん",
+      "vietnamese": "tàu Shinkansen",
+      "example": ""
+    },
+    {
+      "id": "18ywhhn",
+      "hanViet": "TỰ CHUYỂN XA",
+      "japanese": "自転車",
+      "reading": "じてんしゃ",
+      "vietnamese": "xe đạp",
+      "example": ""
+    },
+    {
+      "id": "05g563k",
+      "hanViet": "BỘ",
+      "japanese": "歩いて",
+      "reading": "あるいて",
+      "vietnamese": "đi bộ",
+      "example": ""
+    },
+    {
+      "id": "15om0i1",
+      "hanViet": "NHÂN",
+      "japanese": "人",
+      "reading": "ひと",
+      "vietnamese": "người",
+      "example": ""
+    },
+    {
+      "id": "1fsn3ub",
+      "hanViet": "HỮU ĐẠT",
+      "japanese": "友達",
+      "reading": "ともだち",
+      "vietnamese": "bạn, bạn bè",
+      "example": ""
+    },
+    {
+      "id": "0wgo7qv",
+      "hanViet": "BỈ",
+      "japanese": "彼",
+      "reading": "かれ",
+      "vietnamese": "anh ấy, bạn trai",
+      "example": ""
+    },
+    {
+      "id": "0sxy8cu",
+      "hanViet": "BỈ NỮ",
+      "japanese": "彼女",
+      "reading": "かのじょ",
+      "vietnamese": "chị ấy, bạn gái",
+      "example": ""
+    },
+    {
+      "id": "1rx9hl8",
+      "hanViet": "GIA TỘC",
+      "japanese": "家族",
+      "reading": "かぞく",
+      "vietnamese": "gia đình",
+      "example": ""
+    },
+    {
+      "id": "0hsd8bm",
+      "hanViet": "NHẤT NHÂN",
+      "japanese": "～人で",
+      "reading": "ひとりで",
+      "vietnamese": "một mình",
+      "example": ""
+    },
+    {
+      "id": "0yfnijn",
+      "hanViet": "TIÊN CHU",
+      "japanese": "先週",
+      "reading": "せんしゅう",
+      "vietnamese": "tuần trước",
+      "example": ""
+    },
+    {
+      "id": "1jmo3kx",
+      "hanViet": "KIM CHU",
+      "japanese": "今週",
+      "reading": "こんしゅう",
+      "vietnamese": "tuần này",
+      "example": ""
+    },
+    {
+      "id": "0fibidn",
+      "hanViet": "LAI CHU",
+      "japanese": "来週",
+      "reading": "らいしゅう",
+      "vietnamese": "tuần sau",
+      "example": ""
+    },
+    {
+      "id": "04mh34r",
+      "hanViet": "TIÊN NGUYỆT",
+      "japanese": "先月",
+      "reading": "せんげつ",
+      "vietnamese": "tháng trước",
+      "example": ""
+    },
+    {
+      "id": "1uqiqxb",
+      "hanViet": "KIM NGUYỆT",
+      "japanese": "今月",
+      "reading": "こんげつ",
+      "vietnamese": "tháng này",
+      "example": ""
+    },
+    {
+      "id": "1e8hyzx",
+      "hanViet": "LAI NGUYỆT",
+      "japanese": "来月",
+      "reading": "らいげつ",
+      "vietnamese": "tháng sau",
+      "example": ""
+    },
+    {
+      "id": "0nt2c4h",
+      "hanViet": "KHU NIÊN",
+      "japanese": "去年",
+      "reading": "きょねん",
+      "vietnamese": "năm ngoái",
+      "example": ""
+    },
+    {
+      "id": "0i5e8lb",
+      "hanViet": "LAI NIÊN",
+      "japanese": "来年",
+      "reading": "らいねん",
+      "vietnamese": "năm sau",
+      "example": ""
+    },
+    {
+      "id": "00tp9ur",
+      "hanViet": "HÀ NGUYỆT",
+      "japanese": "何月",
+      "reading": "なんがつ",
+      "vietnamese": "tháng mấy",
+      "example": ""
+    },
+    {
+      "id": "02oj4xf",
+      "hanViet": "NHẬT",
+      "japanese": "１日",
+      "reading": "ついたち",
+      "vietnamese": "ngày mồng 1",
+      "example": ""
+    },
+    {
+      "id": "0gd4b5m",
+      "hanViet": "NHẬT",
+      "japanese": "２日",
+      "reading": "ふつか",
+      "vietnamese": "ngày mồng 2, 2 ngày",
+      "example": ""
+    },
+    {
+      "id": "0zga59p",
+      "hanViet": "NHẬT",
+      "japanese": "３日",
+      "reading": "みっか",
+      "vietnamese": "ngày mồng 3, 3 ngày",
+      "example": ""
+    },
+    {
+      "id": "05fjuws",
+      "hanViet": "NHẬT",
+      "japanese": "４日",
+      "reading": "よっか",
+      "vietnamese": "ngày mồng 4, 4 ngày",
+      "example": ""
+    },
+    {
+      "id": "1hgigen",
+      "hanViet": "NHẬT",
+      "japanese": "５日",
+      "reading": "いつか",
+      "vietnamese": "ngày mồng 5, 5 ngày",
+      "example": ""
+    },
+    {
+      "id": "1pefouu",
+      "hanViet": "NHẬT",
+      "japanese": "６日",
+      "reading": "むいか",
+      "vietnamese": "ngày mồng 6, 6 ngày",
+      "example": ""
+    },
+    {
+      "id": "0sqt861",
+      "hanViet": "NHẬT",
+      "japanese": "７日",
+      "reading": "なのか",
+      "vietnamese": "ngày mồng 7, 7 ngày",
+      "example": ""
+    },
+    {
+      "id": "1gx9e9k",
+      "hanViet": "NHẬT",
+      "japanese": "８日",
+      "reading": "ようか",
+      "vietnamese": "ngày mồng 8, 8 ngày",
+      "example": ""
+    },
+    {
+      "id": "0hm4hyj",
+      "hanViet": "NHẬT",
+      "japanese": "９日",
+      "reading": "ここのか",
+      "vietnamese": "ngày mồng 9, 9 ngày",
+      "example": ""
+    },
+    {
+      "id": "1agm3q3",
+      "hanViet": "NHẬT",
+      "japanese": "１０日",
+      "reading": "とおか",
+      "vietnamese": "ngày mồng 10, 10 ngày",
+      "example": ""
+    },
+    {
+      "id": "1bf82nr",
+      "hanViet": "NHẬT",
+      "japanese": "１４日",
+      "reading": "じゅうよっか",
+      "vietnamese": "ngày 14, 14 ngày",
+      "example": ""
+    },
+    {
+      "id": "191d5m8",
+      "hanViet": "NHẬT",
+      "japanese": "２０日",
+      "reading": "はつか",
+      "vietnamese": "ngày 20, 20 ngày",
+      "example": ""
+    },
+    {
+      "id": "0m8f4oc",
+      "hanViet": "NHẬT",
+      "japanese": "２４日",
+      "reading": "にじゅうよっか",
+      "vietnamese": "ngày 24, 24 ngày",
+      "example": ""
+    },
+    {
+      "id": "1pjbut9",
+      "hanViet": "HÀ NHẬT",
+      "japanese": "何日",
+      "reading": "なんにち",
+      "vietnamese": "nhiêu, mấy ngày, bao nhiêu ngày",
+      "example": ""
+    },
+    {
+      "id": "0g423lk",
+      "hanViet": "ĐẢN SINH NHẬT",
+      "japanese": "誕生日",
+      "reading": "たんじょうび",
+      "vietnamese": "sinh nhật",
+      "example": ""
+    },
+    {
+      "id": "04v9mpa",
+      "hanViet": "PHỔ THÔNG",
+      "japanese": "普通",
+      "reading": "ふつう",
+      "vietnamese": "tàu thường (dừng cả ở các ga lẻ)",
+      "example": ""
+    },
+    {
+      "id": "0h2wm89",
+      "hanViet": "CẤP HÀNH",
+      "japanese": "急行",
+      "reading": "きゅうこう",
+      "vietnamese": "tàu tốc hành",
+      "example": ""
+    },
+    {
+      "id": "10yjwb9",
+      "hanViet": "ĐẶC CẤP",
+      "japanese": "特急",
+      "reading": "とっきゅう",
+      "vietnamese": "tàu tốc hành đặc biệt",
+      "example": ""
+    },
+    {
+      "id": "0bg0vn2",
+      "hanViet": "THỨ",
+      "japanese": "次の",
+      "reading": "つぎの",
+      "vietnamese": "tiếp theo",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

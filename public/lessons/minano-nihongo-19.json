@@ -1,0 +1,165 @@
+{
+  "id": "minano-nihongo-19",
+  "lessonNumber": 19,
+  "name": "皆の日本語 — Bài 19 · Từ vựng",
+  "description": "Từ vựng bài 19",
+  "kind": "vocabulary",
+  "itemCount": 19,
+  "words": [
+    {
+      "id": "0rk6dcj",
+      "hanViet": "SƠN ĐĂNG",
+      "japanese": "山に登ります",
+      "reading": "やまにのぼります",
+      "vietnamese": "Leo núi",
+      "example": ""
+    },
+    {
+      "id": "17b3eze",
+      "hanViet": "BẠC",
+      "japanese": "ホテルに泊まります",
+      "reading": "ホテルにとまります",
+      "vietnamese": "Trọ ở khách sạn",
+      "example": ""
+    },
+    {
+      "id": "02jhwxx",
+      "hanViet": "TẢO TRÚ",
+      "japanese": "掃除します",
+      "reading": "そうじします",
+      "vietnamese": "Dọn vệ sinh",
+      "example": ""
+    },
+    {
+      "id": "1av7dqt",
+      "hanViet": "TẨY TRẠC",
+      "japanese": "洗濯します",
+      "reading": "せんたくします",
+      "vietnamese": "Giặt",
+      "example": ""
+    },
+    {
+      "id": "0v5dnub",
+      "hanViet": "LUYỆN TẬP",
+      "japanese": "練習します",
+      "reading": "れんしゅうします",
+      "vietnamese": "Luyện tập, thực hành",
+      "example": ""
+    },
+    {
+      "id": "03cvgk9",
+      "hanViet": "MIÊN",
+      "japanese": "眠い",
+      "reading": "ねむい",
+      "vietnamese": "Buồn ngủ",
+      "example": ""
+    },
+    {
+      "id": "0sqda4z",
+      "hanViet": "CƯỜNG",
+      "japanese": "強い",
+      "reading": "つよい",
+      "vietnamese": "Mạnh",
+      "example": ""
+    },
+    {
+      "id": "14mrzlo",
+      "hanViet": "NHƯỢC",
+      "japanese": "弱い",
+      "reading": "よわい",
+      "vietnamese": "Yếu",
+      "example": ""
+    },
+    {
+      "id": "1kecvqa",
+      "hanViet": "ĐIỀU TỬ",
+      "japanese": "調子がいい",
+      "reading": "ちょうしがいい",
+      "vietnamese": "Trong tình trạng tốt",
+      "example": ""
+    },
+    {
+      "id": "12i10iw",
+      "hanViet": "ĐIỀU TỬ",
+      "japanese": "調子がわるい",
+      "reading": "ちょうしがわるい",
+      "vietnamese": "Trong tình trạng xấu",
+      "example": ""
+    },
+    {
+      "id": "1otvxt6",
+      "hanViet": "ĐIỀU TỬ",
+      "japanese": "調子",
+      "reading": "ちょうし",
+      "vietnamese": "Tình trạng, trạng thái",
+      "example": ""
+    },
+    {
+      "id": "1hjd01x",
+      "hanViet": "TƯƠNG PHÁC",
+      "japanese": "相撲",
+      "reading": "すもう",
+      "vietnamese": "Vật Sumo",
+      "example": ""
+    },
+    {
+      "id": "0pdcsw3",
+      "hanViet": "TRÀ",
+      "japanese": "お茶",
+      "reading": "おちゃ",
+      "vietnamese": "Trà đạo",
+      "example": ""
+    },
+    {
+      "id": "0c5bvey",
+      "hanViet": "NHẬT",
+      "japanese": "日",
+      "reading": "ひ",
+      "vietnamese": "Ngày",
+      "example": ""
+    },
+    {
+      "id": "0ycqkj5",
+      "hanViet": "CAN BỘI",
+      "japanese": "乾杯",
+      "reading": "かんぱい",
+      "vietnamese": "Nâng cốc!/cạn chén",
+      "example": ""
+    },
+    {
+      "id": "06ku5rs",
+      "hanViet": "THỰC",
+      "japanese": "実は",
+      "reading": "じつは",
+      "vietnamese": "Thật ra là/ sự tình là",
+      "example": ""
+    },
+    {
+      "id": "0i6dxe1",
+      "hanViet": "HÀ HỒI",
+      "japanese": "何回も",
+      "reading": "なんかいも",
+      "vietnamese": "Nhiều lần",
+      "example": ""
+    },
+    {
+      "id": "0d6so8v",
+      "hanViet": "VÔ LÝ",
+      "japanese": "無理",
+      "reading": "むり",
+      "vietnamese": "Không thể, quá sức",
+      "example": ""
+    },
+    {
+      "id": "1dp6wvd",
+      "hanViet": "THỂ",
+      "japanese": "体にいい",
+      "reading": "からだにいい",
+      "vietnamese": "Tốt cho sức khỏe",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

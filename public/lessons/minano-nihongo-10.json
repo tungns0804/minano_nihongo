@@ -1,0 +1,245 @@
+{
+  "id": "minano-nihongo-10",
+  "lessonNumber": 10,
+  "name": "皆の日本語 — Bài 10 · Từ vựng",
+  "description": "Từ vựng bài 10",
+  "kind": "vocabulary",
+  "itemCount": 29,
+  "words": [
+    {
+      "id": "0cugu28",
+      "hanViet": "NAM NHÂN",
+      "japanese": "男の人",
+      "reading": "おとこのひと",
+      "vietnamese": "người đàn ông",
+      "example": ""
+    },
+    {
+      "id": "160304s",
+      "hanViet": "NỮ NHÂN",
+      "japanese": "女の人",
+      "reading": "おんなのひと",
+      "vietnamese": "người đàn bà",
+      "example": ""
+    },
+    {
+      "id": "1nuyihk",
+      "hanViet": "NAM TỬ",
+      "japanese": "男の子",
+      "reading": "おとこのこ",
+      "vietnamese": "cậu con trai",
+      "example": ""
+    },
+    {
+      "id": "04xi1o4",
+      "hanViet": "NỮ TỬ",
+      "japanese": "女の子",
+      "reading": "おんなのこ",
+      "vietnamese": "cô con gái",
+      "example": ""
+    },
+    {
+      "id": "1o7jo54",
+      "hanViet": "KHUYỂN",
+      "japanese": "犬",
+      "reading": "いぬ",
+      "vietnamese": "chó",
+      "example": ""
+    },
+    {
+      "id": "0jyi7kl",
+      "hanViet": "MIÊU",
+      "japanese": "猫",
+      "reading": "ねこ",
+      "vietnamese": "Mèo",
+      "example": ""
+    },
+    {
+      "id": "0fphtol",
+      "hanViet": "MỘC",
+      "japanese": "木",
+      "reading": "き",
+      "vietnamese": "cây, gỗ",
+      "example": ""
+    },
+    {
+      "id": "0mo0en6",
+      "hanViet": "VẬT",
+      "japanese": "物",
+      "reading": "もの",
+      "vietnamese": "vật, đồ vật",
+      "example": ""
+    },
+    {
+      "id": "1316mzv",
+      "hanViet": "ĐIỆN TRÌ",
+      "japanese": "電池",
+      "reading": "でんち",
+      "vietnamese": "Pin",
+      "example": ""
+    },
+    {
+      "id": "0qfekw8",
+      "hanViet": "TƯƠNG",
+      "japanese": "箱",
+      "reading": "はこ",
+      "vietnamese": "hộp",
+      "example": ""
+    },
+    {
+      "id": "0wogxpp",
+      "hanViet": "LÃNH TÀNG KHỐ",
+      "japanese": "冷蔵庫",
+      "reading": "れいぞうこ",
+      "vietnamese": "tủ lạnh",
+      "example": ""
+    },
+    {
+      "id": "1r63fbq",
+      "hanViet": "BẰNG",
+      "japanese": "棚",
+      "reading": "たな",
+      "vietnamese": "giá sách",
+      "example": ""
+    },
+    {
+      "id": "1csn16b",
+      "hanViet": "SONG",
+      "japanese": "窓",
+      "reading": "まど",
+      "vietnamese": "cửa sổ",
+      "example": ""
+    },
+    {
+      "id": "0xxd8h6",
+      "hanViet": "CÔNG VIÊN",
+      "japanese": "公園",
+      "reading": "こうえん",
+      "vietnamese": "công viên",
+      "example": ""
+    },
+    {
+      "id": "1cm05tz",
+      "hanViet": "KHIẾT TRÀ ĐIẾM",
+      "japanese": "喫茶店",
+      "reading": "きっさてん",
+      "vietnamese": "quán giải khát, quán cà phê",
+      "example": ""
+    },
+    {
+      "id": "1hpagd1",
+      "hanViet": "BỔN ỐC",
+      "japanese": "本屋",
+      "reading": "ほんや",
+      "vietnamese": "hiệu sách",
+      "example": ""
+    },
+    {
+      "id": "1lqnq4x",
+      "hanViet": "THỪA TRƯỜNG",
+      "japanese": "乗り場",
+      "reading": "のりば",
+      "vietnamese": "bến xe, điểm lên xuống xe",
+      "example": ""
+    },
+    {
+      "id": "1sl6w4d",
+      "hanViet": "HUYỆN",
+      "japanese": "県",
+      "reading": "けん",
+      "vietnamese": "tỉnh",
+      "example": ""
+    },
+    {
+      "id": "1n0cx4l",
+      "hanViet": "THƯỢNG",
+      "japanese": "上",
+      "reading": "うえ",
+      "vietnamese": "Trên",
+      "example": ""
+    },
+    {
+      "id": "16gdapm",
+      "hanViet": "HẠ",
+      "japanese": "下",
+      "reading": "した",
+      "vietnamese": "dưới",
+      "example": ""
+    },
+    {
+      "id": "0ws3e85",
+      "hanViet": "TIỀN",
+      "japanese": "前",
+      "reading": "まえ",
+      "vietnamese": "trước",
+      "example": ""
+    },
+    {
+      "id": "1p5ac07",
+      "hanViet": "HỮU",
+      "japanese": "右",
+      "reading": "みぎ",
+      "vietnamese": "phải",
+      "example": ""
+    },
+    {
+      "id": "0dtg221",
+      "hanViet": "TẢ",
+      "japanese": "左",
+      "reading": "ひだり",
+      "vietnamese": "Trái",
+      "example": ""
+    },
+    {
+      "id": "1aqpcsu",
+      "hanViet": "TRUNG",
+      "japanese": "中",
+      "reading": "なか",
+      "vietnamese": "trong, giữa",
+      "example": ""
+    },
+    {
+      "id": "1ignmqu",
+      "hanViet": "NGOẠI",
+      "japanese": "外",
+      "reading": "そと",
+      "vietnamese": "Ngoài",
+      "example": ""
+    },
+    {
+      "id": "01cnwd6",
+      "hanViet": "LÂN",
+      "japanese": "隣",
+      "reading": "となり",
+      "vietnamese": "bên cạnh",
+      "example": ""
+    },
+    {
+      "id": "17c9a6a",
+      "hanViet": "CẬN",
+      "japanese": "近く",
+      "reading": "ちかく",
+      "vietnamese": "gần",
+      "example": ""
+    },
+    {
+      "id": "0fc48b1",
+      "hanViet": "GIAN",
+      "japanese": "間",
+      "reading": "あいだ",
+      "vietnamese": "giữa",
+      "example": ""
+    },
+    {
+      "id": "05iug00",
+      "hanViet": "ÁO",
+      "japanese": "奥",
+      "reading": "おく",
+      "vietnamese": "bên trong cùng, phía sâu bên trong",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

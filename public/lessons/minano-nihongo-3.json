@@ -1,0 +1,149 @@
+{
+  "id": "minano-nihongo-3",
+  "lessonNumber": 3,
+  "name": "皆の日本語 — Bài 3 · Từ vựng",
+  "description": "Từ vựng bài 3",
+  "kind": "vocabulary",
+  "itemCount": 17,
+  "words": [
+    {
+      "id": "099b014",
+      "hanViet": "GIÁO THẤT",
+      "japanese": "教室",
+      "reading": "きょうしつ",
+      "vietnamese": "lớp học, phòng học",
+      "example": ""
+    },
+    {
+      "id": "1i2p1tp",
+      "hanViet": "THỰC ĐƯỜNG",
+      "japanese": "食堂",
+      "reading": "しょくどう",
+      "vietnamese": "nhà ăn",
+      "example": ""
+    },
+    {
+      "id": "0b2ao8d",
+      "hanViet": "SỰ VỤ SỞ",
+      "japanese": "事務所",
+      "reading": "じむしょ",
+      "vietnamese": "văn phòng",
+      "example": ""
+    },
+    {
+      "id": "099xgxt",
+      "hanViet": "HỘI NGHỊ THẤT",
+      "japanese": "会議室",
+      "reading": "かいぎしつ",
+      "vietnamese": "phòng họp",
+      "example": ""
+    },
+    {
+      "id": "1gahyur",
+      "hanViet": "THỤ PHÓ",
+      "japanese": "受付",
+      "reading": "うけつけ",
+      "vietnamese": "bộ phận tiếp tân, phòng thường trực",
+      "example": ""
+    },
+    {
+      "id": "0sosk3o",
+      "hanViet": "BỘ ÓC",
+      "japanese": "部屋",
+      "reading": "へや",
+      "vietnamese": "căn phòng",
+      "example": ""
+    },
+    {
+      "id": "1yg5t1i",
+      "hanViet": "THỦ TẢY",
+      "japanese": "お手洗い",
+      "reading": "おてあらい",
+      "vietnamese": "nhà vệ sinh, phòng vệ sinh, toa-lét",
+      "example": ""
+    },
+    {
+      "id": "0uu7dv5",
+      "hanViet": "GIAI ĐOẠN",
+      "japanese": "階段",
+      "reading": "かいだん",
+      "vietnamese": "Cầu thang",
+      "example": ""
+    },
+    {
+      "id": "06azrnv",
+      "hanViet": "QUỐC",
+      "japanese": "お国",
+      "reading": "おくに",
+      "vietnamese": "đất nước",
+      "example": ""
+    },
+    {
+      "id": "0k39lwj",
+      "hanViet": "HỘI XÃ",
+      "japanese": "会社",
+      "reading": "かいしゃ",
+      "vietnamese": "công ty",
+      "example": ""
+    },
+    {
+      "id": "0xb0zke",
+      "hanViet": "ĐIỆN THOẠI",
+      "japanese": "電話",
+      "reading": "でんわ",
+      "vietnamese": "máy điện thoại, điện thoại",
+      "example": ""
+    },
+    {
+      "id": "1rweh3e",
+      "hanViet": "NGOA",
+      "japanese": "靴",
+      "reading": "くつ",
+      "vietnamese": "giầy",
+      "example": ""
+    },
+    {
+      "id": "0sm4mjv",
+      "hanViet": "MẠI TRƯỜNG",
+      "japanese": "売り場",
+      "reading": "うりば",
+      "vietnamese": "quầy bán (trong một cửa hàng bách hóa)",
+      "example": ""
+    },
+    {
+      "id": "0gkn0gk",
+      "hanViet": "HÀ GIAI",
+      "japanese": "何階",
+      "reading": "なんがい",
+      "vietnamese": "tầng mấy",
+      "example": ""
+    },
+    {
+      "id": "123r355",
+      "hanViet": "BÁCH",
+      "japanese": "百",
+      "reading": "ひゃく",
+      "vietnamese": "Trăm",
+      "example": ""
+    },
+    {
+      "id": "08najht",
+      "hanViet": "THIÊN",
+      "japanese": "千",
+      "reading": "せん",
+      "vietnamese": "nghìn",
+      "example": ""
+    },
+    {
+      "id": "0dyptya",
+      "hanViet": "VẠN",
+      "japanese": "万",
+      "reading": "まん",
+      "vietnamese": "mười nghìn, vạn",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

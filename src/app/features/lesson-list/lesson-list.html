@@ -69,6 +69,29 @@
         </div>
       </div>
 
+      <!-- Lọc theo cấp độ JLPT. Đặt TRƯỚC bộ lọc loại vì người học thường chọn
+           "mình đang ở N5" một lần rồi mới ngó tới loại bài. -->
+      <div class="field">
+        <span class="label">{{ t('home.level') }}</span>
+        <div class="options level-options">
+          @for (option of levelOptions(); track option.value) {
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="level() === option.value"
+              [attr.aria-pressed]="level() === option.value"
+              [disabled]="option.count === 0"
+              [title]="option.titleKey ? t(option.titleKey) : null"
+              (click)="setLevel(option.value)"
+            >
+              <app-t [key]="option.labelKey" [params]="option.params" />
+              <span class="spacer"></span>
+              <span class="filter-count">{{ option.count }}</span>
+            </button>
+          }
+        </div>
+      </div>
+
       @if (filterOptions().length > 0) {
         <div class="field">
           <span class="label">{{ t('home.filter') }}</span>

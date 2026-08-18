@@ -1,0 +1,16 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 27 (các dòng đánh số bài 20).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+YẾU,ビザが要ります (ビザがいります),Cần thị thực (visa)
+ĐIỀU,調べます (しらべます),Tìm hiểu, điều tra, xem
+TRỰC,直します (なおします),Sửa, chữa
+TU LÝ,修理します (しゅうりします),Sửa chữa, tu sửa
+ĐIỆN THOẠI,電話します (でんわします),Gọi điện thoại
+BỘC,僕 (ぼく),Tớ
+QUÂN,君 (きみ),Cậu, bạn
+VẬT GIÁ,物価 (ぶっか),Giá cả, mức giá, vật giá
+TRƯỚC VẬT,着物 (きもの),Kimono
+THỦY,始め (はじめ),Ban đầu, đầu tiên
+CHUNG,終わり (おわり),Kết thúc
+GIAN,この間 (このあいだ),Vừa rồi, hôm nọ
+QUỐC QUY,国へ帰るの？ (くにへかえるの？),Anh/chị có về nước không?

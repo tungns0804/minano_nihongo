@@ -1,0 +1,117 @@
+{
+  "id": "minano-nihongo-24",
+  "lessonNumber": 24,
+  "name": "皆の日本語 — Bài 24 · Từ vựng",
+  "description": "Từ vựng bài 24",
+  "kind": "vocabulary",
+  "itemCount": 13,
+  "words": [
+    {
+      "id": "15u6ws5",
+      "hanViet": "LIÊN HÀNH",
+      "japanese": "連れて行きます",
+      "reading": "つれていきます",
+      "vietnamese": "Dẫn đi",
+      "example": ""
+    },
+    {
+      "id": "0ehiq6r",
+      "hanViet": "LIÊN LAI",
+      "japanese": "連れて来ます",
+      "reading": "つれてきます",
+      "vietnamese": "Dẫn đến",
+      "example": ""
+    },
+    {
+      "id": "0tfm5z6",
+      "hanViet": "NHÂN TỐNG",
+      "japanese": "人を送ります",
+      "reading": "ひとをおくります",
+      "vietnamese": "Đưa đi, đưa đến, tiễn một ai đó",
+      "example": ""
+    },
+    {
+      "id": "1ccajry",
+      "hanViet": "THIỆU GIỚI",
+      "japanese": "紹介します",
+      "reading": "しょうかいします",
+      "vietnamese": "Giới thiệu",
+      "example": ""
+    },
+    {
+      "id": "1ywxi6g",
+      "hanViet": "ÁN NỘI",
+      "japanese": "案内します",
+      "reading": "あんないします",
+      "vietnamese": "Hướng dẫn, giới thiệu",
+      "example": ""
+    },
+    {
+      "id": "0w7cwtl",
+      "hanViet": "THUYẾT MINH",
+      "japanese": "説明します",
+      "reading": "せつめいします",
+      "vietnamese": "Giải thích, trình bày",
+      "example": ""
+    },
+    {
+      "id": "0skh0aw",
+      "hanViet": "CHUẨN BỊ",
+      "japanese": "準備",
+      "reading": "じゅんび",
+      "vietnamese": "Chuẩn bị",
+      "example": ""
+    },
+    {
+      "id": "1yrzy0c",
+      "hanViet": "Ý VỊ",
+      "japanese": "意味",
+      "reading": "いみ",
+      "vietnamese": "Ý nghĩa",
+      "example": ""
+    },
+    {
+      "id": "1xfyznu",
+      "hanViet": "QUẢ TỬ",
+      "japanese": "お菓子",
+      "reading": "おかし",
+      "vietnamese": "Bánh kẹo",
+      "example": ""
+    },
+    {
+      "id": "0u2itge",
+      "hanViet": "TOÀN BỘ",
+      "japanese": "全部",
+      "reading": "ぜんぶ",
+      "vietnamese": "Toàn bộ, tất cả",
+      "example": ""
+    },
+    {
+      "id": "0lojdu8",
+      "hanViet": "BỘ PHÂN",
+      "japanese": "自分で",
+      "reading": "じぶんで",
+      "vietnamese": "Tự mình",
+      "example": ""
+    },
+    {
+      "id": "1wsp9yi",
+      "hanViet": "BIỆN ĐƯƠNG",
+      "japanese": "お弁当",
+      "reading": "おべんとう",
+      "vietnamese": "Cơm hộp",
+      "example": ""
+    },
+    {
+      "id": "0vgxsrn",
+      "hanViet": "MẪU NHẬT",
+      "japanese": "母の日",
+      "reading": "ははのひ",
+      "vietnamese": "Ngày của Mẹ",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

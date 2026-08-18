@@ -1,0 +1,38 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 22-23 (các dòng đánh số bài 16).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+ĐIỆN XA THỪA,電車に乗ります (でんしゃにのります),Đi, lên tàu
+ĐIỆN XA GIÁNG/HÀNG,電車を降ります (でんしゃをおります),Xuống tàu
+THỪA HOÁN,乗り換えます (のりかえます),Chuyển, đổi (tàu)
+DỤC,浴びます,Tắm vòi hoa sen
+NHẬP,入れます (いれます),Cho vào, bỏ vào
+XUẤT,出します (だします),Lấy ra, rút (tiền)
+ĐẠI HỌC NHẬP,大学に入ります (だいがくにはいります),Vào, nhập học đại học
+ĐẠI HỌC XUẤT,大学を出ます (だいがくをでます),Ra, tốt nghiệp đại học
+HỘI XÃ,会社をやめます (かいしゃをやめます),Bỏ, thôi việc công ty
+ÁP,押します (おします),Bấm, ấn (nút)
+NHƯỢC,若い (わかい),Trẻ
+TRƯỜNG,長い (ながい),Dài
+ĐOẢN,短い (みじかい),Ngắn
+MINH,明るい (あかるい),Sáng
+ÁM,暗い (くらい),Tối
+BỐI CAO,背が高い (せがたかい),Cao
+ĐẦU,頭がいい (あたまがいい),Thông minh
+THỂ,体 (からだ),Người, cơ thể
+ĐẦU,頭 (あたま),Đầu
+PHÁT,髪 (かみ),Tóc
+NHAN,顔 (かお),Mặt
+MỤC,目 (め),Mắt
+NHĨ,耳 (みみ),Tai
+KHẨU,口 (くち),Miệng
+XỈ,歯 (は),Răng
+TÚC,足 (あし),Chân
+LỤC,緑 (みどり),Màu xanh lá cây
+TỰ,お寺 (おてら),Chùa
+THẦN XÃ,神社 (じんじゃ),Đền thờ đạo thần
+LƯU HỌC SINH,留学生 (りゅうがくせい),du học sinh
+DẪN XUẤT,お引き出しですか (おひきだしですか),Anh/ chị rút tiền ạ?
+ÁM CHỨNG PHIÊN HIỆU,暗証番号 (あんしょうばんごう),Mật khẩu
+THỨ,次に (つぎに),Tiếp theo
+KIM NGẠCH,金額 (きんがく),Số tiền, khoản tiền
+XÁC NHẬN,確認 (かくにん),Sự xác nhận, sự kiểm tra

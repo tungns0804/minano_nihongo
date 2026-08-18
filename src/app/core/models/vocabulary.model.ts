@@ -23,6 +23,37 @@ export interface VocabularyWord {
   example: string;
 }
 
+/**
+ * Cấp độ JLPT của một bài.
+ *
+ * Mốc chia lấy đúng theo cuốn "TỪ VỰNG N5.pdf" dùng làm nguồn dữ liệu: hết bài 25 là
+ * hết phần N5, và ngay sau đó sách in tiêu đề "TỪ VỰNG MINNANO N4" rồi mới sang bài 26.
+ */
+export type JlptLevel = 'N5' | 'N4';
+
+export const JLPT_LEVELS: readonly JlptLevel[] = ['N5', 'N4'];
+
+/** Bài đầu và bài cuối của mỗi cấp, dùng cả để lọc lẫn để hiện chú thích "bài 1-25". */
+export const JLPT_RANGE: Record<JlptLevel, { from: number; to: number }> = {
+  N5: { from: 1, to: 25 },
+  N4: { from: 26, to: 50 },
+};
+
+/**
+ * Cấp độ của một bài, hoặc null khi không xác định được.
+ *
+ * Trả null chứ không đoán bừa: bài tự nạp và bài "Động từ đặc biệt" (gom động từ của
+ * nhiều bài) không có số bài, gán đại cho chúng một cấp là nói dối người học.
+ */
+export function levelOfLesson(lessonNumber: number | undefined): JlptLevel | null {
+  if (typeof lessonNumber !== 'number') return null;
+  for (const level of JLPT_LEVELS) {
+    const { from, to } = JLPT_RANGE[level];
+    if (lessonNumber >= from && lessonNumber <= to) return level;
+  }
+  return null;
+}
+
 /** Bài học nằm sẵn trong `public/lessons` hay do người dùng tự nạp. */
 export type LessonOrigin = 'builtin' | 'custom';
 
@@ -156,6 +187,13 @@ export interface Lesson {
   kind: LessonKind;
   /** Số mục trong bài: số từ vựng, số động từ, số câu hội thoại, hoặc số mẫu ngữ pháp. */
   itemCount: number;
+  /**
+   * Bài số mấy trong giáo trình, dùng để suy ra cấp độ JLPT (xem `levelOfLesson`).
+   *
+   * Có mặt ở CẢ file bài học lẫn index.json, không thừa: bản offline nhúng thẳng file
+   * bài học vào trang và dựng danh sách từ đó, không đọc index.json.
+   */
+  lessonNumber?: number;
   words: VocabularyWord[];
   verbs: VerbEntry[];
   lines: ConversationLine[];
@@ -193,6 +231,8 @@ export interface LessonSummary {
   kind: LessonKind;
   itemCount: number;
   origin: LessonOrigin;
+  /** Bài số mấy trong giáo trình. Không có với bài tự nạp và bài không thuộc bài nào. */
+  lessonNumber?: number;
 }
 
 /** Cấu trúc file `public/lessons/index.json` do script sinh ra. */
@@ -207,6 +247,8 @@ export interface LessonIndexEntry {
   description?: string;
   kind: LessonKind;
   itemCount: number;
+  /** Do `scripts/generate-lessons.mjs` tính sẵn, xem `lessonNumberOf` bên đó. */
+  lessonNumber?: number;
   file: string;
 }
 

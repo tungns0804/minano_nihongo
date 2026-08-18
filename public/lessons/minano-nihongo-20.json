@@ -1,0 +1,117 @@
+{
+  "id": "minano-nihongo-20",
+  "lessonNumber": 20,
+  "name": "皆の日本語 — Bài 20 · Từ vựng",
+  "description": "Từ vựng bài 20",
+  "kind": "vocabulary",
+  "itemCount": 13,
+  "words": [
+    {
+      "id": "1b8cu6o",
+      "hanViet": "YẾU",
+      "japanese": "ビザが要ります",
+      "reading": "ビザがいります",
+      "vietnamese": "Cần thị thực (visa)",
+      "example": ""
+    },
+    {
+      "id": "0i6zok0",
+      "hanViet": "ĐIỀU",
+      "japanese": "調べます",
+      "reading": "しらべます",
+      "vietnamese": "Tìm hiểu, điều tra, xem",
+      "example": ""
+    },
+    {
+      "id": "1xou8hw",
+      "hanViet": "TRỰC",
+      "japanese": "直します",
+      "reading": "なおします",
+      "vietnamese": "Sửa, chữa",
+      "example": ""
+    },
+    {
+      "id": "0azvpwx",
+      "hanViet": "TU LÝ",
+      "japanese": "修理します",
+      "reading": "しゅうりします",
+      "vietnamese": "Sửa chữa, tu sửa",
+      "example": ""
+    },
+    {
+      "id": "038pzho",
+      "hanViet": "ĐIỆN THOẠI",
+      "japanese": "電話します",
+      "reading": "でんわします",
+      "vietnamese": "Gọi điện thoại",
+      "example": ""
+    },
+    {
+      "id": "137f4w7",
+      "hanViet": "BỘC",
+      "japanese": "僕",
+      "reading": "ぼく",
+      "vietnamese": "Tớ",
+      "example": ""
+    },
+    {
+      "id": "1j1o76c",
+      "hanViet": "QUÂN",
+      "japanese": "君",
+      "reading": "きみ",
+      "vietnamese": "Cậu, bạn",
+      "example": ""
+    },
+    {
+      "id": "0pb8qli",
+      "hanViet": "VẬT GIÁ",
+      "japanese": "物価",
+      "reading": "ぶっか",
+      "vietnamese": "Giá cả, mức giá, vật giá",
+      "example": ""
+    },
+    {
+      "id": "0ebpat4",
+      "hanViet": "TRƯỚC VẬT",
+      "japanese": "着物",
+      "reading": "きもの",
+      "vietnamese": "Kimono",
+      "example": ""
+    },
+    {
+      "id": "02wrrsi",
+      "hanViet": "THỦY",
+      "japanese": "始め",
+      "reading": "はじめ",
+      "vietnamese": "Ban đầu, đầu tiên",
+      "example": ""
+    },
+    {
+      "id": "0vvmq49",
+      "hanViet": "CHUNG",
+      "japanese": "終わり",
+      "reading": "おわり",
+      "vietnamese": "Kết thúc",
+      "example": ""
+    },
+    {
+      "id": "0ooh0jo",
+      "hanViet": "GIAN",
+      "japanese": "この間",
+      "reading": "このあいだ",
+      "vietnamese": "Vừa rồi, hôm nọ",
+      "example": ""
+    },
+    {
+      "id": "05hy9tc",
+      "hanViet": "QUỐC QUY",
+      "japanese": "国へ帰るの？",
+      "reading": "くにへかえるの？",
+      "vietnamese": "Anh/chị có về nước không?",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

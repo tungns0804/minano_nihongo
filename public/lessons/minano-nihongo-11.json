@@ -1,0 +1,261 @@
+{
+  "id": "minano-nihongo-11",
+  "lessonNumber": 11,
+  "name": "皆の日本語 — Bài 11 · Từ vựng",
+  "description": "Từ vựng bài 11",
+  "kind": "vocabulary",
+  "itemCount": 31,
+  "words": [
+    {
+      "id": "0zuq9dy",
+      "hanViet": "TỬ CUNG",
+      "japanese": "子供がいます",
+      "reading": "こどもがいます",
+      "vietnamese": "có con",
+      "example": ""
+    },
+    {
+      "id": "0wdwpoq",
+      "hanViet": "NHẬT BẢN",
+      "japanese": "日本にいます",
+      "reading": "にほんにいます",
+      "vietnamese": "ở Nhật",
+      "example": ""
+    },
+    {
+      "id": "1iwgmnw",
+      "hanViet": "HỘI XÃ",
+      "japanese": "会社を休みます",
+      "reading": "かいしゃをやすみます",
+      "vietnamese": "nghỉ làm việc",
+      "example": ""
+    },
+    {
+      "id": "1xgehjg",
+      "hanViet": "NHÂN",
+      "japanese": "１人",
+      "reading": "ひとり",
+      "vietnamese": "một người",
+      "example": ""
+    },
+    {
+      "id": "12kfni1",
+      "hanViet": "NHÂN",
+      "japanese": "２人",
+      "reading": "ふたり",
+      "vietnamese": "hai người",
+      "example": ""
+    },
+    {
+      "id": "0an05h9",
+      "hanViet": "NHÂN",
+      "japanese": "～人",
+      "reading": "～にん",
+      "vietnamese": "～ người",
+      "example": ""
+    },
+    {
+      "id": "02z2kp0",
+      "hanViet": "ĐÀI",
+      "japanese": "～台",
+      "reading": "～だい",
+      "vietnamese": "～ cái",
+      "example": ""
+    },
+    {
+      "id": "1pswe24",
+      "hanViet": "MAI",
+      "japanese": "～枚",
+      "reading": "～まい",
+      "vietnamese": "～ tờ, tấm",
+      "example": ""
+    },
+    {
+      "id": "01u21bk",
+      "hanViet": "HỒI",
+      "japanese": "～回",
+      "reading": "～かい",
+      "vietnamese": "～ lần",
+      "example": ""
+    },
+    {
+      "id": "0knlhb4",
+      "hanViet": "THIẾT THỦ",
+      "japanese": "切手",
+      "reading": "きって",
+      "vietnamese": "tem",
+      "example": ""
+    },
+    {
+      "id": "1lcoei9",
+      "hanViet": "PHONG ĐỒNG",
+      "japanese": "封筒",
+      "reading": "ふうとう",
+      "vietnamese": "phong bì",
+      "example": ""
+    },
+    {
+      "id": "03x4qq7",
+      "hanViet": "TỐC ĐẠT",
+      "japanese": "速達",
+      "reading": "そくたつ",
+      "vietnamese": "gửi nhanh",
+      "example": ""
+    },
+    {
+      "id": "0tjyujj",
+      "hanViet": "THƯ LƯU",
+      "japanese": "書留",
+      "reading": "かきとめ",
+      "vietnamese": "gửi bảo đảm",
+      "example": ""
+    },
+    {
+      "id": "09uy3tm",
+      "hanViet": "HÀNG KHÔNG TIỆN",
+      "japanese": "航空便",
+      "reading": "こうくうびん",
+      "vietnamese": "gửi bằng đường hàng không",
+      "example": ""
+    },
+    {
+      "id": "1viaymq",
+      "hanViet": "THUYỀN TIỆN",
+      "japanese": "船便",
+      "reading": "ふなびん",
+      "vietnamese": "gửi bằng đường biển",
+      "example": ""
+    },
+    {
+      "id": "02ukir6",
+      "hanViet": "LƯỠNG THÂN",
+      "japanese": "両親",
+      "reading": "りょうしん",
+      "vietnamese": "bố mẹ",
+      "example": ""
+    },
+    {
+      "id": "1lb4w5y",
+      "hanViet": "HUYNH ĐỆ",
+      "japanese": "兄弟",
+      "reading": "きょうだい",
+      "vietnamese": "anh chị em",
+      "example": ""
+    },
+    {
+      "id": "1ja3rpn",
+      "hanViet": "HUYNH",
+      "japanese": "兄",
+      "reading": "あに",
+      "vietnamese": "anh trai",
+      "example": ""
+    },
+    {
+      "id": "085q4ar",
+      "hanViet": "HUYNH",
+      "japanese": "お兄さん",
+      "reading": "おにいさん",
+      "vietnamese": "anh trai người khác",
+      "example": ""
+    },
+    {
+      "id": "1dg7p3a",
+      "hanViet": "TỶ",
+      "japanese": "姉",
+      "reading": "あね",
+      "vietnamese": "chị gái",
+      "example": ""
+    },
+    {
+      "id": "16i5kve",
+      "hanViet": "TỶ",
+      "japanese": "お姉さん",
+      "reading": "おねえさん",
+      "vietnamese": "chị gái",
+      "example": ""
+    },
+    {
+      "id": "00acjto",
+      "hanViet": "ĐỆ",
+      "japanese": "弟",
+      "reading": "おとうと",
+      "vietnamese": "em trai",
+      "example": ""
+    },
+    {
+      "id": "1gdosn8",
+      "hanViet": "ĐỆ",
+      "japanese": "弟さん",
+      "reading": "おとうとさん",
+      "vietnamese": "em trai",
+      "example": ""
+    },
+    {
+      "id": "1jqwtzl",
+      "hanViet": "MUỘI",
+      "japanese": "妹",
+      "reading": "いもうと",
+      "vietnamese": "em gái",
+      "example": ""
+    },
+    {
+      "id": "1xxsjpp",
+      "hanViet": "MUỘI",
+      "japanese": "妹さん",
+      "reading": "いもうとさん",
+      "vietnamese": "em gái",
+      "example": ""
+    },
+    {
+      "id": "13szfrm",
+      "hanViet": "NGOẠI QUỐC",
+      "japanese": "外国",
+      "reading": "がいこく",
+      "vietnamese": "nước ngoài",
+      "example": ""
+    },
+    {
+      "id": "0kix1sc",
+      "hanViet": "THỜI GIAN",
+      "japanese": "～時間",
+      "reading": "～じかん",
+      "vietnamese": "～ tiếng",
+      "example": ""
+    },
+    {
+      "id": "1mvcg5u",
+      "hanViet": "CHU GIAN",
+      "japanese": "～週間",
+      "reading": "～しゅうかん",
+      "vietnamese": "～ tuần",
+      "example": ""
+    },
+    {
+      "id": "0enartp",
+      "hanViet": "NGUYỆT",
+      "japanese": "～か月",
+      "reading": "～かげつ",
+      "vietnamese": "～ tháng",
+      "example": ""
+    },
+    {
+      "id": "1wjw79o",
+      "hanViet": "NIÊN",
+      "japanese": "～年",
+      "reading": "～ねん",
+      "vietnamese": "～ năm",
+      "example": ""
+    },
+    {
+      "id": "0iv6fl1",
+      "hanViet": "TOÀN BỘ",
+      "japanese": "全部で",
+      "reading": "ぜんぶで",
+      "vietnamese": "tổng cộng",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

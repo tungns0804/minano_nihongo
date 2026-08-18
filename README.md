@@ -66,6 +66,25 @@ tên bài, số bài ("33"), hay chữ không dấu ("dong tu") đều ra — t�
 "33 dong tu" vẫn tìm đúng bài. Khác với bộ lọc loại, từ khoá KHÔNG được nhớ cho lần mở sau:
 mở app lên mà danh sách đã bị cắt sẵn theo thứ gõ hôm trước thì trông y như mất bài học.
 
+### Lọc theo cấp độ N5 / N4
+
+Trang chủ có thêm bộ lọc **Cấp độ**: **N5 = bài 1–25**, **N4 = bài 26–50**. Mốc chia này lấy
+đúng theo cuốn nguồn: hết bài 25 thì sách in tiêu đề “TỪ VỰNG MINNANO N4” rồi mới sang bài 26.
+
+Cấp độ KHÔNG lưu trong từng bài mà suy ra từ **số bài**. Số bài do
+[`scripts/generate-lessons.mjs`](scripts/generate-lessons.mjs) tính lúc sinh dữ liệu (hàm
+`lessonNumberOf`: lấy cụm số cuối trong tên thư mục, hoặc `meta.lesson` nếu khai báo) rồi ghi
+vào `index.json` và từng file bài học dưới khoá `lessonNumber`. Quy đổi số bài → cấp nằm ở
+`levelOfLesson` trong [`vocabulary.model.ts`](src/app/core/models/vocabulary.model.ts).
+
+Vì sao tính ở bước sinh dữ liệu chứ không để giao diện tự tách chuỗi id: bài người dùng tự nạp
+không đi qua bước đó nên không bao giờ bị gán nhầm cấp — một bài đặt tên “bai-5-cua-toi” mà bị
+đọc thành bài 5 sẽ hiện sai cấp độ. Bài không gắn với bài số nào (`dong-tu-dac-biet`, gom động
+từ của nhiều bài) rơi vào nhóm **“Không theo bài”**, không bị nhét đại vào N4 hay N5.
+
+Phải ghi `lessonNumber` vào cả `index.json` lẫn từng file bài học, không thừa: bản offline nhúng
+thẳng file bài học vào trang và dựng danh sách từ đó, không hề đọc `index.json`.
+
 **Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và kế hoạch là phủ
 hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
 một danh sách dài không đọc nổi.

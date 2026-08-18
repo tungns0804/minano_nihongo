@@ -1,0 +1,269 @@
+{
+  "id": "minano-nihongo-6",
+  "lessonNumber": 6,
+  "name": "皆の日本語 — Bài 6 · Từ vựng",
+  "description": "Từ vựng bài 6",
+  "kind": "vocabulary",
+  "itemCount": 32,
+  "words": [
+    {
+      "id": "05yw1cr",
+      "hanViet": "THỰC",
+      "japanese": "食べる",
+      "reading": "たべる",
+      "vietnamese": "ăn",
+      "example": ""
+    },
+    {
+      "id": "00p8j2y",
+      "hanViet": "ẨM",
+      "japanese": "飲む",
+      "reading": "のむ",
+      "vietnamese": "uống",
+      "example": ""
+    },
+    {
+      "id": "1ic04k3",
+      "hanViet": "HẤP",
+      "japanese": "吸う",
+      "reading": "すう",
+      "vietnamese": "hút",
+      "example": ""
+    },
+    {
+      "id": "1x757m1",
+      "hanViet": "KIẾN",
+      "japanese": "見る",
+      "reading": "みる",
+      "vietnamese": "xem, nhìn, trông",
+      "example": ""
+    },
+    {
+      "id": "0gygg8s",
+      "hanViet": "VĂN",
+      "japanese": "聞く",
+      "reading": "きく",
+      "vietnamese": "nghe",
+      "example": ""
+    },
+    {
+      "id": "1unp9it",
+      "hanViet": "ĐỘC",
+      "japanese": "読む",
+      "reading": "よむ",
+      "vietnamese": "đọc",
+      "example": ""
+    },
+    {
+      "id": "0vsm671",
+      "hanViet": "THƯ",
+      "japanese": "書く",
+      "reading": "かく",
+      "vietnamese": "viết, vẽ",
+      "example": ""
+    },
+    {
+      "id": "11v1tlv",
+      "hanViet": "MÃI",
+      "japanese": "買う",
+      "reading": "かう",
+      "vietnamese": "mua",
+      "example": ""
+    },
+    {
+      "id": "0egzefi",
+      "hanViet": "TOÁT",
+      "japanese": "撮りる",
+      "reading": "とりる",
+      "vietnamese": "chụp",
+      "example": ""
+    },
+    {
+      "id": "19jz69e",
+      "hanViet": "HỘI",
+      "japanese": "会う",
+      "reading": "あう",
+      "vietnamese": "gặp",
+      "example": ""
+    },
+    {
+      "id": "0k1g2zk",
+      "hanViet": "TRIỀU",
+      "japanese": "朝ごはん",
+      "reading": "あさごはん",
+      "vietnamese": "cơm sáng",
+      "example": ""
+    },
+    {
+      "id": "0wl8rnj",
+      "hanViet": "TRÚ",
+      "japanese": "昼ごはん",
+      "reading": "ひるごはん",
+      "vietnamese": "cơm trưa",
+      "example": ""
+    },
+    {
+      "id": "0yolm89",
+      "hanViet": "VÃN",
+      "japanese": "晩ごはん",
+      "reading": "ばんごはん",
+      "vietnamese": "cơm tối",
+      "example": ""
+    },
+    {
+      "id": "00zay7e",
+      "hanViet": "NOÃN",
+      "japanese": "卵",
+      "reading": "たまご",
+      "vietnamese": "trứng",
+      "example": ""
+    },
+    {
+      "id": "0htrelj",
+      "hanViet": "NHỤC",
+      "japanese": "肉",
+      "reading": "にく",
+      "vietnamese": "thịt",
+      "example": ""
+    },
+    {
+      "id": "0fwdmh9",
+      "hanViet": "NGƯ",
+      "japanese": "魚",
+      "reading": "さかな",
+      "vietnamese": "cá",
+      "example": ""
+    },
+    {
+      "id": "1bvub8u",
+      "hanViet": "DÃ THÁI",
+      "japanese": "野菜",
+      "reading": "やさい",
+      "vietnamese": "rau",
+      "example": ""
+    },
+    {
+      "id": "0b5vc8k",
+      "hanViet": "QUẢ VẬT",
+      "japanese": "果物",
+      "reading": "くだもの",
+      "vietnamese": "hoa quả, trái cây",
+      "example": ""
+    },
+    {
+      "id": "07ouaks",
+      "hanViet": "THỦY",
+      "japanese": "水",
+      "reading": "みず",
+      "vietnamese": "nước",
+      "example": ""
+    },
+    {
+      "id": "0pdcsw3",
+      "hanViet": "TRÀ",
+      "japanese": "お茶",
+      "reading": "おちゃ",
+      "vietnamese": "trà",
+      "example": ""
+    },
+    {
+      "id": "1yfm9gd",
+      "hanViet": "HỒNG TRÀ",
+      "japanese": "紅茶",
+      "reading": "こうちゃ",
+      "vietnamese": "trà đen",
+      "example": ""
+    },
+    {
+      "id": "060bhms",
+      "hanViet": "NGƯU NHŨ",
+      "japanese": "牛乳",
+      "reading": "ぎゅうにゅう",
+      "vietnamese": "sữa bò",
+      "example": ""
+    },
+    {
+      "id": "0za1t96",
+      "hanViet": "TỬU",
+      "japanese": "お酒",
+      "reading": "おさけ",
+      "vietnamese": "rượu, rượu sake",
+      "example": ""
+    },
+    {
+      "id": "1b7zpqf",
+      "hanViet": "ẢNH HỌA",
+      "japanese": "映画",
+      "reading": "えいが",
+      "vietnamese": "phim, điện ảnh",
+      "example": ""
+    },
+    {
+      "id": "0vhyoci",
+      "hanViet": "THỦ CHỈ",
+      "japanese": "手紙",
+      "reading": "てがみ",
+      "vietnamese": "thư",
+      "example": ""
+    },
+    {
+      "id": "167mpxs",
+      "hanViet": "TẢ CHÂN",
+      "japanese": "写真",
+      "reading": "しゃしん",
+      "vietnamese": "ảnh",
+      "example": ""
+    },
+    {
+      "id": "1dfw9y0",
+      "hanViet": "ĐIẾM",
+      "japanese": "店",
+      "reading": "みせ",
+      "vietnamese": "cửa hàng, tiệm",
+      "example": ""
+    },
+    {
+      "id": "1mxw7ta",
+      "hanViet": "ĐÌNH",
+      "japanese": "庭",
+      "reading": "にわ",
+      "vietnamese": "vườn",
+      "example": ""
+    },
+    {
+      "id": "0fsycjj",
+      "hanViet": "TÚC ĐỀ",
+      "japanese": "宿題",
+      "reading": "しゅくだい",
+      "vietnamese": "bài tập về nhà",
+      "example": ""
+    },
+    {
+      "id": "1054twr",
+      "hanViet": "HOA KIẾN",
+      "japanese": "お花見",
+      "reading": "おはなみ",
+      "vietnamese": "việc ngắm hoa anh đào",
+      "example": ""
+    },
+    {
+      "id": "0clniq4",
+      "hanViet": "HÀ",
+      "japanese": "何",
+      "reading": "なに",
+      "vietnamese": "cái gì, gì",
+      "example": ""
+    },
+    {
+      "id": "0ualoms",
+      "hanViet": "THÌ KÉP",
+      "japanese": "時々",
+      "reading": "ときどき",
+      "vietnamese": "thỉnh thoảng",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

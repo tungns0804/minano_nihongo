@@ -1,0 +1,141 @@
+{
+  "id": "minano-nihongo-21",
+  "lessonNumber": 21,
+  "name": "皆の日本語 — Bài 21 · Từ vựng",
+  "description": "Từ vựng bài 21",
+  "kind": "vocabulary",
+  "itemCount": 16,
+  "words": [
+    {
+      "id": "1r1ndhi",
+      "hanViet": "TƯ",
+      "japanese": "思います",
+      "reading": "おもいます",
+      "vietnamese": "Nghĩ",
+      "example": ""
+    },
+    {
+      "id": "0xcsjkl",
+      "hanViet": "NGÔN",
+      "japanese": "言います",
+      "reading": "いいます",
+      "vietnamese": "Nói",
+      "example": ""
+    },
+    {
+      "id": "1gq0acu",
+      "hanViet": "TÚC",
+      "japanese": "足ります",
+      "reading": "たります",
+      "vietnamese": "Đủ",
+      "example": ""
+    },
+    {
+      "id": "17geim7",
+      "hanViet": "THẮNG",
+      "japanese": "勝ちます",
+      "reading": "かちます",
+      "vietnamese": "Thắng",
+      "example": ""
+    },
+    {
+      "id": "12tpk4n",
+      "hanViet": "PHỤ",
+      "japanese": "負けます",
+      "reading": "まけます",
+      "vietnamese": "Thua",
+      "example": ""
+    },
+    {
+      "id": "1ocmvb7",
+      "hanViet": "TẾ",
+      "japanese": "お祭りがあります",
+      "reading": "おまつりがあります",
+      "vietnamese": "Được tổ chức, diễn ra, có lễ hội",
+      "example": ""
+    },
+    {
+      "id": "0r2c10x",
+      "hanViet": "DỊCH LẬP",
+      "japanese": "役に立ちます",
+      "reading": "やくにたちます",
+      "vietnamese": "Giúp ích",
+      "example": ""
+    },
+    {
+      "id": "0c5dk7q",
+      "hanViet": "BẤT TIỆN",
+      "japanese": "不便",
+      "reading": "ふべん",
+      "vietnamese": "Bất tiện",
+      "example": ""
+    },
+    {
+      "id": "0lralvj",
+      "hanViet": "THỦ TƯỚNG",
+      "japanese": "首相",
+      "reading": "しゅしょう",
+      "vietnamese": "Thủ tướng",
+      "example": ""
+    },
+    {
+      "id": "0yxy4my",
+      "hanViet": "ĐẠI THỐNG LÃNH",
+      "japanese": "大統領",
+      "reading": "だいとうりょう",
+      "vietnamese": "Tổng thống",
+      "example": ""
+    },
+    {
+      "id": "1p2rdof",
+      "hanViet": "CHÍNH TRỊ",
+      "japanese": "政治",
+      "reading": "せいじ",
+      "vietnamese": "Chính trị",
+      "example": ""
+    },
+    {
+      "id": "0fqoh3e",
+      "hanViet": "THỨC HỢP",
+      "japanese": "試合",
+      "reading": "しあい",
+      "vietnamese": "Trận đấu",
+      "example": ""
+    },
+    {
+      "id": "0vh6k5k",
+      "hanViet": "Ý KIẾN",
+      "japanese": "意見",
+      "reading": "いけん",
+      "vietnamese": "Ý kiến",
+      "example": ""
+    },
+    {
+      "id": "0fq63xq",
+      "hanViet": "THOẠI",
+      "japanese": "お話",
+      "reading": "おはなし",
+      "vietnamese": "Câu chuyện, bài nói chuyện",
+      "example": ""
+    },
+    {
+      "id": "0dpufie",
+      "hanViet": "GIAO THÔNG",
+      "japanese": "交通",
+      "reading": "こうつう",
+      "vietnamese": "Giao thông, đi lại",
+      "example": ""
+    },
+    {
+      "id": "09o8eey",
+      "hanViet": "TỐI CẬN",
+      "japanese": "最近",
+      "reading": "さいきん",
+      "vietnamese": "Gần đây",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

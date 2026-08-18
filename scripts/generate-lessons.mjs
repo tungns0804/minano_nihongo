@@ -258,6 +258,27 @@ function issueLocation(issue) {
   return issue.line > 0 ? `dòng ${issue.line}` : issue.path || 'dữ liệu';
 }
 
+/**
+ * Bài này là bài số mấy trong giáo trình, hoặc null nếu không xác định được.
+ *
+ * Ưu tiên "lesson" khai báo thẳng trong meta.json; không có thì lấy CỤM SỐ CUỐI CÙNG
+ * trong tên thư mục, vì mọi thư mục đều đặt theo kiểu "<chủ đề>-<số bài>":
+ * minano-nihongo-33, ngu-phap-minano-26, hoi-thoai-minano-26.
+ *
+ * Vì sao tính ở bước sinh dữ liệu chứ không để giao diện tự tách chuỗi id: quy ước
+ * đặt tên thư mục là chuyện của bước này, và ở đây mới biết chắc thư mục nào là bài
+ * có sẵn. Bài người dùng tự nạp không đi qua bước này nên không bao giờ bị gán nhầm
+ * số bài — một bài tên "bai-5-cua-toi" mà bị đọc thành bài 5 sẽ hiện sai cấp độ.
+ *
+ * Thư mục không có số nào (dong-tu-dac-biet) trả về null: nó gom động từ của nhiều
+ * bài khác nhau nên không thuộc riêng bài nào.
+ */
+function lessonNumberOf(folderName, meta) {
+  if (typeof meta.lesson === 'number' && Number.isFinite(meta.lesson)) return meta.lesson;
+  const matches = String(folderName).match(/[0-9]+/g);
+  return matches ? Number(matches[matches.length - 1]) : null;
+}
+
 function buildLesson(folderName) {
   const folderPath = join(SOURCE_DIR, folderName);
   const meta = readMeta(folderPath, folderName);
@@ -314,6 +335,7 @@ function buildLesson(folderName) {
     order: typeof meta.order === 'number' ? meta.order : Number.MAX_SAFE_INTEGER,
     lesson: {
       id,
+      lessonNumber: lessonNumberOf(folderName, meta),
       name: String(meta.name || titleFromFolder(folderName)).trim(),
       description: meta.description ? String(meta.description).trim() : '',
       kind,
@@ -401,6 +423,8 @@ function main() {
       description: lesson.description,
       kind: lesson.kind,
       itemCount: lesson.itemCount,
+      // Bỏ hẳn khoá khi không xác định được, để index.json không đầy "lessonNumber": null.
+      ...(lesson.lessonNumber === null ? {} : { lessonNumber: lesson.lessonNumber }),
       file: fileName,
     })),
   };

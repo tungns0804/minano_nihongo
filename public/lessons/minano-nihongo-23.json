@@ -1,0 +1,197 @@
+{
+  "id": "minano-nihongo-23",
+  "lessonNumber": 23,
+  "name": "皆の日本語 — Bài 23 · Từ vựng",
+  "description": "Từ vựng bài 23",
+  "kind": "vocabulary",
+  "itemCount": 23,
+  "words": [
+    {
+      "id": "07ublks",
+      "hanViet": "TIÊN SINH VĂN",
+      "japanese": "先生に聞きます",
+      "reading": "せんせいにききます",
+      "vietnamese": "Hỏi giáo viên",
+      "example": ""
+    },
+    {
+      "id": "00y6scm",
+      "hanViet": "HỒI",
+      "japanese": "回します",
+      "reading": "まわします",
+      "vietnamese": "Vặn, xoay",
+      "example": ""
+    },
+    {
+      "id": "11ibuye",
+      "hanViet": "DẪN",
+      "japanese": "引きます",
+      "reading": "ひきます",
+      "vietnamese": "Kéo",
+      "example": ""
+    },
+    {
+      "id": "040e1o2",
+      "hanViet": "BIẾN",
+      "japanese": "変えます",
+      "reading": "かえます",
+      "vietnamese": "Đổi",
+      "example": ""
+    },
+    {
+      "id": "0bwjnep",
+      "hanViet": "XÚC",
+      "japanese": "ドアに触ります",
+      "reading": "ドアにさわります",
+      "vietnamese": "Sờ, chạm vào cửa",
+      "example": ""
+    },
+    {
+      "id": "11rgsna",
+      "hanViet": "ĐIẾU XUẤT",
+      "japanese": "お釣りが出ます",
+      "reading": "おつりがでます",
+      "vietnamese": "Ra, đi ra tiền thừa",
+      "example": ""
+    },
+    {
+      "id": "0o40e15",
+      "hanViet": "THỜI KẾ ĐỘNG",
+      "japanese": "時計が動きます",
+      "reading": "とけいがうごきます",
+      "vietnamese": "Chuyển động, chạy đồng hồ",
+      "example": ""
+    },
+    {
+      "id": "0aq1arw",
+      "hanViet": "ĐẠO BỘ",
+      "japanese": "道を歩きます",
+      "reading": "みちをあるきます",
+      "vietnamese": "Đi bộ trên đường",
+      "example": ""
+    },
+    {
+      "id": "085hdi7",
+      "hanViet": "KIỀU ĐỘ",
+      "japanese": "橋を渡ります",
+      "reading": "はしをわたります",
+      "vietnamese": "Qua, đi qua cầu",
+      "example": ""
+    },
+    {
+      "id": "0867qe6",
+      "hanViet": "XA KHÍ",
+      "japanese": "車に気をつけます",
+      "reading": "くるまにきをつけます",
+      "vietnamese": "Chú ý, cẩn thận với ôtô",
+      "example": ""
+    },
+    {
+      "id": "1bwnsnh",
+      "hanViet": "DẪN VIỆT",
+      "japanese": "引っ越しします",
+      "reading": "ひっこしします",
+      "vietnamese": "Chuyển nhà",
+      "example": ""
+    },
+    {
+      "id": "14y2f8q",
+      "hanViet": "ĐIỆN KHÍ ỐC",
+      "japanese": "電気屋",
+      "reading": "でんきや",
+      "vietnamese": "Cửa hàng đồ điện",
+      "example": ""
+    },
+    {
+      "id": "10migv3",
+      "hanViet": "ÂM",
+      "japanese": "音",
+      "reading": "おと",
+      "vietnamese": "Âm thanh",
+      "example": ""
+    },
+    {
+      "id": "1qeb9l6",
+      "hanViet": "CƠ GIỚI",
+      "japanese": "機械",
+      "reading": "きかい",
+      "vietnamese": "Máy, máy móc",
+      "example": ""
+    },
+    {
+      "id": "0avb8as",
+      "hanViet": "CỐ CHƯỚNG",
+      "japanese": "故障",
+      "reading": "こしょう",
+      "vietnamese": "Hỏng",
+      "example": ""
+    },
+    {
+      "id": "0u6poy7",
+      "hanViet": "ĐẠO",
+      "japanese": "道",
+      "reading": "みち",
+      "vietnamese": "Đường",
+      "example": ""
+    },
+    {
+      "id": "1x33vy1",
+      "hanViet": "GIAO SAI ĐIỂM",
+      "japanese": "交差点",
+      "reading": "こうさてん",
+      "vietnamese": "Ngã tư",
+      "example": ""
+    },
+    {
+      "id": "0wqndes",
+      "hanViet": "TÍN HIỆU",
+      "japanese": "信号",
+      "reading": "しんごう",
+      "vietnamese": "Đèn tín hiệu",
+      "example": ""
+    },
+    {
+      "id": "1o8cjmb",
+      "hanViet": "GIÁC",
+      "japanese": "角",
+      "reading": "かど",
+      "vietnamese": "Góc",
+      "example": ""
+    },
+    {
+      "id": "1x8rahx",
+      "hanViet": "KIỀU",
+      "japanese": "橋",
+      "reading": "はし",
+      "vietnamese": "Cầu",
+      "example": ""
+    },
+    {
+      "id": "0p96ec6",
+      "hanViet": "TRÚ XA TRƯỜNG",
+      "japanese": "駐車場",
+      "reading": "ちゅうしゃじょう",
+      "vietnamese": "Bãi đỗ xe",
+      "example": ""
+    },
+    {
+      "id": "01q73l1",
+      "hanViet": "CHÍNH NGUYỆT",
+      "japanese": "お正月",
+      "reading": "おしょうがつ",
+      "vietnamese": "Tết (Dương lịch)",
+      "example": ""
+    },
+    {
+      "id": "1cdeep2",
+      "hanViet": "KIẾN VẬT",
+      "japanese": "建物",
+      "reading": "たてもの",
+      "vietnamese": "Tòa nhà",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

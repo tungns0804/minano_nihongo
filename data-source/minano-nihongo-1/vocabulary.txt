@@ -1,0 +1,22 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 1-2 (các dòng đánh số bài 1).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+TƯ,私 (わたし),Tôi
+TƯ ĐẠT,私達 (わたしたち),Chúng tôi, chúng ta
+NHÂN,あの人 (あのひと),Người kia, người đó
+PHƯƠNG,あの方 (あのかた),Vị kia
+GIAI,皆さん (みなさん),Các anh chị, các ông bà, các bạn, quý vị
+TIÊN SINH,先生 (せんせい),Thầy/ cô
+GIÁO SƯ,教師 (きょうし),Giáo viên
+HỌC SINH,学生 (がくせい),Học sinh, sinh viên
+HỘI XÃ VIÊN,会社員 (かいしゃいん),Nhân viên công ty
+XÃ VIÊN,社員 (しゃいん),Nhân viên công ty ~
+NGÂN HÀNH VIÊN,銀行員 (ぎんこういん),Nhân viên ngân hàng
+Y GIẢ,医者 (いしゃ),Bác sĩ
+NGHIÊN CỨU GIẢ,研究者 (けんきゅうしゃ),Nhà nghiên cứu
+ĐẠI HỌC,大学 (だいがく),Đại học, Trường đại học
+BỆNH VIỆN,病院 (びょういん),Bệnh viện
+ĐIỆN KHÍ,電気 (でんき),Điện, Đèn điện
+HÀ TUẾ,何歳 (なんさい),Mấy tuổi, bao nhiêu tuổi
+TRUNG QUỐC,中国 (ちゅうごく),Trung Quốc
+NHẬT BẢN,日本 (にほん),Nhật Bản

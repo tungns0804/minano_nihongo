@@ -4,6 +4,26 @@ import { ALTERNATIVE_SEPARATOR, stripDiacritics } from './vocabulary-parser';
 const FULLWIDTH_SPACE = String.fromCharCode(0x3000);
 
 /**
+ * Chữ số toàn chiều (０-９) đổi về nửa chiều (0-9) trước khi so.
+ *
+ * Vì sao cần: dữ liệu bài 5 và bài 11 chép từ sách có các từ như "１日", "２人" viết
+ * bằng chữ số TOÀN CHIỀU. Người học gõ "1日" bằng bàn phím thường sẽ bị chấm sai, dù
+ * đó mới là cách gõ tự nhiên. Ngược lại, bộ gõ tiếng Nhật lại hay cho ra chữ số toàn
+ * chiều, nên sửa cứng dữ liệu về một bên thì bên còn lại vẫn sai. Quy về cùng một
+ * dạng lúc SO SÁNH mới xử lý được cả hai chiều.
+ *
+ * Chỉ đụng tới chữ số. Không dùng NFKC cho cả chuỗi vì phép đó còn biến đổi cả dấu
+ * ～ (đang dùng làm ký hiệu mẫu: "～人", "～台") và katakana nửa chiều.
+ */
+const FULLWIDTH_DIGITS = /[０-９]/g;
+
+function foldFullwidthDigits(value: string): string {
+  return value.replace(FULLWIDTH_DIGITS, (ch) =>
+    String.fromCharCode(ch.charCodeAt(0) - 0xff10 + 0x30),
+  );
+}
+
+/**
  * Dấu câu được bỏ qua khi chấm câu dài: dấu của cả tiếng Nhật (、。！？「」…) lẫn
  * tiếng Việt (,.!?"'…). KHÔNG gồm dấu / vì trong bài từ vựng nó ngăn các nghĩa
  * tương đương, mà bài hội thoại thì / có thể là một phần của câu.
@@ -41,10 +61,12 @@ export function acceptedAnswersOf(answer: string): string[] {
 
 /** Đưa chuỗi về dạng chuẩn để so sánh: NFC, thường hoá, gọn khoảng trắng. */
 export function normalizeForCompare(value: string, options: CompareOptions): string {
-  let out = String(value ?? '')
-    .normalize('NFC')
-    .split(FULLWIDTH_SPACE)
-    .join(' ');
+  let out = foldFullwidthDigits(
+    String(value ?? '')
+      .normalize('NFC')
+      .split(FULLWIDTH_SPACE)
+      .join(' '),
+  );
 
   // Bỏ dấu câu TRƯỚC khi gộp khoảng trắng, để "abc , def" và "abc def" bằng nhau.
   if (options.ignorePunctuation) out = out.replace(PUNCTUATION, ' ');

@@ -1,0 +1,22 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 26-27 (các dòng đánh số bài 19).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+SƠN ĐĂNG,山に登ります (やまにのぼります),Leo núi
+BẠC,ホテルに泊まります (ホテルにとまります),Trọ ở khách sạn
+TẢO TRÚ,掃除します (そうじします),Dọn vệ sinh
+TẨY TRẠC,洗濯します (せんたくします),Giặt
+LUYỆN TẬP,練習します (れんしゅうします),Luyện tập, thực hành
+MIÊN,眠い (ねむい),Buồn ngủ
+CƯỜNG,強い (つよい),Mạnh
+NHƯỢC,弱い (よわい),Yếu
+ĐIỀU TỬ,調子がいい (ちょうしがいい),Trong tình trạng tốt
+ĐIỀU TỬ,調子がわるい (ちょうしがわるい),Trong tình trạng xấu
+ĐIỀU TỬ,調子 (ちょうし),Tình trạng, trạng thái
+TƯƠNG PHÁC,相撲 (すもう),Vật Sumo
+TRÀ,お茶 (おちゃ),Trà đạo
+NHẬT,日 (ひ),Ngày
+CAN BỘI,乾杯 (かんぱい),Nâng cốc!/cạn chén
+THỰC,実は (じつは),Thật ra là/ sự tình là
+HÀ HỒI,何回も (なんかいも),Nhiều lần
+VÔ LÝ,無理 (むり),Không thể, quá sức
+THỂ,体にいい (からだにいい),Tốt cho sức khỏe

@@ -1,0 +1,35 @@
+# Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
+# Nguồn: "TỪ VỰNG N5.pdf" — trang 7-9 (các dòng đánh số bài 6).
+# Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
+THỰC,食べる (たべる),ăn
+ẨM,飲む (のむ),uống
+HẤP,吸う (すう),hút
+KIẾN,見る (みる),xem, nhìn, trông
+VĂN,聞く (きく),nghe
+ĐỘC,読む (よむ),đọc
+THƯ,書く (かく),viết, vẽ
+MÃI,買う (かう),mua
+TOÁT,撮りる (とりる),chụp
+HỘI,会う (あう),gặp
+TRIỀU,朝ごはん (あさごはん),cơm sáng
+TRÚ,昼ごはん (ひるごはん),cơm trưa
+VÃN,晩ごはん (ばんごはん),cơm tối
+NOÃN,卵 (たまご),trứng
+NHỤC,肉 (にく),thịt
+NGƯ,魚 (さかな),cá
+DÃ THÁI,野菜 (やさい),rau
+QUẢ VẬT,果物 (くだもの),hoa quả, trái cây
+THỦY,水 (みず),nước
+TRÀ,お茶 (おちゃ),trà
+HỒNG TRÀ,紅茶 (こうちゃ),trà đen
+NGƯU NHŨ,牛乳 (ぎゅうにゅう),sữa bò
+TỬU,お酒 (おさけ),rượu, rượu sake
+ẢNH HỌA,映画 (えいが),phim, điện ảnh
+THỦ CHỈ,手紙 (てがみ),thư
+TẢ CHÂN,写真 (しゃしん),ảnh
+ĐIẾM,店 (みせ),cửa hàng, tiệm
+ĐÌNH,庭 (にわ),vườn
+TÚC ĐỀ,宿題 (しゅくだい),bài tập về nhà
+HOA KIẾN,お花見 (おはなみ),việc ngắm hoa anh đào
+HÀ,何 (なに),cái gì, gì
+THÌ KÉP,時々 (ときどき),thỉnh thoảng
