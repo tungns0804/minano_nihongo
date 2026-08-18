@@ -5,9 +5,10 @@
    lại được, nhưng hai màn hình phải nhìn như một. Sửa dáng ở đây thì xem lại bên kia. */
 
 .back-link {
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   width: fit-content;
+  transition: color var(--dur) var(--ease);
 }
 
 .back-link:hover {
@@ -34,7 +35,7 @@
 }
 
 .option-example {
-  font-size: 0.82rem;
+  font-size: var(--fs-xs);
   font-weight: 450;
   opacity: 0.75;
 }
@@ -54,9 +55,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--sp-4);
   flex-wrap: wrap;
-  padding-top: 16px;
+  padding-top: var(--sp-4);
   border-top: 1px solid var(--border);
 }
 
@@ -76,18 +77,19 @@
 .toc {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--sp-2);
 }
 
 .toc-link {
   padding: 6px 13px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--bg-subtle);
   color: var(--text-muted);
   font-size: 0.95rem;
   font-weight: 550;
-  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
 }
 
 .toc-link:hover {
@@ -98,15 +100,16 @@
 
 /* --- Một mẫu ngữ pháp --- */
 
-/* Chừa chỗ cho header dính ở trên khi cuộn tới bằng mục lục. */
+/* Chừa chỗ cho header dính ở trên khi cuộn tới bằng mục lục. Lấy theo biến chung
+   nên khi header cao lên ở khổ điện thoại thì chỗ chừa cũng cao theo. */
 .point-card {
-  scroll-margin-top: 76px;
+  scroll-margin-top: calc(var(--header-h) + var(--sp-4));
 }
 
 .point-head {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: var(--sp-3);
 }
 
 .point-index {
@@ -133,13 +136,13 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--sp-2);
 }
 
 /* Công thức là thứ người học liếc vào đầu tiên — cho nó một khung riêng thay vì
    để lẫn vào đoạn văn giải thích. */
 .structure {
-  padding: 7px 14px;
+  padding: 8px 14px;
   border: 1px solid var(--accent-soft);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-sm);
@@ -151,7 +154,7 @@
 
 .explain {
   max-width: 78ch;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .note-list {
@@ -167,7 +170,7 @@
 .table-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 16px;
+  gap: var(--sp-4);
 }
 
 .grammar-table {
@@ -182,16 +185,16 @@
   background: var(--bg-subtle);
   border-bottom: 1px solid var(--border-strong);
   text-align: left;
-  font-size: 0.76rem;
+  font-size: var(--fs-2xs);
   font-weight: 650;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
 }
 
 .grammar-table td {
-  padding: 8px 12px;
+  padding: 9px 12px;
   border-bottom: 1px solid var(--border);
   vertical-align: top;
   font-size: 1.02rem;
@@ -215,33 +218,52 @@
 .usage {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--sp-1);
   padding-left: 14px;
-  border-left: 2px solid var(--border);
+  /* Vạch màu thay cho vạch xám: mỗi "cách dùng" là một nhánh con của mẫu ngữ pháp,
+     vạch cùng tông với ô số thứ tự cho thấy chúng thuộc về nhau. Pha với --border chứ
+     không dùng thẳng --accent-soft: màu đó nhạt tới mức trên nền trắng gần như không
+     nhìn thấy vạch đâu. */
+  border-left: 2px solid color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 
 .usage-title {
-  font-size: 1rem;
+  font-size: var(--fs-md);
   font-weight: 640;
 }
 
 .example-list {
   list-style: none;
-  margin: 8px 0 0;
+  margin: var(--sp-2) 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--sp-2);
 }
 
 .example {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: var(--sp-2);
+  padding: 11px 13px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .example:hover {
+    border-color: var(--border-strong);
+    background: var(--bg-inset);
+  }
+}
+
+/* Câu đã đánh dấu ★ nổi lên hẳn: đây là danh sách người học lướt qua để tìm đúng
+   những câu mình hay quên. */
+.example:has(.star-btn.is-on) {
+  border-color: var(--warning-border);
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
 }
 
 .example-body {
@@ -253,7 +275,7 @@
 
 .example-jp {
   font-size: 1.1rem;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .example-vi {
@@ -268,17 +290,27 @@
   border: none;
   background: none;
   padding: 2px 4px;
-  font-size: 1.15rem;
+  font-size: var(--fs-lg);
   line-height: 1;
   color: var(--text-faint);
   border-radius: 5px;
   flex-shrink: 0;
-  transition: color 0.15s, transform 0.1s;
+  transition: color var(--dur) var(--ease), transform 0.1s var(--ease);
 }
 
-.star-btn:hover {
-  color: var(--star);
-  transform: scale(1.15);
+@media (hover: hover) {
+  .star-btn:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+/* Vùng bấm to hơn trên màn hình chạm — đây là nút được bấm nhiều nhất khi đọc lý thuyết. */
+@media (hover: none) {
+  .star-btn {
+    padding: 7px 9px;
+    font-size: 1.3rem;
+  }
 }
 
 .star-btn.is-on {

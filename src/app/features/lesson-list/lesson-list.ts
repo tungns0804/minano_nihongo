@@ -14,6 +14,7 @@ import {
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { readJson, writeJson } from '../../core/services/local-storage';
+import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Giá trị bộ lọc: 'all' hoặc một loại bài học cụ thể. */
 type CategoryFilter = LessonKind | 'all';
@@ -56,8 +57,22 @@ export class LessonList {
   readonly errorKey = this.lessonStore.errorKey;
   readonly favoriteCounts = this.favoriteStore.counts;
 
+  /** Số thẻ xám vẽ trong lúc chờ tải. Đủ kín một màn hình, không cần đúng số thật. */
+  readonly skeletonCards = [0, 1, 2, 3, 4, 5];
+
   /** Loại bài học đang chọn để xem. Nhớ lại cho lần mở sau. */
   private readonly filterRef = signal<CategoryFilter>(readFilter());
+
+  /**
+   * Từ khoá tìm bài. KHÔNG nhớ sang lần mở sau, khác với bộ lọc loại: mở app lên
+   * mà danh sách đã bị cắt sẵn theo thứ gõ hôm trước thì trông y như mất bài học.
+   */
+  private readonly searchRef = signal('');
+
+  readonly search = this.searchRef.asReadonly();
+
+  /** Dạng đã chuẩn hoá của từ khoá, tính một lần cho cả danh sách. */
+  private readonly needle = computed(() => normalizeSearch(this.searchRef()));
 
   /** Toàn bộ nhóm có bài, chưa lọc — dùng để dựng các nút chọn. */
   private readonly allCategories = computed<LessonCategory[]>(() => {
@@ -107,12 +122,28 @@ export class LessonList {
     ];
   });
 
-  /** Các nhóm thực sự được hiển thị sau khi lọc. */
+  /** Các nhóm thực sự được hiển thị, sau cả lọc theo loại lẫn tìm theo từ khoá. */
   readonly categories = computed<LessonCategory[]>(() => {
     const active = this.filter();
-    const categories = this.allCategories();
-    return active === 'all' ? categories : categories.filter((c) => c.kind === active);
+    const needle = this.needle();
+
+    const byKind =
+      active === 'all'
+        ? this.allCategories()
+        : this.allCategories().filter((c) => c.kind === active);
+
+    if (!needle) return byKind;
+
+    // Nhóm không còn bài nào khớp thì bỏ luôn cả tiêu đề nhóm, không để lại một
+    // tiêu đề trống lửng lơ.
+    return byKind.flatMap((category) => {
+      const lessons = category.lessons.filter((lesson) => lessonMatches(lesson, needle));
+      return lessons.length === 0 ? [] : [{ ...category, lessons }];
+    });
   });
+
+  /** Đang tìm mà không ra bài nào — để hiện khung rỗng thay vì trang trắng. */
+  readonly noMatch = computed(() => this.lessons().length > 0 && this.categories().length === 0);
 
   /** Số liệu ở đầu trang đếm theo đúng phần đang hiển thị. */
   readonly visibleLessonCount = computed(() =>
@@ -133,6 +164,20 @@ export class LessonList {
   setFilter(value: CategoryFilter): void {
     this.filterRef.set(value);
     writeJson(FILTER_KEY, value);
+  }
+
+  onSearch(event: Event): void {
+    this.searchRef.set((event.target as HTMLInputElement).value);
+  }
+
+  clearSearch(): void {
+    this.searchRef.set('');
+  }
+
+  /** Xoá cả từ khoá lẫn bộ lọc loại — nút thoát hiểm của khung "không tìm thấy". */
+  resetFilters(): void {
+    this.searchRef.set('');
+    this.setFilter('all');
   }
 
   favoriteCount(lessonId: string): number {

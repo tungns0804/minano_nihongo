@@ -1,9 +1,21 @@
-.intro {
-  max-width: 62ch;
+/* --- Thanh công cụ: tìm kiếm + số liệu --- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
 }
 
-.intro p {
-  margin-top: 6px;
+.toolbar .search {
+  /* Chiếm phần còn lại của hàng nhưng không đẩy khối số liệu xuống dòng cho tới
+     khi thật sự hết chỗ (360px là lúc ô nhập bắt đầu chật). */
+  flex: 1 1 360px;
+}
+
+.toolbar-counts {
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 /* --- Bộ lọc loại bài học --- */
@@ -12,17 +24,14 @@
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
-.filter-options .option {
-  justify-content: space-between;
-}
-
 .filter-count {
   padding: 1px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--bg-inset);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 650;
   color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .option.is-active .filter-count {
@@ -30,10 +39,12 @@
   color: var(--accent);
 }
 
+/* --- Nhóm bài học --- */
+
 .category {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--sp-1);
 }
 
 .category-head {
@@ -57,20 +68,52 @@
   gap: 14px;
 }
 
+/* --- Thẻ bài học --- */
+
 .lesson-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 18px;
   color: var(--text);
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
 }
 
-.lesson-card:hover {
+/* Vạch màu chạy dọc mép trái, chỉ hiện khi trỏ vào. Nằm ở ::before nên không
+   chiếm chỗ, không làm nội dung thẻ xê dịch một pixel nào lúc hiện ra. */
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .lesson-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .lesson-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .lesson-card:hover .lesson-go {
+    transform: translateX(3px);
+  }
+}
+
+.lesson-card:focus-visible {
   border-color: var(--accent);
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-  text-decoration: none;
 }
 
 .lesson-card-top {
@@ -83,6 +126,9 @@
 .lesson-name {
   font-size: 1.05rem;
   font-weight: 640;
+  /* Tên bài trộn kanji với chữ Việt ("皆の日本語 — Bài 33 · Động từ"), để font
+     giao diện thì phần kanji rơi xuống font dự phòng trông lệch hẳn. */
+  font-family: var(--font-jp);
 }
 
 .lesson-desc {
@@ -92,15 +138,35 @@
 .lesson-card-bottom {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--sp-2);
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: var(--sp-1);
 }
 
 .lesson-go {
   color: var(--accent);
   font-weight: 700;
+  transition: transform var(--dur) var(--ease);
+}
+
+/* --- Khung chờ --- */
+
+.skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-bar {
+  width: 220px;
+  height: 20px;
+}
+
+/* Cao đúng bằng một thẻ bài học thật (tiêu đề + mô tả 2 dòng + hàng badge). */
+.skeleton-card {
+  height: 132px;
+  border-radius: var(--radius-lg);
 }
 
 .empty-steps {

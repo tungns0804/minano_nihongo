@@ -9,9 +9,9 @@
       <div><a class="btn" routerLink="/grammar">{{ t('grammar.back') }}</a></div>
     </div>
   } @else if (lesson(); as data) {
-    <div class="stack" style="gap: 22px">
+    <div class="stack stack-xl">
       <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
-      <header class="stack" style="gap: 8px">
+      <header class="stack stack-sm">
         <a class="back-link" routerLink="/grammar">{{ t('grammar.back') }}</a>
         <div class="row">
           <h1>{{ data.name }}</h1>
@@ -84,7 +84,7 @@
             @if (point.explanation.length > 0) {
               <div class="field">
                 <span class="label">{{ t('grammar.explanation') }}</span>
-                <div class="stack" style="gap: 8px">
+                <div class="stack stack-sm">
                   @for (paragraph of point.explanation; track $index) {
                     <p class="explain">{{ paragraph }}</p>
                   }
@@ -185,7 +185,7 @@
 
       <!-- ── Thiết lập luyện tập ─────────────────────────────────────────── -->
       <section class="card">
-        <div class="card-body stack" style="gap: 20px">
+        <div class="card-body stack stack-lg">
           <h2>{{ t('grammar.practice') }}</h2>
 
           <div class="field">

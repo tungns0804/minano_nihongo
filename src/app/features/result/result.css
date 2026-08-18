@@ -42,6 +42,8 @@
   font-size: 3.1rem;
   font-weight: 720;
   line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
 .score-percent {
@@ -50,9 +52,10 @@
 }
 
 .score-fraction {
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   opacity: 0.85;
+  font-variant-numeric: tabular-nums;
 }
 
 .score-meta {
@@ -60,25 +63,36 @@
   min-width: 260px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: var(--sp-1);
 }
 
+/* Bốn ô số liệu thành bốn ô có nền riêng, chia đều một hàng.
+
+   Trước đây chúng chỉ là bốn cặp chữ đặt cạnh nhau, cách nhau bằng khoảng trắng —
+   mắt phải tự đoán con số nào đi với nhãn nào, và ở khổ hẹp thì chúng xuống dòng
+   so le nên việc đoán còn khó hơn. */
 .stat-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 26px;
-  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
 }
 
 .stat {
   display: flex;
   flex-direction: column;
+  gap: 1px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--bg-subtle) 60%, transparent);
 }
 
 .stat-value {
-  font-size: 1.3rem;
+  font-size: var(--fs-xl);
   font-weight: 680;
   line-height: 1.2;
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-great {
@@ -90,19 +104,19 @@
 }
 
 .stat-label {
-  font-size: 0.78rem;
+  font-size: var(--fs-2xs);
   color: var(--text-faint);
 }
 
 .config-recap {
-  margin-top: 12px;
+  margin-top: var(--sp-3);
 }
 
 /* --- Bộ lọc --- */
 
 .filter-tabs {
   display: flex;
-  gap: 4px;
+  gap: var(--sp-1);
   padding: 3px;
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
@@ -114,10 +128,10 @@
   border: none;
   border-radius: 6px;
   background: transparent;
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   font-weight: 550;
   color: var(--text-muted);
-  transition: background-color 0.15s, color 0.15s;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 
 .tab:hover:not(:disabled):not(.is-active) {
@@ -127,6 +141,7 @@
 .tab.is-active {
   background: var(--bg-elevated);
   color: var(--accent);
+  font-weight: 620;
   box-shadow: var(--shadow-sm);
 }
 
@@ -148,7 +163,7 @@
 .result-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: var(--sp-3);
   padding: 11px 12px;
   border-radius: var(--radius-sm);
   border-bottom: 1px solid var(--border);
@@ -172,7 +187,7 @@
   border-radius: 50%;
   background: var(--success-soft);
   color: var(--success);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
 }
 
@@ -194,19 +209,19 @@
 }
 
 .result-jp {
-  font-size: 1.15rem;
+  font-size: var(--fs-lg);
   font-weight: 600;
 }
 
 .result-han {
-  font-size: 0.82rem;
+  font-size: var(--fs-xs);
   font-weight: 620;
   letter-spacing: 0.04em;
   color: var(--text-faint);
 }
 
 .result-tag {
-  font-size: 0.72rem;
+  font-size: var(--fs-2xs);
   font-weight: 600;
   padding: 1px 7px;
 }
@@ -224,11 +239,11 @@
   border: none;
   background: none;
   padding: 2px 5px;
-  font-size: 1.15rem;
+  font-size: var(--fs-lg);
   line-height: 1;
   color: var(--text-faint);
   border-radius: 5px;
-  transition: color 0.15s, transform 0.1s;
+  transition: color var(--dur) var(--ease), transform 0.1s var(--ease);
 }
 
 .star-btn:hover {
@@ -238,6 +253,15 @@
 
 .star-btn.is-on {
   color: var(--star);
+}
+
+/* Ngôi sao là thứ được bấm nhiều nhất ở màn hình này (đánh dấu từ vừa sai) — trên
+   màn hình chạm phải đủ to để không bấm trượt sang dòng bên cạnh. */
+@media (hover: none) {
+  .star-btn {
+    padding: 6px 8px;
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 600px) {

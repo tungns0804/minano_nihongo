@@ -1,3 +1,14 @@
+<!-- Bỏ qua header: người dùng bàn phím (và trình đọc màn hình) không phải Tab qua
+     thương hiệu + 3 mục menu + 2 nút ở MỌI trang mới tới được nội dung. Nằm ngoài
+     màn hình cho tới khi nhận focus.
+
+     Là <button> chứ không phải <a href="#main-content">: bản offline định tuyến bằng
+     dấu # nên router sẽ hiểu href đó là một đường dẫn và ném người dùng ra khỏi trang
+     — đúng cái bẫy mà mục lục bài ngữ pháp cũng phải tránh. -->
+<button type="button" class="skip-link" (click)="focusMain()">
+  <app-t key="app.skipToContent" />
+</button>
+
 <header class="app-header">
   <div class="container app-header-inner">
     <a routerLink="/" class="brand">
@@ -56,6 +67,21 @@
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <router-outlet />
 </main>
+
+<!-- Nút quay lên đầu trang. Luôn nằm trong DOM, chỉ mờ đi và không nhận chuột khi
+     chưa cuộn đủ xa — bật/tắt bằng @if thì nó bụp một cái, không có gì để chuyển. -->
+<button
+  type="button"
+  class="to-top"
+  [class.is-visible]="scrolledDown()"
+  [attr.aria-hidden]="scrolledDown() ? null : 'true'"
+  [attr.tabindex]="scrolledDown() ? null : -1"
+  (click)="scrollToTop()"
+  [title]="t('app.backToTop')"
+  [attr.aria-label]="t('app.backToTop')"
+>
+  <span aria-hidden="true">↑</span>
+</button>

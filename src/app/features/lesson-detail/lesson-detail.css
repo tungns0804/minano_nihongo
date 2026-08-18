@@ -1,7 +1,8 @@
 .back-link {
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   width: fit-content;
+  transition: color var(--dur) var(--ease);
 }
 
 .back-link:hover {
@@ -166,8 +167,13 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Cùng sắc vàng với dòng ★ của bảng từ vựng.
+
+   Trước đây chỗ này để var(--surface-2) — một biến KHÔNG có trong bảng màu, nên
+   câu đã đánh dấu nhìn y hệt câu chưa đánh dấu. Lỗi kiểu này không làm gãy gì để
+   mà phát hiện, nó chỉ âm thầm nuốt mất một tín hiệu. */
 .line-item.is-favorite {
-  background: var(--surface-2);
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
 }
 
 .line-body {
@@ -178,7 +184,7 @@
 }
 
 .line-meta {
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-faint);
@@ -212,24 +218,34 @@
   background: var(--bg-subtle);
   border-bottom: 1px solid var(--border-strong);
   text-align: left;
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 650;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
 }
 
 .word-table td {
-  padding: 9px 12px;
+  padding: 10px 12px;
   border-bottom: 1px solid var(--border);
   vertical-align: top;
+}
+
+/* Kẻ sọc xen kẽ. Bảng động từ có 9 cột — dò từ cột "ます" sang cột "ない" trên cùng
+   một dòng mà không có sọc thì rất dễ trượt sang dòng bên cạnh. Màu nhạt hơn hẳn
+   màu dòng ★ để hai tín hiệu không lẫn vào nhau. */
+.word-table tbody tr:nth-child(even):not(.is-favorite) {
+  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
 }
 
 /* Chỉ tô sáng dòng khi thiết bị thật sự có con trỏ. Trên điện thoại, "hover" dính
    lại sau khi bấm, làm một dòng bất kỳ trông như đang được chọn. */
 @media (hover: hover) {
-  .word-table tbody tr:hover {
+  /* :not(.is-favorite) ở đây không phải để loại trừ (dòng ★ vốn đã có màu riêng),
+     mà để quy tắc này đủ độ ưu tiên thắng được quy tắc kẻ sọc phía trên — thiếu
+     nó thì mọi dòng CHẴN sẽ không phản ứng gì khi trỏ chuột vào. */
+  .word-table tbody tr:hover:not(.is-favorite) {
     background: var(--bg-subtle);
   }
 }
@@ -305,7 +321,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
 }
 
 .star-btn {

@@ -1,12 +1,19 @@
 <div class="container page">
-  <div class="stack" style="gap: 22px">
-    <section class="intro">
+  <div class="stack stack-xl">
+    <section class="page-head">
       <h1>{{ t('grammar.title') }}</h1>
-      <p class="muted"><app-t key="grammar.subtitle" block /></p>
+      <p><app-t key="grammar.subtitle" block /></p>
     </section>
 
-    @if (status() === 'loading' && lessons().length === 0) {
-      <div class="notice">{{ t('home.loading') }}</div>
+    @if (status() === 'loading' && allLessons().length === 0) {
+      <div class="skeleton-wrap" role="status" [attr.aria-label]="t('home.loading')">
+        <div class="skeleton skeleton-bar"></div>
+        <div class="lesson-grid" aria-hidden="true">
+          @for (i of skeletonCards; track i) {
+            <div class="skeleton skeleton-card"></div>
+          }
+        </div>
+      </div>
     }
 
     @if (errorKey(); as key) {
@@ -23,47 +30,90 @@
       </div>
     }
 
-    @if (lessons().length > 0) {
-      <div class="row">
-        <span class="badge">{{ t('home.lessonCount', { count: lessons().length }) }}</span>
-        <span class="badge">
-          <app-t key="kind.grammar.unit" [params]="{ count: pointCount() }" />
-        </span>
+    <!-- Điều kiện xét trên allLessons chứ không phải lessons: tìm không ra bài nào
+         thì đó là "không khớp từ khoá", không phải "chưa có bài ngữ pháp nào". -->
+    @if (allLessons().length > 0) {
+      <div class="toolbar">
+        <div class="search">
+          <span class="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="9" r="6" />
+              <path d="M13.5 13.5 17 17" stroke-linecap="round" />
+            </svg>
+          </span>
+          <input
+            type="search"
+            class="input"
+            [placeholder]="t('home.search')"
+            [attr.aria-label]="t('home.search.aria')"
+            [value]="search()"
+            (input)="onSearch($event)"
+          />
+          @if (search()) {
+            <button
+              type="button"
+              class="search-clear"
+              (click)="clearSearch()"
+              [title]="t('home.search.clear')"
+              [attr.aria-label]="t('home.search.clear')"
+            >
+              <span aria-hidden="true">✕</span>
+            </button>
+          }
+        </div>
+
+        <div class="row toolbar-counts">
+          <span class="badge">{{ t('home.lessonCount', { count: lessons().length }) }}</span>
+          <span class="badge">
+            <app-t key="kind.grammar.unit" [params]="{ count: pointCount() }" />
+          </span>
+        </div>
       </div>
 
-      <div class="lesson-grid">
-        @for (lesson of lessons(); track lesson.id) {
-          <a class="card lesson-card" [routerLink]="['/grammar', lesson.id]">
-            <div class="lesson-card-top">
-              <h3 class="lesson-name">{{ lesson.name }}</h3>
-              @if (lesson.origin === 'custom') {
-                <span class="badge badge-accent" [title]="t('common.customTitle')">
-                  {{ t('common.custom') }}
-                </span>
+      @if (noMatch()) {
+        <div class="empty-state">
+          <span class="empty-state-icon" aria-hidden="true">🔍</span>
+          <p class="empty-state-title">{{ t('home.noMatch.title', { term: search() }) }}</p>
+          <p class="empty-state-text"><app-t key="home.noMatch.text" block /></p>
+          <button type="button" class="btn btn-sm" (click)="clearSearch()">
+            {{ t('home.noMatch.reset') }}
+          </button>
+        </div>
+      } @else {
+        <div class="lesson-grid">
+          @for (lesson of lessons(); track lesson.id) {
+            <a class="card lesson-card" [routerLink]="['/grammar', lesson.id]">
+              <div class="lesson-card-top">
+                <h3 class="lesson-name">{{ lesson.name }}</h3>
+                @if (lesson.origin === 'custom') {
+                  <span class="badge badge-accent" [title]="t('common.customTitle')">
+                    {{ t('common.custom') }}
+                  </span>
+                }
+              </div>
+
+              @if (lesson.description) {
+                <p class="lesson-desc muted small jp clamp-2">{{ lesson.description }}</p>
               }
-            </div>
 
-            @if (lesson.description) {
-              <p class="lesson-desc muted small jp">{{ lesson.description }}</p>
-            }
-
-            <div class="lesson-card-bottom">
-              <span class="badge">
-                <app-t key="kind.grammar.unit" [params]="{ count: lesson.itemCount }" />
-              </span>
-              @if (favoriteCount(lesson.id) > 0) {
-                <span class="badge badge-warning">
-                  {{ t('home.favoriteCount', { count: favoriteCount(lesson.id) }) }}
+              <div class="lesson-card-bottom">
+                <span class="badge">
+                  <app-t key="kind.grammar.unit" [params]="{ count: lesson.itemCount }" />
                 </span>
-              }
-              <span class="spacer"></span>
-              <span class="lesson-go" aria-hidden="true">→</span>
-            </div>
-          </a>
-        }
-      </div>
+                @if (favoriteCount(lesson.id) > 0) {
+                  <span class="badge badge-warning">
+                    {{ t('home.favoriteCount', { count: favoriteCount(lesson.id) }) }}
+                  </span>
+                }
+                <span class="spacer"></span>
+                <span class="lesson-go" aria-hidden="true">→</span>
+              </div>
+            </a>
+          }
+        </div>
 
-      <p class="muted small"><app-t key="grammar.roadmap" block /></p>
+        <p class="muted small"><app-t key="grammar.roadmap" block /></p>
+      }
     } @else if (status() !== 'loading') {
       <div class="card">
         <div class="card-body stack">

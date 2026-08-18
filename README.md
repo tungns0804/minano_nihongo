@@ -61,6 +61,11 @@ Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một lo�
 Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
 Bộ lọc chỉ xuất hiện khi có từ hai loại trở lên.
 
+Danh sách đã hơn 50 bài nên trang chủ và tab **Ngữ pháp** đều có ô tìm kiếm ở đầu trang. Gõ
+tên bài, số bài ("33"), hay chữ không dấu ("dong tu") đều ra — từ khoá khớp theo từng từ nên
+"33 dong tu" vẫn tìm đúng bài. Khác với bộ lọc loại, từ khoá KHÔNG được nhớ cho lần mở sau:
+mở app lên mà danh sách đã bị cắt sẵn theo thứ gõ hôm trước thì trông y như mất bài học.
+
 **Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và kế hoạch là phủ
 hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
 một danh sách dài không đọc nổi.

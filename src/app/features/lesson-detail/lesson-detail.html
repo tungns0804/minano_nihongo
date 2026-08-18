@@ -9,9 +9,9 @@
       <div><a class="btn" routerLink="/">{{ t('common.backToList') }}</a></div>
     </div>
   } @else if (lesson(); as data) {
-    <div class="stack" style="gap: 22px">
+    <div class="stack stack-xl">
       <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
-      <header class="stack" style="gap: 8px">
+      <header class="stack stack-sm">
         <a class="back-link" routerLink="/">{{ t('common.back') }}</a>
         <div class="row">
           <h1>{{ data.name }}</h1>
@@ -51,7 +51,7 @@
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
       <section class="card">
-        <div class="card-body stack" style="gap: 20px">
+        <div class="card-body stack stack-lg">
           <h2>{{ t('lesson.setup') }}</h2>
 
           <div class="field">
@@ -316,14 +316,33 @@
           </div>
 
           <div class="row filter-row">
-            <input
-              type="search"
-              class="input search-input"
-              [placeholder]="t(kindLabelKeys().search)"
-              [value]="search()"
-              (input)="onSearch($event)"
-              [attr.aria-label]="t('lesson.search.aria')"
-            />
+            <div class="search search-input">
+              <span class="search-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="9" cy="9" r="6" />
+                  <path d="M13.5 13.5 17 17" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input
+                type="search"
+                class="input"
+                [placeholder]="t(kindLabelKeys().search)"
+                [value]="search()"
+                (input)="onSearch($event)"
+                [attr.aria-label]="t('lesson.search.aria')"
+              />
+              @if (search()) {
+                <button
+                  type="button"
+                  class="search-clear"
+                  (click)="clearSearch()"
+                  [title]="t('home.search.clear')"
+                  [attr.aria-label]="t('home.search.clear')"
+                >
+                  <span aria-hidden="true">✕</span>
+                </button>
+              }
+            </div>
             <label class="checkbox filter-check">
               <input type="checkbox" [checked]="onlyFavorites()" (change)="toggleOnlyFavorites($event)" />
               <span><app-t key="lesson.onlyFavorites" /></span>

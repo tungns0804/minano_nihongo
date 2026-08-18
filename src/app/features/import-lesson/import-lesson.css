@@ -1,7 +1,8 @@
 .back-link {
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   width: fit-content;
+  transition: color var(--dur) var(--ease);
 }
 
 .back-link:hover {
@@ -16,15 +17,19 @@ code.mono {
   white-space: nowrap;
 }
 
+/* Khối mẫu định dạng: là thứ người dùng phải chép theo cho đúng từng ký tự, nên
+   cho nó vạch màu bên trái để tách hẳn khỏi đoạn văn hướng dẫn quanh nó. */
 .format-sample {
   margin: 0;
   padding: 12px 14px;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--border-strong);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
-  font-size: 0.86rem;
+  font-size: var(--fs-sm);
   line-height: 1.7;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   white-space: pre;
 }
 
@@ -41,7 +46,7 @@ code.mono {
   display: flex;
   flex-direction: column;
   gap: 7px;
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
 }
 
 .issue-line {
@@ -74,17 +79,22 @@ code.mono {
   background: var(--bg-subtle);
   border-bottom: 1px solid var(--border-strong);
   text-align: left;
-  font-size: 0.75rem;
+  font-size: var(--fs-2xs);
   font-weight: 650;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
 }
 
 .preview-table td {
-  padding: 8px 11px;
+  padding: 9px 11px;
   border-bottom: 1px solid var(--border);
+}
+
+/* Kẻ sọc như bảng ở trang bài học, để dò ngang qua nhiều cột không bị lạc dòng. */
+.preview-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
 }
 
 .preview-table .col-han {
@@ -119,9 +129,9 @@ code.mono {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--sp-4);
   flex-wrap: wrap;
-  padding-top: 16px;
+  padding-top: var(--sp-4);
   border-top: 1px solid var(--border);
 }
 
@@ -132,7 +142,7 @@ code.mono {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  font-size: 0.93rem;
+  font-size: 0.94rem;
 }
 
 .steps .format-sample {

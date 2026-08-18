@@ -1,12 +1,22 @@
 <div class="container page">
-  <div class="stack" style="gap: 22px">
-    <section class="intro">
+  <div class="stack stack-xl">
+    <section class="page-head">
       <h1>{{ t('home.title') }}</h1>
-      <p class="muted"><app-t key="home.subtitle" block /></p>
+      <p><app-t key="home.subtitle" block /></p>
     </section>
 
     @if (status() === 'loading' && lessons().length === 0) {
-      <div class="notice">{{ t('home.loading') }}</div>
+      <!-- Khung chờ dựng đúng hình dạng lưới thẻ sắp hiện: trang không nhảy một
+           nhịp khi dữ liệu về, và người dùng thấy ngay "sắp có một danh sách" chứ
+           không phải "trang này trống". -->
+      <div class="skeleton-wrap" role="status" [attr.aria-label]="t('home.loading')">
+        <div class="skeleton skeleton-bar"></div>
+        <div class="lesson-grid" aria-hidden="true">
+          @for (i of skeletonCards; track i) {
+            <div class="skeleton skeleton-card"></div>
+          }
+        </div>
+      </div>
     }
 
     @if (errorKey(); as key) {
@@ -22,6 +32,43 @@
     }
 
     @if (lessons().length > 0) {
+      <!-- Thanh công cụ: tìm kiếm bên trái, số liệu bên phải. Gộp hai thứ vào một
+           hàng để phần đầu trang không dài thêm một khối nữa. -->
+      <div class="toolbar">
+        <div class="search">
+          <span class="search-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="9" cy="9" r="6" />
+              <path d="M13.5 13.5 17 17" stroke-linecap="round" />
+            </svg>
+          </span>
+          <input
+            type="search"
+            class="input"
+            [placeholder]="t('home.search')"
+            [attr.aria-label]="t('home.search.aria')"
+            [value]="search()"
+            (input)="onSearch($event)"
+          />
+          @if (search()) {
+            <button
+              type="button"
+              class="search-clear"
+              (click)="clearSearch()"
+              [title]="t('home.search.clear')"
+              [attr.aria-label]="t('home.search.clear')"
+            >
+              <span aria-hidden="true">✕</span>
+            </button>
+          }
+        </div>
+
+        <div class="row toolbar-counts">
+          <span class="badge">{{ t('home.lessonCount', { count: visibleLessonCount() }) }}</span>
+          <span class="badge">{{ t('home.itemCount', { count: visibleItemCount() }) }}</span>
+        </div>
+      </div>
+
       @if (filterOptions().length > 0) {
         <div class="field">
           <span class="label">{{ t('home.filter') }}</span>
@@ -31,9 +78,11 @@
                 type="button"
                 class="option"
                 [class.is-active]="filter() === option.value"
+                [attr.aria-pressed]="filter() === option.value"
                 (click)="setFilter(option.value)"
               >
                 <app-t [key]="option.labelKey" />
+                <span class="spacer"></span>
                 <span class="filter-count">{{ option.count }}</span>
               </button>
             }
@@ -41,10 +90,16 @@
         </div>
       }
 
-      <div class="row">
-        <span class="badge">{{ t('home.lessonCount', { count: visibleLessonCount() }) }}</span>
-        <span class="badge">{{ t('home.itemCount', { count: visibleItemCount() }) }}</span>
-      </div>
+      @if (noMatch()) {
+        <div class="empty-state">
+          <span class="empty-state-icon" aria-hidden="true">🔍</span>
+          <p class="empty-state-title">{{ t('home.noMatch.title', { term: search() }) }}</p>
+          <p class="empty-state-text"><app-t key="home.noMatch.text" block /></p>
+          <button type="button" class="btn btn-sm" (click)="resetFilters()">
+            {{ t('home.noMatch.reset') }}
+          </button>
+        </div>
+      }
 
       @for (category of categories(); track category.kind) {
         <section class="category">
@@ -71,7 +126,7 @@
                 </div>
 
                 @if (lesson.description) {
-                  <p class="lesson-desc muted small">{{ lesson.description }}</p>
+                  <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
                 }
 
                 <div class="lesson-card-bottom">

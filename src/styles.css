@@ -17,22 +17,31 @@
 :root {
   color-scheme: light dark;
 
-  --bg: light-dark(#f4f6fb, #12141c);
-  --bg-elevated: light-dark(#ffffff, #1b1e29);
-  --bg-subtle: light-dark(#eef1f7, #232735);
-  --bg-inset: light-dark(#e6eaf3, #2b3040);
+  /* --- Nền: bốn bậc, từ nền trang ra tới ô lõm sâu nhất -------------------- */
+  --bg: light-dark(#f3f5fa, #101219);
+  --bg-elevated: light-dark(#ffffff, #191c26);
+  --bg-subtle: light-dark(#eef1f7, #212533);
+  --bg-inset: light-dark(#e4e9f2, #2a2f3f);
 
-  --text: light-dark(#16192b, #eceef5);
-  --text-muted: light-dark(#5b6178, #a6adc2);
-  --text-faint: light-dark(#868ca3, #7d8499);
+  /* --- Chữ ---------------------------------------------------------------
+     Ba bậc, và cả ba đều phải ĐỌC ĐƯỢC. Bậc nhạt nhất trước đây là #868ca3, chỉ
+     đạt khoảng 3.6:1 trên nền trắng — dưới ngưỡng 4.5:1 của WCAG AA cho chữ nhỏ,
+     mà nó lại đang dùng cho đúng loại chữ nhỏ nhất trong app: nhãn cột, chú
+     thích, dòng đếm số kết quả. */
+  --text: light-dark(#12152a, #eef0f7);
+  --text-muted: light-dark(#555c74, #a8afc4);
+  --text-faint: light-dark(#6e7489, #868da3);
 
-  --border: light-dark(#dde2ec, #2f3446);
-  --border-strong: light-dark(#c3cad9, #434a61);
+  --border: light-dark(#dfe4ee, #2c3142);
+  --border-strong: light-dark(#c5ccdb, #414862);
 
-  --accent: light-dark(#4f46e5, #8b85ff);
-  --accent-hover: light-dark(#4338ca, #a29dff);
-  --accent-soft: light-dark(#ecebfd, #272444);
+  --accent: light-dark(#4f46e5, #8f89ff);
+  --accent-hover: light-dark(#4338ca, #a7a2ff);
+  --accent-soft: light-dark(#ecebfd, #262347);
   --accent-text: light-dark(#ffffff, #12141c);
+  /* Vòng sáng quanh phần tử đang focus hoặc đang được chọn. Màu trong suốt nên
+     chồng lên nền nào cũng hợp, không phải khai báo lại theo từng chỗ đặt. */
+  --accent-ring: light-dark(rgb(79 70 229 / 16%), rgb(143 137 255 / 22%));
 
   --success: light-dark(#15803d, #6ee7a0);
   --success-soft: light-dark(#dcfce7, #14311f);
@@ -51,10 +60,42 @@
   --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 18px;
+  --radius-pill: 999px;
 
   --shadow-sm: 0 1px 2px light-dark(rgb(16 24 40 / 6%), rgb(0 0 0 / 30%));
   --shadow: 0 4px 16px light-dark(rgb(16 24 40 / 8%), rgb(0 0 0 / 35%));
   --shadow-lg: 0 12px 32px light-dark(rgb(16 24 40 / 12%), rgb(0 0 0 / 45%));
+
+  /* --- Thang cỡ chữ ------------------------------------------------------
+     Trước đây mỗi component tự đặt cỡ chữ theo cảm tính: 0.94rem, 0.92rem,
+     0.86rem, 0.82rem, 0.78rem, 0.76rem… Mắt không phân biệt nổi hai bậc cách
+     nhau 0.02rem, nên chúng không tạo ra thứ bậc, chỉ tạo ra sự lộn xộn. Sáu
+     bậc dưới đây cách nhau đủ xa để nhìn là biết cái nào quan trọng hơn. */
+  --fs-2xs: 0.72rem;
+  --fs-xs: 0.8rem;
+  --fs-sm: 0.88rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.13rem;
+  --fs-xl: 1.3rem;
+  --fs-2xl: 1.6rem;
+
+  /* --- Nhịp khoảng cách ---------------------------------------------------
+     Bội số của 4px. Dùng token thay cho số lẻ tuỳ hứng thì các khối cách nhau
+     đều tay, trang có nhịp chứ không phải mỗi chỗ một kiểu. */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+
+  /* --- Chuyển động --------------------------------------------------------
+     Một đường cong duy nhất cho cả app: nhanh lúc đầu, chậm dần lúc kết, giống
+     cách vật thật dừng lại. Mắt thấy "mượt" chứ không thấy "có hiệu ứng". */
+  --ease: cubic-bezier(0.2, 0.8, 0.3, 1);
+  --dur: 0.18s;
 
   --font-ui: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 
@@ -77,6 +118,12 @@
   --font-mono: 'Cascadia Code', Consolas, 'SF Mono', Menlo, monospace;
 
   --max-width: 1080px;
+
+  /* Chiều cao header dính. Khai báo thành biến vì ba chỗ cần đúng con số này:
+     scroll-padding-top của cả trang, mục lục dính trong bài ngữ pháp, và thanh
+     tiến độ dính lúc luyện tập. Header cao lên ở khổ điện thoại (xuống hai hàng)
+     nên biến cũng đổi theo, ở cuối file. */
+  --header-h: 62px;
 }
 
 :root[data-theme='light'] {
@@ -101,6 +148,18 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Header dính che mất phần đầu của khối vừa cuộn tới (mục lục bài ngữ pháp,
+     liên kết neo). Chừa sẵn đúng chiều cao header cộng một chút thở. */
+  scroll-padding-top: calc(var(--header-h) + var(--sp-4));
+}
+
+/* Cuộn mượt khi bấm mục lục — nhưng chỉ khi người dùng không yêu cầu giảm chuyển
+   động. Khối @media ở cuối file không tắt được thuộc tính này, vì nó không phải
+   transition cũng không phải animation. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -113,8 +172,15 @@ body {
   color: var(--text);
   font-family: var(--font-ui);
   font-size: 16px;
-  line-height: 1.55;
+  /* 1.6 thay vì 1.55: app trộn chữ Việt có dấu (dấu thanh nằm cao) với kana/kanji
+     (ô chữ vuông, cao hơn chữ Latin), hai dòng liền nhau dễ chạm nhau. */
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
 }
 
 img,
@@ -146,16 +212,24 @@ h4 {
   line-height: 1.25;
   font-weight: 650;
   text-wrap: balance;
+  /* Cỡ chữ càng lớn thì khoảng cách giữa các chữ trông càng thưa — siết lại một
+     chút để tiêu đề nhìn liền khối. */
+  letter-spacing: -0.011em;
 }
 
 h1 {
-  font-size: 1.6rem;
+  font-size: var(--fs-2xl);
 }
 h2 {
-  font-size: 1.25rem;
+  font-size: var(--fs-xl);
 }
 h3 {
-  font-size: 1.05rem;
+  font-size: var(--fs-lg);
+}
+
+/* Không để dòng cuối của đoạn văn trơ lại đúng một từ. */
+p {
+  text-wrap: pretty;
 }
 
 a {
@@ -185,13 +259,27 @@ a:hover {
 }
 
 .page {
-  padding-block: 28px calc(64px + env(safe-area-inset-bottom));
+  padding-block: var(--sp-7) calc(64px + env(safe-area-inset-bottom));
 }
 
 .stack {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--sp-4);
+}
+
+/* Ba bậc giãn cách cho .stack, thay cho các style="gap: 22px" rải rác trong
+   template: cùng một ý đồ thì nên gọi cùng một tên. */
+.stack-sm {
+  gap: var(--sp-2);
+}
+
+.stack-lg {
+  gap: var(--sp-5);
+}
+
+.stack-xl {
+  gap: var(--sp-6);
 }
 
 .row {
@@ -205,6 +293,35 @@ a:hover {
   flex: 1;
 }
 
+/* --- Đầu trang ------------------------------------------------------------
+   Tiêu đề + câu mô tả của mỗi màn hình. Bề rộng dòng chữ có giới hạn: quá 70–75
+   ký tự thì mắt khó bắt được đầu dòng tiếp theo. */
+
+.page-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 64ch;
+}
+
+/* Tiêu đề co giãn theo bề rộng màn hình thay vì nhảy bậc ở đúng một ngưỡng. */
+.page-head h1 {
+  font-size: clamp(1.5rem, 1.18rem + 1.4vw, 2rem);
+}
+
+.page-head p {
+  color: var(--text-muted);
+}
+
+/* Đường kẻ mảnh dưới tiêu đề mục, tách phần này với phần trước mà không cần thêm
+   một thẻ khung nữa. */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 /* --- Card ----------------------------------------------------------------- */
 
 .card {
@@ -215,7 +332,7 @@ a:hover {
 }
 
 .card-body {
-  padding: 20px;
+  padding: var(--sp-5);
 }
 
 /* --- Button --------------------------------------------------------------- */
@@ -224,7 +341,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: var(--sp-2);
   padding: 9px 16px;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
@@ -232,7 +349,9 @@ a:hover {
   color: var(--text);
   font-size: 0.94rem;
   font-weight: 550;
-  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.05s;
+  white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform 0.06s var(--ease);
 }
 
 .btn:hover:not(:disabled) {
@@ -253,12 +372,20 @@ a:hover {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-text);
+  /* Bóng cùng màu nút và rất nhạt: đủ để nút chính nổi lên khỏi mặt thẻ, không
+     biến nó thành một khối đổ bóng nặng nề. */
+  box-shadow: 0 1px 2px var(--accent-ring), 0 4px 12px var(--accent-ring);
 }
 
 .btn-primary:hover:not(:disabled) {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   color: var(--accent-text);
+  box-shadow: 0 2px 4px var(--accent-ring), 0 8px 20px var(--accent-ring);
+}
+
+.btn-primary:active:not(:disabled) {
+  box-shadow: 0 1px 2px var(--accent-ring);
 }
 
 .btn-ghost {
@@ -291,7 +418,7 @@ a:hover {
 
 .btn-sm {
   padding: 5px 10px;
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
 }
 
 /* --- Form ----------------------------------------------------------------- */
@@ -303,15 +430,15 @@ a:hover {
 }
 
 .label {
-  font-size: 0.82rem;
+  font-size: var(--fs-xs);
   font-weight: 620;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .hint {
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
 }
 
@@ -323,7 +450,7 @@ a:hover {
   background: var(--bg-elevated);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 
 .input:focus,
@@ -331,7 +458,7 @@ a:hover {
 .select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .textarea {
@@ -351,11 +478,19 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
-  transition: border-color 0.15s, background-color 0.15s;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
 
 .checkbox:hover {
   border-color: var(--border-strong);
+}
+
+/* Đã tích thì cả khung đổi màu theo, không chỉ mỗi dấu tích 16px. Trang thiết lập
+   có tới sáu ô kiểu này xếp cạnh nhau — liếc một cái phải biết ngay đang bật
+   những gì, không phải soi từng ô vuông nhỏ. */
+.checkbox:has(input:checked) {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+  background: var(--accent-soft);
 }
 
 .checkbox input {
@@ -371,11 +506,80 @@ a:hover {
   cursor: not-allowed;
 }
 
+/* Ô đang bị khoá thì không tô màu "đang bật", kể cả khi input vẫn còn checked —
+   trạng thái checked lúc đó không có tác dụng gì nên không được hứa hẹn gì. */
+.checkbox.is-disabled:has(input:checked) {
+  border-color: var(--border);
+  background: var(--bg-subtle);
+}
+
+/* --- Ô tìm kiếm -----------------------------------------------------------
+   Ô nhập có kính lúp bên trái và nút xoá bên phải. */
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: var(--text-faint);
+  /* Bấm vào kính lúp thì con trỏ vẫn phải nhảy vào ô nhập nằm dưới nó. */
+  pointer-events: none;
+}
+
+/* SVG không khai báo width/height thì trình duyệt cho nó kích thước mặc định
+   300×150px — cao gấp tám lần chỗ đã chừa. Ép nó vừa đúng ô chứa. */
+.search-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.search .input {
+  padding-left: 38px;
+  padding-right: 40px;
+}
+
+/* Trình duyệt WebKit tự thêm dấu X riêng cho input[type=search]; bỏ đi để không
+   có hai nút xoá nằm cạnh nhau. */
+.search .input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 7px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.search-clear:hover {
+  background: var(--bg-inset);
+  color: var(--text);
+}
+
 /* --- Nhóm nút chọn (segmented control) ------------------------------------ */
 
 .options {
   display: grid;
-  gap: 8px;
+  gap: var(--sp-2);
 }
 
 .option {
@@ -389,7 +593,8 @@ a:hover {
   text-align: left;
   font-weight: 500;
   width: 100%;
-  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
 }
 
 .option:hover:not(:disabled) {
@@ -402,6 +607,9 @@ a:hover {
   background: var(--accent-soft);
   color: var(--accent);
   font-weight: 620;
+  /* Viền 1px một mình chưa đủ nổi giữa một lưới sáu bảy nút; thêm vòng sáng mỏng
+     cùng màu thì mục đang chọn bật hẳn lên mà không phải tô đậm cả khối. */
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .option:disabled {
@@ -416,12 +624,14 @@ a:hover {
   align-items: center;
   gap: 5px;
   padding: 2px 9px;
-  border-radius: 999px;
-  font-size: 0.78rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
   font-weight: 600;
   background: var(--bg-inset);
   color: var(--text-muted);
   white-space: nowrap;
+  /* Chữ số cùng bề rộng: badge đếm số không co giãn khi con số đổi. */
+  font-variant-numeric: tabular-nums;
 }
 
 .badge-accent {
@@ -455,9 +665,12 @@ a:hover {
 
 .notice {
   display: flex;
-  gap: 12px;
+  gap: var(--sp-3);
   padding: 14px 16px;
+  /* Vạch dày bên trái thay cho viền đều bốn cạnh: liếc qua là phân biệt được lỗi
+     / cảnh báo / thành công mà chưa cần đọc chữ. */
   border: 1px solid var(--border);
+  border-left-width: 3px;
   border-radius: var(--radius);
   background: var(--bg-subtle);
   font-size: 0.92rem;
@@ -465,20 +678,82 @@ a:hover {
 
 .notice-error {
   border-color: var(--danger-border);
+  border-left-color: var(--danger);
   background: var(--danger-soft);
   color: var(--danger);
 }
 
 .notice-warning {
   border-color: var(--warning-border);
+  border-left-color: var(--warning);
   background: var(--warning-soft);
   color: var(--warning);
 }
 
 .notice-success {
   border-color: var(--success-border);
+  border-left-color: var(--success);
   background: var(--success-soft);
   color: var(--success);
+}
+
+/* --- Khung rỗng -----------------------------------------------------------
+   Dùng khi tìm/lọc không ra kết quả. Một dòng chữ "không có gì" trơ trọi giữa
+   khoảng trắng dễ bị hiểu là trang hỏng; khung viền đứt cho thấy đây đúng là chỗ
+   lẽ ra có nội dung, chỉ là đang trống. */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--sp-8) var(--sp-5);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--bg-subtle) 55%, transparent);
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+  opacity: 0.55;
+}
+
+.empty-state-title {
+  font-weight: 620;
+}
+
+.empty-state-text {
+  max-width: 46ch;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+/* --- Khung chờ (skeleton) -------------------------------------------------
+   Hiện trong lúc đang tải, thay cho một dòng chữ "Đang tải…". Các khối xám đúng
+   hình dạng nội dung sắp hiện cho biết trang sắp có gì, và bố cục không giật một
+   nhịp khi dữ liệu về. */
+
+.skeleton {
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--bg-subtle) 25%,
+    var(--bg-inset) 37%,
+    var(--bg-subtle) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
 }
 
 /* --- Tiện ích ------------------------------------------------------------- */
@@ -492,17 +767,31 @@ a:hover {
 }
 
 .small {
-  font-size: 0.86rem;
+  font-size: var(--fs-sm);
 }
 
 .mono {
   font-family: var(--font-mono);
 }
 
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Cắt đoạn văn sau hai dòng kèm dấu "…". Dùng cho mô tả trong thẻ bài học: mô tả
+   dài ngắn khác nhau làm các thẻ trong cùng một hàng cao thấp so le. */
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 .sr-only {
@@ -547,7 +836,11 @@ kbd {
   }
 
   .card-body {
-    padding: 16px;
+    padding: var(--sp-4);
+  }
+
+  .page {
+    padding-block: var(--sp-5) calc(72px + env(safe-area-inset-bottom));
   }
 
   /* Đúng 16px, không phải 0.95rem: Safari trên iOS tự phóng to cả trang khi con trỏ
@@ -557,6 +850,14 @@ kbd {
   .textarea,
   .select {
     font-size: 16px;
+  }
+}
+
+/* Dưới 520px header xuống hai hàng (xem app.css) nên chỗ chừa cho nó phải cao lên
+   theo, nếu không khối vừa cuộn tới sẽ bị header che mất dòng đầu. */
+@media (max-width: 520px) {
+  :root {
+    --header-h: 92px;
   }
 }
 
@@ -573,6 +874,11 @@ kbd {
 
   .btn-sm {
     min-height: 36px;
+  }
+
+  .search-clear {
+    width: 32px;
+    height: 32px;
   }
 }
 

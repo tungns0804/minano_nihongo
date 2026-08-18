@@ -1,14 +1,26 @@
-/* Thẻ bài học ở đây cố tình giống hệt trang chủ (features/lesson-list). Style của
-   Angular bị đóng gói theo component nên không dùng lại được lớp bên đó — nếu sửa
-   dáng thẻ ở một nơi thì nhớ sửa cả nơi kia. */
+/* Thanh công cụ, thẻ bài học và khung chờ ở đây cố tình giống hệt trang chủ
+   (features/lesson-list). Style của Angular bị đóng gói theo component nên không
+   dùng lại được lớp bên đó — sửa dáng ở một nơi thì nhớ sửa cả nơi kia. */
 
-.intro {
-  max-width: 62ch;
+/* --- Thanh công cụ: tìm kiếm + số liệu --- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
 }
 
-.intro p {
-  margin-top: 6px;
+.toolbar .search {
+  flex: 1 1 360px;
 }
+
+.toolbar-counts {
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* --- Thẻ bài học --- */
 
 .lesson-grid {
   display: grid;
@@ -17,19 +29,47 @@
 }
 
 .lesson-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 18px;
   color: var(--text);
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
 }
 
-.lesson-card:hover {
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .lesson-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .lesson-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .lesson-card:hover .lesson-go {
+    transform: translateX(3px);
+  }
+}
+
+.lesson-card:focus-visible {
   border-color: var(--accent);
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-  text-decoration: none;
 }
 
 .lesson-card-top {
@@ -42,22 +82,46 @@
 .lesson-name {
   font-size: 1.05rem;
   font-weight: 640;
+  font-family: var(--font-jp);
 }
 
+/* Mô tả bài ngữ pháp là danh sách mẫu ngữ pháp bằng tiếng Nhật ("Nがほしいです,
+   Vたいです…") nên cần cỡ chữ nhỉnh hơn mô tả thường mới đọc được kana. */
 .lesson-desc {
   flex: 1;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .lesson-card-bottom {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--sp-2);
   flex-wrap: wrap;
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: var(--sp-1);
 }
 
 .lesson-go {
   color: var(--accent);
   font-weight: 700;
+  transition: transform var(--dur) var(--ease);
+}
+
+/* --- Khung chờ --- */
+
+.skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-bar {
+  width: 220px;
+  height: 20px;
+}
+
+.skeleton-card {
+  height: 132px;
+  border-radius: var(--radius-lg);
 }

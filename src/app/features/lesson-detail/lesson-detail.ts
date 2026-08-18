@@ -39,7 +39,7 @@ import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { stripDiacritics } from '../../core/utils/vocabulary-parser';
+import { normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Các mốc số câu cho phép chọn nhanh. */
 const LIMIT_CHOICES = [10, 20, 30, 50] as const;
@@ -408,6 +408,10 @@ export class LessonDetail {
     this.search.set((event.target as HTMLInputElement).value);
   }
 
+  clearSearch(): void {
+    this.search.set('');
+  }
+
   toggleShowHanViet(event: Event): void {
     this.showHanViet.set((event.target as HTMLInputElement).checked);
   }
@@ -508,8 +512,4 @@ export class LessonDetail {
 
 function formsText(forms: VerbForms | null): string {
   return forms ? `${forms.dictionary} ${forms.te} ${forms.ta} ${forms.nai}` : '';
-}
-
-function normalizeSearch(value: string): string {
-  return stripDiacritics(value).toLowerCase().replace(/\s+/g, ' ').trim();
 }

@@ -1,36 +1,66 @@
 .practice-page {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--sp-4);
   max-width: 760px;
 }
 
-/* --- Tiến độ --- */
+/* --- Tiến độ ---------------------------------------------------------------
+   Dính lại ngay dưới header ứng dụng. Một lượt luyện có thể dài hơn màn hình (câu
+   hỏi + 4 lựa chọn + khung phản hồi), và khi đã cuộn xuống xem phản hồi thì "còn
+   mấy câu nữa" cùng nút Thoát biến mất khỏi tầm mắt. */
 
 .practice-header {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--sp-2);
+  /* Kéo rộng ra hai bên rồi bù lại bằng padding: nội dung cuộn qua bên dưới sẽ
+     chui vào phần nền này thay vì lấp ló ở mép trái phải của thanh. */
+  margin-inline: calc(var(--sp-3) * -1);
+  padding: 10px var(--sp-3);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .practice-header {
+    background: var(--bg);
+  }
 }
 
 .progress {
-  height: 6px;
-  border-radius: 999px;
+  height: 8px;
+  border-radius: var(--radius-pill);
   background: var(--bg-inset);
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  border-radius: 999px;
-  background: var(--accent);
-  transition: width 0.25s ease;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 75%, transparent),
+    var(--accent)
+  );
+  transition: width 0.35s var(--ease);
 }
 
 /* --- Câu hỏi --- */
 
 .question-card {
   text-align: center;
+  /* Chuyển sắc rất nhạt từ trên xuống: khối câu hỏi hơi nổi lên so với các thẻ
+     khác trong trang, đủ để mắt biết đây là chỗ cần nhìn trước. */
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--accent-soft) 42%, var(--bg-elevated)),
+    var(--bg-elevated) 62%
+  );
 }
 
 .question-card .card-body {
@@ -46,9 +76,9 @@
 }
 
 .question-label {
-  font-size: 0.76rem;
+  font-size: var(--fs-2xs);
   font-weight: 650;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-faint);
 }
@@ -61,7 +91,7 @@
   line-height: 1;
   color: var(--text-faint);
   border-radius: 6px;
-  transition: color 0.15s, transform 0.1s;
+  transition: color var(--dur) var(--ease), transform 0.1s var(--ease);
 }
 
 .star-btn:hover {
@@ -122,12 +152,14 @@
   border-radius: var(--radius);
   background: var(--bg-elevated);
   text-align: left;
-  transition: border-color 0.15s, background-color 0.15s, transform 0.06s;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease), transform 0.06s var(--ease);
 }
 
 .choice:hover:not(:disabled) {
   border-color: var(--accent);
   background: var(--accent-soft);
+  box-shadow: 0 0 0 3px var(--accent-ring);
 }
 
 .choice:active:not(:disabled) {
@@ -142,14 +174,20 @@
   flex-shrink: 0;
   border-radius: 6px;
   background: var(--bg-inset);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   color: var(--text-muted);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.choice:hover:not(:disabled) .choice-key {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
 }
 
 .choice-text {
   flex: 1;
-  font-size: 1rem;
+  font-size: var(--fs-md);
   font-weight: 550;
   line-height: 1.4;
   word-break: break-word;
@@ -182,6 +220,9 @@
   background: var(--success-soft);
   color: var(--success);
   opacity: 1;
+  /* Đáp án đúng vừa lộ ra là thứ cần nhìn — cho nó một vòng sáng để mắt bắt được
+     ngay giữa bốn ô, không phải dò xem ô nào vừa đổi màu. */
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 20%, transparent);
 }
 
 .choice.is-correct .choice-key {
@@ -242,7 +283,7 @@
    nội dung thật — nhất là ở ô tiếng Nhật, nơi chữ được phóng lên 1.25rem. */
 .answer-input::placeholder,
 .answer-textarea::placeholder {
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
 }
 
 .typing-row .btn {
@@ -269,6 +310,24 @@
 
 .feedback {
   border-width: 1.5px;
+  /* Khung này nhận focus bằng lệnh (xem focusFeedback), trình duyệt sẽ tự cuộn tới.
+     Chừa chỗ cho CẢ header ứng dụng lẫn thanh tiến độ dính, nếu không dòng "Đúng
+     rồi" / "Sai rồi" — đúng phần cần đọc nhất — lại nằm khuất sau hai thanh đó. */
+  scroll-margin-top: calc(var(--header-h) + 84px);
+  animation: feedback-in 0.22s var(--ease);
+}
+
+/* Trượt lên một đoạn ngắn khi hiện ra: mắt bắt được là "vừa có thứ mới xuất hiện"
+   chứ không phải "trang tự nhiên dài ra". */
+@keyframes feedback-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .feedback:focus {
@@ -291,9 +350,13 @@
 }
 
 .feedback-title {
-  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  font-size: var(--fs-lg);
   font-weight: 680;
-  margin-bottom: 8px;
+  margin-bottom: var(--sp-2);
 }
 
 .feedback.is-correct .feedback-title {
@@ -305,14 +368,14 @@
 }
 
 .feedback-note {
-  font-size: 0.86rem;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text-muted);
 }
 
 .feedback-line {
   font-size: 0.96rem;
-  margin-bottom: 4px;
+  margin-bottom: var(--sp-1);
 }
 
 .wrong-answer {
@@ -332,7 +395,7 @@
 .word-recap {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 22px;
+  gap: var(--sp-2) 22px;
   margin-top: 14px;
   padding-top: 14px;
   border-top: 1px solid var(--border);
@@ -346,7 +409,7 @@
 }
 
 .recap-item dt {
-  font-size: 0.7rem;
+  font-size: var(--fs-2xs);
   font-weight: 650;
   letter-spacing: 0.05em;
   text-transform: uppercase;

@@ -52,6 +52,8 @@ export const MESSAGES = {
   'app.nav.grammar': { vi: 'Ngữ pháp', ja: '文法' },
   'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
+  'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
+  'app.backToTop': { vi: 'Lên đầu trang', ja: 'ページの先頭へ' },
 
   // ── Giao diện sáng/tối ─────────────────────────────────────────────────
   'theme.system': { vi: 'Tự động', ja: '自動' },
@@ -96,6 +98,15 @@ export const MESSAGES = {
   },
   'home.loading': { vi: 'Đang tải danh sách bài học…', ja: 'レッスン一覧を読み込み中…' },
   'home.loadError': { vi: 'Không tải được bài học có sẵn', ja: '既存レッスンを読み込めません' },
+  'home.search': { vi: 'Tìm bài học theo tên hoặc số bài…', ja: 'レッスン名・課の番号で検索…' },
+  'home.search.aria': { vi: 'Tìm bài học', ja: 'レッスンを検索' },
+  'home.search.clear': { vi: 'Xoá từ khoá đang tìm', ja: '検索語を消す' },
+  'home.noMatch.title': { vi: 'Không có bài nào khớp với "{term}"', ja: '「{term}」に一致するレッスンがありません' },
+  'home.noMatch.text': {
+    vi: 'Thử từ khoá ngắn hơn, hoặc gõ số bài — ví dụ 33.',
+    ja: 'もっと短い語か、課の番号（例：33）で試してください。',
+  },
+  'home.noMatch.reset': { vi: 'Xoá bộ lọc', ja: '絞り込みを解除' },
   'home.filter': { vi: 'Loại bài học', ja: 'レッスンの種類' },
   'home.filter.all': { vi: 'Tất cả', ja: 'すべて' },
   'home.lessonCount': { vi: '{count} bài học', ja: '{count}レッスン' },
