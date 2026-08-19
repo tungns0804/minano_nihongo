@@ -1,5 +1,7 @@
 import type { ExerciseId, ExerciseMode } from '../exercises/exercise.model';
 import { exerciseModeInfo, modeNeedsForms } from '../exercises/exercise.model';
+import type { KanjiMode } from '../kanji/kanji.model';
+import { kanjiModeInfo } from '../kanji/kanji.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import { LessonKind, WordField } from './vocabulary.model';
@@ -196,6 +198,13 @@ export interface PracticeConfig {
    * biết hỏi những thể nào.
    */
   exerciseMode: ExerciseMode;
+
+  // --- Riêng khu Kanji (/kanji) ---
+  /**
+   * Chiều hỏi của khu Kanji. `radical-hanviet` hỏi trên bộ thủ (mở từ màn hình
+   * danh sách), ba chiều còn lại hỏi trên từ (mở từ màn hình một bộ).
+   */
+  kanjiMode: KanjiMode;
 }
 
 /** Một dòng thông tin hiện lại ở phần phản hồi sau khi chấm xong. */
@@ -304,6 +313,7 @@ export interface SessionSummary {
 
 /** Khoá nhãn ngắn của kiểu luyện tập, hiện trên thanh tiến độ khi đang làm bài. */
 export function sessionShortKey(config: PracticeConfig): MessageKey {
+  if (config.lessonKind === 'kanji') return kanjiModeInfo(config.kanjiMode).shortKey;
   if (config.lessonKind === 'exercise') return exerciseModeInfo(config.exerciseMode).shortKey;
   return config.lessonKind === 'verb'
     ? verbModeInfo(config.verbMode).shortKey
@@ -317,7 +327,9 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     SCOPE_LABEL_KEY[config.scope],
   ];
 
-  if (config.lessonKind === 'exercise') {
+  if (config.lessonKind === 'kanji') {
+    keys.push(kanjiModeInfo(config.kanjiMode).shortKey);
+  } else if (config.lessonKind === 'exercise') {
     keys.push(exerciseModeInfo(config.exerciseMode).shortKey);
     if (modeNeedsForms(config.exerciseMode)) {
       keys.push(...config.verbForms.map((form) => VERB_FORM_LABEL_KEY[form]));

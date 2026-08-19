@@ -1,0 +1,237 @@
+/* Màn hình danh sách bộ thủ: một khối thiết lập luyện tập (giống mọi màn hình
+   luyện khác) rồi tới lưới thẻ bộ thủ. Style của component là phạm vi riêng nên
+   phần dùng chung phải khai lại ở đây. */
+
+/* --- Khối thiết lập --- */
+
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+/* Màn hình này chỉ có ĐÚNG một chiều hỏi nên không bày nút chọn: một nhóm nút mà
+   chỉ có một nút, lúc nào cũng sáng, chỉ làm người dùng đi tìm nút thứ hai. */
+.mode-still {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.mode-still strong {
+  font-weight: 620;
+}
+
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Bộ lọc --- */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Lưới bộ thủ --- */
+
+/* Thẻ hẹp (140px) vì nội dung chính của nó là MỘT chữ: để thẻ rộng thì chữ nằm
+   lọt thỏm giữa một khoảng trống, mà cả trang lại phải cuộn dài gấp đôi. */
+.radical-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.radical-card {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+/* Link chiếm trọn thẻ để bấm chỗ nào trên thẻ cũng mở được bộ thủ — trừ đúng ngôi
+   sao, vì nó nằm đè lên trên. */
+.radical-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 12px 12px;
+  color: var(--text);
+  text-align: center;
+}
+
+.radical-link:hover {
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .radical-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+}
+
+/* Vòng focus vẽ trên THẺ chứ không trên link: link phủ kín thẻ nên hai đường viền
+   sẽ chồng khít lên nhau, còn thẻ thì có sẵn bo góc. */
+.radical-card:has(.radical-link:focus-visible) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.radical-link:focus-visible {
+  outline: none;
+}
+
+/* Bộ đã đánh dấu ★ nhuộm nhẹ để lướt qua lưới là thấy ngay, giống dòng ★ trong bảng. */
+.radical-card.is-favorite {
+  border-color: var(--warning-border);
+  background: color-mix(in srgb, var(--warning-soft) 35%, var(--bg-elevated));
+}
+
+/* Bộ thủ vẽ thật to — đây là lý do tồn tại của cả màn hình này, mà nhiều bộ chỉ
+   khác nhau đúng một nét (氵 / 冫, 礻 / 衤, 日 / 曰). */
+.radical-glyph {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.radical-variants {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+.radical-han {
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+}
+
+.radical-meaning {
+  min-height: 2.4em;
+}
+
+.radical-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: var(--sp-1);
+}
+
+.radical-foot .badge {
+  font-size: 0.7rem;
+  padding: 1px 7px;
+}
+
+/* Ngôi sao nằm đè lên góc thẻ: nội dung thẻ căn giữa, chèn sao vào trong dòng sẽ
+   đẩy chữ lệch tâm. */
+.radical-star {
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  right: 4px;
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+@media (hover: hover) {
+  .radical-star:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+@media (hover: none) {
+  .radical-star {
+    padding: 6px 8px;
+    font-size: 1.25rem;
+  }
+}
+
+.radical-star.is-on {
+  color: var(--star);
+}
+
+@media (max-width: 640px) {
+  .filter-row {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    flex: 1 1 100%;
+  }
+
+  .start-bar .btn {
+    width: 100%;
+  }
+
+  .radical-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  .radical-glyph {
+    font-size: 2.8rem;
+  }
+}

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { RADICAL_SESSION_ID } from '../../core/kanji/kanji.model';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import { QuestionResult, describeConfigKeys } from '../../core/models/practice.model';
@@ -24,6 +25,7 @@ const BACK_ROUTE: Record<LessonKind, string> = {
   conversation: '/lesson',
   grammar: '/grammar',
   exercise: '/exercise',
+  kanji: '/kanji',
 };
 
 @Component({
@@ -200,7 +202,13 @@ export class Result {
     }
 
     const base = BACK_ROUTE[summary.config.lessonKind];
-    void this.router.navigate([base, summary.lessonId]);
+    // Phiên luyện âm Hán Việt bộ thủ mở từ chính màn hình danh sách `/kanji` và hỏi
+    // trên CẢ danh sách, nên `lessonId` của nó là một id giả (`RADICAL_SESSION_ID`)
+    // chứ không phải một bộ thủ — ghép vào thành `/kanji/bo-thu` là một đường dẫn
+    // không tồn tại.
+    const isRadicalSession =
+      summary.config.lessonKind === 'kanji' && summary.lessonId === RADICAL_SESSION_ID;
+    void this.router.navigate(isRadicalSession ? [base] : [base, summary.lessonId]);
   }
 
   backHome(): void {

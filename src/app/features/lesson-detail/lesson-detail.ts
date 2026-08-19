@@ -155,6 +155,13 @@ export class LessonDetail {
         search: 'lesson.search.verb',
         unit: 'kind.exercise.unit',
       },
+      // Khu Kanji cũng vậy: nội dung nằm ở `core/kanji/`, màn hình riêng là
+      // /kanji và /kanji/:id.
+      kanji: {
+        title: 'kind.kanji',
+        search: 'kanji.search',
+        unit: 'kind.kanji.unit',
+      },
     };
     return table[kind];
   });
@@ -486,6 +493,7 @@ export class LessonDetail {
       // Chỉ khu /exercise dùng tới, xem ghi chú ngay trên về showGrammarHint.
       exercise: null,
       exerciseMode: 'masu-to-form',
+      kanjiMode: 'word-meaning',
     };
 
     const questions = buildQuestions(lesson, this.pool(), config);

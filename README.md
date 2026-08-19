@@ -57,6 +57,7 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Trang chủ |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp** |
 | **Bài tập** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập** |
+| **Kanji** | Bộ thủ + từ dùng chữ thuộc bộ (N5→N3) | Bảng bộ thủ viết tay + kho từ có sẵn | Tab **Kanji bộ thủ** |
 
 Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
 Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
@@ -157,6 +158,72 @@ Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi
    như nhóm 2). Đây là lỗi phổ biến nhất của người học.
 2. Chính động từ đó ở **thể khác** — 走る, 走った, 走らない. Kiểm tra xem có phân biệt được các thể không.
 3. Cùng thể đó của động từ khác, khi hai nguồn trên không đủ.
+
+## Kanji theo bộ thủ
+
+Tab **Kanji bộ thủ** học chữ Hán từ gốc: **158 bộ thủ** gặp trong kanji của giáo trình (N5, N4)
+và của bộ động từ khu Bài tập (thêm phần N3). Mỗi bộ có hình dạng gốc, các dạng biến thể khi
+đứng trong chữ (`亻` của 人, `氵` của 水), âm Hán Việt, nghĩa, số nét, danh sách chữ thuộc bộ và
+**các từ đã có sẵn trong ứng dụng** dùng những chữ đó — tổng cộng **830 chữ** và **1780 từ**.
+
+Bộ thủ được vẽ to hẳn ở cả lưới danh sách lẫn đầu trang chi tiết: nhiều bộ chỉ khác nhau đúng
+một nét (`氵` / `冫`, `礻` / `衤`, `日` / `曰`), cỡ chữ bình thường thì nhìn không ra.
+
+### Hai phần luyện tập — đều chỉ gõ đáp án
+
+| Ở đâu | Chiều hỏi | Ví dụ |
+| --- | --- | --- |
+| `/kanji` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` |
+| `/kanji/:id` (một bộ) | Từ kanji → nghĩa tiếng Việt | `海` → `biển` |
+| `/kanji/:id` | Từ kanji → hiragana | `海` → `うみ` |
+| `/kanji/:id` | Hỏi cả hai (mỗi từ 2 câu) | `海` → `biển` / `うみ` |
+
+Phần luyện âm Hán Việt nằm ở màn hình **danh sách** vì nó hỏi trên cả danh sách bộ thủ — mở
+từng bộ ra để luyện đúng một chữ thì mỗi phiên chỉ có một câu. Ba chiều còn lại hỏi trên **từ**
+nên nằm ở màn hình một bộ.
+
+Tuỳ chọn **"Bỏ qua dấu tiếng Việt khi chấm"** đặc biệt hữu ích ở chiều hỏi âm Hán Việt: bật lên
+thì gõ `THUY` cũng được tính đúng cho `THỦY`, khỏi phải nhớ dấu đặt ở đâu.
+
+### Dữ liệu tới từ đâu
+
+Hai file, phân vai rõ ràng:
+
+```
+src/app/core/kanji/
+  radical-table.ts     ← viết tay: bộ thủ nào, gồm những chữ nào
+  radical-words.ts     ← DO MÁY SINH: bộ thủ + từ minh hoạ
+```
+
+`radical-table.ts` chỉ khai **chữ**, không khai từ. Từ được `scripts/generate-kanji.mjs` lấy từ
+chính kho của ứng dụng:
+
+- `data-source/minano-nihongo-<n>/vocabulary.txt` — N5 (bài 1-25) và N4 (bài 26-50)
+- `src/app/core/exercises/exercise-verbs.ts` + `transitive-pairs.ts` — thêm phần N3
+
+Nhờ vậy **không có từ nào bị chép tay lần thứ hai**: cách đọc, nghĩa và âm Hán Việt đều đúng
+bằng nguồn gốc, và sửa một từ ở `data-source/` rồi chạy lại script là khu Kanji đổi theo. Từ N2
+của khu Bài tập bị bỏ vì ngoài phạm vi N5→N3.
+
+```bash
+npm run generate:kanji     # sinh lại radical-words.ts
+npm run verify:kanji       # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
+```
+
+Script tự chặn hai lỗi dễ xảy ra khi sửa bảng bộ thủ: một chữ bị khai ở hai bộ khác nhau, và
+bộ thủ không góp được chữ nào trong kho từ (bộ đó bị bỏ khỏi danh sách — bày một bộ rỗng ra thì
+không luyện được gì). Mỗi chữ giữ tối đa 4 từ, xếp cấp thấp trước rồi từ ngắn trước; chữ 日 một
+mình đã có hơn ba chục từ, để nguyên thì bảng dài tới mức không tra được.
+
+### Lọc theo cấp độ
+
+Cấp của một **bộ thủ** là cấp thấp nhất trong các từ của nó — tức là chỗ người học gặp bộ này
+sớm nhất. Vì kho từ hiện tại phủ gần trọn N5 và N4, hầu hết bộ rơi vào N5 (133 bộ), phần còn
+lại N4 (24) và N3 (1). Con số N3 sẽ tự đầy lên khi có thêm nguồn từ vựng N3 trong
+`data-source/` — không phải sửa gì trong mã.
+
+Ở màn hình một bộ, cấp lọc theo **từ**, nên bộ 水 chẳng hạn vẫn tách được N5 (26 từ) / N4 (46) /
+N3 (12).
 
 ## Bài tập
 
@@ -421,6 +488,7 @@ scripts/
   build-offline.mjs              Gộp bản build thành dist/offline/index.html một file
   verify-parser-parity.mjs       Kiểm tra hai bản parser cho kết quả giống nhau
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
+  generate-kanji.mjs             Sinh core/kanji/radical-words.ts từ bảng bộ thủ + kho từ
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
   index.json
   minano-nihongo-33.json
@@ -432,6 +500,11 @@ src/app/
       exercise.model.ts          Kiểu dữ liệu + danh sách hai bài tập
       transitive-pairs.ts        58 cặp tự động từ / tha động từ (N5→N3)
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
+    kanji/
+      kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
+      radical-table.ts           Bảng bộ thủ viết tay (bộ nào gồm chữ nào)
+      radical-words.ts           158 bộ thủ + 1780 từ — DO MÁY SINH
+      radicals.ts                Dựng danh sách bộ thủ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
@@ -440,6 +513,7 @@ src/app/
       conversation-questions.ts  Câu hỏi cho bài hội thoại
       grammar-questions.ts       Câu hỏi cho bài ngữ pháp
       exercise-questions.ts      Câu hỏi cho hai bài tập
+      kanji-questions.ts         Câu hỏi cho khu Kanji
     services/
       lesson-store.ts            Nạp bài học từ JSON + localStorage
       favorite-store.ts          Danh sách mục chưa nhớ
@@ -456,6 +530,8 @@ src/app/
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập — danh sách bài tập
     exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
+    kanji-list/                  Tab Kanji — lưới bộ thủ + luyện âm Hán Việt
+    kanji-radical/               Một bộ thủ: chữ thuộc bộ, từ minh hoạ, luyện từ
     practice/                    Màn hình làm bài
     result/                      Màn hình kết quả
     import-lesson/               Nạp bài mới (đang tắt, xem core/feature-flags.ts)

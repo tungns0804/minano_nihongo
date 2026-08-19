@@ -401,6 +401,7 @@ export class ExerciseDetail {
       verbForms: this.selectedForms(),
       exercise: info.id,
       exerciseMode: this.mode(),
+      kanjiMode: 'word-meaning',
     };
 
     const questions = orderQuestions(

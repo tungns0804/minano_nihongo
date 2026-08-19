@@ -61,6 +61,20 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/exercise-detail/exercise-detail').then((m) => m.ExerciseDetail),
   },
+  // Khu "Kanji" cũng có nhánh riêng: nội dung của nó là bảng bộ thủ cài sẵn trong
+  // mã nguồn (core/kanji/), và một bộ thủ gom chữ của rất nhiều bài chứ không
+  // thuộc bài nào.
+  {
+    path: 'kanji',
+    title: 'route.kanji',
+    loadComponent: () => import('./features/kanji-list/kanji-list').then((m) => m.KanjiList),
+  },
+  {
+    path: 'kanji/:id',
+    title: 'route.kanjiRadical',
+    loadComponent: () =>
+      import('./features/kanji-radical/kanji-radical').then((m) => m.KanjiRadical),
+  },
   {
     path: 'practice',
     title: 'route.practice',

@@ -70,8 +70,17 @@ export type LessonOrigin = 'builtin' | 'custom';
  * đó là hai bài tập chuyên đề cài sẵn trong mã nguồn (xem `core/exercises/`). Loại
  * này có mặt ở đây vì phiên luyện tập của chúng đi qua đúng `PracticeConfig` và
  * đúng màn hình luyện tập / kết quả như bốn loại bài kia.
+ *
+ * `kanji` cũng vậy: tab `/kanji`, dữ liệu nằm ở `core/kanji/`, và cũng đi qua đúng
+ * màn hình luyện tập / kết quả chung.
  */
-export type LessonKind = 'vocabulary' | 'verb' | 'conversation' | 'grammar' | 'exercise';
+export type LessonKind =
+  | 'vocabulary'
+  | 'verb'
+  | 'conversation'
+  | 'grammar'
+  | 'exercise'
+  | 'kanji';
 
 export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary',
@@ -79,6 +88,7 @@ export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   conversation: 'kind.conversation',
   grammar: 'kind.grammar',
   exercise: 'kind.exercise',
+  kanji: 'kind.kanji',
 };
 
 export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
@@ -87,6 +97,7 @@ export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   conversation: 'kind.conversation.desc',
   grammar: 'kind.grammar.desc',
   exercise: 'kind.exercise.desc',
+  kanji: 'kind.kanji.desc',
 };
 
 /** Khoá đếm số mục, ví dụ "38 từ" / "38語". */
@@ -96,6 +107,7 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   conversation: 'kind.conversation.unit',
   grammar: 'kind.grammar.unit',
   exercise: 'kind.exercise.unit',
+  kanji: 'kind.kanji.unit',
 };
 
 /**

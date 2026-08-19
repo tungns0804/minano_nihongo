@@ -256,6 +256,7 @@ export class GrammarDetail {
       verbForms: [],
       exercise: null,
       exerciseMode: 'masu-to-form',
+      kanjiMode: 'word-meaning',
     };
 
     const questions = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);

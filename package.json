@@ -11,8 +11,10 @@
     "generate": "node scripts/generate-lessons.mjs",
     "generate:clean": "node scripts/generate-lessons.mjs --clean",
     "generate:check": "node scripts/generate-lessons.mjs --check",
-    "verify": "npm run verify:parser && npm run verify:conjugation && npm run verify:i18n",
+    "generate:kanji": "node --experimental-strip-types --no-warnings scripts/generate-kanji.mjs",
+    "verify": "npm run verify:parser && npm run verify:conjugation && npm run verify:i18n && npm run verify:kanji",
     "verify:i18n": "node --experimental-strip-types --no-warnings scripts/verify-i18n.mjs",
+    "verify:kanji": "node --experimental-strip-types --no-warnings scripts/generate-kanji.mjs --check",
     "verify:parser": "node --experimental-strip-types --no-warnings scripts/verify-parser-parity.mjs",
     "verify:conjugation": "node --experimental-strip-types --no-warnings scripts/verify-conjugation.mjs"
   },
