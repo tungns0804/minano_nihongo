@@ -308,8 +308,11 @@
                           <td class="col-reading jp" [attr.data-label]="t('lesson.col.reading')">
                             {{ word.reading }}
                           </td>
+                          <!-- Từ lấy từ khu Bài tập không có cột âm Hán Việt (nguồn
+                               của chúng không khai). Hiện dấu — chứ không để trống:
+                               ô trống trông như dữ liệu bị mất. -->
                           <td class="col-han" [attr.data-label]="t('lesson.col.hanViet')">
-                            {{ word.hanViet }}
+                            {{ word.hanViet || '—' }}
                           </td>
                           <td
                             class="col-meaning-cell"

@@ -161,10 +161,10 @@ Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi
 
 ## Kanji theo bộ thủ
 
-Tab **Kanji bộ thủ** học chữ Hán từ gốc: **158 bộ thủ** gặp trong kanji của giáo trình (N5, N4)
+Tab **Kanji bộ thủ** học chữ Hán từ gốc: **159 bộ thủ** gặp trong kanji của giáo trình (N5, N4)
 và của bộ động từ khu Bài tập (thêm phần N3). Mỗi bộ có hình dạng gốc, các dạng biến thể khi
 đứng trong chữ (`亻` của 人, `氵` của 水), âm Hán Việt, nghĩa, số nét, danh sách chữ thuộc bộ và
-**các từ đã có sẵn trong ứng dụng** dùng những chữ đó — tổng cộng **830 chữ** và **1780 từ**.
+**các từ đã có sẵn trong ứng dụng** dùng những chữ đó — tổng cộng **830 chữ** và **1773 từ**.
 
 Bộ thủ được vẽ to hẳn ở cả lưới danh sách lẫn đầu trang chi tiết: nhiều bộ chỉ khác nhau đúng
 một nét (`氵` / `冫`, `礻` / `衤`, `日` / `曰`), cỡ chữ bình thường thì nhìn không ra.
@@ -210,6 +210,10 @@ npm run generate:kanji     # sinh lại radical-words.ts
 npm run verify:kanji       # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
 ```
 
+Mục từ vựng là cả một câu (お帰りなさい。, 国へ帰るの？) bị loại khỏi đây — khủ Kanji hỏi nghĩa và cách đọc của MỘT
+TỪ. Chỉ lọc theo dấu câu chứ không lọc theo trợ từ: cụm cố định kiểu 電車に乗ります hay
+歯を磨きます chính là thứ giáo trình dạy nguyên khối. Chúng vẫn nằm nguyên trong bài học.
+
 Script tự chặn hai lỗi dễ xảy ra khi sửa bảng bộ thủ: một chữ bị khai ở hai bộ khác nhau, và
 bộ thủ không góp được chữ nào trong kho từ (bộ đó bị bỏ khỏi danh sách — bày một bộ rỗng ra thì
 không luyện được gì). Mỗi chữ giữ tối đa 4 từ, xếp cấp thấp trước rồi từ ngắn trước; chữ 日 một
@@ -219,7 +223,7 @@ mình đã có hơn ba chục từ, để nguyên thì bảng dài tới mức k
 
 Cấp của một **bộ thủ** là cấp thấp nhất trong các từ của nó — tức là chỗ người học gặp bộ này
 sớm nhất. Vì kho từ hiện tại phủ gần trọn N5 và N4, hầu hết bộ rơi vào N5 (133 bộ), phần còn
-lại N4 (24) và N3 (1). Con số N3 sẽ tự đầy lên khi có thêm nguồn từ vựng N3 trong
+lại N4 (25) và N3 (1). Con số N3 sẽ tự đầy lên khi có thêm nguồn từ vựng N3 trong
 `data-source/` — không phải sửa gì trong mã.
 
 Ở màn hình một bộ, cấp lọc theo **từ**, nên bộ 水 chẳng hạn vẫn tách được N5 (26 từ) / N4 (46) /
@@ -503,7 +507,7 @@ src/app/
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
       radical-table.ts           Bảng bộ thủ viết tay (bộ nào gồm chữ nào)
-      radical-words.ts           158 bộ thủ + 1780 từ — DO MÁY SINH
+      radical-words.ts           159 bộ thủ + 1773 từ — DO MÁY SINH
       radicals.ts                Dựng danh sách bộ thủ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/

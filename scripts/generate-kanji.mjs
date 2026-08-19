@@ -39,6 +39,9 @@ const WORDS_PER_KANJI = 4;
 const KANJI = /[一-鿿]/;
 const KANJI_ALL = /[一-鿿]/g;
 
+/** Dấu câu — có mặt là mục đó là cả một câu chứ không phải một từ. */
+const SENTENCE = /[？！。、?!]/;
+
 const checkOnly = process.argv.includes('--check');
 const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
@@ -83,6 +86,11 @@ function readVocabulary() {
       // Không có kanji thì không minh hoạ được bộ thủ nào; không có cách đọc thì
       // chiều "từ → hiragana" không có đáp án.
       if (!KANJI.test(japanese) || !reading || !meaning) continue;
+      // Câu chào nguyên câu ("お帰りなさい。", "国へ帰るの？") vẫn là mục từ vựng hợp
+      // lệ của bài học, nhưng ở đây thì không: khu Kanji hỏi nghĩa và cách đọc của
+      // MỘT TỪ. Chỉ lọc theo dấu câu, không lọc theo trợ từ — cụm cố định kiểu
+      // 電車に乗ります hay 歯を磨きます chính là thứ giáo trình dạy nguyên khối.
+      if (SENTENCE.test(japanese)) continue;
       words.push({ japanese, reading, hanViet, meaning, level, order: lesson });
     }
   }

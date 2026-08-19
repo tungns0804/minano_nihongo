@@ -6,7 +6,7 @@
  * dụng — `data-source/minano-nihongo-*` và `core/exercises/`. Mỗi chữ giữ tối đa
  * 4 từ, xếp cấp thấp trước rồi từ ngắn trước.
  *
- * Thống kê lần sinh gần nhất: 158 bộ thủ, 1780 từ (N5=866 N4=856 N3=58).
+ * Thống kê lần sinh gần nhất: 159 bộ thủ, 1773 từ (N5=857 N4=858 N3=58).
  */
 
 import type { RadicalSeed } from './kanji.model';
@@ -25,9 +25,9 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['不', '不便', 'ふべん', 'BẤT TIỆN', 'Bất tiện', 'N5'],
     ['不', '不思議', 'ふしぎ', 'BẤT TƯ NGHỊ', 'kỳ lạ/ khó tin/ bí ẩn', 'N4'],
     ['世', '世界', 'せかい', 'THẾ GIỚI', 'Thế giới', 'N5'],
-    ['世', 'いろいろお世話になりました。', 'いろいろおせわになりました', 'THẾ THOẠI', 'Anh/chị đã giúp tôi nhiều.', 'N5'],
     ['世', '世紀', 'せいき', 'THẾ KỶ', 'thế kỷ', 'N4'],
     ['世', '世界中', 'せかいじゅう', 'THẾ GIỚI TRUNG', 'khắp thế giới/ toàn thế giới', 'N4'],
+    ['世', '世界的に', 'せかいてきに', 'THẾ GIỚI', 'tầm cỡ thế giới', 'N4'],
     ['両', '両親', 'りょうしん', 'LƯỠNG THÂN', 'bố mẹ', 'N5'],
     ['丈', '大丈夫', 'だいじょうぶ', 'ĐẠI TRƯỢNG PHU', 'Không sao, không có vấn đề gì', 'N5'],
     ['丈', '丈夫', 'じょうぶ', 'TRƯỢNG PHU', 'chắc/ bền', 'N4'],
@@ -178,7 +178,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
   ]],
   ['儿', '', 'NHÂN', 'chân người', 2, [
     ['元', '元気', 'げんき', 'NGUYÊN KHÍ', 'khỏe', 'N5'],
-    ['元', 'どうぞお元気で。', 'どうぞおげんきで', 'NGUYÊN KHÍ', 'Chúc anh/chị mạnh khỏe.', 'N5'],
     ['元', '元の所', 'もとのところ', 'NGUYÊN SỞ', 'địa điểm ban đầu/ địa điểm gốc', 'N4'],
     ['元', 'お元気でいらっしゃいますか', 'おげんきでいらっしゃいますか', 'NGUYÊN KHÍ', 'Anh/chị có khỏe không ạ?', 'N4'],
     ['兄', '兄', 'あに', 'HUYNH', 'anh trai', 'N5'],
@@ -285,10 +284,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['勝', '優勝します', 'ゆうしょうします', 'ƯU THẮNG', 'vô địch/ đoạt giải nhất', 'N4'],
     ['加', '参加します', 'さんかします', 'THAM GIA', 'tham gia/ tham dự', 'N4'],
     ['功', '成功します', 'せいこうします', 'THÀNH CÔNG', 'thành công', 'N4'],
-    ['男', '男の人', 'おとこのひと', 'NAM NHÂN', 'người đàn ông', 'N5'],
-    ['男', '男の子', 'おとこのこ', 'NAM TỬ', 'cậu con trai', 'N5'],
-    ['男', '男', 'おとこ', 'NAM', 'người đàn ông/ nam giới', 'N4'],
-    ['男', '男性', 'だんせい', 'NAM TÍNH', 'nam giới', 'N4'],
     ['務', '事務所', 'じむしょ', 'SỰ VỤ SỞ', 'văn phòng', 'N5'],
     ['勢', '大勢', 'おおぜい', 'ĐẠI THẾ', 'nhiều người', 'N4'],
   ]],
@@ -474,7 +469,7 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['売', '通信販売', 'つうしんはんばい', 'THÔNG TÍN PHIÊN MẠI', 'bán hàng qua bưu điện/ thương mại viễn thông', 'N4'],
     ['売', '売れます', 'うれます', 'MẠI', 'bán chạy/ được bán', 'N4'],
   ]],
-  ['夂', '', 'TRI', 'đi chậm, theo sau', 3, [
+  ['夂', '', 'TRUY', 'đến sau, theo sau', 3, [
     ['夏', '夏', 'なつ', 'HẠ', 'Mùa hè', 'N5'],
     ['冬', '冬', 'ふゆ', 'ĐÔNG', 'Mùa đông', 'N5'],
     ['変', '大変', 'たいへん', 'ĐẠI BIẾN', 'vất vả, khó khăn, khổ', 'N5'],
@@ -612,7 +607,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['少', '少し', 'すこし', 'THIẾU/ THIỂU', 'ít, một ít', 'N5'],
     ['少', 'もう少し', 'もうすこし', 'THIẾU', 'Thêm một chút nữa thôi', 'N5'],
     ['少', '人が少ない', 'ひとがすくない', 'NHÂN THIỂU', 'Ít người', 'N5'],
-    ['少', '少々お待ちください。', 'しょうしょうおまちください', 'THIỂU ĐÃI', 'xin anh/chị vui lòng đợi một chút', 'N5'],
     ['当', 'お弁当', 'おべんとう', 'BIỆN ĐƯƠNG', 'Cơm hộp', 'N5'],
     ['当', '適当', 'てきとう', 'THÍCH ĐƯƠNG', 'thích hợp/ vừa phải', 'N4'],
   ]],
@@ -656,9 +650,8 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['師', '教師', 'きょうし', 'GIÁO SƯ', 'Giáo viên', 'N5'],
     ['師', '講師', 'こうし', 'GIẢNG SƯ', 'giảng viên/ giáo viên', 'N4'],
     ['帰', '帰ります', 'かえります', 'QUY', 'về', 'N5'],
-    ['帰', '国へ帰るの？', 'くにへかえるの？', 'QUỐC QUY', 'Anh/chị có về nước không?', 'N5'],
-    ['帰', 'お帰りなさい。', 'おかえりなさい', 'QUY', 'Anh/Chị đã về đấy à.', 'N5'],
     ['帰', '帰りに', 'かえりに', 'QUY', 'trên đường về', 'N4'],
+    ['帰', '帰って来ます', 'かえってきます', 'QUY LAI', 'về/ trở về', 'N4'],
     ['常', '非常口', 'ひじょうぐち', 'PHI THƯỜNG KHẨU', 'lối thoát hiểm/ cửa thoát hiểm', 'N4'],
   ]],
   ['干', '', 'CAN', 'can làm, khiên che', 3, [
@@ -729,7 +722,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
   ]],
   ['彳', '', 'XÍCH', 'bước chân trái', 3, [
     ['待', '待ちます', 'まちます', 'ĐÃI', 'Đợi, chờ', 'N5'],
-    ['待', '少々お待ちください。', 'しょうしょうおまちください', 'THIỂU ĐÃI', 'xin anh/chị vui lòng đợi một chút', 'N5'],
     ['待', '招待します', 'しょうたいします', 'CHIÊU ĐÃI', 'mời', 'N4'],
     ['待', 'お待たせしました', 'おまたせしました', 'ĐÃI', 'Xin lỗi vì để anh/chị phải đợi.', 'N4'],
     ['後', '午後', 'ごご', 'NGỌ HẬU', 'Chiều, sau 12 giờ trưa', 'N5'],
@@ -885,10 +877,15 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['散', '公園を散歩します', 'こうえんをさんぽします', 'CÔNG VIÊN TÁN BỘ', 'đi dạo ở công viên', 'N5'],
   ]],
   ['文', '', 'VĂN', 'chữ viết, vẻ đẹp', 4, [
-    ['文', 'ご注文は？', 'ごちゅうもん', 'CHÚ VĂN', 'anh/chị dùng món gì ạ', 'N5'],
     ['文', '作文', 'さくぶん', 'TÁC VĂN', 'bài văn/ bài tập làm văn', 'N4'],
     ['文', '文法', 'ぶんぽう', 'VĂN PHÁP', 'ngữ pháp', 'N4'],
     ['文', '文学', 'ぶんがく', 'VĂN HỌC', 'văn học', 'N4'],
+  ]],
+  ['斗', '', 'ĐẨU', 'cái đấu đong', 4, [
+    ['料', '料理', 'りょうり', 'LIỆU LÝ', 'món ăn, việc nấu ăn', 'N5'],
+    ['料', '資料', 'しりょう', 'TƯ LIỆU', 'Tài liệu, tư liệu', 'N5'],
+    ['料', '無料', 'むりょう', 'VÔ LIỆU', 'miễn phí', 'N4'],
+    ['料', '給料', 'きゅうりょう', 'CẤP LIỆU', 'lương', 'N4'],
   ]],
   ['斤', '', 'CÂN', 'cái rìu, đơn vị cân', 4, [
     ['新', '新聞', 'しんぶん', 'TÂN VĂN', 'Báo', 'N5'],
@@ -1141,7 +1138,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['決', '決まります', 'きまります', '', 'được quyết định', 'N4'],
     ['法', '方法', 'ほうほう', 'PHƯƠNG PHÁP', 'phương pháp/ cách làm', 'N4'],
     ['法', '文法', 'ぶんぽう', 'VĂN PHÁP', 'ngữ pháp', 'N4'],
-    ['注', 'ご注文は？', 'ごちゅうもん', 'CHÚ VĂN', 'anh/chị dùng món gì ạ', 'N5'],
     ['注', '注射', 'ちゅうしゃ', 'CHÚ XẠ', 'tiêm', 'N4'],
     ['注', '注意します', 'ちゅういします', 'CHÚ Ý', 'chú ý/ nhắc nhở', 'N4'],
     ['注', '車に注意します', 'くるまにちゅういします', 'XA CHÚ Ý', 'chú ý xe cộ/ coi chừng xe', 'N4'],
@@ -1282,6 +1278,10 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
   ]],
   ['田', '', 'ĐIỀN', 'ruộng', 5, [
     ['田', '田舎', 'いなか', 'ĐIỀN XÁ', 'quê, nông thôn', 'N5'],
+    ['男', '男の人', 'おとこのひと', 'NAM NHÂN', 'người đàn ông', 'N5'],
+    ['男', '男の子', 'おとこのこ', 'NAM TỬ', 'cậu con trai', 'N5'],
+    ['男', '男', 'おとこ', 'NAM', 'người đàn ông/ nam giới', 'N4'],
+    ['男', '男性', 'だんせい', 'NAM TÍNH', 'nam giới', 'N4'],
     ['町', '町', 'まち', 'ĐINH', 'thị trấn, thị xã, thành phố', 'N5'],
     ['界', '世界', 'せかい', 'THẾ GIỚI', 'Thế giới', 'N5'],
     ['界', '世界中', 'せかいじゅう', 'THẾ GIỚI TRUNG', 'khắp thế giới/ toàn thế giới', 'N4'],
@@ -1452,10 +1452,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
   ]],
   ['米', '', 'MỄ', 'gạo', 6, [
     ['米', '米', 'こめ', 'MỄ', 'gạo', 'N4'],
-    ['料', '料理', 'りょうり', 'LIỆU LÝ', 'món ăn, việc nấu ăn', 'N5'],
-    ['料', '資料', 'しりょう', 'TƯ LIỆU', 'Tài liệu, tư liệu', 'N5'],
-    ['料', '無料', 'むりょう', 'VÔ LIỆU', 'miễn phí', 'N4'],
-    ['料', '給料', 'きゅうりょう', 'CẤP LIỆU', 'lương', 'N4'],
     ['粧', '化粧', 'けしょう', 'HÓA TRANG', 'sự trang điểm', 'N4'],
     ['粧', '化粧品', 'けしょうひん', 'HÓA TRANG PHẨM', 'mỹ phẩm', 'N4'],
     ['糖', '砂糖', 'さとう', 'SA ĐƯỜNG', 'Đường', 'N5'],
@@ -1806,6 +1802,9 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['辛', '辛い', 'からい', 'TÂN', 'Cay', 'N5'],
     ['辞', '辞書', 'じしょ', 'TỪ THƯ', 'Từ điển', 'N5'],
   ]],
+  ['麦', '', 'MẠCH', 'lúa mạch', 7, [
+    ['麦', '麦', 'むぎ', 'MẠCH', 'lúa mạch', 'N4'],
+  ]],
   ['辵', '辶', 'SƯỚC', 'chợt bước đi', 7, [
     ['道', '道', 'みち', 'ĐẠO', 'Đường', 'N5'],
     ['道', '道を歩きます', 'みちをあるきます', 'ĐẠO BỘ', 'Đi bộ trên đường', 'N5'],
@@ -2011,7 +2010,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['頭', '頭', 'あたま', 'ĐẦU', 'Đầu', 'N5'],
     ['頭', '頭がいい', 'あたまがいい', 'ĐẦU', 'Thông minh', 'N5'],
     ['顔', '顔', 'かお', 'NHAN', 'Mặt', 'N5'],
-    ['願', 'これでお願いします。', 'これでおねがいします', 'NGUYỆN', 'Gởi anh tiền này.', 'N5'],
     ['願', 'ちょっとお願いがあるんですが', 'ちょっとおねがいがあるんですが', 'NGUYỆN', 'Tôi có chút việc muốn nhờ anh chị.', 'N4'],
     ['願', '願います', 'ねがいます', '', 'mong/ nhờ', 'N3'],
     ['題', '宿題', 'しゅくだい', 'TÚC ĐỀ', 'bài tập về nhà', 'N5'],
@@ -2091,9 +2089,6 @@ export const RADICAL_SEEDS: readonly RadicalSeed[] = [
     ['鳥', '鳥', 'とり', 'ĐIỂU', 'chim', 'N4'],
     ['鳥', '鳥肉', 'とりにく', 'ĐIỂU', 'thịt gà', 'N4'],
     ['鳴', '鳴ります', 'なります', 'MINH', 'reo/ kêu', 'N4'],
-  ]],
-  ['麦', '', 'MẠCH', 'lúa mạch', 7, [
-    ['麦', '麦', 'むぎ', 'MẠCH', 'lúa mạch', 'N4'],
   ]],
   ['黄', '', 'HOÀNG', 'màu vàng', 11, [
     ['黄', '黄色', 'きいろ', 'HOÀNG SẮC', 'màu vàng', 'N4'],
