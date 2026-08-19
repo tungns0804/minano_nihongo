@@ -1,0 +1,38 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <section class="page-head">
+      <h1>{{ t('exercise.title') }}</h1>
+      <p><app-t key="exercise.subtitle" block /></p>
+    </section>
+
+    <div class="lesson-grid">
+      @for (card of cards(); track card.id) {
+        <a class="card lesson-card" [routerLink]="['/exercise', card.id]">
+          <div class="lesson-card-top">
+            <h3 class="lesson-name"><app-t [key]="card.nameKey" /></h3>
+          </div>
+
+          <p class="lesson-desc muted small clamp-2"><app-t [key]="card.descKey" block /></p>
+
+          <div class="lesson-card-bottom">
+            <span class="badge">
+              <app-t [key]="card.unitKey" [params]="{ count: card.itemCount }" />
+            </span>
+            <span class="badge badge-accent">
+              <app-t key="exercise.levelRange" [params]="{ range: card.levelRange }" />
+            </span>
+            @if (card.favoriteCount > 0) {
+              <span class="badge badge-warning">
+                {{ t('home.favoriteCount', { count: card.favoriteCount }) }}
+              </span>
+            }
+            <span class="spacer"></span>
+            <span class="lesson-go" aria-hidden="true">→</span>
+          </div>
+        </a>
+      }
+    </div>
+
+    <p class="muted small"><app-t key="exercise.typingOnly" block /></p>
+  </div>
+</div>

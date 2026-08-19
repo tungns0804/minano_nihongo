@@ -52,7 +52,21 @@ export function buildQuestions(
       break;
   }
 
-  const ordered = config.shuffle ? shuffle(questions) : questions;
+  return orderQuestions(questions, config);
+}
+
+/**
+ * Trộn và cắt danh sách câu hỏi theo thiết lập.
+ *
+ * Tách riêng vì khu "Bài tập" không đi qua `buildQuestions` (nó không có `Lesson`
+ * để truyền vào) nhưng vẫn phải tôn trọng đúng hai tuỳ chọn "Trộn thứ tự" và
+ * "Số câu" như mọi phiên luyện khác.
+ */
+export function orderQuestions(
+  questions: readonly PracticeQuestion[],
+  config: PracticeConfig,
+): PracticeQuestion[] {
+  const ordered = config.shuffle ? shuffle(questions) : [...questions];
 
   return config.questionLimit !== null && config.questionLimit > 0
     ? ordered.slice(0, config.questionLimit)

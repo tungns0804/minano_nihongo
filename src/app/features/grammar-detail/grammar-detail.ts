@@ -254,6 +254,8 @@ export class GrammarDetail {
       showGrammarHint: this.showGrammarHint(),
       verbMode: 'masu-to-form',
       verbForms: [],
+      exercise: null,
+      exerciseMode: 'masu-to-form',
     };
 
     const questions = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);

@@ -65,14 +65,20 @@ export type LessonOrigin = 'builtin' | 'custom';
  * `CATEGORY_ORDER` trong `features/lesson-list/lesson-list.ts`. Lý do: mỗi bài ngữ
  * pháp là một trang lý thuyết dài, gom chung vào lưới thẻ của trang chủ thì danh
  * sách 25 bài (26–50) sẽ đè bẹp phần từ vựng và động từ.
+ *
+ * `exercise` cũng có tab riêng (`/exercise`) và KHÔNG bao giờ tới từ file bài học:
+ * đó là hai bài tập chuyên đề cài sẵn trong mã nguồn (xem `core/exercises/`). Loại
+ * này có mặt ở đây vì phiên luyện tập của chúng đi qua đúng `PracticeConfig` và
+ * đúng màn hình luyện tập / kết quả như bốn loại bài kia.
  */
-export type LessonKind = 'vocabulary' | 'verb' | 'conversation' | 'grammar';
+export type LessonKind = 'vocabulary' | 'verb' | 'conversation' | 'grammar' | 'exercise';
 
 export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary',
   verb: 'kind.verb',
   conversation: 'kind.conversation',
   grammar: 'kind.grammar',
+  exercise: 'kind.exercise',
 };
 
 export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
@@ -80,6 +86,7 @@ export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   verb: 'kind.verb.desc',
   conversation: 'kind.conversation.desc',
   grammar: 'kind.grammar.desc',
+  exercise: 'kind.exercise.desc',
 };
 
 /** Khoá đếm số mục, ví dụ "38 từ" / "38語". */
@@ -88,6 +95,7 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   verb: 'kind.verb.unit',
   conversation: 'kind.conversation.unit',
   grammar: 'kind.grammar.unit',
+  exercise: 'kind.exercise.unit',
 };
 
 /**

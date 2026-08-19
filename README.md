@@ -56,6 +56,7 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) | Trang chủ |
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Trang chủ |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp** |
+| **Bài tập** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập** |
 
 Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
 Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
@@ -156,6 +157,59 @@ Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi
    như nhóm 2). Đây là lỗi phổ biến nhất của người học.
 2. Chính động từ đó ở **thể khác** — 走る, 走った, 走らない. Kiểm tra xem có phân biệt được các thể không.
 3. Cùng thể đó của động từ khác, khi hai nguồn trên không đủ.
+
+## Bài tập
+
+Tab **Bài tập** là hai bài luyện chuyên đề nằm ngoài giáo trình: chúng gom động từ của nhiều
+bài lẫn nhiều cấp theo một chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách. Cả hai
+**chỉ có gõ đáp án** — mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ
+còn là nhận mặt chữ.
+
+### 1. Tự động từ & Tha động từ (N5 → N3)
+
+Cho một vế, viết ra vế còn lại của cặp. **58 cặp**, mỗi vế có nghĩa tiếng Việt riêng vì cả
+cặp cùng nói về một sự việc nhưng khác hẳn ở chỗ ai làm.
+
+| Chiều | Câu hỏi | Đáp án |
+| --- | --- | --- |
+| Tự → Tha | 開きます | 開けます |
+| Tha → Tự | 消します | 消えます |
+| Trộn cả hai chiều | mỗi cặp được hỏi cả xuôi lẫn ngược | |
+
+### 2. Chuyển thể động từ (N5 → N2)
+
+Chuyển thể lịch sự ます sang thể Te / Ta / Ru / Nai và ngược lại. **293 động từ**, đủ ba nhóm
+kể cả các trường hợp đặc biệt:
+
+- *Nhóm 1 nhìn như nhóm 2* — 帰ります, 入ります, 走ります, 切ります, 知ります, 滑ります, 握ります,
+  蹴ります, 喋ります, 参ります… Gắn nhãn “đặc biệt” và **lọc riêng ra luyện được**.
+- *Ngoại lệ* — 行きます → 行って, あります → ない.
+- *Kính ngữ chia bất quy tắc* — いらっしゃいます, くださいます, なさいます, おっしゃいます.
+- *Nhóm 3* — します, 来ます, 持って来ます và các động từ ghép ～します.
+
+| Chiều | Câu hỏi | Đáp án |
+| --- | --- | --- |
+| ます → thể ngắn | 帰ります → thể Te? | 帰って |
+| thể ngắn → ます | 帰って (thể Te) → thể Mậu? | 帰ります |
+| Trộn cả hai chiều | mỗi cặp được hỏi cả xuôi lẫn ngược | |
+
+Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi một câu cho từng thể đã chọn.
+
+### Điểm chung của hai bài tập
+
+- **Lọc theo cấp độ** — bật tắt N5 / N4 / N3 / N2, bảng tra cứu và số câu đổi theo ngay.
+- **Gõ bằng kana cũng đúng** — `かえって` được tính đúng như `帰って`. Cách đọc được chia bằng
+  đúng engine chia thể (luật chia bám vào kana ở đuôi), nên không phải khai tay thể nào cả.
+- **Phạm vi ★ Chưa nhớ**, giới hạn số câu, trộn thứ tự, hiện/ẩn nghĩa tiếng Việt — giống các
+  loại bài khác. Dấu ★ lưu riêng cho từng bài tập.
+- **Bảng tra cứu** ngay dưới phần thiết lập: bảng cặp tự/tha động từ, hoặc bảng chia đủ 4 thể.
+- Dùng lại nguyên màn hình luyện tập và màn hình kết quả của các loại bài kia.
+
+Dữ liệu hai bài tập nằm thẳng trong mã nguồn (`src/app/core/exercises/`) chứ không đi qua
+`data-source/` + `npm run generate`: đây là chức năng cố định của ứng dụng, không phải nội dung
+người dùng tự nạp thêm. `npm run verify:conjugation` kiểm tra luôn phần dữ liệu này — mọi động
+từ phải chia được theo nhóm đã khai, cách đọc phải là kana thuần kết thúc bằng ます và cũng
+phải chia được, không có id nào trùng.
 
 ## Tính năng chung
 
@@ -374,6 +428,10 @@ src/app/
   core/
     japanese/
       conjugation.ts             Luật chia động từ — bản cài đặt DUY NHẤT
+    exercises/
+      exercise.model.ts          Kiểu dữ liệu + danh sách hai bài tập
+      transitive-pairs.ts        58 cặp tự động từ / tha động từ (N5→N3)
+      exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
@@ -381,6 +439,7 @@ src/app/
       verb-questions.ts          Câu hỏi cho bài động từ + đáp án nhiễu
       conversation-questions.ts  Câu hỏi cho bài hội thoại
       grammar-questions.ts       Câu hỏi cho bài ngữ pháp
+      exercise-questions.ts      Câu hỏi cho hai bài tập
     services/
       lesson-store.ts            Nạp bài học từ JSON + localStorage
       favorite-store.ts          Danh sách mục chưa nhớ
@@ -395,6 +454,8 @@ src/app/
     lesson-detail/               Bảng từ vựng + thiết lập luyện tập
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
+    exercise-list/               Tab Bài tập — danh sách bài tập
+    exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
     practice/                    Màn hình làm bài
     result/                      Màn hình kết quả
     import-lesson/               Nạp bài mới (đang tắt, xem core/feature-flags.ts)

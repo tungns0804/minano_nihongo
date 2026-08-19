@@ -46,6 +46,21 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/grammar-detail/grammar-detail').then((m) => m.GrammarDetail),
   },
+  // Khu "Bài tập" cũng có nhánh riêng, cùng lý do với ngữ pháp: nội dung của nó
+  // không tới từ file bài học nào mà cài sẵn trong mã nguồn (core/exercises/), và
+  // nó gom động từ của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp.
+  {
+    path: 'exercise',
+    title: 'route.exercise',
+    loadComponent: () =>
+      import('./features/exercise-list/exercise-list').then((m) => m.ExerciseList),
+  },
+  {
+    path: 'exercise/:id',
+    title: 'route.exerciseDetail',
+    loadComponent: () =>
+      import('./features/exercise-detail/exercise-detail').then((m) => m.ExerciseDetail),
+  },
   {
     path: 'practice',
     title: 'route.practice',

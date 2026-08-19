@@ -4,11 +4,27 @@ import { Router } from '@angular/router';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import { QuestionResult, describeConfigKeys } from '../../core/models/practice.model';
+import { LessonKind } from '../../core/models/vocabulary.model';
 import { reshuffleChoices } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';
+
+/**
+ * Nút "Về bài học" quay lại đâu, theo loại bài vừa luyện.
+ *
+ * Là một bảng đủ mọi loại chứ không phải chuỗi ternary: thêm loại bài mới mà quên
+ * khai báo thì TypeScript báo lỗi ngay, thay vì lặng lẽ đẩy người dùng tới
+ * /lesson/<id> — một đường dẫn không tồn tại và sẽ bị đưa về trang chủ.
+ */
+const BACK_ROUTE: Record<LessonKind, string> = {
+  vocabulary: '/lesson',
+  verb: '/lesson',
+  conversation: '/lesson',
+  grammar: '/grammar',
+  exercise: '/exercise',
+};
 
 @Component({
   selector: 'app-result',
@@ -171,8 +187,9 @@ export class Result {
   /**
    * Quay lại đúng màn hình của bài vừa luyện.
    *
-   * Bài ngữ pháp nằm ở nhánh /grammar/:id chứ không phải /lesson/:id — dùng
-   * `config.lessonKind` chứ không đoán theo id, vì id chỉ là một chuỗi bất kỳ.
+   * Bài ngữ pháp nằm ở nhánh /grammar/:id và bài tập ở /exercise/:id chứ không
+   * phải /lesson/:id — dùng `config.lessonKind` chứ không đoán theo id, vì id chỉ
+   * là một chuỗi bất kỳ.
    */
   backToLesson(): void {
     const summary = this.summary();
@@ -182,7 +199,7 @@ export class Result {
       return;
     }
 
-    const base = summary.config.lessonKind === 'grammar' ? '/grammar' : '/lesson';
+    const base = BACK_ROUTE[summary.config.lessonKind];
     void this.router.navigate([base, summary.lessonId]);
   }
 

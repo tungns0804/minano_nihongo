@@ -148,6 +148,13 @@ export class LessonDetail {
         search: 'lesson.search.vocabulary',
         unit: 'kind.grammar.unit',
       },
+      // Bài tập cũng không bao giờ được vẽ ở đây: nó không tới từ file bài học nào
+      // nên `getLesson` không trả về loại này. Vẫn phải khai báo, cùng lý do trên.
+      exercise: {
+        title: 'kind.exercise',
+        search: 'lesson.search.verb',
+        unit: 'kind.exercise.unit',
+      },
     };
     return table[kind];
   });
@@ -476,6 +483,9 @@ export class LessonDetail {
       showGrammarHint: true,
       verbMode: this.verbMode(),
       verbForms: this.selectedForms(),
+      // Chỉ khu /exercise dùng tới, xem ghi chú ngay trên về showGrammarHint.
+      exercise: null,
+      exerciseMode: 'masu-to-form',
     };
 
     const questions = buildQuestions(lesson, this.pool(), config);

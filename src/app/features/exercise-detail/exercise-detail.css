@@ -1,0 +1,381 @@
+/* Màn hình bài tập dùng lại đúng ngôn ngữ hình ảnh của màn hình chi tiết bài học
+   (khối thiết lập + bảng tra cứu, dưới 640px thì bảng đổi thành thẻ xếp dọc).
+   Style của component là phạm vi riêng nên phần dùng chung phải khai lại ở đây. */
+
+.back-link {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  width: fit-content;
+  transition: color var(--dur) var(--ease);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* --- Khối thiết lập --- */
+
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.option-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.option-stacked strong {
+  font-weight: 620;
+}
+
+.option-example {
+  font-size: 0.82rem;
+  font-weight: 450;
+  opacity: 0.75;
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+/* Phần chữ co lại thay vì đẩy nút xuống dòng — xem ghi chú cùng nội dung ở
+   features/lesson-detail. */
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Bộ lọc bảng --- */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Bảng --- */
+
+.word-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+/* Bề rộng tối thiểu chỉ áp dụng từ 641px trở lên: dưới ngưỡng đó bảng đã đổi
+   thành thẻ xếp dọc, giữ min-width thì thẻ rộng hơn cả màn hình. */
+@media (min-width: 641px) {
+  .pair-table {
+    min-width: 720px;
+  }
+
+  .verb-table {
+    min-width: 1120px;
+  }
+}
+
+.pair-table th:nth-child(1) { width: 44px; }
+.pair-table th:nth-child(4) { width: 90px; }
+
+.verb-table {
+  font-size: 0.9rem;
+}
+
+.verb-table th:nth-child(1) { width: 44px; }
+.verb-table th:nth-child(2) { width: 135px; }
+.verb-table th:nth-child(3) { width: 130px; }
+.verb-table th:nth-child(4) { width: 165px; }
+.verb-table th:nth-child(5),
+.verb-table th:nth-child(6),
+.verb-table th:nth-child(7),
+.verb-table th:nth-child(8) { width: 105px; }
+.verb-table th:nth-child(10) { width: 80px; }
+
+/* Không dùng position: sticky cho tiêu đề: header ứng dụng cũng sticky, hai cái
+   sẽ chồng lên nhau. */
+.word-table th {
+  padding: 9px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.word-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* Kẻ sọc xen kẽ: bảng 10 cột mà không có sọc thì dò từ cột ます sang cột ない rất
+   dễ trượt sang dòng bên cạnh. Nhạt hơn hẳn màu dòng ★ để hai tín hiệu không lẫn. */
+.word-table tbody tr:nth-child(even):not(.is-favorite) {
+  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
+}
+
+@media (hover: hover) {
+  /* :not(.is-favorite) để quy tắc này thắng được quy tắc kẻ sọc ở trên. */
+  .word-table tbody tr:hover:not(.is-favorite) {
+    background: var(--bg-subtle);
+  }
+}
+
+.word-table tr.is-favorite {
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.col-star {
+  width: 44px;
+  text-align: center;
+}
+
+.col-jp {
+  font-size: 1.08rem;
+  white-space: nowrap;
+}
+
+.col-reading {
+  color: var(--text-muted);
+}
+
+.col-meaning-cell {
+  color: var(--text-muted);
+}
+
+.col-group {
+  white-space: normal;
+}
+
+.col-group .badge {
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}
+
+.col-group .badge + .badge {
+  margin-left: 3px;
+}
+
+.col-level .badge {
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}
+
+/* Thể て là thể hay hỏi nhất nên được tô màu cho dễ dò. */
+.form-te {
+  font-weight: 650;
+  color: var(--accent);
+}
+
+/* Ô của bảng cặp gộp ba dòng: động từ, cách đọc, nghĩa. */
+.col-pair {
+  display: table-cell;
+}
+
+.col-pair .col-jp,
+.col-pair .col-reading,
+.col-pair .col-meaning-cell {
+  display: block;
+}
+
+.col-pair .col-reading,
+.col-pair .col-meaning-cell {
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+@media (hover: hover) {
+  .star-btn:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+/* Trên màn hình chạm, ngôi sao phải đủ to để không bấm trượt sang dòng bên cạnh. */
+@media (hover: none) {
+  .star-btn {
+    padding: 8px 10px;
+    font-size: 1.35rem;
+  }
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+/* ============================================================================
+   ĐIỆN THOẠI: bảng đổi thành thẻ xếp dọc
+
+   Bảng chia động từ rộng 1120px. Trên màn hình 390px, giữ nguyên dạng bảng thì
+   mỗi lần muốn xem nghĩa đều phải vuốt ngang rồi vuốt về — không dùng để học
+   được. Làm hoàn toàn bằng CSS trên đúng markup bảng đang có.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .filter-row {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    flex: 1 1 100%;
+  }
+
+  .start-bar .btn {
+    width: 100%;
+  }
+
+  /* Thẻ tự vừa bề rộng màn hình nên không còn gì phải cuộn ngang. */
+  .scroll-x {
+    overflow-x: visible;
+  }
+
+  .word-table {
+    font-size: 1rem;
+  }
+
+  .word-table thead {
+    display: none;
+  }
+
+  .word-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .word-table tr {
+    display: grid;
+    /* Cột 2 chỉ vừa đúng ngôi sao; mọi thứ khác nằm ở cột 1. */
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1px 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+  }
+
+  .word-table tr.is-favorite {
+    border-color: var(--warning-border);
+  }
+
+  .word-table td {
+    display: block;
+    grid-column: 1;
+    padding: 0;
+    border: 0;
+  }
+
+  .word-table .col-star {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    align-self: start;
+  }
+
+  .word-table .col-jp {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .word-table .col-reading {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .word-table .col-group,
+  .word-table .col-level {
+    margin-top: 4px;
+  }
+
+  /* Bốn thể る/て/た/ない mất hàng tiêu đề nên phải tự mang nhãn theo mình, nếu
+     không bốn dòng chữ Nhật xếp cạnh nhau chẳng biết dòng nào là thể nào. Hai ô
+     của bảng cặp cũng vậy. */
+  .word-table td[data-label] {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-top: 3px;
+    font-size: 1.05rem;
+  }
+
+  .word-table td[data-label]::before {
+    content: attr(data-label);
+    flex: 0 0 3.2em;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* Ô của bảng cặp có ba dòng bên trong nên nhãn phải nằm trên cùng, không căn
+     theo đường chữ cơ sở như ô một dòng. */
+  .pair-table td[data-label] {
+    display: grid;
+    grid-template-columns: 4.6em minmax(0, 1fr);
+    align-items: start;
+    margin-top: 8px;
+  }
+
+  .pair-table td[data-label]::before {
+    flex: none;
+  }
+
+  .pair-table .col-jp {
+    font-size: 1.15rem;
+  }
+}

@@ -50,6 +50,7 @@ export const MESSAGES = {
   'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
   'app.nav.lessons': { vi: 'Bài học', ja: 'レッスン' },
   'app.nav.grammar': { vi: 'Ngữ pháp', ja: '文法' },
+  'app.nav.exercise': { vi: 'Bài tập', ja: '練習問題' },
   'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
   'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
@@ -82,6 +83,12 @@ export const MESSAGES = {
   'kind.conversation.desc': {
     vi: 'Dịch từng câu qua lại giữa tiếng Việt và tiếng Nhật, gõ tay cả câu.',
     ja: 'ベトナム語と日本語の間で一文ずつ翻訳し、文全体を入力します。',
+  },
+  'kind.exercise': { vi: 'Bài tập', ja: '練習問題' },
+  'kind.exercise.unit': { vi: '{count} mục', ja: '{count}項目' },
+  'kind.exercise.desc': {
+    vi: 'Bài tập chuyên đề gom động từ nhiều cấp, chỉ gõ đáp án chứ không chọn.',
+    ja: '複数のレベルの動詞を集めたテーマ別練習。選択式はなく、入力して解答します。',
   },
   'kind.grammar': { vi: 'Ngữ pháp', ja: '文法' },
   'kind.grammar.unit': { vi: '{count} mẫu ngữ pháp', ja: '文型{count}個' },
@@ -331,6 +338,105 @@ export const MESSAGES = {
   'grammar.recap.pattern': { vi: 'Mẫu ngữ pháp', ja: '文型' },
   'grammar.recap.usage': { vi: 'Cách dùng', ja: '使い方' },
   'grammar.recap.note': { vi: 'Ghi chú', ja: 'メモ' },
+
+  // ── Khu Bài tập ────────────────────────────────────────────────────────
+  // Hai bài tập chuyên đề nằm ngoài giáo trình: dữ liệu cài sẵn trong mã nguồn
+  // (core/exercises/), gom động từ của nhiều cấp theo một chủ đề ngữ pháp.
+  'exercise.title': { vi: 'Bài tập chuyên đề', ja: 'テーマ別の練習問題' },
+  'exercise.subtitle': {
+    vi: 'Hai bài tập gom động từ nhiều cấp theo một chủ đề ngữ pháp, không đi theo thứ tự bài trong sách. Cả hai đều chỉ gõ đáp án.',
+    ja: '教科書の課の順ではなく、文法テーマごとに複数レベルの動詞を集めた2つの練習です。どちらも入力して解答します。',
+  },
+  'exercise.transitivity.name': { vi: 'Tự động từ & Tha động từ', ja: '自動詞・他動詞' },
+  'exercise.transitivity.desc': {
+    vi: 'Cho một vế, viết ra vế còn lại của cặp: 開きます ↔ 開けます, 消えます ↔ 消します.',
+    ja: '片方を見て、対になるもう片方を書きます：開きます ↔ 開けます、消えます ↔ 消します。',
+  },
+  'exercise.forms.name': { vi: 'Chuyển thể động từ', ja: '動詞の活用変換' },
+  'exercise.forms.desc': {
+    vi: 'Chuyển thể lịch sự ます sang thể Te, Ta, Ru, Nai và ngược lại, đủ ba nhóm kể cả động từ đặc biệt.',
+    ja: 'ます形をて形・た形・辞書形・ない形へ、またその逆へ変換します。特殊な動詞も含め3グループすべて。',
+  },
+  'exercise.pairCount': { vi: '{count} cặp động từ', ja: '動詞{count}組' },
+  'exercise.verbCount': { vi: '{count} động từ', ja: '動詞{count}語' },
+  'exercise.levelRange': { vi: 'Cấp độ {range}', ja: 'レベル {range}' },
+  'exercise.back': { vi: '← Danh sách bài tập', ja: '← 練習問題一覧' },
+  'exercise.notFound': { vi: 'Không tìm thấy bài tập {id}.', ja: '練習問題 {id} が見つかりません。' },
+
+  'exercise.levels': { vi: 'Cấp độ (chọn nhiều được)', ja: 'レベル（複数選択可）' },
+  'exercise.levels.hint': {
+    vi: 'Bỏ chọn bớt để luyện riêng một cấp.',
+    ja: 'チェックを外すと1つのレベルだけ練習できます。',
+  },
+  'exercise.level.count': { vi: '{level} ({count})', ja: '{level}（{count}）' },
+  'exercise.levelEmpty': { vi: 'Chưa chọn cấp độ nào.', ja: 'レベルが選ばれていません。' },
+  'exercise.scope.all': { vi: 'Toàn bộ ({count})', ja: '全体（{count}）' },
+
+  'exercise.mode': { vi: 'Chiều hỏi', ja: '出題の方向' },
+  'exercise.mode.toTransitive': { vi: 'Tự động từ → Tha động từ', ja: '自動詞 → 他動詞' },
+  'exercise.mode.toTransitive.short': { vi: 'Tự → Tha', ja: '自 → 他' },
+  'exercise.mode.toTransitive.example': { vi: '開きます → 開けます', ja: '開きます → 開けます' },
+  'exercise.mode.toIntransitive': { vi: 'Tha động từ → Tự động từ', ja: '他動詞 → 自動詞' },
+  'exercise.mode.toIntransitive.short': { vi: 'Tha → Tự', ja: '他 → 自' },
+  'exercise.mode.toIntransitive.example': { vi: '開けます → 開きます', ja: '開けます → 開きます' },
+  'exercise.mode.transitivityMixed': { vi: 'Trộn cả hai chiều', ja: '両方向をまぜる' },
+  'exercise.mode.transitivityMixed.short': { vi: 'Tự ↔ Tha', ja: '自 ↔ 他' },
+  'exercise.mode.transitivityMixed.example': { vi: '開きます ↔ 開けます', ja: '開きます ↔ 開けます' },
+  'exercise.mode.masuToForm': { vi: 'Thể lịch sự → thể ngắn', ja: 'ます形 → 短い形' },
+  'exercise.mode.masuToForm.short': { vi: 'ます → thể ngắn', ja: 'ます → 短い形' },
+  'exercise.mode.masuToForm.example': {
+    vi: '帰ります → thể Te?  →  帰って',
+    ja: '帰ります → て形は？  →  帰って',
+  },
+  'exercise.mode.formToMasu': { vi: 'Thể ngắn → thể lịch sự', ja: '短い形 → ます形' },
+  'exercise.mode.formToMasu.short': { vi: 'thể ngắn → ます', ja: '短い形 → ます' },
+  'exercise.mode.formToMasu.example': {
+    vi: '帰って (thể Te) → thể Mậu?  →  帰ります',
+    ja: '帰って（て形）→ ます形は？  →  帰ります',
+  },
+  'exercise.mode.formMixed': { vi: 'Trộn cả hai chiều', ja: '両方向をまぜる' },
+  'exercise.mode.formMixed.short': { vi: 'ます ↔ thể ngắn', ja: 'ます ↔ 短い形' },
+  'exercise.mode.formMixed.example': { vi: '帰ります ↔ 帰って', ja: '帰ります ↔ 帰って' },
+
+  'exercise.label.toTransitive': {
+    vi: 'Tha động từ tương ứng là gì?',
+    ja: '対応する他動詞は？',
+  },
+  'exercise.label.toIntransitive': {
+    vi: 'Tự động từ tương ứng là gì?',
+    ja: '対応する自動詞は？',
+  },
+  'exercise.answerPrompt.transitive': {
+    vi: 'Nhập tha động từ (thể ます)',
+    ja: '他動詞（ます形）を入力',
+  },
+  'exercise.answerPrompt.intransitive': {
+    vi: 'Nhập tự động từ (thể ます)',
+    ja: '自動詞（ます形）を入力',
+  },
+
+  'exercise.col.intransitive': { vi: 'Tự động từ 自動詞', ja: '自動詞' },
+  'exercise.col.transitive': { vi: 'Tha động từ 他動詞', ja: '他動詞' },
+  'exercise.col.level': { vi: 'Cấp độ', ja: 'レベル' },
+  'exercise.table.transitivity': { vi: 'Bảng cặp tự động từ / tha động từ', ja: '自動詞・他動詞の対応表' },
+  'exercise.search.transitivity': {
+    vi: 'Tìm theo động từ, cách đọc hoặc nghĩa…',
+    ja: '動詞・読み方・意味で検索…',
+  },
+  'exercise.search.forms': {
+    vi: 'Tìm theo động từ, cách đọc, nghĩa hoặc thể đã chia…',
+    ja: '動詞・読み方・意味・活用形で検索…',
+  },
+  'exercise.showing': { vi: 'Hiện {shown}/{total} mục.', ja: '{total}項目中{shown}項目を表示。' },
+  'exercise.noMatch': { vi: 'Không có mục nào khớp.', ja: '一致する項目がありません。' },
+  'exercise.typingOnly': {
+    vi: 'Bài tập chỉ có gõ đáp án: mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ.',
+    ja: 'この練習は入力解答のみです。狙いは正しい形を自分で書けることで、4択にすると見比べるだけになってしまいます。',
+  },
+  'exercise.kanaAccepted': {
+    vi: 'Gõ bằng kana cũng được tính đúng: かえって cũng như 帰って.',
+    ja: 'かなで入力しても正解です：かえって も 帰って も可。',
+  },
 
   // ── Nhãn phạm vi (dùng ở màn kết quả) ──────────────────────────────────
   'scope.all': { vi: 'Toàn bộ bài', ja: 'レッスン全体' },
@@ -675,6 +781,8 @@ export const MESSAGES = {
   'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
   'route.grammar': { vi: 'Ngữ pháp', ja: '文法' },
   'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
+  'route.exercise': { vi: 'Bài tập', ja: '練習問題' },
+  'route.exerciseDetail': { vi: 'Nội dung bài tập', ja: '練習問題の詳細' },
   'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
   'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
 } as const satisfies Record<string, Entry>;

@@ -166,4 +166,70 @@ if (!existsSync(LESSONS_DIR)) {
   }
 }
 
+// ── Quét dữ liệu hai bài tập ─────────────────────────────────────────────
+// Dữ liệu này nằm thẳng trong mã nguồn (src/app/core/exercises/) chứ không đi qua
+// public/lessons, nên vòng quét ở trên không đụng tới. Mà đây lại là chỗ dễ sai
+// nhất: gõ nhầm một chữ kana trong cột cách đọc thì đáp án gõ bằng kana sẽ bị
+// chấm sai giữa buổi luyện, không có gì báo trước.
+log();
+log(`${c.bold}Kiem tra du lieu bai tap (tu/tha dong tu, chuyen the)${c.reset}`);
+
+const EXERCISES_DIR = join(ROOT, 'src', 'app', 'core', 'exercises');
+const { EXERCISE_VERBS } = await import(toFileUrl(join(EXERCISES_DIR, 'exercise-verbs.ts')));
+const { TRANSITIVITY_PAIRS } = await import(toFileUrl(join(EXERCISES_DIR, 'transitive-pairs.ts')));
+
+/** Cách đọc phải là kana thuần (hiragana hoặc katakana), không lẫn kanji. */
+const KANA_ONLY = /^[぀-ゟ゠-ヿー]+$/;
+
+let exerciseProblems = 0;
+const problem = (msg) => {
+  log(`${c.red}[LOI] ${msg}${c.reset}`);
+  exerciseProblems++;
+};
+
+/** Một động từ phải chia được ở CẢ dạng kanji lẫn dạng kana. */
+function checkVerb(label, masu, reading, group) {
+  const result = conjugate(masu, group);
+  if (!result.ok) problem(`${label} ${masu} (nhom ${group}): ${result.reason}`);
+
+  if (!KANA_ONLY.test(reading)) {
+    problem(`${label} ${masu}: cach doc "${reading}" khong phai kana thuan`);
+  } else if (!reading.endsWith('ます')) {
+    problem(`${label} ${masu}: cach doc "${reading}" khong ket thuc bang ます`);
+  } else {
+    const readingResult = conjugate(reading, group);
+    if (!readingResult.ok) {
+      problem(`${label} ${masu}: cach doc "${reading}" khong chia duoc — ${readingResult.reason}`);
+    }
+  }
+}
+
+const verbIds = new Set();
+for (const verb of EXERCISE_VERBS) {
+  if (verbIds.has(verb.id)) problem(`Trung id dong tu: ${verb.id}`);
+  verbIds.add(verb.id);
+  checkVerb('Bai chuyen the:', verb.masu, verb.reading, verb.group);
+}
+
+const pairIds = new Set();
+for (const pair of TRANSITIVITY_PAIRS) {
+  if (pairIds.has(pair.id)) problem(`Trung id cap dong tu: ${pair.id}`);
+  pairIds.add(pair.id);
+
+  // Hai vế trùng nhau thì câu hỏi sẽ hỏi đúng cái vừa hiện ra làm đề bài.
+  if (pair.intransitive.masu === pair.transitive.masu) {
+    problem(`Cap ${pair.id}: tu dong tu va tha dong tu giong het nhau`);
+  }
+  checkVerb('Tu dong tu:', pair.intransitive.masu, pair.intransitive.reading, pair.intransitive.group);
+  checkVerb('Tha dong tu:', pair.transitive.masu, pair.transitive.reading, pair.transitive.group);
+}
+
+if (exerciseProblems === 0) {
+  log(
+    `${c.green}OK: ${EXERCISE_VERBS.length} dong tu va ${TRANSITIVITY_PAIRS.length} cap tu/tha deu hop le.${c.reset}`,
+  );
+} else {
+  failures += exerciseProblems;
+}
+
 process.exitCode = failures === 0 ? 0 : 1;

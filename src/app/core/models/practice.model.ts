@@ -1,3 +1,5 @@
+import type { ExerciseId, ExerciseMode } from '../exercises/exercise.model';
+import { exerciseModeInfo, modeNeedsForms } from '../exercises/exercise.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import { LessonKind, WordField } from './vocabulary.model';
@@ -185,6 +187,15 @@ export interface PracticeConfig {
   verbMode: VerbPracticeMode;
   /** Các thể được đem ra hỏi; nhiều thể thì trộn lẫn trong một phiên. */
   verbForms: VerbForm[];
+
+  // --- Riêng khu Bài tập (/exercise) ---
+  /** Bài tập đang luyện, null với mọi bài học thường. */
+  exercise: ExerciseId | null;
+  /**
+   * Chiều hỏi của bài tập. Bài chuyển thể còn dùng thêm `verbForms` ở trên để
+   * biết hỏi những thể nào.
+   */
+  exerciseMode: ExerciseMode;
 }
 
 /** Một dòng thông tin hiện lại ở phần phản hồi sau khi chấm xong. */
@@ -293,6 +304,7 @@ export interface SessionSummary {
 
 /** Khoá nhãn ngắn của kiểu luyện tập, hiện trên thanh tiến độ khi đang làm bài. */
 export function sessionShortKey(config: PracticeConfig): MessageKey {
+  if (config.lessonKind === 'exercise') return exerciseModeInfo(config.exerciseMode).shortKey;
   return config.lessonKind === 'verb'
     ? verbModeInfo(config.verbMode).shortKey
     : directionInfo(config.direction).shortKey;
@@ -305,7 +317,12 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     SCOPE_LABEL_KEY[config.scope],
   ];
 
-  if (config.lessonKind === 'verb') {
+  if (config.lessonKind === 'exercise') {
+    keys.push(exerciseModeInfo(config.exerciseMode).shortKey);
+    if (modeNeedsForms(config.exerciseMode)) {
+      keys.push(...config.verbForms.map((form) => VERB_FORM_LABEL_KEY[form]));
+    }
+  } else if (config.lessonKind === 'verb') {
     const mode = verbModeInfo(config.verbMode);
     keys.push(mode.shortKey);
     if (mode.needsForms) {
