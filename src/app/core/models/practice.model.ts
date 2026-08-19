@@ -201,8 +201,8 @@ export interface PracticeConfig {
 
   // --- Riêng khu Kanji (/kanji) ---
   /**
-   * Chiều hỏi của khu Kanji. `radical-hanviet` hỏi trên bộ thủ (mở từ màn hình
-   * danh sách), ba chiều còn lại hỏi trên từ (mở từ màn hình một bộ).
+   * Chiều hỏi của khu Kanji. `kanji-hanviet` hỏi trên CHỮ (mở từ màn hình danh
+   * sách), ba chiều còn lại hỏi trên TỪ (mở từ màn hình một chữ).
    */
   kanjiMode: KanjiMode;
 }

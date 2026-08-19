@@ -1,5 +1,10 @@
-import type { Radical, RadicalWord } from '../kanji/kanji.model';
-import { PracticeConfig, PracticeQuestion, QuestionSubject, RecapItem } from '../models/practice.model';
+import type { KanjiEntry, KanjiWord } from '../kanji/kanji.model';
+import {
+  PracticeConfig,
+  PracticeQuestion,
+  QuestionSubject,
+  RecapItem,
+} from '../models/practice.model';
 import { acceptedAnswersOf } from '../utils/answer-check';
 import { limitAttempts } from './vocabulary-questions';
 
@@ -9,55 +14,59 @@ import { limitAttempts } from './vocabulary-questions';
  * Cả ba chiều đều CHỈ gõ đáp án, không có trắc nghiệm: bày sẵn bốn âm Hán Việt để
  * chọn thì người học chỉ cần nhận mặt chữ, trong khi cái cần nhớ ở đây là đọc ra
  * được — đúng lý do khu Bài tập cũng chỉ cho gõ.
- *
- * Cả ba đều KHÔNG có gợi ý âm Hán Việt: ở chiều hỏi bộ thủ thì âm Hán Việt chính
- * là đáp án, còn ở hai chiều hỏi từ thì âm Hán Việt của từ gần như đọc thẳng ra
- * nghĩa lẫn cách đọc (KIM NGUYỆT → 今月 → こんげつ).
  */
 
-// ── Chiều 1: bộ thủ → âm Hán Việt ──────────────────────────────────────
+// ── Chiều 1: chữ Hán → âm Hán Việt ─────────────────────────────────────
 
-function radicalSubject(radical: Radical): QuestionSubject {
-  const shapes = [radical.glyph, ...radical.variants].join(' ');
+function kanjiSubject(entry: KanjiEntry): QuestionSubject {
+  const readings = [entry.hanViet, ...entry.altHanViet].filter(Boolean).join(' / ');
+  const examples = entry.words
+    .slice(0, 4)
+    .map((word) => `${word.japanese}（${word.reading}）`)
+    .join('  ');
+
+  const recap: RecapItem[] = [
+    { labelKey: 'kanji.col.kanji', value: entry.char, valueKey: null, japanese: true },
+    { labelKey: 'kanji.col.hanViet', value: readings, valueKey: null, japanese: false },
+    { labelKey: 'kanji.col.level', value: entry.level, valueKey: null, japanese: false },
+  ];
+  if (examples) {
+    recap.push({ labelKey: 'kanji.col.examples', value: examples, valueKey: null, japanese: true });
+  }
+
   return {
-    id: radical.id,
-    title: radical.glyph,
+    id: entry.id,
+    title: entry.char,
     titleIsJapanese: true,
-    subtitle: radical.hanViet,
-    detail: radical.meaning,
+    subtitle: readings,
+    // Kho từ không có nghĩa riêng cho từng CHỮ (nguồn ghi nghĩa theo từ), nên chỗ
+    // này lấy từ đầu tiên làm mốc nhớ thay vì bỏ trống.
+    detail: entry.words[0]?.meaning ?? '',
     detailSuffixKey: null,
-    recap: [
-      { labelKey: 'kanji.col.radical', value: shapes, valueKey: null, japanese: true },
-      { labelKey: 'kanji.col.hanViet', value: radical.hanViet, valueKey: null, japanese: false },
-      { labelKey: 'kanji.col.meaning', value: radical.meaning, valueKey: null, japanese: false },
-      { labelKey: 'kanji.col.strokes', value: String(radical.strokes), valueKey: null, japanese: false },
-      {
-        labelKey: 'kanji.col.kanji',
-        value: radical.kanjiList.map((item) => item.char).join(' '),
-        valueKey: null,
-        japanese: true,
-      },
-    ],
+    recap,
   };
 }
 
-export function buildRadicalQuestions(
-  radicals: readonly Radical[],
+export function buildKanjiHanVietQuestions(
+  entries: readonly KanjiEntry[],
   config: PracticeConfig,
 ): PracticeQuestion[] {
-  return radicals.map((radical) => ({
-    subject: radicalSubject(radical),
-    labelKey: 'kanji.label.radicalHanViet',
+  return entries.map((entry) => ({
+    subject: kanjiSubject(entry),
+    labelKey: 'kanji.label.kanjiHanViet',
     labelParams: {},
-    prompt: radical.glyph,
+    prompt: entry.char,
     promptIsJapanese: true,
-    // Dạng biến thể (亻 của 人) không phải gợi ý mà là một phần của câu hỏi: nhận ra
-    // 亻 trong chữ mới là việc khó, còn 人 đứng một mình thì ai cũng biết.
-    hint: radical.variants.length > 0 ? radical.variants.join(' ') : null,
+    // Gợi ý là MỘT từ dùng chữ này. Chữ Hán đứng một mình gần như không có manh
+    // mối nào, mà nhìn 会社 thì nhớ ra "HỘI" dễ hơn hẳn nhìn trơ chữ 会.
+    hint: config.showHanViet ? (entry.words[0]?.japanese ?? null) : null,
     hintIsJapanese: true,
-    correctAnswer: radical.hanViet,
+    correctAnswer: entry.hanViet,
     correctAnswerKey: null,
-    acceptedAnswers: acceptedAnswersOf(radical.hanViet),
+    // Chữ có nhiều âm thì gõ âm nào cũng đúng: 行 đọc HÀNH hay HÀNG đều là nó.
+    acceptedAnswers: [entry.hanViet, ...entry.altHanViet].flatMap((reading) =>
+      acceptedAnswersOf(reading),
+    ),
     answerIsJapanese: false,
     answerPromptKey: 'kanji.answerPrompt.hanViet',
     answerPromptParams: {},
@@ -71,21 +80,26 @@ export function buildRadicalQuestions(
 
 // ── Chiều 2 & 3: từ → nghĩa / từ → hiragana ────────────────────────────
 
-function wordSubject(word: RadicalWord, radical: Radical): QuestionSubject {
+function wordSubject(word: KanjiWord, entry: KanjiEntry): QuestionSubject {
   const recap: RecapItem[] = [
     { labelKey: 'lesson.col.japanese', value: word.japanese, valueKey: null, japanese: true },
     { labelKey: 'lesson.col.reading', value: word.reading, valueKey: null, japanese: true },
     { labelKey: 'lesson.col.meaningShort', value: word.meaning, valueKey: null, japanese: false },
   ];
-  // Từ lấy từ bộ động từ bài tập không có cột âm Hán Việt — bỏ hẳn dòng đó thay vì
-  // hiện một dòng trống.
+  // Từ lấy từ khu Bài tập không có cột âm Hán Việt — bỏ hẳn dòng đó thay vì hiện
+  // một dòng trống.
   if (word.hanViet) {
-    recap.push({ labelKey: 'lesson.col.hanViet', value: word.hanViet, valueKey: null, japanese: false });
+    recap.push({
+      labelKey: 'lesson.col.hanViet',
+      value: word.hanViet,
+      valueKey: null,
+      japanese: false,
+    });
   }
   recap.push(
     {
-      labelKey: 'kanji.col.radical',
-      value: `${word.kanji} — ${radical.glyph} (${radical.hanViet})`,
+      labelKey: 'kanji.col.kanji',
+      value: `${entry.char} — ${entry.hanViet}`,
       valueKey: null,
       japanese: true,
     },
@@ -106,8 +120,8 @@ function wordSubject(word: RadicalWord, radical: Radical): QuestionSubject {
 type WordAsk = 'meaning' | 'reading';
 
 function wordQuestion(
-  word: RadicalWord,
-  radical: Radical,
+  word: KanjiWord,
+  entry: KanjiEntry,
   ask: WordAsk,
   config: PracticeConfig,
 ): PracticeQuestion {
@@ -115,12 +129,14 @@ function wordQuestion(
   const answer = askingMeaning ? word.meaning : word.reading;
 
   return {
-    subject: wordSubject(word, radical),
+    subject: wordSubject(word, entry),
     labelKey: askingMeaning ? 'kanji.label.wordMeaning' : 'kanji.label.wordReading',
     labelParams: {},
     prompt: word.japanese,
     promptIsJapanese: true,
-    hint: null,
+    // Âm Hán Việt của cả từ làm gợi ý: nó dẫn tới nghĩa mà không đọc thẳng ra đáp
+    // án, và ở chiều hỏi hiragana thì càng không lộ gì.
+    hint: config.showHanViet && word.hanViet ? word.hanViet : null,
     hintIsJapanese: false,
     correctAnswer: answer,
     correctAnswerKey: null,
@@ -145,8 +161,8 @@ function wordQuestion(
  * một chiều — xem `kanjiQuestionsPerItem`.
  */
 export function buildKanjiWordQuestions(
-  words: readonly RadicalWord[],
-  radical: Radical,
+  words: readonly KanjiWord[],
+  entry: KanjiEntry,
   config: PracticeConfig,
 ): PracticeQuestion[] {
   const asks: WordAsk[] =
@@ -156,5 +172,5 @@ export function buildKanjiWordQuestions(
         ? ['meaning']
         : ['meaning', 'reading'];
 
-  return words.flatMap((word) => asks.map((ask) => wordQuestion(word, radical, ask, config)));
+  return words.flatMap((word) => asks.map((ask) => wordQuestion(word, entry, ask, config)));
 }

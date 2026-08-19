@@ -1,6 +1,204 @@
-/* Màn hình danh sách bộ thủ: một khối thiết lập luyện tập (giống mọi màn hình
-   luyện khác) rồi tới lưới thẻ bộ thủ. Style của component là phạm vi riêng nên
-   phần dùng chung phải khai lại ở đây. */
+/* Màn hình danh sách chữ Hán: chọn cấp → lưới chữ, rồi tới khối thiết lập luyện
+   tập. Style của component là phạm vi riêng nên phần dùng chung phải khai lại. */
+
+/* --- Chọn cấp --- */
+
+.level-tabs {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.level-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.level-tab:hover:not(.is-active) {
+  border-color: var(--border-strong);
+  background: var(--bg-inset);
+}
+
+.level-tab strong {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.level-tab-count {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+}
+
+.level-tab.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.level-tab.is-active .level-tab-count {
+  color: var(--accent);
+}
+
+/* --- Lưới chữ --- */
+
+/* Ô vuông nhỏ và dày đặc, giống một bảng tra chữ: mục đích của lưới này là lướt
+   mắt qua vài trăm chữ, không phải đọc từng thẻ. */
+.kanji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+}
+
+.kanji-cell {
+  position: relative;
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+/* Link chiếm trọn ô để bấm chỗ nào cũng mở được chữ — trừ đúng ngôi sao, vì nó
+   nằm đè lên trên. */
+.kanji-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 12px 6px 8px;
+  color: var(--text);
+  text-align: center;
+  min-width: 0;
+}
+
+.kanji-link:hover {
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .kanji-cell:hover {
+    border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+    background: var(--bg-elevated);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* Vòng focus vẽ trên Ô chứ không trên link: link phủ kín ô nên hai đường viền sẽ
+   chồng khít lên nhau, còn ô thì có sẵn bo góc. */
+.kanji-cell:has(.kanji-link:focus-visible) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.kanji-link:focus-visible {
+  outline: none;
+}
+
+.kanji-cell.is-favorite {
+  border-color: var(--warning-border);
+  background: color-mix(in srgb, var(--warning-soft) 45%, var(--bg-subtle));
+}
+
+/* Chữ Hán to hết cỡ ô cho phép — đây là thứ duy nhất cần nhìn kỹ. */
+.kanji-char {
+  font-size: 2.5rem;
+  line-height: 1.08;
+  font-weight: 500;
+}
+
+.kanji-han {
+  font-size: var(--fs-2xs);
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  /* Âm dài (NGHIÊN CỨU) không được phá bề rộng ô của cả lưới. */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Ngôi sao đè lên góc ô: nội dung ô căn giữa, chèn sao vào trong dòng sẽ đẩy chữ
+   lệch tâm. */
+.kanji-star {
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  right: 2px;
+  border: none;
+  background: none;
+  padding: 2px 3px;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+@media (hover: hover) {
+  /* Sao chỉ hiện khi trỏ vào hoặc khi đã bật — 500 ngôi sao rỗng cùng lúc làm
+     lưới rối mắt và át mất chính chữ Hán. */
+  .kanji-star:not(.is-on) {
+    opacity: 0;
+  }
+
+  .kanji-cell:hover .kanji-star,
+  .kanji-star:focus-visible {
+    opacity: 1;
+  }
+
+  .kanji-star:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+@media (hover: none) {
+  .kanji-star {
+    padding: 5px 7px;
+    font-size: 1rem;
+  }
+}
+
+.kanji-star.is-on {
+  color: var(--star);
+}
+
+/* --- Bộ lọc --- */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
 
 /* --- Khối thiết lập --- */
 
@@ -59,161 +257,6 @@
   min-width: 0;
 }
 
-/* --- Bộ lọc --- */
-
-.filter-row {
-  flex-wrap: nowrap;
-  align-items: stretch;
-}
-
-.search-input {
-  flex: 1;
-  min-width: 0;
-}
-
-.filter-check {
-  flex-shrink: 0;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.filter-check input {
-  margin-top: 0;
-}
-
-/* --- Lưới bộ thủ --- */
-
-/* Thẻ hẹp (140px) vì nội dung chính của nó là MỘT chữ: để thẻ rộng thì chữ nằm
-   lọt thỏm giữa một khoảng trống, mà cả trang lại phải cuộn dài gấp đôi. */
-.radical-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.radical-card {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
-    transform var(--dur) var(--ease);
-}
-
-/* Link chiếm trọn thẻ để bấm chỗ nào trên thẻ cũng mở được bộ thủ — trừ đúng ngôi
-   sao, vì nó nằm đè lên trên. */
-.radical-link {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 16px 12px 12px;
-  color: var(--text);
-  text-align: center;
-}
-
-.radical-link:hover {
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  .radical-card:hover {
-    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-    box-shadow: var(--shadow);
-    transform: translateY(-2px);
-  }
-}
-
-/* Vòng focus vẽ trên THẺ chứ không trên link: link phủ kín thẻ nên hai đường viền
-   sẽ chồng khít lên nhau, còn thẻ thì có sẵn bo góc. */
-.radical-card:has(.radical-link:focus-visible) {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-ring);
-}
-
-.radical-link:focus-visible {
-  outline: none;
-}
-
-/* Bộ đã đánh dấu ★ nhuộm nhẹ để lướt qua lưới là thấy ngay, giống dòng ★ trong bảng. */
-.radical-card.is-favorite {
-  border-color: var(--warning-border);
-  background: color-mix(in srgb, var(--warning-soft) 35%, var(--bg-elevated));
-}
-
-/* Bộ thủ vẽ thật to — đây là lý do tồn tại của cả màn hình này, mà nhiều bộ chỉ
-   khác nhau đúng một nét (氵 / 冫, 礻 / 衤, 日 / 曰). */
-.radical-glyph {
-  font-size: 3.2rem;
-  line-height: 1.1;
-  font-weight: 500;
-}
-
-.radical-variants {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  line-height: 1.2;
-}
-
-.radical-han {
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  color: var(--accent);
-}
-
-.radical-meaning {
-  min-height: 2.4em;
-}
-
-.radical-foot {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px;
-  margin-top: auto;
-  padding-top: var(--sp-1);
-}
-
-.radical-foot .badge {
-  font-size: 0.7rem;
-  padding: 1px 7px;
-}
-
-/* Ngôi sao nằm đè lên góc thẻ: nội dung thẻ căn giữa, chèn sao vào trong dòng sẽ
-   đẩy chữ lệch tâm. */
-.radical-star {
-  position: absolute;
-  z-index: 1;
-  top: 4px;
-  right: 4px;
-  border: none;
-  background: none;
-  padding: 2px 4px;
-  font-size: 1.05rem;
-  line-height: 1;
-  color: var(--text-faint);
-  border-radius: 5px;
-  transition: color 0.15s, transform 0.1s;
-}
-
-@media (hover: hover) {
-  .radical-star:hover {
-    color: var(--star);
-    transform: scale(1.15);
-  }
-}
-
-@media (hover: none) {
-  .radical-star {
-    padding: 6px 8px;
-    font-size: 1.25rem;
-  }
-}
-
-.radical-star.is-on {
-  color: var(--star);
-}
-
 @media (max-width: 640px) {
   .filter-row {
     flex-wrap: wrap;
@@ -227,11 +270,11 @@
     width: 100%;
   }
 
-  .radical-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .kanji-grid {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
   }
 
-  .radical-glyph {
-    font-size: 2.8rem;
+  .kanji-char {
+    font-size: 2.1rem;
   }
 }

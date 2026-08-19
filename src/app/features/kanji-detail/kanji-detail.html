@@ -1,0 +1,320 @@
+<div class="container page">
+  @if (notFound()) {
+    <div class="stack">
+      <div class="notice notice-error">{{ t('kanji.notFound', { id: kanjiId() }) }}</div>
+      <div><a class="btn" routerLink="/kanji">{{ t('kanji.back') }}</a></div>
+    </div>
+  } @else if (entry(); as data) {
+    <div class="stack stack-xl">
+      <!-- ── Chữ Hán ─────────────────────────────────────────────────────── -->
+      <header class="stack stack-sm">
+        <a class="back-link" routerLink="/kanji">{{ t('kanji.back') }}</a>
+
+        <div class="kanji-head">
+          <!-- Chữ vẽ to hết cỡ: người học phải nhìn rõ từng nét. -->
+          <span class="kanji-hero jp" aria-hidden="true">{{ data.char }}</span>
+
+          <div class="stack stack-sm kanji-info">
+            <h1 class="kanji-title">{{ readings() }}</h1>
+
+            @if (data.altHanViet.length > 0) {
+              <p class="muted small"><app-t key="kanji.multiReading" block /></p>
+            }
+
+            <div class="row">
+              <span class="badge">{{ data.level }}</span>
+              <span class="badge">{{ t('kanji.wordCount', { count: levelWords().length }) }}</span>
+              @if (favoriteCount() > 0) {
+                <span class="badge badge-warning">
+                  {{ t('home.favoriteCount', { count: favoriteCount() }) }}
+                </span>
+              }
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ── Bảng từ ────────────────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack">
+          <div class="row">
+            <h2>{{ t('kanji.table', { char: data.char }) }}</h2>
+            <span class="spacer"></span>
+            @if (favoriteCount() > 0) {
+              <button type="button" class="btn btn-sm" (click)="clearFavorites()">
+                {{ t('lesson.clearFavorites') }}
+              </button>
+            }
+          </div>
+
+          <div class="row filter-row">
+            <div class="search search-input">
+              <span class="search-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="9" cy="9" r="6" />
+                  <path d="M13.5 13.5 17 17" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input
+                type="search"
+                class="input"
+                [placeholder]="t('kanji.searchWord')"
+                [value]="search()"
+                (input)="onSearch($event)"
+                [attr.aria-label]="t('kanji.searchWord')"
+              />
+              @if (search()) {
+                <button
+                  type="button"
+                  class="search-clear"
+                  (click)="clearSearch()"
+                  [title]="t('home.search.clear')"
+                  [attr.aria-label]="t('home.search.clear')"
+                >
+                  <span aria-hidden="true">✕</span>
+                </button>
+              }
+            </div>
+            <label class="checkbox filter-check">
+              <input
+                type="checkbox"
+                [checked]="onlyFavorites()"
+                (change)="toggleOnlyFavorites($event)"
+              />
+              <span><app-t key="lesson.onlyFavorites" /></span>
+            </label>
+          </div>
+
+          @if (visibleWords().length === 0) {
+            <p class="muted">{{ t('kanji.noMatch') }}</p>
+          } @else {
+            <div class="scroll-x">
+              <table class="word-table">
+                <thead>
+                  <tr>
+                    <th class="col-star">
+                      <span class="sr-only">{{ t('lesson.col.star') }}</span>★
+                    </th>
+                    <th>{{ t('kanji.col.word') }}</th>
+                    <th>{{ t('lesson.col.reading') }}</th>
+                    <th>{{ t('lesson.col.hanViet') }}</th>
+                    <th>{{ t('lesson.col.meaningShort') }}</th>
+                    <th>{{ t('kanji.col.level') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (word of visibleWords(); track word.id) {
+                    <tr [class.is-favorite]="isFavorite(word.id)">
+                      <td class="col-star">
+                        <button
+                          type="button"
+                          class="star-btn"
+                          [class.is-on]="isFavorite(word.id)"
+                          (click)="toggleFavorite(word.id)"
+                          [attr.aria-pressed]="isFavorite(word.id)"
+                          [attr.aria-label]="
+                            isFavorite(word.id)
+                              ? t('favorite.remove', { name: word.japanese })
+                              : t('favorite.add', { name: word.japanese })
+                          "
+                        >
+                          {{ isFavorite(word.id) ? '★' : '☆' }}
+                        </button>
+                      </td>
+                      <td class="col-jp jp" [attr.data-label]="t('kanji.col.word')">
+                        {{ word.japanese }}
+                      </td>
+                      <td class="col-reading jp" [attr.data-label]="t('lesson.col.reading')">
+                        {{ word.reading }}
+                      </td>
+                      <!-- Từ lấy từ khu Bài tập không có cột âm Hán Việt (nguồn của
+                           chúng không khai). Hiện dấu — chứ không để trống: ô trống
+                           trông như dữ liệu bị mất. -->
+                      <td class="col-han" [attr.data-label]="t('lesson.col.hanViet')">
+                        {{ word.hanViet || '—' }}
+                      </td>
+                      <td
+                        class="col-meaning-cell"
+                        [attr.data-label]="t('lesson.col.meaningShort')"
+                      >
+                        {{ word.meaning }}
+                      </td>
+                      <td class="col-level"><span class="badge">{{ word.level }}</span></td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+
+            <p class="small faint">
+              {{ t('kanji.showing', { shown: visibleWords().length, total: levelWords().length }) }}
+            </p>
+          }
+        </div>
+      </section>
+
+      <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack stack-lg">
+          <h2>{{ t('kanji.practiceWords') }}</h2>
+
+          <div class="field">
+            <span class="label">{{ t('kanji.mode') }}</span>
+            <div class="options options-2">
+              @for (item of modes; track item.id) {
+                <button
+                  type="button"
+                  class="option option-stacked"
+                  [class.is-active]="mode() === item.id"
+                  (click)="setMode(item.id)"
+                >
+                  <strong><app-t [key]="item.labelKey" block /></strong>
+                  <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+                </button>
+              }
+            </div>
+          </div>
+
+          @if (availableLevels().length > 1) {
+            <div class="field">
+              <span class="label">{{ t('kanji.levels') }}</span>
+              <div class="options options-limit">
+                @for (level of availableLevels(); track level) {
+                  <button
+                    type="button"
+                    class="option"
+                    [class.is-active]="isLevelSelected(level)"
+                    (click)="toggleLevel(level)"
+                  >
+                    {{ t('kanji.level.count', { level: level, count: levelCounts()[level] }) }}
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          <div class="field">
+            <span class="label">{{ t('lesson.scope') }}</span>
+            <div class="options options-2">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'all'"
+                (click)="setScope('all')"
+              >
+                {{ t('kanji.scope.allWords', { count: levelWords().length }) }}
+              </button>
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'favorite'"
+                [disabled]="favoriteCount() === 0"
+                (click)="setScope('favorite')"
+              >
+                {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+              </button>
+            </div>
+            @if (favoriteCount() === 0) {
+              <span class="hint"><app-t key="lesson.scope.hint" block /></span>
+            }
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.answerMode') }}</span>
+            <p class="muted small"><app-t key="kanji.typingOnly" block /></p>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.questionCount') }}</span>
+            <div class="options options-limit">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === null"
+                (click)="setQuestionLimit(null)"
+              >
+                {{ t('common.all') }}
+              </button>
+              @for (limit of limitChoices(); track limit) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="questionLimit() === limit"
+                  (click)="setQuestionLimit(limit)"
+                >
+                  {{ t('lesson.questionCount.n', { count: limit }) }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.options') }}</span>
+            <div class="options options-2">
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+                <span>
+                  <strong><app-t key="lesson.option.showHanViet" block /></strong>
+                  <span class="hint"><app-t key="kanji.option.showHanViet.desc" block /></span>
+                </span>
+              </label>
+
+              <label class="checkbox">
+                <input
+                  type="checkbox"
+                  [checked]="ignoreDiacritics()"
+                  (change)="toggleIgnoreDiacritics($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+                </span>
+              </label>
+
+              <label class="checkbox">
+                <input
+                  type="checkbox"
+                  [checked]="shuffleQuestions()"
+                  (change)="toggleShuffle($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.shuffle" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="start-bar">
+            <div class="small muted">
+              <app-t
+                key="lesson.plan"
+                block
+                [params]="{
+                  count: plannedQuestionCount(),
+                  mode: modeShort(),
+                  answer: t('lesson.plan.typing'),
+                  max: maxWrongAttempts
+                }"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              [disabled]="!canStart()"
+              (click)="start()"
+            >
+              {{ t('lesson.start') }}
+            </button>
+          </div>
+
+          @if (!canStart()) {
+            <div class="notice notice-warning">{{ t('kanji.emptyPool') }}</div>
+          }
+
+          <p class="small faint"><app-t key="kanji.dataNote" block /></p>
+        </div>
+      </section>
+    </div>
+  }
+</div>

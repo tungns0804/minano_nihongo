@@ -1,40 +1,39 @@
 /**
- * Khu "Kanji" — học chữ Hán theo BỘ THỦ (部首).
+ * Khu "Kanji" — danh sách chữ Hán từ N5 tới N3, mỗi chữ kèm các từ dùng chữ đó.
  *
  * Vì sao là một tab riêng chứ không nằm trong bài học: bài học xếp theo giáo trình
- * (bài 1 → bài 50), còn ở đây một bộ thủ gom chữ của rất nhiều bài lại — bộ 氵
- * (THUỶ) có từ của bài 5 lẫn bài 47. Nhét vào lưới bài học thì chúng không thuộc
- * về bài nào cả.
+ * (bài 1 → bài 50), còn ở đây một CHỮ gom từ của rất nhiều bài lại — chữ 気 có từ
+ * của bài 1 lẫn bài 45. Nhét vào lưới bài học thì chúng không thuộc về bài nào cả.
  *
  * Dữ liệu đi qua hai file:
- *  - `radical-table.ts`   — bảng bộ thủ viết tay: hình dạng, âm Hán Việt, kanji thuộc bộ.
- *  - `radical-words.ts`   — do `npm run generate:kanji` sinh ra: ghép bảng trên với
- *                           kho từ có sẵn của ứng dụng để mỗi bộ có từ minh hoạ thật.
+ *  - `kanji-supplement.ts` — bảng âm Hán Việt viết tay, CHỈ cho vài chữ mà kho từ
+ *                            không suy ra được (xem ghi chú trong chính file đó).
+ *  - `kanji-words.ts`      — do `npm run generate:kanji` sinh ra: chữ + âm Hán Việt
+ *                            + từ minh hoạ, rút thẳng từ kho từ của ứng dụng.
  *
  * Hai màn hình dùng dữ liệu này:
- *  - `/kanji`      danh sách bộ thủ + luyện "bộ thủ → âm Hán Việt".
- *  - `/kanji/:id`  một bộ thủ + luyện "từ → nghĩa" và "từ → hiragana".
+ *  - `/kanji`      lưới chữ Hán theo cấp + luyện "chữ Hán → âm Hán Việt".
+ *  - `/kanji/:id`  một chữ + luyện "từ → nghĩa" và "từ → hiragana".
  */
 
 import type { MessageKey } from '../i18n/messages';
 
 /**
- * Cấp độ JLPT của một từ trong khu Kanji.
+ * Cấp độ JLPT của một chữ / một từ trong khu Kanji.
  *
- * Chỉ tới N3 vì kho từ của ứng dụng dừng ở đó (giáo trình 皆の日本語 hết bài 50 là
- * N4, bộ động từ bài tập có thêm phần N3). Từ N2 trong `core/exercises` KHÔNG được
- * đưa vào đây — xem `scripts/generate-kanji.mjs`.
+ * Mốc chia lấy ĐÚNG quy ước có sẵn của ứng dụng (`JLPT_RANGE` ở
+ * `models/vocabulary.model.ts`): N5 = từ vựng bài 1-25, N4 = bài 26-50, còn N3 lấy
+ * từ bộ động từ của khu Bài tập. Không tự dựng danh sách kanji theo cấp JLPT ở
+ * đâu khác — cả ứng dụng phải nói cùng một thứ tiếng khi nhắc tới "N5".
  */
 export type KanjiLevel = 'N5' | 'N4' | 'N3';
 
 export const KANJI_LEVELS: readonly KanjiLevel[] = ['N5', 'N4', 'N3'];
 
-/** Thứ tự cấp độ, dùng để lấy cấp thấp nhất (tức là chỗ người học gặp bộ này sớm nhất). */
 const LEVEL_RANK: Record<KanjiLevel, number> = { N5: 0, N4: 1, N3: 2 };
 
-/** [kanji thuộc bộ, từ, cách đọc kana, âm Hán Việt của từ, nghĩa, cấp độ] */
+/** [từ, cách đọc kana, âm Hán Việt của cả từ, nghĩa, cấp độ] */
 export type WordSeed = readonly [
-  kanji: string,
   japanese: string,
   reading: string,
   hanViet: string,
@@ -42,66 +41,59 @@ export type WordSeed = readonly [
   level: KanjiLevel,
 ];
 
-/** [bộ thủ, các dạng biến thể, âm Hán Việt, nghĩa, số nét, các từ minh hoạ] */
-export type RadicalSeed = readonly [
-  glyph: string,
-  variants: string,
+/**
+ * [chữ Hán, âm Hán Việt, các âm khác, cấp độ, các từ dùng chữ này]
+ *
+ * `altHanViet` là các âm khác cũng đọc được của chính chữ đó (行 HÀNH/HÀNG,
+ * 長 TRƯỜNG/TRƯỞNG), ngăn nhau bằng dấu `/`. Rỗng nếu chữ chỉ có một âm.
+ */
+export type KanjiSeed = readonly [
+  char: string,
   hanViet: string,
-  meaning: string,
-  strokes: number,
+  altHanViet: string,
+  level: KanjiLevel,
   words: readonly WordSeed[],
 ];
 
-/** Một từ minh hoạ cho bộ thủ. */
-export interface RadicalWord {
+/** Một từ dùng chữ Hán đang xem. */
+export interface KanjiWord {
   /**
-   * Duy nhất trong phạm vi MỘT bộ thủ — đủ dùng vì dấu ★ lưu theo từng bộ.
+   * Duy nhất trong phạm vi MỘT chữ — đủ dùng vì dấu ★ lưu theo từng chữ.
    * Gồm cả cách đọc vì có từ viết giống nhau mà đọc khác (降ります ふり/おり).
    */
   id: string;
-  /** Chữ trong từ mang bộ thủ này, ví dụ 休 của từ 休みます. */
-  kanji: string;
   japanese: string;
   reading: string;
-  /** Âm Hán Việt của cả từ. Rỗng với từ tới từ bộ động từ bài tập (nguồn không có cột này). */
+  /** Âm Hán Việt của cả từ. Rỗng với từ tới từ khu Bài tập (nguồn không có cột này). */
   hanViet: string;
   meaning: string;
   level: KanjiLevel;
 }
 
-/** Một chữ Hán thuộc bộ thủ, kèm các từ dùng chữ đó. */
-export interface RadicalKanji {
-  char: string;
-  words: RadicalWord[];
-}
-
-export interface Radical {
+export interface KanjiEntry {
   /**
-   * Đoạn cuối đường dẫn `/kanji/<id>`, cũng là khoá lưu danh sách ★ của bộ này.
-   * Ghép âm Hán Việt (đọc được khi soi localStorage) với mã Unicode của chữ (để
-   * hai bộ trùng âm như 人 và 儿 không đụng nhau). KHÔNG đổi tuỳ tiện: đổi là mất ★.
+   * Đoạn cuối đường dẫn `/kanji/<id>`, cũng là khoá lưu danh sách ★ của chữ này.
+   * Ghép âm Hán Việt (đọc được khi soi localStorage) với mã Unicode của chữ — hai
+   * chữ trùng âm (工 và 公 đều CÔNG) vẫn tách nhau được. KHÔNG đổi tuỳ tiện: đổi
+   * là mất ★.
    */
   id: string;
-  glyph: string;
-  /** Các dạng biến thể khi bộ đứng trong chữ (亻 của 人). Rỗng nếu bộ không đổi dạng. */
-  variants: string[];
+  char: string;
+  /** Rỗng khi kho từ không suy ra được âm nào — xem `kanji-supplement.ts`. */
   hanViet: string;
-  meaning: string;
-  strokes: number;
-  /** Cấp thấp nhất trong các từ của bộ — tức là người học gặp bộ này từ cấp nào. */
+  /** Các âm khác của chính chữ này; khi luyện thì gõ âm nào cũng được tính đúng. */
+  altHanViet: string[];
   level: KanjiLevel;
-  kanjiList: RadicalKanji[];
-  /** Toàn bộ từ của bộ, phẳng, giữ đúng thứ tự nhóm theo chữ. */
-  words: RadicalWord[];
+  words: KanjiWord[];
 }
 
 /**
- * Bốn chiều hỏi của khu Kanji.
+ * Ba chiều hỏi của khu Kanji.
  *
- * `radical-hanviet` hỏi trên BỘ THỦ nên chỉ có ở màn hình danh sách; ba chiều còn
- * lại hỏi trên TỪ nên chỉ có ở màn hình một bộ.
+ * `kanji-hanviet` hỏi trên CHỮ nên chỉ có ở màn hình danh sách; hai chiều còn lại
+ * (và chiều trộn của chúng) hỏi trên TỪ nên chỉ có ở màn hình một chữ.
  */
-export type KanjiMode = 'radical-hanviet' | 'word-meaning' | 'word-reading' | 'word-mixed';
+export type KanjiMode = 'kanji-hanviet' | 'word-meaning' | 'word-reading' | 'word-mixed';
 
 export interface KanjiModeInfo {
   id: KanjiMode;
@@ -110,7 +102,7 @@ export interface KanjiModeInfo {
   exampleKey: MessageKey;
 }
 
-/** Chiều hỏi của màn hình một bộ thủ (hỏi trên từ). */
+/** Chiều hỏi của màn hình một chữ (hỏi trên từ). */
 export const KANJI_WORD_MODES: readonly KanjiModeInfo[] = [
   {
     id: 'word-meaning',
@@ -132,14 +124,14 @@ export const KANJI_WORD_MODES: readonly KanjiModeInfo[] = [
   },
 ];
 
-export const RADICAL_MODE: KanjiModeInfo = {
-  id: 'radical-hanviet',
-  labelKey: 'kanji.mode.radicalHanViet',
-  shortKey: 'kanji.mode.radicalHanViet.short',
-  exampleKey: 'kanji.mode.radicalHanViet.example',
+export const KANJI_HAN_VIET_MODE: KanjiModeInfo = {
+  id: 'kanji-hanviet',
+  labelKey: 'kanji.mode.kanjiHanViet',
+  shortKey: 'kanji.mode.kanjiHanViet.short',
+  exampleKey: 'kanji.mode.kanjiHanViet.example',
 };
 
-const ALL_MODES: readonly KanjiModeInfo[] = [RADICAL_MODE, ...KANJI_WORD_MODES];
+const ALL_MODES: readonly KanjiModeInfo[] = [KANJI_HAN_VIET_MODE, ...KANJI_WORD_MODES];
 
 export function kanjiModeInfo(id: KanjiMode): KanjiModeInfo {
   return ALL_MODES.find((mode) => mode.id === id) ?? ALL_MODES[0];
@@ -155,50 +147,35 @@ export function kanjiQuestionsPerItem(mode: KanjiMode): number {
 }
 
 /**
- * Id "bài học" của phiên luyện âm Hán Việt bộ thủ.
+ * Id "bài học" của phiên luyện âm Hán Việt của chữ.
  *
- * Phiên này không thuộc bộ thủ nào cả (nó hỏi trên CẢ danh sách), nên cần một id
- * riêng để lưu dấu ★ và để màn hình kết quả biết đường quay về `/kanji` chứ không
- * phải `/kanji/<id>`. Đổi chuỗi này là mất ★ của phần luyện bộ thủ.
+ * Phiên này không thuộc chữ nào cả (nó hỏi trên CẢ danh sách), nên cần một id riêng
+ * để lưu dấu ★ và để màn hình kết quả biết đường quay về `/kanji` chứ không phải
+ * `/kanji/<id>`. Đổi chuỗi này là mất ★ của phần luyện âm Hán Việt.
  */
-export const RADICAL_SESSION_ID = 'bo-thu';
+export const KANJI_SESSION_ID = 'am-han-viet';
 
-/** Dựng danh sách bộ thủ đầy đủ từ dữ liệu nén mà script sinh ra. */
-export function buildRadicals(seeds: readonly RadicalSeed[]): Radical[] {
-  return seeds.map(([glyph, variants, hanViet, meaning, strokes, words]) => {
-    const list: RadicalWord[] = words.map(([kanji, japanese, reading, wordHanViet, wordMeaning, level]) => ({
+/** Dựng danh sách chữ đầy đủ từ dữ liệu nén mà script sinh ra. */
+export function buildKanjiEntries(seeds: readonly KanjiSeed[]): KanjiEntry[] {
+  return seeds.map(([char, hanViet, altHanViet, level, words]) => ({
+    id: kanjiId(char, hanViet),
+    char,
+    hanViet,
+    altHanViet: altHanViet ? altHanViet.split('/') : [],
+    level,
+    words: words.map(([japanese, reading, wordHanViet, meaning, wordLevel]) => ({
       id: `${japanese}|${reading}`,
-      kanji,
       japanese,
       reading,
       hanViet: wordHanViet,
-      meaning: wordMeaning,
-      level,
-    }));
-
-    // Nhóm theo chữ, giữ nguyên thứ tự chữ xuất hiện lần đầu trong danh sách từ.
-    const groups = new Map<string, RadicalWord[]>();
-    for (const word of list) {
-      const bucket = groups.get(word.kanji);
-      if (bucket) bucket.push(word);
-      else groups.set(word.kanji, [word]);
-    }
-
-    return {
-      id: radicalId(glyph, hanViet),
-      glyph,
-      variants: [...variants],
-      hanViet,
       meaning,
-      strokes,
-      level: lowestLevel(list),
-      kanjiList: [...groups].map(([char, items]) => ({ char, words: items })),
-      words: list,
-    };
-  });
+      level: wordLevel,
+    })),
+  }));
 }
 
-function lowestLevel(words: readonly RadicalWord[]): KanjiLevel {
+/** Cấp thấp nhất trong một nhóm từ — dùng cho dòng thống kê ở màn hình một chữ. */
+export function lowestLevel(words: readonly KanjiWord[]): KanjiLevel {
   let level: KanjiLevel = 'N3';
   for (const word of words) {
     if (LEVEL_RANK[word.level] < LEVEL_RANK[level]) level = word.level;
@@ -209,11 +186,14 @@ function lowestLevel(words: readonly RadicalWord[]): KanjiLevel {
 /**
  * "nhan-4eba" — âm Hán Việt bỏ dấu, ghép mã Unicode của chữ.
  *
- * Cần cả hai nửa: chỉ âm Hán Việt thì 人 và 儿 (đều NHÂN) đụng nhau, mà chỉ mã
- * Unicode thì nhìn vào localStorage không biết đó là bộ nào.
+ * Cần cả hai nửa: chỉ âm Hán Việt thì 工 và 公 (đều CÔNG) đụng nhau, mà chỉ mã
+ * Unicode thì nhìn vào localStorage không biết đó là chữ nào. Chữ chưa có âm Hán
+ * Việt thì chỉ còn mã Unicode ("k-9032").
  */
-function radicalId(glyph: string, hanViet: string): string {
-  return `${slug(hanViet)}-${glyph.codePointAt(0)!.toString(16)}`;
+function kanjiId(char: string, hanViet: string): string {
+  const code = char.codePointAt(0)!.toString(16);
+  const name = slug(hanViet);
+  return name ? `${name}-${code}` : `k-${code}`;
 }
 
 function slug(text: string): string {

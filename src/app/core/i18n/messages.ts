@@ -53,7 +53,7 @@ export const MESSAGES = {
   'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
   'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
-  'app.nav.kanji': { vi: 'Kanji bộ thủ', ja: '漢字・部首' },
+  'app.nav.kanji': { vi: 'Kanji', ja: '漢字' },
   'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
   'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
@@ -94,10 +94,10 @@ export const MESSAGES = {
     ja: '複数のレベルの動詞を集めたテーマ別練習。選択式はなく、入力して解答します。',
   },
   'kind.kanji': { vi: 'Kanji', ja: '漢字' },
-  'kind.kanji.unit': { vi: '{count} bộ thủ', ja: '部首{count}個' },
+  'kind.kanji.unit': { vi: '{count} chữ', ja: '漢字{count}字' },
   'kind.kanji.desc': {
-    vi: 'Học chữ Hán theo bộ thủ: âm Hán Việt của bộ, và nghĩa lẫn cách đọc của các từ dùng chữ thuộc bộ đó.',
-    ja: '部首から漢字を学びます：部首の漢越音と、その部の漢字を使う単語の意味・読み方。',
+    vi: 'Danh sách chữ Hán N5→N3: âm Hán Việt của chữ, và nghĩa lẫn cách đọc của các từ dùng chữ đó.',
+    ja: 'N5～N3の漢字一覧：字の漢越音と、その字を使う単語の意味・読み方。',
   },
   'kind.grammar': { vi: 'Ngữ pháp', ja: '文法' },
   'kind.grammar.unit': { vi: '{count} mẫu ngữ pháp', ja: '文型{count}個' },
@@ -448,36 +448,29 @@ export const MESSAGES = {
   },
 
   // ── Khu Kanji ──────────────────────────────────────────────────────────
-  // Học chữ Hán theo BỘ THỦ: mỗi bộ có âm Hán Việt riêng và các từ trong kho của
-  // ứng dụng có chứa chữ thuộc bộ đó (xem core/kanji/).
-  'kanji.title': { vi: 'Kanji theo bộ thủ', ja: '部首で覚える漢字' },
+  // Danh sách chữ Hán từ N5 tới N3, mỗi chữ kèm các từ dùng chữ đó (xem core/kanji/).
+  'kanji.title': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
   'kanji.subtitle': {
-    vi: 'Toàn bộ bộ thủ gặp trong kanji từ N5 tới N3. Mỗi bộ kèm các chữ thuộc bộ và những từ đã có trong ứng dụng dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
-    ja: 'N5からN3までの漢字に出てくる部首の一覧。各部首にその部の漢字と、アプリ内にあるその漢字を使う単語が付きます。解答は入力のみです。',
+    vi: 'Toàn bộ chữ Hán xuất hiện trong kho từ của ứng dụng, xếp theo cấp độ và theo mức thông dụng. Mở một chữ để xem các từ dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
+    ja: 'アプリの単語データに出てくる漢字の一覧。レベル順・使用頻度順に並びます。漢字を開くとその字を使う単語が見られます。解答は入力のみです。',
   },
-  'kanji.back': { vi: '← Danh sách bộ thủ', ja: '← 部首一覧' },
-  'kanji.notFound': { vi: 'Không tìm thấy bộ thủ {id}.', ja: '部首 {id} が見つかりません。' },
+  'kanji.back': { vi: '← Danh sách Kanji', ja: '← 漢字一覧' },
+  'kanji.notFound': { vi: 'Không tìm thấy chữ {id}.', ja: '漢字 {id} が見つかりません。' },
 
-  'kanji.radicalCount': { vi: '{count} bộ thủ', ja: '部首{count}個' },
   'kanji.kanjiCount': { vi: '{count} chữ', ja: '漢字{count}字' },
   'kanji.wordCount': { vi: '{count} từ', ja: '{count}語' },
-  'kanji.strokes': { vi: '{count} nét', ja: '{count}画' },
-  'kanji.variants': { vi: 'Dạng viết trong chữ', ja: '字の中での形' },
 
-  'kanji.levels': { vi: 'Cấp độ (chọn nhiều được)', ja: 'レベル（複数選択可）' },
-  'kanji.levels.hint': {
-    vi: 'Cấp của một bộ là cấp thấp nhất trong các từ của bộ đó — tức là chỗ bạn gặp bộ này sớm nhất.',
-    ja: '部首のレベルは、その部首の単語の中で最も低いレベル（＝最初に出会う所）です。',
-  },
+  'kanji.levels': { vi: 'Cấp độ', ja: 'レベル' },
   'kanji.level.count': { vi: '{level} ({count})', ja: '{level}（{count}）' },
-  'kanji.scope.all': { vi: 'Toàn bộ ({count})', ja: '全体（{count}）' },
+  'kanji.scope.all': { vi: 'Toàn bộ {level} ({count})', ja: '{level}全体（{count}）' },
+  'kanji.scope.allWords': { vi: 'Toàn bộ ({count})', ja: '全体（{count}）' },
   'kanji.search': {
-    vi: 'Tìm theo bộ thủ, âm Hán Việt, nghĩa hoặc chữ…',
-    ja: '部首・漢越音・意味・漢字で検索…',
+    vi: 'Tìm theo chữ, âm Hán Việt, từ hoặc nghĩa…',
+    ja: '漢字・漢越音・単語・意味で検索…',
   },
   'kanji.searchWord': {
-    vi: 'Tìm theo chữ, từ, cách đọc hoặc nghĩa…',
-    ja: '漢字・単語・読み方・意味で検索…',
+    vi: 'Tìm theo từ, cách đọc hoặc nghĩa…',
+    ja: '単語・読み方・意味で検索…',
   },
   'kanji.showing': { vi: 'Hiện {shown}/{total} mục.', ja: '{total}項目中{shown}項目を表示。' },
   'kanji.noMatch': { vi: 'Không có mục nào khớp.', ja: '一致する項目がありません。' },
@@ -485,18 +478,22 @@ export const MESSAGES = {
     vi: 'Khu Kanji chỉ có gõ đáp án: bày sẵn bốn âm Hán Việt để chọn thì chỉ còn là nhận mặt chữ, mà cái cần nhớ ở đây là tự đọc ra được.',
     ja: 'この画面は入力解答のみです。4択にすると見比べるだけになり、自分で読める力が身につきません。',
   },
-
-  'kanji.practiceRadical': { vi: 'Luyện âm Hán Việt của bộ thủ', ja: '部首の漢越音を練習' },
-  'kanji.practiceRadical.hint': {
-    vi: 'Hỏi trên toàn bộ bộ thủ đang hiện theo cấp độ đã chọn.',
-    ja: '選んだレベルで表示中の部首すべてから出題します。',
+  'kanji.multiReading': {
+    vi: 'Chữ này có nhiều âm Hán Việt — khi luyện, gõ âm nào cũng được tính đúng.',
+    ja: 'この漢字には漢越音が複数あります。練習ではどれを入力しても正解です。',
   },
-  'kanji.practiceWords': { vi: 'Luyện từ của bộ này', ja: 'この部首の単語を練習' },
+
+  'kanji.practiceHanViet': { vi: 'Luyện âm Hán Việt của chữ', ja: '漢字の漢越音を練習' },
+  'kanji.practiceHanViet.hint': {
+    vi: 'Hỏi trên toàn bộ chữ của cấp độ đang chọn ở trên.',
+    ja: '上で選んでいるレベルの漢字すべてから出題します。',
+  },
+  'kanji.practiceWords': { vi: 'Luyện từ của chữ này', ja: 'この漢字の単語を練習' },
 
   'kanji.mode': { vi: 'Chiều hỏi', ja: '出題の方向' },
-  'kanji.mode.radicalHanViet': { vi: 'Bộ thủ → âm Hán Việt', ja: '部首 → 漢越音' },
-  'kanji.mode.radicalHanViet.short': { vi: 'Bộ → Hán Việt', ja: '部首 → 漢越音' },
-  'kanji.mode.radicalHanViet.example': { vi: '氵 → THỦY', ja: '氵 → THỦY' },
+  'kanji.mode.kanjiHanViet': { vi: 'Chữ Hán → âm Hán Việt', ja: '漢字 → 漢越音' },
+  'kanji.mode.kanjiHanViet.short': { vi: 'Chữ → Hán Việt', ja: '漢字 → 漢越音' },
+  'kanji.mode.kanjiHanViet.example': { vi: '海 → HẢI', ja: '海 → HẢI' },
   'kanji.mode.wordMeaning': { vi: 'Từ kanji → nghĩa tiếng Việt', ja: '漢字の単語 → ベトナム語訳' },
   'kanji.mode.wordMeaning.short': { vi: 'Từ → nghĩa', ja: '単語 → 意味' },
   'kanji.mode.wordMeaning.example': { vi: '海 → biển', ja: '海 → biển' },
@@ -507,26 +504,34 @@ export const MESSAGES = {
   'kanji.mode.wordMixed.short': { vi: 'Nghĩa + hiragana', ja: '意味＋読み' },
   'kanji.mode.wordMixed.example': { vi: '海 → biển / うみ', ja: '海 → biển / うみ' },
 
-  'kanji.label.radicalHanViet': { vi: 'Bộ thủ này đọc âm Hán Việt là gì?', ja: 'この部首の漢越音は？' },
+  'kanji.label.kanjiHanViet': { vi: 'Chữ này đọc âm Hán Việt là gì?', ja: 'この漢字の漢越音は？' },
   'kanji.label.wordMeaning': { vi: 'Từ này nghĩa là gì?', ja: 'この単語の意味は？' },
   'kanji.label.wordReading': { vi: 'Từ này viết hiragana thế nào?', ja: 'この単語のひらがなは？' },
-  'kanji.answerPrompt.hanViet': { vi: 'Nhập âm Hán Việt của bộ thủ', ja: '部首の漢越音を入力' },
+  'kanji.answerPrompt.hanViet': { vi: 'Nhập âm Hán Việt của chữ', ja: '漢字の漢越音を入力' },
 
-  'kanji.col.radical': { vi: 'Bộ thủ', ja: '部首' },
+  'kanji.option.showWordHint': { vi: 'Gợi ý một từ dùng chữ đó', ja: 'その字を使う単語をヒントに' },
+  'kanji.option.showWordHint.desc': {
+    vi: 'Chữ đứng một mình gần như không có manh mối; nhìn 会社 thì nhớ ra HỘI dễ hơn nhìn trơ chữ 会.',
+    ja: '漢字だけでは手がかりが少なめです。会社を見れば、会だけを見るよりHỘIを思い出しやすくなります。',
+  },
+  'kanji.option.showHanViet.desc': {
+    vi: 'Âm Hán Việt của cả từ dẫn tới nghĩa mà không đọc thẳng ra đáp án.',
+    ja: '単語全体の漢越音は、答えそのものを言わずに意味へ導いてくれます。',
+  },
+
   'kanji.col.hanViet': { vi: 'Âm Hán Việt', ja: '漢越音' },
-  'kanji.col.meaning': { vi: 'Nghĩa của bộ', ja: '部首の意味' },
-  'kanji.col.strokes': { vi: 'Số nét', ja: '画数' },
-  'kanji.col.kanji': { vi: 'Chữ thuộc bộ', ja: 'この部の漢字' },
+  'kanji.col.kanji': { vi: 'Chữ Hán', ja: '漢字' },
   'kanji.col.level': { vi: 'Cấp độ', ja: 'レベル' },
   'kanji.col.word': { vi: 'Từ', ja: '単語' },
-  'kanji.table': { vi: 'Các chữ thuộc bộ và từ dùng chữ đó', ja: 'この部の漢字と、その漢字を使う単語' },
+  'kanji.col.examples': { vi: 'Từ dùng chữ này', ja: 'この字を使う単語' },
+  'kanji.table': { vi: 'Các từ dùng chữ {char}', ja: '{char} を使う単語' },
   'kanji.emptyPool': {
     vi: 'Chưa có từ nào trong phạm vi đang chọn.',
     ja: '選択中の範囲に単語がありません。',
   },
   'kanji.dataNote': {
-    vi: 'Từ ở đây lấy nguyên từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập), không nhập thêm từ nguồn ngoài.',
-    ja: 'ここの単語はアプリ内のデータ（皆の日本語 第1-50課の単語と、練習問題の動詞）をそのまま使っています。外部からの追加はありません。',
+    vi: 'Chữ, âm Hán Việt và từ ở đây đều rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập). Cấp độ tính theo đúng quy ước của ứng dụng: N5 = bài 1-25, N4 = bài 26-50, N3 lấy từ bộ động từ bài tập.',
+    ja: 'ここの漢字・漢越音・単語はすべてアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出したものです。レベルはアプリ共通の基準：N5＝第1-25課、N4＝第26-50課、N3は練習問題の動詞から。',
   },
 
   // ── Nhãn phạm vi (dùng ở màn kết quả) ──────────────────────────────────
@@ -876,8 +881,8 @@ export const MESSAGES = {
   'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
   'route.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'route.exerciseDetail': { vi: 'Nội dung bài tập', ja: '練習問題の詳細' },
-  'route.kanji': { vi: 'Kanji bộ thủ', ja: '漢字・部首' },
-  'route.kanjiRadical': { vi: 'Bộ thủ', ja: '部首' },
+  'route.kanji': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
+  'route.kanjiDetail': { vi: 'Chữ Kanji', ja: '漢字' },
   'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
   'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
 } as const satisfies Record<string, Entry>;

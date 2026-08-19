@@ -61,9 +61,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/exercise-detail/exercise-detail').then((m) => m.ExerciseDetail),
   },
-  // Khu "Kanji" cũng có nhánh riêng: nội dung của nó là bảng bộ thủ cài sẵn trong
-  // mã nguồn (core/kanji/), và một bộ thủ gom chữ của rất nhiều bài chứ không
-  // thuộc bài nào.
+  // Khu "Kanji" cũng có nhánh riêng: một CHỮ gom từ của rất nhiều bài lại chứ
+  // không thuộc bài nào, nên không xếp vào được lưới bài học ngoài trang chủ.
   {
     path: 'kanji',
     title: 'route.kanji',
@@ -71,9 +70,9 @@ export const routes: Routes = [
   },
   {
     path: 'kanji/:id',
-    title: 'route.kanjiRadical',
+    title: 'route.kanjiDetail',
     loadComponent: () =>
-      import('./features/kanji-radical/kanji-radical').then((m) => m.KanjiRadical),
+      import('./features/kanji-detail/kanji-detail').then((m) => m.KanjiDetail),
   },
   {
     path: 'practice',

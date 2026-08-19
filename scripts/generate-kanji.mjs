@@ -1,16 +1,25 @@
 #!/usr/bin/env node
 /**
- * Sinh `src/app/core/kanji/radical-words.ts` cho khu "Kanji".
+ * Sinh `src/app/core/kanji/kanji-words.ts` cho khu "Kanji".
  *
- * Ghép hai thứ có sẵn trong kho:
- *  1. `src/app/core/kanji/radical-table.ts` — bảng bộ thủ viết tay (bộ nào gồm chữ nào).
- *  2. Kho từ của ứng dụng:
- *       - `data-source/minano-nihongo-<n> / vocabulary.txt` (N5: bài 1-25, N4: bài 26-50)
- *       - `src/app/core/exercises/exercise-verbs.ts` và `transitive-pairs.ts` (thêm phần N3)
+ * Rút DANH SÁCH CHỮ HÁN + âm Hán Việt của từng chữ + các từ dùng chữ đó, tất cả
+ * từ kho từ có sẵn của ứng dụng:
+ *   - `data-source/minano-nihongo-<n> / vocabulary.txt` (N5: bài 1-25, N4: bài 26-50)
+ *   - `src/app/core/exercises/exercise-verbs.ts` và `transitive-pairs.ts` (thêm phần N3)
  *
- * Không tự nghĩ ra từ mới: mọi từ ở đây đều đã có sẵn trong ứng dụng, kèm đúng
- * cách đọc, nghĩa và âm Hán Việt của nguồn gốc. Sửa một từ ở `data-source/` rồi
- * chạy lại script là khu Kanji đổi theo.
+ * ── Âm Hán Việt của TỪNG CHỮ suy ra thế nào ────────────────────────────────
+ * Nguồn từ vựng ghi âm Hán Việt cho CẢ TỪ ("会社員 → HỘI XÃ VIÊN"). Mà âm Hán
+ * Việt của một từ chính là các âm của từng chữ ghép lại, nên khi số âm tiết
+ * khớp đúng số chữ Hán thì gán được 1:1: 会=HỘI, 社=XÃ, 員=VIÊN.
+ *
+ * Một chữ được nhiều từ "bỏ phiếu"; âm nào nhiều phiếu nhất thì thắng, các âm
+ * còn lại vẫn được giữ làm đáp án chấp nhận khi luyện (行 HÀNH và HÀNG đều đúng).
+ * Từ nào lệch số âm tiết thì bỏ qua chứ không đoán — gán lệch một chữ là sai
+ * lây sang mọi từ khác có chữ đó.
+ *
+ * Nhờ cách này KHÔNG có âm Hán Việt nào bị chép tay: tất cả đến từ đúng nguồn
+ * người dùng chỉ định. Ngoại lệ duy nhất là `kanji-supplement.ts` — vài chữ chỉ
+ * xuất hiện trong bộ động từ khu Bài tập, mà nguồn đó không có cột Hán Việt.
  *
  * Chạy: npm run generate:kanji
  *       npm run generate:kanji -- --check   (chỉ kiểm tra, không ghi đè)
@@ -22,19 +31,11 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
-const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'kanji', 'radical-words.ts');
+const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'kanji', 'kanji-words.ts');
 
-/** Cấp độ được đưa vào khu Kanji. Từ N2 của bộ bài tập bị bỏ: ngoài phạm vi N5→N3. */
+/** Cấp độ trong phạm vi khu Kanji. Từ N2 của khu Bài tập nằm ngoài phạm vi N5→N3. */
 const LEVELS = ['N5', 'N4', 'N3'];
 const LEVEL_RANK = { N5: 0, N4: 1, N3: 2 };
-
-/**
- * Số từ tối đa giữ lại cho MỖI CHỮ trong bộ.
- *
- * Không lấy hết: chữ 日 một mình đã có hơn ba chục từ, để nguyên thì bảng của bộ
- * 日 dài tới mức không tra được, mà mấy từ sau cũng chỉ lặp lại đúng một chữ ấy.
- */
-const WORDS_PER_KANJI = 4;
 
 const KANJI = /[一-鿿]/;
 const KANJI_ALL = /[一-鿿]/g;
@@ -45,9 +46,10 @@ const SENTENCE = /[？！。、?!]/;
 const checkOnly = process.argv.includes('--check');
 const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
-// ── Nạp bảng bộ thủ ───────────────────────────────────────────────────────
 const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92)).join('/')}`).href;
-const { RADICAL_TABLE } = await import(toFileUrl(join(ROOT, 'src/app/core/kanji/radical-table.ts')));
+const { HAN_VIET_SUPPLEMENT, HAN_VIET_FIX } = await import(
+  toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-supplement.ts'))
+);
 
 // ── Kho từ ────────────────────────────────────────────────────────────────
 
@@ -83,15 +85,18 @@ function readVocabulary() {
         reading = paren[2].trim();
       }
 
-      // Không có kanji thì không minh hoạ được bộ thủ nào; không có cách đọc thì
-      // chiều "từ → hiragana" không có đáp án.
-      if (!KANJI.test(japanese) || !reading || !meaning) continue;
-      // Câu chào nguyên câu ("お帰りなさい。", "国へ帰るの？") vẫn là mục từ vựng hợp
+      if (!KANJI.test(japanese)) continue;
+      // Mục là cả một câu chào ("お帰りなさい。", "国へ帰るの？") vẫn là từ vựng hợp
       // lệ của bài học, nhưng ở đây thì không: khu Kanji hỏi nghĩa và cách đọc của
       // MỘT TỪ. Chỉ lọc theo dấu câu, không lọc theo trợ từ — cụm cố định kiểu
       // 電車に乗ります hay 歯を磨きます chính là thứ giáo trình dạy nguyên khối.
       if (SENTENCE.test(japanese)) continue;
-      words.push({ japanese, reading, hanViet, meaning, level, order: lesson });
+
+      // `usable` = dùng được làm câu hỏi. Mục thiếu cách đọc thì chiều "từ →
+      // hiragana" không có đáp án, nhưng âm Hán Việt của nó vẫn dùng để suy âm
+      // của từng chữ được — bỏ luôn cả dòng là mất âm DỤC của chữ 浴.
+      const usable = Boolean(reading && meaning);
+      words.push({ japanese, reading, hanViet, meaning, level, order: lesson, usable });
     }
   }
   return words;
@@ -111,7 +116,7 @@ async function readExerciseVerbs() {
     if (!KANJI.test(masu) || !LEVELS.includes(level)) return;
     // order 99: xếp sau từ của giáo trình khi hai bên cùng cấp, vì từ trong sách
     // là thứ người học gặp trước.
-    words.push({ japanese: masu, reading, hanViet: '', meaning, level, order: 99 });
+    words.push({ japanese: masu, reading, hanViet: '', meaning, level, order: 99, usable: true });
   };
 
   for (const verb of EXERCISE_VERBS) push(verb.masu, verb.reading, verb.meaning, verb.level);
@@ -122,58 +127,105 @@ async function readExerciseVerbs() {
   return words;
 }
 
-// ── Ghép bộ thủ với từ ────────────────────────────────────────────────────
-
 const vocabulary = readVocabulary();
 const exercise = await readExerciseVerbs();
 
-/** Gộp hai kho, một từ chỉ giữ một lần và giữ ở cấp THẤP nhất mà nó xuất hiện. */
+/**
+ * Gộp hai kho: một từ chỉ giữ một lần, ở cấp THẤP nhất mà nó xuất hiện.
+ *
+ * Âm Hán Việt thì gộp riêng chứ không đi theo bản thắng cấp độ: rất nhiều động từ
+ * có mặt ở CẢ hai kho (死にます ở bài 39 lẫn trong bộ động từ bài tập), mà bản của
+ * khu Bài tập không có cột âm Hán Việt. Để bản đó đè lên là mất âm của cả chữ 死.
+ */
 const pool = new Map();
 for (const word of [...vocabulary, ...exercise]) {
   const key = `${word.japanese}|${word.reading}`;
   const prev = pool.get(key);
-  if (!prev || LEVEL_RANK[word.level] < LEVEL_RANK[prev.level]) pool.set(key, word);
+  if (!prev) {
+    pool.set(key, { ...word });
+    continue;
+  }
+  if (LEVEL_RANK[word.level] < LEVEL_RANK[prev.level]) {
+    pool.set(key, { ...word, hanViet: word.hanViet || prev.hanViet, usable: word.usable || prev.usable });
+  } else {
+    if (!prev.hanViet && word.hanViet) prev.hanViet = word.hanViet;
+    if (!prev.usable && word.usable) Object.assign(prev, word, { hanViet: prev.hanViet || word.hanViet });
+  }
 }
 const allWords = [...pool.values()];
 
-/** Chữ nào thuộc bộ nào. Một chữ chỉ được thuộc đúng một bộ (bảng đã kiểm tra bên dưới). */
-const radicalOfKanji = new Map();
-for (const [glyph, , , , , kanji] of RADICAL_TABLE) {
-  for (const char of kanji) {
-    const owner = radicalOfKanji.get(char);
-    if (owner) {
-      log(`[LOI] chữ ${char} bị khai ở cả bộ ${owner} lẫn bộ ${glyph}`);
-      process.exitCode = 1;
-    }
-    radicalOfKanji.set(char, glyph);
-  }
-}
+// ── Suy âm Hán Việt của từng chữ ──────────────────────────────────────────
 
-/**
- * Một từ chỉ minh hoạ cho MỘT chữ trong mỗi bộ — chữ đầu tiên của bộ đó gặp trong
- * từ. Nếu không, 明日 (cả 明 lẫn 日 đều thuộc bộ 日) sẽ nằm hai lần trong cùng một
- * bộ và bị hỏi hai lần trong một phiên luyện.
- */
-const wordsByRadical = new Map();
+/** char -> Map(âm -> số phiếu) */
+const votes = new Map();
+let alignedWords = 0;
+let unalignedWords = 0;
+
 for (const word of allWords) {
-  const seen = new Set();
-  for (const char of word.japanese.match(KANJI_ALL) ?? []) {
-    const glyph = radicalOfKanji.get(char);
-    if (!glyph || seen.has(glyph)) continue;
-    seen.add(glyph);
+  if (!word.hanViet) continue;
+  const chars = word.japanese.match(KANJI_ALL) ?? [];
+  const syllables = word.hanViet.split(/\s+/).filter(Boolean);
 
-    const bucket = wordsByRadical.get(glyph) ?? new Map();
-    const byKanji = bucket.get(char) ?? [];
-    byKanji.push(word);
-    bucket.set(char, byKanji);
-    wordsByRadical.set(glyph, bucket);
+  // Chỉ gán khi số âm tiết khớp đúng số chữ. Lệch thì bỏ qua: đoán bừa một chữ
+  // là sai lây sang mọi từ khác có chữ đó.
+  if (chars.length === 0 || chars.length !== syllables.length) {
+    if (chars.length > 0) unalignedWords++;
+    continue;
   }
+
+  alignedWords++;
+  chars.forEach((char, index) => {
+    const tally = votes.get(char) ?? new Map();
+    // Một ô có thể chứa hai âm ngăn bằng '/' ("TỬ/TÝ", "GIÁNG/HÀNG"). Tách ở ĐÂY
+    // chứ không ở bước căn chỉnh: căn theo dấu cách, nếu tách sớm thì 降ります
+    // thành 2 âm tiết cho 1 chữ và trượt mất luôn.
+    for (const part of syllables[index].toUpperCase().split('/')) {
+      const syllable = part.trim();
+      if (syllable) tally.set(syllable, (tally.get(syllable) ?? 0) + 1);
+    }
+    votes.set(char, tally);
+  });
 }
 
 /**
- * Thứ tự từ trong một chữ: cấp thấp trước, rồi từ ngắn trước, rồi theo số bài.
- * Cắt bớt thì phần giữ lại là những từ cơ bản nhất của chữ đó.
+ * Âm chính là âm nhiều phiếu nhất; các âm còn lại thành `altHanViet` để gõ âm nào
+ * cũng được tính đúng. Bằng phiếu thì lấy âm nào đến trước theo bảng chữ cái, để
+ * hai lần chạy script luôn ra cùng một kết quả.
  */
+function readingsOf(char) {
+  // Bản sửa tay thắng tất cả: đó là những chỗ nguồn tự mâu thuẫn và phiếu đa số
+  // rơi vào đúng cái sai — xem `kanji-supplement.ts`.
+  const fixed = HAN_VIET_FIX[char];
+  if (fixed) {
+    const [main, ...alts] = fixed.split('/').map((part) => part.trim()).filter(Boolean);
+    return { main, alts };
+  }
+  const tally = votes.get(char);
+  if (!tally) {
+    const extra = HAN_VIET_SUPPLEMENT[char];
+    return extra ? { main: extra, alts: [] } : { main: '', alts: [] };
+  }
+  const sorted = [...tally].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  return { main: sorted[0][0], alts: sorted.slice(1).map(([reading]) => reading) };
+}
+
+// ── Ghép chữ với từ ───────────────────────────────────────────────────────
+
+/** char -> { level, words[] } */
+const byKanji = new Map();
+for (const word of allWords) {
+  // Chỉ từ dùng được mới vào danh sách của chữ; mục thiếu cách đọc đã làm xong
+  // việc của nó ở bước bỏ phiếu âm Hán Việt bên trên.
+  if (!word.usable) continue;
+  for (const char of new Set(word.japanese.match(KANJI_ALL) ?? [])) {
+    const entry = byKanji.get(char) ?? { level: word.level, words: [] };
+    if (LEVEL_RANK[word.level] < LEVEL_RANK[entry.level]) entry.level = word.level;
+    entry.words.push(word);
+    byKanji.set(char, entry);
+  }
+}
+
+/** Thứ tự từ trong một chữ: cấp thấp trước, rồi từ ngắn trước, rồi theo số bài. */
 function sortWords(a, b) {
   return (
     LEVEL_RANK[a.level] - LEVEL_RANK[b.level] ||
@@ -183,35 +235,32 @@ function sortWords(a, b) {
   );
 }
 
+/**
+ * Thứ tự chữ trong lưới: cấp thấp trước, rồi chữ nào có NHIỀU TỪ hơn đứng trước.
+ * Số từ trong kho là thước đo mức thông dụng sẵn có và không phải bịa ra: chữ 日
+ * có mặt trong 35 từ, chữ 牡 có đúng một.
+ */
 const seeds = [];
-let wordCount = 0;
-const skipped = [];
+let wordSlots = 0;
+const noHanViet = [];
 
-for (const [glyph, variants, hanViet, meaning, strokes, kanji] of RADICAL_TABLE) {
-  const bucket = wordsByRadical.get(glyph);
-  if (!bucket) {
-    skipped.push(glyph);
-    continue;
-  }
+const sortedChars = [...byKanji.entries()].sort(
+  (a, b) =>
+    LEVEL_RANK[a[1].level] - LEVEL_RANK[b[1].level] ||
+    b[1].words.length - a[1].words.length ||
+    a[0].localeCompare(b[0]),
+);
 
-  const rows = [];
-  // Duyệt theo thứ tự chữ đã khai trong bảng, không theo thứ tự gặp từ: bảng viết
-  // tay xếp chữ theo mức thông dụng, giữ đúng thứ tự đó thì bộ nào cũng mở đầu
-  // bằng chữ quen nhất.
-  for (const char of kanji) {
-    const words = bucket.get(char);
-    if (!words) continue;
-    for (const word of [...words].sort(sortWords).slice(0, WORDS_PER_KANJI)) {
-      rows.push([char, word.japanese, word.reading, word.hanViet, word.meaning, word.level]);
-    }
-  }
+for (const [char, entry] of sortedChars) {
+  const { main, alts } = readingsOf(char);
+  if (!main) noHanViet.push(char);
 
-  if (rows.length === 0) {
-    skipped.push(glyph);
-    continue;
-  }
-  wordCount += rows.length;
-  seeds.push([glyph, variants, hanViet, meaning, strokes, rows]);
+  const rows = [...entry.words]
+    .sort(sortWords)
+    .map((word) => [word.japanese, word.reading, word.hanViet, word.meaning, word.level]);
+
+  wordSlots += rows.length;
+  seeds.push([char, main, alts.join('/'), entry.level, rows]);
 }
 
 // ── Ghi file ──────────────────────────────────────────────────────────────
@@ -219,57 +268,70 @@ for (const [glyph, variants, hanViet, meaning, strokes, kanji] of RADICAL_TABLE)
 const quote = (text) => `'${text.split("'").join("\\'")}'`;
 
 const body = seeds
-  .map(([glyph, variants, hanViet, meaning, strokes, rows]) => {
-    const head = `  [${quote(glyph)}, ${quote(variants)}, ${quote(hanViet)}, ${quote(meaning)}, ${strokes}, [`;
+  .map(([char, hanViet, alts, level, rows]) => {
+    const head = `  [${quote(char)}, ${quote(hanViet)}, ${quote(alts)}, ${quote(level)}, [`;
     const lines = rows.map((row) => `    [${row.map(quote).join(', ')}],`);
     return [head, ...lines, '  ]],'].join('\n');
   })
   .join('\n');
 
 const levelCount = LEVELS.map(
-  (level) => `${level}=${seeds.reduce((sum, s) => sum + s[5].filter((r) => r[5] === level).length, 0)}`,
+  (level) => `${level}=${seeds.filter((seed) => seed[3] === level).length}`,
 ).join(' ');
 
 const output = `/* eslint-disable */
 /**
  * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:kanji\` để sinh lại.
  *
- * Nguồn: \`radical-table.ts\` (bảng bộ thủ viết tay) ghép với kho từ có sẵn của ứng
- * dụng — \`data-source/minano-nihongo-*\` và \`core/exercises/\`. Mỗi chữ giữ tối đa
- * ${WORDS_PER_KANJI} từ, xếp cấp thấp trước rồi từ ngắn trước.
+ * Nguồn: kho từ có sẵn của ứng dụng (\`data-source/minano-nihongo-*\` và
+ * \`core/exercises/\`). Âm Hán Việt của từng chữ suy ra bằng cách căn âm tiết của
+ * âm Hán Việt cả từ với các chữ Hán trong từ — xem \`scripts/generate-kanji.mjs\`.
  *
- * Thống kê lần sinh gần nhất: ${seeds.length} bộ thủ, ${wordCount} từ (${levelCount}).
+ * Thống kê lần sinh gần nhất: ${seeds.length} chữ (${levelCount}), ${wordSlots} lượt từ.
  */
 
-import type { RadicalSeed } from './kanji.model';
+import type { KanjiSeed } from './kanji.model';
 
-export const RADICAL_SEEDS: readonly RadicalSeed[] = [
+export const KANJI_SEEDS: readonly KanjiSeed[] = [
 ${body}
 ];
 `;
 
 const previous = existsSync(OUT_FILE) ? readFileSync(OUT_FILE, 'utf8') : '';
 
-log(`Bo thu   : ${seeds.length} (bo qua ${skipped.length} bo khong co tu: ${skipped.join(' ')})`);
-log(`Tu       : ${wordCount} (${levelCount})`);
-log(`Kho tu   : ${allWords.length} tu, ${radicalOfKanji.size} chu da gan bo`);
+log(`Tu       : ${allWords.length} (can chinh duoc am tiet: ${alignedWords}, lech: ${unalignedWords})`);
+log(`Chu Han  : ${seeds.length} (${levelCount}), ${wordSlots} luot tu`);
+log(`Am tu kho: ${votes.size} chu | bo sung tay: ${Object.keys(HAN_VIET_SUPPLEMENT).length} chu | sua tay: ${Object.keys(HAN_VIET_FIX).length} chu`);
 
-const unassigned = new Set();
-for (const word of allWords) {
-  for (const char of word.japanese.match(KANJI_ALL) ?? []) {
-    if (!radicalOfKanji.has(char)) unassigned.add(char);
-  }
+if (noHanViet.length > 0) {
+  log(`[CANH BAO] ${noHanViet.length} chu chua co am Han Viet: ${noHanViet.join('')}`);
+  log('           Them vao src/app/core/kanji/kanji-supplement.ts');
 }
-if (unassigned.size > 0) {
-  log(`Chua gan : ${unassigned.size} chu (${[...unassigned].join('')})`);
+
+// Âm bổ sung mà kho từ đã tự suy ra được thì thừa — dọn đi cho khỏi lệch nhau.
+const redundant = Object.keys(HAN_VIET_SUPPLEMENT).filter((char) => votes.has(char));
+if (redundant.length > 0) {
+  log(`[CANH BAO] bo sung thua (kho tu da co): ${redundant.join('')}`);
+}
+
+// Bản sửa tay chỉ nên tồn tại khi nguồn thật sự đang nói khác. Nguồn sửa xong thì
+// dòng ở `kanji-supplement.ts` phải được xoá đi, không để lệch hai nơi.
+const uselessFix = Object.entries(HAN_VIET_FIX).filter(([char, value]) => {
+  const tally = votes.get(char);
+  if (!tally) return false;
+  const sorted = [...tally].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+  return sorted[0][0] === value.split('/')[0].trim() && tally.size === value.split('/').length;
+});
+if (uselessFix.length > 0) {
+  log(`[CANH BAO] sua tay thua (kho tu da dung): ${uselessFix.map(([c]) => c).join('')}`);
 }
 
 if (checkOnly) {
   if (previous !== output) {
-    log('[LOI] radical-words.ts khong khop voi nguon. Chay: npm run generate:kanji');
+    log('[LOI] kanji-words.ts khong khop voi nguon. Chay: npm run generate:kanji');
     process.exitCode = 1;
   } else {
-    log('OK: radical-words.ts dang khop voi nguon.');
+    log('OK: kanji-words.ts dang khop voi nguon.');
   }
 } else if (previous === output) {
   log('Khong co gi thay doi.');

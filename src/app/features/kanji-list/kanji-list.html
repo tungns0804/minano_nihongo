@@ -4,49 +4,141 @@
     <section class="page-head">
       <h1>{{ t('kanji.title') }}</h1>
       <p><app-t key="kanji.subtitle" block /></p>
-      <div class="row">
-        <span class="badge">{{ t('kanji.radicalCount', { count: levelRadicals().length }) }}</span>
-        <span class="badge">{{ t('kanji.kanjiCount', { count: levelKanjiCount() }) }}</span>
-        <span class="badge">{{ t('kanji.wordCount', { count: levelWordCount() }) }}</span>
-        @if (favoriteCount() > 0) {
-          <span class="badge badge-warning">
-            {{ t('home.favoriteCount', { count: favoriteCount() }) }}
-          </span>
+    </section>
+
+    <!-- ── Chọn cấp + lưới chữ ────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack">
+        <!-- Một cấp mỗi lần: đây là bảng tra vài trăm chữ, trộn hai cấp vào nhau
+             thì không còn biết mình đang học phần nào. -->
+        <div class="level-tabs" role="tablist" [attr.aria-label]="t('kanji.levels')">
+          @for (item of allLevels; track item) {
+            <button
+              type="button"
+              role="tab"
+              class="level-tab"
+              [class.is-active]="level() === item"
+              [attr.aria-selected]="level() === item"
+              (click)="setLevel(item)"
+            >
+              <strong>{{ item }}</strong>
+              <span class="level-tab-count">
+                {{ t('kanji.kanjiCount', { count: levelCounts()[item] }) }}
+              </span>
+            </button>
+          }
+        </div>
+
+        <div class="row">
+          <span class="badge">{{ t('kanji.kanjiCount', { count: levelEntries().length }) }}</span>
+          <span class="badge">{{ t('kanji.wordCount', { count: levelWordCount() }) }}</span>
+          @if (favoriteCount() > 0) {
+            <span class="badge badge-warning">
+              {{ t('home.favoriteCount', { count: favoriteCount() }) }}
+            </span>
+          }
+          <span class="spacer"></span>
+          @if (favoriteCount() > 0) {
+            <button type="button" class="btn btn-sm" (click)="clearFavorites()">
+              {{ t('lesson.clearFavorites') }}
+            </button>
+          }
+        </div>
+
+        <div class="row filter-row">
+          <div class="search search-input">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="9" cy="9" r="6" />
+                <path d="M13.5 13.5 17 17" stroke-linecap="round" />
+              </svg>
+            </span>
+            <input
+              type="search"
+              class="input"
+              [placeholder]="t('kanji.search')"
+              [value]="search()"
+              (input)="onSearch($event)"
+              [attr.aria-label]="t('kanji.search')"
+            />
+            @if (search()) {
+              <button
+                type="button"
+                class="search-clear"
+                (click)="clearSearch()"
+                [title]="t('home.search.clear')"
+                [attr.aria-label]="t('home.search.clear')"
+              >
+                <span aria-hidden="true">✕</span>
+              </button>
+            }
+          </div>
+          <label class="checkbox filter-check">
+            <input
+              type="checkbox"
+              [checked]="onlyFavorites()"
+              (change)="toggleOnlyFavorites($event)"
+            />
+            <span><app-t key="lesson.onlyFavorites" /></span>
+          </label>
+        </div>
+
+        @if (visibleEntries().length === 0) {
+          <p class="muted">{{ t('kanji.noMatch') }}</p>
+        } @else {
+          <div class="kanji-grid">
+            @for (entry of visibleEntries(); track entry.id) {
+              <!-- Ngôi sao là em ruột của link chứ không nằm trong: <button> lồng
+                   trong <a> là HTML không hợp lệ. CSS cho link phủ kín ô nên bấm
+                   chỗ nào cũng mở được chữ. -->
+              <div class="kanji-cell" [class.is-favorite]="isFavorite(entry.id)">
+                <a class="kanji-link" [routerLink]="['/kanji', entry.id]">
+                  <!-- Chữ vẽ to hẳn: cả ô này tồn tại để nhìn cho rõ mặt chữ. Ẩn
+                       với trình đọc màn hình vì đọc lên một chữ Hán trơ không
+                       thành tiếng gì; âm Hán Việt ở dưới mới là nhãn của link. -->
+                  <span class="kanji-char jp" aria-hidden="true">{{ entry.char }}</span>
+                  <span class="kanji-han">{{ entry.hanViet }}</span>
+                </a>
+
+                <button
+                  type="button"
+                  class="star-btn kanji-star"
+                  [class.is-on]="isFavorite(entry.id)"
+                  (click)="toggleFavorite(entry.id)"
+                  [attr.aria-pressed]="isFavorite(entry.id)"
+                  [attr.aria-label]="
+                    isFavorite(entry.id)
+                      ? t('favorite.remove', { name: entry.hanViet })
+                      : t('favorite.add', { name: entry.hanViet })
+                  "
+                >
+                  {{ isFavorite(entry.id) ? '★' : '☆' }}
+                </button>
+              </div>
+            }
+          </div>
+
+          <p class="small faint">
+            {{ t('kanji.showing', { shown: visibleEntries().length, total: levelEntries().length }) }}
+          </p>
         }
       </div>
     </section>
 
-    <!-- ── Luyện âm Hán Việt của bộ thủ ───────────────────────────────── -->
+    <!-- ── Luyện âm Hán Việt của chữ ──────────────────────────────────── -->
     <section class="card">
       <div class="card-body stack stack-lg">
         <div class="stack stack-sm">
-          <h2>{{ t('kanji.practiceRadical') }}</h2>
-          <p class="muted small"><app-t key="kanji.practiceRadical.hint" block /></p>
+          <h2>{{ t('kanji.practiceHanViet') }}</h2>
+          <p class="muted small"><app-t key="kanji.practiceHanViet.hint" block /></p>
         </div>
 
         <div class="field">
           <span class="label">{{ t('kanji.mode') }}</span>
           <div class="mode-still">
-            <strong><app-t [key]="radicalMode.labelKey" /></strong>
-            <span class="jp faint"><app-t [key]="radicalMode.exampleKey" /></span>
+            <strong><app-t [key]="hanVietMode.labelKey" /></strong>
+            <span class="jp faint"><app-t [key]="hanVietMode.exampleKey" /></span>
           </div>
-        </div>
-
-        <div class="field">
-          <span class="label">{{ t('kanji.levels') }}</span>
-          <div class="options options-limit">
-            @for (level of allLevels; track level) {
-              <button
-                type="button"
-                class="option"
-                [class.is-active]="isLevelSelected(level)"
-                (click)="toggleLevel(level)"
-              >
-                {{ t('kanji.level.count', { level: level, count: levelCounts()[level] }) }}
-              </button>
-            }
-          </div>
-          <span class="hint"><app-t key="kanji.levels.hint" block /></span>
         </div>
 
         <div class="field">
@@ -58,7 +150,7 @@
               [class.is-active]="scope() === 'all'"
               (click)="setScope('all')"
             >
-              {{ t('kanji.scope.all', { count: levelRadicals().length }) }}
+              {{ t('kanji.scope.all', { level: level(), count: levelEntries().length }) }}
             </button>
             <button
               type="button"
@@ -107,6 +199,14 @@
         <div class="field">
           <span class="label">{{ t('lesson.options') }}</span>
           <div class="options options-2">
+            <label class="checkbox">
+              <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+              <span>
+                <strong><app-t key="kanji.option.showWordHint" block /></strong>
+                <span class="hint"><app-t key="kanji.option.showWordHint.desc" block /></span>
+              </span>
+            </label>
+
             <label class="checkbox">
               <input
                 type="checkbox"
@@ -158,116 +258,6 @@
 
         @if (!canStart()) {
           <div class="notice notice-warning">{{ t('lesson.emptyScope') }}</div>
-        }
-      </div>
-    </section>
-
-    <!-- ── Lưới bộ thủ ────────────────────────────────────────────────── -->
-    <section class="card">
-      <div class="card-body stack">
-        <div class="row">
-          <h2>{{ t('kanji.title') }}</h2>
-          <span class="spacer"></span>
-          @if (favoriteCount() > 0) {
-            <button type="button" class="btn btn-sm" (click)="clearFavorites()">
-              {{ t('lesson.clearFavorites') }}
-            </button>
-          }
-        </div>
-
-        <div class="row filter-row">
-          <div class="search search-input">
-            <span class="search-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6" />
-                <path d="M13.5 13.5 17 17" stroke-linecap="round" />
-              </svg>
-            </span>
-            <input
-              type="search"
-              class="input"
-              [placeholder]="t('kanji.search')"
-              [value]="search()"
-              (input)="onSearch($event)"
-              [attr.aria-label]="t('kanji.search')"
-            />
-            @if (search()) {
-              <button
-                type="button"
-                class="search-clear"
-                (click)="clearSearch()"
-                [title]="t('home.search.clear')"
-                [attr.aria-label]="t('home.search.clear')"
-              >
-                <span aria-hidden="true">✕</span>
-              </button>
-            }
-          </div>
-          <label class="checkbox filter-check">
-            <input
-              type="checkbox"
-              [checked]="onlyFavorites()"
-              (change)="toggleOnlyFavorites($event)"
-            />
-            <span><app-t key="lesson.onlyFavorites" /></span>
-          </label>
-        </div>
-
-        @if (visibleRadicals().length === 0) {
-          <p class="muted">{{ t('kanji.noMatch') }}</p>
-        } @else {
-          <div class="radical-grid">
-            @for (radical of visibleRadicals(); track radical.id) {
-              <!-- Ngôi sao là em ruột của link chứ không nằm trong: <button> lồng
-                   trong <a> là HTML không hợp lệ, và trình duyệt xử lý mỗi nơi một
-                   kiểu. CSS cho link phủ kín thẻ nên bấm chỗ nào cũng vào được bộ. -->
-              <div class="card radical-card" [class.is-favorite]="isFavorite(radical.id)">
-                <a class="radical-link" [routerLink]="['/kanji', radical.id]">
-                  <!-- Bộ thủ vẽ to hẳn: đây là thứ duy nhất cần nhìn kỹ trên thẻ,
-                       mà nét của nhiều bộ (氵 và 冫, 礻 và 衤) chỉ khác nhau đúng
-                       một nét. Ẩn với trình đọc màn hình vì đọc lên một nét rời
-                       không thành tiếng gì; tên bộ ở dưới mới là nhãn của link. -->
-                  <span class="radical-glyph jp" aria-hidden="true">{{ radical.glyph }}</span>
-
-                  @if (radical.variants.length > 0) {
-                    <span class="radical-variants jp" aria-hidden="true">
-                      {{ radical.variants.join(' ') }}
-                    </span>
-                  }
-
-                  <span class="radical-han">{{ radical.hanViet }}</span>
-                  <span class="radical-meaning muted small clamp-2">{{ radical.meaning }}</span>
-
-                  <span class="radical-foot">
-                    <span class="badge">{{ radical.level }}</span>
-                    <span class="badge">{{ t('kanji.strokes', { count: radical.strokes }) }}</span>
-                    <span class="badge badge-accent">
-                      {{ t('kanji.wordCount', { count: radical.words.length }) }}
-                    </span>
-                  </span>
-                </a>
-
-                <button
-                  type="button"
-                  class="star-btn radical-star"
-                  [class.is-on]="isFavorite(radical.id)"
-                  (click)="toggleFavorite(radical.id)"
-                  [attr.aria-pressed]="isFavorite(radical.id)"
-                  [attr.aria-label]="
-                    isFavorite(radical.id)
-                      ? t('favorite.remove', { name: radical.hanViet })
-                      : t('favorite.add', { name: radical.hanViet })
-                  "
-                >
-                  {{ isFavorite(radical.id) ? '★' : '☆' }}
-                </button>
-              </div>
-            }
-          </div>
-
-          <p class="small faint">
-            {{ t('kanji.showing', { shown: visibleRadicals().length, total: levelRadicals().length }) }}
-          </p>
         }
 
         <p class="small faint"><app-t key="kanji.dataNote" block /></p>

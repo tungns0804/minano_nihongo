@@ -57,7 +57,7 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Trang chủ |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp** |
 | **Bài tập** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập** |
-| **Kanji** | Bộ thủ + từ dùng chữ thuộc bộ (N5→N3) | Bảng bộ thủ viết tay + kho từ có sẵn | Tab **Kanji bộ thủ** |
+| **Kanji** | Danh sách 836 chữ Hán N5→N3 + từ dùng chữ đó | Rút từ chính kho từ có sẵn | Tab **Kanji** |
 
 Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
 Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
@@ -159,75 +159,78 @@ Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi
 2. Chính động từ đó ở **thể khác** — 走る, 走った, 走らない. Kiểm tra xem có phân biệt được các thể không.
 3. Cùng thể đó của động từ khác, khi hai nguồn trên không đủ.
 
-## Kanji theo bộ thủ
+## Kanji
 
-Tab **Kanji bộ thủ** học chữ Hán từ gốc: **159 bộ thủ** gặp trong kanji của giáo trình (N5, N4)
-và của bộ động từ khu Bài tập (thêm phần N3). Mỗi bộ có hình dạng gốc, các dạng biến thể khi
-đứng trong chữ (`亻` của 人, `氵` của 水), âm Hán Việt, nghĩa, số nét, danh sách chữ thuộc bộ và
-**các từ đã có sẵn trong ứng dụng** dùng những chữ đó — tổng cộng **830 chữ** và **1773 từ**.
+Tab **Kanji** là danh sách chữ Hán: **836 chữ** (N5 495, N4 325, N3 16) rút từ toàn bộ kho từ của
+ứng dụng, mỗi chữ kèm âm Hán Việt và **2339 lượt từ** dùng chữ đó. Lưới xếp theo cấp, trong mỗi
+cấp thì chữ nào xuất hiện trong nhiều từ hơn đứng trước — chữ 日 có mặt trong 35 từ nên nằm đầu,
+chữ 牡 có đúng một từ nên nằm cuối.
 
-Bộ thủ được vẽ to hẳn ở cả lưới danh sách lẫn đầu trang chi tiết: nhiều bộ chỉ khác nhau đúng
-một nét (`氵` / `冫`, `礻` / `衤`, `日` / `曰`), cỡ chữ bình thường thì nhìn không ra.
+Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng đầy đủ các từ dùng nó (từ · cách đọc ·
+âm Hán Việt của cả từ · nghĩa · cấp độ).
 
 ### Hai phần luyện tập — đều chỉ gõ đáp án
 
 | Ở đâu | Chiều hỏi | Ví dụ |
 | --- | --- | --- |
-| `/kanji` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` |
-| `/kanji/:id` (một bộ) | Từ kanji → nghĩa tiếng Việt | `海` → `biển` |
+| `/kanji` (danh sách) | Chữ Hán → âm Hán Việt | `海` → `HẢI` |
+| `/kanji/:id` (một chữ) | Từ kanji → nghĩa tiếng Việt | `海` → `biển` |
 | `/kanji/:id` | Từ kanji → hiragana | `海` → `うみ` |
 | `/kanji/:id` | Hỏi cả hai (mỗi từ 2 câu) | `海` → `biển` / `うみ` |
 
-Phần luyện âm Hán Việt nằm ở màn hình **danh sách** vì nó hỏi trên cả danh sách bộ thủ — mở
-từng bộ ra để luyện đúng một chữ thì mỗi phiên chỉ có một câu. Ba chiều còn lại hỏi trên **từ**
-nên nằm ở màn hình một bộ.
+Phần luyện âm Hán Việt nằm ở màn hình **danh sách** vì nó hỏi trên cả danh sách — mở từng chữ ra
+để luyện đúng một chữ thì mỗi phiên chỉ có một câu. Ba chiều còn lại hỏi trên **từ** nên nằm ở
+màn hình một chữ.
 
-Tuỳ chọn **"Bỏ qua dấu tiếng Việt khi chấm"** đặc biệt hữu ích ở chiều hỏi âm Hán Việt: bật lên
-thì gõ `THUY` cũng được tính đúng cho `THỦY`, khỏi phải nhớ dấu đặt ở đâu.
+Chữ có nhiều âm (行 HÀNH/HÀNG, 楽 LẠC/NHẠC, 長 TRƯỜNG/TRƯỞNG) thì gõ âm nào cũng được tính đúng.
+Tuỳ chọn **"Bỏ qua dấu tiếng Việt khi chấm"** giúp gõ `HAI` cũng đúng cho `HẢI`.
 
-### Dữ liệu tới từ đâu
+### Âm Hán Việt của từng chữ lấy ở đâu ra
 
-Hai file, phân vai rõ ràng:
+Nguồn từ vựng ghi âm Hán Việt cho **cả từ** (`会社員 → HỘI XÃ VIÊN`), không ghi cho từng chữ. Mà
+âm của một từ chính là âm các chữ ghép lại, nên khi số âm tiết khớp đúng số chữ Hán thì gán được
+1:1: `会=HỘI`, `社=XÃ`, `員=VIÊN`. Một chữ được nhiều từ bỏ phiếu, âm nào nhiều phiếu nhất thì
+thắng; các âm còn lại vẫn được nhận khi chấm. Từ nào lệch số âm tiết thì bỏ qua chứ không đoán —
+gán lệch một chữ là sai lây sang mọi từ khác có chữ đó.
+
+Kết quả: **815/836 chữ có âm Hán Việt rút thẳng từ nguồn**, không chép tay dòng nào.
 
 ```
 src/app/core/kanji/
-  radical-table.ts     ← viết tay: bộ thủ nào, gồm những chữ nào
-  radical-words.ts     ← DO MÁY SINH: bộ thủ + từ minh hoạ
+  kanji-supplement.ts   ← viết tay: 21 âm bổ sung + 6 chỗ sửa nguồn tự mâu thuẫn
+  kanji-words.ts        ← DO MÁY SINH: 836 chữ + 2339 lượt từ
 ```
 
-`radical-table.ts` chỉ khai **chữ**, không khai từ. Từ được `scripts/generate-kanji.mjs` lấy từ
-chính kho của ứng dụng:
+`kanji-supplement.ts` là **dữ liệu duy nhất trong khu Kanji không tới từ nguồn gốc**, và nó chỉ
+có hai việc:
 
-- `data-source/minano-nihongo-<n>/vocabulary.txt` — N5 (bài 1-25) và N4 (bài 26-50)
-- `src/app/core/exercises/exercise-verbs.ts` + `transitive-pairs.ts` — thêm phần N3
-
-Nhờ vậy **không có từ nào bị chép tay lần thứ hai**: cách đọc, nghĩa và âm Hán Việt đều đúng
-bằng nguồn gốc, và sửa một từ ở `data-source/` rồi chạy lại script là khu Kanji đổi theo. Từ N2
-của khu Bài tập bị bỏ vì ngoài phạm vi N5→N3.
+- **21 âm bổ sung** cho các chữ chỉ xuất hiện trong bộ động từ khu Bài tập (`core/exercises/`) —
+  nguồn đó không có cột âm Hán Việt — hoặc chỉ nằm trong câu ví dụ chứ không phải một mục từ vựng.
+- **6 chỗ sửa** những chữ mà nguồn nói hai kiểu và cái sai lại nhiều phiếu hơn: `試` (5 chỗ ghi
+  THỨC, 1 chỗ ghi THÍ), `泳`, `屋`, `洗`, `自`, `変`. Mỗi dòng có chú thích chỉ đúng dòng nguồn
+  đang lệch. Sửa thẳng ở `data-source/` mới là cách dứt điểm — sửa xong chạy lại script là nó
+  báo dòng ở đây đã thừa.
 
 ```bash
-npm run generate:kanji     # sinh lại radical-words.ts
+npm run generate:kanji     # sinh lại kanji-words.ts
 npm run verify:kanji       # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
 ```
 
-Mục từ vựng là cả một câu (お帰りなさい。, 国へ帰るの？) bị loại khỏi đây — khủ Kanji hỏi nghĩa và cách đọc của MỘT
-TỪ. Chỉ lọc theo dấu câu chứ không lọc theo trợ từ: cụm cố định kiểu 電車に乗ります hay
-歯を磨きます chính là thứ giáo trình dạy nguyên khối. Chúng vẫn nằm nguyên trong bài học.
+Script tự cảnh báo ba chuyện: chữ nào chưa có âm Hán Việt, dòng bổ sung nào đã thừa, và dòng sửa
+tay nào đã thừa. Mục từ vựng là cả một câu (`お帰りなさい。`, `国へ帰るの？`) bị loại khỏi đây — khu
+Kanji hỏi nghĩa và cách đọc của MỘT TỪ. Chỉ lọc theo dấu câu chứ không lọc theo trợ từ: cụm cố
+định kiểu `電車に乗ります` hay `歯を磨きます` chính là thứ giáo trình dạy nguyên khối. Chúng vẫn
+nằm nguyên trong bài học.
 
-Script tự chặn hai lỗi dễ xảy ra khi sửa bảng bộ thủ: một chữ bị khai ở hai bộ khác nhau, và
-bộ thủ không góp được chữ nào trong kho từ (bộ đó bị bỏ khỏi danh sách — bày một bộ rỗng ra thì
-không luyện được gì). Mỗi chữ giữ tối đa 4 từ, xếp cấp thấp trước rồi từ ngắn trước; chữ 日 một
-mình đã có hơn ba chục từ, để nguyên thì bảng dài tới mức không tra được.
+### Cấp độ nghĩa là gì
 
-### Lọc theo cấp độ
+Đúng quy ước có sẵn của ứng dụng (`JLPT_RANGE`): **N5 = từ vựng bài 1–25**, **N4 = bài 26–50**,
+**N3** lấy từ bộ động từ khu Bài tập. Cấp của một chữ là cấp thấp nhất trong các từ chứa nó — tức
+là chỗ người học gặp chữ đó sớm nhất. Đây KHÔNG phải danh sách kanji chính thức theo cấp JLPT:
+cả ứng dụng đang dùng một mốc chia duy nhất, và mốc đó là số bài trong giáo trình.
 
-Cấp của một **bộ thủ** là cấp thấp nhất trong các từ của nó — tức là chỗ người học gặp bộ này
-sớm nhất. Vì kho từ hiện tại phủ gần trọn N5 và N4, hầu hết bộ rơi vào N5 (133 bộ), phần còn
-lại N4 (25) và N3 (1). Con số N3 sẽ tự đầy lên khi có thêm nguồn từ vựng N3 trong
-`data-source/` — không phải sửa gì trong mã.
-
-Ở màn hình một bộ, cấp lọc theo **từ**, nên bộ 水 chẳng hạn vẫn tách được N5 (26 từ) / N4 (46) /
-N3 (12).
+Vì kho từ mới phủ tới N4, phần N3 hiện chỉ có 16 chữ. Thêm nguồn từ vựng N3 vào `data-source/` là
+con số tự đầy lên, không phải sửa gì trong mã.
 
 ## Bài tập
 
@@ -492,7 +495,7 @@ scripts/
   build-offline.mjs              Gộp bản build thành dist/offline/index.html một file
   verify-parser-parity.mjs       Kiểm tra hai bản parser cho kết quả giống nhau
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
-  generate-kanji.mjs             Sinh core/kanji/radical-words.ts từ bảng bộ thủ + kho từ
+  generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
   index.json
   minano-nihongo-33.json
@@ -506,9 +509,9 @@ src/app/
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
-      radical-table.ts           Bảng bộ thủ viết tay (bộ nào gồm chữ nào)
-      radical-words.ts           159 bộ thủ + 1773 từ — DO MÁY SINH
-      radicals.ts                Dựng danh sách bộ thủ + tra theo id
+      kanji-supplement.ts        21 âm bổ sung + 6 chỗ sửa nguồn tự mâu thuẫn
+      kanji-words.ts             836 chữ + 2339 lượt từ — DO MÁY SINH
+      kanji-entries.ts           Dựng danh sách chữ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
@@ -534,8 +537,8 @@ src/app/
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập — danh sách bài tập
     exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
-    kanji-list/                  Tab Kanji — lưới bộ thủ + luyện âm Hán Việt
-    kanji-radical/               Một bộ thủ: chữ thuộc bộ, từ minh hoạ, luyện từ
+    kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
+    kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ
     practice/                    Màn hình làm bài
     result/                      Màn hình kết quả
     import-lesson/               Nạp bài mới (đang tắt, xem core/feature-flags.ts)

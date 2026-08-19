@@ -1,6 +1,6 @@
-/* Màn hình một bộ thủ: đầu trang là chính bộ thủ vẽ to, rồi khối thiết lập luyện
-   tập và bảng từ xếp theo từng chữ. Style của component là phạm vi riêng nên phần
-   dùng chung với các màn hình khác phải khai lại ở đây. */
+/* Màn hình một chữ Hán: đầu trang là chính chữ đó vẽ to, rồi bảng các từ dùng chữ
+   và khối thiết lập luyện tập. Style của component là phạm vi riêng nên phần dùng
+   chung với các màn hình khác phải khai lại ở đây. */
 
 .back-link {
   font-size: var(--fs-sm);
@@ -15,7 +15,7 @@
 
 /* --- Đầu trang --- */
 
-.radical-head {
+.kanji-head {
   display: flex;
   align-items: center;
   gap: var(--sp-6);
@@ -24,52 +24,24 @@
 
 /* To hơn hẳn mọi chữ khác trong ứng dụng: cả trang này nói về đúng một chữ, và
    người học cần nhìn được từng nét của nó. */
-.radical-hero {
+.kanji-hero {
   font-size: 6rem;
   line-height: 1;
   font-weight: 500;
-  padding: 12px 24px;
+  padding: 12px 26px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--bg-subtle);
 }
 
-.radical-info {
+.kanji-info {
   flex: 1 1 260px;
   min-width: 0;
 }
 
-.radical-title {
+.kanji-title {
   color: var(--accent);
   letter-spacing: 0.03em;
-}
-
-.radical-variants {
-  font-size: 1.3rem;
-  vertical-align: middle;
-  margin-left: 6px;
-}
-
-/* Dải chữ thuộc bộ: đọc lướt để biết bộ này gồm những chữ nào. */
-.kanji-strip {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-left: 4px;
-  vertical-align: middle;
-}
-
-.kanji-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 30px;
-  padding: 2px 6px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-subtle);
-  font-size: 1.15rem;
-  line-height: 1.3;
 }
 
 /* --- Khối thiết lập --- */
@@ -148,25 +120,6 @@
 
 .filter-check input {
   margin-top: 0;
-}
-
-/* --- Nhóm theo chữ --- */
-
-.kanji-group + .kanji-group {
-  margin-top: var(--sp-6);
-}
-
-.kanji-group-head {
-  display: flex;
-  align-items: center;
-  gap: var(--sp-3);
-  margin-bottom: var(--sp-2);
-}
-
-.kanji-group-char {
-  font-size: 2rem;
-  line-height: 1.1;
-  font-weight: 600;
 }
 
 /* --- Bảng từ --- */
@@ -287,9 +240,9 @@
    ========================================================================== */
 
 @media (max-width: 640px) {
-  .radical-hero {
+  .kanji-hero {
     font-size: 4.5rem;
-    padding: 8px 18px;
+    padding: 8px 20px;
   }
 
   .filter-row {
