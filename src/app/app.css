@@ -306,11 +306,15 @@ main:focus-visible {
     margin-left: 0;
   }
 
-  /* Ba mục chia đều hàng dưới. */
+  /* Ba mục chia đều hàng dưới. Chữ nhỏ lại một bậc vì tên tab là cụm hai từ
+     ("Ngữ pháp minano"): để nguyên cỡ chữ thì mỗi mục xuống hai dòng, hàng menu
+     cao gấp đôi mà chẳng thêm thông tin gì. */
   .app-nav a {
     flex: 1;
-    padding: 8px 6px;
+    padding: 8px 4px;
     text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.25;
   }
 
   /* Nút lên đầu trang lùi vào sát góc hơn, nhường chỗ cho nội dung. */

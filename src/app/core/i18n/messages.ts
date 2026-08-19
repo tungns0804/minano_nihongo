@@ -48,9 +48,11 @@ export const MESSAGES = {
     ja: '漢字・漢越音・ベトナム語訳',
   },
   'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
-  'app.nav.lessons': { vi: 'Bài học', ja: 'レッスン' },
-  'app.nav.grammar': { vi: 'Ngữ pháp', ja: '文法' },
-  'app.nav.exercise': { vi: 'Bài tập', ja: '練習問題' },
+  // Tên ba tab nói rõ tab nào bám theo giáo trình và tab nào không: hai tab đầu là
+  // nội dung của 皆の日本語, còn "bổ trợ" là bài tập chuyên đề tự soạn thêm.
+  'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
+  'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
+  'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
   'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
@@ -779,9 +781,11 @@ export const MESSAGES = {
   // ── Tiêu đề tab theo trang ─────────────────────────────────────────────
   'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
   'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
-  'route.grammar': { vi: 'Ngữ pháp', ja: '文法' },
+  // Trùng chữ với nhãn tab tương ứng: tiêu đề tab trình duyệt mà gọi tên khác thì
+  // mở lại lịch sử duyệt web không biết đâu là màn hình nào.
+  'route.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
-  'route.exercise': { vi: 'Bài tập', ja: '練習問題' },
+  'route.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'route.exerciseDetail': { vi: 'Nội dung bài tập', ja: '練習問題の詳細' },
   'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
   'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
