@@ -9,7 +9,7 @@
 # dấu phẩy (, và 、) — tách bằng dấu phẩy sẽ cắt vụn câu.
 
 ## Mẫu câu
-音楽を 聞きながら 食事します。|Tôi vừa nghe nhạc vừa ăn cơm.
+音楽を 聞きながら 食事を します。|Tôi vừa nghe nhạc vừa ăn cơm.
 毎朝 ジョギングを して います。|Hàng sáng tôi chạy bộ.
 地下鉄は 速いし、安いし、地下鉄で 行きましょう。|Tàu điện ngầm vừa nhanh lại rẻ, nên chúng ta đi bằng tàu điện ngầm đi.
 
