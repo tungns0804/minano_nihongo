@@ -1,0 +1,230 @@
+{
+  "id": "hoi-thoai-minano-28",
+  "lessonNumber": 28,
+  "name": "皆の日本語 — Bài 28 · Hội thoại",
+  "description": "Dịch câu mẫu, ví dụ và hội thoại bài 28 giữa Nhật và Việt",
+  "kind": "conversation",
+  "itemCount": 31,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "11hf9wx",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "音楽を 聞きながら 食事します。",
+      "vietnamese": "Tôi vừa nghe nhạc vừa ăn cơm."
+    },
+    {
+      "id": "0z8sep6",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "毎朝 ジョギングを して います。",
+      "vietnamese": "Hàng sáng tôi chạy bộ."
+    },
+    {
+      "id": "1ci4y0k",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "地下鉄は 速いし、安いし、地下鉄で 行きましょう。",
+      "vietnamese": "Tàu điện ngầm vừa nhanh lại rẻ, nên chúng ta đi bằng tàu điện ngầm đi."
+    },
+    {
+      "id": "0u3cjmb",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "眠い とき、ガムを かみながら 運転します。",
+      "vietnamese": "Khi lái xe mà buồn ngủ thì tôi nhai kẹo cao su."
+    },
+    {
+      "id": "0pnrhig",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "そうですか。わたしは 車を 止めて、しばらく 寝ます。",
+      "vietnamese": "Thế à. Tôi thì dừng xe và ngủ một lát."
+    },
+    {
+      "id": "11u020y",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "音楽を 聞きながら 勉強しますか。",
+      "vietnamese": "Anh/Chị vừa nghe nhạc vừa học bài à?"
+    },
+    {
+      "id": "0bp2o53",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いいえ。勉強する ときは、音楽を 聞きません。",
+      "vietnamese": "Không. Lúc học bài thì tôi không nghe nhạc."
+    },
+    {
+      "id": "0zs8cdf",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "彼は 働きながら 大学で 勉強して います。",
+      "vietnamese": "Anh ấy vừa đi học ở trường đại học vừa đi làm."
+    },
+    {
+      "id": "0t2jkyh",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "そうですか。偉いですね。",
+      "vietnamese": "Thế à. Đáng khâm phục nhỉ."
+    },
+    {
+      "id": "0qlf1ih",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "休みの 日は いつも 何を して いますか。",
+      "vietnamese": "Ngày nghỉ anh/chị thường làm gì?"
+    },
+    {
+      "id": "0ijd9rr",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "そうですね。だいたい 絵を かいて います。",
+      "vietnamese": "À, thông thường thì tôi vẽ tranh."
+    },
+    {
+      "id": "1yxuw7p",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "ワット先生は 熱心だし、まじめだし、それに 経験も ありますね。",
+      "vietnamese": "Thầy Watt vừa nhiệt tình, nghiêm túc, hơn nữa lại có kinh nghiệm."
+    },
+    {
+      "id": "16xegft",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いい 先生ですね。",
+      "vietnamese": "Đúng là một thầy giáo tốt."
+    },
+    {
+      "id": "02ojf7g",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "よく この すし屋へ 来るんですか。",
+      "vietnamese": "Anh/Chị hay đến quán sushi này à?"
+    },
+    {
+      "id": "1qg889x",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "ええ。ここは 値段も 安いし、魚も 新しいし、よく 食べに 来ます。",
+      "vietnamese": "Vâng. Ở đây giá cả rẻ, cá lại tươi nên tôi hay đến ăn."
+    },
+    {
+      "id": "0e3g5c2",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "どうして 富士大学を 選んだんですか。",
+      "vietnamese": "Tại sao anh/chị lại chọn trường Đại học Fuji?"
+    },
+    {
+      "id": "0yyj9m4",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "富士大学は 有名だし、いい 先生も 多いし、寮も ありますから。",
+      "vietnamese": "Vì trường Đại học Fuji nổi tiếng, có nhiều giảng viên giỏi, thêm nữa lại có ký túc xá."
+    },
+    {
+      "id": "0k25qz7",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "ミラーさん、ちょっと お願いが あるんですが。",
+      "vietnamese": "Anh Miller ơi, tôi có chút việc muốn nhờ anh."
+    },
+    {
+      "id": "0m5kvnx",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "ミラー",
+      "japanese": "何ですか。",
+      "vietnamese": "Việc gì thế chị?"
+    },
+    {
+      "id": "0tzcafx",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "実は 8月に オーストラリアへ ホームステイに 行くんです。",
+      "vietnamese": "Thực ra thì vào tháng 8, tôi sẽ đi homestay ở Úc."
+    },
+    {
+      "id": "1g5icpl",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "ミラー",
+      "japanese": "ホームステイですか。いいですね。",
+      "vietnamese": "Homestay à? Hay quá nhỉ."
+    },
+    {
+      "id": "0cnwol9",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "ええ。",
+      "vietnamese": "Vâng."
+    },
+    {
+      "id": "10ydf4i",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "それで 今 友達と 英語を 勉強して いるんですが……。",
+      "vietnamese": "Vì thế mà bây giờ tôi đang học tiếng Anh cùng với bạn...."
+    },
+    {
+      "id": "0u7ahjd",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "なかなか 上手に ならないんです。",
+      "vietnamese": "Tôi học mãi mà không giỏi lên được."
+    },
+    {
+      "id": "1mgz4xf",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "先生も いないし、英語で 話す チャンスも ないし……。",
+      "vietnamese": "Không có giáo viên dạy cho, với lại chẳng có cơ hội nói chuyện bằng tiếng Anh...."
+    },
+    {
+      "id": "0zg44bp",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "ミラーさん、会話の 先生に なって いただけませんか。",
+      "vietnamese": "Anh Miller có thể làm thầy dạy tiếng Anh cho tôi được không?"
+    },
+    {
+      "id": "1fiexpa",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "ミラー",
+      "japanese": "え? 先生に? うーん、ちょっと 仕事が……。",
+      "vietnamese": "Hả? Làm giáo viên á? Ờ, công việc của tôi thì hơi...."
+    },
+    {
+      "id": "119mq7j",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "お暇な とき、お茶でも 飲みながら……。",
+      "vietnamese": "Lúc anh có thời gian rảnh, chúng ta có thể vừa uống trà vừa học...."
+    },
+    {
+      "id": "1e0egq6",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "ミラー",
+      "japanese": "うーん。出張も 多いし、もうすぐ 日本語の 試験も あるし……。",
+      "vietnamese": "Ờ, tôi phải đi công tác nhiều, lại sắp có kỳ thi tiếng Nhật nữa...."
+    },
+    {
+      "id": "1g9iw5f",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "小川幸子",
+      "japanese": "そうですか。",
+      "vietnamese": "Thế à?"
+    },
+    {
+      "id": "10dbwmb",
+      "section": "Hội thoại — 出張も 多いし、試験も あるし……",
+      "speaker": "ミラー",
+      "japanese": "すみません。",
+      "vietnamese": "Xin lỗi chị."
+    }
+  ],
+  "grammarPoints": []
+}

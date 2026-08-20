@@ -1,0 +1,49 @@
+# Bài 28 — 文型 / 例文 / 会話
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT                     (câu không thuộc lời của ai)
+#   NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT           (lời thoại)
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+#
+# Dùng | chứ không dùng dấu phẩy vì cả câu tiếng Việt lẫn tiếng Nhật đều đầy
+# dấu phẩy (, và 、) — tách bằng dấu phẩy sẽ cắt vụn câu.
+
+## Mẫu câu
+音楽を 聞きながら 食事します。|Tôi vừa nghe nhạc vừa ăn cơm.
+毎朝 ジョギングを して います。|Hàng sáng tôi chạy bộ.
+地下鉄は 速いし、安いし、地下鉄で 行きましょう。|Tàu điện ngầm vừa nhanh lại rẻ, nên chúng ta đi bằng tàu điện ngầm đi.
+
+## Ví dụ
+眠い とき、ガムを かみながら 運転します。|Khi lái xe mà buồn ngủ thì tôi nhai kẹo cao su.
+そうですか。わたしは 車を 止めて、しばらく 寝ます。|Thế à. Tôi thì dừng xe và ngủ một lát.
+音楽を 聞きながら 勉強しますか。|Anh/Chị vừa nghe nhạc vừa học bài à?
+いいえ。勉強する ときは、音楽を 聞きません。|Không. Lúc học bài thì tôi không nghe nhạc.
+彼は 働きながら 大学で 勉強して います。|Anh ấy vừa đi học ở trường đại học vừa đi làm.
+そうですか。偉いですね。|Thế à. Đáng khâm phục nhỉ.
+休みの 日は いつも 何を して いますか。|Ngày nghỉ anh/chị thường làm gì?
+そうですね。だいたい 絵を かいて います。|À, thông thường thì tôi vẽ tranh.
+ワット先生は 熱心だし、まじめだし、それに 経験も ありますね。|Thầy Watt vừa nhiệt tình, nghiêm túc, hơn nữa lại có kinh nghiệm.
+いい 先生ですね。|Đúng là một thầy giáo tốt.
+よく この すし屋へ 来るんですか。|Anh/Chị hay đến quán sushi này à?
+ええ。ここは 値段も 安いし、魚も 新しいし、よく 食べに 来ます。|Vâng. Ở đây giá cả rẻ, cá lại tươi nên tôi hay đến ăn.
+どうして 富士大学を 選んだんですか。|Tại sao anh/chị lại chọn trường Đại học Fuji?
+富士大学は 有名だし、いい 先生も 多いし、寮も ありますから。|Vì trường Đại học Fuji nổi tiếng, có nhiều giảng viên giỏi, thêm nữa lại có ký túc xá.
+
+## Hội thoại — 出張も 多いし、試験も あるし……
+小川幸子|ミラーさん、ちょっと お願いが あるんですが。|Anh Miller ơi, tôi có chút việc muốn nhờ anh.
+ミラー|何ですか。|Việc gì thế chị?
+小川幸子|実は 8月に オーストラリアへ ホームステイに 行くんです。|Thực ra thì vào tháng 8, tôi sẽ đi homestay ở Úc.
+ミラー|ホームステイですか。いいですね。|Homestay à? Hay quá nhỉ.
+小川幸子|ええ。|Vâng.
+小川幸子|それで 今 友達と 英語を 勉強して いるんですが……。|Vì thế mà bây giờ tôi đang học tiếng Anh cùng với bạn....
+# Ở đây trong sách anh Miller đáp lại một câu 「ええ。」 nữa. Bỏ qua vì trùng
+# nguyên văn với câu 「ええ。」 của chị Ogawa ở trên — luyện hai lần một câu
+# giống hệt nhau thì không thêm được gì.
+小川幸子|なかなか 上手に ならないんです。|Tôi học mãi mà không giỏi lên được.
+小川幸子|先生も いないし、英語で 話す チャンスも ないし……。|Không có giáo viên dạy cho, với lại chẳng có cơ hội nói chuyện bằng tiếng Anh....
+小川幸子|ミラーさん、会話の 先生に なって いただけませんか。|Anh Miller có thể làm thầy dạy tiếng Anh cho tôi được không?
+ミラー|え? 先生に? うーん、ちょっと 仕事が……。|Hả? Làm giáo viên á? Ờ, công việc của tôi thì hơi....
+小川幸子|お暇な とき、お茶でも 飲みながら……。|Lúc anh có thời gian rảnh, chúng ta có thể vừa uống trà vừa học....
+ミラー|うーん。出張も 多いし、もうすぐ 日本語の 試験も あるし……。|Ờ, tôi phải đi công tác nhiều, lại sắp có kỳ thi tiếng Nhật nữa....
+小川幸子|そうですか。|Thế à?
+ミラー|すみません。|Xin lỗi chị.

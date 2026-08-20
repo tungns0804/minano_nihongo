@@ -1,0 +1,216 @@
+{
+  "id": "hoi-thoai-minano-29",
+  "lessonNumber": 29,
+  "name": "皆の日本語 — Bài 29 · Hội thoại",
+  "description": "Dịch câu mẫu, ví dụ và hội thoại bài 29 giữa Nhật và Việt",
+  "kind": "conversation",
+  "itemCount": 29,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "1ry2am5",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "窓が 閉まって います。",
+      "vietnamese": "Cửa sổ đóng."
+    },
+    {
+      "id": "0rl4zke",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "電車に 傘を 忘れて しまいました。",
+      "vietnamese": "Tôi để quên cái ô ở trên tàu."
+    },
+    {
+      "id": "0s6bvab",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "会議室の かぎが 掛かって いますね。",
+      "vietnamese": "Phòng họp khóa cửa."
+    },
+    {
+      "id": "13pfojg",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "じゃ、渡辺さんに 言って、開けて もらいましょう。",
+      "vietnamese": "Thế thì hãy nói với chị Watanabe để chị ấy mở cho."
+    },
+    {
+      "id": "0x3r7q6",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "この パソコン、使っても いいですか。",
+      "vietnamese": "Tôi dùng máy vi tính này có được không?"
+    },
+    {
+      "id": "04yq4un",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "それは 故障して いますから、あちらのを 使って ください。",
+      "vietnamese": "Cái đó bị hỏng rồi nên anh/chị dùng cái kia đi."
+    },
+    {
+      "id": "1c95qh5",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "シュミットさんが 持って 来た ワインは どこですか。",
+      "vietnamese": "Rượu vang anh Schmidt mang đến ở đâu rồi?"
+    },
+    {
+      "id": "0a7oe09",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "みんなで 飲んで しまいました。",
+      "vietnamese": "Mọi người đã uống mất hết cả rồi."
+    },
+    {
+      "id": "12xdql0",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いっしょに 帰りませんか。",
+      "vietnamese": "Anh/Chị có về cùng tôi không?"
+    },
+    {
+      "id": "07pv7jn",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "すみません。この メールを 書いて しまいますから、お先に どうぞ。",
+      "vietnamese": "Cám ơn, tôi phải viết xong email này đã, nên anh/chị cứ về trước đi."
+    },
+    {
+      "id": "0o44sb9",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "約束の 時間に 間に 合いましたか。",
+      "vietnamese": "Anh/Chị có kịp giờ hẹn không?"
+    },
+    {
+      "id": "1sk9pt7",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いいえ、道を まちがえて、遅れて しまいました。",
+      "vietnamese": "Không, tôi đã bị muộn vì nhầm đường."
+    },
+    {
+      "id": "0lj3uss",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "どう したんですか。",
+      "vietnamese": "Anh/Chị bị làm sao thế?"
+    },
+    {
+      "id": "1yl6sal",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "タクシーに 荷物を 忘れて しまったんです。",
+      "vietnamese": "Tôi đã để quên hành lý trong tắc-xi mất rồi."
+    },
+    {
+      "id": "0hfy747",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "すみません。今の 電車に 忘れ物を して しまったんですが……。",
+      "vietnamese": "Xin lỗi. Tôi đã để quên đồ trên chuyến tàu vừa rồi...."
+    },
+    {
+      "id": "08tfzj9",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "何を 忘れたんですか。",
+      "vietnamese": "Chị để quên cái gì?"
+    },
+    {
+      "id": "0ve2dim",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "青い かばんです。この くらいの……。",
+      "vietnamese": "Cái cặp xách màu xanh. Cỡ khoảng như thế này...."
+    },
+    {
+      "id": "0n4hqeq",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "外側に 大きい ポケットが 付いて います。",
+      "vietnamese": "Ở bên ngoài có ngăn túi lớn."
+    },
+    {
+      "id": "12nmiyv",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "どの 辺に 置きましたか。",
+      "vietnamese": "Chị đã để ở chỗ nào?"
+    },
+    {
+      "id": "1emvv6u",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "よく 覚えて いません。でも、網棚の 上に 置きました。",
+      "vietnamese": "Tôi không nhớ rõ. Nhưng, tôi để ở trên giá để hành lý."
+    },
+    {
+      "id": "0gcsqfc",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "中に 何が 入って いますか。",
+      "vietnamese": "Ở trong cặp có gì?"
+    },
+    {
+      "id": "0qo4qrf",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "えーと、確か、本と 傘が 入って います。",
+      "vietnamese": "Ừ...m, nếu không nhầm thì có quyển sách và cái ô."
+    },
+    {
+      "id": "0br064k",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "じゃ、調べますから、ちょっと 待って ください。",
+      "vietnamese": "Thế thì bây giờ tôi sẽ kiểm tra nên chị hãy đợi một chút."
+    },
+    {
+      "id": "1x44mdh",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "ありましたよ。",
+      "vietnamese": "Có rồi đấy."
+    },
+    {
+      "id": "07mx5yn",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "ああ、よかった。",
+      "vietnamese": "Ồ, may quá."
+    },
+    {
+      "id": "1r0bimi",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "今 新宿駅に ありますが、どう しますか。",
+      "vietnamese": "Cái cặp của chị bây giờ đang ở ga Shinjuku, chị định thế nào?"
+    },
+    {
+      "id": "0ofjjmd",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "すぐ 取りに 行きます。",
+      "vietnamese": "Tôi sẽ đi lấy ngay."
+    },
+    {
+      "id": "0hke5h3",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "駅員",
+      "japanese": "じゃ、新宿駅の 事務所に 行って ください。",
+      "vietnamese": "Thế thì chị hãy đi đến văn phòng của ga Shinjuku."
+    },
+    {
+      "id": "1irpce1",
+      "section": "Hội thoại — 忘れ物を して しまいました",
+      "speaker": "イー",
+      "japanese": "はい。どうも ありがとう ございました。",
+      "vietnamese": "Vâng. Xin cám ơn anh."
+    }
+  ],
+  "grammarPoints": []
+}

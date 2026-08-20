@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-18T07:03:58.072Z",
+  "generatedAt": "2026-08-20T09:16:04.027Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -290,6 +290,15 @@
       "file": "minano-nihongo-28.json"
     },
     {
+      "id": "hoi-thoai-minano-28",
+      "name": "皆の日本語 — Bài 28 · Hội thoại",
+      "description": "Dịch câu mẫu, ví dụ và hội thoại bài 28 giữa Nhật và Việt",
+      "kind": "conversation",
+      "itemCount": 31,
+      "lessonNumber": 28,
+      "file": "hoi-thoai-minano-28.json"
+    },
+    {
       "id": "ngu-phap-minano-28",
       "name": "皆の日本語 — Bài 28 · Ngữ pháp",
       "description": "～ながら, Vています (thói quen), ～し～し, それで",
@@ -306,6 +315,15 @@
       "itemCount": 37,
       "lessonNumber": 29,
       "file": "minano-nihongo-29.json"
+    },
+    {
+      "id": "hoi-thoai-minano-29",
+      "name": "皆の日本語 — Bài 29 · Hội thoại",
+      "description": "Dịch câu mẫu, ví dụ và hội thoại bài 29 giữa Nhật và Việt",
+      "kind": "conversation",
+      "itemCount": 29,
+      "lessonNumber": 29,
+      "file": "hoi-thoai-minano-29.json"
     },
     {
       "id": "ngu-phap-minano-29",

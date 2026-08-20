@@ -1,0 +1,44 @@
+# Bài 29 — 文型 / 例文 / 会話
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT                     (câu không thuộc lời của ai)
+#   NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT           (lời thoại)
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+#
+# Dùng | chứ không dùng dấu phẩy vì cả câu tiếng Việt lẫn tiếng Nhật đều đầy
+# dấu phẩy (, và 、) — tách bằng dấu phẩy sẽ cắt vụn câu.
+
+## Mẫu câu
+窓が 閉まって います。|Cửa sổ đóng.
+電車に 傘を 忘れて しまいました。|Tôi để quên cái ô ở trên tàu.
+
+## Ví dụ
+会議室の かぎが 掛かって いますね。|Phòng họp khóa cửa.
+じゃ、渡辺さんに 言って、開けて もらいましょう。|Thế thì hãy nói với chị Watanabe để chị ấy mở cho.
+この パソコン、使っても いいですか。|Tôi dùng máy vi tính này có được không?
+それは 故障して いますから、あちらのを 使って ください。|Cái đó bị hỏng rồi nên anh/chị dùng cái kia đi.
+シュミットさんが 持って 来た ワインは どこですか。|Rượu vang anh Schmidt mang đến ở đâu rồi?
+みんなで 飲んで しまいました。|Mọi người đã uống mất hết cả rồi.
+いっしょに 帰りませんか。|Anh/Chị có về cùng tôi không?
+すみません。この メールを 書いて しまいますから、お先に どうぞ。|Cám ơn, tôi phải viết xong email này đã, nên anh/chị cứ về trước đi.
+約束の 時間に 間に 合いましたか。|Anh/Chị có kịp giờ hẹn không?
+いいえ、道を まちがえて、遅れて しまいました。|Không, tôi đã bị muộn vì nhầm đường.
+どう したんですか。|Anh/Chị bị làm sao thế?
+タクシーに 荷物を 忘れて しまったんです。|Tôi đã để quên hành lý trong tắc-xi mất rồi.
+
+## Hội thoại — 忘れ物を して しまいました
+イー|すみません。今の 電車に 忘れ物を して しまったんですが……。|Xin lỗi. Tôi đã để quên đồ trên chuyến tàu vừa rồi....
+駅員|何を 忘れたんですか。|Chị để quên cái gì?
+イー|青い かばんです。この くらいの……。|Cái cặp xách màu xanh. Cỡ khoảng như thế này....
+イー|外側に 大きい ポケットが 付いて います。|Ở bên ngoài có ngăn túi lớn.
+駅員|どの 辺に 置きましたか。|Chị đã để ở chỗ nào?
+イー|よく 覚えて いません。でも、網棚の 上に 置きました。|Tôi không nhớ rõ. Nhưng, tôi để ở trên giá để hành lý.
+駅員|中に 何が 入って いますか。|Ở trong cặp có gì?
+イー|えーと、確か、本と 傘が 入って います。|Ừ...m, nếu không nhầm thì có quyển sách và cái ô.
+駅員|じゃ、調べますから、ちょっと 待って ください。|Thế thì bây giờ tôi sẽ kiểm tra nên chị hãy đợi một chút.
+駅員|ありましたよ。|Có rồi đấy.
+イー|ああ、よかった。|Ồ, may quá.
+駅員|今 新宿駅に ありますが、どう しますか。|Cái cặp của chị bây giờ đang ở ga Shinjuku, chị định thế nào?
+イー|すぐ 取りに 行きます。|Tôi sẽ đi lấy ngay.
+駅員|じゃ、新宿駅の 事務所に 行って ください。|Thế thì chị hãy đi đến văn phòng của ga Shinjuku.
+イー|はい。どうも ありがとう ございました。|Vâng. Xin cám ơn anh.
