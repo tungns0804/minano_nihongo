@@ -25,13 +25,19 @@ export type AnswerMode = 'choice' | 'typing';
  *  - all      : toàn bộ bài
  *  - favorite : chỉ các mục đã đánh dấu ★
  *  - special  : chỉ động từ đặc biệt (nhóm 1 dễ nhầm thành nhóm 2), chỉ có ở bài động từ
+ *  - single   : đúng một mục do người học bấm chọn, không đi qua khung thiết lập
+ *
+ * `single` không có nút riêng ở khung thiết lập — nó tới từ nút luyện đặt ngay
+ * trên từng dòng hội thoại. Vẫn phải là một giá trị của phạm vi để màn hình kết
+ * quả gọi tên đúng phiên vừa làm thay vì hiện "Toàn bộ bài" cho một câu.
  */
-export type PracticeScope = 'all' | 'favorite' | 'special';
+export type PracticeScope = 'all' | 'favorite' | 'special' | 'single';
 
 export const SCOPE_LABEL_KEY: Record<PracticeScope, MessageKey> = {
   all: 'scope.all',
   favorite: 'scope.favorite',
   special: 'scope.special',
+  single: 'scope.single',
 };
 
 export interface DirectionInfo {

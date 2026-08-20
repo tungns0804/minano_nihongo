@@ -91,6 +91,28 @@ thẳng file bài học vào trang và dựng danh sách từ đó, không hề 
 hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
 một danh sách dài không đọc nổi.
 
+## Dịch hội thoại
+
+Vào bài **· Hội thoại** ở trang chủ. Trang bài liệt kê 文型 / 例文 / 会話 của bài đó, mỗi câu một
+dòng gồm người nói, câu tiếng Nhật và bản dịch tiếng Việt.
+
+**Luyện cả bài** — bấm **Bắt đầu** như mọi loại bài khác, chọn chiều Nhật → Việt hoặc Việt → Nhật.
+
+**Luyện riêng một câu** — mỗi dòng có sẵn hai nút **→ Tiếng Nhật** và **→ Tiếng Việt**. Bấm là vào
+thẳng màn hình luyện với đúng câu đó, không phải đụng tới khung thiết lập ở trên. Xong câu, nút
+**Làm lại** ở màn hình kết quả cho gõ lại chính câu vừa rồi — tiện khi muốn nhai đi nhai lại một
+câu cho thuộc.
+
+Nút ghi theo **đích đến** (`→ Tiếng Nhật`) chứ không theo cặp chiều (`Việt → Nhật`) như khung thiết
+lập: đứng cạnh một câu cụ thể thì thứ cần biết là sắp phải viết ra thứ tiếng nào, vế còn lại đã nằm
+sẵn ngay trước mắt.
+
+- **Chỉ có gõ đáp án**, không có trắc nghiệm — cùng lý do với bài ngữ pháp.
+- Chấm điểm **bỏ qua dấu câu**: thiếu một dấu `、` hay `……` không phải là dịch sai.
+- Phạm vi **★ Chưa nhớ**, giới hạn số câu, trộn thứ tự — giống các loại bài khác.
+
+**Hiện có: bài 26, 28, 29.**
+
 ## Ngữ pháp
 
 Vào tab **Ngữ pháp** → chọn một bài. Trang bài gồm hai phần:

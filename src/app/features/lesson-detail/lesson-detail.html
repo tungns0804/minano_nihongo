@@ -379,6 +379,27 @@
                       <p class="line-jp jp">{{ line.japanese }}</p>
                       <p class="line-vi">{{ line.vietnamese }}</p>
                     </div>
+                    <div class="line-actions">
+                      <span class="line-actions-label">{{ t('lesson.line.practiceLabel') }}</span>
+                      <div class="line-actions-buttons">
+                        <button
+                          type="button"
+                          class="line-action"
+                          (click)="practiceLine(line, 'vi-jp')"
+                          [attr.aria-label]="t('lesson.line.practiceJp', { name: line.vietnamese })"
+                        >
+                          {{ t('lesson.line.toJapanese') }}
+                        </button>
+                        <button
+                          type="button"
+                          class="line-action"
+                          (click)="practiceLine(line, 'jp-vi')"
+                          [attr.aria-label]="t('lesson.line.practiceVi', { name: line.japanese })"
+                        >
+                          {{ t('lesson.line.toVietnamese') }}
+                        </button>
+                      </div>
+                    </div>
                   </li>
                 }
               </ul>

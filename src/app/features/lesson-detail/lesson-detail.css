@@ -178,9 +178,76 @@
 
 .line-body {
   min-width: 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+/* Hai nút luyện riêng một câu.
+
+   Viền mảnh và chữ mờ là có chủ ý: danh sách này còn để ĐỌC như một đoạn hội
+   thoại, nên phần nút phải lùi lại sau phần chữ. Nhãn "Luyện viết câu này" chỉ
+   hiện ở màn hình rộng — chỗ hẹp thì hai nút tự nói đủ ý và nhãn lặp lại 31 lần
+   chỉ tổ chiếm chỗ. */
+.line-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.line-actions-label {
+  font-size: var(--fs-2xs);
+  color: var(--text-faint);
+}
+
+.line-actions-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.line-action {
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--text-muted);
+  padding: 5px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .line-action:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+}
+
+/* Màn hình hẹp: bỏ nhãn và cho cụm nút xuống hẳn hàng dưới, căn phải.
+
+   `flex-basis: 100%` đặt trên .line-actions chứ không phải .line-body: ngôi sao
+   và phần chữ phải ở lại cùng một hàng, cho .line-body chiếm trọn hàng thì ngôi
+   sao bị bỏ lại một mình ở hàng trên. */
+@media (max-width: 640px) {
+  .line-item {
+    flex-wrap: wrap;
+  }
+
+  .line-actions {
+    flex-basis: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .line-actions-label {
+    display: none;
+  }
 }
 
 .line-meta {

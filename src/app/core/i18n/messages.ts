@@ -251,6 +251,21 @@ export const MESSAGES = {
     vi: 'Hiện {shown}/{total} câu.',
     ja: '{total}文中{shown}文を表示。',
   },
+  // Nhãn hai nút luyện riêng một câu, đặt ngay trên từng dòng hội thoại. Nói theo
+  // ĐÍCH ĐẾN ("→ Tiếng Nhật") chứ không theo cặp chiều như khung thiết lập
+  // ("Việt → Nhật"): đứng ngay cạnh một câu cụ thể thì điều cần biết là sẽ phải
+  // viết ra thứ tiếng nào, vế còn lại đã nằm sẵn trước mắt.
+  'lesson.line.practiceLabel': { vi: 'Luyện viết câu này', ja: 'この文を書く練習' },
+  'lesson.line.toJapanese': { vi: '→ Tiếng Nhật', ja: '→ 日本語' },
+  'lesson.line.toVietnamese': { vi: '→ Tiếng Việt', ja: '→ ベトナム語' },
+  'lesson.line.practiceJp': {
+    vi: 'Luyện viết sang tiếng Nhật câu: {name}',
+    ja: '「{name}」を日本語で書く練習',
+  },
+  'lesson.line.practiceVi': {
+    vi: 'Luyện viết sang tiếng Việt câu: {name}',
+    ja: '「{name}」をベトナム語で書く練習',
+  },
   'lesson.deleteLesson': { vi: 'Xoá bài học này', ja: 'このレッスンを削除' },
   'lesson.markSpecial': { vi: '★ Đánh dấu động từ đặc biệt', ja: '★ 特殊動詞に印を付ける' },
   'lesson.clearFavorites': { vi: 'Bỏ đánh dấu tất cả', ja: 'すべての印を外す' },
@@ -542,6 +557,7 @@ export const MESSAGES = {
   'scope.all': { vi: 'Toàn bộ bài', ja: 'レッスン全体' },
   'scope.favorite': { vi: '★ Mục chưa nhớ', ja: '★ 未習得の項目' },
   'scope.special': { vi: 'Động từ đặc biệt', ja: '特殊動詞' },
+  'scope.single': { vi: 'Một câu đã chọn', ja: '選んだ1文' },
 
   // ── Chiều luyện tập (bài từ vựng) ──────────────────────────────────────
   'direction.jp-vi': { vi: 'Tiếng Nhật → Nghĩa tiếng Việt', ja: '日本語 → ベトナム語訳' },

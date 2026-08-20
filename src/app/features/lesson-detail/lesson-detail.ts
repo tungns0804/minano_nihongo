@@ -472,7 +472,41 @@ export class LessonDetail {
     const lesson = this.lesson();
     if (!lesson || !this.canStart()) return;
 
-    const config: PracticeConfig = {
+    this.launch(lesson, this.buildConfig(lesson), this.pool());
+  }
+
+  /**
+   * Luyện đúng MỘT câu hội thoại, theo chiều bấm ngay tại dòng đó.
+   *
+   * Không đọc và cũng không sửa các lựa chọn ở khung thiết lập: bấm vào một câu là
+   * muốn dịch ngay câu đó theo chiều vừa bấm, chứ không phải đổi cấu hình của cả
+   * bài. Vì vậy phạm vi, chiều, số câu và trộn thứ tự đều bị đè.
+   */
+  practiceLine(line: ConversationLine, direction: PracticeDirection): void {
+    const lesson = this.lesson();
+    if (!lesson) return;
+
+    const config = this.buildConfig(lesson, {
+      scope: 'single',
+      direction,
+      // Một câu thì không có gì để trộn, và cắt còn 10 câu lại càng vô nghĩa.
+      shuffle: false,
+      questionLimit: null,
+    });
+
+    this.launch(lesson, config, { kind: 'conversation', lines: [line] });
+  }
+
+  /**
+   * Khối thiết lập của một phiên, dựng từ các lựa chọn đang hiện trên màn hình.
+   *
+   * Tách riêng vì có hai đường bắt đầu phiên — nút "Bắt đầu" cho cả bài và nút
+   * luyện một câu ở từng dòng hội thoại — và chúng chỉ khác nhau vài trường. Chép
+   * khối này ra làm hai bản thì thêm một tuỳ chọn mới sẽ chỉ có tác dụng ở một
+   * trong hai đường, mà chẳng có gì báo.
+   */
+  private buildConfig(lesson: Lesson, overrides: Partial<PracticeConfig> = {}): PracticeConfig {
+    return {
       lessonId: lesson.id,
       lessonKind: lesson.kind,
       scope: this.scope(),
@@ -494,9 +528,12 @@ export class LessonDetail {
       exercise: null,
       exerciseMode: 'masu-to-form',
       kanjiMode: 'word-meaning',
+      ...overrides,
     };
+  }
 
-    const questions = buildQuestions(lesson, this.pool(), config);
+  private launch(lesson: Lesson, config: PracticeConfig, pool: PracticePool): void {
+    const questions = buildQuestions(lesson, pool, config);
     if (this.session.start({ id: lesson.id, name: lesson.name }, config, questions)) {
       void this.router.navigate(['/practice']);
     }
