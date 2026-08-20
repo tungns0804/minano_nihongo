@@ -18,13 +18,9 @@
   flex-shrink: 0;
 }
 
-/* --- Bộ lọc loại bài học --- */
+/* --- Bộ lọc cấp độ --- */
 
-.filter-options {
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-}
-
-/* Nhãn cấp độ dài hơn nhãn loại ("N5 · bài 1–25") nên cần ô rộng hơn một chút. */
+/* Nhãn cấp độ khá dài ("N5 · bài 1–25") nên cần ô rộng hơn nút thường. */
 .level-options {
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
@@ -44,28 +40,7 @@
   color: var(--accent);
 }
 
-/* --- Nhóm bài học --- */
-
-.category {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-1);
-}
-
-.category-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.category-head h2 {
-  font-size: 1.15rem;
-}
-
-.category-desc {
-  margin-bottom: 10px;
-  max-width: 70ch;
-}
+/* --- Lưới bài học --- */
 
 .lesson-grid {
   display: grid;

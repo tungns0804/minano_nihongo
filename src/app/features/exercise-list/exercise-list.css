@@ -1,6 +1,59 @@
-/* Thẻ bài tập dùng lại đúng hình dáng thẻ bài học ngoài trang chủ — hai chỗ này
-   là cùng một thao tác ("chọn thứ để luyện") nên không có lý do gì để trông khác
-   nhau. Kiểu dáng phải khai lại vì style của component là phạm vi riêng. */
+/* Thanh công cụ, nhóm, thẻ và khung chờ ở đây dùng lại đúng hình dáng của trang
+   chủ — hai chỗ này là cùng một thao tác ("chọn thứ để luyện") nên không có lý do
+   gì để trông khác nhau. Kiểu dáng phải khai lại vì style của component là phạm vi
+   riêng; sửa dáng ở một nơi thì nhớ sửa cả nơi kia. */
+
+/* --- Thanh công cụ: tìm kiếm + số liệu --- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.toolbar .search {
+  /* Chiếm phần còn lại của hàng nhưng không đẩy khối số liệu xuống dòng cho tới
+     khi thật sự hết chỗ (360px là lúc ô nhập bắt đầu chật). */
+  flex: 1 1 360px;
+}
+
+.toolbar-counts {
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* --- Nhóm --- */
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.category-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category-head h2 {
+  font-size: 1.15rem;
+}
+
+.category-desc {
+  margin-bottom: 10px;
+  max-width: 70ch;
+}
+
+/* Ghi chú đặt DƯỚI lưới thẻ của nhóm, nên cần khoảng thở ở trên; .category-desc
+   nằm trên lưới nên dùng margin-bottom. */
+.group-note {
+  margin-top: 10px;
+  max-width: 70ch;
+}
+
+/* --- Thẻ --- */
 
 .lesson-grid {
   display: grid;
@@ -84,4 +137,23 @@
   color: var(--accent);
   font-weight: 700;
   transition: transform var(--dur) var(--ease);
+}
+
+/* --- Khung chờ --- */
+
+.skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-bar {
+  width: 220px;
+  height: 20px;
+}
+
+/* Cao đúng bằng một thẻ thật (tiêu đề + mô tả 2 dòng + hàng badge). */
+.skeleton-card {
+  height: 132px;
+  border-radius: var(--radius-lg);
 }

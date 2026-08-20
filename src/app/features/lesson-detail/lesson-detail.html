@@ -12,7 +12,7 @@
     <div class="stack stack-xl">
       <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
       <header class="stack stack-sm">
-        <a class="back-link" routerLink="/">{{ t('common.back') }}</a>
+        <a class="back-link" [routerLink]="backRoute()">{{ t(backLabelKey()) }}</a>
         <div class="row">
           <h1>{{ data.name }}</h1>
           @if (data.origin === 'custom') {

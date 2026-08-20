@@ -29,6 +29,8 @@ import {
 } from '../../core/models/practice.model';
 import {
   ConversationLine,
+  LESSON_KIND_TAB,
+  LESSON_TAB_ROUTE,
   Lesson,
   LessonKind,
   VerbEntry,
@@ -97,6 +99,23 @@ export class LessonDetail {
 
   readonly isVerbLesson = computed(() => this.lesson()?.kind === 'verb');
   readonly isConversationLesson = computed(() => this.lesson()?.kind === 'conversation');
+
+  /**
+   * Nút "quay lại" phải trỏ về đúng tab đang liệt kê bài này.
+   *
+   * Bài từ vựng nằm ở trang chủ, còn bài chia động từ và bài dịch hội thoại nằm ở
+   * tab Bài tập bổ trợ. Trỏ cứng về "/" như trước thì mở một bài động từ rồi bấm
+   * quay lại sẽ rơi vào một danh sách KHÔNG chứa bài vừa xem — đúng kiểu lạc đường
+   * mà người dùng không hiểu nổi tại sao.
+   */
+  readonly backRoute = computed(() => LESSON_TAB_ROUTE[LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary']]);
+
+  /** Chữ trên nút quay lại, gọi đúng tên cái danh sách sắp quay về. */
+  readonly backLabelKey = computed<MessageKey>(() =>
+    LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary'] === 'exercise'
+      ? 'exercise.back'
+      : 'common.back',
+  );
   readonly words = computed(() => this.lesson()?.words ?? []);
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
   readonly lines = computed(() => this.lesson()?.lines ?? []);

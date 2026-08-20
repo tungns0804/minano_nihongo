@@ -52,26 +52,43 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 
 | Loại | Nội dung | Dữ liệu | Nằm ở đâu |
 | --- | --- | --- | --- |
-| **Từ vựng** | Nghĩa từ vựng, Kanji, âm Hán Việt | 3 cột | Trang chủ |
-| **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) | Trang chủ |
-| **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Trang chủ |
-| **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp** |
-| **Bài tập** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập** |
+| **Từ vựng** | Nghĩa từ vựng, Kanji, âm Hán Việt | 3 cột | Tab **Từ vựng minano** |
+| **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) | Tab **Bài tập bổ trợ** |
+| **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Tab **Bài tập bổ trợ** |
+| **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập bổ trợ** |
+| **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp minano** |
 | **Kanji** | Danh sách 642 chữ Hán N5→N3 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | Tab **Kanji** |
 
-Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
-Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
-Bộ lọc chỉ xuất hiện khi có từ hai loại trở lên.
+Ranh giới giữa hai tab đầu là **nhớ nghĩa** hay **luyện một kỹ năng**. Tab **Từ vựng minano**
+chỉ có bài từ vựng: mở ra là để nhớ nghĩa của một kho từ. Tab **Bài tập bổ trợ** gom mọi thứ
+còn lại — chia thể động từ, dịch câu hội thoại, và hai bài tập chuyên đề — đều là luyện một
+thao tác chứ không phải học thuộc một danh sách.
 
-Danh sách đã hơn 50 bài nên trang chủ và tab **Ngữ pháp** đều có ô tìm kiếm ở đầu trang. Gõ
-tên bài, số bài ("33"), hay chữ không dấu ("dong tu") đều ra — từ khoá khớp theo từng từ nên
-"33 dong tu" vẫn tìm đúng bài. Khác với bộ lọc loại, từ khoá KHÔNG được nhớ cho lần mở sau:
-mở app lên mà danh sách đã bị cắt sẵn theo thứ gõ hôm trước thì trông y như mất bài học.
+Vì trang chủ chỉ còn đúng một loại nên **bộ lọc "Loại bài học" đã bỏ**; một bộ lọc có duy nhất
+một lựa chọn thì không lọc được gì. Loại bài nào thuộc tab nào khai ở bảng `LESSON_KIND_TAB`
+trong [`vocabulary.model.ts`](src/app/core/models/vocabulary.model.ts) — một chỗ duy nhất, cả
+hai màn hình danh sách lẫn nút "quay lại" ở trang chi tiết bài đều tra vào đó.
+
+**Đổi tab không đổi URL.** Bài chia động từ và bài dịch hội thoại vẫn mở ở `/lesson/<id>` như
+trước, nên link cũ vẫn vào được và dấu ★ "chưa nhớ" (khoá theo id bài) không mất một mục nào.
+
+Danh sách đã hơn 50 bài nên **cả ba tab** (Từ vựng minano, Bài tập bổ trợ, Ngữ pháp minano) đều
+có ô tìm kiếm ở đầu trang. Gõ tên bài, số bài ("33"), hay chữ không dấu ("dong tu") đều ra — từ
+khoá khớp theo từng từ nên "33 dong tu" vẫn tìm đúng bài. Ở tab Bài tập bổ trợ, ô tìm kiếm lọc
+cả hai bài tập chuyên đề lẫn các bài học: tên chúng là khoá dịch nên được dịch ra rồi mới so
+khớp, gõ "chuyen the" ở tiếng Việt và gõ "活用" ở tiếng Nhật đều ra đúng thẻ đó. Khác với bộ lọc
+cấp độ, từ khoá KHÔNG được nhớ cho lần mở sau: mở app lên mà danh sách đã bị cắt sẵn theo thứ gõ
+hôm trước thì trông y như mất bài học.
 
 ### Lọc theo cấp độ N5 / N4
 
 Trang chủ có thêm bộ lọc **Cấp độ**: **N5 = bài 1–25**, **N4 = bài 26–50**. Mốc chia này lấy
 đúng theo cuốn nguồn: hết bài 25 thì sách in tiêu đề “TỪ VỰNG MINNANO N4” rồi mới sang bài 26.
+
+Bộ lọc này chỉ có ở trang chủ, tức chỉ áp cho bài từ vựng. Tab Bài tập bổ trợ không có nó: hai
+bài tập chuyên đề trải N5→N2 theo cấp gán cho TỪNG động từ chứ không theo số bài, nên xếp chúng
+vào một bộ lọc chia theo số bài thì cả hai rơi hết vào ô "Không theo bài". Ở đó tìm bằng số bài
+("28") nhanh hơn lọc, vì cả tab chỉ có bảy thẻ.
 
 Cấp độ KHÔNG lưu trong từng bài mà suy ra từ **số bài**. Số bài do
 [`scripts/generate-lessons.mjs`](scripts/generate-lessons.mjs) tính lúc sinh dữ liệu (hàm
@@ -93,8 +110,8 @@ một danh sách dài không đọc nổi.
 
 ## Dịch hội thoại
 
-Vào bài **· Hội thoại** ở trang chủ. Trang bài liệt kê 文型 / 例文 / 会話 của bài đó, mỗi câu một
-dòng gồm người nói, câu tiếng Nhật và bản dịch tiếng Việt.
+Vào tab **Bài tập bổ trợ** → nhóm **Dịch hội thoại** → chọn một bài. Trang bài liệt kê
+文型 / 例文 / 会話 của bài đó, mỗi câu một dòng gồm người nói, câu tiếng Nhật và bản dịch tiếng Việt.
 
 **Luyện cả bài** — bấm **Bắt đầu** như mọi loại bài khác, chọn chiều Nhật → Việt hoặc Việt → Nhật.
 
@@ -256,12 +273,25 @@ nghĩa và cách đọc của MỘT TỪ. Chỉ lọc theo dấu câu chứ khô
 `電車に乗ります` chính là thứ giáo trình dạy nguyên khối. Chúng vẫn nằm nguyên trong bài học.
 
 
-## Bài tập
+## Bài tập bổ trợ
 
-Tab **Bài tập** là hai bài luyện chuyên đề nằm ngoài giáo trình: chúng gom động từ của nhiều
-bài lẫn nhiều cấp theo một chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách. Cả hai
-**chỉ có gõ đáp án** — mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ
-còn là nhận mặt chữ.
+Tab **Bài tập bổ trợ** gom mọi cách luyện không phải là nhớ nghĩa từ vựng, chia ba nhóm:
+
+| Nhóm | Nội dung | Mở ở |
+| --- | --- | --- |
+| **Bài tập** | Hai bài chuyên đề cài sẵn trong mã nguồn | `/exercise/<id>` |
+| **Chia động từ** | Bài động từ theo giáo trình, từ `data-source/` | `/lesson/<id>` |
+| **Dịch hội thoại** | Bài hội thoại theo giáo trình, từ `data-source/` | `/lesson/<id>` |
+
+Đầu trang có **ô tìm kiếm** lọc cả ba nhóm cùng lúc; nhóm không còn thẻ nào khớp thì mất luôn
+cả tiêu đề nhóm chứ không để lại một tiêu đề trống. Số liệu ở góc phải đếm theo đúng phần đang
+hiện.
+
+Hai bài chuyên đề nằm ngoài giáo trình: chúng gom động từ của nhiều bài lẫn nhiều cấp theo một
+chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách. Cả hai **chỉ có gõ đáp án** — mục tiêu
+là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Ghi chú đó đặt
+ngay trong nhóm của chúng chứ không ở cuối trang: bài **Chia động từ** bên dưới VẪN có trắc
+nghiệm, treo câu "chỉ gõ đáp án" ở cuối trang là nói sai về nó.
 
 ### 1. Tự động từ & Tha động từ (N5 → N3)
 
@@ -556,11 +586,11 @@ src/app/
       answer-check.ts            So khớp đáp án gõ tay
     guards/                      Chặn vào /practice và /result khi không có phiên
   features/
-    lesson-list/                 Trang chủ
+    lesson-list/                 Trang chủ — chỉ bài từ vựng
     lesson-detail/               Bảng từ vựng + thiết lập luyện tập
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
-    exercise-list/               Tab Bài tập — danh sách bài tập
+    exercise-list/               Tab Bài tập bổ trợ — bài tập chuyên đề + bài động từ + bài hội thoại
     exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ

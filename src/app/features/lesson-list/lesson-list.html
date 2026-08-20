@@ -5,7 +5,7 @@
       <p><app-t key="home.subtitle" block /></p>
     </section>
 
-    @if (status() === 'loading' && lessons().length === 0) {
+    @if (status() === 'loading' && allLessons().length === 0) {
       <!-- Khung chờ dựng đúng hình dạng lưới thẻ sắp hiện: trang không nhảy một
            nhịp khi dữ liệu về, và người dùng thấy ngay "sắp có một danh sách" chứ
            không phải "trang này trống". -->
@@ -31,7 +31,9 @@
       </div>
     }
 
-    @if (lessons().length > 0) {
+    <!-- Điều kiện xét trên allLessons chứ không phải lessons: lọc không ra bài nào
+         thì đó là "không khớp", không phải "chưa có bài từ vựng nào". -->
+    @if (allLessons().length > 0) {
       <!-- Thanh công cụ: tìm kiếm bên trái, số liệu bên phải. Gộp hai thứ vào một
            hàng để phần đầu trang không dài thêm một khối nữa. -->
       <div class="toolbar">
@@ -69,8 +71,8 @@
         </div>
       </div>
 
-      <!-- Lọc theo cấp độ JLPT. Đặt TRƯỚC bộ lọc loại vì người học thường chọn
-           "mình đang ở N5" một lần rồi mới ngó tới loại bài. -->
+      <!-- Lọc theo cấp độ JLPT. Đây là bộ lọc duy nhất còn lại của trang: bộ lọc
+           "Loại bài học" đã bỏ khi trang chỉ còn bài từ vựng. -->
       <div class="field">
         <span class="label">{{ t('home.level') }}</span>
         <div class="options level-options">
@@ -92,27 +94,6 @@
         </div>
       </div>
 
-      @if (filterOptions().length > 0) {
-        <div class="field">
-          <span class="label">{{ t('home.filter') }}</span>
-          <div class="options filter-options">
-            @for (option of filterOptions(); track option.value) {
-              <button
-                type="button"
-                class="option"
-                [class.is-active]="filter() === option.value"
-                [attr.aria-pressed]="filter() === option.value"
-                (click)="setFilter(option.value)"
-              >
-                <app-t [key]="option.labelKey" />
-                <span class="spacer"></span>
-                <span class="filter-count">{{ option.count }}</span>
-              </button>
-            }
-          </div>
-        </div>
-      }
-
       @if (noMatch()) {
         <div class="empty-state">
           <span class="empty-state-icon" aria-hidden="true">🔍</span>
@@ -122,52 +103,40 @@
             {{ t('home.noMatch.reset') }}
           </button>
         </div>
-      }
-
-      @for (category of categories(); track category.kind) {
-        <section class="category">
-          <div class="category-head">
-            <h2>{{ t(category.labelKey) }}</h2>
-            <span class="badge badge-accent">
-              {{ t('home.categoryCount', { count: category.lessons.length }) }}
-            </span>
-          </div>
-          <p class="muted small category-desc">
-            <app-t [key]="category.descriptionKey" block />
-          </p>
-
-          <div class="lesson-grid">
-            @for (lesson of category.lessons; track lesson.id) {
-              <a class="card lesson-card" [routerLink]="['/lesson', lesson.id]">
-                <div class="lesson-card-top">
-                  <h3 class="lesson-name">{{ lesson.name }}</h3>
-                  @if (lesson.origin === 'custom') {
-                    <span class="badge badge-accent" [title]="t('common.customTitle')">
-                      {{ t('common.custom') }}
-                    </span>
-                  }
-                </div>
-
-                @if (lesson.description) {
-                  <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
-                }
-
-                <div class="lesson-card-bottom">
-                  <span class="badge">
-                    <app-t [key]="category.unitKey" [params]="{ count: lesson.itemCount }" />
+      } @else {
+        <div class="lesson-grid">
+          @for (lesson of lessons(); track lesson.id) {
+            <a class="card lesson-card" [routerLink]="['/lesson', lesson.id]">
+              <div class="lesson-card-top">
+                <h3 class="lesson-name">{{ lesson.name }}</h3>
+                @if (lesson.origin === 'custom') {
+                  <span class="badge badge-accent" [title]="t('common.customTitle')">
+                    {{ t('common.custom') }}
                   </span>
-                  @if (favoriteCount(lesson.id) > 0) {
-                    <span class="badge badge-warning">
-                      {{ t('home.favoriteCount', { count: favoriteCount(lesson.id) }) }}
-                    </span>
-                  }
-                  <span class="spacer"></span>
-                  <span class="lesson-go" aria-hidden="true">→</span>
-                </div>
-              </a>
-            }
-          </div>
-        </section>
+                }
+              </div>
+
+              @if (lesson.description) {
+                <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
+              }
+
+              <div class="lesson-card-bottom">
+                <span class="badge">
+                  <app-t [key]="unitKeyOf(lesson.kind)" [params]="{ count: lesson.itemCount }" />
+                </span>
+                @if (favoriteCount(lesson.id) > 0) {
+                  <span class="badge badge-warning">
+                    {{ t('home.favoriteCount', { count: favoriteCount(lesson.id) }) }}
+                  </span>
+                }
+                <span class="spacer"></span>
+                <span class="lesson-go" aria-hidden="true">→</span>
+              </div>
+            </a>
+          }
+        </div>
+
+        <p class="muted small"><app-t key="home.movedToExercise" block /></p>
       }
     } @else if (status() !== 'loading') {
       <div class="card">

@@ -123,7 +123,6 @@ export const MESSAGES = {
     ja: 'もっと短い語か、課の番号（例：33）で試してください。',
   },
   'home.noMatch.reset': { vi: 'Xoá bộ lọc', ja: '絞り込みを解除' },
-  'home.filter': { vi: 'Loại bài học', ja: 'レッスンの種類' },
   'home.level': { vi: 'Cấp độ', ja: 'レベル' },
   'home.level.all': { vi: 'Tất cả', ja: 'すべて' },
   // Kèm luôn khoảng bài để khỏi phải nhớ N5 gồm những bài nào.
@@ -133,10 +132,15 @@ export const MESSAGES = {
     vi: 'Bài không gắn với một bài số cụ thể, ví dụ bài gom động từ đặc biệt',
     ja: '特定の課に属さないレッスン（特別な動詞をまとめたものなど）',
   },
-  'home.filter.all': { vi: 'Tất cả', ja: 'すべて' },
   'home.lessonCount': { vi: '{count} bài học', ja: '{count}レッスン' },
   'home.itemCount': { vi: '{count} mục', ja: '{count}項目' },
   'home.categoryCount': { vi: '{count} bài', ja: '{count}レッスン' },
+  // Trang này từng có cả bài chia động từ lẫn bài dịch hội thoại. Một dòng chỉ đường
+  // rẻ hơn nhiều so với việc người dùng tưởng bài học đã mất.
+  'home.movedToExercise': {
+    vi: 'Bài chia động từ và bài dịch hội thoại đã chuyển sang tab “Bài tập bổ trợ”.',
+    ja: '動詞の活用と会話の翻訳は「補助練習」タブに移動しました。',
+  },
   'home.favoriteCount': { vi: '★ {count} chưa nhớ', ja: '★ 未習得{count}' },
   'home.empty.title': { vi: 'Chưa có bài học nào', ja: 'レッスンがまだありません' },
   'home.empty.intro': { vi: 'Có hai cách để thêm bài học:', ja: 'レッスンを追加する方法は2つあります：' },
@@ -366,11 +370,17 @@ export const MESSAGES = {
   // ── Khu Bài tập ────────────────────────────────────────────────────────
   // Hai bài tập chuyên đề nằm ngoài giáo trình: dữ liệu cài sẵn trong mã nguồn
   // (core/exercises/), gom động từ của nhiều cấp theo một chủ đề ngữ pháp.
-  'exercise.title': { vi: 'Bài tập chuyên đề', ja: 'テーマ別の練習問題' },
+  'exercise.title': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'exercise.subtitle': {
-    vi: 'Hai bài tập gom động từ nhiều cấp theo một chủ đề ngữ pháp, không đi theo thứ tự bài trong sách. Cả hai đều chỉ gõ đáp án.',
-    ja: '教科書の課の順ではなく、文法テーマごとに複数レベルの動詞を集めた2つの練習です。どちらも入力して解答します。',
+    vi: 'Các cách luyện ngoài việc nhớ nghĩa từ vựng: bài tập chuyên đề gom động từ nhiều cấp, bài chia thể động từ, và bài dịch hội thoại Việt ↔ Nhật.',
+    ja: '単語の意味を覚える以外の練習：複数レベルの動詞を集めたテーマ別練習、動詞の活用、そして越↔日の会話翻訳。',
   },
+  'exercise.search': {
+    vi: 'Tìm bài tập theo tên hoặc số bài…',
+    ja: '練習の名前・課の番号で検索…',
+  },
+  'exercise.search.aria': { vi: 'Tìm bài tập', ja: '練習を検索' },
+  'exercise.entryCount': { vi: '{count} bài tập', ja: '練習{count}件' },
   'exercise.transitivity.name': { vi: 'Tự động từ & Tha động từ', ja: '自動詞・他動詞' },
   'exercise.transitivity.desc': {
     vi: 'Cho một vế, viết ra vế còn lại của cặp: 開きます ↔ 開けます, 消えます ↔ 消します.',

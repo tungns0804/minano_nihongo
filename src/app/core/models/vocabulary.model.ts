@@ -110,6 +110,60 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   kanji: 'kind.kanji.unit',
 };
 
+/** Các tab của ứng dụng chứa danh sách bài để chọn. */
+export type LessonTab = 'home' | 'exercise' | 'grammar' | 'kanji';
+
+/**
+ * Loại bài nào hiện ở tab nào.
+ *
+ * Đây là NGUỒN SỰ THẬT DUY NHẤT cho việc phân chia đó: trang chủ lấy phần của
+ * mình từ bảng này, tab Bài tập bổ trợ lấy phần của nó cũng từ đây, và nút quay
+ * lại ở màn hình chi tiết bài cũng tra bảng này để biết đưa người dùng về đâu.
+ * Trước kia trang chủ giữ riêng một danh sách loại bài, nên chuyển một loại sang
+ * tab khác là phải nhớ sửa đúng ba chỗ mà không có gì nhắc.
+ *
+ * Là `Record` đủ mọi loại chứ không phải danh sách: thêm loại bài thứ bảy mà quên
+ * xếp tab thì TypeScript báo lỗi ngay tại đây, thay vì loại đó lặng lẽ không hiện
+ * ở tab nào cả.
+ *
+ * `exercise` là hai bài tập chuyên đề cài trong mã nguồn — chúng không tới từ
+ * `LessonStore` nhưng vẫn nằm ở tab đó, nên vẫn phải khai.
+ */
+export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
+  vocabulary: 'home',
+  // Hai loại này từng ở trang chủ. Chuyển sang tab Bài tập bổ trợ vì cả hai đều là
+  // cách luyện (chia thể, dịch câu) chứ không phải một kho từ để nhớ nghĩa — cùng
+  // họ với hai bài tập chuyên đề hơn là với bài từ vựng.
+  verb: 'exercise',
+  conversation: 'exercise',
+  grammar: 'grammar',
+  exercise: 'exercise',
+  kanji: 'kanji',
+};
+
+/** Đường dẫn tới màn hình danh sách của từng tab. */
+export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
+  home: '/',
+  exercise: '/exercise',
+  grammar: '/grammar',
+  kanji: '/kanji',
+};
+
+/** Thứ tự hiển thị các nhóm loại bài trong một tab. */
+const LESSON_KIND_ORDER: readonly LessonKind[] = [
+  'vocabulary',
+  'verb',
+  'conversation',
+  'grammar',
+  'exercise',
+  'kanji',
+];
+
+/** Các loại bài thuộc một tab, theo đúng thứ tự hiển thị. */
+export function lessonKindsOfTab(tab: LessonTab): LessonKind[] {
+  return LESSON_KIND_ORDER.filter((kind) => LESSON_KIND_TAB[kind] === tab);
+}
+
 /**
  * Một câu trong bài hội thoại — luôn có cặp Nhật/Việt để dịch qua lại.
  *
