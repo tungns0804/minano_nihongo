@@ -75,6 +75,12 @@ export class KanjiDetail {
   readonly onlyFavorites = signal(false);
 
   readonly notFound = computed(() => this.entry() === null);
+  /**
+   * Chữ có trong danh sách JLPT nhưng kho từ chưa có từ nào dùng nó. Vẫn hiện
+   * chữ và âm Hán Việt (luyện âm ở màn danh sách vẫn hỏi tới nó), chỉ là chưa
+   * luyện từ được.
+   */
+  readonly hasNoWords = computed(() => (this.entry()?.words.length ?? 0) === 0);
   readonly currentMode = computed(() => kanjiModeInfo(this.mode()));
   readonly modeShort = computed(() => this.lang.t(this.currentMode().shortKey));
 

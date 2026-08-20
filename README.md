@@ -57,7 +57,7 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Trang chủ |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp** |
 | **Bài tập** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập** |
-| **Kanji** | Danh sách 836 chữ Hán N5→N3 + từ dùng chữ đó | Rút từ chính kho từ có sẵn | Tab **Kanji** |
+| **Kanji** | Danh sách 642 chữ Hán N5→N3 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | Tab **Kanji** |
 
 Trang chủ gom bài học theo nhóm, kèm bộ lọc để chỉ xem một loại thay vì hiện tất cả.
 Lựa chọn lọc được nhớ cho lần mở sau, và số liệu ở đầu trang đếm theo đúng phần đang hiển thị.
@@ -161,13 +161,13 @@ Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi
 
 ## Kanji
 
-Tab **Kanji** là danh sách chữ Hán: **836 chữ** (N5 495, N4 325, N3 16) rút từ toàn bộ kho từ của
-ứng dụng, mỗi chữ kèm âm Hán Việt và **2339 lượt từ** dùng chữ đó. Lưới xếp theo cấp, trong mỗi
-cấp thì chữ nào xuất hiện trong nhiều từ hơn đứng trước — chữ 日 có mặt trong 35 từ nên nằm đầu,
-chữ 牡 có đúng một từ nên nằm cuối.
+Tab **Kanji** là danh sách chữ Hán theo cấp JLPT: **642 chữ** — N5 118, N4 149, N3 375 — lấy
+đúng theo `src/app/core/kanji/kanji-levels.ts`, và **giữ nguyên thứ tự** của danh sách gốc (thứ
+tự dạy theo lối chiết tự: 一 二 八 六 日 目 三…, chữ ít nét và chữ làm thành phần của chữ khác đi
+trước). Lưới hiện 12 ô một hàng, mỗi ô là chữ vẽ to kèm âm Hán Việt.
 
-Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng đầy đủ các từ dùng nó (từ · cách đọc ·
-âm Hán Việt của cả từ · nghĩa · cấp độ).
+Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng các từ trong kho của ứng dụng có dùng
+chữ đó (từ · cách đọc · âm Hán Việt của cả từ · nghĩa · cấp độ).
 
 ### Hai phần luyện tập — đều chỉ gõ đáp án
 
@@ -178,59 +178,61 @@ Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng �
 | `/kanji/:id` | Từ kanji → hiragana | `海` → `うみ` |
 | `/kanji/:id` | Hỏi cả hai (mỗi từ 2 câu) | `海` → `biển` / `うみ` |
 
-Phần luyện âm Hán Việt nằm ở màn hình **danh sách** vì nó hỏi trên cả danh sách — mở từng chữ ra
-để luyện đúng một chữ thì mỗi phiên chỉ có một câu. Ba chiều còn lại hỏi trên **từ** nên nằm ở
+Phần luyện âm Hán Việt nằm ở màn hình **danh sách** vì nó hỏi trên cả cấp đang xem — mở từng chữ
+ra để luyện đúng một chữ thì mỗi phiên chỉ có một câu. Ba chiều còn lại hỏi trên **từ** nên nằm ở
 màn hình một chữ.
 
 Chữ có nhiều âm (行 HÀNH/HÀNG, 楽 LẠC/NHẠC, 長 TRƯỜNG/TRƯỞNG) thì gõ âm nào cũng được tính đúng.
 Tuỳ chọn **"Bỏ qua dấu tiếng Việt khi chấm"** giúp gõ `HAI` cũng đúng cho `HẢI`.
+
+### Ba file dữ liệu
+
+```
+src/app/core/kanji/
+  kanji-levels.ts       ← DANH SÁCH JLPT: chữ nào thuộc cấp nào, và thứ tự hiển thị
+  kanji-supplement.ts   ← âm Hán Việt viết tay cho chữ kho từ không suy được
+  kanji-words.ts        ← DO MÁY SINH: 642 chữ + âm Hán Việt + các từ dùng chữ đó
+```
+
+`kanji-levels.ts` là **nguồn duy nhất** quyết định chữ nào có mặt và thuộc cấp nào. Chữ có trong
+kho từ nhưng không nằm trong ba danh sách thì không hiện ở khu Kanji.
 
 ### Âm Hán Việt của từng chữ lấy ở đâu ra
 
 Nguồn từ vựng ghi âm Hán Việt cho **cả từ** (`会社員 → HỘI XÃ VIÊN`), không ghi cho từng chữ. Mà
 âm của một từ chính là âm các chữ ghép lại, nên khi số âm tiết khớp đúng số chữ Hán thì gán được
 1:1: `会=HỘI`, `社=XÃ`, `員=VIÊN`. Một chữ được nhiều từ bỏ phiếu, âm nào nhiều phiếu nhất thì
-thắng; các âm còn lại vẫn được nhận khi chấm. Từ nào lệch số âm tiết thì bỏ qua chứ không đoán —
-gán lệch một chữ là sai lây sang mọi từ khác có chữ đó.
+thắng; các âm còn lại vẫn được nhận khi chấm. Từ nào lệch số âm tiết thì bỏ qua chứ không đoán.
 
-Kết quả: **815/836 chữ có âm Hán Việt rút thẳng từ nguồn**, không chép tay dòng nào.
+`kanji-supplement.ts` lo phần còn lại, và là **dữ liệu duy nhất trong khu Kanji không tới từ
+nguồn gốc**:
 
-```
-src/app/core/kanji/
-  kanji-supplement.ts   ← viết tay: 21 âm bổ sung + 6 chỗ sửa nguồn tự mâu thuẫn
-  kanji-words.ts        ← DO MÁY SINH: 836 chữ + 2339 lượt từ
-```
-
-`kanji-supplement.ts` là **dữ liệu duy nhất trong khu Kanji không tới từ nguồn gốc**, và nó chỉ
-có hai việc:
-
-- **21 âm bổ sung** cho các chữ chỉ xuất hiện trong bộ động từ khu Bài tập (`core/exercises/`) —
-  nguồn đó không có cột âm Hán Việt — hoặc chỉ nằm trong câu ví dụ chứ không phải một mục từ vựng.
+- **146 âm bổ sung** — phần lớn là chữ nằm trong danh sách JLPT mà kho từ chưa có từ nào chứa
+  nó (chữ số kanji 三 六 八, và các chữ N3 như 匹 厚 肯 翌…), cộng vài chữ chỉ có trong bộ động từ
+  khu Bài tập vốn không có cột âm Hán Việt.
 - **6 chỗ sửa** những chữ mà nguồn nói hai kiểu và cái sai lại nhiều phiếu hơn: `試` (5 chỗ ghi
   THỨC, 1 chỗ ghi THÍ), `泳`, `屋`, `洗`, `自`, `変`. Mỗi dòng có chú thích chỉ đúng dòng nguồn
-  đang lệch. Sửa thẳng ở `data-source/` mới là cách dứt điểm — sửa xong chạy lại script là nó
-  báo dòng ở đây đã thừa.
+  đang lệch.
 
 ```bash
 npm run generate:kanji     # sinh lại kanji-words.ts
 npm run verify:kanji       # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
 ```
 
-Script tự cảnh báo ba chuyện: chữ nào chưa có âm Hán Việt, dòng bổ sung nào đã thừa, và dòng sửa
-tay nào đã thừa. Mục từ vựng là cả một câu (`お帰りなさい。`, `国へ帰るの？`) bị loại khỏi đây — khu
-Kanji hỏi nghĩa và cách đọc của MỘT TỪ. Chỉ lọc theo dấu câu chứ không lọc theo trợ từ: cụm cố
-định kiểu `電車に乗ります` hay `歯を磨きます` chính là thứ giáo trình dạy nguyên khối. Chúng vẫn
-nằm nguyên trong bài học.
+### Script tự soát những gì
 
-### Cấp độ nghĩa là gì
+- Chữ trong danh sách JLPT mà **chưa có âm Hán Việt** → phải thêm vào `kanji-supplement.ts`.
+- Dòng bổ sung / dòng sửa tay đã **thừa** (kho từ tự lo được, hoặc chữ không còn trong danh sách).
+- Chữ trong danh sách mà **chưa có từ nào** trong kho — vẫn hiện ở lưới và vẫn luyện âm Hán Việt
+  được, chỉ chưa luyện từ được. Hiện có 139 chữ như vậy.
+- **Danh sách JLPT có dấu hiệu chép thiếu**: chữ xuất hiện trong từ vựng bài 1-25 mà lại nằm
+  ngoài cả ba danh sách. Giáo trình có dùng vài chữ khó thật, nhưng nếu trong danh sách cảnh báo
+  có chữ cơ bản (病 院 週 切 所) thì gần như chắc chắn `kanji-levels.ts` đang thiếu hàng.
 
-Đúng quy ước có sẵn của ứng dụng (`JLPT_RANGE`): **N5 = từ vựng bài 1–25**, **N4 = bài 26–50**,
-**N3** lấy từ bộ động từ khu Bài tập. Cấp của một chữ là cấp thấp nhất trong các từ chứa nó — tức
-là chỗ người học gặp chữ đó sớm nhất. Đây KHÔNG phải danh sách kanji chính thức theo cấp JLPT:
-cả ứng dụng đang dùng một mốc chia duy nhất, và mốc đó là số bài trong giáo trình.
+Mục từ vựng là cả một câu (`お帰りなさい。`, `国へ帰るの？`) bị loại khỏi khu Kanji — ở đây hỏi
+nghĩa và cách đọc của MỘT TỪ. Chỉ lọc theo dấu câu chứ không lọc theo trợ từ: cụm cố định kiểu
+`電車に乗ります` chính là thứ giáo trình dạy nguyên khối. Chúng vẫn nằm nguyên trong bài học.
 
-Vì kho từ mới phủ tới N4, phần N3 hiện chỉ có 16 chữ. Thêm nguồn từ vựng N3 vào `data-source/` là
-con số tự đầy lên, không phải sửa gì trong mã.
 
 ## Bài tập
 
@@ -509,8 +511,9 @@ src/app/
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
-      kanji-supplement.ts        21 âm bổ sung + 6 chỗ sửa nguồn tự mâu thuẫn
-      kanji-words.ts             836 chữ + 2339 lượt từ — DO MÁY SINH
+      kanji-levels.ts            Danh sách JLPT N5/N4/N3 — quyết định chữ nào, cấp nào
+      kanji-supplement.ts        Âm Hán Việt viết tay cho chữ kho từ không suy được
+      kanji-words.ts             642 chữ + 1731 lượt từ — DO MÁY SINH
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/

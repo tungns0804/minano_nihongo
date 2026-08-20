@@ -34,6 +34,9 @@
         </div>
       </header>
 
+      @if (hasNoWords()) {
+        <div class="notice notice-warning">{{ t('kanji.noWordsYet') }}</div>
+      } @else {
       <!-- ── Bảng từ ────────────────────────────────────────────────────── -->
       <section class="card">
         <div class="card-body stack">
@@ -315,6 +318,7 @@
           <p class="small faint"><app-t key="kanji.dataNote" block /></p>
         </div>
       </section>
+      }
     </div>
   }
 </div>

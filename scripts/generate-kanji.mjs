@@ -50,6 +50,15 @@ const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92
 const { HAN_VIET_SUPPLEMENT, HAN_VIET_FIX } = await import(
   toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-supplement.ts'))
 );
+const { KANJI_BY_LEVEL } = await import(
+  toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-levels.ts'))
+);
+
+/** Chữ nào thuộc cấp nào — danh sách JLPT là nguồn DUY NHẤT quyết định việc này. */
+const levelOfKanji = new Map();
+for (const level of LEVELS) {
+  for (const char of KANJI_BY_LEVEL[level]) levelOfKanji.set(char, level);
+}
 
 // ── Kho từ ────────────────────────────────────────────────────────────────
 
@@ -211,17 +220,23 @@ function readingsOf(char) {
 
 // ── Ghép chữ với từ ───────────────────────────────────────────────────────
 
-/** char -> { level, words[] } */
-const byKanji = new Map();
+/** char -> các từ dùng chữ đó. Chỉ gom cho chữ nằm trong danh sách JLPT. */
+const wordsOfKanji = new Map();
+/** Chữ có trong kho từ nhưng nằm ngoài phạm vi N5→N3. */
+const outOfScope = new Set();
+
 for (const word of allWords) {
   // Chỉ từ dùng được mới vào danh sách của chữ; mục thiếu cách đọc đã làm xong
   // việc của nó ở bước bỏ phiếu âm Hán Việt bên trên.
   if (!word.usable) continue;
   for (const char of new Set(word.japanese.match(KANJI_ALL) ?? [])) {
-    const entry = byKanji.get(char) ?? { level: word.level, words: [] };
-    if (LEVEL_RANK[word.level] < LEVEL_RANK[entry.level]) entry.level = word.level;
-    entry.words.push(word);
-    byKanji.set(char, entry);
+    if (!levelOfKanji.has(char)) {
+      outOfScope.add(char);
+      continue;
+    }
+    const bucket = wordsOfKanji.get(char) ?? [];
+    bucket.push(word);
+    wordsOfKanji.set(char, bucket);
   }
 }
 
@@ -236,31 +251,32 @@ function sortWords(a, b) {
 }
 
 /**
- * Thứ tự chữ trong lưới: cấp thấp trước, rồi chữ nào có NHIỀU TỪ hơn đứng trước.
- * Số từ trong kho là thước đo mức thông dụng sẵn có và không phải bịa ra: chữ 日
- * có mặt trong 35 từ, chữ 牡 có đúng một.
+ * Thứ tự chữ trong lưới = ĐÚNG thứ tự của danh sách JLPT, không sắp lại.
+ *
+ * Danh sách trong ảnh xếp theo lối chiết tự (一 二 八 六 日 目 三…): chữ ít nét và
+ * chữ làm thành phần của chữ khác đi trước. Sắp lại theo tần suất hay theo bảng
+ * chữ là phá mất chính cái thứ tự dạy đó.
  */
 const seeds = [];
 let wordSlots = 0;
 const noHanViet = [];
+const noWords = [];
 
-const sortedChars = [...byKanji.entries()].sort(
-  (a, b) =>
-    LEVEL_RANK[a[1].level] - LEVEL_RANK[b[1].level] ||
-    b[1].words.length - a[1].words.length ||
-    a[0].localeCompare(b[0]),
-);
+for (const level of LEVELS) {
+  for (const char of KANJI_BY_LEVEL[level]) {
+    const { main, alts } = readingsOf(char);
+    if (!main) noHanViet.push(char);
 
-for (const [char, entry] of sortedChars) {
-  const { main, alts } = readingsOf(char);
-  if (!main) noHanViet.push(char);
+    const words = wordsOfKanji.get(char) ?? [];
+    if (words.length === 0) noWords.push(char);
 
-  const rows = [...entry.words]
-    .sort(sortWords)
-    .map((word) => [word.japanese, word.reading, word.hanViet, word.meaning, word.level]);
+    const rows = [...words]
+      .sort(sortWords)
+      .map((word) => [word.japanese, word.reading, word.hanViet, word.meaning, word.level]);
 
-  wordSlots += rows.length;
-  seeds.push([char, main, alts.join('/'), entry.level, rows]);
+    wordSlots += rows.length;
+    seeds.push([char, main, alts.join('/'), level, rows]);
+  }
 }
 
 // ── Ghi file ──────────────────────────────────────────────────────────────
@@ -301,6 +317,31 @@ const previous = existsSync(OUT_FILE) ? readFileSync(OUT_FILE, 'utf8') : '';
 
 log(`Tu       : ${allWords.length} (can chinh duoc am tiet: ${alignedWords}, lech: ${unalignedWords})`);
 log(`Chu Han  : ${seeds.length} (${levelCount}), ${wordSlots} luot tu`);
+log(`Ngoai N5-N3: ${outOfScope.size} chu trong kho tu khong thuoc danh sach JLPT`);
+
+/**
+ * Cảnh báo danh sách JLPT có thể bị thiếu.
+ *
+ * Chữ xuất hiện trong từ vựng bài 1-25 (phần N5 của giáo trình) mà lại không nằm
+ * trong ba danh sách thì đáng ngờ: giáo trình có dùng vài chữ khó thật, nhưng
+ * 病 院 週 切 所 mà rơi ra ngoài thì gần như chắc chắn là danh sách chép thiếu
+ * chứ không phải chữ đó ngoài phạm vi N5→N3.
+ */
+const earlyOutside = [...outOfScope]
+  .map((char) => [char, allWords.filter((w) => w.order <= 25 && w.japanese.includes(char)).length])
+  .filter(([, count]) => count > 0)
+  .sort((a, b) => b[1] - a[1]);
+if (earlyOutside.length > 0) {
+  log(
+    `[CHU Y] ${earlyOutside.length} chu co trong tu vung bai 1-25 nhung ngoai danh sach JLPT.`,
+  );
+  log(`        Thong dung nhat: ${earlyOutside.slice(0, 24).map(([c]) => c).join('')}`);
+  log('        Neu co chu co ban trong so nay thi kanji-levels.ts dang chep thieu hang.');
+}
+
+if (noWords.length > 0) {
+  log(`[CHU Y] ${noWords.length} chu chua co tu nao trong kho: ${noWords.join('')}`);
+}
 log(`Am tu kho: ${votes.size} chu | bo sung tay: ${Object.keys(HAN_VIET_SUPPLEMENT).length} chu | sua tay: ${Object.keys(HAN_VIET_FIX).length} chu`);
 
 if (noHanViet.length > 0) {
@@ -312,6 +353,12 @@ if (noHanViet.length > 0) {
 const redundant = Object.keys(HAN_VIET_SUPPLEMENT).filter((char) => votes.has(char));
 if (redundant.length > 0) {
   log(`[CANH BAO] bo sung thua (kho tu da co): ${redundant.join('')}`);
+}
+
+// Bổ sung cho chữ không nằm trong danh sách JLPT thì không ai đọc tới.
+const orphanSupplement = Object.keys(HAN_VIET_SUPPLEMENT).filter((char) => !levelOfKanji.has(char));
+if (orphanSupplement.length > 0) {
+  log(`[CANH BAO] bo sung cho chu ngoai danh sach JLPT: ${orphanSupplement.join('')}`);
 }
 
 // Bản sửa tay chỉ nên tồn tại khi nguồn thật sự đang nói khác. Nguồn sửa xong thì

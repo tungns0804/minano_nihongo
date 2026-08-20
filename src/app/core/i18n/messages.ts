@@ -451,8 +451,8 @@ export const MESSAGES = {
   // Danh sách chữ Hán từ N5 tới N3, mỗi chữ kèm các từ dùng chữ đó (xem core/kanji/).
   'kanji.title': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
   'kanji.subtitle': {
-    vi: 'Toàn bộ chữ Hán xuất hiện trong kho từ của ứng dụng, xếp theo cấp độ và theo mức thông dụng. Mở một chữ để xem các từ dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
-    ja: 'アプリの単語データに出てくる漢字の一覧。レベル順・使用頻度順に並びます。漢字を開くとその字を使う単語が見られます。解答は入力のみです。',
+    vi: 'Chữ Hán từ N5 tới N3, giữ nguyên thứ tự học của danh sách gốc. Mở một chữ để xem các từ trong kho có dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
+    ja: 'N5からN3までの漢字。元の一覧の学習順をそのまま保ちます。漢字を開くと、その字を使う単語が見られます。解答は入力のみです。',
   },
   'kanji.back': { vi: '← Danh sách Kanji', ja: '← 漢字一覧' },
   'kanji.notFound': { vi: 'Không tìm thấy chữ {id}.', ja: '漢字 {id} が見つかりません。' },
@@ -525,13 +525,17 @@ export const MESSAGES = {
   'kanji.col.word': { vi: 'Từ', ja: '単語' },
   'kanji.col.examples': { vi: 'Từ dùng chữ này', ja: 'この字を使う単語' },
   'kanji.table': { vi: 'Các từ dùng chữ {char}', ja: '{char} を使う単語' },
+  'kanji.noWordsYet': {
+    vi: 'Kho từ của ứng dụng chưa có từ nào dùng chữ này, nên chưa luyện từ ở đây được. Chữ vẫn được hỏi ở phần luyện âm Hán Việt ngoài danh sách.',
+    ja: 'この字を使う単語がまだデータにないため、ここでは単語練習ができません。一覧画面の漢越音練習には出てきます。',
+  },
   'kanji.emptyPool': {
     vi: 'Chưa có từ nào trong phạm vi đang chọn.',
     ja: '選択中の範囲に単語がありません。',
   },
   'kanji.dataNote': {
-    vi: 'Chữ, âm Hán Việt và từ ở đây đều rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập). Cấp độ tính theo đúng quy ước của ứng dụng: N5 = bài 1-25, N4 = bài 26-50, N3 lấy từ bộ động từ bài tập.',
-    ja: 'ここの漢字・漢越音・単語はすべてアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出したものです。レベルはアプリ共通の基準：N5＝第1-25課、N4＝第26-50課、N3は練習問題の動詞から。',
+    vi: 'Danh sách chữ và cấp độ lấy theo bảng kanji JLPT N5→N3. Các từ minh hoạ và âm Hán Việt rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập), nên chữ nào kho chưa có từ thì chưa luyện từ được.',
+    ja: '漢字の一覧とレベルはJLPT N5〜N3の漢字表に従います。例語と漢越音はアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出しています。',
   },
 
   // ── Nhãn phạm vi (dùng ở màn kết quả) ──────────────────────────────────
