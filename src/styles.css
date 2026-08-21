@@ -756,6 +756,211 @@ a:hover {
   }
 }
 
+/* --- Chuyển động ----------------------------------------------------------
+   Nguyên tắc: mỗi hiệu ứng phải TRẢ LỜI một câu hỏi của người học, chứ không
+   phải để cho đẹp. Cụ thể là bốn câu:
+
+     "Trang vừa đổi phải không?"    -> .page trượt lên khi vào
+     "Có gì mới hiện ra?"           -> thẻ trong danh sách hiện lần lượt
+     "Tôi trả lời đúng hay sai?"    -> khối phản hồi bật lên (xem practice.css)
+     "Phiên vừa rồi được bao nhiêu?" -> vòng điểm nảy một nhịp
+
+   Mọi thời lượng đều dưới 320ms, trừ đúng vòng điểm ở màn kết quả. Quá ngưỡng
+   đó thì chuyển động thôi không còn là phản hồi nữa mà thành thứ phải NGỒI CHỜ
+   — mà đây là app luyện tập, có người làm liên tiếp năm sáu chục câu một lượt.
+
+   Dùng `backwards` chứ KHÔNG dùng `both`, và đây là chi tiết dễ sai nhất cả khối:
+
+   - `backwards` là nửa thực sự làm việc. Nó giữ phần tử ở trạng thái đầu trong
+     lúc còn đợi animation-delay; thiếu nó thì thẻ thứ tư hiện đủ nét suốt 0.15s
+     rồi mới biến mất để chạy lại hiệu ứng — nháy một cái rất khó chịu.
+
+   - `forwards` (nửa còn lại của `both`) thì lại có hại. Nó khiến animation TIẾP
+     TỤC chi phối `transform` sau khi đã chạy xong, mà giá trị đến từ animation
+     luôn thắng giá trị trong bảng kiểu và không cho transition chen vào. Hệ quả:
+     .lesson-card:hover nhấc lên -2px và .choice:active lún xuống 1px sẽ bụp một
+     cái thay vì trượt — mất đúng cái cảm giác bấm mà hai hiệu ứng đó sinh ra.
+
+   Bỏ `forwards` không để lại vết: các @keyframes dưới đây chỉ khai `from`, nên
+   mốc 100% được suy ra từ chính giá trị trong bảng kiểu. Lúc hiệu ứng kết thúc,
+   phần tử trả quyền điều khiển về đúng giá trị nó đang giữ — không giật một nhịp
+   nào.
+
+   Toàn bộ khối này bị vô hiệu hoá bởi @media (prefers-reduced-motion: reduce)
+   ở cuối file, nên người tắt hiệu ứng chuyển động không nhận gì cả. */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Vào trang mới. Đặt trên .page nên tự chạy lại mỗi lần điều hướng, vì router
+   dựng lại component chứ không tái dùng. */
+.page {
+  animation: rise-in 0.26s var(--ease) backwards;
+}
+
+/* Riêng trang luyện tập KHÔNG được trượt, chỉ mờ dần.
+
+   Thanh tiến độ (.practice-header) là position: sticky và nằm ngay trong .page.
+   Một phần tử có transform trở thành khối chứa cho con cháu của nó, nên chỉ cần
+   .page đang chạy hiệu ứng có translateY là thanh tiến độ mất mốc để dính —
+   nó sẽ dính theo .page chứ không theo khung nhìn, và trôi mất khỏi đỉnh màn
+   hình khi cuộn xuống xem phản hồi. Đúng thứ nó sinh ra để chống lại.
+
+   fade-in không đụng tới transform nên không tạo khối chứa. Vào trang vẫn có
+   chuyển động, mà thanh tiến độ vẫn dính đúng chỗ. */
+.practice-page {
+  animation: fade-in 0.26s var(--ease) backwards;
+}
+
+/* Thẻ bài / bài tập / ngữ pháp hiện lần lượt chứ không bụp ra cùng lúc: mắt bắt
+   được rằng đây là một DÃY mục, và độ trễ tăng dần cho biết thứ tự đọc.
+
+   Chỉ trễ tới thẻ thứ năm rồi dừng hẳn. Không dừng thì thẻ thứ hai mươi lăm của
+   danh sách 25 bài phải đợi hơn một giây — với lưới dài thì đó là chờ đợi thuần
+   tuý, không còn nói lên điều gì nữa. */
+.lesson-card {
+  animation: pop-in 0.28s var(--ease) backwards;
+}
+
+.lesson-card:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.lesson-card:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.lesson-card:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.lesson-card:nth-child(n + 5) {
+  animation-delay: 0.2s;
+}
+
+/* Lưới chữ Hán khác lưới bài ở chỗ nó dài tới hàng trăm ô, nên không trễ theo
+   TỪNG ô mà theo từng CỤM — ba mốc là đủ để thấy một đợt sóng chạy từ trên
+   xuống, mà ô cuối cùng vẫn chỉ đợi 0.12s.
+
+   Ba quy tắc `n + …` chồng lên nhau chứ không loại trừ nhau: ô thứ 20 khớp cả
+   ba, và luật viết sau thắng — đúng thứ tự tăng dần muốn có. */
+.kanji-cell {
+  animation: fade-in 0.24s var(--ease) backwards;
+}
+
+.kanji-cell:nth-child(n + 5) {
+  animation-delay: 0.04s;
+}
+
+.kanji-cell:nth-child(n + 13) {
+  animation-delay: 0.08s;
+}
+
+.kanji-cell:nth-child(n + 25) {
+  animation-delay: 0.12s;
+}
+
+/* Từng mẫu ngữ pháp trong trang lý thuyết. Không trễ dần: các thẻ này nằm sau
+   phần đầu trang và mục lục nên nth-child đếm lệch, mà số mẫu mỗi bài cũng chỉ
+   hai tới năm — trễ dần chẳng thêm được thông tin gì. */
+.point-card {
+  animation: rise-in 0.26s var(--ease) backwards;
+}
+
+/* Khung rỗng và thông báo đều là thứ hiện ra ĐỂ TRẢ LỜI một thao tác vừa rồi
+   (gõ từ khoá không ra kết quả, lọc quá tay, nhập file sai định dạng), nên
+   chúng phải trông như vừa xuất hiện chứ không như vốn đã nằm sẵn ở đó. */
+.empty-state {
+  animation: fade-in 0.3s var(--ease) backwards;
+}
+
+.notice {
+  animation: rise-in 0.22s var(--ease) backwards;
+}
+
+/* --- Chuyển động trong lúc luyện tập ---
+   Đây là chỗ chuyển động có giá trị nhất: người học vừa bấm xong và cần biết
+   NGAY chuyện gì vừa xảy ra. Khối phản hồi đúng/sai nằm trong practice.css vì
+   nó gắn liền với bố cục riêng của khối đó. */
+
+/* Câu hỏi mới hiện ra. Template khoá theo `track` của câu nên mỗi câu là một
+   phần tử mới, và hiệu ứng chạy lại đúng một lần cho mỗi câu. */
+.question-card {
+  animation: rise-in 0.24s var(--ease) backwards;
+}
+
+/* Các lựa chọn trắc nghiệm vào lần lượt, cùng nhịp với thẻ danh sách. */
+.choice {
+  animation: fade-in 0.22s var(--ease) backwards;
+}
+
+.choice:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.choice:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.choice:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
+/* Vòng tròn điểm ở màn kết quả nảy nhẹ một nhịp: đây là khoảnh khắc duy nhất
+   trong cả phiên đáng được nhấn mạnh, nên cũng là hiệu ứng dài nhất trong app. */
+@keyframes score-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  70% {
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.score-main {
+  animation: score-pop 0.42s var(--ease) backwards;
+}
+
+/* Từng dòng kết quả hiện dần — nhưng chỉ bốn dòng đầu, phần còn lại hiện ngay.
+   Danh sách này có thể dài tới sáu chục dòng. */
+.result-item {
+  animation: rise-in 0.24s var(--ease) backwards;
+}
+
+.result-item:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.result-item:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.result-item:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
 /* --- Tiện ích ------------------------------------------------------------- */
 
 .muted {
@@ -882,11 +1087,22 @@ kbd {
   }
 }
 
+/* Người dùng đã báo với hệ điều hành là không muốn chuyển động thì không nhận gì
+   cả — kể cả hiệu ứng vào trang.
+
+   Phải dập CẢ animation-delay chứ không chỉ animation-duration. Các thẻ trong
+   danh sách vào lần lượt bằng cách trễ tới 0.2s, mà `animation-fill-mode:
+   backwards` lại giữ chúng ở đúng trạng thái đầu — opacity: 0 — trong suốt thời
+   gian chờ đó. Rút riêng thời lượng về 0.01ms thì hiệu ứng biến mất thật, nhưng
+   phần chờ vẫn còn: thẻ cuối vẫn nằm vô hình 0.2s rồi mới bụp ra. Với người bật
+   giảm chuyển động vì chóng mặt hay tiền đình, đó lại đúng là kiểu chuyển động
+   khó chịu nhất — nội dung nhấp nháy không báo trước. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
   }
 }
