@@ -9,6 +9,7 @@ import {
   KANJI_SESSION_ID,
   KanjiEntry,
   KanjiLevel,
+  emptyLevelCounts,
 } from '../../core/kanji/kanji.model';
 import { KANJI_ENTRIES } from '../../core/kanji/kanji-entries';
 import {
@@ -54,8 +55,8 @@ export class KanjiList {
 
   /**
    * Cấp đang xem. Một cấp mỗi lần chứ không phải nhiều lựa chọn như khu Bài tập:
-   * đây là bảng tra 836 chữ, xem lẫn lộn hai cấp thì không còn biết mình đang học
-   * phần nào.
+   * đây là bảng tra gần hai nghìn chữ, xem lẫn lộn hai cấp thì không còn biết mình
+   * đang học phần nào.
    */
   readonly level = signal<KanjiLevel>('N5');
   readonly search = signal('');
@@ -76,7 +77,7 @@ export class KanjiList {
 
   /** Số chữ của từng cấp — con số trên nút, tính trên toàn bộ dữ liệu. */
   readonly levelCounts = computed<Record<KanjiLevel, number>>(() => {
-    const counts = { N5: 0, N4: 0, N3: 0 } as Record<KanjiLevel, number>;
+    const counts = emptyLevelCounts();
     for (const entry of KANJI_ENTRIES) counts[entry.level]++;
     return counts;
   });

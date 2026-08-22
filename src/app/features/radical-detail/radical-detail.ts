@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
-import { KANJI_LEVELS, KanjiLevel } from '../../core/kanji/kanji.model';
+import { KANJI_LEVELS, KanjiLevel, emptyLevelCounts } from '../../core/kanji/kanji.model';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
   PracticeConfig,
@@ -108,7 +108,7 @@ export class RadicalDetail {
    * chọn: con số trên nút phải đứng yên khi bật tắt các cấp.
    */
   readonly levelCounts = computed<Record<KanjiLevel, number>>(() => {
-    const counts = { N5: 0, N4: 0, N3: 0 } as Record<KanjiLevel, number>;
+    const counts = emptyLevelCounts();
     for (const kanji of this.entry()?.kanji ?? []) counts[kanji.level]++;
     return counts;
   });

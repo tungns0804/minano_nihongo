@@ -1,5 +1,5 @@
 /**
- * Khu "Kanji" — danh sách chữ Hán từ N5 tới N3, mỗi chữ kèm các từ dùng chữ đó.
+ * Khu "Kanji" — danh sách chữ Hán từ N5 tới N1, mỗi chữ kèm các từ dùng chữ đó.
  *
  * Vì sao là một tab riêng chứ không nằm trong bài học: bài học xếp theo giáo trình
  * (bài 1 → bài 50), còn ở đây một CHỮ gom từ của rất nhiều bài lại — chữ 気 có từ
@@ -23,14 +23,21 @@ import type { MessageKey } from '../i18n/messages';
  *
  * Mốc chia lấy ĐÚNG quy ước có sẵn của ứng dụng (`JLPT_RANGE` ở
  * `models/vocabulary.model.ts`): N5 = từ vựng bài 1-25, N4 = bài 26-50, còn N3 lấy
- * từ bộ động từ của khu Bài tập. Không tự dựng danh sách kanji theo cấp JLPT ở
- * đâu khác — cả ứng dụng phải nói cùng một thứ tiếng khi nhắc tới "N5".
+ * từ bộ động từ của khu Bài tập. N2 và N1 nằm ngoài kho từ của ứng dụng — chúng
+ * chỉ có mặt ở danh sách chữ (`kanji-levels.ts`), nên phần lớn chữ hai cấp này
+ * chưa có từ minh hoạ. Không tự dựng danh sách kanji theo cấp JLPT ở đâu khác —
+ * cả ứng dụng phải nói cùng một thứ tiếng khi nhắc tới "N5".
  */
-export type KanjiLevel = 'N5' | 'N4' | 'N3';
+export type KanjiLevel = 'N5' | 'N4' | 'N3' | 'N2' | 'N1';
 
-export const KANJI_LEVELS: readonly KanjiLevel[] = ['N5', 'N4', 'N3'];
+export const KANJI_LEVELS: readonly KanjiLevel[] = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
-const LEVEL_RANK: Record<KanjiLevel, number> = { N5: 0, N4: 1, N3: 2 };
+const LEVEL_RANK: Record<KanjiLevel, number> = { N5: 0, N4: 1, N3: 2, N2: 3, N1: 4 };
+
+/** Bảng đếm rỗng cho từng cấp — dựng từ `KANJI_LEVELS` để thêm cấp không phải sửa. */
+export function emptyLevelCounts(): Record<KanjiLevel, number> {
+  return Object.fromEntries(KANJI_LEVELS.map((level) => [level, 0])) as Record<KanjiLevel, number>;
+}
 
 /** [từ, cách đọc kana, âm Hán Việt của cả từ, nghĩa, cấp độ] */
 export type WordSeed = readonly [
@@ -176,7 +183,7 @@ export function buildKanjiEntries(seeds: readonly KanjiSeed[]): KanjiEntry[] {
 
 /** Cấp thấp nhất trong một nhóm từ — dùng cho dòng thống kê ở màn hình một chữ. */
 export function lowestLevel(words: readonly KanjiWord[]): KanjiLevel {
-  let level: KanjiLevel = 'N3';
+  let level: KanjiLevel = KANJI_LEVELS[KANJI_LEVELS.length - 1];
   for (const word of words) {
     if (LEVEL_RANK[word.level] < LEVEL_RANK[level]) level = word.level;
   }

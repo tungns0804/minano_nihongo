@@ -12,7 +12,7 @@
     "generate:clean": "node scripts/generate-lessons.mjs --clean",
     "generate:check": "node scripts/generate-lessons.mjs --check",
     "generate:kanji": "node --experimental-strip-types --no-warnings scripts/generate-kanji.mjs",
-    "generate:radicals": "node --experimental-strip-types --no-warnings scripts/generate-radicals.mjs",
+    "generate:radicals": "npm run generate:kanji && node --experimental-strip-types --no-warnings scripts/generate-radicals.mjs",
     "generate:audio": "node --experimental-strip-types --no-warnings scripts/generate-audio.mjs",
     "verify": "npm run verify:parser && npm run verify:answer && npm run verify:conjugation && npm run verify:i18n && npm run verify:kanji && npm run verify:radicals && npm run verify:audio",
     "verify:audio": "node --experimental-strip-types --no-warnings scripts/generate-audio.mjs --check",

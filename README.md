@@ -57,8 +57,8 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Tab **Bài tập bổ trợ** |
 | **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập bổ trợ** |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp minano** |
-| **Kanji** | Danh sách 642 chữ Hán N5→N3 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | Tab **Kanji** |
-| **Bộ thủ** | 214 bộ thủ + các chữ Hán ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | Tab **Bộ thủ** |
+| **Kanji** | Danh sách 1.936 chữ Hán N5→N1 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | Tab **Kanji** |
+| **Bộ thủ** | 214 bộ thủ + các chữ Hán N5→N1 ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | Tab **Bộ thủ** |
 
 Ranh giới giữa hai tab đầu là **nhớ nghĩa** hay **luyện một kỹ năng**. Tab **Từ vựng minano**
 chỉ có bài từ vựng: mở ra là để nhớ nghĩa của một kho từ. Tab **Bài tập bổ trợ** gom mọi thứ
@@ -207,10 +207,10 @@ Chọn được nhiều thể cùng lúc; mỗi động từ sẽ được hỏi
 
 ## Kanji
 
-Tab **Kanji** là danh sách chữ Hán theo cấp JLPT: **642 chữ** — N5 118, N4 149, N3 375 — lấy
-đúng theo `src/app/core/kanji/kanji-levels.ts`, và **giữ nguyên thứ tự** của danh sách gốc (thứ
-tự dạy theo lối chiết tự: 一 二 八 六 日 目 三…, chữ ít nét và chữ làm thành phần của chữ khác đi
-trước). Lưới hiện 12 ô một hàng, mỗi ô là chữ vẽ to kèm âm Hán Việt.
+Tab **Kanji** là danh sách chữ Hán theo cấp JLPT: **1.936 chữ** — N5 118, N4 149, N3 375, N2 362,
+N1 932 — lấy đúng theo `src/app/core/kanji/kanji-levels.ts`, và **giữ nguyên thứ tự** của danh
+sách gốc (thứ tự dạy theo lối chiết tự: 一 二 八 六 日 目 三…, chữ ít nét và chữ làm thành phần của
+chữ khác đi trước). Lưới hiện 12 ô một hàng, mỗi ô là chữ vẽ to kèm âm Hán Việt.
 
 Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng các từ trong kho của ứng dụng có dùng
 chữ đó (từ · cách đọc · âm Hán Việt của cả từ · nghĩa · cấp độ).
@@ -237,11 +237,39 @@ Tuỳ chọn **"Bỏ qua dấu tiếng Việt khi chấm"** giúp gõ `HAI` cũn
 src/app/core/kanji/
   kanji-levels.ts       ← DANH SÁCH JLPT: chữ nào thuộc cấp nào, và thứ tự hiển thị
   kanji-supplement.ts   ← âm Hán Việt viết tay cho chữ kho từ không suy được
-  kanji-words.ts        ← DO MÁY SINH: 642 chữ + âm Hán Việt + các từ dùng chữ đó
+  kanji-words.ts        ← DO MÁY SINH: 1.936 chữ + âm Hán Việt + các từ dùng chữ đó
 ```
 
 `kanji-levels.ts` là **nguồn duy nhất** quyết định chữ nào có mặt và thuộc cấp nào. Chữ có trong
 kho từ nhưng không nằm trong ba danh sách thì không hiện ở khu Kanji.
+
+### N2 và N1 khai khác ba cấp trên
+
+Ba cấp N5→N3 nằm trong kho từ của ứng dụng nên âm Hán Việt **suy ra được từ chính nguồn**, và
+chiết tự khai riêng ở `core/radical/radical-parts.ts`. Kho từ dừng ở 皆の日本語 bài 1-50, không
+với tới N2 và N1 — hai cấp đó khai tay cả ba thứ trên **một dòng** ở `kanji-levels.ts`:
+
+```
+'病||疒+丙',        ← chữ | âm Hán Việt | chiết tự
+'憲|HIẾN|宀+丰+罒+心'
+```
+
+Ô âm để trống nghĩa là "kho từ tự suy được" — script vẫn ưu tiên âm suy từ nguồn, dòng ở đây chỉ
+là bản dự phòng. Gom ba thứ vào một dòng để chúng không bao giờ lệch nhau: thêm một chữ mà quên
+âm hay quên chiết tự là điều không thể.
+
+Hai cấp này chia theo nguyên tắc:
+
+- **N2 (362 chữ)** — chữ mà **kho từ của ứng dụng có dùng** nhưng ba danh sách gốc chép thiếu
+  (病 院 週 店 乗 近…). Vì kho từ có chúng nên chúng có sẵn từ minh hoạ và luyện được cả ba chiều
+  như N5→N3. Vài chữ trong đó thật ra là trình độ N4/N3 — thà đứng hơi cao một cấp còn hơn vắng
+  mặt khỏi ứng dụng.
+- **N1 (932 chữ)** — phần còn lại của bảng jōyō, xếp theo **bộ thủ** của chữ. Kho từ không có
+  chữ nào trong số này nên chúng chỉ luyện được "chữ → âm Hán Việt" ở khu Kanji; đổi lại chúng
+  làm khu Bộ thủ dày lên hẳn (194/214 bộ có chữ ghép, so với 150 khi chỉ có N5→N3).
+
+Muốn chữ N1 nào cũng luyện được nghĩa và cách đọc thì thêm từ chứa nó vào `data-source/` rồi chạy
+lại `npm run generate:kanji` — script tự nhặt lên, và tự báo dòng âm Hán Việt ở đây đã thành thừa.
 
 ### Âm Hán Việt của từng chữ lấy ở đâu ra
 
@@ -319,8 +347,8 @@ nhóm nét đang xem), còn hai chiều hỏi trên **chữ ghép** nằm ở m�
 ```
 src/app/core/radical/
   radical-list.ts       ← 214 BỘ THỦ: chữ, biến thể, âm Hán Việt, nghĩa, tên tiếng Nhật
-  radical-parts.ts      ← CHIẾT TỰ: mỗi chữ Hán gồm những bộ nào (642 dòng)
-  radical-kanji.ts      ← DO MÁY SINH: 214 bộ + 1369 lượt chữ ghép
+  radical-parts.ts      ← CHIẾT TỰ N5→N3: mỗi chữ Hán gồm những bộ nào (642 dòng)
+  radical-kanji.ts      ← DO MÁY SINH: 214 bộ + 1.936 chữ + 5.054 lượt chữ ghép
 ```
 
 Khu này **không chép tay lại bất cứ âm Hán Việt hay nghĩa nào của CHỮ**: âm Hán Việt, cấp độ và
@@ -355,8 +383,9 @@ npm run verify:radicals     # kiểm tra file sinh có khớp nguồn không (n�
 - Dòng âm bù trong `PART_HAN_VIET` đã **thừa** (không ai dùng, hoặc tra được ở chỗ khác).
 - Một hình được **hai bộ cùng nhận** — dấu hiệu bảng bộ thủ khai trùng biến thể.
 
-Hiện có **150 / 214 bộ** có chữ ghép trong kho N5→N3; 64 bộ còn lại (龠, 鬯, 黹, 鼎…) vẫn hiện ở
-lưới và vẫn luyện âm Hán Việt được, chỉ chưa luyện chữ được — kho chữ của ứng dụng dừng ở N3.
+Hiện có **194 / 214 bộ** có chữ ghép trong kho N5→N1; 20 bộ còn lại (龠, 鬯, 黹, 鼎…) vẫn hiện ở
+lưới và vẫn luyện âm Hán Việt được, chỉ chưa luyện chữ được — bảng jōyō không có chữ thông dụng
+nào ghép từ chúng.
 
 
 ## Bài tập bổ trợ
@@ -680,15 +709,15 @@ src/app/
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
-      kanji-levels.ts            Danh sách JLPT N5/N4/N3 — quyết định chữ nào, cấp nào
+      kanji-levels.ts            Danh sách JLPT N5→N1 — quyết định chữ nào, cấp nào
       kanji-supplement.ts        Âm Hán Việt viết tay cho chữ kho từ không suy được
-      kanji-words.ts             642 chữ + 1731 lượt từ — DO MÁY SINH
+      kanji-words.ts             1.936 chữ + 2.406 lượt từ — DO MÁY SINH
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
     radical/
       radical.model.ts           Kiểu dữ liệu + chiều hỏi của khu Bộ thủ
       radical-list.ts            214 bộ thủ Khang Hy — chữ, biến thể, âm, nghĩa, tên Nhật
-      radical-parts.ts           Chiết tự 642 chữ Hán thành các bộ
-      radical-kanji.ts           214 bộ + 1369 lượt chữ ghép — DO MÁY SINH
+      radical-parts.ts           Chiết tự 642 chữ N5→N3 thành các bộ (N2/N1 khai ở kanji-levels)
+      radical-kanji.ts           214 bộ + 5.054 lượt chữ ghép — DO MÁY SINH
       radical-entries.ts         Dựng danh sách bộ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/

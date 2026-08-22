@@ -24,16 +24,29 @@ import type { KanjiLevel } from '../kanji/kanji.model';
 /** [từ tiếng Nhật, cách đọc kana, nghĩa] */
 export type RadicalWordSeed = readonly [japanese: string, reading: string, meaning: string];
 
-/** [chữ, âm Hán Việt, chiết tự, âm Hán Việt của chiết tự, bộ nằm trong, cấp độ, từ ví dụ] */
+/**
+ * [chữ, âm Hán Việt, chiết tự, âm Hán Việt của chiết tự, cấp độ, từ ví dụ]
+ *
+ * Nằm ở một bảng dùng chung (`RADICAL_KANJI`) chứ không chép vào từng bộ: một chữ
+ * trung bình thuộc hai ba bộ, chép nguyên dòng vào mỗi bộ thì file dữ liệu phình
+ * lên mấy lần mà không thêm được thông tin nào.
+ */
 export type RadicalKanjiSeed = readonly [
   char: string,
   hanViet: string,
   parts: string,
   partsHanViet: string,
-  via: string,
   level: KanjiLevel,
   words: readonly RadicalWordSeed[],
 ];
+
+/**
+ * [số thứ tự trong `RADICAL_KANJI`, bộ đang xem nằm trong thành phần nào]
+ *
+ * `via` để trống khi bộ lộ ra ngay ở tầng chiết tự ngoài cùng — phần lớn là vậy,
+ * nên bỏ hẳn ô đó đi cho dòng ngắn lại.
+ */
+export type RadicalKanjiRef = readonly [index: number, via?: string];
 
 /** [bộ thủ, biến thể, âm Hán Việt, nghĩa, tên tiếng Nhật, số nét, các chữ ghép] */
 export type RadicalSeed = readonly [
@@ -43,7 +56,7 @@ export type RadicalSeed = readonly [
   meaning: string,
   japanese: string,
   strokes: number,
-  kanji: readonly RadicalKanjiSeed[],
+  kanji: readonly RadicalKanjiRef[],
 ];
 
 /** Một chữ Hán ghép từ bộ thủ đang xem. */
@@ -187,7 +200,24 @@ export function radicalQuestionCount(
 export const RADICAL_SESSION_ID = 'bo-thu';
 
 /** Dựng danh sách bộ thủ đầy đủ từ dữ liệu nén mà script sinh ra. */
-export function buildRadicalEntries(seeds: readonly RadicalSeed[]): RadicalEntry[] {
+export function buildRadicalEntries(
+  seeds: readonly RadicalSeed[],
+  table: readonly RadicalKanjiSeed[],
+): RadicalEntry[] {
+  const kanjiOf = (ref: RadicalKanjiRef): RadicalKanji => {
+    const [char, hanViet, parts, partsHanViet, level, words] = table[ref[0]];
+    return {
+      id: char,
+      char,
+      hanViet,
+      parts: parts.split('+').filter(Boolean),
+      partsHanViet,
+      via: ref[1] ?? '',
+      level,
+      words: words.map(([japanese, reading, meaning]) => ({ japanese, reading, meaning })),
+    };
+  };
+
   return seeds.map(([char, variants, hanViet, meaning, japanese, strokes, kanji]) => ({
     id: radicalId(char, hanViet),
     char,
@@ -196,20 +226,7 @@ export function buildRadicalEntries(seeds: readonly RadicalSeed[]): RadicalEntry
     meaning,
     japanese,
     strokes,
-    kanji: kanji.map(([kanjiChar, kanjiHanViet, parts, partsHanViet, via, level, words]) => ({
-      id: kanjiChar,
-      char: kanjiChar,
-      hanViet: kanjiHanViet,
-      parts: parts.split('+').filter(Boolean),
-      partsHanViet,
-      via,
-      level,
-      words: words.map(([japaneseWord, reading, wordMeaning]) => ({
-        japanese: japaneseWord,
-        reading,
-        meaning: wordMeaning,
-      })),
-    })),
+    kanji: kanji.map(kanjiOf),
   }));
 }
 

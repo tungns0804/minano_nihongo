@@ -49,7 +49,9 @@ const { KANJI_PARTS, PART_HAN_VIET } = await import(
   toFileUrl(join(ROOT, 'src/app/core/radical/radical-parts.ts'))
 );
 const { KANJI_SEEDS } = await import(toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-words.ts')));
-const { KANJI_BY_LEVEL } = await import(toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-levels.ts')));
+const { KANJI_BY_LEVEL, ADVANCED_PARTS } = await import(
+  toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-levels.ts')),
+);
 
 // ── Bảng bộ thủ ───────────────────────────────────────────────────────────
 
@@ -102,7 +104,7 @@ for (const [char, hanViet, , level, words] of KANJI_SEEDS) {
 
 /** Thứ tự chữ trong lưới = đúng thứ tự dạy của `kanji-levels.ts`. */
 const kanjiOrder = new Map();
-for (const level of ['N5', 'N4', 'N3']) {
+for (const level of Object.keys(KANJI_BY_LEVEL)) {
   for (const char of KANJI_BY_LEVEL[level]) if (!kanjiOrder.has(char)) kanjiOrder.set(char, kanjiOrder.size);
 }
 
@@ -113,6 +115,11 @@ const partsOf = new Map();
 for (const row of KANJI_PARTS) {
   const [char, parts] = row.split(':');
   partsOf.set(char, parts.split('+').filter(Boolean));
+}
+// Chiết tự của N2 và N1 khai ngay trên dòng chữ ở `kanji-levels.ts` — hai cấp đó
+// phải khai tay cả chữ lẫn âm lẫn chiết tự, gom một dòng cho khỏi lệch nhau.
+for (const [char, parts] of Object.entries(ADVANCED_PARTS)) {
+  if (parts) partsOf.set(char, parts.split('+').filter(Boolean));
 }
 
 /**
@@ -173,11 +180,25 @@ const extra = [...partsOf.keys()].filter((char) => !inLevels.has(char));
 const kanjiOfRadical = new Map(radicals.map((r) => [r.char, []]));
 /** Thành phần không tra được âm Hán Việt — chỉ để cảnh báo. */
 const unknownParts = new Map();
+/** Bảng chữ dùng chung; bảng của từng bộ trỏ vào đây bằng số thứ tự. */
+const kanjiTable = [];
 let pairCount = 0;
+
+/**
+ * Chữ có trong danh sách JLPT nhưng chưa có trong `kanji-words.ts`.
+ *
+ * Gần như luôn là do chạy sai thứ tự: thêm chữ vào `kanji-levels.ts` rồi chạy
+ * thẳng script này mà quên `npm run generate:kanji` trước. Bảng của bộ sẽ thiếu
+ * đúng những chữ vừa thêm mà không báo gì cả, nên phải bắt ở đây.
+ */
+const notGenerated = [];
 
 for (const char of inLevels) {
   const info = kanjiInfo.get(char);
-  if (!info) continue;
+  if (!info) {
+    notGenerated.push(char);
+    continue;
+  }
 
   const parts = partsOf.get(char) ?? [char];
   // Chữ độc thể không "ghép từ bộ nào" nên không vào bảng của bộ nào cả — phần
@@ -196,35 +217,45 @@ for (const char of inLevels) {
   // thì chuỗi đáp án hụt một chỗ, mà chiều luyện lại chấm đúng theo chuỗi đó.
   const partsHanViet = readings.every(Boolean) ? readings.join(' ') : '';
 
+  // Chữ chỉ ghi MỘT lần vào bảng dùng chung; bảng của từng bộ chỉ giữ số thứ tự.
+  // Trung bình một chữ nằm trong hai ba bộ, chép nguyên cả dòng vào từng bộ thì file
+  // dữ liệu phình lên mấy lần mà không thêm được thông tin nào.
+  const index = kanjiTable.length;
+  kanjiTable.push([char, info.hanViet, partsText, partsHanViet, info.level, info.words]);
+
   for (const radical of radicalsIn(char)) {
-    const row = [char, info.hanViet, partsText, partsHanViet, viaPart(char, radical), info.level, info.words];
-    kanjiOfRadical.get(radical).push(row);
+    kanjiOfRadical.get(radical).push([index, viaPart(char, radical)]);
     pairCount++;
   }
 }
 
 for (const list of kanjiOfRadical.values()) {
-  list.sort((a, b) => kanjiOrder.get(a[0]) - kanjiOrder.get(b[0]));
+  list.sort((a, b) => kanjiOrder.get(kanjiTable[a[0]][0]) - kanjiOrder.get(kanjiTable[b[0]][0]));
 }
 
 // ── Ghi file ──────────────────────────────────────────────────────────────
 
 const quote = (text) => `'${text.split("'").join("\'")}'`;
 
+const kanjiBody = kanjiTable
+  .map(([char, hanViet, parts, partsHanViet, level, words]) => {
+    const wordText = words.map((w) => `[${[w.japanese, w.reading, w.meaning].map(quote).join(', ')}]`);
+    return (
+      `  [${quote(char)}, ${quote(hanViet)}, ${quote(parts)}, ${quote(partsHanViet)}, ` +
+      `${quote(level)}, [${wordText.join(', ')}]],`
+    );
+  })
+  .join('\n');
+
 const body = radicals
   .map((radical) => {
-    const rows = kanjiOfRadical.get(radical.char);
+    const rows = kanjiOfRadical
+      .get(radical.char)
+      .map(([index, via]) => (via ? `[${index}, ${quote(via)}]` : `[${index}]`));
     const head =
       `  [${quote(radical.char)}, ${quote(radical.variants.join('/'))}, ${quote(radical.hanViet)}, ` +
-      `${quote(radical.meaning)}, ${quote(radical.japanese)}, ${radical.strokes}, [`;
-    const lines = rows.map(([char, hanViet, parts, partsHanViet, via, level, words]) => {
-      const wordText = words.map((w) => `[${[w.japanese, w.reading, w.meaning].map(quote).join(', ')}]`);
-      return (
-        `    [${quote(char)}, ${quote(hanViet)}, ${quote(parts)}, ${quote(partsHanViet)}, ` +
-        `${quote(via)}, ${quote(level)}, [${wordText.join(', ')}]],`
-      );
-    });
-    return [head, ...lines, '  ]],'].join('\n');
+      `${quote(radical.meaning)}, ${quote(radical.japanese)}, ${radical.strokes},`;
+    return rows.length > 0 ? `${head}\n    [${rows.join(', ')}]],` : `${head} []],`;
   })
   .join('\n');
 
@@ -237,10 +268,16 @@ const output = `/* eslint-disable */
  * Nguồn: \`radical-list.ts\` (214 bộ thủ) + \`radical-parts.ts\` (chiết tự) + dữ liệu
  * chữ Hán của khu Kanji (\`kanji-words.ts\`). Xem \`scripts/generate-radicals.mjs\`.
  *
- * Thống kê lần sinh gần nhất: ${radicals.length} bộ thủ (${withKanji} bộ có chữ ghép), ${pairCount} lượt chữ.
+ * Thống kê lần sinh gần nhất: ${radicals.length} bộ thủ (${withKanji} bộ có chữ ghép),
+ * ${kanjiTable.length} chữ ghép, ${pairCount} lượt chữ.
  */
 
-import type { RadicalSeed } from './radical.model';
+import type { RadicalKanjiSeed, RadicalSeed } from './radical.model';
+
+/** Bảng chữ dùng chung — bảng của từng bộ ở dưới trỏ vào đây bằng số thứ tự. */
+export const RADICAL_KANJI: readonly RadicalKanjiSeed[] = [
+${kanjiBody}
+];
 
 export const RADICAL_SEEDS: readonly RadicalSeed[] = [
 ${body}
@@ -255,6 +292,11 @@ log(`Chu Han  : ${inLevels.size} chu trong danh sach JLPT, ${pairCount} luot chu
 if (missing.length > 0) {
   log(`[LOI] ${missing.length} chu chua co dong chiet tu: ${missing.join('')}`);
   log('      Them vao src/app/core/radical/radical-parts.ts');
+  process.exitCode = 1;
+}
+if (notGenerated.length > 0) {
+  log(`[LOI] ${notGenerated.length} chu chua co trong kanji-words.ts: ${notGenerated.join('')}`);
+  log('      Chay "npm run generate:kanji" truoc roi chay lai script nay.');
   process.exitCode = 1;
 }
 if (extra.length > 0) {

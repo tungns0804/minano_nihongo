@@ -11,6 +11,7 @@ import {
   KanjiLevel,
   KanjiMode,
   KanjiWord,
+  emptyLevelCounts,
   kanjiModeInfo,
   kanjiQuestionsPerItem,
 } from '../../core/kanji/kanji.model';
@@ -109,7 +110,7 @@ export class KanjiDetail {
    * chọn: con số trên nút phải đứng yên khi bật tắt các cấp.
    */
   readonly levelCounts = computed<Record<KanjiLevel, number>>(() => {
-    const counts = { N5: 0, N4: 0, N3: 0 } as Record<KanjiLevel, number>;
+    const counts = emptyLevelCounts();
     for (const word of this.entry()?.words ?? []) counts[word.level]++;
     return counts;
   });

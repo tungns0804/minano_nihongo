@@ -97,8 +97,8 @@ export const MESSAGES = {
   'kind.kanji': { vi: 'Kanji', ja: '漢字' },
   'kind.kanji.unit': { vi: '{count} chữ', ja: '漢字{count}字' },
   'kind.kanji.desc': {
-    vi: 'Danh sách chữ Hán N5→N3: âm Hán Việt của chữ, và nghĩa lẫn cách đọc của các từ dùng chữ đó.',
-    ja: 'N5～N3の漢字一覧：字の漢越音と、その字を使う単語の意味・読み方。',
+    vi: 'Danh sách chữ Hán N5→N1: âm Hán Việt của chữ, và nghĩa lẫn cách đọc của các từ dùng chữ đó.',
+    ja: 'N5～N1の漢字一覧：字の漢越音と、その字を使う単語の意味・読み方。',
   },
   'kind.radical': { vi: 'Bộ thủ', ja: '部首' },
   'kind.radical.unit': { vi: '{count} bộ', ja: '部首{count}個' },
@@ -489,8 +489,8 @@ export const MESSAGES = {
   // Danh sách chữ Hán từ N5 tới N3, mỗi chữ kèm các từ dùng chữ đó (xem core/kanji/).
   'kanji.title': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
   'kanji.subtitle': {
-    vi: 'Chữ Hán từ N5 tới N3, giữ nguyên thứ tự học của danh sách gốc. Mở một chữ để xem các từ trong kho có dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
-    ja: 'N5からN3までの漢字。元の一覧の学習順をそのまま保ちます。漢字を開くと、その字を使う単語が見られます。解答は入力のみです。',
+    vi: 'Chữ Hán từ N5 tới N1, giữ nguyên thứ tự học của danh sách gốc. Mở một chữ để xem các từ trong kho có dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
+    ja: 'N5からN1までの漢字。元の一覧の学習順をそのまま保ちます。漢字を開くと、その字を使う単語が見られます。解答は入力のみです。',
   },
   'kanji.back': { vi: '← Danh sách Kanji', ja: '← 漢字一覧' },
   'kanji.notFound': { vi: 'Không tìm thấy chữ {id}.', ja: '漢字 {id} が見つかりません。' },
@@ -572,16 +572,16 @@ export const MESSAGES = {
     ja: '選択中の範囲に単語がありません。',
   },
   'kanji.dataNote': {
-    vi: 'Danh sách chữ và cấp độ lấy theo bảng kanji JLPT N5→N3. Các từ minh hoạ và âm Hán Việt rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập), nên chữ nào kho chưa có từ thì chưa luyện từ được.',
-    ja: '漢字の一覧とレベルはJLPT N5〜N3の漢字表に従います。例語と漢越音はアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出しています。',
+    vi: 'Danh sách chữ và cấp độ lấy theo bảng kanji JLPT N5→N1. Từ minh hoạ và phần lớn âm Hán Việt rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập); N2 và N1 nằm ngoài kho từ nên phần lớn chữ hai cấp đó chỉ luyện được âm Hán Việt.',
+    ja: '漢字の一覧とレベルはJLPT N5〜N1の漢字表に従います。例語と漢越音の多くはアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出しています。N2・N1はそのデータの範囲外なので、多くは漢越音の練習のみになります。',
   },
 
   // ── Khu Bộ thủ ─────────────────────────────────────────────────────────
   // 214 bộ thủ Khang Hy, mỗi bộ kèm các chữ Hán ghép từ bộ đó (xem core/radical/).
   'radical.title': { vi: 'Học bộ thủ', ja: '部首を学ぶ' },
   'radical.subtitle': {
-    vi: 'Toàn bộ 214 bộ thủ, xếp theo số nét. Mở một bộ để xem những chữ Hán ghép từ bộ đó với các bộ khác, kèm cách chiết tự. Chỉ gõ đáp án, không có trắc nghiệm.',
-    ja: '214部首すべてを画数順に。部首を開くと、その部首と他の部首でできている漢字と、その分解が見られます。解答は入力のみです。',
+    vi: 'Toàn bộ 214 bộ thủ, xếp theo số nét. Mở một bộ để xem những chữ Hán N5→N1 ghép từ bộ đó với các bộ khác, kèm cách chiết tự. Chỉ gõ đáp án, không có trắc nghiệm.',
+    ja: '214部首すべてを画数順に。部首を開くと、その部首と他の部首でできているN5〜N1の漢字と、その分解が見られます。解答は入力のみです。',
   },
   'radical.back': { vi: '← Danh sách bộ thủ', ja: '← 部首一覧' },
   'radical.notFound': { vi: 'Không tìm thấy bộ {id}.', ja: '部首 {id} が見つかりません。' },
@@ -666,16 +666,16 @@ export const MESSAGES = {
     ja: '{count}字は各部首の漢越音がそろっていないため、分解の出題からは除きます。',
   },
   'radical.noKanjiYet': {
-    vi: 'Kho chữ N5→N3 của ứng dụng chưa có chữ nào ghép từ bộ này, nên chưa luyện chữ ở đây được. Bộ vẫn được hỏi ở phần luyện âm Hán Việt ngoài danh sách.',
-    ja: 'アプリのN5〜N3の漢字にこの部首でできた字がまだないため、ここでは漢字練習ができません。一覧画面の漢越音練習には出てきます。',
+    vi: 'Kho chữ N5→N1 của ứng dụng chưa có chữ nào ghép từ bộ này, nên chưa luyện chữ ở đây được. Bộ vẫn được hỏi ở phần luyện âm Hán Việt ngoài danh sách.',
+    ja: 'アプリのN5〜N1の漢字にこの部首でできた字がまだないため、ここでは漢字練習ができません。一覧画面の漢越音練習には出てきます。',
   },
   'radical.emptyPool': {
     vi: 'Chưa có chữ nào trong phạm vi đang chọn.',
     ja: '選択中の範囲に漢字がありません。',
   },
   'radical.dataNote': {
-    vi: 'Bảng bộ thủ lấy theo 214 bộ Khang Hy. Các chữ ghép, âm Hán Việt và từ ví dụ rút từ chính kho chữ N5→N3 của khu Kanji, nên hai khu luôn nói cùng một thứ về một chữ.',
-    ja: '部首の一覧は康熙字典の214部首に従います。例の漢字・漢越音・例語は漢字コーナーのN5〜N3のデータをそのまま使っています。',
+    vi: 'Bảng bộ thủ lấy theo 214 bộ Khang Hy. Các chữ ghép, âm Hán Việt và từ ví dụ rút từ chính kho chữ N5→N1 của khu Kanji, nên hai khu luôn nói cùng một thứ về một chữ.',
+    ja: '部首の一覧は康熙字典の214部首に従います。例の漢字・漢越音・例語は漢字コーナーのN5〜N1のデータをそのまま使っています。',
   },
 
   // ── Nhãn phạm vi (dùng ở màn kết quả) ──────────────────────────────────

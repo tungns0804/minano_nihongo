@@ -33,9 +33,9 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'kanji', 'kanji-words.ts');
 
-/** Cấp độ trong phạm vi khu Kanji. Từ N2 của khu Bài tập nằm ngoài phạm vi N5→N3. */
-const LEVELS = ['N5', 'N4', 'N3'];
-const LEVEL_RANK = { N5: 0, N4: 1, N3: 2 };
+/** Cấp độ trong phạm vi khu Kanji — nay đủ N5 → N1. */
+const LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
+const LEVEL_RANK = { N5: 0, N4: 1, N3: 2, N2: 3, N1: 4 };
 
 const KANJI = /[一-鿿]/;
 const KANJI_ALL = /[一-鿿]/g;
@@ -50,14 +50,19 @@ const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92
 const { HAN_VIET_SUPPLEMENT, HAN_VIET_FIX } = await import(
   toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-supplement.ts'))
 );
-const { KANJI_BY_LEVEL } = await import(
+const { KANJI_BY_LEVEL, ADVANCED_HAN_VIET } = await import(
   toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-levels.ts'))
 );
 
 /** Chữ nào thuộc cấp nào — danh sách JLPT là nguồn DUY NHẤT quyết định việc này. */
 const levelOfKanji = new Map();
+/** Chữ bị khai ở hai cấp — cấp sau lặng lẽ đè cấp trước nếu không bắt ở đây. */
+const duplicateLevels = [];
 for (const level of LEVELS) {
-  for (const char of KANJI_BY_LEVEL[level]) levelOfKanji.set(char, level);
+  for (const char of KANJI_BY_LEVEL[level]) {
+    if (levelOfKanji.has(char)) duplicateLevels.push(`${char}(${levelOfKanji.get(char)}+${level})`);
+    levelOfKanji.set(char, level);
+  }
 }
 
 // ── Kho từ ────────────────────────────────────────────────────────────────
@@ -211,7 +216,9 @@ function readingsOf(char) {
   }
   const tally = votes.get(char);
   if (!tally) {
-    const extra = HAN_VIET_SUPPLEMENT[char];
+    // `ADVANCED_HAN_VIET` là âm khai kèm ở dòng N2/N1 của `kanji-levels.ts`. Đứng
+    // sau phiếu bầu của kho từ: chữ nào kho từ nói được thì vẫn ưu tiên nguồn.
+    const extra = HAN_VIET_SUPPLEMENT[char] || ADVANCED_HAN_VIET[char];
     return extra ? { main: extra, alts: [] } : { main: '', alts: [] };
   }
   const sorted = [...tally].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
@@ -317,7 +324,10 @@ const previous = existsSync(OUT_FILE) ? readFileSync(OUT_FILE, 'utf8') : '';
 
 log(`Tu       : ${allWords.length} (can chinh duoc am tiet: ${alignedWords}, lech: ${unalignedWords})`);
 log(`Chu Han  : ${seeds.length} (${levelCount}), ${wordSlots} luot tu`);
-log(`Ngoai N5-N3: ${outOfScope.size} chu trong kho tu khong thuoc danh sach JLPT`);
+log(`Ngoai danh sach: ${outOfScope.size} chu trong kho tu khong thuoc cap nao`);
+// `--list-outside` in ra đủ danh sách đó để chép sang `kanji-levels.ts` — cách
+// nhanh nhất để biết còn chữ nào của kho từ chưa được xếp cấp.
+if (process.argv.includes('--list-outside')) log([...outOfScope].join(''));
 
 /**
  * Cảnh báo danh sách JLPT có thể bị thiếu.
@@ -339,8 +349,17 @@ if (earlyOutside.length > 0) {
   log('        Neu co chu co ban trong so nay thi kanji-levels.ts dang chep thieu hang.');
 }
 
+if (duplicateLevels.length > 0) {
+  log(`[LOI] ${duplicateLevels.length} chu khai o hai cap: ${duplicateLevels.join(' ')}`);
+  process.exitCode = 1;
+}
+
 if (noWords.length > 0) {
-  log(`[CHU Y] ${noWords.length} chu chua co tu nao trong kho: ${noWords.join('')}`);
+  // Cắt ngắn: từ khi có N2/N1 thì phần lớn chữ chưa có từ, in đủ ra chỉ tổ lấp
+  // mất những dòng cảnh báo thật sự cần đọc ở trên.
+  const sample = noWords.slice(0, 40).join('');
+  const more = noWords.length > 40 ? ` … (+${noWords.length - 40} chu)` : '';
+  log(`[CHU Y] ${noWords.length} chu chua co tu nao trong kho: ${sample}${more}`);
 }
 log(`Am tu kho: ${votes.size} chu | bo sung tay: ${Object.keys(HAN_VIET_SUPPLEMENT).length} chu | sua tay: ${Object.keys(HAN_VIET_FIX).length} chu`);
 

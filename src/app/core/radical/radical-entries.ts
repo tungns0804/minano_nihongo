@@ -6,9 +6,9 @@
  */
 
 import { RadicalEntry, buildRadicalEntries } from './radical.model';
-import { RADICAL_SEEDS } from './radical-kanji';
+import { RADICAL_KANJI, RADICAL_SEEDS } from './radical-kanji';
 
-export const RADICAL_ENTRIES: readonly RadicalEntry[] = buildRadicalEntries(RADICAL_SEEDS);
+export const RADICAL_ENTRIES: readonly RadicalEntry[] = buildRadicalEntries(RADICAL_SEEDS, RADICAL_KANJI);
 
 const BY_ID = new Map(RADICAL_ENTRIES.map((entry) => [entry.id, entry]));
 
