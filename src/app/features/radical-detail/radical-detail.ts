@@ -4,24 +4,24 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
-import {
-  KANJI_LEVELS,
-  KANJI_WORD_MODES,
-  KanjiEntry,
-  KanjiLevel,
-  KanjiMode,
-  KanjiWord,
-  kanjiModeInfo,
-  kanjiQuestionsPerItem,
-} from '../../core/kanji/kanji.model';
-import { kanjiById } from '../../core/kanji/kanji-entries';
+import { KANJI_LEVELS, KanjiLevel } from '../../core/kanji/kanji.model';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
   PracticeConfig,
   PracticeScope,
 } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
-import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
+import { buildRadicalKanjiQuestions } from '../../core/practice/radical-questions';
+import {
+  RADICAL_KANJI_MODES,
+  RadicalEntry,
+  RadicalKanji,
+  RadicalMode,
+  radicalModeInfo,
+  radicalQuestionCount,
+  usableForParts,
+} from '../../core/radical/radical.model';
+import { radicalById } from '../../core/radical/radical-entries';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
 import { normalizeSearch } from '../../core/utils/lesson-search';
@@ -30,24 +30,24 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
 const LIMIT_CHOICES = [10, 20, 30, 50] as const;
 
 /**
- * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
- * phần luyện "từ → nghĩa" / "từ → hiragana".
+ * Màn hình MỘT bộ thủ: bộ vẽ to, âm Hán Việt + nghĩa + tên tiếng Nhật, và bảng các
+ * chữ Hán ghép từ bộ đó kèm phần luyện "chữ → âm Hán Việt" / "chữ → chiết tự".
  *
- * Phần luyện "chữ → âm Hán Việt" KHÔNG ở đây mà ở màn hình danh sách: hỏi âm Hán
- * Việt của đúng một chữ thì cả phiên chỉ có một câu.
+ * Phần luyện "bộ → âm Hán Việt" KHÔNG ở đây mà ở màn hình danh sách: hỏi âm Hán
+ * Việt của đúng một bộ thì cả phiên chỉ có một câu.
  *
  * Phần chạy phiên và chấm điểm dùng lại nguyên vẹn: câu hỏi dựng ở
- * `core/practice/kanji-questions.ts` rồi đi qua đúng màn hình luyện tập và màn
+ * `core/practice/radical-questions.ts` rồi đi qua đúng màn hình luyện tập và màn
  * hình kết quả như mọi bài học khác.
  */
 @Component({
-  selector: 'app-kanji-detail',
+  selector: 'app-radical-detail',
   imports: [RouterLink, T],
-  templateUrl: './kanji-detail.html',
-  styleUrl: './kanji-detail.css',
+  templateUrl: './radical-detail.html',
+  styleUrl: './radical-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KanjiDetail {
+export class RadicalDetail {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly favoriteStore = inject(FavoriteStore);
@@ -55,15 +55,15 @@ export class KanjiDetail {
   private readonly lang = inject(LanguageStore);
 
   readonly t = this.lang.t.bind(this.lang);
-  readonly modes = KANJI_WORD_MODES;
+  readonly modes = RADICAL_KANJI_MODES;
   readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
-  readonly kanjiId = signal('');
-  readonly entry = signal<KanjiEntry | null>(null);
+  readonly radicalId = signal('');
+  readonly entry = signal<RadicalEntry | null>(null);
 
   // --- Thiết lập luyện tập ---
   readonly levels = signal<KanjiLevel[]>([...KANJI_LEVELS]);
-  readonly mode = signal<KanjiMode>('word-meaning');
+  readonly mode = signal<RadicalMode>('kanji-hanviet');
   readonly scope = signal<PracticeScope>('all');
   readonly questionLimit = signal<number | null>(null);
   readonly shuffleQuestions = signal(true);
@@ -76,88 +76,99 @@ export class KanjiDetail {
 
   readonly notFound = computed(() => this.entry() === null);
   /**
-   * Chữ có trong danh sách JLPT nhưng kho từ chưa có từ nào dùng nó. Vẫn hiện
-   * chữ và âm Hán Việt (luyện âm ở màn danh sách vẫn hỏi tới nó), chỉ là chưa
-   * luyện từ được.
+   * Bộ có trong bảng 214 nhưng kho chữ N5→N3 chưa có chữ nào ghép từ nó. Vẫn hiện
+   * bộ và âm Hán Việt (luyện âm ở màn danh sách vẫn hỏi tới nó), chỉ là chưa luyện
+   * chữ được.
    */
-  readonly hasNoWords = computed(() => (this.entry()?.words.length ?? 0) === 0);
-  readonly currentMode = computed(() => kanjiModeInfo(this.mode()));
+  readonly hasNoKanji = computed(() => (this.entry()?.kanji.length ?? 0) === 0);
+  readonly currentMode = computed(() => radicalModeInfo(this.mode()));
   readonly modeShort = computed(() => this.lang.t(this.currentMode().shortKey));
 
-  /** Tất cả cách đọc của chữ, gộp thành một chuỗi để hiện ở đầu trang. */
-  readonly readings = computed(() => {
+  /** Bộ và các biến thể của nó, gộp thành một chuỗi để hiện ở đầu trang. */
+  readonly forms = computed(() => {
     const entry = this.entry();
-    if (!entry) return '';
-    return [entry.hanViet, ...entry.altHanViet].filter(Boolean).join(' / ');
+    return entry ? [entry.char, ...entry.variants].join('  ') : '';
   });
 
   /** Đọc qua signal của FavoriteStore để bảng tự cập nhật khi bấm sao. */
   private readonly favoriteIds = computed(() => {
     void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(this.kanjiId()));
+    return new Set(this.favoriteStore.idsOf(this.radicalId()));
   });
 
   private readonly levelSet = computed(() => new Set(this.levels()));
 
-  /** Từ của các cấp đang chọn. */
-  readonly levelWords = computed<KanjiWord[]>(() =>
-    (this.entry()?.words ?? []).filter((word) => this.levelSet().has(word.level)),
+  /** Chữ của các cấp đang chọn. */
+  readonly levelKanji = computed<RadicalKanji[]>(() =>
+    (this.entry()?.kanji ?? []).filter((kanji) => this.levelSet().has(kanji.level)),
   );
 
   /**
-   * Số từ của từng cấp, tính trên TOÀN BỘ từ của chữ chứ không trừ đi cấp đang
+   * Số chữ của từng cấp, tính trên TOÀN BỘ chữ của bộ chứ không trừ đi cấp đang
    * chọn: con số trên nút phải đứng yên khi bật tắt các cấp.
    */
   readonly levelCounts = computed<Record<KanjiLevel, number>>(() => {
     const counts = { N5: 0, N4: 0, N3: 0 } as Record<KanjiLevel, number>;
-    for (const word of this.entry()?.words ?? []) counts[word.level]++;
+    for (const kanji of this.entry()?.kanji ?? []) counts[kanji.level]++;
     return counts;
   });
 
-  /** Cấp nào chữ này thực sự có từ — cấp rỗng thì không bày nút ra để bấm vào chỗ trống. */
+  /** Cấp nào bộ này thực sự có chữ — cấp rỗng thì không bày nút ra để bấm vào chỗ trống. */
   readonly availableLevels = computed<KanjiLevel[]>(() =>
     KANJI_LEVELS.filter((level) => this.levelCounts()[level] > 0),
   );
 
   readonly favoriteCount = computed(
-    () => this.levelWords().filter((word) => this.favoriteIds().has(word.id)).length,
+    () => this.levelKanji().filter((kanji) => this.favoriteIds().has(kanji.id)).length,
   );
 
-  // --- Tập từ sẽ đem ra hỏi ---
+  // --- Tập chữ sẽ đem ra hỏi ---
 
-  readonly pool = computed<KanjiWord[]>(() =>
+  readonly pool = computed<RadicalKanji[]>(() =>
     this.scope() === 'favorite'
-      ? this.levelWords().filter((word) => this.favoriteIds().has(word.id))
-      : this.levelWords(),
+      ? this.levelKanji().filter((kanji) => this.favoriteIds().has(kanji.id))
+      : this.levelKanji(),
   );
 
   readonly plannedQuestionCount = computed(() => {
-    const total = this.pool().length * kanjiQuestionsPerItem(this.mode());
+    const total = radicalQuestionCount(this.pool(), this.mode());
     const limit = this.questionLimit();
     return limit === null ? total : Math.min(limit, total);
   });
 
   readonly canStart = computed(() => this.plannedQuestionCount() > 0);
 
-  readonly limitChoices = computed(() =>
-    LIMIT_CHOICES.filter(
-      (limit) => limit < this.pool().length * kanjiQuestionsPerItem(this.mode()),
-    ),
+  readonly limitChoices = computed(() => {
+    const total = radicalQuestionCount(this.pool(), this.mode());
+    return LIMIT_CHOICES.filter((limit) => limit < total);
+  });
+
+  /**
+   * Chữ chưa tra đủ âm Hán Việt của các bộ — chiều hỏi chiết tự bỏ qua chúng.
+   * Hiện con số này ra để người học không tưởng phần mềm đếm sai số câu.
+   */
+  readonly skippedForParts = computed(
+    () => this.pool().filter((kanji) => !usableForParts(kanji)).length,
+  );
+
+  readonly modeSkipsSome = computed(
+    () => this.mode() !== 'kanji-hanviet' && this.skippedForParts() > 0,
   );
 
   // --- Bảng tra cứu ---
 
-  readonly visibleWords = computed<KanjiWord[]>(() => {
+  readonly visibleKanji = computed<RadicalKanji[]>(() => {
     const base = this.onlyFavorites()
-      ? this.levelWords().filter((word) => this.favoriteIds().has(word.id))
-      : this.levelWords();
+      ? this.levelKanji().filter((kanji) => this.favoriteIds().has(kanji.id))
+      : this.levelKanji();
 
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
 
-    return base.filter((word) =>
+    return base.filter((kanji) =>
       normalizeSearch(
-        `${word.japanese} ${word.reading} ${word.hanViet} ${word.meaning}`,
+        `${kanji.char} ${kanji.hanViet} ${kanji.parts.join(' ')} ${kanji.partsHanViet} ` +
+          kanji.words.map((word) => `${word.japanese} ${word.reading} ${word.meaning}`).join(' '),
       ).includes(keyword),
     );
   });
@@ -165,20 +176,20 @@ export class KanjiDetail {
   constructor() {
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
       const id = params.get('id') ?? '';
-      this.kanjiId.set(id);
+      this.radicalId.set(id);
       this.load(id);
     });
   }
 
   private load(id: string): void {
-    const entry = kanjiById(id);
+    const entry = radicalById(id);
     this.entry.set(entry);
     if (!entry) return;
 
-    // Mở chữ khác là đặt lại toàn bộ thiết lập: cấp độ và ★ của chữ cũ không nói gì
-    // về chữ mới, mà chữ mới có thể không có cấp mà chữ cũ đang chọn.
+    // Mở bộ khác là đặt lại toàn bộ thiết lập: cấp độ và ★ của bộ cũ không nói gì
+    // về bộ mới, mà bộ mới có thể không có cấp mà bộ cũ đang chọn.
     this.levels.set([...KANJI_LEVELS]);
-    this.mode.set('word-meaning');
+    this.mode.set('kanji-hanviet');
     this.scope.set('all');
     this.questionLimit.set(null);
     this.search.set('');
@@ -193,7 +204,7 @@ export class KanjiDetail {
 
   toggleLevel(level: KanjiLevel): void {
     const current = this.levels().filter((item) => this.levelCounts()[item] > 0);
-    // Luôn phải còn ít nhất một cấp có từ: bỏ hết thì bảng trống trơn mà không rõ vì sao.
+    // Luôn phải còn ít nhất một cấp có chữ: bỏ hết thì bảng trống trơn mà không rõ vì sao.
     if (current.includes(level) && current.length === 1) return;
 
     const next = current.includes(level)
@@ -204,7 +215,7 @@ export class KanjiDetail {
     this.fixScope();
   }
 
-  setMode(mode: KanjiMode): void {
+  setMode(mode: RadicalMode): void {
     this.mode.set(mode);
     this.questionLimit.set(null);
   }
@@ -249,18 +260,18 @@ export class KanjiDetail {
 
   // --- Favorite ---
 
-  isFavorite(wordId: string): boolean {
-    return this.favoriteIds().has(wordId);
+  isFavorite(kanjiId: string): boolean {
+    return this.favoriteIds().has(kanjiId);
   }
 
-  toggleFavorite(wordId: string): void {
-    this.favoriteStore.toggle(this.kanjiId(), wordId);
+  toggleFavorite(kanjiId: string): void {
+    this.favoriteStore.toggle(this.radicalId(), kanjiId);
   }
 
   clearFavorites(): void {
     if (this.favoriteCount() === 0) return;
     if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(this.kanjiId());
+      this.favoriteStore.clearLesson(this.radicalId());
     }
   }
 
@@ -272,18 +283,18 @@ export class KanjiDetail {
 
     const config: PracticeConfig = {
       lessonId: entry.id,
-      lessonKind: 'kanji',
+      lessonKind: 'radical',
       scope: this.scope(),
-      // Khu Kanji không có trắc nghiệm, xem `kanji.typingOnly`.
+      // Khu Bộ thủ không có trắc nghiệm, xem `radical.typingOnly`.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
-      // Chỉ có tác dụng ở chiều hỏi nghĩa (đáp án tiếng Việt); chiều hỏi hiragana
-      // thì đáp án là kana nên tuỳ chọn này không đụng tới nó.
+      // Đáp án của cả hai chiều đều là âm Hán Việt (chữ Latin) nên tuỳ chọn này
+      // có tác dụng ở cả hai.
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: 'jp-vi',
-      // Ở khu Kanji, cờ này bật gợi ý âm Hán Việt của cả từ.
+      // Ở khu Bộ thủ, cờ này bật gợi ý đổi theo chiều hỏi — xem `radical-questions.ts`.
       showHanViet: this.showHint(),
       // Các trường dưới đây thuộc về loại bài khác — xem ghi chú ở `PracticeConfig`.
       showGrammarHint: false,
@@ -291,11 +302,11 @@ export class KanjiDetail {
       verbForms: ['te'],
       exercise: null,
       exerciseMode: 'to-transitive',
-      kanjiMode: this.mode(),
-      radicalMode: 'radical-hanviet',
+      kanjiMode: 'kanji-hanviet',
+      radicalMode: this.mode(),
     };
 
-    const questions = orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config);
+    const questions = orderQuestions(buildRadicalKanjiQuestions(this.pool(), entry, config), config);
     const name = `${entry.char} ${entry.hanViet}`;
     if (this.session.start({ id: entry.id, name }, config, questions)) {
       void this.router.navigate(['/practice']);

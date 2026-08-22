@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { Router } from '@angular/router';
 
 import { KANJI_SESSION_ID } from '../../core/kanji/kanji.model';
+import { RADICAL_SESSION_ID } from '../../core/radical/radical.model';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import { QuestionResult, describeConfigKeys } from '../../core/models/practice.model';
@@ -26,6 +27,7 @@ const BACK_ROUTE: Record<LessonKind, string> = {
   grammar: '/grammar',
   exercise: '/exercise',
   kanji: '/kanji',
+  radical: '/radical',
 };
 
 @Component({
@@ -206,9 +208,11 @@ export class Result {
     // CẢ danh sách, nên `lessonId` của nó là một id giả (`KANJI_SESSION_ID`) chứ
     // không phải một chữ — ghép vào thành `/kanji/am-han-viet` là một đường dẫn
     // không tồn tại.
-    const isKanjiListSession =
-      summary.config.lessonKind === 'kanji' && summary.lessonId === KANJI_SESSION_ID;
-    void this.router.navigate(isKanjiListSession ? [base] : [base, summary.lessonId]);
+    // Khu Bộ thủ có đúng một phiên "mở từ danh sách" như vậy (`RADICAL_SESSION_ID`).
+    const isListSession =
+      (summary.config.lessonKind === 'kanji' && summary.lessonId === KANJI_SESSION_ID) ||
+      (summary.config.lessonKind === 'radical' && summary.lessonId === RADICAL_SESSION_ID);
+    void this.router.navigate(isListSession ? [base] : [base, summary.lessonId]);
   }
 
   backHome(): void {

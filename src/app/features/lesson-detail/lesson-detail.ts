@@ -184,6 +184,13 @@ export class LessonDetail {
         search: 'kanji.search',
         unit: 'kind.kanji.unit',
       },
+      // Khu Bộ thủ cũng vậy: nội dung nằm ở `core/radical/`, màn hình riêng là
+      // /radical và /radical/:id.
+      radical: {
+        title: 'kind.radical',
+        search: 'radical.search',
+        unit: 'kind.radical.unit',
+      },
     };
     return table[kind];
   });
@@ -562,6 +569,7 @@ export class LessonDetail {
       exercise: null,
       exerciseMode: 'masu-to-form',
       kanjiMode: 'word-meaning',
+      radicalMode: 'radical-hanviet',
       ...overrides,
     };
   }

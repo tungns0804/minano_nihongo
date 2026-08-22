@@ -1,0 +1,392 @@
+/* Màn hình một chữ Hán: đầu trang là chính chữ đó vẽ to, rồi bảng các từ dùng chữ
+   và khối thiết lập luyện tập. Style của component là phạm vi riêng nên phần dùng
+   chung với các màn hình khác phải khai lại ở đây. */
+
+.back-link {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  width: fit-content;
+  transition: color var(--dur) var(--ease);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* --- Đầu trang --- */
+
+.radical-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+/* To hơn hẳn mọi chữ khác trong ứng dụng: cả trang này nói về đúng một chữ, và
+   người học cần nhìn được từng nét của nó. */
+.radical-hero {
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 500;
+  padding: 12px 26px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-subtle);
+}
+
+.radical-info {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.radical-title {
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+/* --- Khối thiết lập --- */
+
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.option-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.option-stacked strong {
+  font-weight: 620;
+}
+
+.option-example {
+  font-size: 0.82rem;
+  font-weight: 450;
+  opacity: 0.75;
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Bộ lọc bảng --- */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Bảng từ --- */
+
+.word-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+@media (min-width: 641px) {
+  .word-table {
+    min-width: 680px;
+  }
+}
+
+/* ★ | chữ | âm Hán Việt | chiết tự | từ ví dụ (co giãn) | cấp độ */
+.word-table th:nth-child(1) { width: 44px; }
+.word-table th:nth-child(2) { width: 84px; }
+.word-table th:nth-child(3) { width: 140px; }
+.word-table th:nth-child(4) { width: 210px; }
+.word-table th:nth-child(6) { width: 80px; }
+
+/* Không dùng position: sticky cho tiêu đề: header ứng dụng cũng sticky, hai cái
+   sẽ chồng lên nhau. */
+.word-table th {
+  padding: 9px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.word-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.word-table tbody tr:nth-child(even):not(.is-favorite) {
+  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
+}
+
+@media (hover: hover) {
+  /* :not(.is-favorite) để quy tắc này thắng được quy tắc kẻ sọc ở trên. */
+  .word-table tbody tr:hover:not(.is-favorite) {
+    background: var(--bg-subtle);
+  }
+}
+
+.word-table tr.is-favorite {
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.col-star {
+  width: 44px;
+  text-align: center;
+}
+
+/* Ô này chỉ có ĐÚNG một chữ Hán — vẽ to hẳn, đây là thứ cần nhìn kỹ nhất trong bảng. */
+.col-jp {
+  font-size: 1.7rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.col-meaning-cell {
+  color: var(--text-muted);
+}
+
+.col-level .badge {
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+@media (hover: hover) {
+  .star-btn:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+/* Trên màn hình chạm, ngôi sao phải đủ to để không bấm trượt sang dòng bên cạnh. */
+@media (hover: none) {
+  .star-btn {
+    padding: 8px 10px;
+    font-size: 1.35rem;
+  }
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+/* ============================================================================
+   ĐIỆN THOẠI: bảng đổi thành thẻ xếp dọc — cùng cách làm với màn hình bài học.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .radical-hero {
+    font-size: 4.5rem;
+    padding: 8px 20px;
+  }
+
+  .filter-row {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    flex: 1 1 100%;
+  }
+
+  .start-bar .btn {
+    width: 100%;
+  }
+
+  /* Thẻ tự vừa bề rộng màn hình nên không còn gì phải cuộn ngang. */
+  .scroll-x {
+    overflow-x: visible;
+  }
+
+  .word-table {
+    font-size: 1rem;
+  }
+
+  .word-table thead {
+    display: none;
+  }
+
+  .word-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .word-table tr {
+    display: grid;
+    /* Cột 2 chỉ vừa đúng ngôi sao; mọi thứ khác nằm ở cột 1. */
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1px 10px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+  }
+
+  .word-table tr.is-favorite {
+    border-color: var(--warning-border);
+  }
+
+  .word-table td {
+    display: block;
+    grid-column: 1;
+    padding: 0;
+    border: 0;
+  }
+
+  .word-table .col-star {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    align-self: start;
+  }
+
+  /* Vẫn là một chữ đứng một mình, và đây là dòng đầu của thẻ — cho to hẳn. */
+  .word-table .col-jp {
+    font-size: 1.9rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .word-table .col-level {
+    margin-top: 4px;
+  }
+
+  /* Mất hàng tiêu đề thì mỗi ô phải tự mang nhãn theo mình, nếu không bốn dòng
+     xếp cạnh nhau chẳng biết dòng nào là gì. Riêng ô từ thì không cần: nó là
+     dòng to nhất, nằm đầu thẻ. */
+  .word-table td[data-label]:not(.col-jp) {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-top: 3px;
+    font-size: 1rem;
+  }
+
+  .word-table td[data-label]:not(.col-jp)::before {
+    content: attr(data-label);
+    flex: 0 0 5.5em;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* --- Riêng màn hình một bộ thủ --- */
+
+.radical-meaning {
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+}
+
+/* Âm Hán Việt của chữ ghép là thứ người học phải nhớ, nên đậm hơn hẳn cột phụ. */
+.col-hanviet {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.parts-chars {
+  display: block;
+  font-size: 1.05rem;
+}
+
+.parts-han {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--text-faint);
+}
+
+/* Dòng "寺=土+寸": chỉ ra bộ đang xem nằm trong thành phần nào. */
+.parts-via {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+.word-meaning {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 640px) {
+  /* Ô chiết tự có ba dòng con nên không xếp ngang được như các ô một dòng khác. */
+  .word-table td.col-parts[data-label] {
+    display: grid;
+    grid-template-columns: 5.5em minmax(0, 1fr);
+  }
+
+  .word-table td.col-parts[data-label]::before {
+    grid-row: 1;
+  }
+
+  .parts-chars,
+  .parts-han,
+  .parts-via {
+    grid-column: 2;
+  }
+}

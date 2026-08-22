@@ -72,7 +72,9 @@ export type LessonOrigin = 'builtin' | 'custom';
  * đúng màn hình luyện tập / kết quả như bốn loại bài kia.
  *
  * `kanji` cũng vậy: tab `/kanji`, dữ liệu nằm ở `core/kanji/`, và cũng đi qua đúng
- * màn hình luyện tập / kết quả chung.
+ * màn hình luyện tập / kết quả chung. `radical` (khu Bộ thủ, tab `/radical`, dữ
+ * liệu ở `core/radical/`) là bản sao cùng lối của `kanji`, chỉ khác chiều học: đi
+ * từ bộ thủ ra chữ thay vì từ chữ ra từ.
  */
 export type LessonKind =
   | 'vocabulary'
@@ -80,7 +82,8 @@ export type LessonKind =
   | 'conversation'
   | 'grammar'
   | 'exercise'
-  | 'kanji';
+  | 'kanji'
+  | 'radical';
 
 export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary',
@@ -89,6 +92,7 @@ export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   grammar: 'kind.grammar',
   exercise: 'kind.exercise',
   kanji: 'kind.kanji',
+  radical: 'kind.radical',
 };
 
 export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
@@ -98,6 +102,7 @@ export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   grammar: 'kind.grammar.desc',
   exercise: 'kind.exercise.desc',
   kanji: 'kind.kanji.desc',
+  radical: 'kind.radical.desc',
 };
 
 /** Khoá đếm số mục, ví dụ "38 từ" / "38語". */
@@ -108,10 +113,11 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   grammar: 'kind.grammar.unit',
   exercise: 'kind.exercise.unit',
   kanji: 'kind.kanji.unit',
+  radical: 'kind.radical.unit',
 };
 
 /** Các tab của ứng dụng chứa danh sách bài để chọn. */
-export type LessonTab = 'home' | 'exercise' | 'grammar' | 'kanji';
+export type LessonTab = 'home' | 'exercise' | 'grammar' | 'kanji' | 'radical';
 
 /**
  * Loại bài nào hiện ở tab nào.
@@ -139,6 +145,7 @@ export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
   grammar: 'grammar',
   exercise: 'exercise',
   kanji: 'kanji',
+  radical: 'radical',
 };
 
 /** Đường dẫn tới màn hình danh sách của từng tab. */
@@ -147,6 +154,7 @@ export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
   exercise: '/exercise',
   grammar: '/grammar',
   kanji: '/kanji',
+  radical: '/radical',
 };
 
 /** Thứ tự hiển thị các nhóm loại bài trong một tab. */
@@ -157,6 +165,7 @@ const LESSON_KIND_ORDER: readonly LessonKind[] = [
   'grammar',
   'exercise',
   'kanji',
+  'radical',
 ];
 
 /** Các loại bài thuộc một tab, theo đúng thứ tự hiển thị. */

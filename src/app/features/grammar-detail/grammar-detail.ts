@@ -257,6 +257,7 @@ export class GrammarDetail {
       exercise: null,
       exerciseMode: 'masu-to-form',
       kanjiMode: 'word-meaning',
+      radicalMode: 'radical-hanviet',
     };
 
     const questions = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);

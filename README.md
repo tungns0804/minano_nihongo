@@ -58,6 +58,7 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập bổ trợ** |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp minano** |
 | **Kanji** | Danh sách 642 chữ Hán N5→N3 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | Tab **Kanji** |
+| **Bộ thủ** | 214 bộ thủ + các chữ Hán ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | Tab **Bộ thủ** |
 
 Ranh giới giữa hai tab đầu là **nhớ nghĩa** hay **luyện một kỹ năng**. Tab **Từ vựng minano**
 chỉ có bài từ vựng: mở ra là để nhớ nghĩa của một kho từ. Tab **Bài tập bổ trợ** gom mọi thứ
@@ -277,6 +278,85 @@ npm run verify:kanji       # kiểm tra file sinh có khớp nguồn không (n�
 Mục từ vựng là cả một câu (`お帰りなさい。`, `国へ帰るの？`) bị loại khỏi khu Kanji — ở đây hỏi
 nghĩa và cách đọc của MỘT TỪ. Chỉ lọc theo dấu câu chứ không lọc theo trợ từ: cụm cố định kiểu
 `電車に乗ります` chính là thứ giáo trình dạy nguyên khối. Chúng vẫn nằm nguyên trong bài học.
+
+
+## Bộ thủ
+
+Tab **Bộ thủ** đi ngược chiều với tab Kanji: tab Kanji đi từ **chữ ra từ** (chữ 海 → 海外, 海岸),
+tab này đi từ **mảnh ra chữ** (bộ 氵 → 海, 泳, 湯). Danh sách là **toàn bộ 214 bộ thủ Khang Hy**,
+xếp theo số nét và chia thành 7 nhóm tab: 1-2, 3, 4, 5, 6, 7-8, 9+ nét.
+
+Mỗi ô trong lưới là bộ vẽ to, **dạng viết khác** của nó khi nằm trong chữ (亻 của 人, 氵 của 水,
+艹 của 艸) và âm Hán Việt. Mở một bộ ra là thấy âm Hán Việt, nghĩa tiếng Việt, **tên gọi tiếng
+Nhật** (にんべん, さんずい…), số nét, và bảng các chữ Hán ghép từ bộ đó:
+
+| Chữ | Âm Hán Việt | Chiết tự | Từ ví dụ | Cấp |
+| --- | --- | --- | --- | --- |
+| 休 | HƯU | 亻 + 木 — NHÂN MỘC | 休みます（やすみます）— nghỉ | N5 |
+| 時 | THỜI | 日 + 寺 — NHẬT TỰ<br>寺=土+寸 | 時計（とけい）— đồng hồ | N5 |
+
+Dòng `寺=土+寸` chỉ hiện khi bộ đang xem **nằm sâu bên trong** một thành phần: nhìn 時 = 日 + 寺
+thì không ai đoán được vì sao chữ này lại nằm trong bộ 寸, nên bảng chỉ luôn ra chỗ đó.
+
+### Hai phần luyện tập — đều chỉ gõ đáp án
+
+| Ở đâu | Chiều hỏi | Ví dụ |
+| --- | --- | --- |
+| `/radical` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` |
+| `/radical/:id` (một bộ) | Chữ ghép → âm Hán Việt | `休` → `HƯU` |
+| `/radical/:id` | Chữ ghép → các bộ tạo thành | `休` → `NHÂN MỘC` |
+| `/radical/:id` | Hỏi cả hai (mỗi chữ 2 câu) | `休` → `HƯU` / `NHÂN MỘC` |
+
+Chiều **chiết tự** là phần riêng của khu này: gõ âm Hán Việt của từng bộ theo đúng thứ tự viết.
+Gõ `NHÂN MỘC`, `NHÂN + MỘC` hay `NHÂN, MỘC` đều được tính đúng — dấu câu và khoảng trắng không
+tính khi chấm. Đáp án là chữ Latin nên không cần bộ gõ tiếng Nhật.
+
+Cũng như khu Kanji, phần luyện âm Hán Việt của **bộ** nằm ở màn hình danh sách (nó hỏi trên cả
+nhóm nét đang xem), còn hai chiều hỏi trên **chữ ghép** nằm ở màn hình một bộ.
+
+### Ba file dữ liệu
+
+```
+src/app/core/radical/
+  radical-list.ts       ← 214 BỘ THỦ: chữ, biến thể, âm Hán Việt, nghĩa, tên tiếng Nhật
+  radical-parts.ts      ← CHIẾT TỰ: mỗi chữ Hán gồm những bộ nào (642 dòng)
+  radical-kanji.ts      ← DO MÁY SINH: 214 bộ + 1369 lượt chữ ghép
+```
+
+Khu này **không chép tay lại bất cứ âm Hán Việt hay nghĩa nào của CHỮ**: âm Hán Việt, cấp độ và
+từ ví dụ của từng chữ ghép đều lấy thẳng từ `kanji-words.ts` của khu Kanji, nên hai khu không
+bao giờ nói khác nhau về cùng một chữ. Chạy `npm run generate:kanji` xong thì chạy tiếp
+`npm run generate:radicals`.
+
+```bash
+npm run generate:radicals   # sinh lại radical-kanji.ts
+npm run verify:radicals     # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
+```
+
+### Quy ước chiết tự
+
+- Tách theo **hình chữ nhìn thấy trên mặt giấy**, không theo từ nguyên: 服, 育, 勝 ghi là 月 (dù
+  gốc là 肉月 ⺼), vì đó là thứ người học nhìn và gõ.
+- Tách theo **biến thể đang thực sự viết** (亻 chứ không phải 人); bảng bộ thủ đã khai biến thể
+  nên gom vẫn về đúng bộ gốc.
+- Thành phần nào lại tách được nữa thì script **tự khai triển tiếp** (`時:日+寺` + `寺:土+寸` cho
+  ra 時 gom được về cả bộ 寸), nhưng vẫn **giữ thành phần ở giữa**: 岩 = 山 + 石 mà khai triển hết
+  thì bộ 石 mất sạch chữ của nó.
+- 阝 là một hình nhưng **hai bộ**: đứng trước là 阜 (こざとへん — 降, 陽, 階), đứng sau là 邑
+  (おおざと — 部). Script xét vị trí trong dòng chiết tự để chia đúng bộ.
+- Chữ **độc thể** (bản thân nó là bộ thủ) ghi thành phần là chính nó (`日:日`) và không vào bảng
+  của bộ nào cả.
+
+### Script tự soát những gì
+
+- Chữ trong danh sách JLPT mà **chưa có dòng chiết tự** → báo lỗi, phải thêm vào `radical-parts.ts`.
+- Thành phần **chưa tra được âm Hán Việt** → cảnh báo; chữ đó vẫn hiện ở bảng nhưng bị loại khỏi
+  chiều hỏi chiết tự (màn thiết lập nói rõ có bao nhiêu chữ bị loại).
+- Dòng âm bù trong `PART_HAN_VIET` đã **thừa** (không ai dùng, hoặc tra được ở chỗ khác).
+- Một hình được **hai bộ cùng nhận** — dấu hiệu bảng bộ thủ khai trùng biến thể.
+
+Hiện có **150 / 214 bộ** có chữ ghép trong kho N5→N3; 64 bộ còn lại (龠, 鬯, 黹, 鼎…) vẫn hiện ở
+lưới và vẫn luyện âm Hán Việt được, chỉ chưa luyện chữ được — kho chữ của ứng dụng dừng ở N3.
 
 
 ## Bài tập bổ trợ
@@ -579,6 +659,7 @@ scripts/
   verify-answer-check.mjs        Kiểm tra bộ chấm câu dài bỏ qua dấu câu / khoảng trắng
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
   generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
+  generate-radicals.mjs          Sinh core/radical/radical-kanji.ts từ bảng bộ thủ + chiết tự
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
@@ -603,6 +684,12 @@ src/app/
       kanji-supplement.ts        Âm Hán Việt viết tay cho chữ kho từ không suy được
       kanji-words.ts             642 chữ + 1731 lượt từ — DO MÁY SINH
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
+    radical/
+      radical.model.ts           Kiểu dữ liệu + chiều hỏi của khu Bộ thủ
+      radical-list.ts            214 bộ thủ Khang Hy — chữ, biến thể, âm, nghĩa, tên Nhật
+      radical-parts.ts           Chiết tự 642 chữ Hán thành các bộ
+      radical-kanji.ts           214 bộ + 1369 lượt chữ ghép — DO MÁY SINH
+      radical-entries.ts         Dựng danh sách bộ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
@@ -612,6 +699,7 @@ src/app/
       grammar-questions.ts       Câu hỏi cho bài ngữ pháp
       exercise-questions.ts      Câu hỏi cho hai bài tập
       kanji-questions.ts         Câu hỏi cho khu Kanji
+      radical-questions.ts       Câu hỏi cho khu Bộ thủ
     services/
       lesson-store.ts            Nạp bài học từ JSON + localStorage
       favorite-store.ts          Danh sách mục chưa nhớ
@@ -631,6 +719,8 @@ src/app/
     exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ
+    radical-list/                Tab Bộ thủ — lưới 214 bộ + luyện âm Hán Việt
+    radical-detail/              Một bộ: các chữ ghép từ bộ đó + luyện chữ
     practice/                    Màn hình làm bài
     result/                      Màn hình kết quả
     import-lesson/               Nạp bài mới (đang tắt, xem core/feature-flags.ts)

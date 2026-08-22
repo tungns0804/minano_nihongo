@@ -402,6 +402,7 @@ export class ExerciseDetail {
       exercise: info.id,
       exerciseMode: this.mode(),
       kanjiMode: 'word-meaning',
+      radicalMode: 'radical-hanviet',
     };
 
     const questions = orderQuestions(

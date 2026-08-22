@@ -304,13 +304,16 @@ main:focus-visible {
     flex: 1 0 100%;
     gap: 2px;
     margin-left: 0;
+    /* Menu đã có 5 mục: nhồi hết vào một hàng thì "Ngữ pháp minano" xuống ba dòng
+       và hàng menu cao gấp ba. Cho xuống hàng thì mỗi mục vẫn đọc được. */
+    flex-wrap: wrap;
   }
 
-  /* Ba mục chia đều hàng dưới. Chữ nhỏ lại một bậc vì tên tab là cụm hai từ
-     ("Ngữ pháp minano"): để nguyên cỡ chữ thì mỗi mục xuống hai dòng, hàng menu
-     cao gấp đôi mà chẳng thêm thông tin gì. */
+  /* Mỗi hàng ba mục (30% + gap), mục thừa tự dãn ra chiếm nốt hàng dưới. Chữ nhỏ
+     lại một bậc vì tên tab là cụm hai từ ("Ngữ pháp minano"): để nguyên cỡ chữ thì
+     mỗi mục xuống hai dòng. */
   .app-nav a {
-    flex: 1;
+    flex: 1 1 30%;
     padding: 8px 4px;
     text-align: center;
     font-size: 0.82rem;

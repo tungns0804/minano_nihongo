@@ -74,6 +74,19 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/kanji-detail/kanji-detail').then((m) => m.KanjiDetail),
   },
+  // Khu "Bộ thủ" đi cùng lối với khu Kanji, chỉ ngược chiều học: từ bộ thủ ra chữ
+  // thay vì từ chữ ra từ. Cũng không xếp vào lưới bài học ngoài trang chủ được.
+  {
+    path: 'radical',
+    title: 'route.radical',
+    loadComponent: () => import('./features/radical-list/radical-list').then((m) => m.RadicalList),
+  },
+  {
+    path: 'radical/:id',
+    title: 'route.radicalDetail',
+    loadComponent: () =>
+      import('./features/radical-detail/radical-detail').then((m) => m.RadicalDetail),
+  },
   {
     path: 'practice',
     title: 'route.practice',

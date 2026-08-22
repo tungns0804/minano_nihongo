@@ -1,0 +1,306 @@
+/* Màn hình danh sách bộ thủ: chọn cấp → lưới chữ, rồi tới khối thiết lập luyện
+   tập. Style của component là phạm vi riêng nên phần dùng chung phải khai lại. */
+
+/* --- Chọn cấp --- */
+
+.level-tabs {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.level-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.level-tab:hover:not(.is-active) {
+  border-color: var(--border-strong);
+  background: var(--bg-inset);
+}
+
+.level-tab strong {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.level-tab-count {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+}
+
+.level-tab.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.level-tab.is-active .level-tab-count {
+  color: var(--accent);
+}
+
+/* --- Lưới chữ --- */
+
+/* Ô vuông nhỏ và dày đặc, giống một bảng tra chữ: mục đích của lưới này là lướt
+   mắt qua vài trăm chữ, không phải đọc từng thẻ. */
+.radical-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+}
+
+.radical-cell {
+  position: relative;
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+/* Link chiếm trọn ô để bấm chỗ nào cũng mở được chữ — trừ đúng ngôi sao, vì nó
+   nằm đè lên trên. */
+.radical-link {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 12px 6px 8px;
+  color: var(--text);
+  text-align: center;
+  min-width: 0;
+}
+
+.radical-link:hover {
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .radical-cell:hover {
+    border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+    background: var(--bg-elevated);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* Vòng focus vẽ trên Ô chứ không trên link: link phủ kín ô nên hai đường viền sẽ
+   chồng khít lên nhau, còn ô thì có sẵn bo góc. */
+.radical-cell:has(.radical-link:focus-visible) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.radical-link:focus-visible {
+  outline: none;
+}
+
+.radical-cell.is-favorite {
+  border-color: var(--warning-border);
+  background: color-mix(in srgb, var(--warning-soft) 45%, var(--bg-subtle));
+}
+
+/* Chữ Hán to hết cỡ ô cho phép — đây là thứ duy nhất cần nhìn kỹ. */
+.radical-char {
+  font-size: 2.5rem;
+  line-height: 1.08;
+  font-weight: 500;
+}
+
+.radical-han {
+  font-size: var(--fs-2xs);
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  /* Âm dài (NGHIÊN CỨU) không được phá bề rộng ô của cả lưới. */
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Ngôi sao đè lên góc ô: nội dung ô căn giữa, chèn sao vào trong dòng sẽ đẩy chữ
+   lệch tâm. */
+.radical-star {
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  right: 2px;
+  border: none;
+  background: none;
+  padding: 2px 3px;
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color 0.15s, transform 0.1s;
+}
+
+@media (hover: hover) {
+  /* Sao chỉ hiện khi trỏ vào hoặc khi đã bật — 500 ngôi sao rỗng cùng lúc làm
+     lưới rối mắt và át mất chính bộ thủ. */
+  .radical-star:not(.is-on) {
+    opacity: 0;
+  }
+
+  .radical-cell:hover .radical-star,
+  .radical-star:focus-visible {
+    opacity: 1;
+  }
+
+  .radical-star:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+@media (hover: none) {
+  .radical-star {
+    padding: 5px 7px;
+    font-size: 1rem;
+  }
+}
+
+.radical-star.is-on {
+  color: var(--star);
+}
+
+/* --- Bộ lọc --- */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Khối thiết lập --- */
+
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+/* Màn hình này chỉ có ĐÚNG một chiều hỏi nên không bày nút chọn: một nhóm nút mà
+   chỉ có một nút, lúc nào cũng sáng, chỉ làm người dùng đi tìm nút thứ hai. */
+.mode-still {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.mode-still strong {
+  font-weight: 620;
+}
+
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (max-width: 640px) {
+  .filter-row {
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    flex: 1 1 100%;
+  }
+
+  .start-bar .btn {
+    width: 100%;
+  }
+
+  .radical-grid {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  }
+
+  .radical-char {
+    font-size: 2.1rem;
+  }
+}
+
+/* --- Riêng lưới bộ thủ --- */
+
+/* Nhỏ hơn lưới Kanji một chút: ô này còn phải chứa thêm dòng biến thể. */
+.radical-char {
+  font-size: 2.2rem;
+}
+
+/* Biến thể (亻 của 人) là thứ thật sự gặp trong chữ, nên phải thấy được ngay ở
+   lưới; vẽ nhạt và nhỏ để không tranh chỗ với dạng gốc. */
+.radical-variants {
+  font-size: 1rem;
+  line-height: 1.1;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 640px) {
+  .radical-char {
+    font-size: 1.9rem;
+  }
+
+  .radical-variants {
+    font-size: 0.9rem;
+  }
+}

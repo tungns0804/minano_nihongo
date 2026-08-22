@@ -2,6 +2,8 @@ import type { ExerciseId, ExerciseMode } from '../exercises/exercise.model';
 import { exerciseModeInfo, modeNeedsForms } from '../exercises/exercise.model';
 import type { KanjiMode } from '../kanji/kanji.model';
 import { kanjiModeInfo } from '../kanji/kanji.model';
+import type { RadicalMode } from '../radical/radical.model';
+import { radicalModeInfo } from '../radical/radical.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import { LessonKind, WordField } from './vocabulary.model';
@@ -211,6 +213,13 @@ export interface PracticeConfig {
    * sách), ba chiều còn lại hỏi trên TỪ (mở từ màn hình một chữ).
    */
   kanjiMode: KanjiMode;
+
+  // --- Riêng khu Bộ thủ (/radical) ---
+  /**
+   * Chiều hỏi của khu Bộ thủ. `radical-hanviet` hỏi trên BỘ (mở từ màn hình danh
+   * sách), ba chiều còn lại hỏi trên CHỮ ghép (mở từ màn hình một bộ).
+   */
+  radicalMode: RadicalMode;
 }
 
 /** Một dòng thông tin hiện lại ở phần phản hồi sau khi chấm xong. */
@@ -319,6 +328,7 @@ export interface SessionSummary {
 
 /** Khoá nhãn ngắn của kiểu luyện tập, hiện trên thanh tiến độ khi đang làm bài. */
 export function sessionShortKey(config: PracticeConfig): MessageKey {
+  if (config.lessonKind === 'radical') return radicalModeInfo(config.radicalMode).shortKey;
   if (config.lessonKind === 'kanji') return kanjiModeInfo(config.kanjiMode).shortKey;
   if (config.lessonKind === 'exercise') return exerciseModeInfo(config.exerciseMode).shortKey;
   return config.lessonKind === 'verb'
@@ -333,7 +343,9 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     SCOPE_LABEL_KEY[config.scope],
   ];
 
-  if (config.lessonKind === 'kanji') {
+  if (config.lessonKind === 'radical') {
+    keys.push(radicalModeInfo(config.radicalMode).shortKey);
+  } else if (config.lessonKind === 'kanji') {
     keys.push(kanjiModeInfo(config.kanjiMode).shortKey);
   } else if (config.lessonKind === 'exercise') {
     keys.push(exerciseModeInfo(config.exerciseMode).shortKey);
