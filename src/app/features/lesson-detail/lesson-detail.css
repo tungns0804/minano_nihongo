@@ -89,20 +89,20 @@
 @media (min-width: 641px) {
   /* Bảng từ vựng: 4 cột, +1 khi bài có cách đọc, +1 nữa khi có câu ví dụ */
   .word-table:not(.verb-table) {
-    min-width: 640px;
+    min-width: 676px;
   }
 
   /* Có cột ví dụ thì nới bảng ra và cho cuộn ngang, vì câu ví dụ khá dài. */
   .word-table.has-example {
-    min-width: 940px;
+    min-width: 976px;
   }
 
   .word-table.has-reading {
-    min-width: 820px;
+    min-width: 856px;
   }
 
   .word-table.has-reading.has-example {
-    min-width: 1120px;
+    min-width: 1156px;
   }
 
   /* Bảng chia động từ: 9 cột, rộng nên cho cuộn ngang khi màn hình hẹp */
@@ -113,10 +113,10 @@
 
 .word-table:not(.verb-table) th:nth-child(1) { width: 44px; }
 .word-table:not(.verb-table) th:nth-child(2) { width: 190px; }
-.word-table:not(.verb-table) th:nth-child(3) { width: 210px; }
+.word-table:not(.verb-table) th:nth-child(3) { width: 246px; }
 
 .word-table.has-example th:nth-child(2) { width: 170px; }
-.word-table.has-example th:nth-child(3) { width: 180px; }
+.word-table.has-example th:nth-child(3) { width: 216px; }
 .word-table.has-example th:nth-child(4) { width: 210px; }
 
 /* Có thêm cột ví dụ thì cột Hán Việt hẹp lại, phải cho xuống dòng — bảng dùng
@@ -131,7 +131,7 @@
 .word-table.has-reading th:nth-child(4) { width: 170px; }
 
 .word-table.has-reading.has-example th:nth-child(2) { width: 150px; }
-.word-table.has-reading.has-example th:nth-child(3) { width: 165px; }
+.word-table.has-reading.has-example th:nth-child(3) { width: 201px; }
 .word-table.has-reading.has-example th:nth-child(4) { width: 165px; }
 .word-table.has-reading.has-example th:nth-child(5) { width: 200px; }
 
@@ -422,6 +422,57 @@
   color: var(--star);
 }
 
+/* --- Nút phát âm --- */
+
+/* Từ và nút loa nằm chung một ô. inline-flex để nút bám sát từ dù từ dài ngắn khác
+   nhau, và để chiều cao ô không nhảy khi có/không có nút. */
+.jp-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.speak-btn {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  color: var(--text-faint);
+  transition: color 0.15s, background 0.15s;
+}
+
+.speak-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+@media (hover: hover) {
+  .speak-btn:hover {
+    color: var(--accent);
+    background: var(--bg-subtle);
+  }
+}
+
+/* Đang đọc thì nút sáng lên — bảng dài, không có dấu này thì bấm xong không biết
+   tiếng vừa nghe là của dòng nào. */
+.speak-btn.is-playing {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* File chưa sinh hoặc tải hỏng: vẫn thấy nút (để biết chỗ này lẽ ra có tiếng) nhưng
+   bấm không được, kèm title giải thích. */
+.speak-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
 /* ============================================================================
    ĐIỆN THOẠI: bảng đổi thành thẻ xếp dọc
 
@@ -518,6 +569,17 @@
     font-size: 1.3rem;
     line-height: 1.4;
     white-space: normal;
+  }
+
+  /* Cùng lý do với ngôi sao: ngón tay cần vùng bấm rộng hơn con trỏ chuột. */
+  .speak-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .speak-btn svg {
+    width: 20px;
+    height: 20px;
   }
 
   .word-table .col-reading {

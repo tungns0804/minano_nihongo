@@ -523,7 +523,37 @@
                           </button>
                         </td>
                         <td class="col-han">{{ word.hanViet }}</td>
-                        <td class="col-jp jp">{{ word.japanese }}</td>
+                        <td class="col-jp jp">
+                          <span class="jp-cell">
+                            <span>{{ word.japanese }}</span>
+                            <!-- Nút loa nằm TRONG ô tiếng Nhật chứ không thành một cột
+                                 riêng: thêm cột thì mọi quy tắc nth-child chỉnh bề rộng
+                                 bảng ở lesson-detail.css đều lệch đi một nấc, và ở khổ
+                                 điện thoại (bảng đổi thành thẻ xếp dọc) sẽ mọc thêm một
+                                 dòng trống. Ở đây nó luôn đứng ngay cạnh từ mà nó đọc. -->
+                            @if (audio.canPlay(word)) {
+                              <button
+                                type="button"
+                                class="speak-btn"
+                                [class.is-playing]="audio.isPlaying(word)"
+                                [disabled]="audio.isBroken(word)"
+                                (click)="speak(word)"
+                                [title]="
+                                  audio.isBroken(word)
+                                    ? t('lesson.speak.missing')
+                                    : t('lesson.speak', { name: word.japanese })
+                                "
+                                [attr.aria-label]="t('lesson.speak', { name: word.japanese })"
+                              >
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                                  <path d="M4 8h2.4L9.8 4.6v10.8L6.4 12H4z" stroke-linejoin="round" />
+                                  <path d="M12.8 7.6a3.4 3.4 0 0 1 0 4.8" stroke-linecap="round" />
+                                  <path d="M15 5.4a6.5 6.5 0 0 1 0 9.2" stroke-linecap="round" />
+                                </svg>
+                              </button>
+                            }
+                          </span>
+                        </td>
                         @if (hasReadings()) {
                           <td class="col-reading jp">{{ word.reading }}</td>
                         }

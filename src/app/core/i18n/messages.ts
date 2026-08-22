@@ -297,6 +297,12 @@ export const MESSAGES = {
   'lesson.col.group': { vi: 'Nhóm', ja: 'グループ' },
   'lesson.col.example': { vi: 'Ví dụ', ja: '例文' },
 
+  'lesson.speak': { vi: 'Nghe phát âm {name}', ja: '{name} の発音を聞く' },
+  'lesson.speak.missing': {
+    vi: 'Chưa có file phát âm cho từ này',
+    ja: 'この単語の音声ファイルがありません',
+  },
+
   'lesson.badge.special': { vi: 'đặc biệt', ja: '特殊' },
   'lesson.badge.specialTitle': {
     vi: 'Nhóm 1 nhưng hình dạng dễ nhầm sang nhóm 2',

@@ -41,6 +41,7 @@ import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { VocabAudioPlayer } from '../../core/services/vocab-audio-player';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Các mốc số câu cho phép chọn nhanh. */
@@ -68,6 +69,8 @@ export class LessonDetail {
   private readonly favoriteStore = inject(FavoriteStore);
   private readonly session = inject(PracticeSessionStore);
   private readonly lang = inject(LanguageStore);
+  /** Public: template gọi thẳng để biết nút loa của từng từ đang ở trạng thái nào. */
+  readonly audio = inject(VocabAudioPlayer);
 
   readonly t = this.lang.t.bind(this.lang);
   readonly directions = DIRECTIONS;
@@ -459,6 +462,18 @@ export class LessonDetail {
 
   toggleOnlyFavorites(event: Event): void {
     this.onlyFavorites.set((event.target as HTMLInputElement).checked);
+  }
+
+  // --- Phát âm ---
+
+  /**
+   * Đọc to một từ. Bấm lại đúng từ đang đọc thì dừng.
+   *
+   * Không đụng gì tới Favorite hay bộ lọc: đây chỉ là nghe thử một từ trong lúc dò
+   * bảng, không phải một thao tác học.
+   */
+  speak(word: VocabularyWord): void {
+    this.audio.play(word);
   }
 
   // --- Favorite ---

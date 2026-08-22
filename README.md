@@ -377,6 +377,28 @@ phải chia được, không có id nào trùng.
 - Giới hạn số câu (10 / 20 / 30 / 50 / tất cả).
 - Bỏ qua dấu tiếng Việt khi chấm (chỉ áp dụng cho chế độ gõ).
 
+**Phát âm chuẩn (bài từ vựng)**
+
+Mỗi từ trong bảng từ vựng có một nút loa 🔊 ngay cạnh từ. Bấm là nghe đọc, bấm lại là dừng; bấm
+sang từ khác thì từ đang đọc dừng ngay, không bao giờ có hai tiếng chồng lên nhau.
+
+Tiếng là **file mp3 thu sẵn** (1282 file, ~14 MB, giọng `ja-JP-NanamiNeural` của edge-tts), không
+phải `speechSynthesis` của trình duyệt. Lý do: giọng tiếng Nhật của Web Speech API phụ thuộc hoàn
+toàn vào máy người học — Windows không cài gói tiếng Nhật thì im lặng, Android mỗi hãng một kiểu,
+và cùng một từ nghe mỗi máy một khác. Từ vựng là thứ học thuộc bằng tai nên âm phải giống hệt nhau
+ở mọi máy.
+
+Sinh lại khi thêm/sửa từ vựng (cần `pip install edge-tts`):
+
+```bash
+npm run generate:audio             # chỉ sinh những file còn thiếu
+npm run generate:audio -- --clean  # sinh file thiếu, xoá file không từ nào dùng tới
+npm run verify:audio               # kiểm tra đủ file chưa, không ghi gì
+```
+
+Bản offline một file (`npm run build:offline`) **không có** phần này — mở bằng `file://` thì không
+tải được tài nguyên ngoài, nên nút loa tự ẩn đi thay vì bày ra rồi bấm không kêu.
+
 **Favorite — luyện từ chưa nhớ**
 
 Bấm ngôi sao ở bảng từ vựng, trong lúc luyện, hoặc ở màn hình kết quả để đánh dấu từ hay quên.
@@ -557,11 +579,18 @@ scripts/
   verify-answer-check.mjs        Kiểm tra bộ chấm câu dài bỏ qua dấu câu / khoảng trắng
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
   generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
+  generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
+  edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
   index.json
   minano-nihongo-33.json
+public/audio/vocab/              File phát âm do script sinh ra (không sửa tay)
+  index.json                     Bảng tra tên file <-> chuỗi đem đọc
+  <băm>.mp3
 src/app/
   core/
+    audio/
+      vocab-audio.ts             Quy tắc đặt tên file phát âm — DÙNG CHUNG với script
     japanese/
       conjugation.ts             Luật chia động từ — bản cài đặt DUY NHẤT
     exercises/
@@ -588,6 +617,7 @@ src/app/
       favorite-store.ts          Danh sách mục chưa nhớ
       practice-session-store.ts  Chạy phiên và chấm điểm
       theme-store.ts             Lựa chọn giao diện sáng/tối
+      vocab-audio-player.ts      Phát file mp3 phát âm, mỗi lúc chỉ một từ
     utils/
       vocabulary-parser.ts       Bản TypeScript của vocab-core.mjs
       answer-check.ts            So khớp đáp án gõ tay
@@ -619,6 +649,7 @@ npm run verify           # chạy tất cả các lệnh kiểm tra bên dưới
 npm run verify:parser    # hai bản parser cho kết quả giống nhau
 npm run verify:answer    # dấu câu / khoảng trắng không làm sai kết quả chấm
 npm run verify:conjugation  # engine chia động từ + dữ liệu động từ thật
+npm run verify:audio     # mọi từ vựng đều có file phát âm
 ```
 
 `verify:parser` so sánh kết quả của hai bản trên cùng bộ dữ liệu mẫu và đối chiếu id trong file
@@ -635,6 +666,22 @@ giữ chiều ngược lại: dịch thiếu nửa câu hay sai dấu thanh vẫ
 là có hiệu lực ngay, không phải sinh lại dữ liệu. `npm run verify:conjugation` nạp thẳng file
 `.ts` đó để chạy 35 ca kiểm thử (đủ 9 âm cuối của nhóm 1, các trường hợp bất quy tắc, và các ca
 PHẢI bị từ chối), rồi quét toàn bộ động từ trong `public/lessons` xem có từ nào khai báo sai nhóm.
+
+**Tên file phát âm băm từ CHUỖI ĐEM ĐỌC, không phải từ id của từ.**
+[`src/app/core/audio/vocab-audio.ts`](src/app/core/audio/vocab-audio.ts) là nơi duy nhất quyết định
+từ nào ứng với file nào; `scripts/generate-audio.mjs` nạp thẳng chính file `.ts` đó (qua
+`--experimental-strip-types`) chứ không chép lại, nên script ghi file ở đâu là app đi tìm đúng ở đó.
+
+Vì sao không lấy id của từ làm tên file: id băm từ `japanese|hanViet`, **không gồm cách đọc**. Sửa
+lại một cách đọc ghi sai thì id giữ nguyên — app sẽ vui vẻ phát lại đúng file đọc sai cũ. Băm từ
+chuỗi đem đọc thì sửa cách đọc = đổi tên file = buộc phải sinh lại, còn file cũ thành mồ côi và bị
+`--clean` dọn đi. Hai từ trùng cách đọc (きます của 来ます và 着ます) dùng chung một file, đúng như
+mong đợi.
+
+Băm dùng FNV-1a **64-bit** chứ không dùng lại `hashId` 32-bit của parser: với ~1300 chuỗi, xác suất
+đụng độ ở 32-bit là cỡ 1/5000 — nhỏ, nhưng hậu quả đúng bằng điều phải tránh nhất ở đây (một từ phát
+ra âm của từ khác). `generate-audio.mjs` vẫn kiểm tra đụng độ một lần nữa và **dừng hẳn** nếu gặp,
+thay vì ghi đè.
 
 **Id ổn định.** Vì id băm từ nội dung chứ không phải từ vị trí dòng, chạy lại `npm run generate`
 sau khi thêm/bớt/sắp xếp lại từ vựng sẽ không làm mất Favorite của các từ cũ. Chỉ khi sửa nội
