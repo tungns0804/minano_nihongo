@@ -1,19 +1,28 @@
 /**
- * DANH SÁCH CHỮ HÁN THEO CẤP JLPT — N5, N4, N3.
+ * DANH SÁCH CHỮ HÁN THEO CẤP JLPT — N5 → N1, tổng 2123 chữ.
  *
- * Chép nguyên từ ảnh người dùng cung cấp, GIỮ ĐÚNG THỨ TỰ trong ảnh (thứ tự dạy
- * theo lối chiết tự, không phải thứ tự bảng chữ hay tần suất). Mỗi hằng số dưới
- * đây chia thành từng dòng đúng như lưới 12 ô một hàng của ảnh, để soát lại bằng
- * mắt là đối chiếu được từng hàng.
+ * Ba danh sách N5, N4, N3 chép nguyên từ ảnh người dùng cung cấp, GIỮ ĐÚNG THỨ TỰ
+ * trong ảnh (thứ tự dạy theo lối chiết tự, không phải thứ tự bảng chữ hay tần
+ * suất). Mỗi hằng số chia thành từng dòng đúng như lưới 12 ô một hàng của ảnh, để
+ * soát lại bằng mắt là đối chiếu được từng hàng.
+ *
+ * Hai cấp N2 và N1 thêm sau, khai theo lối khác hẳn — xem ghi chú ngay trên
+ * `KANJI_N2_ROWS`.
  *
  * ĐÂY LÀ NGUỒN DUY NHẤT quyết định chữ nào thuộc cấp nào và chữ nào có mặt trong
- * khu Kanji. Kho từ của ứng dụng (`data-source/`, `core/exercises/`) chỉ còn lo
- * hai việc: suy âm Hán Việt của từng chữ, và cung cấp các từ dùng chữ đó.
+ * khu Kanji lẫn khu Bộ thủ. Kho từ của ứng dụng (`data-source/`,
+ * `core/exercises/`) chỉ còn lo hai việc: suy âm Hán Việt của từng chữ, và cung
+ * cấp các từ dùng chữ đó.
  *
- * Chữ có trong kho từ nhưng KHÔNG có trong ba danh sách này thì không hiện ở khu
- * Kanji — nó nằm ngoài phạm vi N5→N3. `npm run generate:kanji` in ra số lượng.
+ * Chữ có trong kho từ nhưng KHÔNG có trong năm danh sách này thì không hiện ở đâu
+ * cả. `npm run generate:kanji` in ra số lượng, `-- --list-outside` in ra đủ danh
+ * sách để chép vào đây.
  *
- * Sửa danh sách thì sửa ở đây rồi chạy `npm run generate:kanji`.
+ * Còn thiếu so với bảng jōyō (2136 chữ) đúng mấy chữ 国字 không có âm Hán Việt
+ * (匂 峠 枠 匁) và vài chữ hiếm — thêm thì thêm vào `KANJI_N1_ROWS`.
+ *
+ * Sửa danh sách thì sửa ở đây rồi chạy `npm run generate:radicals` (lệnh đó tự
+ * chạy `npm run generate:kanji` trước).
  */
 
 /** Gộp các hàng thành một chuỗi, bỏ mọi khoảng trắng và xuống dòng. */
@@ -525,6 +534,56 @@ export const KANJI_N1_ROWS: readonly string[] = [
   '骸|HÀI|骨+亥', '鶴|HẠC|冖+隹+鳥', '麓|LỘC|林+鹿', '鹿|LỘC|鹿',
   '巳|TỴ|巳',
   '麺|MIẾN|麦+面', '嵐|LAM|山+風',
+
+  // ── Bổ sung nốt bảng jōyō ──
+  '倫|LUÂN|亻+人+一+冊', '債|TRÁI|亻+責', '刷|LOÁT|尸+巾+刂', '塚|TRỦNG|土+冖+豕',
+  '墾|KHẨN|豸+艮+土', '填|ĐIỀN|土+真', '慎|THẬN|忄+真', '披|PHI|扌+皮',
+  '拷|KHẢO|扌+耂+丂', '据|CỨ|扌+尸+古', '斬|TRẢM|車+斤', '炭|THAN|山+厂+火',
+  '状|TRẠNG|爿+犬', '痘|ĐẬU|疒+豆', '癒|DŨ|疒+兪+心', '託|THÁC|言+七',
+  '詰|CẬT|言+吉', '覇|BÁ|西+革+月', '虜|LỖ|虍+田+力', '遷|THIÊN|辶+西+大+己',
+  '鉢|BÁT|金+本', '隻|CHÍCH|隹+又', '項|HẠNG|工+頁', '頒|BAN|分+頁',
+  '弄|LỘNG|王+廾', '拉|LẠP|扌+立', '阪|PHẢN|阝+反', '熊|HÙNG|厶+月+匕+灬',
+  '梨|LÊ|利+木', '埼|KỲ|土+大+可', '茨|TỪ|艹+次', '阜|PHỤ|阜',
+  '媛|VIÊN|女+爫+又', '鎌|LIÊM|金+兼', '釜|PHỦ|八+父+金', '惧|CỤ|忄+目+八',
+  '憧|SUNG|忄+童', '憬|CẢNH|忄+景', '貌|MẠO|豸+白+儿', '餌|NHĨ|食+耳',
+  '瞭|LIÊU|目+大+日+小', '璃|LY|王+亠+凶', '弥|DI|弓+小+丿', '冶|DÃ|冫+台',
+  '喉|HẦU|口+侯', '頓|ĐỐN|屯+頁', '貪|THAM|今+貝', '俺|YỂM|亻+大+日+乚',
+  '崎|KỲ|山+大+可', '臼|CỮU|臼', '畝|MẪU|亠+田+久', '藻|TẢO|艹+氵+品+木',
+  '虞|NGU|虍+呉', '蚕|TÀM|天+虫', '蛮|MAN|亦+虫', '蜂|PHONG|虫+夂+丰',
+  '袖|TỤ|衤+由', '裾|CỨ|衤+尸+古', '襟|KHÂM|衤+禁', '詮|THUYÊN|言+全',
+  '謎|MÊ|言+迷', '賜|TỨ|貝+日+勿', '賄|HỐI|貝+有', '須|TU|彡+頁',
+  '顎|NGẠC|口+口+頁', '駒|CÂU|馬+句', '騰|ĐẰNG|月+馬', '侶|LỮ|亻+呂',
+  '傲|NGẠO|亻+土+方+攵', '勃|BỘT|十+子+力', '卿|KHANH|卩+艮+卩', '喩|DỤ|口+兪',
+  '堆|ĐÔI|土+隹', '塀|BÍNH|土+尸+廾', '壺|HỒ|士+冖+亜', '妖|YÊU|女+夭',
+  '嫉|TẬT|女+疒+矢', '彙|VỰNG|彐+冖+果', '怨|OÁN|夕+卩+心', '恣|TỨ|次+心',
+  '挫|TỌA|扌+座', '捉|TRÓC|扌+足', '捗|CHÍCH|扌+歩', '摯|CHÍ|扌+幸+手',
+  '斡|OÁT|日+十+斗', '朕|TRẪM|月+八+大', '枕|CHẨM|木+冖+儿', '柵|SÁCH|木+冊',
+  '栗|LẬT|西+木', '椅|Ỷ|木+奇', '氾|PHIẾM|氵+卩', '汎|PHIẾM|氵+凡',
+  '沃|ỐC|氵+夭', '渦|OA|氵+咼', '湧|DŨNG|氵+勇', '煎|TIÊN|前+灬',
+  '爽|SẢNG|大+爻', '狙|THƯ|犭+且', '猪|TRƯ|犭+耂+日', '玩|NGOẠN|王+元',
+  '瑠|LƯU|王+留', '璧|BÍCH|尸+口+辛+玉', '畏|ÚY|田+丿+人', '畿|KỲ|幺+幺+田+戈',
+  '痕|NGẤN|疒+艮', '瘍|DƯƠNG|疒+日+勿', '癌|NHAM|疒+品+山', '瞳|ĐỒNG|目+童',
+  '硝|TIÊU|石+小+月', '禍|HỌA|礻+咼', '禄|LỘC|礻+彐+水', '罷|BÃI|罒+能',
+  '羨|TIỆN|羊+次', '肘|TRỬU|月+寸', '脊|TÍCH|人+人+月', '腎|THẬN|臣+又+月',
+  '膨|BÀNH|月+士+豆+彡', '臆|ỨC|月+意', '芯|TÂM|艹+心', '薪|TÂN|艹+新',
+  '藩|PHIÊN|艹+氵+番', '虎|HỔ|虍+儿', '踪|TUNG|足+宗', '遥|DAO|辶+爫+缶',
+  '釘|ĐINH|金+丁', '鈴|LINH|金+令', '鋼|CƯƠNG|金+岡', '錦|CẨM|金+白+巾',
+  '鬱|UẤT|木+缶+木+冖', '麗|LỆ|冂+冂+鹿', '鼠|THỬ|鼠',
+  '凹|AO|凹', '凸|ĐỘT|凸', '刹|SÁT|乂+木+刂', '剥|BÁC|彐+水+刂',
+  '咽|YẾT|口+因', '拐|QUẢI|扌+口+力', '涯|NHAI|氵+厂+土+土', '痢|LỴ|疒+利',
+  '眉|MI|尸+目', '硫|LƯU|石+亠+厶+川', '碁|KỲ|其+石', '箸|TRỨ|竹+耂+日',
+  '粛|TÚC|聿+米', '絹|QUYÊN|糸+口+月', '翁|ÔNG|公+羽', '耗|HAO|耒+毛',
+  '脇|HIẾP|月+力+力+力', '腺|TUYẾN|月+泉', '膳|THIỆN|月+善', '蔑|MIỆT|艹+罒+戈',
+  '薫|HUÂN|艹+千+里+灬', '藤|ĐẰNG|艹+月+水', '裕|DỤ|衤+谷', '褐|CÁT|衤+日+勹',
+  '詔|CHIẾU|言+召', '謁|YẾT|言+日+勹', '謄|ĐẰNG|月+言', '賂|LỘ|貝+各',
+  '酪|LẠC|酉+各', '鉱|KHOÁNG|金+広', '銑|TIỄN|金+先', '駄|ĐÀ|馬+大',
+  '佳|GIAI|亻+土+土', '丼|ĐÔN|井+丶', '殿|ĐIỆN|尸+共+殳',
+  '舌|THIỆT|舌', '璽|TỶ|小+冂+玉', '繭|KIỂN|艹+糸+虫', '錘|TRUỲ|金+垂',
+  '陪|BỒI|阝+立+口', '恭|CUNG|共+小', '睦|MỤC|目+土+土+八', '尻|KHAO|尸+九',
+  '拭|THỨC|扌+式', '那|NA|刀+二+阝', '淫|DÂM|氵+爫+壬', '潰|HỘI|氵+貴',
+  '斑|BAN|王+文+王', '柿|THỊ|木+亠+巾', '椎|CHUY|木+隹', '汰|THÁI|氵+大+丶',
+  '闇|ÁM|門+音', '苛|HÀ|艹+可', '腫|THŨNG|月+重', '辣|LẠT|辛+木+丶',
+  '遡|TỐ|辶+屰+月',
 ];
 
 const charsOf = (rows: readonly string[]): readonly string[] =>

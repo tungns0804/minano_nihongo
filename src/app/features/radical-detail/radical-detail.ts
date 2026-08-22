@@ -27,7 +27,7 @@ import { PracticeSessionStore } from '../../core/services/practice-session-store
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Các mốc số câu cho phép chọn nhanh, giống mọi màn hình thiết lập khác. */
-const LIMIT_CHOICES = [10, 20, 30, 50] as const;
+const LIMIT_CHOICES = [10, 20, 30, 50, 100] as const;
 
 /**
  * Màn hình MỘT bộ thủ: bộ vẽ to, âm Hán Việt + nghĩa + tên tiếng Nhật, và bảng các

@@ -24,7 +24,7 @@ import { PracticeSessionStore } from '../../core/services/practice-session-store
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Các mốc số câu cho phép chọn nhanh, giống mọi màn hình thiết lập khác. */
-const LIMIT_CHOICES = [10, 20, 30, 50] as const;
+const LIMIT_CHOICES = [10, 20, 30, 50, 100] as const;
 
 /**
  * Tab "Bộ thủ" — lưới 214 bộ thủ theo số nét, kèm phần luyện "bộ thủ → âm Hán Việt".
