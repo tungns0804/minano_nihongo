@@ -1,0 +1,202 @@
+{
+  "id": "hoi-thoai-minano-33",
+  "lessonNumber": 33,
+  "name": "皆の日本語 — Bài 33 · Hội thoại",
+  "description": "Dịch câu mẫu, ví dụ và hội thoại bài 33 giữa Nhật và Việt",
+  "kind": "conversation",
+  "itemCount": 27,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "0vxrc4c",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "急げ。",
+      "vietnamese": "Nhanh lên!"
+    },
+    {
+      "id": "1ato8jm",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "触るな。",
+      "vietnamese": "Không được sờ vào."
+    },
+    {
+      "id": "0bcp7wv",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "立入禁止は 入るなと いう 意味です。",
+      "vietnamese": "\"Tachiiri-Kinshi\" nghĩa là cấm vào."
+    },
+    {
+      "id": "1nz9uup",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "ミラーさんは 来週 大阪へ 出張すると 言って いました。",
+      "vietnamese": "Anh Miller nói là tuần sau sẽ đi công tác ở Osaka."
+    },
+    {
+      "id": "1c7z02s",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "だめだ。もう 走れない。",
+      "vietnamese": "Không được nữa rồi. Tôi không thể chạy thêm nữa."
+    },
+    {
+      "id": "1jj4eeq",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "頑張れ。あと 500メートルだ。",
+      "vietnamese": "Cố lên. Còn 500m nữa."
+    },
+    {
+      "id": "12xpjhk",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "もう 時間が ない。",
+      "vietnamese": "Hết thời gian rồi."
+    },
+    {
+      "id": "0us15uv",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "まだ 1分 ある。あきらめるな。",
+      "vietnamese": "Còn 1 phút nữa. Không được đầu hàng. Cố lên!"
+    },
+    {
+      "id": "0rwltok",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "この 池で 遊んでは いけません。あそこに 「入るな」と 書いて ありますよ。",
+      "vietnamese": "Không được chơi ở chỗ ao này. Ở đằng kia có viết \"cấm vào\" đấy."
+    },
+    {
+      "id": "06v508u",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "あ、ほんとうだ。",
+      "vietnamese": "A, đúng rồi nhỉ."
+    },
+    {
+      "id": "1hpp101",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "あの 漢字は 何と 読むんですか。",
+      "vietnamese": "Chữ Hán kia đọc là gì?"
+    },
+    {
+      "id": "1i8ufpe",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "「きんえん」です。たばこを 吸っては いけないと いう 意味です。",
+      "vietnamese": "Đọc là \"Kin-en\". Nghĩa là không được hút thuốc."
+    },
+    {
+      "id": "0no0go0",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "この マークは どういう 意味ですか。",
+      "vietnamese": "Ký hiệu này nghĩa là gì?"
+    },
+    {
+      "id": "071vsur",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "洗濯機で 洗えると いう 意味です。",
+      "vietnamese": "Nghĩa là có thể giặt bằng máy giặt."
+    },
+    {
+      "id": "1i0v1mm",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "グプタさんは いますか。",
+      "vietnamese": "Ông Gupta có ở đây không?"
+    },
+    {
+      "id": "1x0ouvw",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "今 出かけて います。30分ぐらいで 戻ると 言って いました。",
+      "vietnamese": "Ông ấy đang đi vắng. Ông ấy nói là khoảng 30 phút nữa sẽ về."
+    },
+    {
+      "id": "0plje71",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "すみませんが、渡辺さんに あしたの パーティーは 6時からだと 伝えて いただけませんか。",
+      "vietnamese": "Xin lỗi, anh/chị làm ơn nhắn với chị Watanabe là bữa tiệc ngày mai bắt đầu từ 6 giờ, có được không?"
+    },
+    {
+      "id": "0rnq7ui",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "わかりました。6時からですね。",
+      "vietnamese": "Vâng, được rồi. Từ 6 giờ phải không ạ."
+    },
+    {
+      "id": "1v4ke97",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "ワット",
+      "japanese": "すみません。わたしの 車に こんな 紙が はって あったんですが、この 漢字は 何と 読むんですか。",
+      "vietnamese": "Xin lỗi, có tờ giấy như thế này dán ở xe ô-tô của tôi. Chữ Hán này đọc thế nào?"
+    },
+    {
+      "id": "15rmkww",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "大学職員",
+      "japanese": "「ちゅうしゃいはん」です。",
+      "vietnamese": "Đọc là \"Chusha ihan\"."
+    },
+    {
+      "id": "0l3k2v0",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "ワット",
+      "japanese": "ちゅうしゃいはん……、どういう 意味ですか。",
+      "vietnamese": "Chusha ihan..., có nghĩa là gì?"
+    },
+    {
+      "id": "0jalau2",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "大学職員",
+      "japanese": "止めては いけない 場所に 車を 止めたと いう 意味です。どこに 止めたんですか。",
+      "vietnamese": "Nghĩa là anh đã đỗ xe vào nơi không được đỗ. Anh đã đỗ xe ở đâu?"
+    },
+    {
+      "id": "1lzzgde",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "ワット",
+      "japanese": "駅の 前です。雑誌を 買いに 行って、10分だけ……。",
+      "vietnamese": "Ở trước ga. Tôi đỗ để đi mua tạp chí, chỉ có 10 phút thôi...."
+    },
+    {
+      "id": "1hwymeu",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "大学職員",
+      "japanese": "駅の 前だったら、10分でも だめですよ。",
+      "vietnamese": "Ở trước ga thì dù có 10 phút cũng không được đâu."
+    },
+    {
+      "id": "0jjseim",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "ワット",
+      "japanese": "そうですか。罰金を 払わなければ なりませんか。",
+      "vietnamese": "Thế à. Thế tôi phải nộp phạt à?"
+    },
+    {
+      "id": "03c8ojv",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "大学職員",
+      "japanese": "ええ、15,000円 払わないと いけません。",
+      "vietnamese": "Vâng, anh phải nộp 15.000 yên."
+    },
+    {
+      "id": "0ohy2dl",
+      "section": "Hội thoại — これは どういう 意味ですか",
+      "speaker": "ワット",
+      "japanese": "えっ。15,000円ですか。雑誌は 300円だったんですけど……。",
+      "vietnamese": "Sao? 15.000 yên ấy à? Quyển tạp chí chỉ có 300 yên thôi mà...."
+    }
+  ],
+  "grammarPoints": []
+}

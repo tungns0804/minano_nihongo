@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T10:13:37.346Z",
+  "generatedAt": "2026-08-22T04:25:26.664Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -405,6 +405,15 @@
       "itemCount": 12,
       "lessonNumber": 33,
       "file": "dong-tu-minano-33.json"
+    },
+    {
+      "id": "hoi-thoai-minano-33",
+      "name": "皆の日本語 — Bài 33 · Hội thoại",
+      "description": "Dịch câu mẫu, ví dụ và hội thoại bài 33 giữa Nhật và Việt",
+      "kind": "conversation",
+      "itemCount": 27,
+      "lessonNumber": 33,
+      "file": "hoi-thoai-minano-33.json"
     },
     {
       "id": "ngu-phap-minano-33",

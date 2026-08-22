@@ -1,0 +1,42 @@
+# Bài 33 — 文型 / 例文 / 会話
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT                     (câu không thuộc lời của ai)
+#   NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT           (lời thoại)
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+#
+# Dùng | chứ không dùng dấu phẩy vì cả câu tiếng Việt lẫn tiếng Nhật đều đầy
+# dấu phẩy (, và 、) — tách bằng dấu phẩy sẽ cắt vụn câu.
+
+## Mẫu câu
+急げ。|Nhanh lên!
+触るな。|Không được sờ vào.
+立入禁止は 入るなと いう 意味です。|"Tachiiri-Kinshi" nghĩa là cấm vào.
+ミラーさんは 来週 大阪へ 出張すると 言って いました。|Anh Miller nói là tuần sau sẽ đi công tác ở Osaka.
+
+## Ví dụ
+だめだ。もう 走れない。|Không được nữa rồi. Tôi không thể chạy thêm nữa.
+頑張れ。あと 500メートルだ。|Cố lên. Còn 500m nữa.
+もう 時間が ない。|Hết thời gian rồi.
+まだ 1分 ある。あきらめるな。|Còn 1 phút nữa. Không được đầu hàng. Cố lên!
+この 池で 遊んでは いけません。あそこに 「入るな」と 書いて ありますよ。|Không được chơi ở chỗ ao này. Ở đằng kia có viết "cấm vào" đấy.
+あ、ほんとうだ。|A, đúng rồi nhỉ.
+あの 漢字は 何と 読むんですか。|Chữ Hán kia đọc là gì?
+「きんえん」です。たばこを 吸っては いけないと いう 意味です。|Đọc là "Kin-en". Nghĩa là không được hút thuốc.
+この マークは どういう 意味ですか。|Ký hiệu này nghĩa là gì?
+洗濯機で 洗えると いう 意味です。|Nghĩa là có thể giặt bằng máy giặt.
+グプタさんは いますか。|Ông Gupta có ở đây không?
+今 出かけて います。30分ぐらいで 戻ると 言って いました。|Ông ấy đang đi vắng. Ông ấy nói là khoảng 30 phút nữa sẽ về.
+すみませんが、渡辺さんに あしたの パーティーは 6時からだと 伝えて いただけませんか。|Xin lỗi, anh/chị làm ơn nhắn với chị Watanabe là bữa tiệc ngày mai bắt đầu từ 6 giờ, có được không?
+わかりました。6時からですね。|Vâng, được rồi. Từ 6 giờ phải không ạ.
+
+## Hội thoại — これは どういう 意味ですか
+ワット|すみません。わたしの 車に こんな 紙が はって あったんですが、この 漢字は 何と 読むんですか。|Xin lỗi, có tờ giấy như thế này dán ở xe ô-tô của tôi. Chữ Hán này đọc thế nào?
+大学職員|「ちゅうしゃいはん」です。|Đọc là "Chusha ihan".
+ワット|ちゅうしゃいはん……、どういう 意味ですか。|Chusha ihan..., có nghĩa là gì?
+大学職員|止めては いけない 場所に 車を 止めたと いう 意味です。どこに 止めたんですか。|Nghĩa là anh đã đỗ xe vào nơi không được đỗ. Anh đã đỗ xe ở đâu?
+ワット|駅の 前です。雑誌を 買いに 行って、10分だけ……。|Ở trước ga. Tôi đỗ để đi mua tạp chí, chỉ có 10 phút thôi....
+大学職員|駅の 前だったら、10分でも だめですよ。|Ở trước ga thì dù có 10 phút cũng không được đâu.
+ワット|そうですか。罰金を 払わなければ なりませんか。|Thế à. Thế tôi phải nộp phạt à?
+大学職員|ええ、15,000円 払わないと いけません。|Vâng, anh phải nộp 15.000 yên.
+ワット|えっ。15,000円ですか。雑誌は 300円だったんですけど……。|Sao? 15.000 yên ấy à? Quyển tạp chí chỉ có 300 yên thôi mà....
