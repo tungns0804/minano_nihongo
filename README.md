@@ -125,10 +125,16 @@ lập: đứng cạnh một câu cụ thể thì thứ cần biết là sắp ph
 sẵn ngay trước mắt.
 
 - **Chỉ có gõ đáp án**, không có trắc nghiệm — cùng lý do với bài ngữ pháp.
-- Chấm điểm **bỏ qua dấu câu**: thiếu một dấu `、` hay `……` không phải là dịch sai.
+- Chấm điểm **bỏ qua dấu câu và khoảng trắng**: thiếu một dấu `、` hay `……` không phải là dịch
+  sai. Bỏ qua khoảng trắng là hệ quả bắt buộc, không phải tiện tay làm thêm — xoá dấu câu đi thì
+  chỗ nó đứng có thành ranh giới từ hay không là chuyện không đoán được. Sách in `Ừ...m` mà người
+  học gõ liền `Ừm`, in `15.000 yên` mà người học gõ `15000 yên`, in `Tachiiri-Kinshi` mà người học
+  gõ `Tachiiri Kinshi` — cả ba đều đúng. Nếu dấu câu chỉ đổi thành dấu cách thì mỗi trường hợp lại
+  bị chấm sai một kiểu. `npm run verify:answer` quét toàn bộ câu hội thoại và ví dụ ngữ pháp đã
+  sinh để giữ đúng điều này.
 - Phạm vi **★ Chưa nhớ**, giới hạn số câu, trộn thứ tự — giống các loại bài khác.
 
-**Hiện có: bài 26, 28, 29.**
+**Hiện có: bài 26, 28, 29, 33.**
 
 ## Ngữ pháp
 
@@ -548,6 +554,7 @@ scripts/
   generate-lessons.mjs           Sinh public/lessons/*.json + index.json
   build-offline.mjs              Gộp bản build thành dist/offline/index.html một file
   verify-parser-parity.mjs       Kiểm tra hai bản parser cho kết quả giống nhau
+  verify-answer-check.mjs        Kiểm tra bộ chấm câu dài bỏ qua dấu câu / khoảng trắng
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
   generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
@@ -608,13 +615,20 @@ bản lệch nhau thì cùng một bài học nạp bằng hai đường sẽ c�
 dụng. **Sửa một bên thì phải sửa bên kia**, rồi chạy:
 
 ```bash
-npm run verify           # chạy cả hai lệnh kiểm tra bên dưới
+npm run verify           # chạy tất cả các lệnh kiểm tra bên dưới
 npm run verify:parser    # hai bản parser cho kết quả giống nhau
+npm run verify:answer    # dấu câu / khoảng trắng không làm sai kết quả chấm
 npm run verify:conjugation  # engine chia động từ + dữ liệu động từ thật
 ```
 
 `verify:parser` so sánh kết quả của hai bản trên cùng bộ dữ liệu mẫu và đối chiếu id trong file
 JSON đã sinh. Cần Node 22+ (dùng `--experimental-strip-types` để nạp thẳng file `.ts`).
+
+`verify:answer` nạp thẳng [`answer-check.ts`](src/app/core/utils/answer-check.ts) rồi gõ lại **mọi**
+câu hội thoại và ví dụ ngữ pháp trong `public/lessons` theo các kiểu người học hay gõ — bỏ dấu lửng,
+gõ `...` thay `……`, tiếng Nhật gõ liền không dấu cách — và bắt tất cả phải được chấm đúng. Nó cũng
+giữ chiều ngược lại: dịch thiếu nửa câu hay sai dấu thanh vẫn phải bị chấm sai. Bài mới thêm vào
+được kiểm luôn, không phải viết thêm ca thử.
 
 **Engine chia động từ thì KHÔNG bị nhân đôi.** `src/app/core/japanese/conjugation.ts` là bản cài
 đặt duy nhất; dữ liệu JSON chỉ lưu thể ます + nhóm, còn các thể khác tính lúc chạy. Sửa luật chia

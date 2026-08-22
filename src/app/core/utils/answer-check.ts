@@ -27,8 +27,12 @@ function foldFullwidthDigits(value: string): string {
  * Dấu câu được bỏ qua khi chấm câu dài: dấu của cả tiếng Nhật (、。！？「」…) lẫn
  * tiếng Việt (,.!?"'…). KHÔNG gồm dấu / vì trong bài từ vựng nó ngăn các nghĩa
  * tương đương, mà bài hội thoại thì / có thể là một phần của câu.
+ *
+ * Có đủ các biến thể của dấu ba chấm: … (U+2026), ‥, ⋯ và cả ba dấu chấm gõ tay
+ * "...". Sách in dấu lửng ở cuối rất nhiều câu bỏ lửng (「10分だけ……。」) — đó là
+ * ngữ điệu, không phải nội dung phải dịch.
  */
-const PUNCTUATION = /[、。，．！？!?,.;:；：'"“”‘’「」『』（）()…・~〜\-–—]/g;
+const PUNCTUATION = /[、。，．！？!?,.;:；：'"“”‘’「」『』（）()…‥⋯・~〜\-–—]/g;
 
 export interface CompareOptions {
   /** Bỏ qua dấu thanh tiếng Việt khi so khớp. */
@@ -36,8 +40,15 @@ export interface CompareOptions {
   /** Bỏ hết khoảng trắng — dùng cho tiếng Nhật vì tiếng Nhật không có dấu cách giữa từ. */
   ignoreAllWhitespace: boolean;
   /**
-   * Bỏ qua dấu câu. Chỉ bật cho bài hội thoại — câu dài mà sai chỉ vì thiếu dấu
-   * 。 thì không phản ánh việc dịch đúng hay sai.
+   * Bỏ qua dấu câu. Chỉ bật cho bài hội thoại và bài ngữ pháp — câu dài mà sai chỉ
+   * vì thiếu dấu 。 thì không phản ánh việc dịch đúng hay sai.
+   *
+   * Kéo theo cả khoảng trắng: xoá dấu câu đi thì chỗ nó đứng thành ranh giới từ hay
+   * không là chuyện không đoán được. "Ừ...m" bỏ dấu lửng ra người học gõ liền "Ừm",
+   * "15.000 yên" gõ thành "15000 yên", "Tachiiri-Kinshi" gõ thành "Tachiiri Kinshi" —
+   * cả ba đều đúng. Nếu dấu câu chỉ đổi thành dấu cách thì mỗi trường hợp lại bị
+   * chấm sai một kiểu. Đây cũng đúng như dòng chữ app đang hứa với người học ở màn
+   * luyện tập: "Dấu câu và khoảng trắng không tính khi chấm."
    */
   ignorePunctuation?: boolean;
 }
@@ -68,10 +79,10 @@ export function normalizeForCompare(value: string, options: CompareOptions): str
       .join(' '),
   );
 
-  // Bỏ dấu câu TRƯỚC khi gộp khoảng trắng, để "abc , def" và "abc def" bằng nhau.
-  if (options.ignorePunctuation) out = out.replace(PUNCTUATION, ' ');
+  if (options.ignorePunctuation) out = out.replace(PUNCTUATION, '');
 
-  out = options.ignoreAllWhitespace ? out.replace(/\s+/g, '') : out.replace(/\s+/g, ' ').trim();
+  const dropWhitespace = options.ignoreAllWhitespace || options.ignorePunctuation;
+  out = dropWhitespace ? out.replace(/\s+/g, '') : out.replace(/\s+/g, ' ').trim();
   out = out.toLowerCase();
 
   if (options.ignoreDiacritics) {
