@@ -39,6 +39,11 @@ const SAMPLES = [
   '',
   'C,う',
   'D,,thiếu cột tiếng Nhật',
+  // Thiếu âm Hán Việt KHÔNG còn là lỗi: từ katakana và trạng từ thuần kana của
+  // 総まとめ N3 không có âm Hán Việt. Dòng phải được giữ lại với hanViet rỗng.
+  ',アイデア,ý tưởng',
+  ',うっかり,lơ đãng/ vô ý',
+  '	さっぱり	thiếu âm Hán Việt, dán bằng TAB',
   'ĐÀO,逃げます,trùng với dòng đầu',
   // Câu ví dụ sau dấu |
   'E,え,nghĩa có ví dụ|例文です。',

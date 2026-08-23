@@ -259,6 +259,55 @@ function issueLocation(issue) {
 }
 
 /**
+ * Các cấp độ hợp lệ và khoảng bài của chúng — phải khớp với `JLPT_LEVELS` /
+ * `JLPT_RANGE` trong src/app/core/models/vocabulary.model.ts.
+ *
+ * N3 không có khoảng bài: nó học theo 日本語総まとめ (6 tuần × 7 ngày, đánh số lại
+ * từ đầu) chứ không theo số bài 皆の日本語.
+ */
+const JLPT_LEVELS = ['N5', 'N4', 'N3'];
+const JLPT_RANGE = { N5: { from: 1, to: 25 }, N4: { from: 26, to: 50 } };
+
+/**
+ * Cấp độ khai thẳng trong meta.json.
+ *
+ * Bài 総まとめ BẮT BUỘC khai `"level": "N3"`. Không khai thì số bài của nó (ngày thứ
+ * mấy trong quyển, 1–42) sẽ bị khoảng bài 1–25 của N5 nuốt mất và cả loạt bài N3
+ * hiện nhầm sang cấp N5 — sai lặng lẽ, không có gì báo.
+ *
+ * Bài 皆の日本語 thì không cần khai, cấp vẫn suy ra từ số bài như cũ. Nhưng nếu có
+ * khai thì phải khớp với khoảng bài, lệch là lỗi: đó là dấu hiệu đặt sai tên thư mục
+ * hoặc chép nhầm meta.json từ bài khác.
+ *
+ * @returns {{ ok: true, level: string|null } | { ok: false }}
+ */
+function readMetaLevel(meta, folderName, lessonNumber) {
+  if (meta.level === undefined || meta.level === null) return { ok: true, level: null };
+
+  const level = String(meta.level).trim().toUpperCase();
+  if (!JLPT_LEVELS.includes(level)) {
+    fail(
+      `[${folderName}] meta.json ghi "level": "${meta.level}" — chỉ nhận ` +
+        `${JLPT_LEVELS.join(', ')}.`,
+    );
+    return { ok: false };
+  }
+
+  const range = JLPT_RANGE[level];
+  if (range && lessonNumber !== null && (lessonNumber < range.from || lessonNumber > range.to)) {
+    fail(
+      `[${folderName}] meta.json ghi "level": "${level}" nhưng đây là bài ${lessonNumber}, ` +
+        `mà ${level} gồm bài ${range.from}–${range.to}.
+` +
+        `              Sửa "level", hoặc khai "lesson" cho đúng số bài.`,
+    );
+    return { ok: false };
+  }
+
+  return { ok: true, level };
+}
+
+/**
  * Bài này là bài số mấy trong giáo trình, hoặc null nếu không xác định được.
  *
  * Ưu tiên "lesson" khai báo thẳng trong meta.json; không có thì lấy CỤM SỐ CUỐI CÙNG
@@ -308,6 +357,17 @@ function buildLesson(folderName) {
       `so muc: ${c.green}${items.length}${c.reset}`,
   );
 
+  // Cột âm Hán Việt được phép rỗng (xem vocab-core.mjs), nên thiếu nó không còn là
+  // lỗi từng dòng nữa. In ra con số tổng để vẫn bắt được lỗi gõ thiếu: bài 皆の日本語
+  // mà hiện "1 từ không có âm Hán Việt" là sai rõ ràng, còn bài 総まとめ N3 hiện vài
+  // chục từ là chuyện bình thường.
+  if (kind === 'vocabulary') {
+    const missing = items.filter((word) => !word.hanViet).length;
+    if (missing > 0) {
+      log(`  ${c.dim}${missing}/${items.length} tu khong co am Han Viet${c.reset}`);
+    }
+  }
+
   for (const issue of warnings) {
     log(`  ${c.yellow}[CANH BAO] ${issueLocation(issue)}: ${issue.message}${c.reset}`);
     if (issue.text) log(`    ${c.dim}${issue.text}${c.reset}`);
@@ -329,13 +389,19 @@ function buildLesson(folderName) {
     );
   }
 
+  const lessonNumber = lessonNumberOf(folderName, meta);
+  const levelResult = readMetaLevel(meta, folderName, lessonNumber);
+  if (!levelResult.ok) return null;
+
   return {
     folderName,
     // Thứ tự hiển thị: meta.order nếu có, còn lại xếp sau và sắp theo tên thư mục.
     order: typeof meta.order === 'number' ? meta.order : Number.MAX_SAFE_INTEGER,
     lesson: {
       id,
-      lessonNumber: lessonNumberOf(folderName, meta),
+      lessonNumber,
+      // Bỏ hẳn khoá khi không khai, để file bài học không đầy "level": null.
+      ...(levelResult.level ? { level: levelResult.level } : {}),
       name: String(meta.name || titleFromFolder(folderName)).trim(),
       description: meta.description ? String(meta.description).trim() : '',
       kind,
@@ -425,6 +491,7 @@ function main() {
       itemCount: lesson.itemCount,
       // Bỏ hẳn khoá khi không xác định được, để index.json không đầy "lessonNumber": null.
       ...(lesson.lessonNumber === null ? {} : { lessonNumber: lesson.lessonNumber }),
+      ...(lesson.level ? { level: lesson.level } : {}),
       file: fileName,
     })),
   };

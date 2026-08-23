@@ -59,6 +59,30 @@ Tất cả các trường đều tuỳ chọn.
 | `description` | Mô tả ngắn hiện dưới tên bài. |
 | `order` | Số nguyên quyết định thứ tự hiển thị. Bài không có `order` xếp sau cùng, theo tên thư mục. |
 | `id` | Chỉ dùng khi cần giữ id cũ sau khi đổi tên thư mục (xem quy tắc 3). |
+| `lesson` | Bài số mấy. Không khai thì lấy cụm số cuối trong tên thư mục. |
+| `level` | Cấp độ JLPT: `N5`, `N4` hoặc `N3`. Xem mục dưới. |
+
+### `level` — bắt buộc với bài 日本語総まとめ
+
+App suy cấp độ từ **số bài**: bài 1–25 là N5, bài 26–50 là N4. Cách đó chỉ đúng với
+皆の日本語, nơi 50 bài đánh số liền mạch.
+
+総まとめ đánh số lại từ đầu (6 tuần × 7 ngày), nên bài "Tuần 1 · Ngày 1" mang số 1 và
+sẽ bị khoảng 1–25 nuốt mất, hiện nhầm sang N5. Vì vậy **mọi bài 総まとめ phải khai
+thẳng cấp độ**:
+
+```json
+{
+  "name": "総まとめ N3 · Từ vựng · Tuần 1 · Ngày 1",
+  "order": 10101,
+  "lesson": 1,
+  "level": "N3"
+}
+```
+
+Cấp khai thẳng luôn thắng cấp suy từ số bài. Bài 皆の日本語 **không cần khai** — nhưng
+nếu khai mà lệch với khoảng bài thì script báo lỗi và dừng (`"level": "N4"` cho bài 1
+là lỗi), coi như một lớp kiểm tra chéo chống chép nhầm meta.json.
 
 `kind` không còn tác dụng đặt loại bài nữa. Nếu vẫn khai báo mà lệch với tên file thì
 script báo lỗi — coi như một lớp kiểm tra chéo.
@@ -98,6 +122,22 @@ TỊCH,席,chỗ ngồi/ ghế
 ```
 
 Chỉ tách ở **hai dấu phẩy đầu tiên**, nên nghĩa chứa dấu phẩy vẫn đúng.
+
+#### Cột âm Hán Việt được phép để trống
+
+Từ katakana và trạng từ thuần kana không có âm Hán Việt — bỏ trống ô đầu, **giữ nguyên
+dấu phẩy**:
+
+```
+,アイデア,ý tưởng
+,うっかり,lơ đãng/ vô ý
+```
+
+Bài nào không có từ nào mang âm Hán Việt thì cột đó tự ẩn khỏi bảng, và hai chiều luyện
+liên quan (Nhật → Hán Việt, Hán Việt → Nhật) cũng biến mất khỏi khung thiết lập.
+
+`npm run generate` in ra `3/4 tu khong co am Han Viet` cho mỗi bài từ vựng có ô trống.
+Với bài 総まとめ đó là bình thường; với bài 皆の日本語 thì gần như chắc chắn là gõ thiếu.
 
 #### Câu ví dụ (tuỳ chọn)
 
