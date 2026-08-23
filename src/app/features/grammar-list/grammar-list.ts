@@ -3,20 +3,10 @@ import { RouterLink } from '@angular/router';
 
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
-import { LessonSummary, isJlptLevel, levelOf } from '../../core/models/vocabulary.model';
-import { countByLevel, levelFilterOptions } from '../../core/models/level-filter';
-import type { LevelFilter } from '../../core/models/level-filter';
+import { LessonSummary } from '../../core/models/vocabulary.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
-import { readJson, writeJson } from '../../core/services/local-storage';
 import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
-
-/**
- * Khoá riêng, KHÔNG dùng chung với bộ lọc cấp độ của trang chủ: hai tab có tập bài
- * khác hẳn nhau (tab này không có bài N5 nào), nên chọn cấp ở tab kia rồi sang đây
- * mà thấy danh sách bị cắt sẵn thì trông y như mất bài.
- */
-const LEVEL_KEY = 'jp-practice:grammar-level-filter';
 
 /**
  * Tab "Ngữ pháp" — danh sách các bài ngữ pháp.
@@ -48,9 +38,6 @@ export class GrammarList {
   /** Từ khoá tìm bài, không nhớ sang lần mở sau — giống trang chủ. */
   private readonly searchRef = signal('');
 
-  /** Cấp độ đang chọn. Nhớ lại cho lần mở sau, giống trang chủ. */
-  private readonly levelRef = signal<LevelFilter>(readLevel());
-
   readonly search = this.searchRef.asReadonly();
 
   /** Mọi bài ngữ pháp, chưa lọc — dùng để đếm tổng và biết đã tải xong hay chưa. */
@@ -58,31 +45,10 @@ export class GrammarList {
     this.lessonStore.summaries().filter((lesson) => lesson.kind === 'grammar'),
   );
 
-  /**
-   * Đếm bài theo cấp, tính trên toàn bộ bài ngữ pháp chứ không trừ từ khoá đang gõ —
-   * con số phải đứng yên khi gõ tìm.
-   */
-  private readonly levelCounts = computed(() => countByLevel(this.allLessons()));
-
-  readonly levelOptions = computed(() => levelFilterOptions(this.levelCounts()));
-
-  /** Cấp đã chọn mà không còn bài nào thì tự quay về "Tất cả", giống trang chủ. */
-  readonly level = computed<LevelFilter>(() => {
-    const current = this.levelRef();
-    if (current === 'all') return 'all';
-    return this.levelCounts()[current] > 0 ? current : 'all';
-  });
-
   readonly lessons = computed<LessonSummary[]>(() => {
-    const level = this.level();
     const needle = normalizeSearch(this.searchRef());
-
-    const byLevel =
-      level === 'all'
-        ? this.allLessons()
-        : this.allLessons().filter((lesson) => (levelOf(lesson) ?? 'none') === level);
-
-    return needle ? byLevel.filter((lesson) => lessonMatches(lesson, needle)) : byLevel;
+    if (!needle) return this.allLessons();
+    return this.allLessons().filter((lesson) => lessonMatches(lesson, needle));
   });
 
   /** Đang tìm mà không ra bài nào — hiện khung rỗng thay vì một lưới trống trơn. */
@@ -109,23 +75,7 @@ export class GrammarList {
     this.searchRef.set('');
   }
 
-  setLevel(value: LevelFilter): void {
-    this.levelRef.set(value);
-    writeJson(LEVEL_KEY, value);
-  }
-
-  /** Xoá cả từ khoá lẫn bộ lọc cấp độ — nút thoát hiểm của khung "không tìm thấy". */
-  resetFilters(): void {
-    this.searchRef.set('');
-    this.setLevel('all');
-  }
-
   reload(): void {
     void this.lessonStore.loadIndex(true);
   }
-}
-
-function readLevel(): LevelFilter {
-  const stored = readJson<unknown>(LEVEL_KEY, 'all');
-  return stored === 'none' || isJlptLevel(stored) ? stored : 'all';
 }

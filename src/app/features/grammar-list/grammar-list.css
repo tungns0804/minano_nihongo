@@ -20,28 +20,6 @@
   flex-shrink: 0;
 }
 
-/* --- Bộ lọc cấp độ --- */
-
-/* Nhãn cấp độ khá dài ("N5 · bài 1–25") nên cần ô rộng hơn nút thường. */
-.level-options {
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-}
-
-.filter-count {
-  padding: 1px 8px;
-  border-radius: var(--radius-pill);
-  background: var(--bg-inset);
-  font-size: var(--fs-xs);
-  font-weight: 650;
-  color: var(--text-muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.option.is-active .filter-count {
-  background: color-mix(in srgb, var(--accent) 16%, transparent);
-  color: var(--accent);
-}
-
 /* --- Thẻ bài học --- */
 
 .lesson-grid {

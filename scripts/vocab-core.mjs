@@ -123,15 +123,9 @@ export function parseVocabulary(raw) {
 
   lines.forEach((rawLine, index) => {
     const lineNumber = index + 1;
-    // KHÔNG đem bản trim() đi tách cột. Dòng dán từ bảng tính mà ô đầu rỗng (từ
-    // không có âm Hán Việt) bắt đầu bằng TAB; trim() nuốt mất TAB đó nên dòng 3 cột
-    // tụt xuống còn 2 và bị loại vì "thiếu cột". Dòng dùng dấu phẩy giữ nguyên như
-    // cũ. Từng ô vẫn được normalizeField() cắt khoảng trắng sau đó.
-    const trimmed = rawLine.trim();
+    const line = rawLine.trim();
 
-    if (!trimmed || trimmed.startsWith('#')) return;
-
-    const line = rawLine.includes('\t') ? rawLine.replace(/\r$/, '') : trimmed;
+    if (!line || line.startsWith('#')) return;
 
     const columns = splitRow(line);
     if (columns.length < 3) {
@@ -156,14 +150,9 @@ export function parseVocabulary(raw) {
     const vietnamese = normalizeField(rawMeaning);
     const example = normalizeField(columns[3] ?? meaningExample);
 
-    // Chỉ TIẾNG NHẬT và NGHĨA là bắt buộc. Âm Hán Việt được phép rỗng: từ vựng N3
-    // của 日本語総まとめ có rất nhiều từ katakana (アイデア) và trạng từ thuần kana
-    // (うっかり) vốn không mang âm Hán Việt nào cả. Bắt buộc cột này thì cả loạt từ
-    // đó bị loại khỏi bài và chỉ hiện ra dưới dạng lỗi — mất dữ liệu chứ không phải
-    // bắt được lỗi. Bài 皆の日本語 thiếu sót cột này vẫn thấy được: `npm run generate`
-    // in ra số từ không có âm Hán Việt của từng bài.
     const empty = [];
     const emptyCodes = [];
+    if (!hanViet) { empty.push('âm Hán Việt'); emptyCodes.push('hanViet'); }
     if (!japanese) { empty.push('tiếng Nhật'); emptyCodes.push('japanese'); }
     if (!vietnamese) { empty.push('nghĩa tiếng Việt'); emptyCodes.push('vietnamese'); }
     if (empty.length > 0) {

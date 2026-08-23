@@ -15,7 +15,6 @@ import {
   LessonSummary,
   VerbEntry,
   VocabularyWord,
-  isJlptLevel,
 } from '../models/vocabulary.model';
 import { readJson, writeJson } from './local-storage';
 
@@ -68,7 +67,6 @@ export class LessonStore {
       kind: entry.kind,
       itemCount: entry.itemCount,
       lessonNumber: entry.lessonNumber,
-      level: entry.level,
       origin: 'builtin' as const,
     })),
     ...this.customLessons().map((lesson) => ({
@@ -77,7 +75,6 @@ export class LessonStore {
       description: lesson.description,
       kind: lesson.kind,
       itemCount: lesson.itemCount,
-      level: lesson.level,
       origin: 'custom' as const,
     })),
   ]);
@@ -109,7 +106,6 @@ export class LessonStore {
           kind: lesson.kind,
           itemCount: lesson.itemCount,
           lessonNumber: lesson.lessonNumber,
-          level: lesson.level,
           file: '',
         })),
       );
@@ -214,8 +210,10 @@ function sanitizeIndex(raw: unknown): LessonIndexEntry[] {
 
   return lessons.flatMap((entry): LessonIndexEntry[] => {
     if (!entry || typeof entry !== 'object') return [];
-    const { id, name, file, itemCount, description, kind, lessonNumber, level } =
-      entry as Record<string, unknown>;
+    const { id, name, file, itemCount, description, kind, lessonNumber } = entry as Record<
+      string,
+      unknown
+    >;
     if (typeof id !== 'string' || !id) return [];
     if (typeof file !== 'string' || !file) return [];
     return [
@@ -228,7 +226,6 @@ function sanitizeIndex(raw: unknown): LessonIndexEntry[] {
         itemCount: typeof itemCount === 'number' ? itemCount : 0,
         // Bài cũ sinh trước khi có trường này thì đơn giản là không có cấp độ.
         ...(typeof lessonNumber === 'number' ? { lessonNumber } : {}),
-        ...(isJlptLevel(level) ? { level } : {}),
       },
     ];
   });
@@ -249,10 +246,7 @@ function sanitizeWords(raw: unknown): VocabularyWord[] {
     ) {
       return [];
     }
-    // `hanViet` KHÔNG nằm trong danh sách bắt buộc: từ katakana và trạng từ thuần
-    // kana của 総まとめ N3 không có âm Hán Việt, loại chúng ở đây thì bài N3 sẽ mất
-    // phần lớn số từ mà không báo gì cả. Xem ghi chú cùng nội dung ở vocab-core.mjs.
-    if (!id || !japanese || !vietnamese || seen.has(id)) return [];
+    if (!id || !hanViet || !japanese || !vietnamese || seen.has(id)) return [];
     seen.add(id);
     // Dữ liệu sinh trước khi có cột ví dụ / cách đọc thì thiếu trường tương ứng —
     // coi như rỗng thay vì loại bỏ cả từ, để bài tự nạp từ trước vẫn dùng được.
@@ -439,7 +433,7 @@ function sanitizeGrammarPoints(raw: unknown): GrammarPoint[] {
 
 function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
   if (!raw || typeof raw !== 'object') return null;
-  const { id, name, description, words, verbs, lines, grammarPoints, kind, lessonNumber, level } =
+  const { id, name, description, words, verbs, lines, grammarPoints, kind, lessonNumber } =
     raw as Record<string, unknown>;
   if (typeof id !== 'string' || !id) return null;
 
@@ -464,9 +458,6 @@ function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
     kind: lessonKind,
     itemCount,
     ...(typeof lessonNumber === 'number' ? { lessonNumber } : {}),
-    // Cấp độ chỉ nhận khi đúng là một cấp đã biết: một bài tự nạp ghi bừa
-    // "level": "N9" thì bỏ qua, để nó rơi về đường suy từ số bài như trước.
-    ...(isJlptLevel(level) ? { level } : {}),
     words: parsedWords,
     verbs: parsedVerbs,
     lines: parsedLines,

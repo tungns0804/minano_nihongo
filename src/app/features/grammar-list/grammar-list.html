@@ -70,35 +70,12 @@
         </div>
       </div>
 
-      <!-- Lọc theo cấp độ JLPT, giống trang chủ. Cần từ khi có phần N3: tab này
-           gộp ngữ pháp 皆の日本語 (N4) với ngữ pháp 総まとめ (N3) trong cùng một lưới. -->
-      <div class="field">
-        <span class="label">{{ t('home.level') }}</span>
-        <div class="options level-options">
-          @for (option of levelOptions(); track option.value) {
-            <button
-              type="button"
-              class="option"
-              [class.is-active]="level() === option.value"
-              [attr.aria-pressed]="level() === option.value"
-              [disabled]="option.count === 0"
-              [title]="option.titleKey ? t(option.titleKey) : null"
-              (click)="setLevel(option.value)"
-            >
-              <app-t [key]="option.labelKey" [params]="option.params" />
-              <span class="spacer"></span>
-              <span class="filter-count">{{ option.count }}</span>
-            </button>
-          }
-        </div>
-      </div>
-
       @if (noMatch()) {
         <div class="empty-state">
           <span class="empty-state-icon" aria-hidden="true">🔍</span>
           <p class="empty-state-title">{{ t('home.noMatch.title', { term: search() }) }}</p>
           <p class="empty-state-text"><app-t key="home.noMatch.text" block /></p>
-          <button type="button" class="btn btn-sm" (click)="resetFilters()">
+          <button type="button" class="btn btn-sm" (click)="clearSearch()">
             {{ t('home.noMatch.reset') }}
           </button>
         </div>

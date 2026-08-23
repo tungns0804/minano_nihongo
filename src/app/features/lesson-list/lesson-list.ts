@@ -6,24 +6,39 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import type { MessageKey } from '../../core/i18n/messages';
 import {
+  JLPT_LEVELS,
+  JLPT_RANGE,
+  JlptLevel,
   LESSON_KIND_UNIT_KEY,
   LessonKind,
   LessonSummary,
-  isJlptLevel,
   lessonKindsOfTab,
-  levelOf,
+  levelOfLesson,
 } from '../../core/models/vocabulary.model';
-import { countByLevel, levelFilterOptions } from '../../core/models/level-filter';
-import type { LevelFilter } from '../../core/models/level-filter';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { readJson, writeJson } from '../../core/services/local-storage';
 import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
 
+/**
+ * Bộ lọc cấp độ: 'all', một cấp JLPT, hoặc 'none' cho những bài không gắn với bài số
+ * nào.
+ */
+type LevelFilter = JlptLevel | 'all' | 'none';
+
 const LEVEL_KEY = 'jp-practice:level-filter';
 
+interface LevelOption {
+  value: LevelFilter;
+  labelKey: MessageKey;
+  /** Tham số chèn vào nhãn ("N5 · bài 1–25"); rỗng với mục không cần. */
+  params: Record<string, string | number>;
+  titleKey?: MessageKey;
+  count: number;
+}
+
 /**
- * Trang chủ — tab "Từ vựng".
+ * Trang chủ — "Từ vựng minano".
  *
  * Chỉ còn bài TỪ VỰNG. Bài chia động từ và bài dịch hội thoại đã chuyển sang tab
  * "Bài tập bổ trợ": cả hai là cách luyện chứ không phải kho từ để nhớ nghĩa. Vì
@@ -103,13 +118,41 @@ export class LessonList {
    * Cố tình KHÔNG trừ đi từ khoá đang gõ: con số phải đứng yên khi gõ tìm, nếu không
    * người dùng sẽ tưởng bài học vừa biến mất.
    */
-  private readonly levelCounts = computed(() => countByLevel(this.allLessons()));
+  private readonly levelCounts = computed<Record<LevelFilter, number>>(() => {
+    const counts = { all: 0, none: 0, N5: 0, N4: 0 } as Record<LevelFilter, number>;
+    for (const lesson of this.allLessons()) {
+      counts.all++;
+      counts[levelOfLesson(lesson.lessonNumber) ?? 'none']++;
+    }
+    return counts;
+  });
 
   /**
    * Các nút chọn cấp độ. Mục "Không theo bài" chỉ hiện khi thật sự có bài như vậy —
    * bình thường nó chỉ là một nút lạ chẳng để làm gì.
    */
-  readonly levelOptions = computed(() => levelFilterOptions(this.levelCounts()));
+  readonly levelOptions = computed<LevelOption[]>(() => {
+    const counts = this.levelCounts();
+    const options: LevelOption[] = [
+      { value: 'all', labelKey: 'home.level.all' as MessageKey, params: {}, count: counts.all },
+      ...JLPT_LEVELS.map((level) => ({
+        value: level as LevelFilter,
+        labelKey: 'home.level.range' as MessageKey,
+        params: { level, from: JLPT_RANGE[level].from, to: JLPT_RANGE[level].to },
+        count: counts[level],
+      })),
+    ];
+    if (counts.none > 0) {
+      options.push({
+        value: 'none',
+        labelKey: 'home.level.none' as MessageKey,
+        params: {},
+        titleKey: 'home.level.noneTitle' as MessageKey,
+        count: counts.none,
+      });
+    }
+    return options;
+  });
 
   /** Các bài thực sự được hiển thị, sau cả lọc cấp độ lẫn tìm theo từ khoá. */
   readonly lessons = computed<LessonSummary[]>(() => {
@@ -119,7 +162,9 @@ export class LessonList {
     const byLevel =
       level === 'all'
         ? this.allLessons()
-        : this.allLessons().filter((lesson) => (levelOf(lesson) ?? 'none') === level);
+        : this.allLessons().filter(
+            (lesson) => (levelOfLesson(lesson.lessonNumber) ?? 'none') === level,
+          );
 
     return needle ? byLevel.filter((lesson) => lessonMatches(lesson, needle)) : byLevel;
   });
@@ -173,5 +218,7 @@ export class LessonList {
 
 function readLevel(): LevelFilter {
   const stored = readJson<unknown>(LEVEL_KEY, 'all');
-  return stored === 'none' || isJlptLevel(stored) ? stored : 'all';
+  return stored === 'none' || JLPT_LEVELS.includes(stored as JlptLevel)
+    ? (stored as LevelFilter)
+    : 'all';
 }

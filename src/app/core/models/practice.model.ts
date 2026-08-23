@@ -6,14 +6,13 @@ import type { RadicalMode } from '../radical/radical.model';
 import { radicalModeInfo } from '../radical/radical.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
-import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from './vocabulary.model';
+import { LessonKind, WordField } from './vocabulary.model';
 
 /**
  * Các chiều luyện tập của bài TỪ VỰNG.
  *
- * Chiều nào đụng tới một trường có thể rỗng (`*-kana` cần cách đọc, `*-han` cần
- * âm Hán Việt) thì chỉ dùng được với bài có khai báo trường đó — màn hình chi tiết
- * bài tự ẩn chúng đi khi bài không có, xem `directionIsUsable`.
+ * Hai chiều `*-kana` chỉ dùng được với bài có khai báo cách đọc — màn hình chi
+ * tiết bài tự ẩn chúng đi khi bài không có, xem `directionNeedsReading`.
  */
 export type PracticeDirection = 'jp-vi' | 'vi-jp' | 'jp-han' | 'han-jp' | 'jp-kana' | 'kana-jp';
 
@@ -112,27 +111,16 @@ export function directionInfo(id: PracticeDirection): DirectionInfo {
   return DIRECTIONS.find((d) => d.id === id) ?? DIRECTIONS[0];
 }
 
-/** Chiều này có đụng tới một trường cụ thể không — làm câu hỏi hoặc làm đáp án. */
-export function directionUsesField(id: PracticeDirection, field: WordField): boolean {
-  const info = directionInfo(id);
-  return info.prompt === field || info.answer === field;
-}
-
 /**
- * Chiều này có luyện được với bài đang mở không.
+ * Chiều này có đụng tới cột cách đọc không.
  *
- * Bài thiếu một trường có thể rỗng mà vẫn cho chọn chiều đụng tới trường đó thì mọi
- * câu hỏi sẽ có đáp án là chuỗi rỗng — hỏng lặng lẽ giữa buổi luyện chứ không báo
- * lỗi ở đâu cả. `hasField` do người gọi truyền vào vì chỉ nơi đó mới biết bài hiện
- * tại có những gì (xem `hasWordField`).
+ * Cách đọc là trường duy nhất được phép rỗng, nên bài không khai báo mà vẫn cho
+ * chọn hai chiều này thì mọi câu hỏi sẽ có đáp án rỗng — hỏng lặng lẽ giữa buổi
+ * luyện chứ không báo lỗi ở đâu cả.
  */
-export function directionIsUsable(
-  id: PracticeDirection,
-  hasField: (field: WordField) => boolean,
-): boolean {
-  return OPTIONAL_WORD_FIELDS.every(
-    (field) => !directionUsesField(id, field) || hasField(field),
-  );
+export function directionNeedsReading(id: PracticeDirection): boolean {
+  const info = directionInfo(id);
+  return info.prompt === 'reading' || info.answer === 'reading';
 }
 
 export interface VerbModeInfo {
