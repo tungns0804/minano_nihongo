@@ -54,10 +54,37 @@ export interface CompareOptions {
 }
 
 /**
+ * Phần trong ngoặc ở cột nghĩa, cả ngoặc nửa chiều lẫn toàn chiều.
+ *
+ * Từ vựng 日本語総まとめ N3 ghi nghĩa kèm chú giải tiếng Anh của chính sách —
+ * "lò vi sóng (microwave)" — để đối chiếu được với bản in. Nhưng cột nghĩa KHÔNG
+ * nằm trong diện bỏ qua dấu câu khi chấm (xem `ignorePunctuation`, chỉ bật cho bài
+ * hội thoại và ngữ pháp), nên nếu không xử lý thì ở chế độ gõ, người học buộc phải
+ * gõ cả phần tiếng Anh mới được tính đúng.
+ */
+const PARENTHETICAL = /[(（][^)）]*[)）]/g;
+const PARENTHETICAL_CONTENT = /[(（]([^)）]*)[)）]/g;
+
+/** "lò vi sóng (microwave)" -> "lò vi sóng" */
+function withoutParentheticals(value: string): string {
+  return value.replace(PARENTHETICAL, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/** "lò vi sóng (microwave)" -> ["microwave"] */
+function parentheticalsOf(value: string): string[] {
+  return [...value.matchAll(PARENTHETICAL_CONTENT)]
+    .map((match) => match[1].trim())
+    .filter((item) => item.length > 0);
+}
+
+/**
  * Tách một ô đáp án thành các cách trả lời được chấp nhận.
- * "chạy trốn/ bỏ chạy" -> ["chạy trốn/ bỏ chạy", "chạy trốn", "bỏ chạy"]
+ * "chạy trốn/ bỏ chạy"      -> ["chạy trốn/ bỏ chạy", "chạy trốn", "bỏ chạy"]
+ * "lò vi sóng (microwave)"  -> ["lò vi sóng (microwave)", "lò vi sóng", "microwave"]
  *
  * Bản thân chuỗi gốc luôn nằm đầu danh sách để người gõ đầy đủ vẫn được tính đúng.
+ * Danh sách này chỉ NỚI RỘNG chỗ chấm đúng, không bao giờ loại bớt, nên bài cũ
+ * không bị chấm khác đi.
  */
 export function acceptedAnswersOf(answer: string): string[] {
   const full = answer.trim();
@@ -66,7 +93,13 @@ export function acceptedAnswersOf(answer: string): string[] {
     .map((part) => part.trim())
     .filter((part) => part.length > 0);
 
-  const accepted = [full, ...parts];
+  // Mỗi cách trả lời còn được chấp nhận ở hai dạng rút gọn nữa: bỏ phần trong
+  // ngoặc, và chỉ riêng phần trong ngoặc.
+  const accepted = [full, ...parts].flatMap((item) => [
+    item,
+    withoutParentheticals(item),
+    ...parentheticalsOf(item),
+  ]);
   return [...new Set(accepted)].filter((item) => item.length > 0);
 }
 

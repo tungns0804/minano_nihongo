@@ -1,0 +1,39 @@
+# 日本語総まとめ N3 · 語彙 — 料理をしましょう①
+# Nguồn: Nihongo_Soumatome_N3-Goi.pdf, trang 14-15
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT (English)
+# Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
+# Chú giải tiếng Anh trong ngoặc là chép từ chính sách, để đối chiếu bản in.
+,肉じゃが (にくじゃが),món thịt hầm khoai tây
+,材料 (ざいりょう),nguyên liệu
+,牛肉 (ぎゅうにく),thịt bò
+,ジャガイモ,khoai tây
+,玉ネギ (たまネギ),hành tây
+,調味料 (ちょうみりょう),gia vị (seasoning)
+,酒 (さけ),rượu (rice wine)
+,しょうゆ,nước tương/ xì dầu
+,砂糖 (さとう),đường
+,サラダ油 (サラダあぶら),dầu ăn (salad oil)
+,酢 (す),giấm (vinegar)
+,天ぷら油 (てんぷらあぶら),dầu chiên (tempura oil)
+,大さじ (おおさじ),thìa canh (table spoon)
+,小さじ (こさじ),thìa cà phê (tea spoon)
+,包丁 (ほうちょう),dao làm bếp (kitchen knife)
+,まな板 (まないた),thớt (cutting board)
+,はかり,cân (scale)
+,カップ,cốc đong
+,リットル,lít
+,グラム,gam
+,夕食のおかず (ゆうしょくのおかず),món ăn bữa tối (dish for an evening meal)
+,栄養のバランスを考える (えいようのバランスをかんがえる),cân nhắc cân bằng dinh dưỡng (think about the nutritional balance)
+,カロリーが高い食品 (カロリーがたかいしょくひん),thực phẩm nhiều calo (high calorie food)
+,はかりで量る (はかりではかる),cân bằng cân (weigh on a scale)
+,塩を少々入れる (しおをしょうしょういれる),cho một chút muối (salt slightly)
+,皮をむく (かわをむく),gọt vỏ (peel)
+,材料を刻む (ざいりょうをきざむ),thái nhỏ nguyên liệu (chop the ingredients)
+,大きめに切る (おおきめにきる),cắt to (cut in big pieces)
+,3センチ幅に切る (さんセンチはばにきる),cắt bề ngang 3 cm (cut into 3 centimeter pieces)
+,みそ汁がぬるくなる (みそしるがぬるくなる),canh miso bị nguội (the miso soup is lukewarm)
+,ラップをかぶせる,phủ màng bọc thực phẩm (cover with plastic wrap)
+,ラップをかける,phủ màng bọc thực phẩm (cover with plastic wrap)
+,ラップでくるむ,bọc bằng màng bọc thực phẩm (wrap with plastic wrap)
+,（アルミ）ホイル,giấy bạc (aluminium foil)

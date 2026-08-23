@@ -1,0 +1,286 @@
+{
+  "id": "soumatome-n3-2",
+  "lessonNumber": 2,
+  "level": "N3",
+  "name": "日本語総まとめ N3 — Bài 2 · Từ vựng",
+  "description": "Nấu ăn ①",
+  "kind": "vocabulary",
+  "itemCount": 34,
+  "words": [
+    {
+      "id": "0hngmud",
+      "hanViet": "",
+      "japanese": "肉じゃが",
+      "reading": "にくじゃが",
+      "vietnamese": "món thịt hầm khoai tây",
+      "example": ""
+    },
+    {
+      "id": "1dcuooq",
+      "hanViet": "",
+      "japanese": "材料",
+      "reading": "ざいりょう",
+      "vietnamese": "nguyên liệu",
+      "example": ""
+    },
+    {
+      "id": "1fan8fj",
+      "hanViet": "",
+      "japanese": "牛肉",
+      "reading": "ぎゅうにく",
+      "vietnamese": "thịt bò",
+      "example": ""
+    },
+    {
+      "id": "1wg9t6q",
+      "hanViet": "",
+      "japanese": "ジャガイモ",
+      "reading": "",
+      "vietnamese": "khoai tây",
+      "example": ""
+    },
+    {
+      "id": "1eiu661",
+      "hanViet": "",
+      "japanese": "玉ネギ",
+      "reading": "たまネギ",
+      "vietnamese": "hành tây",
+      "example": ""
+    },
+    {
+      "id": "0v9r6cy",
+      "hanViet": "",
+      "japanese": "調味料",
+      "reading": "ちょうみりょう",
+      "vietnamese": "gia vị (seasoning)",
+      "example": ""
+    },
+    {
+      "id": "1su7k2z",
+      "hanViet": "",
+      "japanese": "酒",
+      "reading": "さけ",
+      "vietnamese": "rượu (rice wine)",
+      "example": ""
+    },
+    {
+      "id": "0py3gth",
+      "hanViet": "",
+      "japanese": "しょうゆ",
+      "reading": "",
+      "vietnamese": "nước tương/ xì dầu",
+      "example": ""
+    },
+    {
+      "id": "02m02dr",
+      "hanViet": "",
+      "japanese": "砂糖",
+      "reading": "さとう",
+      "vietnamese": "đường",
+      "example": ""
+    },
+    {
+      "id": "0cx9uxo",
+      "hanViet": "",
+      "japanese": "サラダ油",
+      "reading": "サラダあぶら",
+      "vietnamese": "dầu ăn (salad oil)",
+      "example": ""
+    },
+    {
+      "id": "1svqfa3",
+      "hanViet": "",
+      "japanese": "酢",
+      "reading": "す",
+      "vietnamese": "giấm (vinegar)",
+      "example": ""
+    },
+    {
+      "id": "0h9fa2t",
+      "hanViet": "",
+      "japanese": "天ぷら油",
+      "reading": "てんぷらあぶら",
+      "vietnamese": "dầu chiên (tempura oil)",
+      "example": ""
+    },
+    {
+      "id": "189ocy5",
+      "hanViet": "",
+      "japanese": "大さじ",
+      "reading": "おおさじ",
+      "vietnamese": "thìa canh (table spoon)",
+      "example": ""
+    },
+    {
+      "id": "0dhmro5",
+      "hanViet": "",
+      "japanese": "小さじ",
+      "reading": "こさじ",
+      "vietnamese": "thìa cà phê (tea spoon)",
+      "example": ""
+    },
+    {
+      "id": "15vtud9",
+      "hanViet": "",
+      "japanese": "包丁",
+      "reading": "ほうちょう",
+      "vietnamese": "dao làm bếp (kitchen knife)",
+      "example": ""
+    },
+    {
+      "id": "1j1mboi",
+      "hanViet": "",
+      "japanese": "まな板",
+      "reading": "まないた",
+      "vietnamese": "thớt (cutting board)",
+      "example": ""
+    },
+    {
+      "id": "0ni67rt",
+      "hanViet": "",
+      "japanese": "はかり",
+      "reading": "",
+      "vietnamese": "cân (scale)",
+      "example": ""
+    },
+    {
+      "id": "1lkkuyg",
+      "hanViet": "",
+      "japanese": "カップ",
+      "reading": "",
+      "vietnamese": "cốc đong",
+      "example": ""
+    },
+    {
+      "id": "047p1i9",
+      "hanViet": "",
+      "japanese": "リットル",
+      "reading": "",
+      "vietnamese": "lít",
+      "example": ""
+    },
+    {
+      "id": "0k7clb2",
+      "hanViet": "",
+      "japanese": "グラム",
+      "reading": "",
+      "vietnamese": "gam",
+      "example": ""
+    },
+    {
+      "id": "0tiibgo",
+      "hanViet": "",
+      "japanese": "夕食のおかず",
+      "reading": "ゆうしょくのおかず",
+      "vietnamese": "món ăn bữa tối (dish for an evening meal)",
+      "example": ""
+    },
+    {
+      "id": "0gxwqwu",
+      "hanViet": "",
+      "japanese": "栄養のバランスを考える",
+      "reading": "えいようのバランスをかんがえる",
+      "vietnamese": "cân nhắc cân bằng dinh dưỡng (think about the nutritional balance)",
+      "example": ""
+    },
+    {
+      "id": "0dazok7",
+      "hanViet": "",
+      "japanese": "カロリーが高い食品",
+      "reading": "カロリーがたかいしょくひん",
+      "vietnamese": "thực phẩm nhiều calo (high calorie food)",
+      "example": ""
+    },
+    {
+      "id": "190yc4i",
+      "hanViet": "",
+      "japanese": "はかりで量る",
+      "reading": "はかりではかる",
+      "vietnamese": "cân bằng cân (weigh on a scale)",
+      "example": ""
+    },
+    {
+      "id": "1a1h8i2",
+      "hanViet": "",
+      "japanese": "塩を少々入れる",
+      "reading": "しおをしょうしょういれる",
+      "vietnamese": "cho một chút muối (salt slightly)",
+      "example": ""
+    },
+    {
+      "id": "0z5l2rk",
+      "hanViet": "",
+      "japanese": "皮をむく",
+      "reading": "かわをむく",
+      "vietnamese": "gọt vỏ (peel)",
+      "example": ""
+    },
+    {
+      "id": "0unlclp",
+      "hanViet": "",
+      "japanese": "材料を刻む",
+      "reading": "ざいりょうをきざむ",
+      "vietnamese": "thái nhỏ nguyên liệu (chop the ingredients)",
+      "example": ""
+    },
+    {
+      "id": "0xlvkhx",
+      "hanViet": "",
+      "japanese": "大きめに切る",
+      "reading": "おおきめにきる",
+      "vietnamese": "cắt to (cut in big pieces)",
+      "example": ""
+    },
+    {
+      "id": "0ra4k57",
+      "hanViet": "",
+      "japanese": "3センチ幅に切る",
+      "reading": "さんセンチはばにきる",
+      "vietnamese": "cắt bề ngang 3 cm (cut into 3 centimeter pieces)",
+      "example": ""
+    },
+    {
+      "id": "1yr7rp3",
+      "hanViet": "",
+      "japanese": "みそ汁がぬるくなる",
+      "reading": "みそしるがぬるくなる",
+      "vietnamese": "canh miso bị nguội (the miso soup is lukewarm)",
+      "example": ""
+    },
+    {
+      "id": "0imprk1",
+      "hanViet": "",
+      "japanese": "ラップをかぶせる",
+      "reading": "",
+      "vietnamese": "phủ màng bọc thực phẩm (cover with plastic wrap)",
+      "example": ""
+    },
+    {
+      "id": "1bvyuvf",
+      "hanViet": "",
+      "japanese": "ラップをかける",
+      "reading": "",
+      "vietnamese": "phủ màng bọc thực phẩm (cover with plastic wrap)",
+      "example": ""
+    },
+    {
+      "id": "0az4a2p",
+      "hanViet": "",
+      "japanese": "ラップでくるむ",
+      "reading": "",
+      "vietnamese": "bọc bằng màng bọc thực phẩm (wrap with plastic wrap)",
+      "example": ""
+    },
+    {
+      "id": "08kblfk",
+      "hanViet": "",
+      "japanese": "（アルミ）ホイル",
+      "reading": "",
+      "vietnamese": "giấy bạc (aluminium foil)",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

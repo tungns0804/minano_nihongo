@@ -1,0 +1,358 @@
+{
+  "id": "soumatome-n3-1",
+  "lessonNumber": 1,
+  "level": "N3",
+  "name": "日本語総まとめ N3 — Bài 1 · Từ vựng",
+  "description": "Trong bếp / phòng khách",
+  "kind": "vocabulary",
+  "itemCount": 43,
+  "words": [
+    {
+      "id": "10mitvz",
+      "hanViet": "",
+      "japanese": "キッチン",
+      "reading": "",
+      "vietnamese": "bếp (Kitchen)",
+      "example": ""
+    },
+    {
+      "id": "022oy6r",
+      "hanViet": "",
+      "japanese": "台所",
+      "reading": "だいどころ",
+      "vietnamese": "bếp (Kitchen)",
+      "example": ""
+    },
+    {
+      "id": "1u3ezjv",
+      "hanViet": "",
+      "japanese": "電子レンジ",
+      "reading": "でんしレンジ",
+      "vietnamese": "lò vi sóng (microwave)",
+      "example": ""
+    },
+    {
+      "id": "0l8y2ta",
+      "hanViet": "",
+      "japanese": "（お）茶わん",
+      "reading": "ちゃわん",
+      "vietnamese": "bát ăn cơm",
+      "example": ""
+    },
+    {
+      "id": "15lppht",
+      "hanViet": "",
+      "japanese": "ワイングラス",
+      "reading": "",
+      "vietnamese": "ly rượu vang (wine glass)",
+      "example": ""
+    },
+    {
+      "id": "01due9l",
+      "hanViet": "",
+      "japanese": "コーヒーカップ",
+      "reading": "",
+      "vietnamese": "tách cà phê (coffee cup)",
+      "example": ""
+    },
+    {
+      "id": "0g2dhpj",
+      "hanViet": "",
+      "japanese": "湯飲み",
+      "reading": "ゆのみ",
+      "vietnamese": "chén trà (tea cup)",
+      "example": ""
+    },
+    {
+      "id": "1bmbyvy",
+      "hanViet": "",
+      "japanese": "冷蔵庫",
+      "reading": "れいぞうこ",
+      "vietnamese": "tủ lạnh",
+      "example": ""
+    },
+    {
+      "id": "1oy6lcz",
+      "hanViet": "",
+      "japanese": "ガスレンジ",
+      "reading": "",
+      "vietnamese": "bếp ga (gas stove)",
+      "example": ""
+    },
+    {
+      "id": "0qd3j11",
+      "hanViet": "",
+      "japanese": "ガスコンロ",
+      "reading": "",
+      "vietnamese": "bếp ga (gas stove)",
+      "example": ""
+    },
+    {
+      "id": "02f7lus",
+      "hanViet": "",
+      "japanese": "ガラスのコップ",
+      "reading": "",
+      "vietnamese": "cốc thuỷ tinh (glass)",
+      "example": ""
+    },
+    {
+      "id": "0gazqch",
+      "hanViet": "",
+      "japanese": "レバー",
+      "reading": "",
+      "vietnamese": "cần gạt/ tay gạt (lever)",
+      "example": ""
+    },
+    {
+      "id": "0y8uojr",
+      "hanViet": "",
+      "japanese": "流し",
+      "reading": "ながし",
+      "vietnamese": "bồn rửa (sink)",
+      "example": ""
+    },
+    {
+      "id": "0j9enp3",
+      "hanViet": "",
+      "japanese": "リビング",
+      "reading": "",
+      "vietnamese": "phòng khách (Living Room)",
+      "example": ""
+    },
+    {
+      "id": "1o1bibz",
+      "hanViet": "",
+      "japanese": "居間",
+      "reading": "いま",
+      "vietnamese": "phòng khách (Living Room)",
+      "example": ""
+    },
+    {
+      "id": "0v5lzx0",
+      "hanViet": "",
+      "japanese": "窓ガラス",
+      "reading": "まどガラス",
+      "vietnamese": "kính cửa sổ (window glass)",
+      "example": ""
+    },
+    {
+      "id": "1p7wqxf",
+      "hanViet": "",
+      "japanese": "雨戸",
+      "reading": "あまど",
+      "vietnamese": "cửa chống mưa bão (shutter)",
+      "example": ""
+    },
+    {
+      "id": "04sta0h",
+      "hanViet": "",
+      "japanese": "網戸",
+      "reading": "あみど",
+      "vietnamese": "cửa lưới chống côn trùng (screen)",
+      "example": ""
+    },
+    {
+      "id": "0cewlnx",
+      "hanViet": "",
+      "japanese": "天井",
+      "reading": "てんじょう",
+      "vietnamese": "trần nhà (ceiling)",
+      "example": ""
+    },
+    {
+      "id": "1cexh4j",
+      "hanViet": "",
+      "japanese": "床",
+      "reading": "ゆか",
+      "vietnamese": "sàn nhà (floor)",
+      "example": ""
+    },
+    {
+      "id": "198kklx",
+      "hanViet": "",
+      "japanese": "コンセント",
+      "reading": "",
+      "vietnamese": "ổ cắm điện (electrical outlet)",
+      "example": ""
+    },
+    {
+      "id": "0seqs0f",
+      "hanViet": "",
+      "japanese": "コード",
+      "reading": "",
+      "vietnamese": "dây điện (cord)",
+      "example": ""
+    },
+    {
+      "id": "04i561n",
+      "hanViet": "",
+      "japanese": "エアコン",
+      "reading": "",
+      "vietnamese": "điều hoà (air conditioner)",
+      "example": ""
+    },
+    {
+      "id": "0o7zwtw",
+      "hanViet": "",
+      "japanese": "ヒーター",
+      "reading": "",
+      "vietnamese": "lò sưởi (heater)",
+      "example": ""
+    },
+    {
+      "id": "1dlc5f6",
+      "hanViet": "",
+      "japanese": "じゅうたん",
+      "reading": "",
+      "vietnamese": "thảm (carpet)",
+      "example": ""
+    },
+    {
+      "id": "18xu0xx",
+      "hanViet": "",
+      "japanese": "カーペット",
+      "reading": "",
+      "vietnamese": "thảm (carpet)",
+      "example": ""
+    },
+    {
+      "id": "1ysl9v4",
+      "hanViet": "",
+      "japanese": "水道の蛇口をひねる",
+      "reading": "すいどうのじゃぐちをひねる",
+      "vietnamese": "vặn vòi nước (turn on a tap)",
+      "example": ""
+    },
+    {
+      "id": "0yiac07",
+      "hanViet": "",
+      "japanese": "水が凍る",
+      "reading": "みずがこおる",
+      "vietnamese": "nước đóng băng (water freezes)",
+      "example": ""
+    },
+    {
+      "id": "0a3zpqw",
+      "hanViet": "",
+      "japanese": "氷になる",
+      "reading": "こおりになる",
+      "vietnamese": "đóng thành đá (turn into ice)",
+      "example": ""
+    },
+    {
+      "id": "0jnoon3",
+      "hanViet": "",
+      "japanese": "冷凍して保存する",
+      "reading": "れいとうしてほぞんする",
+      "vietnamese": "cấp đông để bảo quản (freeze to store)",
+      "example": ""
+    },
+    {
+      "id": "0l695de",
+      "hanViet": "",
+      "japanese": "残り物を温める",
+      "reading": "のこりものをあたためる",
+      "vietnamese": "hâm nóng đồ ăn thừa (warm up leftover food in a microwave)",
+      "example": ""
+    },
+    {
+      "id": "0igve99",
+      "hanViet": "",
+      "japanese": "ビールを冷やす",
+      "reading": "ビールをひやす",
+      "vietnamese": "ướp lạnh bia (chill the beer)",
+      "example": ""
+    },
+    {
+      "id": "1vwhx5b",
+      "hanViet": "",
+      "japanese": "ビールが冷えている",
+      "reading": "ビールがひえている",
+      "vietnamese": "bia đang lạnh (the beer is chilled)",
+      "example": ""
+    },
+    {
+      "id": "1peauj5",
+      "hanViet": "",
+      "japanese": "エアコンのリモコン",
+      "reading": "",
+      "vietnamese": "điều khiển điều hoà (Remote Control for an Air Conditioner)",
+      "example": ""
+    },
+    {
+      "id": "1nyxvsc",
+      "hanViet": "",
+      "japanese": "スイッチ",
+      "reading": "",
+      "vietnamese": "công tắc (switch)",
+      "example": ""
+    },
+    {
+      "id": "0i0m0tm",
+      "hanViet": "",
+      "japanese": "電源を入れる",
+      "reading": "でんげんをいれる",
+      "vietnamese": "cắm điện/ bật nguồn (plug in)",
+      "example": ""
+    },
+    {
+      "id": "00l3l1a",
+      "hanViet": "",
+      "japanese": "電源を切る",
+      "reading": "でんげんをきる",
+      "vietnamese": "rút điện/ tắt nguồn (unplug)",
+      "example": ""
+    },
+    {
+      "id": "0cn1au6",
+      "hanViet": "",
+      "japanese": "じゅうたんを敷く",
+      "reading": "じゅうたんをしく",
+      "vietnamese": "trải thảm (carpet the floor)",
+      "example": ""
+    },
+    {
+      "id": "1ma6uuw",
+      "hanViet": "",
+      "japanese": "部屋を暖める",
+      "reading": "へやをあたためる",
+      "vietnamese": "làm ấm phòng (heat up the room)",
+      "example": ""
+    },
+    {
+      "id": "1gyplso",
+      "hanViet": "",
+      "japanese": "暖房をつける",
+      "reading": "だんぼうをつける",
+      "vietnamese": "bật sưởi (turn the heater on)",
+      "example": ""
+    },
+    {
+      "id": "00nswx1",
+      "hanViet": "",
+      "japanese": "冷房が効いている",
+      "reading": "れいぼうがきいている",
+      "vietnamese": "điều hoà mát tốt (be well air-conditioned)",
+      "example": ""
+    },
+    {
+      "id": "1dqma4o",
+      "hanViet": "",
+      "japanese": "日当たりがいい",
+      "reading": "ひあたりがいい",
+      "vietnamese": "nhiều nắng/ hướng nắng tốt (have good exposure to the sun)",
+      "example": ""
+    },
+    {
+      "id": "15qctu2",
+      "hanViet": "",
+      "japanese": "日当たりが悪い",
+      "reading": "ひあたりがわるい",
+      "vietnamese": "thiếu nắng/ hướng nắng kém (have poor exposure to the sun)",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

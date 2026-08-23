@@ -1,0 +1,214 @@
+{
+  "id": "soumatome-n3-5",
+  "lessonNumber": 5,
+  "level": "N3",
+  "name": "日本語総まとめ N3 — Bài 5 · Từ vựng",
+  "description": "Giặt giũ",
+  "kind": "vocabulary",
+  "itemCount": 25,
+  "words": [
+    {
+      "id": "05ffbxa",
+      "hanViet": "",
+      "japanese": "洗濯物",
+      "reading": "せんたくもの",
+      "vietnamese": "đồ giặt (laundry)",
+      "example": ""
+    },
+    {
+      "id": "1nl717s",
+      "hanViet": "",
+      "japanese": "洗濯物がたまる",
+      "reading": "せんたくものがたまる",
+      "vietnamese": "đồ giặt dồn đống ((laundry) piles up)",
+      "example": ""
+    },
+    {
+      "id": "0hp93fz",
+      "hanViet": "",
+      "japanese": "洗濯物をためる",
+      "reading": "せんたくものをためる",
+      "vietnamese": "để đồ giặt dồn lại (let it pile up)",
+      "example": ""
+    },
+    {
+      "id": "1xu4fmw",
+      "hanViet": "",
+      "japanese": "ぬれている",
+      "reading": "",
+      "vietnamese": "đang ướt (wet)",
+      "example": ""
+    },
+    {
+      "id": "0uo30eb",
+      "hanViet": "",
+      "japanese": "ぬらす",
+      "reading": "",
+      "vietnamese": "làm ướt (wet)",
+      "example": ""
+    },
+    {
+      "id": "1i1qrky",
+      "hanViet": "",
+      "japanese": "湿っている",
+      "reading": "しめっている",
+      "vietnamese": "còn ẩm (not dry)",
+      "example": ""
+    },
+    {
+      "id": "04fdg2q",
+      "hanViet": "",
+      "japanese": "乾く",
+      "reading": "かわく",
+      "vietnamese": "khô (dry)",
+      "example": ""
+    },
+    {
+      "id": "182xr7s",
+      "hanViet": "",
+      "japanese": "干す",
+      "reading": "ほす",
+      "vietnamese": "phơi (put it out for drying)",
+      "example": ""
+    },
+    {
+      "id": "0c9qtyg",
+      "hanViet": "",
+      "japanese": "乾燥機で乾かす",
+      "reading": "かんそうきでかわかす",
+      "vietnamese": "sấy bằng máy sấy (dry in the dryer)",
+      "example": ""
+    },
+    {
+      "id": "012zrg7",
+      "hanViet": "",
+      "japanese": "真っ白に仕上がる",
+      "reading": "まっしろにしあがる",
+      "vietnamese": "giặt ra trắng tinh (comes out pure white)",
+      "example": ""
+    },
+    {
+      "id": "18nixdr",
+      "hanViet": "",
+      "japanese": "たたむ",
+      "reading": "",
+      "vietnamese": "gấp (fold)",
+      "example": ""
+    },
+    {
+      "id": "0c8np61",
+      "hanViet": "",
+      "japanese": "服を汚す",
+      "reading": "ふくをよごす",
+      "vietnamese": "làm bẩn quần áo (get one's clothes dirty)",
+      "example": ""
+    },
+    {
+      "id": "0jq1woz",
+      "hanViet": "",
+      "japanese": "そでが真っ黒に汚れる",
+      "reading": "そでがまっくろによごれる",
+      "vietnamese": "tay áo bẩn đen sì (the cuffs have become very dirty)",
+      "example": ""
+    },
+    {
+      "id": "1r9xd31",
+      "hanViet": "",
+      "japanese": "汚れ",
+      "reading": "よごれ",
+      "vietnamese": "vết bẩn (dirt)",
+      "example": ""
+    },
+    {
+      "id": "06nko6a",
+      "hanViet": "",
+      "japanese": "洗剤を入れる",
+      "reading": "せんざいをいれる",
+      "vietnamese": "cho bột giặt (add detergent)",
+      "example": ""
+    },
+    {
+      "id": "18z1bag",
+      "hanViet": "",
+      "japanese": "台所用洗剤",
+      "reading": "だいどころようせんざい",
+      "vietnamese": "nước rửa bát (dish soap)",
+      "example": ""
+    },
+    {
+      "id": "0ycv89x",
+      "hanViet": "",
+      "japanese": "スーツをクリーニングに出す",
+      "reading": "スーツをクリーニングにだす",
+      "vietnamese": "mang vest đi giặt khô (send a suit to the dry cleaners)",
+      "example": ""
+    },
+    {
+      "id": "1rscyq5",
+      "hanViet": "",
+      "japanese": "コインランドリーで洗濯をする",
+      "reading": "コインランドリーでせんたくをする",
+      "vietnamese": "giặt ở tiệm giặt tự động (wash the laundry in a Laundromat)",
+      "example": ""
+    },
+    {
+      "id": "0uix854",
+      "hanViet": "",
+      "japanese": "タオルを干す",
+      "reading": "タオルをほす",
+      "vietnamese": "phơi khăn (dry a towel)",
+      "example": ""
+    },
+    {
+      "id": "0syuezu",
+      "hanViet": "",
+      "japanese": "服をつるす",
+      "reading": "ふくをつるす",
+      "vietnamese": "treo quần áo lên (hang an outfit)",
+      "example": ""
+    },
+    {
+      "id": "1ya6wkk",
+      "hanViet": "",
+      "japanese": "ワイシャツにアイロンをかける",
+      "reading": "",
+      "vietnamese": "là áo sơ mi (iron a shirt)",
+      "example": ""
+    },
+    {
+      "id": "010po6m",
+      "hanViet": "",
+      "japanese": "しわを伸ばす",
+      "reading": "しわをのばす",
+      "vietnamese": "vuốt phẳng nếp nhăn (take the creases out)",
+      "example": ""
+    },
+    {
+      "id": "1sgmauz",
+      "hanViet": "",
+      "japanese": "しわが伸びる",
+      "reading": "しわがのびる",
+      "vietnamese": "nếp nhăn đã phẳng (the creases have been smoothed out)",
+      "example": ""
+    },
+    {
+      "id": "1pg1iy0",
+      "hanViet": "",
+      "japanese": "ウールのセーターが縮む",
+      "reading": "ウールのセーターがちぢむ",
+      "vietnamese": "áo len bị co (the woolen sweater has shrunk)",
+      "example": ""
+    },
+    {
+      "id": "1tq20gd",
+      "hanViet": "",
+      "japanese": "ジーンズの色が落ちる",
+      "reading": "ジーンズのいろがおちる",
+      "vietnamese": "quần bò bị phai màu (a pair of jeans has faded)",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

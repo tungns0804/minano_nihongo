@@ -1,0 +1,302 @@
+{
+  "id": "soumatome-n3-3",
+  "lessonNumber": 3,
+  "level": "N3",
+  "name": "日本語総まとめ N3 — Bài 3 · Từ vựng",
+  "description": "Nấu ăn ②",
+  "kind": "vocabulary",
+  "itemCount": 36,
+  "words": [
+    {
+      "id": "10ltbeb",
+      "hanViet": "",
+      "japanese": "ふた",
+      "reading": "",
+      "vietnamese": "nắp (lid)",
+      "example": ""
+    },
+    {
+      "id": "05c9p5c",
+      "hanViet": "",
+      "japanese": "なべ",
+      "reading": "",
+      "vietnamese": "nồi (pot/pan)",
+      "example": ""
+    },
+    {
+      "id": "1p3n658",
+      "hanViet": "",
+      "japanese": "おたま",
+      "reading": "",
+      "vietnamese": "muôi/ vá (ladle)",
+      "example": ""
+    },
+    {
+      "id": "1h84y7v",
+      "hanViet": "",
+      "japanese": "フライパン",
+      "reading": "",
+      "vietnamese": "chảo (frying pan)",
+      "example": ""
+    },
+    {
+      "id": "1htmlyg",
+      "hanViet": "",
+      "japanese": "フライ返し",
+      "reading": "フライがえし",
+      "vietnamese": "sạn lật/ xẻng lật (spatula)",
+      "example": ""
+    },
+    {
+      "id": "14nuvoy",
+      "hanViet": "",
+      "japanese": "炊飯器",
+      "reading": "すいはんき",
+      "vietnamese": "nồi cơm điện (rice cooker)",
+      "example": ""
+    },
+    {
+      "id": "1qeuok3",
+      "hanViet": "",
+      "japanese": "しゃもじ",
+      "reading": "",
+      "vietnamese": "muôi xới cơm (rice paddle)",
+      "example": ""
+    },
+    {
+      "id": "12k5747",
+      "hanViet": "",
+      "japanese": "（お）湯を沸かす",
+      "reading": "ゆをわかす",
+      "vietnamese": "đun sôi nước (boil the water)",
+      "example": ""
+    },
+    {
+      "id": "1jmb5d4",
+      "hanViet": "",
+      "japanese": "（お）湯が沸く",
+      "reading": "ゆがわく",
+      "vietnamese": "nước sôi",
+      "example": ""
+    },
+    {
+      "id": "0xu00an",
+      "hanViet": "",
+      "japanese": "（お）湯を冷ます",
+      "reading": "ゆをさます",
+      "vietnamese": "để nguội nước nóng (let hot water cool)",
+      "example": ""
+    },
+    {
+      "id": "02xm8o6",
+      "hanViet": "",
+      "japanese": "（お）湯が冷める",
+      "reading": "ゆがさめる",
+      "vietnamese": "nước nguội đi",
+      "example": ""
+    },
+    {
+      "id": "1d4qlen",
+      "hanViet": "",
+      "japanese": "なべを火にかける",
+      "reading": "なべをひにかける",
+      "vietnamese": "bắc nồi lên bếp (put a pan on the stove)",
+      "example": ""
+    },
+    {
+      "id": "019b1qj",
+      "hanViet": "",
+      "japanese": "ご飯を炊く",
+      "reading": "ごはんをたく",
+      "vietnamese": "nấu cơm (cook rice)",
+      "example": ""
+    },
+    {
+      "id": "0norvbr",
+      "hanViet": "",
+      "japanese": "油を熱する",
+      "reading": "あぶらをねっする",
+      "vietnamese": "làm nóng dầu (heat the oil in the pan)",
+      "example": ""
+    },
+    {
+      "id": "0eeqsh2",
+      "hanViet": "",
+      "japanese": "油で揚げる",
+      "reading": "あぶらであげる",
+      "vietnamese": "chiên ngập dầu (deep fry)",
+      "example": ""
+    },
+    {
+      "id": "0ya9gdy",
+      "hanViet": "",
+      "japanese": "煮る",
+      "reading": "にる",
+      "vietnamese": "kho/ ninh (cook it in the sauce)",
+      "example": ""
+    },
+    {
+      "id": "1ciqgi5",
+      "hanViet": "",
+      "japanese": "ゆでる",
+      "reading": "",
+      "vietnamese": "luộc (boil)",
+      "example": ""
+    },
+    {
+      "id": "0zbcl0g",
+      "hanViet": "",
+      "japanese": "いためる",
+      "reading": "",
+      "vietnamese": "xào (stir fry)",
+      "example": ""
+    },
+    {
+      "id": "1hzxmeq",
+      "hanViet": "",
+      "japanese": "蒸す",
+      "reading": "むす",
+      "vietnamese": "hấp (steam)",
+      "example": ""
+    },
+    {
+      "id": "0y8sucb",
+      "hanViet": "",
+      "japanese": "水を切る",
+      "reading": "みずをきる",
+      "vietnamese": "để ráo nước (dry off)",
+      "example": ""
+    },
+    {
+      "id": "10hgpqh",
+      "hanViet": "",
+      "japanese": "混ぜる",
+      "reading": "まぜる",
+      "vietnamese": "trộn (mix)",
+      "example": ""
+    },
+    {
+      "id": "1teenwn",
+      "hanViet": "",
+      "japanese": "こげる",
+      "reading": "",
+      "vietnamese": "cháy khét (burn)",
+      "example": ""
+    },
+    {
+      "id": "1gwxg5g",
+      "hanViet": "",
+      "japanese": "ひっくり返す",
+      "reading": "ひっくりかえす",
+      "vietnamese": "lật lại (turn over)",
+      "example": ""
+    },
+    {
+      "id": "16rel17",
+      "hanViet": "",
+      "japanese": "裏返す",
+      "reading": "うらがえす",
+      "vietnamese": "lật mặt (turn over)",
+      "example": ""
+    },
+    {
+      "id": "08uf2yg",
+      "hanViet": "",
+      "japanese": "味をつける",
+      "reading": "あじをつける",
+      "vietnamese": "nêm nếm (season)",
+      "example": ""
+    },
+    {
+      "id": "1j1p4rh",
+      "hanViet": "",
+      "japanese": "塩を加える",
+      "reading": "しおをくわえる",
+      "vietnamese": "thêm muối (add salt)",
+      "example": ""
+    },
+    {
+      "id": "063s9ma",
+      "hanViet": "",
+      "japanese": "こしょうを振る",
+      "reading": "こしょうをふる",
+      "vietnamese": "rắc tiêu (sprinkle pepper)",
+      "example": ""
+    },
+    {
+      "id": "1uzmbgx",
+      "hanViet": "",
+      "japanese": "味見をする",
+      "reading": "あじみをする",
+      "vietnamese": "nếm thử (taste)",
+      "example": ""
+    },
+    {
+      "id": "0wsrame",
+      "hanViet": "",
+      "japanese": "味を見る",
+      "reading": "あじをみる",
+      "vietnamese": "nếm thử (taste)",
+      "example": ""
+    },
+    {
+      "id": "1l7p7ir",
+      "hanViet": "",
+      "japanese": "味が濃い",
+      "reading": "あじがこい",
+      "vietnamese": "đậm vị (it has a strong flavor)",
+      "example": ""
+    },
+    {
+      "id": "1fj7mpu",
+      "hanViet": "",
+      "japanese": "味が薄い",
+      "reading": "あじがうすい",
+      "vietnamese": "nhạt vị (it has a weak flavor)",
+      "example": ""
+    },
+    {
+      "id": "1yln9i9",
+      "hanViet": "",
+      "japanese": "からい",
+      "reading": "",
+      "vietnamese": "cay/ mặn (spicy, hot, salty)",
+      "example": ""
+    },
+    {
+      "id": "1bmz0sc",
+      "hanViet": "",
+      "japanese": "塩からい",
+      "reading": "しおからい",
+      "vietnamese": "mặn (salty)",
+      "example": ""
+    },
+    {
+      "id": "0n2l4ek",
+      "hanViet": "",
+      "japanese": "すっぱい",
+      "reading": "",
+      "vietnamese": "chua (sour)",
+      "example": ""
+    },
+    {
+      "id": "1vlwq3k",
+      "hanViet": "",
+      "japanese": "できあがる",
+      "reading": "",
+      "vietnamese": "hoàn thành (be completed)",
+      "example": ""
+    },
+    {
+      "id": "1x9xhrd",
+      "hanViet": "",
+      "japanese": "できあがり",
+      "reading": "",
+      "vietnamese": "vừa xong (Just completed)",
+      "example": ""
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

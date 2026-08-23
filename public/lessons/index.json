@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T17:07:44.242Z",
+  "generatedAt": "2026-08-23T17:51:08.335Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -728,6 +728,66 @@
       "kind": "verb",
       "itemCount": 23,
       "file": "dong-tu-dac-biet.json"
+    },
+    {
+      "id": "soumatome-n3-1",
+      "name": "日本語総まとめ N3 — Bài 1 · Từ vựng",
+      "description": "Trong bếp / phòng khách",
+      "kind": "vocabulary",
+      "itemCount": 43,
+      "lessonNumber": 1,
+      "level": "N3",
+      "file": "soumatome-n3-1.json"
+    },
+    {
+      "id": "soumatome-n3-2",
+      "name": "日本語総まとめ N3 — Bài 2 · Từ vựng",
+      "description": "Nấu ăn ①",
+      "kind": "vocabulary",
+      "itemCount": 34,
+      "lessonNumber": 2,
+      "level": "N3",
+      "file": "soumatome-n3-2.json"
+    },
+    {
+      "id": "soumatome-n3-3",
+      "name": "日本語総まとめ N3 — Bài 3 · Từ vựng",
+      "description": "Nấu ăn ②",
+      "kind": "vocabulary",
+      "itemCount": 36,
+      "lessonNumber": 3,
+      "level": "N3",
+      "file": "soumatome-n3-3.json"
+    },
+    {
+      "id": "soumatome-n3-4",
+      "name": "日本語総まとめ N3 — Bài 4 · Từ vựng",
+      "description": "Dọn dẹp",
+      "kind": "vocabulary",
+      "itemCount": 37,
+      "lessonNumber": 4,
+      "level": "N3",
+      "file": "soumatome-n3-4.json"
+    },
+    {
+      "id": "soumatome-n3-5",
+      "name": "日本語総まとめ N3 — Bài 5 · Từ vựng",
+      "description": "Giặt giũ",
+      "kind": "vocabulary",
+      "itemCount": 25,
+      "lessonNumber": 5,
+      "level": "N3",
+      "file": "soumatome-n3-5.json"
+    },
+    {
+      "id": "soumatome-n3-6",
+      "name": "日本語総まとめ N3 — Bài 6 · Từ vựng",
+      "description": "Chăm con và thú cưng",
+      "kind": "vocabulary",
+      "itemCount": 40,
+      "lessonNumber": 6,
+      "level": "N3",
+      "file": "soumatome-n3-6.json"
     }
   ]
 }
