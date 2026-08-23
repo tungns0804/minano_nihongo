@@ -83,57 +83,59 @@
   font-size: 0.94rem;
 }
 
-/* Các bề rộng tối thiểu dưới đây CHỈ dành cho màn hình từ 641px trở lên. Dưới ngưỡng
-   đó bảng không còn là bảng nữa mà đổi thành thẻ xếp dọc (xem cuối file), nên nếu để
-   min-width áp dụng luôn cho điện thoại thì thẻ sẽ rộng 1120px và tràn ra ngoài. */
+/* Bảng chia động từ: 9 cột, riêng bảng này vẫn cuộn ngang khi cửa sổ hẹp.
+
+   min-width chỉ đặt từ 641px trở lên: dưới ngưỡng đó bảng không còn là bảng nữa mà
+   đổi thành thẻ xếp dọc (xem cuối file), để min-width áp cho cả điện thoại thì thẻ
+   sẽ rộng 1000px và tràn ra ngoài màn hình. */
 @media (min-width: 641px) {
-  /* Bảng từ vựng: 4 cột, +1 khi bài có cách đọc, +1 nữa khi có câu ví dụ */
-  .word-table:not(.verb-table) {
-    min-width: 676px;
-  }
-
-  /* Có cột ví dụ thì nới bảng ra và cho cuộn ngang, vì câu ví dụ khá dài. */
-  .word-table.has-example {
-    min-width: 976px;
-  }
-
-  .word-table.has-reading {
-    min-width: 856px;
-  }
-
-  .word-table.has-reading.has-example {
-    min-width: 1156px;
-  }
-
-  /* Bảng chia động từ: 9 cột, rộng nên cho cuộn ngang khi màn hình hẹp */
   .verb-table {
     min-width: 1000px;
   }
 }
 
+/* Bề rộng cột bảng từ vựng tính bằng PHẦN TRĂM, và bảng KHÔNG đặt min-width: cột co
+   theo khung chứa nên bảng luôn vừa bề ngang, không đẻ ra thanh cuộn ngang ở bất kỳ
+   khổ màn hình nào. Trước đây bốn biến thể đặt min-width 676–1156px, riêng biến thể
+   đủ cả cách đọc lẫn câu ví dụ đã rộng hơn cả khung trang, nên luôn kèm thanh cuộn.
+
+   Cột ★ giữ nguyên 44px vì nó chứa một cái nút chứ không phải chữ: co theo phần trăm
+   thì tới khổ hẹp nút sẽ nhỏ hơn ngưỡng bấm được.
+
+   Cột CUỐI của mỗi biến thể cố tình không khai báo bề rộng — table-layout: fixed dồn
+   toàn bộ chỗ thừa cho nó, nên các phần trăm bên trên không cần cộng tròn 100%.
+
+   Các con số phần trăm quy từ bề rộng pixel cũ chia cho bề rộng bảng THẬT SỰ hiển thị
+   (1040px = khung 1080 trừ hai lớp lề), không phải chia cho min-width. Chia nhầm cho
+   min-width thì mấy bài ít cột sẽ ra cột Âm Hán Việt rộng gấp rưỡi mức cần, còn cột
+   Nghĩa thì hụt — vì trước đây các bài đó không hề tràn, cột cuối đang nuốt hết chỗ
+   thừa của bảng.
+
+   Bốn nhóm dưới đây có cùng độ ưu tiên (:not(.verb-table) tính bằng một lớp), nên thứ
+   tự viết chính là thứ tự thắng thua — nhóm sau đè nhóm trước. Đừng đảo chỗ chúng. */
+
+/* 4 cột: ★ | Âm Hán Việt | Tiếng Nhật | Nghĩa */
 .word-table:not(.verb-table) th:nth-child(1) { width: 44px; }
-.word-table:not(.verb-table) th:nth-child(2) { width: 190px; }
-.word-table:not(.verb-table) th:nth-child(3) { width: 246px; }
+.word-table:not(.verb-table) th:nth-child(2) { width: 18%; }
+.word-table:not(.verb-table) th:nth-child(3) { width: 24%; }
 
-.word-table.has-example th:nth-child(2) { width: 170px; }
-.word-table.has-example th:nth-child(3) { width: 216px; }
-.word-table.has-example th:nth-child(4) { width: 210px; }
+/* + cột Câu ví dụ ở cuối */
+.word-table.has-example th:nth-child(2) { width: 16%; }
+.word-table.has-example th:nth-child(3) { width: 21%; }
+.word-table.has-example th:nth-child(4) { width: 20%; }
 
-/* Có thêm cột ví dụ thì cột Hán Việt hẹp lại, phải cho xuống dòng — bảng dùng
-   table-layout: fixed nên chữ nowrap sẽ tràn đè sang ô bên cạnh. */
-.word-table.has-example .col-han {
-  white-space: normal;
-}
+/* + cột Cách đọc, chèn vào GIỮA Tiếng Nhật và Nghĩa. Phải khai báo lại cả cột 2 và 3
+   chứ không chỉ cột mới: cột này có hoặc không tuỳ bài nên không thể sửa số thứ tự ở
+   nhóm trên, mà tỉ lệ các cột cũng phải hẹp lại để chừa chỗ cho nó. */
+.word-table.has-reading th:nth-child(2) { width: 18%; }
+.word-table.has-reading th:nth-child(3) { width: 23.5%; }
+.word-table.has-reading th:nth-child(4) { width: 16%; }
 
-/* Cột cách đọc chèn vào GIỮA Tiếng Nhật và Nghĩa, nên mọi quy tắc nth-child ở
-   trên bị đẩy đi một cột. Phải khai báo lại thay vì sửa số thứ tự, vì cột này
-   có thể có hoặc không tuỳ bài. Bộ chọn ghép hai lớp nên thắng về độ ưu tiên. */
-.word-table.has-reading th:nth-child(4) { width: 170px; }
-
-.word-table.has-reading.has-example th:nth-child(2) { width: 150px; }
-.word-table.has-reading.has-example th:nth-child(3) { width: 201px; }
-.word-table.has-reading.has-example th:nth-child(4) { width: 165px; }
-.word-table.has-reading.has-example th:nth-child(5) { width: 200px; }
+/* Đủ cả sáu cột — trường hợp chật nhất, cũng là trường hợp trước đây phải cuộn. */
+.word-table.has-reading.has-example th:nth-child(2) { width: 13%; }
+.word-table.has-reading.has-example th:nth-child(3) { width: 17.5%; }
+.word-table.has-reading.has-example th:nth-child(4) { width: 14%; }
+.word-table.has-reading.has-example th:nth-child(5) { width: 17.5%; }
 
 /* Cùng kiểu chữ với cột tiếng Nhật nhưng nhạt hơn — đây là thông tin phụ trợ,
    không nên hút mắt hơn chính từ đang học. */
@@ -290,7 +292,6 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-muted);
-  white-space: nowrap;
 }
 
 .word-table td {
@@ -326,15 +327,17 @@
   text-align: center;
 }
 
+/* Không khoá nowrap ở ba chỗ này (tiêu đề cột, âm Hán Việt, tiếng Nhật): cột đã co
+   theo khung nên ở cửa sổ hẹp chữ dài phải được xuống dòng. Bảng dùng
+   table-layout: fixed — chữ nowrap không làm cột rộng ra, nó tràn đè sang ô bên
+   cạnh, đúng thứ trông như lỗi hiển thị. */
 .col-han {
   font-weight: 600;
-  white-space: nowrap;
   color: var(--text-muted);
 }
 
 .col-jp {
   font-size: 1.08rem;
-  white-space: nowrap;
 }
 
 /* --- Bảng chia động từ --- */
@@ -561,14 +564,11 @@
     font-size: 0.76rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    /* Hết dạng bảng thì không sợ tràn sang ô bên cạnh nữa, cho xuống dòng thoải mái. */
-    white-space: normal;
   }
 
   .word-table .col-jp {
     font-size: 1.3rem;
     line-height: 1.4;
-    white-space: normal;
   }
 
   /* Cùng lý do với ngôi sao: ngón tay cần vùng bấm rộng hơn con trỏ chuột. */
