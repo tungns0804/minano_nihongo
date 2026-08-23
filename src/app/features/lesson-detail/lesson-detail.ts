@@ -36,6 +36,7 @@ import {
   VerbEntry,
   VocabularyWord,
 } from '../../core/models/vocabulary.model';
+import { batchCount, batchRange } from '../../core/practice/batch';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
 import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
@@ -90,6 +91,11 @@ export class LessonDetail {
   readonly shuffleQuestions = signal(true);
   readonly ignoreDiacritics = signal(false);
   readonly questionLimit = signal<number | null>(null);
+  /**
+   * Cụm đang chọn, chưa kiểm tra còn hợp lệ hay không — đọc qua `batchIndex`.
+   * null = không học theo cụm (trộn cả bài rồi lấy N câu, như trước giờ).
+   */
+  private readonly pickedBatch = signal<number | null>(null);
   // Riêng bài từ vựng
   readonly direction = signal<PracticeDirection>('jp-vi');
   // Riêng bài động từ
@@ -270,30 +276,64 @@ export class LessonDetail {
   });
 
   /**
-   * Số câu sẽ luyện. Bài động từ sinh một câu cho mỗi cặp (động từ × thể) nên số
-   * câu bằng số động từ nhân số thể đang chọn.
+   * Tổng số câu của phạm vi đang chọn, trước khi cắt. Bài động từ sinh một câu
+   * cho mỗi cặp (động từ × thể) nên số câu bằng số động từ nhân số thể đang chọn.
    */
-  readonly plannedQuestionCount = computed(() => {
-    const size = this.poolSize();
+  readonly totalQuestionCount = computed(() => {
     const perItem =
       this.isVerbLesson() && this.currentVerbMode().needsForms
         ? Math.max(1, this.selectedForms().length)
         : 1;
-    const total = size * perItem;
+    return this.poolSize() * perItem;
+  });
+
+  /**
+   * Bài này chia được thành mấy cụm theo số câu đang chọn. 0 khi chưa chọn số
+   * câu — lúc đó luyện cả bài một lượt, không có cụm nào.
+   */
+  readonly batchTotal = computed(() =>
+    batchCount(this.totalQuestionCount(), this.questionLimit()),
+  );
+
+  /**
+   * Cụm đang chọn, đã kiểm tra còn tồn tại.
+   *
+   * Đổi phạm vi hay đổi chiều luyện làm số câu co lại, nên cụm 5 chọn lúc trước
+   * có thể không còn. Lọc ở đây thay vì rải lệnh reset khắp các hàm `set*`: quên
+   * một chỗ là người dùng bấm "Bắt đầu" và nhận về một phiên rỗng.
+   */
+  readonly batchIndex = computed<number | null>(() => {
+    const picked = this.pickedBatch();
+    return picked !== null && picked < this.batchTotal() ? picked : null;
+  });
+
+  /** Các cụm để bày ra chọn, kèm khoảng thứ tự hiện cho người học. */
+  readonly batchOptions = computed(() => {
     const limit = this.questionLimit();
-    return limit === null ? total : Math.min(limit, total);
+    const total = this.totalQuestionCount();
+    if (limit === null) return [];
+    return Array.from({ length: this.batchTotal() }, (_, index) => ({
+      index,
+      ...batchRange(total, limit, index),
+    }));
+  });
+
+  /** Số câu sẽ luyện của phiên sắp bắt đầu. */
+  readonly plannedQuestionCount = computed(() => {
+    const total = this.totalQuestionCount();
+    const limit = this.questionLimit();
+    if (limit === null) return total;
+
+    // Cụm cuối thường ngắn hơn các cụm trước (bài 34 từ, cụm 10 → cụm 4 có 4 câu).
+    const batch = this.batchIndex();
+    return batch === null ? Math.min(limit, total) : Math.min(limit, total - batch * limit);
   });
 
   readonly canStart = computed(() => this.plannedQuestionCount() > 0);
 
-  readonly limitChoices = computed(() => {
-    const size = this.poolSize();
-    const perItem =
-      this.isVerbLesson() && this.currentVerbMode().needsForms
-        ? Math.max(1, this.selectedForms().length)
-        : 1;
-    return LIMIT_CHOICES.filter((limit) => limit < size * perItem);
-  });
+  readonly limitChoices = computed(() =>
+    LIMIT_CHOICES.filter((limit) => limit < this.totalQuestionCount()),
+  );
 
   readonly filteredWords = computed<VocabularyWord[]>(() => {
     const base = this.onlyFavorites()
@@ -367,6 +407,7 @@ export class LessonDetail {
     this.onlyFavorites.set(false);
     this.scope.set('all');
     this.questionLimit.set(null);
+    this.pickedBatch.set(null);
     this.verbMode.set('masu-to-form');
     this.selectedForms.set(['te']);
   }
@@ -420,6 +461,13 @@ export class LessonDetail {
 
   setQuestionLimit(limit: number | null): void {
     this.questionLimit.set(limit);
+    // Cụm 3 của "10 câu" không phải cụm 3 của "20 câu" — đổi số câu là chia lại
+    // bài, nên quay về đầu thay vì giữ một con số nay mang nghĩa khác.
+    this.pickedBatch.set(null);
+  }
+
+  setBatchIndex(index: number | null): void {
+    this.pickedBatch.set(index);
   }
 
   setVerbMode(mode: VerbPracticeMode): void {
@@ -533,6 +581,7 @@ export class LessonDetail {
       // Một câu thì không có gì để trộn, và cắt còn 10 câu lại càng vô nghĩa.
       shuffle: false,
       questionLimit: null,
+      batchIndex: null,
     });
 
     this.launch(lesson, config, { kind: 'conversation', lines: [line] });
@@ -555,6 +604,7 @@ export class LessonDetail {
       // ở một bài khác trước đó.
       answerMode: this.answerModeLocked() ? 'typing' : this.answerMode(),
       questionLimit: this.questionLimit(),
+      batchIndex: this.batchIndex(),
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
@@ -575,8 +625,8 @@ export class LessonDetail {
   }
 
   private launch(lesson: Lesson, config: PracticeConfig, pool: PracticePool): void {
-    const questions = buildQuestions(lesson, pool, config);
-    if (this.session.start({ id: lesson.id, name: lesson.name }, config, questions)) {
+    const plan = buildQuestions(lesson, pool, config);
+    if (this.session.start({ id: lesson.id, name: lesson.name }, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

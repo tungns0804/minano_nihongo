@@ -8,7 +8,10 @@ import {
   QuestionStatus,
   SessionSummary,
 } from '../models/practice.model';
+import { batchCount, sliceBatch } from '../practice/batch';
+import type { PracticePlan } from '../practice/build-questions';
 import { isAnswerCorrect } from '../utils/answer-check';
+import { shuffle } from '../utils/random';
 
 export type NextOutcome = 'moved' | 'finished' | 'blocked';
 
@@ -33,6 +36,7 @@ export class PracticeSessionStore {
   private readonly lessonRef = signal<SessionLesson | null>(null);
   private readonly configRef = signal<PracticeConfig | null>(null);
   private readonly questionList = signal<PracticeQuestion[]>([]);
+  private readonly planList = signal<readonly PracticeQuestion[]>([]);
   private readonly stateList = signal<QuestionState[]>([]);
   private readonly indexRef = signal(0);
   private readonly finishedRef = signal(false);
@@ -44,6 +48,8 @@ export class PracticeSessionStore {
   readonly questions = this.questionList.asReadonly();
   readonly index = this.indexRef.asReadonly();
   readonly summary = this.summaryRef.asReadonly();
+  /** Toàn bộ câu hỏi của bài đang luyện, nguyên thứ tự — nguồn cắt các cụm. */
+  readonly plan = this.planList.asReadonly();
 
   readonly total = computed(() => this.questionList().length);
   readonly current = computed<PracticeQuestion | null>(
@@ -64,20 +70,37 @@ export class PracticeSessionStore {
   );
   readonly isLastQuestion = computed(() => this.indexRef() >= this.total() - 1);
 
+  /** Bài đang luyện có bao nhiêu cụm; 0 khi phiên này không học theo cụm. */
+  readonly batchTotal = computed(() => {
+    const config = this.configRef();
+    if (!config || config.batchIndex === null) return 0;
+    return batchCount(this.planList().length, config.questionLimit);
+  });
+
+  /**
+   * Cụm kế tiếp còn học được (đếm từ 0), null khi đã hết bài hoặc phiên này
+   * không học theo cụm. Màn hình kết quả đọc đúng cái này để quyết định có mời
+   * học tiếp hay không.
+   */
+  readonly nextBatchIndex = computed<number | null>(() => {
+    const config = this.configRef();
+    if (!config || config.batchIndex === null) return null;
+    const next = config.batchIndex + 1;
+    return next < this.batchTotal() ? next : null;
+  });
+
   /**
    * Bắt đầu một phiên mới.
    * @returns false nếu không dựng được câu hỏi nào.
    */
-  start(
-    lesson: SessionLesson,
-    config: PracticeConfig,
-    questions: readonly PracticeQuestion[],
-  ): boolean {
+  start(lesson: SessionLesson, config: PracticeConfig, plan: PracticePlan): boolean {
+    const questions = plan.questions;
     if (questions.length === 0) return false;
 
     this.lessonRef.set(lesson);
     this.configRef.set(config);
     this.questionList.set([...questions]);
+    this.planList.set(plan.all);
     this.stateList.set(questions.map(() => ({ status: 'pending', wrongAttempts: 0, attempts: [] })));
     this.indexRef.set(0);
     this.finishedRef.set(false);
@@ -150,6 +173,41 @@ export class PracticeSessionStore {
     return 'finished';
   }
 
+  /**
+   * Luyện lại một tập câu của chính phiên vừa xong (các câu sai, hoặc toàn bộ).
+   *
+   * Giữ nguyên bài, thiết lập và kế hoạch cụm: luyện lại mấy câu sai xong thì
+   * lời mời "học tiếp cụm sau" vẫn phải còn đó, chứ không phải làm lại một lượt
+   * là mất luôn mạch học.
+   */
+  restart(questions: readonly PracticeQuestion[]): boolean {
+    const lesson = this.lessonRef();
+    const config = this.configRef();
+    if (!lesson || !config) return false;
+
+    return this.start(lesson, config, { questions: [...questions], all: this.planList() });
+  }
+
+  /**
+   * Bắt đầu cụm kế tiếp: cắt tiếp từ kế hoạch đang giữ, không dựng lại câu hỏi.
+   *
+   * @returns false khi đã học hết bài hoặc phiên này không học theo cụm.
+   */
+  startNextBatch(): boolean {
+    const lesson = this.lessonRef();
+    const config = this.configRef();
+    const next = this.nextBatchIndex();
+    if (!lesson || !config || next === null || config.questionLimit === null) return false;
+
+    const all = this.planList();
+    const batch = sliceBatch(all, config.questionLimit, next);
+    return this.start(
+      lesson,
+      { ...config, batchIndex: next },
+      { questions: config.shuffle ? shuffle(batch) : batch, all },
+    );
+  }
+
   /** Bỏ dở giữa chừng: xoá sạch phiên, không tính kết quả. */
   abandon(): void {
     this.reset();
@@ -204,6 +262,7 @@ export class PracticeSessionStore {
     this.lessonRef.set(null);
     this.configRef.set(null);
     this.questionList.set([]);
+    this.planList.set([]);
     this.stateList.set([]);
     this.indexRef.set(0);
     this.finishedRef.set(false);

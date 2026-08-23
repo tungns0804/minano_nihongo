@@ -202,6 +202,14 @@ export const MESSAGES = {
   'lesson.questionCount': { vi: 'Số câu', ja: '問題数' },
   'lesson.questionCount.n': { vi: '{count} câu', ja: '{count}問' },
 
+  'lesson.batch': { vi: 'Học theo cụm', ja: 'まとまりで学習' },
+  'lesson.batch.random': { vi: 'Ngẫu nhiên cả bài', ja: 'レッスン全体からランダム' },
+  'lesson.batch.n': { vi: 'Cụm {index} · {from}–{to}', ja: '第{index}組 · {from}–{to}' },
+  'lesson.batch.hint': {
+    vi: 'Học lần lượt từng cụm theo đúng thứ tự trong bài. Xong một cụm sẽ được mời học tiếp cụm sau, cho tới khi hết bài — khác với “Ngẫu nhiên cả bài” là lần nào cũng bốc lại từ đầu.',
+    ja: 'レッスンの順番どおりに一組ずつ学習します。一組終えると次の組へ進むよう案内され、最後まで続きます。「レッスン全体からランダム」は毎回すべてから選び直します。',
+  },
+
   'lesson.options': { vi: 'Tuỳ chọn', ja: 'オプション' },
   'lesson.option.showMeaning': {
     vi: 'Hiện nghĩa tiếng Việt kèm câu hỏi',
@@ -743,6 +751,7 @@ export const MESSAGES = {
 
   // ── Màn hình luyện tập ─────────────────────────────────────────────────
   'practice.progress': { vi: 'Câu {current}/{total}', ja: '{current}/{total}問' },
+  'practice.batch': { vi: 'Cụm {index}/{total}', ja: '第{index}/{total}組' },
   'practice.correctSoFar': { vi: 'Đúng {count}', ja: '正解{count}' },
   'practice.quit': { vi: 'Thoát', ja: '中断' },
   'practice.progressAria': {
@@ -824,6 +833,19 @@ export const MESSAGES = {
   'result.retryWrong': { vi: 'Luyện lại {count} câu sai', ja: '誤答{count}問をやり直す' },
   'result.markWrong': { vi: '★ Đánh dấu mục sai là chưa nhớ', ja: '★ 誤答した項目を未習得にする' },
   'result.retryAll': { vi: 'Làm lại toàn bộ', ja: 'すべてやり直す' },
+  'result.batch': { vi: 'Cụm {index}/{total}', ja: '第{index}/{total}組' },
+  'result.nextBatch': {
+    vi: '→ Học tiếp cụm {index} ({from}–{to})',
+    ja: '→ 第{index}組（{from}–{to}）へ進む',
+  },
+  'result.nextBatchHint': {
+    vi: 'Xong cụm này rồi. Học tiếp cụm sau để sang phần chưa gặp, vẫn giữ nguyên thiết lập vừa dùng.',
+    ja: 'この組は終了です。同じ設定のまま、次の組で未習の内容に進みましょう。',
+  },
+  'result.batchAllDone': {
+    vi: 'Bạn đã đi hết {count} câu của bài này theo cụm. 🎉',
+    ja: 'このレッスンの{count}問をすべて学習し終えました。🎉',
+  },
   'result.backToLesson': { vi: 'Về bài học', ja: 'レッスンへ戻る' },
   'result.home': { vi: 'Trang chủ', ja: 'ホーム' },
   'result.markedNotice': {

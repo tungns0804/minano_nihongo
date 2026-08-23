@@ -7,6 +7,7 @@ import {
   VocabularyWord,
 } from '../models/vocabulary.model';
 import { shuffle } from '../utils/random';
+import { sliceBatch } from './batch';
 import { buildConversationQuestions } from './conversation-questions';
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildVerbQuestions } from './verb-questions';
@@ -23,6 +24,19 @@ export type PracticePool =
   | { kind: 'grammar'; examples: readonly GrammarExampleRef[] };
 
 /**
+ * Một phiên đã dựng xong.
+ *
+ * Phiên chỉ chạy `questions` (đã trộn, đã cắt), nhưng vẫn phải giữ `all` —
+ * TOÀN BỘ câu hỏi của phạm vi đang chọn, nguyên thứ tự trong bài — thì mới cắt
+ * được cụm kế tiếp lúc người học xong cụm này. Dựng lại từ đầu ở màn hình kết
+ * quả thì không được: màn hình đó không còn giữ bài học lẫn tập mục nào cả.
+ */
+export interface PracticePlan {
+  questions: PracticeQuestion[];
+  all: readonly PracticeQuestion[];
+}
+
+/**
  * Dựng danh sách câu hỏi cho một phiên luyện tập, rồi trộn và cắt theo thiết lập.
  *
  * Trộn và cắt làm ở đây (sau khi đã sinh) chứ không làm trên danh sách mục, vì
@@ -33,7 +47,7 @@ export function buildQuestions(
   lesson: Lesson,
   pool: PracticePool,
   config: PracticeConfig,
-): PracticeQuestion[] {
+): PracticePlan {
   // switch trên `pool.kind` chứ không phải chuỗi ternary: thêm loại bài mới mà quên
   // xử lý thì TypeScript báo lỗi ngay ở đây thay vì âm thầm rơi vào nhánh từ vựng.
   let questions: PracticeQuestion[];
@@ -65,12 +79,21 @@ export function buildQuestions(
 export function orderQuestions(
   questions: readonly PracticeQuestion[],
   config: PracticeConfig,
-): PracticeQuestion[] {
-  const ordered = config.shuffle ? shuffle(questions) : [...questions];
+): PracticePlan {
+  const all = [...questions];
+  const limit = config.questionLimit;
+  const hasLimit = limit !== null && limit > 0;
 
-  return config.questionLimit !== null && config.questionLimit > 0
-    ? ordered.slice(0, config.questionLimit)
-    : ordered;
+  // Học theo cụm: cắt theo thứ tự gốc TRƯỚC rồi mới trộn bên trong cụm. Làm
+  // ngược lại (trộn cả bài rồi cắt, như phiên thường ngay bên dưới) thì cụm 2
+  // lại gặp đúng những từ của cụm 1 — hỏng hẳn ý "học tiếp 10 từ mới".
+  if (hasLimit && config.batchIndex !== null) {
+    const batch = sliceBatch(all, limit, config.batchIndex);
+    return { questions: config.shuffle ? shuffle(batch) : batch, all };
+  }
+
+  const ordered = config.shuffle ? shuffle(all) : [...all];
+  return { questions: hasLimit ? ordered.slice(0, limit) : ordered, all };
 }
 
 /**

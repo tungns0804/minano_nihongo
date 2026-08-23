@@ -209,6 +209,8 @@ export class KanjiList {
       // Khu Kanji không có trắc nghiệm, xem `kanji.typingOnly`.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
+      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
+      batchIndex: null,
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
@@ -227,9 +229,9 @@ export class KanjiList {
       radicalMode: 'radical-hanviet',
     };
 
-    const questions = orderQuestions(buildKanjiHanVietQuestions(this.pool(), config), config);
+    const plan = orderQuestions(buildKanjiHanVietQuestions(this.pool(), config), config);
     const lesson = { id: KANJI_SESSION_ID, name: this.lang.t('kanji.practiceHanViet') };
-    if (this.session.start(lesson, config, questions)) {
+    if (this.session.start(lesson, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

@@ -387,6 +387,8 @@ export class ExerciseDetail {
       // Bài tập không có trắc nghiệm, xem `exercise.typingOnly`.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
+      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
+      batchIndex: null,
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       // Đáp án luôn là tiếng Nhật nên tuỳ chọn bỏ dấu tiếng Việt không có việc gì làm.
@@ -405,14 +407,14 @@ export class ExerciseDetail {
       radicalMode: 'radical-hanviet',
     };
 
-    const questions = orderQuestions(
+    const plan = orderQuestions(
       this.isTransitivity()
         ? buildTransitivityQuestions(this.poolPairs(), config)
         : buildVerbFormQuestions(this.poolVerbs(), config),
       config,
     );
 
-    if (this.session.start({ id: info.id, name: this.lang.t(info.nameKey) }, config, questions)) {
+    if (this.session.start({ id: info.id, name: this.lang.t(info.nameKey) }, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

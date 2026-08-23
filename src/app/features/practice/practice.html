@@ -7,6 +7,9 @@
           {{ t('practice.progress', { current: questionNumber(), total: total() }) }}
         </span>
         <span class="badge badge-success">{{ t('practice.correctSoFar', { count: correctSoFar() }) }}</span>
+        @if (batchLabel()) {
+          <span class="badge">{{ batchLabel() }}</span>
+        }
         <span class="badge">{{ modeLabel() }}</span>
         <span class="spacer"></span>
         <button type="button" class="btn btn-sm btn-ghost" (click)="quit()">{{ t('practice.quit') }}</button>

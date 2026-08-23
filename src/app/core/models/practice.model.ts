@@ -180,6 +180,14 @@ export interface PracticeConfig {
   answerMode: AnswerMode;
   /** null = luyện toàn bộ mục trong phạm vi đã chọn. */
   questionLimit: number | null;
+  /**
+   * Cụm đang học (đếm từ 0), chỉ có nghĩa khi `questionLimit` khác null.
+   *
+   *  - null : cách cũ — trộn cả phạm vi rồi lấy `questionLimit` câu đầu.
+   *  - 0,1… : học theo cụm — lấy đúng cụm thứ N theo THỨ TỰ TRONG BÀI, nhờ vậy
+   *           xong cụm này là sang từ mới chứ không gặp lại từ vừa học.
+   */
+  batchIndex: number | null;
   shuffle: boolean;
   maxWrongAttempts: number;
   /** Bỏ qua dấu tiếng Việt khi so khớp (chỉ áp dụng cho chế độ gõ đáp án). */

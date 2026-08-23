@@ -489,6 +489,26 @@ phải chia được, không có id nào trùng.
 - Giới hạn số câu (10 / 20 / 30 / 50 / tất cả).
 - Bỏ qua dấu tiếng Việt khi chấm (chỉ áp dụng cho chế độ gõ).
 
+**Học theo cụm — 10 / 20 / 30 từ mới mỗi lượt**
+
+Chọn số câu xong sẽ hiện thêm hàng **“Học theo cụm”**: bài 34 từ chọn 10 câu thì chia thành
+**Cụm 1 · 1–10**, **Cụm 2 · 11–20**, **Cụm 3 · 21–30**, **Cụm 4 · 31–34**.
+
+- Mỗi cụm là một khúc liền nhau theo **đúng thứ tự trong bài**, nên xong cụm này là chắc chắn
+  sang từ chưa gặp. Thứ tự chỉ trộn *bên trong* cụm, không lôi từ của cụm khác vào.
+- Học xong một cụm, màn hình kết quả mời **“→ Học tiếp cụm 2 (11–20)”** ngay ở nút đầu tiên,
+  giữ nguyên mọi thiết lập vừa dùng. Bấm tiếp cho tới cụm cuối thì đổi thành lời chúc mừng
+  đã đi hết bài.
+- Luyện lại câu sai giữa chừng không làm mất mạch: xong lượt luyện lại, lời mời học tiếp cụm
+  sau vẫn còn đó.
+- Thanh tiến độ lúc làm bài và huy hiệu ở màn hình kết quả đều hiện **“Cụm 2/4”** để biết mình
+  đang ở đâu trong bài.
+- Vẫn giữ nguyên lựa chọn cũ: **“Ngẫu nhiên cả bài”** là cách chọn mặc định, bốc N câu bất kỳ
+  trong toàn bài như trước giờ.
+
+Cụm nằm trong một lần mở app, không lưu lại giữa các phiên (giống mọi thứ khác ngoài ★ Chưa nhớ).
+Mở lại bài thì chọn thẳng cụm muốn học tiếp ở hàng “Học theo cụm”.
+
 **Phát âm chuẩn (bài từ vựng)**
 
 Mỗi từ trong bảng từ vựng có một nút loa 🔊 ngay cạnh từ. Bấm là nghe đọc, bấm lại là dừng; bấm
@@ -724,6 +744,7 @@ src/app/
       radical-entries.ts         Dựng danh sách bộ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     practice/
+      batch.ts                   Chia phạm vi thành từng cụm liền nhau (học theo cụm)
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
       vocabulary-questions.ts    Câu hỏi cho bài từ vựng
       verb-questions.ts          Câu hỏi cho bài động từ + đáp án nhiễu

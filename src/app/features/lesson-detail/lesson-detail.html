@@ -207,6 +207,36 @@
             </div>
           </div>
 
+          <!-- Chỉ có nghĩa khi đã chọn số câu và bài đủ dài để chia hơn một cụm. -->
+          @if (batchTotal() > 1) {
+            <div class="field">
+              <span class="label">{{ t('lesson.batch') }}</span>
+              <div class="options options-limit">
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="batchIndex() === null"
+                  (click)="setBatchIndex(null)"
+                >
+                  {{ t('lesson.batch.random') }}
+                </button>
+                @for (item of batchOptions(); track item.index) {
+                  <button
+                    type="button"
+                    class="option"
+                    [class.is-active]="batchIndex() === item.index"
+                    (click)="setBatchIndex(item.index)"
+                  >
+                    {{ t('lesson.batch.n', { index: item.index + 1, from: item.from, to: item.to }) }}
+                  </button>
+                }
+              </div>
+              <span class="hint">
+                <app-t key="lesson.batch.hint" block />
+              </span>
+            </div>
+          }
+
           <div class="field">
             <span class="label">{{ t('lesson.options') }}</span>
             <div class="options options-2">

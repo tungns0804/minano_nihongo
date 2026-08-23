@@ -246,6 +246,8 @@ export class GrammarDetail {
       // Bài ngữ pháp luôn là gõ đáp án: chọn trong bốn câu dài thì đọc lướt là ra.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
+      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
+      batchIndex: null,
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
@@ -260,8 +262,8 @@ export class GrammarDetail {
       radicalMode: 'radical-hanviet',
     };
 
-    const questions = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);
-    if (this.session.start({ id: lesson.id, name: lesson.name }, config, questions)) {
+    const plan = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);
+    if (this.session.start({ id: lesson.id, name: lesson.name }, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

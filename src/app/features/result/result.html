@@ -38,6 +38,9 @@
             </div>
 
             <div class="row small muted config-recap">
+              @if (batchLabel()) {
+                <span class="badge badge-accent">{{ batchLabel() }}</span>
+              }
               @for (key of configBadgeKeys(); track $index) {
                 <span class="badge"><app-t [key]="key" /></span>
               }
@@ -50,6 +53,11 @@
       <section class="card">
         <div class="card-body stack" style="gap: 12px">
           <div class="row">
+            @if (nextBatchLabel()) {
+              <button type="button" class="btn btn-primary" (click)="startNextBatch()">
+                {{ nextBatchLabel() }}
+              </button>
+            }
             @if (wrongResults().length > 0) {
               <button type="button" class="btn btn-primary" (click)="retryWrong()">
                 <app-t key="result.retryWrong" [params]="{ count: wrongResults().length }" />
@@ -84,6 +92,14 @@
           @if (data.wrongCount === 0) {
             <div class="notice notice-success">
               {{ t('result.flawless', { count: data.total }) }}
+            </div>
+          }
+
+          @if (nextBatchLabel()) {
+            <div class="notice">{{ t('result.nextBatchHint') }}</div>
+          } @else if (batchFinished()) {
+            <div class="notice notice-success">
+              {{ t('result.batchAllDone', { count: batchGrandTotal() }) }}
             </div>
           }
         </div>

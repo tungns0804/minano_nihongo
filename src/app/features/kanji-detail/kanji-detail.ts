@@ -278,6 +278,8 @@ export class KanjiDetail {
       // Khu Kanji không có trắc nghiệm, xem `kanji.typingOnly`.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
+      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
+      batchIndex: null,
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       // Chỉ có tác dụng ở chiều hỏi nghĩa (đáp án tiếng Việt); chiều hỏi hiragana
@@ -296,9 +298,9 @@ export class KanjiDetail {
       radicalMode: 'radical-hanviet',
     };
 
-    const questions = orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config);
+    const plan = orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config);
     const name = `${entry.char} ${entry.hanViet}`;
-    if (this.session.start({ id: entry.id, name }, config, questions)) {
+    if (this.session.start({ id: entry.id, name }, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

@@ -211,6 +211,8 @@ export class RadicalList {
       // Khu Bộ thủ không có trắc nghiệm, xem `radical.typingOnly`.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
+      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
+      batchIndex: null,
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
@@ -227,9 +229,9 @@ export class RadicalList {
       radicalMode: 'radical-hanviet',
     };
 
-    const questions = orderQuestions(buildRadicalHanVietQuestions(this.pool(), config), config);
+    const plan = orderQuestions(buildRadicalHanVietQuestions(this.pool(), config), config);
     const lesson = { id: RADICAL_SESSION_ID, name: this.lang.t('radical.practiceHanViet') };
-    if (this.session.start(lesson, config, questions)) {
+    if (this.session.start(lesson, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

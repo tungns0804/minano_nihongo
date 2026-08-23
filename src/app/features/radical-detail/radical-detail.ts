@@ -288,6 +288,8 @@ export class RadicalDetail {
       // Khu Bộ thủ không có trắc nghiệm, xem `radical.typingOnly`.
       answerMode: 'typing',
       questionLimit: this.questionLimit(),
+      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
+      batchIndex: null,
       shuffle: this.shuffleQuestions(),
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       // Đáp án của cả hai chiều đều là âm Hán Việt (chữ Latin) nên tuỳ chọn này
@@ -306,9 +308,9 @@ export class RadicalDetail {
       radicalMode: this.mode(),
     };
 
-    const questions = orderQuestions(buildRadicalKanjiQuestions(this.pool(), entry, config), config);
+    const plan = orderQuestions(buildRadicalKanjiQuestions(this.pool(), entry, config), config);
     const name = `${entry.char} ${entry.hanViet}`;
-    if (this.session.start({ id: entry.id, name }, config, questions)) {
+    if (this.session.start({ id: entry.id, name }, config, plan)) {
       void this.router.navigate(['/practice']);
     }
   }

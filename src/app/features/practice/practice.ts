@@ -57,6 +57,16 @@ export class Practice {
   readonly isCorrect = computed(() => this.status() === 'correct');
   readonly isRevealed = computed(() => this.status() === 'revealed');
 
+  /** "Cụm 2/7" khi đang học theo cụm; rỗng với phiên thường. */
+  readonly batchLabel = computed(() => {
+    const config = this.config();
+    if (!config || config.batchIndex === null) return '';
+    return this.lang.t('practice.batch', {
+      index: config.batchIndex + 1,
+      total: this.session.batchTotal(),
+    });
+  });
+
   readonly isChoiceMode = computed(() => this.config()?.answerMode === 'choice');
   readonly modeLabel = computed(() => {
     const config = this.config();

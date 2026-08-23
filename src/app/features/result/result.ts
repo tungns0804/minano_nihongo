@@ -7,6 +7,7 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import { QuestionResult, describeConfigKeys } from '../../core/models/practice.model';
 import { LessonKind } from '../../core/models/vocabulary.model';
+import { batchRange } from '../../core/practice/batch';
 import { reshuffleChoices } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
@@ -48,6 +49,39 @@ export class Result {
   readonly summary = this.session.summary;
   readonly filter = signal<ResultFilter>('all');
   readonly favoritesJustAdded = signal(0);
+
+  // --- Học theo cụm ---
+
+  /** Phiên vừa xong có phải một cụm không (chứ không phải cắt N câu ngẫu nhiên). */
+  readonly isBatchSession = computed(() => (this.summary()?.config.batchIndex ?? null) !== null);
+
+  /** "Cụm 2/7" của phiên vừa xong; rỗng khi phiên không học theo cụm. */
+  readonly batchLabel = computed(() => {
+    const config = this.summary()?.config;
+    if (!config || config.batchIndex === null) return '';
+    return this.lang.t('result.batch', {
+      index: config.batchIndex + 1,
+      total: this.session.batchTotal(),
+    });
+  });
+
+  /** Nhãn nút học tiếp: "Học tiếp cụm 3 (từ 21–30)". Rỗng khi đã hết bài. */
+  readonly nextBatchLabel = computed(() => {
+    const index = this.session.nextBatchIndex();
+    const config = this.summary()?.config;
+    if (index === null || !config || config.questionLimit === null) return '';
+
+    const { from, to } = batchRange(this.session.plan().length, config.questionLimit, index);
+    return this.lang.t('result.nextBatch', { index: index + 1, from, to });
+  });
+
+  /** Cụm vừa xong là cụm cuối — hết bài, không mời học tiếp nữa. */
+  readonly batchFinished = computed(
+    () => this.isBatchSession() && this.session.nextBatchIndex() === null,
+  );
+
+  /** Tổng số câu của cả bài, để nói "bạn đã đi hết N câu". */
+  readonly batchGrandTotal = computed(() => this.session.plan().length);
 
   readonly configBadgeKeys = computed(() => {
     const config = this.summary()?.config;
@@ -176,14 +210,24 @@ export class Result {
     this.restart(this.summary()?.results ?? []);
   }
 
+  /**
+   * Học tiếp cụm kế tiếp của bài, giữ nguyên mọi thiết lập của cụm vừa xong.
+   *
+   * Không phải dựng lại câu hỏi: phiên đang giữ sẵn toàn bộ câu hỏi của bài nên
+   * chỉ việc cắt tiếp — nhờ vậy cụm sau chắc chắn là những từ CHƯA gặp.
+   */
+  startNextBatch(): void {
+    if (this.session.startNextBatch()) {
+      void this.router.navigate(['/practice']);
+    }
+  }
+
   private restart(results: readonly QuestionResult[]): void {
-    const lesson = this.session.lesson();
-    const summary = this.summary();
-    if (!lesson || !summary || results.length === 0) return;
+    if (results.length === 0) return;
 
     // Trộn lại thứ tự đáp án để không nhớ vị trí đáp án của lần trước.
     const questions = results.map((r) => reshuffleChoices(r.question));
-    if (this.session.start(lesson, summary.config, questions)) {
+    if (this.session.restart(questions)) {
       void this.router.navigate(['/practice']);
     }
   }
