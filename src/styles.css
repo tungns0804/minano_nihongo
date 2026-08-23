@@ -1018,6 +1018,44 @@ a:hover {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Thanh cuộn ngang mặc định của Windows chỉ dày chừng 7px khi rảnh tay, mảnh tới mức
+   phải nhắm mới trỏ trúng. Bảng từ vựng lại là chỗ người dùng kéo qua kéo lại nhiều
+   nhất, nên ở đây thanh cuộn được vẽ dày hẳn lên và luôn hiện rõ.
+
+   Không đặt kèm scrollbar-width/scrollbar-color trên cùng phần tử: từ Chrome 121,
+   chỉ cần có một trong hai thuộc tính chuẩn đó là toàn bộ nhóm ::-webkit-scrollbar
+   bị bỏ qua, tức là tự tay vô hiệu hoá đoạn ngay dưới đây. */
+.scroll-x::-webkit-scrollbar {
+  height: 14px;
+}
+
+.scroll-x::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.scroll-x::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-pill);
+  /* Viền trong suốt ăn vào phần nền phía sau, tạo khe hở quanh con trượt mà không
+     phải thu nhỏ vùng bấm: chuột vẫn bắt đủ 14px chiều cao. */
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.scroll-x::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+  background-clip: content-box;
+}
+
+/* Firefox không có ::-webkit-scrollbar; nó chỉ nhận hai thuộc tính chuẩn. */
+@supports not selector(::-webkit-scrollbar) {
+  .scroll-x {
+    scrollbar-width: auto;
+    scrollbar-color: var(--border-strong) var(--bg-subtle);
+  }
+}
+
 kbd {
   display: inline-block;
   padding: 1px 7px;
