@@ -286,6 +286,28 @@
   font-size: 2.2rem;
 }
 
+/* Số nét đè lên góc trái, đối xứng với ngôi sao ở góc phải — cùng lý do: nội dung
+   ô căn giữa nên chèn thêm dòng sẽ đẩy bộ thủ lệch tâm. Chỉ hiện khi đang tìm. */
+.radical-strokes {
+  position: absolute;
+  z-index: 1;
+  top: 1px;
+  left: 2px;
+  border: none;
+  background: none;
+  padding: 2px 3px;
+  font-size: 0.66rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition: color var(--dur) var(--ease);
+}
+
+.radical-strokes:hover,
+.radical-strokes:focus-visible {
+  color: var(--accent);
+}
+
 /* Biến thể (亻 của 人) là thứ thật sự gặp trong chữ, nên phải thấy được ngay ở
    lưới; vẽ nhạt và nhỏ để không tranh chỗ với dạng gốc. */
 .radical-variants {

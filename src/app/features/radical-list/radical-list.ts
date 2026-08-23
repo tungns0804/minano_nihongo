@@ -49,6 +49,7 @@ export class RadicalList {
 
   readonly t = this.lang.t.bind(this.lang);
   readonly allGroups = STROKE_GROUPS;
+  readonly strokeGroupOf = strokeGroupOf;
   readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
   readonly hanVietMode = RADICAL_HAN_VIET_MODE;
   readonly totalCount = RADICAL_ENTRIES.length;
@@ -97,13 +98,24 @@ export class RadicalList {
     this.groupEntries().reduce((total, entry) => total + entry.kanji.length, 0),
   );
 
-  /** Lưới đang hiện: lọc theo ★ và theo từ khoá tìm. */
-  readonly visibleEntries = computed<RadicalEntry[]>(() => {
-    const base = this.onlyFavorites()
-      ? this.groupEntries().filter((entry) => this.favoriteIds().has(entry.id))
-      : this.groupEntries();
+  /** Đang gõ từ khoá — lúc này lưới bỏ qua ranh giới nhóm nét. */
+  readonly isSearching = computed(() => normalizeSearch(this.search()).length > 0);
 
+  /**
+   * Lưới đang hiện: lọc theo ★ và theo từ khoá tìm.
+   *
+   * Có từ khoá thì tra trên CẢ 214 bộ chứ không riêng nhóm nét đang mở. Người đi
+   * tra một bộ hiếm khi biết trước nó mấy nét — gõ 辶 rồi phải tự đoán xem mở tab
+   * nào mới thấy thì ô tìm coi như không dùng được. Nhóm nét vẫn là cách xem mặc
+   * định, chỉ tạm lui khi có từ khoá.
+   */
+  readonly visibleEntries = computed<readonly RadicalEntry[]>(() => {
     const keyword = normalizeSearch(this.search());
+    const scope = keyword ? RADICAL_ENTRIES : this.groupEntries();
+    const base = this.onlyFavorites()
+      ? scope.filter((entry) => this.favoriteIds().has(entry.id))
+      : scope;
+
     if (!keyword) return base;
 
     // Tìm cả trong các chữ ghép từ bộ: gõ "hưu" hay 休 phải ra được bộ 人 và 木.
@@ -114,6 +126,11 @@ export class RadicalList {
       ).includes(keyword),
     );
   });
+
+  /** Mẫu số của dòng "hiện x/y" — đi theo đúng phạm vi mà lưới đang tra. */
+  readonly searchTotal = computed(() =>
+    this.isSearching() ? RADICAL_ENTRIES.length : this.groupEntries().length,
+  );
 
   // --- Tập bộ sẽ đem ra hỏi ---
 
@@ -171,6 +188,17 @@ export class RadicalList {
 
   clearSearch(): void {
     this.search.set('');
+  }
+
+  /**
+   * Bấm vào số nét trên một ô kết quả: nhảy về nhóm nét của bộ đó và xoá từ khoá.
+   *
+   * Kết quả tìm nằm rải khắp bảy nhóm, nên sau khi thấy bộ mình cần thì người học
+   * thường muốn xem luôn những bộ cùng số nét với nó — đây là đường về lưới thường.
+   */
+  goToGroupOf(entry: RadicalEntry): void {
+    this.search.set('');
+    this.setGroup(strokeGroupOf(entry.strokes));
   }
 
   toggleOnlyFavorites(event: Event): void {

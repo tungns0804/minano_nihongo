@@ -608,6 +608,14 @@ export const MESSAGES = {
     vi: 'Tìm theo bộ, âm Hán Việt, nghĩa hoặc chữ ghép…',
     ja: '部首・漢越音・意味・漢字で検索…',
   },
+  'radical.search.allGroups': {
+    vi: 'Đang tra cả 214 bộ — kết quả có thể nằm ngoài nhóm nét đang mở.',
+    ja: '214部首すべてを検索中 — 表示中の画数グループ以外の部首も出ます。',
+  },
+  'radical.search.goToGroup': {
+    vi: 'Xem nhóm {group}',
+    ja: '{group}のグループを見る',
+  },
   'radical.searchKanji': {
     vi: 'Tìm theo chữ, âm Hán Việt hoặc chiết tự…',
     ja: '漢字・漢越音・分解で検索…',
