@@ -134,6 +134,9 @@ export const MESSAGES = {
   'home.level.all': { vi: 'Tất cả', ja: 'すべて' },
   // Kèm luôn khoảng bài để khỏi phải nhớ N5 gồm những bài nào.
   'home.level.range': { vi: '{level} · bài {from}–{to}', ja: '{level}・{from}〜{to}課' },
+  // Cấp không bám theo số bài 皆の日本語 (N3 học theo 総まとめ) thì khoảng bài vô
+  // nghĩa — ghi tên sách thay vào để biết cấp đó lấy nội dung từ đâu.
+  'home.level.book': { vi: '{level} · {book}', ja: '{level}・{book}' },
   'home.level.none': { vi: 'Không theo bài', ja: '課に属さない' },
   'home.level.noneTitle': {
     vi: 'Bài không gắn với một bài số cụ thể, ví dụ bài gom động từ đặc biệt',

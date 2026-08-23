@@ -5,7 +5,12 @@ import type { MessageKey } from '../i18n/messages';
 export interface VocabularyWord {
   /** Id ổn định, sinh từ nội dung (xem `vocabulary-parser.ts`). Dùng làm khoá Favorite. */
   id: string;
-  /** Âm Hán Việt, ví dụ "ĐÀO". */
+  /**
+   * Âm Hán Việt, ví dụ "ĐÀO". Chuỗi rỗng nghĩa là từ này không có âm Hán Việt —
+   * từ katakana (アイデア) và trạng từ thuần kana (うっかり) của 総まとめ N3 thì
+   * không có. Cột này chỉ hiện khi bài có ít nhất một từ khai báo âm Hán Việt,
+   * xem `OPTIONAL_WORD_FIELDS`.
+   */
   hanViet: string;
   /** Từ tiếng Nhật, ví dụ "逃げます". */
   japanese: string;
@@ -26,32 +31,87 @@ export interface VocabularyWord {
 /**
  * Cấp độ JLPT của một bài.
  *
- * Mốc chia lấy đúng theo cuốn "TỪ VỰNG N5.pdf" dùng làm nguồn dữ liệu: hết bài 25 là
- * hết phần N5, và ngay sau đó sách in tiêu đề "TỪ VỰNG MINNANO N4" rồi mới sang bài 26.
+ * Xếp theo thứ tự HỌC (N5 → N4 → N3), không phải thứ tự số giảm dần cho vui: đây
+ * cũng là thứ tự các nút hiện trong bộ lọc cấp độ.
  */
-export type JlptLevel = 'N5' | 'N4';
+export type JlptLevel = 'N5' | 'N4' | 'N3';
 
-export const JLPT_LEVELS: readonly JlptLevel[] = ['N5', 'N4'];
+export const JLPT_LEVELS: readonly JlptLevel[] = ['N5', 'N4', 'N3'];
 
-/** Bài đầu và bài cuối của mỗi cấp, dùng cả để lọc lẫn để hiện chú thích "bài 1-25". */
-export const JLPT_RANGE: Record<JlptLevel, { from: number; to: number }> = {
+export function isJlptLevel(value: unknown): value is JlptLevel {
+  return JLPT_LEVELS.includes(value as JlptLevel);
+}
+
+/** Giáo trình mà một cấp độ lấy nội dung ra. */
+export type JlptBook = 'minna' | 'soumatome';
+
+/**
+ * Cấp nào học theo sách nào.
+ *
+ * N5/N4 đi theo 皆の日本語 (50 bài đánh số liền mạch), N3 đi theo 日本語総まとめ
+ * (6 tuần × 7 ngày, đánh số lại từ đầu ở mỗi quyển). Hai cách đánh số đó KHÔNG
+ * so sánh được với nhau — đó chính là lý do `JLPT_RANGE` bên dưới không còn phủ
+ * hết mọi cấp.
+ */
+export const JLPT_BOOK: Record<JlptLevel, JlptBook> = {
+  N5: 'minna',
+  N4: 'minna',
+  N3: 'soumatome',
+};
+
+/** Tên sách hiện trong nhãn bộ lọc, ví dụ "N3 · 総まとめ". */
+export const JLPT_BOOK_NAME: Record<JlptBook, string> = {
+  minna: '皆の日本語',
+  soumatome: '総まとめ',
+};
+
+/**
+ * Bài đầu và bài cuối của mỗi cấp, dùng cả để lọc lẫn để hiện chú thích "bài 1-25".
+ *
+ * Mốc chia N5/N4 lấy đúng theo cuốn "TỪ VỰNG N5.pdf" dùng làm nguồn dữ liệu: hết
+ * bài 25 là hết phần N5, và ngay sau đó sách in tiêu đề "TỪ VỰNG MINNANO N4" rồi
+ * mới sang bài 26.
+ *
+ * `Partial` chứ không phải `Record` đủ mọi cấp: N3 không có khoảng bài nào ở đây
+ * cả. Số của một bài 総まとめ là "ngày thứ mấy trong quyển" (1–42), trùng số với
+ * bài 皆の日本語 mà chẳng liên quan gì tới nhau — suy cấp độ từ con số đó sẽ xếp
+ * nhầm cả loạt bài N3 sang N5. Cấp của bài N3 phải khai thẳng, xem `levelOf`.
+ */
+export const JLPT_RANGE: Partial<Record<JlptLevel, { from: number; to: number }>> = {
   N5: { from: 1, to: 25 },
   N4: { from: 26, to: 50 },
 };
 
 /**
- * Cấp độ của một bài, hoặc null khi không xác định được.
+ * Cấp độ suy ra từ SỐ BÀI trong 皆の日本語, hoặc null khi không suy được.
  *
  * Trả null chứ không đoán bừa: bài tự nạp và bài "Động từ đặc biệt" (gom động từ của
  * nhiều bài) không có số bài, gán đại cho chúng một cấp là nói dối người học.
+ *
+ * Chỉ dùng làm ĐƯỜNG LÙI cho bài không khai cấp — điểm vào đúng là `levelOf`.
  */
 export function levelOfLesson(lessonNumber: number | undefined): JlptLevel | null {
   if (typeof lessonNumber !== 'number') return null;
   for (const level of JLPT_LEVELS) {
-    const { from, to } = JLPT_RANGE[level];
-    if (lessonNumber >= from && lessonNumber <= to) return level;
+    const range = JLPT_RANGE[level];
+    if (range && lessonNumber >= range.from && lessonNumber <= range.to) return level;
   }
   return null;
+}
+
+/**
+ * Cấp độ của một bài, hoặc null khi không xác định được.
+ *
+ * Cấp KHAI THẲNG luôn thắng: bài 総まとめ N3 khai `"level": "N3"` trong meta.json,
+ * và phải thắng thì bài "Tuần 1 · Ngày 1" (số bài 1) mới không bị khoảng bài 1–25
+ * kéo sang N5. Bài 皆の日本語 không khai gì cả, vẫn suy ra từ số bài như cũ nên
+ * không phải sửa lại 50 thư mục sẵn có.
+ */
+export function levelOf(lesson: {
+  level?: JlptLevel;
+  lessonNumber?: number;
+}): JlptLevel | null {
+  return lesson.level ?? levelOfLesson(lesson.lessonNumber);
 }
 
 /** Bài học nằm sẵn trong `public/lessons` hay do người dùng tự nạp. */
@@ -277,6 +337,11 @@ export interface Lesson {
    * bài học vào trang và dựng danh sách từ đó, không đọc index.json.
    */
   lessonNumber?: number;
+  /**
+   * Cấp độ khai thẳng trong `meta.json`. Vắng mặt thì suy ra từ `lessonNumber` —
+   * xem `levelOf`. Bài 総まとめ BẮT BUỘC có trường này.
+   */
+  level?: JlptLevel;
   words: VocabularyWord[];
   verbs: VerbEntry[];
   lines: ConversationLine[];
@@ -316,6 +381,8 @@ export interface LessonSummary {
   origin: LessonOrigin;
   /** Bài số mấy trong giáo trình. Không có với bài tự nạp và bài không thuộc bài nào. */
   lessonNumber?: number;
+  /** Cấp độ khai thẳng, xem `Lesson.level`. */
+  level?: JlptLevel;
 }
 
 /** Cấu trúc file `public/lessons/index.json` do script sinh ra. */
@@ -332,16 +399,35 @@ export interface LessonIndexEntry {
   itemCount: number;
   /** Do `scripts/generate-lessons.mjs` tính sẵn, xem `lessonNumberOf` bên đó. */
   lessonNumber?: number;
+  /** Lấy từ `meta.level`, xem `Lesson.level`. */
+  level?: JlptLevel;
   file: string;
 }
 
 /**
  * Trường dữ liệu của một từ, dùng để mô tả "hỏi cái gì / trả lời cái gì".
  *
- * `reading` là trường DUY NHẤT có thể rỗng — bài chưa khai báo cách đọc thì các
- * chiều luyện liên quan tới nó phải bị loại ra, xem `directionNeedsReading`.
+ * Hai trong bốn trường có thể rỗng, xem `OPTIONAL_WORD_FIELDS`.
  */
 export type WordField = 'japanese' | 'vietnamese' | 'hanViet' | 'reading';
+
+/**
+ * Những trường được phép rỗng, tức có bài khai báo và có bài không.
+ *
+ * Bài nào thiếu trường nào thì mọi chiều luyện đụng tới trường đó phải bị loại ra
+ * (xem `directionIsUsable`) và cột tương ứng phải ẩn khỏi bảng từ vựng. Không loại
+ * thì hỏng LẶNG LẼ giữa buổi luyện: câu hỏi hiện ra với đáp án đúng là chuỗi rỗng,
+ * gõ gì cũng sai và chẳng có lỗi nào được báo.
+ *
+ * Trước đây chỉ có `reading`, và `hanViet` bị coi là bắt buộc. `hanViet` vào danh
+ * sách này từ khi có phần N3: 総まとめ có nhiều từ không mang âm Hán Việt.
+ */
+export const OPTIONAL_WORD_FIELDS: readonly WordField[] = ['hanViet', 'reading'];
+
+/** Bài này có ít nhất một từ khai báo trường đó không. */
+export function hasWordField(words: readonly VocabularyWord[], field: WordField): boolean {
+  return words.some((word) => fieldValue(word, field).length > 0);
+}
 
 export const WORD_FIELD_LABEL: Record<WordField, string> = {
   japanese: 'Tiếng Nhật',

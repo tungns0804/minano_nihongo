@@ -18,7 +18,7 @@ import {
   AnswerMode,
   DEFAULT_MAX_WRONG_ATTEMPTS,
   DIRECTIONS,
-  directionNeedsReading,
+  directionIsUsable,
   PracticeConfig,
   PracticeDirection,
   PracticeScope,
@@ -35,6 +35,8 @@ import {
   LessonKind,
   VerbEntry,
   VocabularyWord,
+  WordField,
+  hasWordField,
 } from '../../core/models/vocabulary.model';
 import { batchCount, batchRange } from '../../core/practice/batch';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
@@ -203,7 +205,27 @@ export class LessonDetail {
 
   /** Chỉ hiện cột ví dụ khi bài có ít nhất một câu — tránh cột trống vô ích. */
   readonly hasExamples = computed(() => this.words().some((word) => word.example.length > 0));
-  readonly hasReadings = computed(() => this.words().some((word) => word.reading.length > 0));
+  readonly hasReadings = computed(() => hasWordField(this.words(), 'reading'));
+
+  /**
+   * Bài có âm Hán Việt không. Bài 総まとめ N3 gồm nhiều từ katakana và trạng từ
+   * thuần kana nên có thể không có từ nào — lúc đó cột này và hai chiều luyện
+   * jp-han / han-jp đều phải biến mất.
+   */
+  readonly hasHanViet = computed(() => hasWordField(this.words(), 'hanViet'));
+
+  /** Bài này có trường đó không — dùng để lọc chiều luyện. */
+  private readonly hasField = computed(() => {
+    // Khai đủ bốn trường chứ không chỉ hai trường tuỳ chọn: thêm một trường mới vào
+    // `WordField` mà quên xếp vào đây thì TypeScript báo lỗi ngay tại chỗ này.
+    const present: Record<WordField, boolean> = {
+      japanese: true,
+      vietnamese: true,
+      hanViet: this.hasHanViet(),
+      reading: this.hasReadings(),
+    };
+    return (field: WordField): boolean => present[field];
+  });
 
   readonly specialVerbs = computed(() => this.verbs().filter((verb) => verb.deceptive));
   readonly specialCount = computed(() => this.specialVerbs().length);
@@ -227,8 +249,20 @@ export class LessonDetail {
   readonly currentDirection = computed(() => directionInfo(this.direction()));
 
   /**
-   * Chỉ hiện chiều luyện dùng được với bài này. Bài chưa khai báo cách đọc thì
-   * hai chiều liên quan biến mất thay vì hiện ra rồi cho ra câu hỏi rỗng.
+   * Có bật được gợi ý âm Hán Việt không.
+   *
+   * Hai điều kiện: chiều đang chọn phải cho phép (bật ở chiều jp-han / han-jp là lộ
+   * đáp án), VÀ bài phải thực sự có âm Hán Việt — bài 総まとめ N3 toàn từ katakana
+   * thì "gợi ý" chỉ là một ô trống.
+   */
+  readonly hanVietHintAvailable = computed(
+    () => this.currentDirection().supportsHanVietHint && this.hasHanViet(),
+  );
+
+  /**
+   * Chỉ hiện chiều luyện dùng được với bài này. Bài chưa khai báo cách đọc (hoặc
+   * không có âm Hán Việt) thì các chiều liên quan biến mất thay vì hiện ra rồi cho
+   * ra câu hỏi có đáp án rỗng.
    */
   readonly availableDirections = computed(() => {
     // Bài hội thoại chỉ dịch qua lại Nhật/Việt — không có âm Hán Việt hay cách đọc
@@ -236,7 +270,8 @@ export class LessonDetail {
     if (this.isConversationLesson()) {
       return this.directions.filter((item) => item.id === 'jp-vi' || item.id === 'vi-jp');
     }
-    return this.directions.filter((item) => this.hasReadings() || !directionNeedsReading(item.id));
+    const hasField = this.hasField();
+    return this.directions.filter((item) => directionIsUsable(item.id, hasField));
   });
 
   /**
@@ -609,7 +644,7 @@ export class LessonDetail {
       maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
-      showHanViet: this.showHanViet(),
+      showHanViet: this.showHanViet() && this.hanVietHintAvailable(),
       // Chỉ bài ngữ pháp dùng tới, nhưng PracticeConfig là một khối thiết lập đầy đủ
       // chứ không phải union theo loại bài, nên trường nào cũng phải có giá trị.
       showGrammarHint: true,

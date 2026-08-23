@@ -251,17 +251,17 @@
               } @else {
                 <label
                   class="checkbox"
-                  [class.is-disabled]="!currentDirection().supportsHanVietHint"
+                  [class.is-disabled]="!hanVietHintAvailable()"
                   [title]="
-                    currentDirection().supportsHanVietHint
+                    hanVietHintAvailable()
                       ? t('lesson.option.hanVietEnabled')
                       : t('lesson.option.hanVietDisabled')
                   "
                 >
                   <input
                     type="checkbox"
-                    [checked]="showHanViet() && currentDirection().supportsHanVietHint"
-                    [disabled]="!currentDirection().supportsHanVietHint"
+                    [checked]="showHanViet() && hanVietHintAvailable()"
+                    [disabled]="!hanVietHintAvailable()"
                     (change)="toggleShowHanViet($event)"
                   />
                   <span>
@@ -518,11 +518,14 @@
                   class="word-table"
                   [class.has-example]="hasExamples()"
                   [class.has-reading]="hasReadings()"
+                  [class.has-han]="hasHanViet()"
                 >
                   <thead>
                     <tr>
                       <th class="col-star"><span class="sr-only">{{ t('lesson.col.star') }}</span>★</th>
-                      <th>{{ t('lesson.col.hanViet') }}</th>
+                      @if (hasHanViet()) {
+                        <th>{{ t('lesson.col.hanViet') }}</th>
+                      }
                       <th>{{ t('lesson.col.japanese') }}</th>
                       @if (hasReadings()) {
                         <th>{{ t('lesson.col.reading') }}</th>
@@ -552,7 +555,9 @@
                             {{ isFavorite(word.id) ? '★' : '☆' }}
                           </button>
                         </td>
-                        <td class="col-han">{{ word.hanViet }}</td>
+                        @if (hasHanViet()) {
+                          <td class="col-han">{{ word.hanViet }}</td>
+                        }
                         <td class="col-jp jp">
                           <span class="jp-cell">
                             <span>{{ word.japanese }}</span>

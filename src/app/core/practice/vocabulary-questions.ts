@@ -25,8 +25,12 @@ function subjectOf(word: VocabularyWord): QuestionSubject {
     subtitle: word.hanViet,
     detail: word.vietnamese,
     detailSuffixKey: null,
+    // Từ không có âm Hán Việt (katakana, trạng từ thuần kana của 総まとめ N3) thì bỏ
+    // hẳn dòng đó khỏi phần ôn lại, thay vì bày ra một nhãn "Âm Hán Việt" trống trơn.
     recap: [
-      { labelKey: 'lesson.col.hanViet', value: word.hanViet, valueKey: null, japanese: false },
+      ...(word.hanViet
+        ? [{ labelKey: 'lesson.col.hanViet' as const, value: word.hanViet, valueKey: null, japanese: false }]
+        : []),
       { labelKey: 'lesson.col.japanese', value: word.japanese, valueKey: null, japanese: true },
       { labelKey: 'lesson.col.meaningShort', value: word.vietnamese, valueKey: null, japanese: false },
     ],
@@ -60,7 +64,9 @@ export function buildVocabularyQuestions(
       labelParams: {},
       prompt: fieldValue(word, info.prompt),
       promptIsJapanese: fieldIsJapanese(info.prompt),
-      hint: info.supportsHanVietHint && config.showHanViet ? word.hanViet : null,
+      // `|| null` chứ không chỉ kiểm tra config: từ không có âm Hán Việt mà vẫn trả
+      // về chuỗi rỗng thì khung gợi ý hiện ra rỗng không.
+      hint: (info.supportsHanVietHint && config.showHanViet ? word.hanViet : '') || null,
       hintIsJapanese: false,
       correctAnswer,
       correctAnswerKey: null,
