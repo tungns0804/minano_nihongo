@@ -31,7 +31,8 @@ import {
 } from '../../core/japanese/conjugation';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
-  PracticeConfig,
+  LIMIT_CHOICES,
+  practiceConfig,
   PracticeScope,
 } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
@@ -42,10 +43,9 @@ import {
 } from '../../core/practice/exercise-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { checkedOf, valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
-/** Các mốc số câu cho phép chọn nhanh, giống màn hình chi tiết bài học. */
-const LIMIT_CHOICES = [10, 20, 30, 50] as const;
 
 /** Một động từ của bài chuyển thể, đã chia sẵn để hiện bảng tra cứu. */
 interface VerbRow {
@@ -321,15 +321,15 @@ export class ExerciseDetail {
   }
 
   toggleShowMeaning(event: Event): void {
-    this.showMeaning.set((event.target as HTMLInputElement).checked);
+    this.showMeaning.set(checkedOf(event));
   }
 
   toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set((event.target as HTMLInputElement).checked);
+    this.shuffleQuestions.set(checkedOf(event));
   }
 
   onSearch(event: Event): void {
-    this.search.set((event.target as HTMLInputElement).value);
+    this.search.set(valueOf(event));
   }
 
   clearSearch(): void {
@@ -337,7 +337,7 @@ export class ExerciseDetail {
   }
 
   toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set((event.target as HTMLInputElement).checked);
+    this.onlyFavorites.set(checkedOf(event));
   }
 
   /** Phạm vi đang chọn có thể rỗng đi sau khi đổi cấp độ — quay về "Toàn bộ". */
@@ -380,32 +380,18 @@ export class ExerciseDetail {
     const info = this.info();
     if (!info || !this.canStart()) return;
 
-    const config: PracticeConfig = {
+    const config = practiceConfig({
       lessonId: info.id,
       lessonKind: 'exercise',
       scope: this.scope(),
-      // Bài tập không có trắc nghiệm, xem `exercise.typingOnly`.
-      answerMode: 'typing',
       questionLimit: this.questionLimit(),
-      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
-      batchIndex: null,
       shuffle: this.shuffleQuestions(),
-      maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
-      // Đáp án luôn là tiếng Nhật nên tuỳ chọn bỏ dấu tiếng Việt không có việc gì làm.
-      ignoreDiacritics: false,
-      // Ba trường dưới đây thuộc về bài từ vựng / ngữ pháp / động từ. PracticeConfig
-      // là một khối thiết lập đầy đủ chứ không phải union theo loại bài, nên trường
-      // nào cũng phải có giá trị.
-      direction: 'jp-vi',
+      // Ở khu Bài tập, cờ này bật gợi ý nghĩa tiếng Việt của động từ.
       showHanViet: this.showMeaning(),
-      showGrammarHint: false,
-      verbMode: 'masu-to-form',
       verbForms: this.selectedForms(),
       exercise: info.id,
       exerciseMode: this.mode(),
-      kanjiMode: 'word-meaning',
-      radicalMode: 'radical-hanviet',
-    };
+    });
 
     const plan = orderQuestions(
       this.isTransitivity()

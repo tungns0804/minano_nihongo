@@ -14,6 +14,7 @@ import {
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import type { MessageKey } from '../../core/i18n/messages';
+import { valueOf } from '../../core/utils/dom-events';
 import {
   ParseIssue,
   ParseIssueCode,
@@ -182,11 +183,11 @@ export class ImportLesson {
   }
 
   onNameInput(event: Event): void {
-    this.lessonName.set((event.target as HTMLInputElement).value);
+    this.lessonName.set(valueOf(event));
   }
 
   onTextInput(event: Event): void {
-    this.rawText.set((event.target as HTMLTextAreaElement).value);
+    this.rawText.set(valueOf(event));
     this.loadedFileName.set(null);
   }
 

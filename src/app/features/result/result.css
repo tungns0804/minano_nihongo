@@ -251,10 +251,6 @@
   transform: scale(1.15);
 }
 
-.star-btn.is-on {
-  color: var(--star);
-}
-
 /* Ngôi sao là thứ được bấm nhiều nhất ở màn hình này (đánh dấu từ vừa sai) — trên
    màn hình chạm phải đủ to để không bấm trượt sang dòng bên cạnh. */
 @media (hover: none) {

@@ -1,5 +1,12 @@
 import type { MessageKey } from '../i18n/messages';
-import { PracticeConfig, PracticeQuestion, RecapItem } from '../models/practice.model';
+import {
+  PracticeConfig,
+  PracticeQuestion,
+  RecapItem,
+  makeQuestion,
+  recap,
+  recapJp,
+} from '../models/practice.model';
 import { GrammarExampleRef } from '../models/vocabulary.model';
 import { acceptedAnswersOf } from '../utils/answer-check';
 
@@ -32,25 +39,18 @@ export function buildGrammarQuestions(
     const prompt = toJapanese ? example.vietnamese : example.japanese;
     const correctAnswer = toJapanese ? example.japanese : example.vietnamese;
 
-    const recap: RecapItem[] = [
-      { labelKey: 'grammar.recap.pattern', value: point.title, valueKey: null, japanese: true },
-      { labelKey: 'grammar.recap.usage', value: usage.title, valueKey: null, japanese: false },
-      { labelKey: 'lesson.col.japanese', value: example.japanese, valueKey: null, japanese: true },
-      {
-        labelKey: 'lesson.col.meaningShort',
-        value: example.vietnamese,
-        valueKey: null,
-        japanese: false,
-      },
+    const lines: RecapItem[] = [
+      recapJp('grammar.recap.pattern', point.title),
+      recap('grammar.recap.usage', usage.title),
+      recapJp('lesson.col.japanese', example.japanese),
+      recap('lesson.col.meaningShort', example.vietnamese),
     ];
 
     // Ghi chú của câu (ví dụ "Trả lời cho どうしたんですか。") chỉ hiện khi có, để
     // phần phản hồi của những câu không có ghi chú không thừa ra một dòng trống.
-    if (example.note) {
-      recap.push({ labelKey: 'grammar.recap.note', value: example.note, valueKey: null, japanese: false });
-    }
+    if (example.note) lines.push(recap('grammar.recap.note', example.note));
 
-    return {
+    return makeQuestion({
       subject: {
         id: example.id,
         title: example.japanese,
@@ -58,10 +58,9 @@ export function buildGrammarQuestions(
         subtitle: point.title,
         detail: example.vietnamese,
         detailSuffixKey: null,
-        recap,
+        recap: lines,
       },
       labelKey: (toJapanese ? 'direction.vi-jp' : 'direction.jp-vi') as MessageKey,
-      labelParams: {},
       prompt,
       promptIsJapanese: !toJapanese,
       // Gợi ý là chính mẫu ngữ pháp phải dùng. Tắt đi thì người học phải tự nhớ ra
@@ -69,19 +68,15 @@ export function buildGrammarQuestions(
       hint: config.showGrammarHint ? grammarHint(point.title, point.structures) : null,
       hintIsJapanese: true,
       correctAnswer,
-      correctAnswerKey: null,
       acceptedAnswers: toJapanese ? [correctAnswer] : acceptedAnswersOf(correctAnswer),
       answerIsJapanese: toJapanese,
       answerPromptKey: (toJapanese
         ? 'practice.answerPrompt.sentenceJapanese'
         : 'practice.answerPrompt.sentenceVietnamese') as MessageKey,
-      answerPromptParams: {},
-      choices: [],
-      choiceLabelKeys: null,
       ignorePunctuation: true,
       isSentence: true,
       maxWrongAttempts: Math.max(1, config.maxWrongAttempts),
-    };
+    });
   });
 }
 

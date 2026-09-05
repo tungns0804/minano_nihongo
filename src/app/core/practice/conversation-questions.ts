@@ -1,5 +1,5 @@
 import type { MessageKey } from '../i18n/messages';
-import { PracticeConfig, PracticeQuestion } from '../models/practice.model';
+import { PracticeConfig, PracticeQuestion, makeQuestion, recap, recapJp } from '../models/practice.model';
 import { ConversationLine } from '../models/vocabulary.model';
 
 /**
@@ -23,7 +23,7 @@ export function buildConversationQuestions(
     const prompt = toJapanese ? line.vietnamese : line.japanese;
     const correctAnswer = toJapanese ? line.japanese : line.vietnamese;
 
-    return {
+    return makeQuestion({
       subject: {
         id: line.id,
         title: line.japanese,
@@ -33,37 +33,25 @@ export function buildConversationQuestions(
         detail: line.vietnamese,
         detailSuffixKey: null,
         recap: [
-          { labelKey: 'lesson.col.japanese', value: line.japanese, valueKey: null, japanese: true },
-          {
-            labelKey: 'lesson.col.meaningShort',
-            value: line.vietnamese,
-            valueKey: null,
-            japanese: false,
-          },
+          recapJp('lesson.col.japanese', line.japanese),
+          recap('lesson.col.meaningShort', line.vietnamese),
         ],
       },
       labelKey: (toJapanese ? 'direction.vi-jp' : 'direction.jp-vi') as MessageKey,
-      labelParams: {},
       prompt,
       promptIsJapanese: !toJapanese,
-      // Không dùng gợi ý âm Hán Việt: câu hội thoại không có trường đó.
-      hint: null,
-      hintIsJapanese: false,
+      // Không dùng gợi ý âm Hán Việt: câu hội thoại không có trường đó, nên `hint`
+      // giữ nguyên mặc định null của `makeQuestion`.
       correctAnswer,
-      correctAnswerKey: null,
       // Cả câu là một đáp án duy nhất — không tách theo dấu / như bài từ vựng, vì
-      // dấu / hoàn toàn có thể là một phần của câu.
-      acceptedAnswers: [correctAnswer],
+      // dấu / hoàn toàn có thể là một phần của câu. Đây cũng là mặc định.
       answerIsJapanese: toJapanese,
       answerPromptKey: (toJapanese
         ? 'practice.answerPrompt.sentenceJapanese'
         : 'practice.answerPrompt.sentenceVietnamese') as MessageKey,
-      answerPromptParams: {},
-      choices: [],
-      choiceLabelKeys: null,
       ignorePunctuation: true,
       isSentence: true,
       maxWrongAttempts: Math.max(1, config.maxWrongAttempts),
-    };
+    });
   });
 }

@@ -5,7 +5,8 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
-  PracticeConfig,
+  LIMIT_CHOICES_LONG,
+  practiceConfig,
   PracticeScope,
 } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
@@ -21,10 +22,9 @@ import {
 import { RADICAL_ENTRIES } from '../../core/radical/radical-entries';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { checkedOf, valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
-/** Các mốc số câu cho phép chọn nhanh, giống mọi màn hình thiết lập khác. */
-const LIMIT_CHOICES = [10, 20, 30, 50, 100] as const;
 
 /**
  * Tab "Bộ thủ" — lưới 214 bộ thủ theo số nét, kèm phần luyện "bộ thủ → âm Hán Việt".
@@ -148,7 +148,7 @@ export class RadicalList {
   readonly canStart = computed(() => this.plannedQuestionCount() > 0);
 
   readonly limitChoices = computed(() =>
-    LIMIT_CHOICES.filter((limit) => limit < this.pool().length),
+    LIMIT_CHOICES_LONG.filter((limit) => limit < this.pool().length),
   );
 
   readonly modeShort = computed(() => this.lang.t(RADICAL_HAN_VIET_MODE.shortKey));
@@ -171,19 +171,19 @@ export class RadicalList {
   }
 
   toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set((event.target as HTMLInputElement).checked);
+    this.shuffleQuestions.set(checkedOf(event));
   }
 
   toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set((event.target as HTMLInputElement).checked);
+    this.ignoreDiacritics.set(checkedOf(event));
   }
 
   toggleShowHint(event: Event): void {
-    this.showHint.set((event.target as HTMLInputElement).checked);
+    this.showHint.set(checkedOf(event));
   }
 
   onSearch(event: Event): void {
-    this.search.set((event.target as HTMLInputElement).value);
+    this.search.set(valueOf(event));
   }
 
   clearSearch(): void {
@@ -202,7 +202,7 @@ export class RadicalList {
   }
 
   toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set((event.target as HTMLInputElement).checked);
+    this.onlyFavorites.set(checkedOf(event));
   }
 
   /** Phạm vi ★ có thể rỗng đi sau khi đổi nhóm nét — quay về "Toàn bộ". */
@@ -232,30 +232,17 @@ export class RadicalList {
   start(): void {
     if (!this.canStart()) return;
 
-    const config: PracticeConfig = {
+    const config = practiceConfig({
       lessonId: RADICAL_SESSION_ID,
       lessonKind: 'radical',
       scope: this.scope(),
-      // Khu Bộ thủ không có trắc nghiệm, xem `radical.typingOnly`.
-      answerMode: 'typing',
       questionLimit: this.questionLimit(),
-      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
-      batchIndex: null,
       shuffle: this.shuffleQuestions(),
-      maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
-      direction: 'jp-vi',
       // Ở khu Bộ thủ, cờ này bật gợi ý "một chữ ghép từ bộ đang hỏi".
       showHanViet: this.showHint(),
-      // Các trường dưới đây thuộc về loại bài khác — xem ghi chú ở `PracticeConfig`.
-      showGrammarHint: false,
-      verbMode: 'masu-to-form',
-      verbForms: ['te'],
-      exercise: null,
-      exerciseMode: 'to-transitive',
-      kanjiMode: 'kanji-hanviet',
       radicalMode: 'radical-hanviet',
-    };
+    });
 
     const plan = orderQuestions(buildRadicalHanVietQuestions(this.pool(), config), config);
     const lesson = { id: RADICAL_SESSION_ID, name: this.lang.t('radical.practiceHanViet') };

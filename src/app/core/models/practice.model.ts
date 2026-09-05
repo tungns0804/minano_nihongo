@@ -185,6 +185,16 @@ export const DEFAULT_MAX_WRONG_ATTEMPTS = 4;
 /** Số lựa chọn của một câu trắc nghiệm (1 đúng + 3 nhiễu). */
 export const CHOICE_COUNT = 4;
 
+/**
+ * Các mốc số câu cho phép chọn nhanh ở khung thiết lập.
+ *
+ * Hai biến thể là cố ý: màn hình MỘT bài (một chữ, một bộ, một bài học) hiếm khi
+ * có tới 100 mục nên mốc 100 chỉ là một nút chết, còn màn hình DANH SÁCH thì hỏi
+ * trên cả cấp độ nên mốc đó dùng được thật.
+ */
+export const LIMIT_CHOICES = [10, 20, 30, 50] as const;
+export const LIMIT_CHOICES_LONG = [10, 20, 30, 50, 100] as const;
+
 export interface PracticeConfig {
   lessonId: string;
   lessonKind: LessonKind;
@@ -242,6 +252,46 @@ export interface PracticeConfig {
   radicalMode: RadicalMode;
 }
 
+/**
+ * Dựng một `PracticeConfig` đầy đủ từ vài trường thật sự của màn hình gọi.
+ *
+ * `PracticeConfig` là một khối thiết lập ĐẦY ĐỦ chứ không phải union theo loại
+ * bài: trường nào cũng phải có giá trị, kể cả những trường không liên quan tới
+ * loại bài đang luyện (`kanjiMode` của một phiên ngữ pháp chẳng hạn). Trước đây
+ * mỗi màn hình tự viết ra cả hai mươi trường, nên thêm một tuỳ chọn mới là phải
+ * đi sửa bảy chỗ — quên một chỗ thì TypeScript báo lỗi, nhưng đặt SAI giá trị mặc
+ * định ở một chỗ thì không có gì báo cả.
+ *
+ * Giá trị mặc định ở đây là "trung tính": chúng chỉ được đọc khi `lessonKind`
+ * khớp với phần dùng chúng (xem `describeConfigKeys` và các builder trong
+ * `core/practice/`), nên với mọi loại bài khác thì đặt gì cũng không đổi hành vi.
+ */
+export function practiceConfig(
+  overrides: Partial<PracticeConfig> & Pick<PracticeConfig, 'lessonId' | 'lessonKind'>,
+): PracticeConfig {
+  return {
+    scope: 'all',
+    // Gõ đáp án là mặc định vì phần lớn khu chỉ có nó; nơi nào cho trắc nghiệm
+    // (bài từ vựng / động từ) thì tự truyền `answerMode` vào.
+    answerMode: 'typing',
+    questionLimit: null,
+    batchIndex: null,
+    shuffle: true,
+    maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
+    ignoreDiacritics: false,
+    direction: 'jp-vi',
+    showHanViet: false,
+    showGrammarHint: false,
+    verbMode: 'masu-to-form',
+    verbForms: [],
+    exercise: null,
+    exerciseMode: 'masu-to-form',
+    kanjiMode: 'word-meaning',
+    radicalMode: 'radical-hanviet',
+    ...overrides,
+  };
+}
+
 /** Một dòng thông tin hiện lại ở phần phản hồi sau khi chấm xong. */
 export interface RecapItem {
   labelKey: MessageKey;
@@ -250,6 +300,28 @@ export interface RecapItem {
   /** Khi có, giá trị lấy từ khoá này — dùng cho giá trị cần dịch như tên nhóm động từ. */
   valueKey: MessageKey | null;
   japanese: boolean;
+}
+
+/**
+ * Một dòng phản hồi viết bằng chữ Latin — nghĩa tiếng Việt, âm Hán Việt, cấp độ.
+ *
+ * Ba hàm dưới đây tồn tại vì `RecapItem` có bốn trường mà ba trong số đó gần như
+ * luôn nhận cùng một bộ giá trị. Viết tay cả bốn trường ở hơn năm mươi chỗ thì
+ * `valueKey: null, japanese: false` chỉ còn là nhiễu che mất phần thật sự khác
+ * nhau giữa các dòng.
+ */
+export function recap(labelKey: MessageKey, value: string): RecapItem {
+  return { labelKey, value, valueKey: null, japanese: false };
+}
+
+/** Như `recap` nhưng giá trị là chữ Nhật — quyết định font khi hiển thị. */
+export function recapJp(labelKey: MessageKey, value: string): RecapItem {
+  return { labelKey, value, valueKey: null, japanese: true };
+}
+
+/** Dòng phản hồi mà giá trị phải dịch, ví dụ tên nhóm động từ. */
+export function recapKey(labelKey: MessageKey, valueKey: MessageKey): RecapItem {
+  return { labelKey, value: '', valueKey, japanese: false };
 }
 
 /**
@@ -315,6 +387,52 @@ export interface PracticeQuestion {
   isSentence: boolean;
   /** Số lần sai tối đa của riêng câu này. */
   maxWrongAttempts: number;
+}
+
+/**
+ * Những trường mà mọi câu hỏi đều phải tự nói ra — không có giá trị mặc định nào
+ * đúng cho chúng.
+ *
+ * `maxWrongAttempts` nằm trong nhóm này chứ không lấy mặc định: số lần sai tối đa
+ * của câu trắc nghiệm phụ thuộc số lựa chọn (xem `limitAttempts`), đặt nhầm thì
+ * hỏng lặng lẽ chứ không báo lỗi ở đâu.
+ */
+type QuestionCore = Pick<
+  PracticeQuestion,
+  'subject' | 'labelKey' | 'prompt' | 'correctAnswer' | 'answerPromptKey' | 'maxWrongAttempts'
+>;
+
+/**
+ * Dựng một `PracticeQuestion` đầy đủ từ những trường thật sự khác nhau giữa các
+ * câu hỏi.
+ *
+ * `PracticeQuestion` có mười tám trường, nhưng phần lớn câu hỏi chỉ khác nhau ở
+ * năm sáu trường; số còn lại luôn là `null` / `[]` / `false`. Bảy builder trong
+ * `core/practice/` trước đây chép nguyên cả mười tám trường, nên thêm một trường
+ * mới là phải sửa bảy chỗ và chỗ nào cũng phải tự nghĩ ra giá trị trung tính.
+ *
+ * Mặc định ở đây là dạng câu hỏi phổ biến nhất của ứng dụng: hỏi bằng chữ Nhật,
+ * gõ đáp án bằng chữ Latin, không gợi ý, chấm đúng nguyên văn.
+ */
+export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): PracticeQuestion {
+  return {
+    labelParams: {},
+    promptIsJapanese: true,
+    hint: null,
+    hintIsJapanese: false,
+    correctAnswerKey: null,
+    // Mặc định chấm đúng nguyên văn. Nơi nào chấp nhận nhiều cách viết thì tự
+    // truyền `acceptedAnswers` (thường là `acceptedAnswersOf(...)`).
+    acceptedAnswers: [draft.correctAnswer],
+    answerIsJapanese: false,
+    answerPromptParams: {},
+    // Rỗng nghĩa là chế độ gõ. Khu nào có trắc nghiệm thì tự dựng `choices`.
+    choices: [],
+    choiceLabelKeys: null,
+    ignorePunctuation: false,
+    isSentence: false,
+    ...draft,
+  };
 }
 
 export type QuestionStatus = 'pending' | 'correct' | 'revealed';

@@ -9,6 +9,7 @@ import type { LevelFilter } from '../../core/models/level-filter';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { readJson, writeJson } from '../../core/services/local-storage';
+import { valueOf } from '../../core/utils/dom-events';
 import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
 
 /**
@@ -110,7 +111,7 @@ export class GrammarList {
   }
 
   onSearch(event: Event): void {
-    this.searchRef.set((event.target as HTMLInputElement).value);
+    this.searchRef.set(valueOf(event));
   }
 
   clearSearch(): void {

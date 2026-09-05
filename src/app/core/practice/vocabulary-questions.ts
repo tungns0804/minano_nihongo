@@ -5,6 +5,9 @@ import {
   PracticeQuestion,
   QuestionSubject,
   directionInfo,
+  makeQuestion,
+  recap,
+  recapJp,
 } from '../models/practice.model';
 import { VocabularyWord, WordField, fieldIsJapanese, fieldValue } from '../models/vocabulary.model';
 import { acceptedAnswersOf } from '../utils/answer-check';
@@ -28,11 +31,9 @@ function subjectOf(word: VocabularyWord): QuestionSubject {
     // Từ không có âm Hán Việt (katakana, trạng từ thuần kana của 総まとめ N3) thì bỏ
     // hẳn dòng đó khỏi phần ôn lại, thay vì bày ra một nhãn "Âm Hán Việt" trống trơn.
     recap: [
-      ...(word.hanViet
-        ? [{ labelKey: 'lesson.col.hanViet' as const, value: word.hanViet, valueKey: null, japanese: false }]
-        : []),
-      { labelKey: 'lesson.col.japanese', value: word.japanese, valueKey: null, japanese: true },
-      { labelKey: 'lesson.col.meaningShort', value: word.vietnamese, valueKey: null, japanese: false },
+      ...(word.hanViet ? [recap('lesson.col.hanViet', word.hanViet)] : []),
+      recapJp('lesson.col.japanese', word.japanese),
+      recap('lesson.col.meaningShort', word.vietnamese),
     ],
   };
 }
@@ -58,30 +59,23 @@ export function buildVocabularyQuestions(
         ? buildChoices(word, correctAnswer, allWords, info.answer)
         : [];
 
-    return {
+    return makeQuestion({
       subject: subjectOf(word),
       labelKey: info.labelKey,
-      labelParams: {},
       prompt: fieldValue(word, info.prompt),
       promptIsJapanese: fieldIsJapanese(info.prompt),
       // `|| null` chứ không chỉ kiểm tra config: từ không có âm Hán Việt mà vẫn trả
       // về chuỗi rỗng thì khung gợi ý hiện ra rỗng không.
       hint: (info.supportsHanVietHint && config.showHanViet ? word.hanViet : '') || null,
-      hintIsJapanese: false,
       correctAnswer,
-      correctAnswerKey: null,
       acceptedAnswers: acceptedAnswersOf(correctAnswer),
       // Kana cũng là chữ Nhật: dùng font tiếng Nhật, bỏ hết khoảng trắng khi so
       // khớp, và hiện nhắc bật IME ở chế độ gõ.
       answerIsJapanese: fieldIsJapanese(info.answer),
       answerPromptKey: ANSWER_PROMPT_KEY[info.answer],
-      answerPromptParams: {},
       choices,
-      choiceLabelKeys: null,
-      ignorePunctuation: false,
-      isSentence: false,
       maxWrongAttempts: limitAttempts(config.maxWrongAttempts, config.answerMode, choices.length),
-    };
+    });
   });
 }
 

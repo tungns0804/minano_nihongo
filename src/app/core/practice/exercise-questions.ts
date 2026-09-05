@@ -7,7 +7,15 @@ import {
   VerbForms,
   conjugate,
 } from '../japanese/conjugation';
-import { PracticeConfig, PracticeQuestion, QuestionSubject } from '../models/practice.model';
+import {
+  PracticeConfig,
+  PracticeQuestion,
+  QuestionSubject,
+  makeQuestion,
+  recap,
+  recapJp,
+  recapKey,
+} from '../models/practice.model';
 import { limitAttempts } from './vocabulary-questions';
 
 /**
@@ -45,25 +53,10 @@ function pairSubject(pair: TransitivityPair): QuestionSubject {
     detail: `${intransitive.meaning} ↔ ${transitive.meaning}`,
     detailSuffixKey: null,
     recap: [
-      {
-        labelKey: 'exercise.col.intransitive',
-        value: `${intransitive.masu}（${intransitive.reading}）`,
-        valueKey: null,
-        japanese: true,
-      },
-      {
-        labelKey: 'exercise.col.transitive',
-        value: `${transitive.masu}（${transitive.reading}）`,
-        valueKey: null,
-        japanese: true,
-      },
-      {
-        labelKey: 'lesson.col.meaningShort',
-        value: `${intransitive.meaning} ↔ ${transitive.meaning}`,
-        valueKey: null,
-        japanese: false,
-      },
-      { labelKey: 'exercise.col.level', value: pair.level, valueKey: null, japanese: false },
+      recapJp('exercise.col.intransitive', `${intransitive.masu}（${intransitive.reading}）`),
+      recapJp('exercise.col.transitive', `${transitive.masu}（${transitive.reading}）`),
+      recap('lesson.col.meaningShort', `${intransitive.meaning} ↔ ${transitive.meaning}`),
+      recap('exercise.col.level', pair.level),
     ],
   };
 }
@@ -77,30 +70,21 @@ function pairQuestion(
   const prompt = askingTransitive ? pair.intransitive : pair.transitive;
   const answer = askingTransitive ? pair.transitive : pair.intransitive;
 
-  return {
+  return makeQuestion({
     subject: pairSubject(pair),
     labelKey: askingTransitive ? 'exercise.label.toTransitive' : 'exercise.label.toIntransitive',
-    labelParams: {},
     prompt: prompt.masu,
-    promptIsJapanese: true,
     // Nghĩa của chính vế đang hỏi, không phải vế phải trả lời: nghĩa của vế kia
     // gần như đọc thẳng ra đáp án ("mở cửa" → 開けます).
     hint: config.showHanViet ? prompt.meaning : null,
-    hintIsJapanese: false,
     correctAnswer: answer.masu,
-    correctAnswerKey: null,
     acceptedAnswers: uniqueAnswers(answer.masu, answer.reading),
     answerIsJapanese: true,
     answerPromptKey: askingTransitive
       ? 'exercise.answerPrompt.transitive'
       : 'exercise.answerPrompt.intransitive',
-    answerPromptParams: {},
-    choices: [],
-    choiceLabelKeys: null,
-    ignorePunctuation: false,
-    isSentence: false,
     maxWrongAttempts: limitAttempts(config.maxWrongAttempts, 'typing', 0),
-  };
+  });
 }
 
 export function buildTransitivityQuestions(
@@ -156,26 +140,16 @@ function verbSubject(item: ConjugatedExerciseVerb): QuestionSubject {
     detail: verb.meaning,
     detailSuffixKey: VERB_GROUP_LABEL_KEY[verb.group],
     recap: [
-      { labelKey: 'lesson.col.meaningShort', value: verb.meaning, valueKey: null, japanese: false },
+      recap('lesson.col.meaningShort', verb.meaning),
       // Tên nhóm phải dịch nên đi qua valueKey thay vì chữ sẵn.
-      {
-        labelKey: 'lesson.col.group',
-        value: '',
-        valueKey: VERB_GROUP_LABEL_KEY[verb.group],
-        japanese: false,
-      },
-      { labelKey: 'lesson.col.reading', value: verb.reading, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.masu.short', value: forms.masu, valueKey: null, japanese: true },
-      {
-        labelKey: 'verbForm.dictionary.short',
-        value: forms.dictionary,
-        valueKey: null,
-        japanese: true,
-      },
-      { labelKey: 'verbForm.te.short', value: forms.te, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.ta.short', value: forms.ta, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.nai.short', value: forms.nai, valueKey: null, japanese: true },
-      { labelKey: 'exercise.col.level', value: verb.level, valueKey: null, japanese: false },
+      recapKey('lesson.col.group', VERB_GROUP_LABEL_KEY[verb.group]),
+      recapJp('lesson.col.reading', verb.reading),
+      recapJp('verbForm.masu.short', forms.masu),
+      recapJp('verbForm.dictionary.short', forms.dictionary),
+      recapJp('verbForm.te.short', forms.te),
+      recapJp('verbForm.ta.short', forms.ta),
+      recapJp('verbForm.nai.short', forms.nai),
+      recap('exercise.col.level', verb.level),
     ],
   };
 }
@@ -198,16 +172,13 @@ function formQuestion(
     },
   };
 
-  return {
+  return makeQuestion({
     subject: verbSubject(item),
     labelKey: label.key,
     labelParams: label.params,
     prompt: item.forms[promptForm],
-    promptIsJapanese: true,
     hint: config.showHanViet ? item.verb.meaning : null,
-    hintIsJapanese: false,
     correctAnswer: item.forms[answerForm],
-    correctAnswerKey: null,
     acceptedAnswers: uniqueAnswers(
       item.forms[answerForm],
       item.readingForms ? item.readingForms[answerForm] : '',
@@ -215,12 +186,8 @@ function formQuestion(
     answerIsJapanese: true,
     answerPromptKey: askingForMasu ? 'practice.answerPrompt.masu' : 'practice.answerPrompt.form',
     answerPromptParams: askingForMasu ? {} : { form: VERB_FORM_LABEL_KEY[form] },
-    choices: [],
-    choiceLabelKeys: null,
-    ignorePunctuation: false,
-    isSentence: false,
     maxWrongAttempts: limitAttempts(config.maxWrongAttempts, 'typing', 0),
-  };
+  });
 }
 
 /**

@@ -3,6 +3,9 @@ import {
   PracticeQuestion,
   QuestionSubject,
   RecapItem,
+  makeQuestion,
+  recap,
+  recapJp,
 } from '../models/practice.model';
 import type { RadicalEntry, RadicalKanji } from '../radical/radical.model';
 import { acceptedAnswersOf } from '../utils/answer-check';
@@ -25,26 +28,14 @@ function radicalSubject(entry: RadicalEntry): QuestionSubject {
     .map((kanji) => kanji.char)
     .join(' ');
 
-  const recap: RecapItem[] = [
-    { labelKey: 'radical.col.radical', value: forms, valueKey: null, japanese: true },
-    { labelKey: 'kanji.col.hanViet', value: entry.hanViet, valueKey: null, japanese: false },
-    { labelKey: 'radical.col.meaning', value: entry.meaning, valueKey: null, japanese: false },
-    { labelKey: 'radical.col.japanese', value: entry.japanese, valueKey: null, japanese: true },
-    {
-      labelKey: 'radical.col.strokes',
-      value: String(entry.strokes),
-      valueKey: null,
-      japanese: false,
-    },
+  const lines: RecapItem[] = [
+    recapJp('radical.col.radical', forms),
+    recap('kanji.col.hanViet', entry.hanViet),
+    recap('radical.col.meaning', entry.meaning),
+    recapJp('radical.col.japanese', entry.japanese),
+    recap('radical.col.strokes', String(entry.strokes)),
   ];
-  if (examples) {
-    recap.push({
-      labelKey: 'radical.col.kanjiExamples',
-      value: examples,
-      valueKey: null,
-      japanese: true,
-    });
-  }
+  if (examples) lines.push(recapJp('radical.col.kanjiExamples', examples));
 
   return {
     id: entry.id,
@@ -53,7 +44,7 @@ function radicalSubject(entry: RadicalEntry): QuestionSubject {
     subtitle: entry.hanViet,
     detail: entry.meaning,
     detailSuffixKey: null,
-    recap,
+    recap: lines,
   };
 }
 
@@ -61,66 +52,42 @@ export function buildRadicalHanVietQuestions(
   entries: readonly RadicalEntry[],
   config: PracticeConfig,
 ): PracticeQuestion[] {
-  return entries.map((entry) => ({
-    subject: radicalSubject(entry),
-    labelKey: 'radical.label.radicalHanViet',
-    labelParams: {},
-    // Hỏi bằng chữ chính, không kèm biến thể: 亻 đứng cạnh 人 là đã nói gần hết
-    // đáp án rồi. Biến thể hiện lại ở phần phản hồi sau khi chấm.
-    prompt: entry.char,
-    promptIsJapanese: true,
-    // Gợi ý là MỘT chữ Hán ghép từ bộ này. Bộ thủ đứng trơ gần như không có manh
-    // mối, mà nhìn 休 thì nhớ ra NHÂN dễ hơn hẳn nhìn trơ 亻.
-    hint: config.showHanViet ? (entry.kanji[0]?.char ?? null) : null,
-    hintIsJapanese: true,
-    correctAnswer: entry.hanViet,
-    correctAnswerKey: null,
-    acceptedAnswers: acceptedAnswersOf(entry.hanViet),
-    answerIsJapanese: false,
-    answerPromptKey: 'radical.answerPrompt.hanViet',
-    answerPromptParams: {},
-    choices: [],
-    choiceLabelKeys: null,
-    ignorePunctuation: false,
-    isSentence: false,
-    maxWrongAttempts: limitAttempts(config.maxWrongAttempts, 'typing', 0),
-  }));
+  return entries.map((entry) =>
+    makeQuestion({
+      subject: radicalSubject(entry),
+      labelKey: 'radical.label.radicalHanViet',
+      // Hỏi bằng chữ chính, không kèm biến thể: 亻 đứng cạnh 人 là đã nói gần hết
+      // đáp án rồi. Biến thể hiện lại ở phần phản hồi sau khi chấm.
+      prompt: entry.char,
+      // Gợi ý là MỘT chữ Hán ghép từ bộ này. Bộ thủ đứng trơ gần như không có manh
+      // mối, mà nhìn 休 thì nhớ ra NHÂN dễ hơn hẳn nhìn trơ 亻.
+      hint: config.showHanViet ? (entry.kanji[0]?.char ?? null) : null,
+      hintIsJapanese: true,
+      correctAnswer: entry.hanViet,
+      acceptedAnswers: acceptedAnswersOf(entry.hanViet),
+      answerPromptKey: 'radical.answerPrompt.hanViet',
+      maxWrongAttempts: limitAttempts(config.maxWrongAttempts, 'typing', 0),
+    }),
+  );
 }
 
 // ── Chiều 2 & 3: chữ ghép → âm Hán Việt / chiết tự ─────────────────────
 
 function kanjiSubject(kanji: RadicalKanji, entry: RadicalEntry): QuestionSubject {
-  const recap: RecapItem[] = [
-    { labelKey: 'kanji.col.kanji', value: kanji.char, valueKey: null, japanese: true },
-    { labelKey: 'kanji.col.hanViet', value: kanji.hanViet, valueKey: null, japanese: false },
-    { labelKey: 'radical.col.parts', value: kanji.parts.join(' + '), valueKey: null, japanese: true },
+  const lines: RecapItem[] = [
+    recapJp('kanji.col.kanji', kanji.char),
+    recap('kanji.col.hanViet', kanji.hanViet),
+    recapJp('radical.col.parts', kanji.parts.join(' + ')),
   ];
-  if (kanji.partsHanViet) {
-    recap.push({
-      labelKey: 'radical.col.partsHanViet',
-      value: kanji.partsHanViet,
-      valueKey: null,
-      japanese: false,
-    });
-  }
-  recap.push({
-    labelKey: 'radical.col.radical',
-    value: `${entry.char} — ${entry.hanViet}`,
-    valueKey: null,
-    japanese: true,
-  });
+  if (kanji.partsHanViet) lines.push(recap('radical.col.partsHanViet', kanji.partsHanViet));
+  lines.push(recapJp('radical.col.radical', `${entry.char} — ${entry.hanViet}`));
   // Từ ví dụ để chữ vừa học có chỗ bám vào; chữ nào kho từ chưa có thì bỏ hẳn
   // dòng này thay vì hiện một dòng trống.
   const word = kanji.words[0];
   if (word) {
-    recap.push({
-      labelKey: 'radical.col.word',
-      value: `${word.japanese}（${word.reading}）— ${word.meaning}`,
-      valueKey: null,
-      japanese: true,
-    });
+    lines.push(recapJp('radical.col.word', `${word.japanese}（${word.reading}）— ${word.meaning}`));
   }
-  recap.push({ labelKey: 'kanji.col.level', value: kanji.level, valueKey: null, japanese: false });
+  lines.push(recap('kanji.col.level', kanji.level));
 
   return {
     id: kanji.id,
@@ -129,7 +96,7 @@ function kanjiSubject(kanji: RadicalKanji, entry: RadicalEntry): QuestionSubject
     subtitle: kanji.hanViet,
     detail: kanji.parts.join(' + '),
     detailSuffixKey: null,
-    recap,
+    recap: lines,
   };
 }
 
@@ -144,12 +111,10 @@ function kanjiQuestion(
   const askingParts = ask === 'parts';
   const answer = askingParts ? kanji.partsHanViet : kanji.hanViet;
 
-  return {
+  return makeQuestion({
     subject: kanjiSubject(kanji, entry),
     labelKey: askingParts ? 'radical.label.kanjiParts' : 'radical.label.kanjiHanViet',
-    labelParams: {},
     prompt: kanji.char,
-    promptIsJapanese: true,
     // Gợi ý đổi theo chiều hỏi để không bao giờ lộ đáp án: hỏi âm Hán Việt của
     // chữ thì gợi ý bằng chiết tự, hỏi chiết tự thì gợi ý bằng một từ dùng chữ đó.
     hint: config.showHanViet
@@ -159,24 +124,16 @@ function kanjiQuestion(
       : null,
     hintIsJapanese: true,
     correctAnswer: answer,
-    correctAnswerKey: null,
     // Chiết tự gõ cách nào cũng được: "NHÂN MỘC", "NHÂN + MỘC", "NHÂN, MỘC".
     acceptedAnswers: askingParts
       ? [answer, answer.split(' ').join(' + '), answer.split(' ').join(', ')]
       : acceptedAnswersOf(answer),
-    answerIsJapanese: false,
-    answerPromptKey: askingParts
-      ? 'radical.answerPrompt.parts'
-      : 'kanji.answerPrompt.hanViet',
-    answerPromptParams: {},
-    choices: [],
-    choiceLabelKeys: null,
+    answerPromptKey: askingParts ? 'radical.answerPrompt.parts' : 'kanji.answerPrompt.hanViet',
     // Chiều chiết tự bỏ qua dấu câu và khoảng trắng khi chấm: đáp án là một CHUỖI
     // nhiều âm, bắt gõ đúng từng dấu cách thì sai vì lý do không liên quan.
     ignorePunctuation: askingParts,
-    isSentence: false,
     maxWrongAttempts: limitAttempts(config.maxWrongAttempts, 'typing', 0),
-  };
+  });
 }
 
 /**

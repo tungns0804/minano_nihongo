@@ -1,14 +1,3 @@
-/* --- Thanh công cụ --- */
-
-.toolbar .search {
-  flex: 1 1 360px;
-}
-
-.toolbar-counts {
-  gap: 6px;
-  flex-shrink: 0;
-}
-
 /* --- Lưới chủ đề --- */
 
 /* Ô rộng hơn thẻ bài học (270px) vì mỗi thẻ ở đây mang hai dòng tên — tiếng Nhật

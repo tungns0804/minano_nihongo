@@ -15,6 +15,10 @@ import {
   PracticeQuestion,
   QuestionSubject,
   VerbPracticeMode,
+  makeQuestion,
+  recap,
+  recapJp,
+  recapKey,
 } from '../models/practice.model';
 import { VerbEntry } from '../models/vocabulary.model';
 import { shuffle } from '../utils/random';
@@ -65,14 +69,14 @@ function subjectOf(verb: ConjugatedVerb): QuestionSubject {
     detail: entry.vietnamese,
     detailSuffixKey: VERB_GROUP_LABEL_KEY[entry.group],
     recap: [
-      { labelKey: 'lesson.col.meaningShort', value: entry.vietnamese, valueKey: null, japanese: false },
+      recap('lesson.col.meaningShort', entry.vietnamese),
       // Tên nhóm phải dịch nên đi qua valueKey thay vì chữ sẵn.
-      { labelKey: 'lesson.col.group', value: '', valueKey: VERB_GROUP_LABEL_KEY[entry.group], japanese: false },
-      { labelKey: 'verbForm.masu.short', value: forms.masu, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.dictionary.short', value: forms.dictionary, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.te.short', value: forms.te, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.ta.short', value: forms.ta, valueKey: null, japanese: true },
-      { labelKey: 'verbForm.nai.short', value: forms.nai, valueKey: null, japanese: true },
+      recapKey('lesson.col.group', VERB_GROUP_LABEL_KEY[entry.group]),
+      recapJp('verbForm.masu.short', forms.masu),
+      recapJp('verbForm.dictionary.short', forms.dictionary),
+      recapJp('verbForm.te.short', forms.te),
+      recapJp('verbForm.ta.short', forms.ta),
+      recapJp('verbForm.nai.short', forms.nai),
     ],
   };
 }
@@ -121,27 +125,20 @@ function buildGroupQuestion(verb: ConjugatedVerb, config: PracticeConfig): Pract
     ALL_GROUPS.map((group) => [String(group), VERB_GROUP_LABEL_KEY[group]]),
   );
 
-  return {
+  return makeQuestion({
     subject: subjectOf(verb),
     labelKey: 'practice.label.identifyGroup',
-    labelParams: {},
     prompt: verb.entry.masu,
-    promptIsJapanese: true,
     hint: config.showHanViet ? verb.entry.vietnamese : null,
-    hintIsJapanese: false,
     correctAnswer,
     correctAnswerKey: VERB_GROUP_LABEL_KEY[verb.entry.group],
     // Gõ "1" hay tên nhóm ở BẤT KỲ ngôn ngữ nào cũng được tính đúng.
     acceptedAnswers: [correctAnswer, ...allLanguageTexts(VERB_GROUP_LABEL_KEY[verb.entry.group])],
-    answerIsJapanese: false,
     answerPromptKey: 'practice.answerPrompt.group',
-    answerPromptParams: {},
     choices,
     choiceLabelKeys,
-    ignorePunctuation: false,
-    isSentence: false,
     maxWrongAttempts: limitAttempts(config.maxWrongAttempts, config.answerMode, choices.length),
-  };
+  });
 }
 
 /** Chữ của một khoá ở mọi ngôn ngữ — để chấm không phụ thuộc ngôn ngữ đang chọn. */
@@ -166,7 +163,7 @@ function buildFormQuestion(
       ? buildFormChoices(verb, form, correctAnswer, prompt, allConjugated, askingForMasu)
       : [];
 
-  return {
+  return makeQuestion({
     subject: subjectOf(verb),
     labelKey: label.key,
     labelParams: label.params,
@@ -175,19 +172,13 @@ function buildFormQuestion(
     // Ở dạng "nghĩa → thể" thì nghĩa chính là câu hỏi nên không hiện lại làm gợi ý.
     hint:
       config.showHanViet && config.verbMode !== 'meaning-to-form' ? verb.entry.vietnamese : null,
-    hintIsJapanese: false,
     correctAnswer,
-    correctAnswerKey: null,
-    acceptedAnswers: [correctAnswer],
     answerIsJapanese: true,
     answerPromptKey: askingForMasu ? 'practice.answerPrompt.masu' : 'practice.answerPrompt.form',
     answerPromptParams: askingForMasu ? {} : { form: VERB_FORM_LABEL_KEY[form] },
     choices,
-    choiceLabelKeys: null,
-    ignorePunctuation: false,
-    isSentence: false,
     maxWrongAttempts: limitAttempts(config.maxWrongAttempts, config.answerMode, choices.length),
-  };
+  });
 }
 
 function promptOf(verb: ConjugatedVerb, form: VerbForm, mode: VerbPracticeMode): string {

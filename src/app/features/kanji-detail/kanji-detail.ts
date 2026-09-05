@@ -18,17 +18,17 @@ import {
 import { kanjiById } from '../../core/kanji/kanji-entries';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
-  PracticeConfig,
+  LIMIT_CHOICES,
+  practiceConfig,
   PracticeScope,
 } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { checkedOf, valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
-/** Các mốc số câu cho phép chọn nhanh, giống mọi màn hình thiết lập khác. */
-const LIMIT_CHOICES = [10, 20, 30, 50] as const;
 
 /**
  * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
@@ -220,19 +220,19 @@ export class KanjiDetail {
   }
 
   toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set((event.target as HTMLInputElement).checked);
+    this.shuffleQuestions.set(checkedOf(event));
   }
 
   toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set((event.target as HTMLInputElement).checked);
+    this.ignoreDiacritics.set(checkedOf(event));
   }
 
   toggleShowHint(event: Event): void {
-    this.showHint.set((event.target as HTMLInputElement).checked);
+    this.showHint.set(checkedOf(event));
   }
 
   onSearch(event: Event): void {
-    this.search.set((event.target as HTMLInputElement).value);
+    this.search.set(valueOf(event));
   }
 
   clearSearch(): void {
@@ -240,7 +240,7 @@ export class KanjiDetail {
   }
 
   toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set((event.target as HTMLInputElement).checked);
+    this.onlyFavorites.set(checkedOf(event));
   }
 
   /** Phạm vi ★ có thể rỗng đi sau khi đổi cấp độ — quay về "Toàn bộ". */
@@ -271,32 +271,19 @@ export class KanjiDetail {
     const entry = this.entry();
     if (!entry || !this.canStart()) return;
 
-    const config: PracticeConfig = {
+    const config = practiceConfig({
       lessonId: entry.id,
       lessonKind: 'kanji',
       scope: this.scope(),
-      // Khu Kanji không có trắc nghiệm, xem `kanji.typingOnly`.
-      answerMode: 'typing',
       questionLimit: this.questionLimit(),
-      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
-      batchIndex: null,
       shuffle: this.shuffleQuestions(),
-      maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       // Chỉ có tác dụng ở chiều hỏi nghĩa (đáp án tiếng Việt); chiều hỏi hiragana
       // thì đáp án là kana nên tuỳ chọn này không đụng tới nó.
       ignoreDiacritics: this.ignoreDiacritics(),
-      direction: 'jp-vi',
       // Ở khu Kanji, cờ này bật gợi ý âm Hán Việt của cả từ.
       showHanViet: this.showHint(),
-      // Các trường dưới đây thuộc về loại bài khác — xem ghi chú ở `PracticeConfig`.
-      showGrammarHint: false,
-      verbMode: 'masu-to-form',
-      verbForms: ['te'],
-      exercise: null,
-      exerciseMode: 'to-transitive',
       kanjiMode: this.mode(),
-      radicalMode: 'radical-hanviet',
-    };
+    });
 
     const plan = orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config);
     const name = `${entry.char} ${entry.hanViet}`;

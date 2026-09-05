@@ -859,6 +859,414 @@ a:hover {
   }
 }
 
+/* ==========================================================================
+   Lớp dùng chung của nhiều màn hình
+   ==========================================================================
+   Mọi luật dưới đây trước kia được CHÉP nguyên văn vào từng file .css của
+   component — có luật nằm ở bảy chỗ. Style của component là style CÓ PHẠM VI,
+   nên chép là cách duy nhất để dùng lại, và cái giá là mỗi lần sửa một con số
+   thì phải sửa đúng bảy chỗ; sót một chỗ thì hai màn hình lệch nhau mà không
+   có gì báo.
+
+   Đưa lên global thì component vẫn ghi đè được: Angular gắn thêm thuộc tính
+   `[_ngcontent-…]` vào selector của component, nên `.star-btn` trong một file
+   component luôn thắng `.star-btn` ở đây. Nhờ vậy màn hình nào cần khác một
+   chút thì chỉ khai đúng phần khác, không phải khai lại cả khối. */
+
+/* --- Khung thiết lập luyện tập -------------------------------------------
+   Bảy màn hình có khung này (bài học, ngữ pháp, bài tập, kanji ×2, bộ thủ ×2)
+   và cả bảy đều bày các lựa chọn theo cùng một lưới. */
+
+/* Lưới lựa chọn hai cột co giãn: chiều hỏi, dạng câu hỏi, phạm vi… */
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Lưới các mốc số câu — ô nhỏ hơn nhiều vì nội dung chỉ là một con số. */
+.options-limit {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+/* Ô lựa chọn có tên ở trên, ví dụ ở dưới. */
+.option-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.option-stacked strong {
+  font-weight: 620;
+}
+
+.option-example {
+  font-size: 0.82rem;
+  font-weight: 450;
+  opacity: 0.75;
+}
+
+/* Hàng cuối của khung thiết lập: dòng tóm tắt bên trái, nút "Bắt đầu" bên phải. */
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+/* Dòng tóm tắt được co lại, không đẩy nút "Bắt đầu" xuống hàng dưới. */
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Hàng lọc của bảng ---------------------------------------------------
+   Ô tìm bên trái, ô tích "chỉ ★" bên phải, luôn nằm cùng một hàng. */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Nút ★ ---------------------------------------------------------------
+   Đánh dấu "chưa nhớ". Có mặt ở bảng từ, trang lý thuyết, màn hình luyện tập
+   và màn hình kết quả — bốn nơi bày ở bốn cỡ khác nhau, nên nơi nào cần cỡ
+   riêng thì khai lại `padding` và `font-size` trong file của nó. */
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition:
+    color 0.15s,
+    transform 0.1s;
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+@media (hover: hover) {
+  .star-btn:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+/* Trên màn hình cảm ứng không có con trỏ để ngắm, nên vùng chạm phải to hẳn. */
+@media (hover: none) {
+  .star-btn {
+    padding: 8px 10px;
+    font-size: 1.35rem;
+  }
+}
+
+/* --- Bảng từ -------------------------------------------------------------
+   Bảng tra của các màn hình chi tiết: bài học, bài tập, một chữ Hán, một bộ thủ.
+   Bề rộng từng cột thì khác nhau nên vẫn nằm ở file của từng màn hình. */
+
+.word-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.word-table th {
+  padding: 9px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.word-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* Kẻ sọc để mắt không lạc dòng ở bảng dài. Hàng ★ có màu riêng nên bỏ qua. */
+.word-table tbody tr:nth-child(even):not(.is-favorite) {
+  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
+}
+
+@media (hover: hover) {
+  .word-table tbody tr:hover:not(.is-favorite) {
+    background: var(--bg-subtle);
+  }
+}
+
+.word-table tr.is-favorite {
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.col-star {
+  width: 44px;
+  text-align: center;
+}
+
+.col-level .badge {
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}
+
+/* --- Link quay lại -------------------------------------------------------
+   Dòng "← …" ở đầu mọi màn hình chi tiết. */
+
+.back-link {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  width: fit-content;
+  transition: color var(--dur) var(--ease);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* --- Thẻ bài học ---------------------------------------------------------
+   Lưới thẻ của trang chủ, tab Ngữ pháp và tab Bài tập bổ trợ. Tab Chủ đề dùng
+   lưới riêng (`.topic-*`) vì thẻ ở đó có thêm biểu tượng và hai dòng tên. */
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+.lesson-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  color: var(--text);
+  overflow: hidden;
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+/* Vạch màu bên trái, chỉ hiện khi rê chuột — dấu hiệu "thẻ này đang được ngắm". */
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .lesson-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .lesson-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .lesson-card:hover .lesson-go {
+    transform: translateX(3px);
+  }
+}
+
+.lesson-card:focus-visible {
+  border-color: var(--accent);
+}
+
+.lesson-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lesson-name {
+  font-size: 1.05rem;
+  font-weight: 640;
+  font-family: var(--font-jp);
+}
+
+.lesson-desc {
+  flex: 1;
+}
+
+.lesson-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: var(--sp-1);
+}
+
+.lesson-go {
+  color: var(--accent);
+  font-weight: 700;
+  transition: transform var(--dur) var(--ease);
+}
+
+/* Khung chờ của các trang danh sách — kích thước khớp với thẻ thật ở trên. */
+.skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-bar {
+  width: 220px;
+  height: 20px;
+}
+
+.skeleton-card {
+  height: 132px;
+  border-radius: var(--radius-lg);
+}
+
+/* Thanh công cụ của trang danh sách: ô tìm chiếm phần lớn, số liệu bám phải. */
+.toolbar .search {
+  flex: 1 1 360px;
+}
+
+.toolbar-counts {
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.level-options {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+/* --- Tab chọn nhóm của bảng tra ------------------------------------------
+   Kanji chia theo cấp JLPT, bộ thủ chia theo số nét — cùng một hình dạng nút. */
+
+.level-tabs {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.level-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.level-tab:hover:not(.is-active) {
+  border-color: var(--border-strong);
+  background: var(--bg-inset);
+}
+
+.level-tab strong {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.level-tab-count {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+}
+
+.level-tab.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.level-tab.is-active .level-tab-count {
+  color: var(--accent);
+}
+
+/* Dòng "kiểu luyện" ở khung thiết lập của hai bảng tra: chỉ có một kiểu nên nó
+   là một dòng chữ chứ không phải nút bấm. */
+.mode-still {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.mode-still strong {
+  font-weight: 620;
+}
+
+/* --- Khung chờ của màn hình chi tiết ------------------------------------- */
+
+.detail-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sk-pill {
+  width: 110px;
+  height: 22px;
+  border-radius: 999px;
+}
+
 /* --- Chuyển động ----------------------------------------------------------
    Nguyên tắc: mỗi hiệu ứng phải TRẢ LỜI một câu hỏi của người học, chứ không
    phải để cho đẹp. Cụ thể là bốn câu:

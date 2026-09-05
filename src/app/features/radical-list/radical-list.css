@@ -1,53 +1,9 @@
-/* Màn hình danh sách bộ thủ: chọn cấp → lưới chữ, rồi tới khối thiết lập luyện
-   tập. Style của component là phạm vi riêng nên phần dùng chung phải khai lại. */
+/* Màn hình danh sách bộ thủ: chọn nhóm → lưới chữ, rồi tới khối thiết lập luyện
+   tập.
 
-/* --- Chọn cấp --- */
-
-.level-tabs {
-  display: flex;
-  gap: var(--sp-2);
-  flex-wrap: wrap;
-}
-
-.level-tab {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1px;
-  padding: 9px 18px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-subtle);
-  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
-    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
-}
-
-.level-tab:hover:not(.is-active) {
-  border-color: var(--border-strong);
-  background: var(--bg-inset);
-}
-
-.level-tab strong {
-  font-size: var(--fs-md);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.level-tab-count {
-  font-size: var(--fs-2xs);
-  color: var(--text-muted);
-}
-
-.level-tab.is-active {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-ring);
-}
-
-.level-tab.is-active .level-tab-count {
-  color: var(--accent);
-}
+Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-bar,
+   .star-btn, .word-table…) nay nằm ở `src/styles.css`, mục "Lớp dùng chung của
+   nhiều màn hình". File này chỉ còn những gì riêng của màn hình. */
 
 /* --- Lưới chữ --- */
 
@@ -178,84 +134,7 @@
   color: var(--star);
 }
 
-/* --- Bộ lọc --- */
-
-.filter-row {
-  flex-wrap: nowrap;
-  align-items: stretch;
-}
-
-.search-input {
-  flex: 1;
-  min-width: 0;
-}
-
-.filter-check {
-  flex-shrink: 0;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.filter-check input {
-  margin-top: 0;
-}
-
 /* --- Khối thiết lập --- */
-
-.options-2 {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.options-limit {
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-}
-
-.checkbox strong {
-  display: block;
-  font-weight: 600;
-  font-size: 0.94rem;
-}
-
-.checkbox .hint {
-  display: block;
-  margin-top: 1px;
-}
-
-/* Màn hình này chỉ có ĐÚNG một chiều hỏi nên không bày nút chọn: một nhóm nút mà
-   chỉ có một nút, lúc nào cũng sáng, chỉ làm người dùng đi tìm nút thứ hai. */
-.mode-still {
-  display: flex;
-  align-items: baseline;
-  gap: var(--sp-3);
-  flex-wrap: wrap;
-  padding: 11px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-subtle);
-}
-
-.mode-still strong {
-  font-weight: 620;
-}
-
-.start-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.start-bar .btn {
-  flex-shrink: 0;
-}
-
-.start-bar > .small {
-  flex: 1 1 0;
-  min-width: 0;
-}
 
 @media (max-width: 640px) {
   .filter-row {

@@ -35,6 +35,7 @@ import {
   unitsOf,
 } from '../../core/n3/n3.model';
 import { N3ProgressStore } from '../../core/services/n3-progress-store';
+import { checkedOf } from '../../core/utils/dom-events';
 
 /**
  * Lịch dựng MỘT LẦN lúc nạp module, không phải trong computed.
@@ -427,7 +428,7 @@ export class N3Progress {
   }
 
   protected toggleChoukaiScope(event: Event): void {
-    this.store.setIncludeChoukai((event.target as HTMLInputElement).checked);
+    this.store.setIncludeChoukai(checkedOf(event));
   }
 
   protected resetAll(): void {

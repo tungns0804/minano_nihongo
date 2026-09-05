@@ -16,6 +16,7 @@ import type { MessageKey } from '../../core/i18n/messages';
 import { QuestionStatus, sessionShortKey } from '../../core/models/practice.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { valueOf } from '../../core/utils/dom-events';
 
 @Component({
   selector: 'app-practice',
@@ -142,7 +143,7 @@ export class Practice {
   // --- Gõ đáp án ---
 
   onTypedInput(event: Event): void {
-    this.typedAnswer.set((event.target as HTMLInputElement | HTMLTextAreaElement).value);
+    this.typedAnswer.set(valueOf(event));
   }
 
   submitTyped(): void {

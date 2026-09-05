@@ -5,6 +5,7 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import { TOPIC_CATALOG } from '../../core/topics/topic-catalog';
 import { FavoriteStore } from '../../core/services/favorite-store';
+import { valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Một thẻ chủ đề, đã trộn sẵn phần khai tay với phần dữ liệu sinh. */
@@ -93,7 +94,7 @@ export class TopicList {
   );
 
   onSearch(event: Event): void {
-    this.searchRef.set((event.target as HTMLInputElement).value);
+    this.searchRef.set(valueOf(event));
   }
 
   clearSearch(): void {

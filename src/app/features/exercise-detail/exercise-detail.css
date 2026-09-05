@@ -1,106 +1,11 @@
 /* Màn hình bài tập dùng lại đúng ngôn ngữ hình ảnh của màn hình chi tiết bài học
    (khối thiết lập + bảng tra cứu, dưới 640px thì bảng đổi thành thẻ xếp dọc).
-   Style của component là phạm vi riêng nên phần dùng chung phải khai lại ở đây. */
 
-.back-link {
-  font-size: var(--fs-sm);
-  color: var(--text-muted);
-  width: fit-content;
-  transition: color var(--dur) var(--ease);
-}
-
-.back-link:hover {
-  color: var(--accent);
-}
-
-/* --- Khối thiết lập --- */
-
-.options-2 {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.options-limit {
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-}
-
-.option-stacked {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-}
-
-.option-stacked strong {
-  font-weight: 620;
-}
-
-.option-example {
-  font-size: 0.82rem;
-  font-weight: 450;
-  opacity: 0.75;
-}
-
-.checkbox strong {
-  display: block;
-  font-weight: 600;
-  font-size: 0.94rem;
-}
-
-.checkbox .hint {
-  display: block;
-  margin-top: 1px;
-}
-
-.start-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.start-bar .btn {
-  flex-shrink: 0;
-}
-
-/* Phần chữ co lại thay vì đẩy nút xuống dòng — xem ghi chú cùng nội dung ở
-   features/lesson-detail. */
-.start-bar > .small {
-  flex: 1 1 0;
-  min-width: 0;
-}
-
-/* --- Bộ lọc bảng --- */
-
-.filter-row {
-  flex-wrap: nowrap;
-  align-items: stretch;
-}
-
-.search-input {
-  flex: 1;
-  min-width: 0;
-}
-
-.filter-check {
-  flex-shrink: 0;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.filter-check input {
-  margin-top: 0;
-}
+Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-bar,
+   .star-btn, .word-table…) nay nằm ở `src/styles.css`, mục "Lớp dùng chung của
+   nhiều màn hình". File này chỉ còn những gì riêng của màn hình. */
 
 /* --- Bảng --- */
-
-.word-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  font-size: 0.94rem;
-}
 
 /* Bề rộng tối thiểu chỉ áp dụng từ 641px trở lên: dưới ngưỡng đó bảng đã đổi
    thành thẻ xếp dọc, giữ min-width thì thẻ rộng hơn cả màn hình. */
@@ -131,47 +36,10 @@
 .verb-table th:nth-child(8) { width: 105px; }
 .verb-table th:nth-child(10) { width: 80px; }
 
-/* Không dùng position: sticky cho tiêu đề: header ứng dụng cũng sticky, hai cái
-   sẽ chồng lên nhau. */
+/* Ba màn hình này để tiêu đề cột trên một dòng; bảng của bài học thì cho
+   xuống dòng vì cột "Ví dụ" có tên dài. */
 .word-table th {
-  padding: 9px 12px;
-  background: var(--bg-subtle);
-  border-bottom: 1px solid var(--border-strong);
-  text-align: left;
-  font-size: var(--fs-xs);
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
   white-space: nowrap;
-}
-
-.word-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
-
-/* Kẻ sọc xen kẽ: bảng 10 cột mà không có sọc thì dò từ cột ます sang cột ない rất
-   dễ trượt sang dòng bên cạnh. Nhạt hơn hẳn màu dòng ★ để hai tín hiệu không lẫn. */
-.word-table tbody tr:nth-child(even):not(.is-favorite) {
-  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
-}
-
-@media (hover: hover) {
-  /* :not(.is-favorite) để quy tắc này thắng được quy tắc kẻ sọc ở trên. */
-  .word-table tbody tr:hover:not(.is-favorite) {
-    background: var(--bg-subtle);
-  }
-}
-
-.word-table tr.is-favorite {
-  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
-}
-
-.col-star {
-  width: 44px;
-  text-align: center;
 }
 
 .col-jp {
@@ -200,11 +68,6 @@
   margin-left: 3px;
 }
 
-.col-level .badge {
-  font-size: 0.72rem;
-  padding: 1px 7px;
-}
-
 /* Thể て là thể hay hỏi nhất nên được tô màu cho dễ dò. */
 .form-te {
   font-weight: 650;
@@ -228,35 +91,7 @@
   line-height: 1.45;
 }
 
-.star-btn {
-  border: none;
-  background: none;
-  padding: 2px 4px;
-  font-size: 1.15rem;
-  line-height: 1;
-  color: var(--text-faint);
-  border-radius: 5px;
-  transition: color 0.15s, transform 0.1s;
-}
-
-@media (hover: hover) {
-  .star-btn:hover {
-    color: var(--star);
-    transform: scale(1.15);
-  }
-}
-
 /* Trên màn hình chạm, ngôi sao phải đủ to để không bấm trượt sang dòng bên cạnh. */
-@media (hover: none) {
-  .star-btn {
-    padding: 8px 10px;
-    font-size: 1.35rem;
-  }
-}
-
-.star-btn.is-on {
-  color: var(--star);
-}
 
 /* ============================================================================
    ĐIỆN THOẠI: bảng đổi thành thẻ xếp dọc

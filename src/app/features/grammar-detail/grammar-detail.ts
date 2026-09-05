@@ -6,11 +6,12 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
+  directionInfo,
   DIRECTIONS,
-  PracticeConfig,
+  LIMIT_CHOICES,
+  practiceConfig,
   PracticeDirection,
   PracticeScope,
-  directionInfo,
 } from '../../core/models/practice.model';
 import {
   GrammarExampleRef,
@@ -22,9 +23,8 @@ import { buildQuestions } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { checkedOf } from '../../core/utils/dom-events';
 
-/** Các mốc số câu cho phép chọn nhanh, giống màn hình chi tiết bài học. */
-const LIMIT_CHOICES = [10, 20, 30, 50] as const;
 
 /**
  * Trang một bài ngữ pháp: phần lý thuyết (công thức, giải thích, bảng biến đổi,
@@ -205,15 +205,15 @@ export class GrammarDetail {
   }
 
   toggleShowHint(event: Event): void {
-    this.showGrammarHint.set((event.target as HTMLInputElement).checked);
+    this.showGrammarHint.set(checkedOf(event));
   }
 
   toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set((event.target as HTMLInputElement).checked);
+    this.shuffleQuestions.set(checkedOf(event));
   }
 
   toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set((event.target as HTMLInputElement).checked);
+    this.ignoreDiacritics.set(checkedOf(event));
   }
 
   // --- Favorite ---
@@ -239,28 +239,16 @@ export class GrammarDetail {
     const lesson = this.lesson();
     if (!lesson || !this.canStart()) return;
 
-    const config: PracticeConfig = {
+    const config = practiceConfig({
       lessonId: lesson.id,
       lessonKind: lesson.kind,
       scope: this.scope(),
-      // Bài ngữ pháp luôn là gõ đáp án: chọn trong bốn câu dài thì đọc lướt là ra.
-      answerMode: 'typing',
       questionLimit: this.questionLimit(),
-      // Khu này chưa có khung chọn cụm — null giữ nguyên cách cắt cũ.
-      batchIndex: null,
       shuffle: this.shuffleQuestions(),
-      maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
-      showHanViet: false,
       showGrammarHint: this.showGrammarHint(),
-      verbMode: 'masu-to-form',
-      verbForms: [],
-      exercise: null,
-      exerciseMode: 'masu-to-form',
-      kanjiMode: 'word-meaning',
-      radicalMode: 'radical-hanviet',
-    };
+    });
 
     const plan = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);
     if (this.session.start({ id: lesson.id, name: lesson.name }, config, plan)) {

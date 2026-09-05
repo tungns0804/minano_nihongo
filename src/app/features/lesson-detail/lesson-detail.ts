@@ -17,16 +17,18 @@ import { T } from '../../core/i18n/t';
 import {
   AnswerMode,
   DEFAULT_MAX_WRONG_ATTEMPTS,
-  DIRECTIONS,
+  directionInfo,
   directionIsUsable,
+  DIRECTIONS,
   directionUsesField,
+  LIMIT_CHOICES,
+  practiceConfig,
   PracticeConfig,
   PracticeDirection,
   PracticeScope,
   VERB_MODES,
-  VerbPracticeMode,
-  directionInfo,
   verbModeInfo,
+  VerbPracticeMode,
 } from '../../core/models/practice.model';
 import {
   ConversationLine,
@@ -48,10 +50,9 @@ import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
 import { VocabAudioPlayer } from '../../core/services/vocab-audio-player';
+import { checkedOf, valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
-/** Các mốc số câu cho phép chọn nhanh. */
-const LIMIT_CHOICES = [10, 20, 30, 50] as const;
 
 /** Một động từ kèm kết quả chia, hoặc lý do không chia được. */
 interface VerbRow {
@@ -552,7 +553,7 @@ export class LessonDetail {
   }
 
   onSearch(event: Event): void {
-    this.search.set((event.target as HTMLInputElement).value);
+    this.search.set(valueOf(event));
   }
 
   clearSearch(): void {
@@ -560,19 +561,19 @@ export class LessonDetail {
   }
 
   toggleShowHanViet(event: Event): void {
-    this.showHanViet.set((event.target as HTMLInputElement).checked);
+    this.showHanViet.set(checkedOf(event));
   }
 
   toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set((event.target as HTMLInputElement).checked);
+    this.shuffleQuestions.set(checkedOf(event));
   }
 
   toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set((event.target as HTMLInputElement).checked);
+    this.ignoreDiacritics.set(checkedOf(event));
   }
 
   toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set((event.target as HTMLInputElement).checked);
+    this.onlyFavorites.set(checkedOf(event));
   }
 
   // --- Phát âm ---
@@ -652,7 +653,7 @@ export class LessonDetail {
    * trong hai đường, mà chẳng có gì báo.
    */
   private buildConfig(lesson: Lesson, overrides: Partial<PracticeConfig> = {}): PracticeConfig {
-    return {
+    return practiceConfig({
       lessonId: lesson.id,
       lessonKind: lesson.kind,
       scope: this.scope(),
@@ -662,22 +663,16 @@ export class LessonDetail {
       questionLimit: this.questionLimit(),
       batchIndex: this.batchIndex(),
       shuffle: this.shuffleQuestions(),
-      maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
       showHanViet: this.showHanViet() && this.hanVietHintAvailable(),
-      // Chỉ bài ngữ pháp dùng tới, nhưng PracticeConfig là một khối thiết lập đầy đủ
-      // chứ không phải union theo loại bài, nên trường nào cũng phải có giá trị.
+      // Bài ngữ pháp mở từ đây luôn hiện gợi ý; khung thiết lập riêng của khu ngữ
+      // pháp mới cho tắt.
       showGrammarHint: true,
       verbMode: this.verbMode(),
       verbForms: this.selectedForms(),
-      // Chỉ khu /exercise dùng tới, xem ghi chú ngay trên về showGrammarHint.
-      exercise: null,
-      exerciseMode: 'masu-to-form',
-      kanjiMode: 'word-meaning',
-      radicalMode: 'radical-hanviet',
       ...overrides,
-    };
+    });
   }
 
   private launch(lesson: Lesson, config: PracticeConfig, pool: PracticePool): void {

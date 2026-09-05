@@ -1,87 +1,4 @@
-.back-link {
-  font-size: var(--fs-sm);
-  color: var(--text-muted);
-  width: fit-content;
-  transition: color var(--dur) var(--ease);
-}
-
-.back-link:hover {
-  color: var(--accent);
-}
-
-.options-2 {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.options-limit {
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-}
-
-.checkbox strong {
-  display: block;
-  font-weight: 600;
-  font-size: 0.94rem;
-}
-
-.checkbox .hint {
-  display: block;
-  margin-top: 1px;
-}
-
-.start-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.start-bar .btn {
-  flex-shrink: 0;
-}
-
-/* Phần chữ co lại thay vì đẩy nút xuống dòng: nếu để nút tự xuống dòng thì chỉ
-   cần bản dịch dài hơn vài chữ là cả khối cao thêm một dòng. */
-.start-bar > .small {
-  flex: 1 1 0;
-  min-width: 0;
-}
-
-/* --- Bộ lọc --- */
-
-.filter-row {
-  flex-wrap: nowrap;
-  align-items: stretch;
-}
-
-.search-input {
-  flex: 1;
-  min-width: 0;
-}
-
-.filter-check {
-  flex-shrink: 0;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.filter-check input {
-  margin-top: 0;
-}
-
 /* --- Bảng từ vựng --- */
-
-/* table-layout: fixed + bề rộng cột khai báo sẵn: cột KHÔNG co giãn theo độ dài
-   chữ nữa, nên đổi ngôn ngữ không làm cả bảng chạy lại. Cũng tránh việc thêm một
-   từ dài làm xô lệch toàn bộ cột. */
-.word-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  font-size: 0.94rem;
-}
 
 /* Bảng chia động từ: 9 cột, riêng bảng này vẫn cuộn ngang khi cửa sổ hẹp.
 
@@ -280,52 +197,8 @@
 .verb-table th:nth-child(7),
 .verb-table th:nth-child(8) { width: 105px; }
 
-/* Không dùng position:sticky ở đây: bảng nằm trong luồng trang bình thường nên
-   tiêu đề dính sẽ trôi xuống và chui xuống dưới header ứng dụng (cũng sticky). */
-.word-table th {
-  padding: 9px 12px;
-  background: var(--bg-subtle);
-  border-bottom: 1px solid var(--border-strong);
-  text-align: left;
-  font-size: var(--fs-xs);
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.word-table td {
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top;
-}
-
-/* Kẻ sọc xen kẽ. Bảng động từ có 9 cột — dò từ cột "ます" sang cột "ない" trên cùng
-   một dòng mà không có sọc thì rất dễ trượt sang dòng bên cạnh. Màu nhạt hơn hẳn
-   màu dòng ★ để hai tín hiệu không lẫn vào nhau. */
-.word-table tbody tr:nth-child(even):not(.is-favorite) {
-  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
-}
-
 /* Chỉ tô sáng dòng khi thiết bị thật sự có con trỏ. Trên điện thoại, "hover" dính
    lại sau khi bấm, làm một dòng bất kỳ trông như đang được chọn. */
-@media (hover: hover) {
-  /* :not(.is-favorite) ở đây không phải để loại trừ (dòng ★ vốn đã có màu riêng),
-     mà để quy tắc này đủ độ ưu tiên thắng được quy tắc kẻ sọc phía trên — thiếu
-     nó thì mọi dòng CHẴN sẽ không phản ứng gì khi trỏ chuột vào. */
-  .word-table tbody tr:hover:not(.is-favorite) {
-    background: var(--bg-subtle);
-  }
-}
-
-.word-table tr.is-favorite {
-  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
-}
-
-.col-star {
-  width: 44px;
-  text-align: center;
-}
 
 /* Không khoá nowrap ở ba chỗ này (tiêu đề cột, âm Hán Việt, tiếng Nhật): cột đã co
    theo khung nên ở cửa sổ hẹp chữ dài phải được xuống dòng. Bảng dùng
@@ -341,22 +214,6 @@
 }
 
 /* --- Bảng chia động từ --- */
-
-.option-stacked {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-}
-
-.option-stacked strong {
-  font-weight: 620;
-}
-
-.option-example {
-  font-size: 0.82rem;
-  font-weight: 450;
-  opacity: 0.75;
-}
 
 .verb-table {
   font-size: 0.9rem;
@@ -394,36 +251,8 @@
   font-size: var(--fs-sm);
 }
 
-.star-btn {
-  border: none;
-  background: none;
-  padding: 2px 4px;
-  font-size: 1.15rem;
-  line-height: 1;
-  color: var(--text-faint);
-  border-radius: 5px;
-  transition: color 0.15s, transform 0.1s;
-}
-
-@media (hover: hover) {
-  .star-btn:hover {
-    color: var(--star);
-    transform: scale(1.15);
-  }
-}
-
 /* Ngôi sao là thứ được bấm nhiều nhất khi vừa học vừa đánh dấu — trên màn hình chạm
    phải đủ to để không bấm trượt sang dòng bên cạnh. */
-@media (hover: none) {
-  .star-btn {
-    padding: 8px 10px;
-    font-size: 1.35rem;
-  }
-}
-
-.star-btn.is-on {
-  color: var(--star);
-}
 
 /* --- Nút phát âm --- */
 
@@ -634,12 +463,6 @@
 
    Hiệu ứng lấp lánh và màu nền lấy từ lớp .skeleton dùng chung ở styles.css. */
 
-.detail-skeleton {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
 .sk-back {
   width: 150px;
   height: 15px;
@@ -653,12 +476,6 @@
 .sk-row {
   display: flex;
   gap: 8px;
-}
-
-.sk-pill {
-  width: 110px;
-  height: 22px;
-  border-radius: 999px;
 }
 
 /* Cao xấp xỉ khối thiết lập luyện tập thật (chiều luyện + phạm vi + nút bắt đầu). */

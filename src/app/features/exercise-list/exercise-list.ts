@@ -17,6 +17,7 @@ import {
 } from '../../core/models/vocabulary.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { LessonStore } from '../../core/services/lesson-store';
+import { valueOf } from '../../core/utils/dom-events';
 import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
 
 interface ExerciseCard extends ExerciseInfo {
@@ -189,7 +190,7 @@ export class ExerciseList {
   }
 
   onSearch(event: Event): void {
-    this.searchRef.set((event.target as HTMLInputElement).value);
+    this.searchRef.set(valueOf(event));
   }
 
   clearSearch(): void {
