@@ -208,8 +208,16 @@ export function isoToDay(iso: string): DayNumber {
   return Math.floor(Date.UTC(Number(year), Number(month) - 1, Number(date)) / MS_PER_DAY);
 }
 
-/** Số ngày → '2026-12-10'. */
+/**
+ * Số ngày → '2026-12-10'. Trả chuỗi rỗng nếu không phải một ngày hợp lệ.
+ *
+ * Không để `new Date()` ném RangeError: `isoToDay` trả NaN cho chuỗi sai định
+ * dạng, và NaN đó chảy qua các phép cộng rồi tới đây. Một hằng số ngày viết sai
+ * trong `n3-syllabus.ts` khi đó làm trắng cả trang thay vì hiện một ô trống —
+ * `npm run verify:n3` bắt lỗi đó, nhưng giao diện vẫn không được sập vì nó.
+ */
 export function dayToIso(day: DayNumber): string {
+  if (!Number.isFinite(day)) return '';
   return new Date(day * MS_PER_DAY).toISOString().slice(0, 10);
 }
 
@@ -461,7 +469,10 @@ export function computeProgress(
 
   const scoped = pillars.filter((item) => inScope(item.pillar) && item.points > 0);
   const points = scoped.reduce((sum, item) => sum + item.points, 0);
-  const earned = scoped.reduce((sum, item) => sum + item.ratio * item.points, 0);
+  // Cộng các giá trị ĐÃ LÀM TRÒN của từng trụ, không cộng giá trị thô rồi mới
+  // làm tròn: hai cách lệch nhau 0,1–0,2 điểm, và giao diện hiện cả tổng lẫn
+  // từng phần cạnh nhau nên độ lệch đó đọc thành một lỗi tính toán.
+  const earned = scoped.reduce((sum, item) => sum + item.earned, 0);
   const reachable = scoped.reduce((sum, item) => sum + item.ceiling * item.points, 0);
 
   // Số mục thì đếm cả trụ 0 điểm đang trong phạm vi: dòng "x/y mục" ở đầu trang
@@ -481,15 +492,34 @@ export function computeProgress(
 
 // ── Mô phỏng nhịp học ─────────────────────────────────────────────────────
 
-export type N3PaceState = 'ahead' | 'onTrack' | 'behind' | 'unreachable' | 'finished' | 'overdue';
+export type N3PaceState =
+  | 'ahead'
+  | 'onTrack'
+  | 'behind'
+  | 'unreachable'
+  | 'finished'
+  | 'examToday'
+  | 'overdue';
 
 export interface N3Pace {
   /** Số ngày còn lại tính từ hôm nay tới ngày thi, 0 nếu đã tới hoặc đã qua. */
   daysLeft: number;
   /** Số ngày còn lại tới hết giai đoạn nạp bài (không tính giai đoạn luyện đề). */
   studyDaysLeft: number;
-  /** Số mục còn phải học. */
+  /** Số mục CÓ HẸN NGÀY còn phải học. */
   remaining: number;
+  /**
+   * Số mục trong phạm vi tính điểm nhưng KHÔNG có hẹn ngày và chưa học.
+   *
+   * Phải có mặt riêng chứ không gộp vào `remaining`: hai nhóm này khác nhau về
+   * bản chất nghĩa vụ. `remaining` là việc kế hoạch đòi làm xong trước một ngày
+   * cụ thể; nhóm này là việc tự nguyện (25 bài từ vựng N5, và cả phần 聴解 nếu
+   * người học bật nó vào phần trăm). Gộp lại thì nhịp học hằng ngày phình lên vì
+   * việc không hẹn; bỏ hẳn thì trang tự nói ngược nhau — vòng phần trăm ghi
+   * "0/215 buổi" mà ô nhịp học ghi "190 buổi còn lại", lệch 25 mục không giải
+   * thích được. Tách ra thì cả hai con số đều đúng và đều có nhãn riêng.
+   */
+  openRemaining: number;
   /** Số mục phải học mỗi ngày kể từ hôm nay để kịp — con số quan trọng nhất. */
   perDay: number;
   /** Nhịp mà kế hoạch gốc dự tính cho hôm nay. */
@@ -523,11 +553,17 @@ export const N3_PACE_CEILING = 6;
  * hôm đầu.
  *
  * `state` so tiến độ thật với mốc hẹn của lịch (`dueToday`) chứ không so với
- * đường thẳng đều: kế hoạch có hai tuần ôn nền nạp dày rồi mới sang N3, đường
- * thẳng đều sẽ báo "chậm" suốt hai tuần đầu dù đang học đúng kế hoạch.
+ * đường thẳng đều: kế hoạch có ba tuần ôn nền nạp dày rồi mới sang N3, đường
+ * thẳng đều sẽ báo "chậm" suốt ba tuần đầu dù đang học đúng kế hoạch.
+ *
+ * `sections` phải truyền vào, không suy được từ `schedule`: lịch chỉ chứa mục có
+ * hẹn ngày, còn phần trăm tính trên MỌI mục tích được trong phạm vi. Không biết
+ * phần chênh đó thì hàm này sẽ báo "đã xong toàn bộ" trong khi phần trăm mới
+ * 59,6% — đúng lỗi từng có ở đây.
  */
 export function computePace(
   schedule: N3Schedule,
+  sections: readonly N3Section[],
   isDone: (unitId: string) => boolean,
   inScope: (pillar: N3Pillar) => boolean,
   examIso: string,
@@ -538,7 +574,16 @@ export function computePace(
   const doneScheduled = scoped.filter((item) => isDone(item.unit.id)).length;
   const remaining = scoped.length - doneScheduled;
 
-  const daysLeft = Math.max(0, isoToDay(examIso) - today);
+  // Mục trong phạm vi, tích được, nhưng không nằm trong lịch — xem `openRemaining`.
+  const openRemaining = sections
+    .filter((section) => inScope(section.pillar))
+    .flatMap((section) => unitsOf(section))
+    .filter(
+      (unit) => canTick(unit) && !schedule.byUnitId.has(unit.id) && !isDone(unit.id),
+    ).length;
+
+  const examDay = isoToDay(examIso);
+  const daysLeft = Math.max(0, examDay - today);
   const studyDaysLeft = Math.max(0, isoToDay(lastStudyIso) - today + 1);
 
   const dueToday = scoped.filter((item) => item.targetDay < today).length;
@@ -546,36 +591,55 @@ export function computePace(
 
   // Chia cho số ngày còn được nạp bài mới, không phải số ngày tới hôm thi: ba
   // tuần cuối là luyện đề và ôn ★, dồn bài mới vào đó là phá luôn phần đó.
-  const perDayRaw = studyDaysLeft === 0 ? remaining : remaining / studyDaysLeft;
+  //
+  // Hết hạn nạp bài mà vẫn còn nợ thì phải chia cho số ngày THẬT còn lại, không
+  // để mẫu số bằng 0 rồi lấy luôn `remaining` làm nhịp: làm thế thì ngày 18/11
+  // trang hiện "190 buổi/ngày", một con số vừa vô nghĩa vừa không nói được điều
+  // đúng đắn duy nhất lúc đó là "còn 22 ngày để trả 190 buổi".
+  // Hết cả ngày thi thì không còn ngày nào để chia: nhịp học là 0, không phải
+  // `remaining`. Đúng hôm thi mà trang hiện "190 buổi/ngày" thì con số đó không
+  // mô tả bất cứ việc gì làm được nữa.
+  const paceDays = studyDaysLeft > 0 ? studyDaysLeft : daysLeft;
+  const perDayRaw = paceDays > 0 ? remaining / paceDays : 0;
   const perDay = Math.round(perDayRaw * 10) / 10;
 
-  const plannedToday = schedule.units.filter((item) => item.targetDay === today).length;
+  const plannedToday = scoped.filter((item) => item.targetDay === today).length;
 
   const state: N3PaceState = (() => {
-    if (remaining === 0) return 'finished';
-    if (daysLeft === 0) return 'overdue';
+    // "Xong" nghĩa là xong CẢ phần không hẹn ngày. Chỉ xét `remaining` thì bật
+    // phần 聴解 vào phần trăm sẽ cho ra badge "đã xong toàn bộ" cạnh con số 59,6%.
+    if (remaining === 0 && openRemaining === 0) return 'finished';
+    if (today > examDay) return 'overdue';
+    // Đúng hôm thi thì không phải "đã qua ngày thi" — hôm nay mới là ngày thi.
+    if (today === examDay) return 'examToday';
     if (perDayRaw > N3_PACE_CEILING) return 'unreachable';
     if (drift > 0) return 'ahead';
     if (drift === 0) return 'onTrack';
     return 'behind';
   })();
 
-  // Ngày học xong nếu giữ đúng nhịp ĐANG BẮT BUỘC (perDay), không phải nhịp gốc.
-  //
-  // Trừ 1 vì hôm nay đã là một ngày học: cần 74 ngày nữa mà tính từ hôm nay thì
-  // ngày cuối là hôm nay + 73. Không trừ thì con số này luôn thò qua ngày cuối
-  // được nạp bài một hôm, và người học sẽ tưởng kế hoạch tự nó đã trượt.
+  /**
+   * Ngày học xong nếu giữ đúng nhịp ĐANG BẮT BUỘC.
+   *
+   * Tính bằng số nguyên, không quay vòng qua `perDayRaw`: `remaining / paceDays`
+   * rồi `ceil(remaining / thương)` không phải phép nghịch đảo của nhau trong số
+   * thực dấu phẩy động, và trên 8 trong 74 ngày đúng hẹn nó cho ra một ngày thò
+   * qua mốc cuối — đúng cái mà phép trừ 1 được viết ra để tránh. Giữ đúng nhịp
+   * bắt buộc thì theo định nghĩa ngày cuối chính là ngày cuối của khoảng đang
+   * chia, nên trả thẳng ngày đó.
+   */
   const finishIso =
     remaining === 0
       ? dayToIso(today)
-      : perDayRaw > 0
-        ? dayToIso(today + Math.max(0, Math.ceil(remaining / Math.max(perDayRaw, 0.01)) - 1))
+      : paceDays > 0
+        ? dayToIso(today + paceDays - 1)
         : '';
 
   return {
     daysLeft,
     studyDaysLeft,
     remaining,
+    openRemaining,
     perDay,
     plannedPerDay: plannedToday,
     dueToday,

@@ -11,6 +11,18 @@ const SCOPE_KEY = 'jp-practice:n3-scope-choukai';
 type DoneMap = Record<string, string>;
 
 /**
+ * Id của mọi mục tích được — MỘT định nghĩa duy nhất, dùng cho cả đọc và ghi.
+ *
+ * Trước đây có hai bản: một trường static của lớp và một bản dựng lại bên trong
+ * `sanitize`. Hai bản làm cùng một việc là hai bản có thể lệch nhau, và nếu lệch
+ * thì lỗi rơi vào đúng chỗ khó thấy nhất: đọc lên thì nhận một id, ghi xuống thì
+ * loại nó, và dấu tích biến mất sau khi tải lại trang.
+ */
+const VALID_IDS: ReadonlySet<string> = new Set(
+  N3_SECTIONS.flatMap((section) => unitsOf(section).filter(canTick)).map((unit) => unit.id),
+);
+
+/**
  * Dấu "đã học xong" của từng mục trong lộ trình N3.
  *
  * Lưu NGÀY tích chứ không lưu `true`. Cùng một dung lượng, nhưng nhờ có ngày mà
@@ -23,12 +35,18 @@ type DoneMap = Record<string, string>;
  */
 @Injectable({ providedIn: 'root' })
 export class N3ProgressStore {
-  /** Id của mọi mục tích được, dùng để loại dữ liệu cũ đã đổi id. */
-  private static readonly VALID_IDS: ReadonlySet<string> = new Set(
-    N3_SECTIONS.flatMap((section) => unitsOf(section).filter(canTick)).map((unit) => unit.id),
-  );
-
   private readonly map = signal<DoneMap>(sanitize(readJson<unknown>(STORAGE_KEY, {})));
+
+  /**
+   * Lần ghi gần nhất có thất bại không.
+   *
+   * `writeJson` trả về false khi trình duyệt chặn localStorage (ẩn danh, hết
+   * dung lượng, cookie tắt). Bỏ qua giá trị đó thì giao diện vẫn hiện dấu tích
+   * như đã lưu, và người học mất sạch công sức lúc tải lại trang mà không được
+   * báo trước một câu nào.
+   */
+  private readonly persistFailedRef = signal(false);
+  readonly persistFailed = this.persistFailedRef.asReadonly();
 
   /**
    * Có tính phần 聴解 vào phần trăm hay không.
@@ -37,7 +55,12 @@ export class N3ProgressStore {
    * con số đứng mãi ở mức thấp và không còn phản ánh việc học đang diễn ra. Bù
    * lại, trang luôn hiện một cảnh báo cạnh con số — xem `n3-progress.html`.
    */
-  readonly includeChoukai = signal<boolean>(readJson<boolean>(SCOPE_KEY, false) === true);
+  private readonly includeChoukaiRef = signal<boolean>(
+    readJson<boolean>(SCOPE_KEY, false) === true,
+  );
+
+  /** Chỉ đọc: `setIncludeChoukai` là đường duy nhất đổi giá trị, để nó luôn được ghi lại. */
+  readonly includeChoukai = this.includeChoukaiRef.asReadonly();
 
   /** Bảng tra nhanh, dùng trong template. */
   private readonly ids = computed(() => new Set(Object.keys(this.map())));
@@ -66,7 +89,7 @@ export class N3ProgressStore {
     this.update((current) => {
       const next = { ...current };
       for (const id of unitIds) {
-        if (!N3ProgressStore.VALID_IDS.has(id)) continue;
+        if (!VALID_IDS.has(id)) continue;
         // Giữ nguyên ngày tích cũ nếu đã có: tích lại một mục đã xong không được
         // làm nó trẻ ra, nếu không thì cột "học trong 7 ngày qua" thổi phồng lên.
         next[id] ??= today;
@@ -89,14 +112,17 @@ export class N3ProgressStore {
   }
 
   setIncludeChoukai(include: boolean): void {
-    this.includeChoukai.set(include);
+    this.includeChoukaiRef.set(include);
     writeJson(SCOPE_KEY, include);
   }
 
   private update(mutate: (current: DoneMap) => DoneMap): void {
     const next = mutate(this.map());
     this.map.set(next);
-    writeJson(STORAGE_KEY, next);
+    // Giữ nguyên giá trị trong bộ nhớ khi ghi thất bại — phiên này vẫn dùng được
+    // — nhưng bật cờ để trang hiện một dòng cảnh báo. Im lặng ở đây là kiểu hỏng
+    // tệ nhất: người học tích cả buổi rồi mất hết mà tưởng đã lưu.
+    this.persistFailedRef.set(!writeJson(STORAGE_KEY, next));
   }
 }
 
@@ -109,13 +135,10 @@ export class N3ProgressStore {
  */
 function sanitize(raw: unknown): DoneMap {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
-  const valid = new Set(
-    N3_SECTIONS.flatMap((section) => unitsOf(section).filter(canTick)).map((unit) => unit.id),
-  );
 
   const result: DoneMap = {};
   for (const [id, value] of Object.entries(raw as Record<string, unknown>)) {
-    if (!valid.has(id)) continue;
+    if (!VALID_IDS.has(id)) continue;
     // Bản trước có thể đã ghi `true` thay vì ngày — vẫn coi là đã học, chỉ là
     // không biết học hôm nào.
     if (value === true) {

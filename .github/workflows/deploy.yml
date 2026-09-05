@@ -32,6 +32,16 @@ jobs:
       # Sinh lại public/lessons/ từ data-source/ để bản deploy luôn khớp nguồn.
       - run: npm run generate
 
+      # Soát dữ liệu TRƯỚC khi build. Trước đây bước này không có, nên một lộ
+      # trình N3 trỏ tới bài học không tồn tại, hay một khoá dịch thiếu, vẫn lên
+      # trang thật rồi mới hỏng trong tay người dùng.
+      #
+      # `verify:ci` chứ không phải `verify`: bản đầy đủ gồm cả `verify:audio`, mà
+      # phần đó cần 205 file mp3 chưa sinh cho bài N3 (xem LO-TRINH-N3.md, mục 3).
+      # Đưa nó vào đây thì mọi lần deploy đều đỏ vì một việc không liên quan gì
+      # tới lần thay đổi đang deploy — và một cổng luôn đỏ thì chẳng ai đọc nữa.
+      - run: npm run verify:ci
+
       # base-href phải là tên repo vì trang nằm ở <user>.github.io/minano_nihongo/
       - run: npx ng build --base-href /minano_nihongo/
 

@@ -375,9 +375,18 @@ Cách tính, và tại sao nó tự cập nhật:
   `số mục còn lại ÷ số ngày còn được nạp bài mới`. Nghỉ ba ngày thì nó tự dâng lên,
   chứ không tiếp tục hiện 2,4 như hôm đầu.
 - Chia cho **số ngày còn được nạp bài mới (tới 17/11)**, không chia tới hôm thi. Dồn
-  bài mới vào ba tuần cuối là mất luôn phần luyện đề.
+  bài mới vào ba tuần cuối là mất luôn phần luyện đề. Qua 17/11 mà vẫn còn nợ thì nó
+  chuyển sang chia cho số ngày thật còn lại tới hôm thi.
 - "Đúng hẹn / chậm" so với **mốc trước hôm nay**, không tính phần hẹn đúng hôm nay —
   cả ngày hôm nay vẫn còn để làm nó.
+
+**Hai loại "còn lại", đừng lẫn.** Ô nhịp học ghi *"buổi có hẹn còn lại"* — chỉ đếm
+phần lịch giao cho một ngày cụ thể (190 mục). Vòng phần trăm ghi *"buổi đã học"* trên
+tổng **mọi** mục tính điểm (215 mục, hoặc 238 nếu bật 聴解). Chênh lệch chính là phần
+ôn tuỳ sức không hẹn ngày, và tab hiện nó thành một dòng riêng ngay dưới: *"Ngoài ra
+còn N buổi trong phạm vi tính điểm nhưng không hẹn ngày"*. Gộp hai loại lại thì nhịp
+hằng ngày phình lên vì việc không hẹn; bỏ hẳn loại thứ hai thì hai con số trên cùng
+màn hình lệch nhau mà không giải thích được.
 
 Ngưỡng bỏ cuộc: nếu nhịp bắt buộc vượt **6 buổi/ngày**, tab hiện "không kịp bằng
 cách học thêm nữa". Lúc đó việc phải làm không phải học nhiều hơn mà là **cắt phạm
@@ -797,8 +806,22 @@ Mục không ghi gì trong ngoặc là **có bài trong app**.
 | Điểm quy cho từng trụ | `N3_SECTION_POINTS` (tổng phải bằng 180) |
 | Phần nào ngoài phần trăm mặc định | `N3_DEFAULT_OUT_OF_SCOPE` |
 
-`npm run verify:n3` kiểm 8 việc: id không trùng, mọi đường dẫn dẫn tới bài có thật,
-số mục khớp mục lục sách (42/42/42/23), mỗi tuần đúng 7 ngày và ngày cuối là bài
-kiểm tra, mọi khoá chữ hiển thị đều có trong từ điển, bốn giai đoạn phủ kín không hở
-không trùng, mọi mục tích được đều có mốc hẹn, và nhịp mỗi giai đoạn không vượt 3,5
-buổi/ngày.
+### `npm run verify:n3` kiểm những gì
+
+| Nhóm | Kiểm |
+| --- | --- |
+| Dữ liệu | id không trùng; tiêu đề Nhật/Việt không rỗng; trọng số > 0 |
+| Đối chiếu sách | số mục khớp mục lục (42/42/42/23); mỗi tuần đúng 7 ngày; ngày thứ bảy là bài kiểm tra |
+| Đường dẫn | mọi `/lesson/`, `/grammar/`, `/exercise/` trỏ tới thứ **có thật, đúng loại** — bài ngữ pháp phải đi qua `/grammar/`, không phải `/lesson/` |
+| Chữ hiển thị | mọi khoá thông điệp đều có trong từ điển hai ngôn ngữ |
+| Lịch | bốn giai đoạn phủ kín, không hở không trùng; id giai đoạn không trùng; ngày cuối không trước ngày đầu; mọi mục tích được đều có mốc hẹn; khối khai "ngoài lịch" thì thật sự không có mốc |
+| **Nhịp học** | **mỗi giai đoạn không vượt 3,5 buổi/ngày** — kiểm tra quan trọng nhất với người học |
+| Thang điểm | tổng 180; và tổng theo **từng khối** khớp 60/60/60; mọi trụ có mặt trong cả ba bảng |
+
+Bốn luật đã được thử phá để chắc chắn chúng bắt lỗi thật, không chỉ xanh cho vui:
+trỏ vào một id `ExerciseMode` không phải đường dẫn, đưa bài ngữ pháp qua `/lesson/`,
+đặt trọng số 0, và bóp giai đoạn 1 xuống 8 ngày (7,63 buổi/ngày) — cả bốn đều báo lỗi
+và trả về mã thoát khác 0.
+
+Workflow deploy chạy `npm run verify:ci` **trước khi build**, nên một lộ trình hỏng
+không lên được trang thật. `verify:ci` là bản đầy đủ trừ `verify:audio` — xem mục 3.

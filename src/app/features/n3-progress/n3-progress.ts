@@ -44,6 +44,17 @@ import { N3ProgressStore } from '../../core/services/n3-progress-store';
  */
 const SCHEDULE = buildSchedule(N3_SECTIONS, N3_PHASES);
 
+/**
+ * Số mục tích được của từng trụ — bảng tra dựng sẵn, không phải hàm.
+ *
+ * Nhãn nút chọn trụ cần con số này. Gọi một phương thức trong `@for` thì Angular
+ * chạy lại nó ở MỌI lượt phát hiện thay đổi, sáu lần một lượt, để tính lại một
+ * con số không bao giờ đổi.
+ */
+const TICKABLE_OF: Partial<Record<N3Pillar, number>> = Object.fromEntries(
+  N3_SECTIONS.map((section) => [section.pillar, unitsOf(section).filter(canTick).length]),
+);
+
 /** Bộ lọc của bảng kiểm soát. */
 type ListFilter = 'all' | 'todo' | 'done' | 'due';
 
@@ -124,14 +135,21 @@ export class N3Progress {
   protected readonly includeChoukai = this.store.includeChoukai;
 
   /**
-   * Hôm nay, chốt một lần lúc mở trang.
+   * Hôm nay, giữ trong một signal chứ không phải một hằng số.
    *
-   * Không đọc `new Date()` trong computed: computed phải là hàm thuần theo các
-   * signal nó đọc, mà đồng hồ thì không phải signal — Angular sẽ không vẽ lại khi
-   * ngày đổi, và giá trị bị nhớ đệm lại có thể lệch với lần tính trước.
+   * Không đọc `new Date()` thẳng trong computed: computed phải là hàm thuần theo
+   * các signal nó đọc, mà đồng hồ thì không phải signal — Angular sẽ không vẽ lại
+   * khi ngày đổi, và giá trị bị nhớ đệm có thể lệch với lần tính trước.
+   *
+   * Nhưng cũng không được chốt cứng một lần lúc mở trang: đây là một trang người
+   * học mở rồi để đó cả ngày. Qua nửa đêm mà con số không đổi thì mọi mốc "đến
+   * hạn / trễ hẹn" lệch một ngày, và một mục vừa tích xong sẽ rơi ra ngoài cửa
+   * sổ "7 ngày qua" vì nó được ghi ngày hôm nay thật còn trang thì vẫn tính theo
+   * ngày hôm qua. Làm mới lúc người học quay lại tab là đủ: không có nửa đêm nào
+   * đổi ngày mà người dùng lại đang nhìn màn hình liên tục.
    */
-  protected readonly today = todayDay();
-  protected readonly todayIso = dayToIso(this.today);
+  private readonly todayRef = signal(todayDay());
+  protected readonly today = this.todayRef.asReadonly();
 
   private readonly inScope = computed(() => {
     const include = this.includeChoukai();
@@ -139,7 +157,14 @@ export class N3Progress {
       include || !N3_DEFAULT_OUT_OF_SCOPE.includes(pillar);
   });
 
-  /** Hàm tra "đã tích chưa", đọc qua signal nên mọi computed bên dưới tự cập nhật. */
+  /**
+   * Hàm tra "đã tích chưa".
+   *
+   * Đọc `doneCount()` để computed này phụ thuộc vào signal của store: bản thân
+   * hàm trả về là một closure, mà closure thì không có gì cho Angular theo dõi.
+   * Không có dòng đó thì `isDone` chỉ tính một lần và mọi computed dùng nó sẽ
+   * đứng im sau lần tích đầu tiên.
+   */
   private readonly isDone = computed(() => {
     void this.store.doneCount();
     return (unitId: string) => this.store.isDone(unitId);
@@ -152,11 +177,12 @@ export class N3Progress {
   protected readonly pace = computed<N3Pace>(() =>
     computePace(
       SCHEDULE,
+      N3_SECTIONS,
       this.isDone(),
       this.inScope(),
       N3_EXAM_DATE,
       N3_LAST_NEW_MATERIAL_DATE,
-      this.today,
+      this.today(),
     ),
   );
 
@@ -184,6 +210,7 @@ export class N3Progress {
       behind: 'n3.pace.state.behind',
       unreachable: 'n3.pace.state.unreachable',
       finished: 'n3.pace.state.finished',
+      examToday: 'n3.pace.state.examToday',
       overdue: 'n3.pace.state.overdue',
     };
     return map[this.pace().state];
@@ -191,10 +218,10 @@ export class N3Progress {
 
   /** Số buổi đã tích trong bảy ngày gần nhất — thước đo nhịp thật, không phải kế hoạch. */
   protected readonly recentCount = computed(() => {
-    const from = this.today - 6;
+    const from = this.today() - 6;
     return this.store
       .doneDates()
-      .filter((iso) => iso !== '' && isoToDay(iso) >= from && isoToDay(iso) <= this.today).length;
+      .filter((iso) => iso !== '' && isoToDay(iso) >= from && isoToDay(iso) <= this.today()).length;
   });
 
   // ── Ba khối điểm của đề ─────────────────────────────────────────────────
@@ -207,10 +234,11 @@ export class N3Progress {
         (pillar) => N3_PILLAR_BLOCK[pillar] === block,
       );
       const points = N3_SCORE_BLOCK_POINTS[block];
-      const earned = pillars.reduce(
-        (sum, pillar) => sum + (byPillar.get(pillar)?.ratio ?? 0) * N3_SECTION_POINTS[pillar],
-        0,
-      );
+      // Cộng giá trị ĐÃ LÀM TRÒN của từng trụ, giống cách `computeProgress` dựng
+      // con số tổng. Cộng giá trị thô rồi mới làm tròn thì ba khối cộng lại lệch
+      // 0,1 điểm so với dòng "điểm quy đổi" ở đầu trang — hai con số nằm cách
+      // nhau một khối trên cùng màn hình, và độ lệch đó đọc thành lỗi tính toán.
+      const earned = pillars.reduce((sum, pillar) => sum + (byPillar.get(pillar)?.earned ?? 0), 0);
       const ceiling = pillars.reduce(
         (sum, pillar) => sum + (byPillar.get(pillar)?.ceiling ?? 1) * N3_SECTION_POINTS[pillar],
         0,
@@ -283,8 +311,8 @@ export class N3Progress {
         percent: units.length === 0 ? 0 : Math.round((done / units.length) * 100),
         /** Số buổi mỗi ngày mà giai đoạn này đòi hỏi, làm tròn tới 0.1. */
         perDay: Math.round((units.length / days) * 10) / 10,
-        current: this.today >= from && this.today <= to,
-        past: this.today > to,
+        current: this.today() >= from && this.today() <= to,
+        past: this.today() > to,
       };
     }),
   );
@@ -308,7 +336,7 @@ export class N3Progress {
               done,
               doneOn: this.store.dateOf(unit.id),
               dueIso,
-              overdue: !done && scheduled !== undefined && scheduled.targetDay < this.today,
+              overdue: !done && scheduled !== undefined && scheduled.targetDay < this.today(),
               sourceKey: N3_SOURCE_LABEL_KEY[unit.source],
             };
           });
@@ -334,6 +362,21 @@ export class N3Progress {
     );
   });
 
+  /**
+   * Bộ lọc rỗng vì đã học hết, hay vì bộ lọc không khớp gì.
+   *
+   * Hai chuyện khác nhau và cần hai câu khác nhau: một dấu ✓ kèm câu "không khớp
+   * bộ lọc" là lời chúc mừng cho việc không xảy ra.
+   */
+  protected readonly nothingLeftToStudy = computed(() => {
+    const filter = this.filter();
+    if (filter !== 'todo' && filter !== 'due') return false;
+    return this.progress().doneUnits > 0;
+  });
+
+  /** Store không ghi được vào trình duyệt — dấu tích chỉ sống trong phiên này. */
+  protected readonly persistFailed = this.store.persistFailed;
+
   /** Tổng số dòng còn lại sau khi lọc — quyết định có hiện khối "không khớp" không. */
   protected readonly visibleCount = computed(() =>
     this.listRows().reduce((sum, row) => sum + row.visible, 0),
@@ -346,13 +389,28 @@ export class N3Progress {
     // 'due': chưa học và đã tới hẹn (hoặc quá hẹn). Đây là bộ lọc trả lời đúng câu
     // "hôm nay phải học gì", nên nó gộp cả phần trễ vào chứ không chỉ đúng hôm nay.
     const scheduled = SCHEDULE.byUnitId.get(row.unit.id);
-    return !row.done && scheduled !== undefined && scheduled.targetDay <= this.today;
+    return !row.done && scheduled !== undefined && scheduled.targetDay <= this.today();
   }
 
   // ── Sự kiện ─────────────────────────────────────────────────────────────
 
+  constructor() {
+    if (typeof document === 'undefined') return;
+    // Không cần gỡ bỏ: trang này sống hết vòng đời tab, và một hàm ba dòng đọc
+    // đồng hồ thì rẻ hơn cả việc dựng bộ máy để hủy đăng ký nó.
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) this.todayRef.set(todayDay());
+    });
+  }
+
   protected setFilter(value: ListFilter): void {
     this.filter.set(value);
+  }
+
+  /** Về trạng thái xem tất cả, dùng cho nút ở khối "không khớp bộ lọc". */
+  protected resetFilters(): void {
+    this.filter.set('all');
+    this.openPillar.set('');
   }
 
   protected togglePillar(pillar: N3Pillar): void {
@@ -379,7 +437,5 @@ export class N3Progress {
   }
 
   /** Tổng số mục tích được của một trụ, dùng cho nhãn nút chọn trụ. */
-  protected tickableOf(section: N3Section): number {
-    return unitsOf(section).filter(canTick).length;
-  }
+  protected readonly tickableOf = TICKABLE_OF;
 }

@@ -1071,28 +1071,33 @@ export const MESSAGES = {
 
   // Đếm ngược và nhịp học
   'n3.pace.title': { vi: 'Nhịp học bắt buộc', ja: '必要な学習ペース' },
-  'n3.pace.daysLeft': { vi: 'ngày tới hôm thi', ja: '試験日まで' },
+  'n3.pace.daysLeft': { vi: 'ngày tới hôm thi', ja: '試験日までの日数' },
   'n3.pace.studyDaysLeft': { vi: 'ngày còn được nạp bài mới', ja: '新規学習できる日数' },
-  'n3.pace.remaining': { vi: 'buổi học còn lại', ja: '残りの学習単位' },
+  'n3.pace.remaining': { vi: 'buổi có hẹn còn lại', ja: '期限つきの残り単位' },
+  'n3.pace.openRemaining': {
+    vi: 'Ngoài ra còn {count} buổi trong phạm vi tính điểm nhưng không hẹn ngày (ôn tuỳ sức)',
+    ja: 'このほか、得点対象だが期限を設けていない単位が{count}件あります（任意復習）',
+  },
   'n3.pace.perDay': { vi: 'buổi / ngày', ja: '単位 / 日' },
   'n3.pace.perDayNote': {
     vi: 'Chia số buổi còn lại cho số ngày còn được nạp bài mới (tới {date}), không chia tới hôm thi — ba tuần cuối để luyện đề.',
     ja: '残り単位を、新規学習ができる日数（{date} まで）で割った値です。試験日までで割らないのは、最後の3週間を実戦問題に充てるためです。',
   },
-  'n3.pace.planned': { vi: 'Kế hoạch hôm nay: {count} buổi', ja: '本日の予定: {count} 単位' },
+  'n3.pace.planned': { vi: 'Kế hoạch hôm nay: {count} buổi', ja: '本日の予定: {count}単位' },
   'n3.pace.finish': { vi: 'Giữ nhịp này thì xong ngày {date}', ja: 'このペースなら {date} に完了' },
   'n3.pace.dueToday': {
     vi: 'Đến hôm nay đáng ra xong {due} buổi, thực tế {done}',
     ja: '本日までの予定 {due} 単位に対し、実績 {done} 単位',
   },
-  'n3.pace.state.ahead': { vi: 'Vượt kế hoạch {count} buổi', ja: '予定より {count} 単位先行' },
+  'n3.pace.state.ahead': { vi: 'Vượt kế hoạch {count} buổi', ja: '予定より {count}単位先行' },
   'n3.pace.state.onTrack': { vi: 'Đúng kế hoạch', ja: '予定どおり' },
-  'n3.pace.state.behind': { vi: 'Chậm {count} buổi', ja: '予定より {count} 単位遅れ' },
+  'n3.pace.state.behind': { vi: 'Chậm {count} buổi', ja: '予定より {count}単位遅れ' },
   'n3.pace.state.unreachable': {
-    vi: 'Quá {ceiling} buổi/ngày — không kịp bằng cách học thêm nữa',
-    ja: '1日 {ceiling} 単位超 — 量を増やすだけでは間に合いません',
+    vi: 'Quá {ceiling} buổi/ngày — không kịp',
+    ja: '1日{ceiling}単位超 — 間に合いません',
   },
   'n3.pace.state.finished': { vi: 'Đã xong toàn bộ phạm vi', ja: '対象範囲すべて完了' },
+  'n3.pace.state.examToday': { vi: 'Hôm nay là ngày thi', ja: '本日が試験日です' },
   'n3.pace.state.overdue': { vi: 'Đã qua ngày thi', ja: '試験日を過ぎています' },
 
   // Cảnh báo phạm vi
@@ -1139,12 +1144,12 @@ export const MESSAGES = {
     vi: 'Một khối điểm riêng, 60 điểm. Đề hỏi 課題理解 (6), ポイント理解 (6), 概要理解 (3), 発話表現 (4), 即時応答 (9). Lần này chưa xây trong app.',
     ja: '独立した得点区分で 60 点。課題理解（6）、ポイント理解（6）、概要理解（3）、発話表現（4）、即時応答（9）。今回はアプリ未実装です。',
   },
-  'n3.gate.open': { vi: 'Nền đã đủ để vào N3', ja: '土台完了 — N3 に進めます' },
+  'n3.gate.open': { vi: 'Nền đã đủ để vào N3', ja: '土台クリア — N3 に進めます' },
   'n3.gate.closed': {
     vi: 'Còn {count} buổi nền phải xong trước',
-    ja: '土台があと {count} 単位必要',
+    ja: '土台があと {count}単位必要',
   },
-  'n3.pillar.points': { vi: '{points} điểm', ja: '{points} 点' },
+  'n3.pillar.points': { vi: '{points} điểm', ja: '{points}点' },
   'n3.pillar.book': { vi: 'Sách: {book}', ja: '教材: {book}' },
   'n3.pillar.blocked': { vi: 'trần {percent}%', ja: '上限 {percent}%' },
 
@@ -1160,10 +1165,10 @@ export const MESSAGES = {
 
   // Giai đoạn
   'n3.phase.title': { vi: 'Bốn giai đoạn tới ngày thi', ja: '試験日までの4段階' },
-  'n3.phase.range': { vi: '{from} → {to} · {days} ngày', ja: '{from} → {to}・{days} 日' },
+  'n3.phase.range': { vi: '{from} → {to} · {days} ngày', ja: '{from} → {to}・{days}日' },
   'n3.phase.current': { vi: 'Đang ở đây', ja: '現在ここ' },
   'n3.phase.done': { vi: 'Đã qua', ja: '終了' },
-  'n3.phase.p1': { vi: 'Giai đoạn 1 · Vá nền', ja: '第1段階・土台固め' },
+  'n3.phase.p1': { vi: 'Vá nền', ja: '土台固め' },
   'n3.phase.p1.goal': {
     vi: 'Ba tuần đóng lỗ hổng N5–N4 trước khi mở sách N3, để không phải vừa học N3 vừa tra lại thứ đã học. 25 bài từ vựng N5 không có ngày hẹn — ôn khi có thời gian.',
     ja: 'N3 の教材を開く前の3週間で N5・N4 の穴を埋め、N3 学習中に既習事項を調べ直さずに済む状態にします。N5 の語彙25課には期日を設けていません — 時間のあるときに復習してください。',
@@ -1172,7 +1177,7 @@ export const MESSAGES = {
     vi: 'Mỗi ngày khoảng 3 buổi, tổng 60–75 phút: 1–2 bài từ vựng 皆の日本語 26–50 (luyện thẳng trong app, KHÔNG đọc lại sách) + 1 bài ngữ pháp 26–50. Xong trước phần luyện Kanji N5/N4, bộ thủ và chia động từ — đó là phần đỡ nhiều nhất cho việc đọc sách N3.',
     ja: '毎日およそ3単位・合計60〜75分: 皆の日本語 26〜50課の語彙を1〜2課（教材は読み返さずアプリで直接練習）＋ 文法を1課。まず漢字 N5・N4、部首、動詞活用の練習を先に終える — N3 の教材を読むのに最も効くのはここです。',
   },
-  'n3.phase.p2': { vi: 'Giai đoạn 2 · Nạp N3', ja: '第2段階・N3 インプット' },
+  'n3.phase.p2': { vi: 'Nạp N3', ja: 'N3 インプット' },
   'n3.phase.p2.goal': {
     vi: 'Đi hết ba quyển 漢字 · 語彙 · 読解 (126 buổi sách + 3 phần luyện trong app), trộn đều mỗi ngày một ít của cả ba. Trộn đều là để nếu có trượt tiến độ thì mỏng đều cả ba khối điểm, chứ không mất trắng khối 読解.',
     ja: '漢字・語彙・読解の3冊（教材126単位＋アプリ練習3単位）を完走します。毎日3冊を少しずつ混ぜるのは、遅れが出たときに3つの得点区分へ薄く分散させ、読解だけが丸ごと未着手になるのを防ぐためです。',
@@ -1181,7 +1186,7 @@ export const MESSAGES = {
     vi: 'Mỗi ngày 2–3 buổi, xoay vòng 漢字 → 語彙 → 読解 để ngày nào cũng chạm cả ba quyển. Mỗi buổi: đọc sách 25 phút rồi luyện lại trong app 10 phút. Gặp buổi 実戦問題 thì bấm giờ và làm một lượt không tra sách.',
     ja: '毎日2〜3単位、漢字 → 語彙 → 読解 と巡回し、毎日3冊すべてに触れます。1単位あたり教材25分＋アプリで復習10分。実戦問題の日は時間を計り、教材を見ずに一度で解きます。',
   },
-  'n3.phase.p3': { vi: 'Giai đoạn 3 · Luyện đề', ja: '第3段階・実戦演習' },
+  'n3.phase.p3': { vi: 'Luyện đề', ja: '実戦演習' },
   'n3.phase.p3.goal': {
     vi: 'Không bài mới. Làm lại toàn bộ 18 bài 実戦問題 trong điều kiện bấm giờ, và vá đúng những chỗ làm sai.',
     ja: '新規学習なし。実戦問題18回分を時間を計って解き直し、間違えた箇所だけを埋めます。',
@@ -1190,7 +1195,7 @@ export const MESSAGES = {
     vi: 'Mỗi ngày: 1 bài 実戦問題 bấm giờ + ôn hết ★ của phần vừa làm sai. Mỗi Chủ nhật: một đề mô phỏng đủ ba khối, đúng giờ thi thật (30 + 70 + 40 phút).',
     ja: '毎日: 実戦問題を1回、時間を計って解き、間違えた範囲の★をすべて復習。日曜: 3区分そろえた模擬試験を本番と同じ時間配分（30＋70＋40分）で。',
   },
-  'n3.phase.p4': { vi: 'Giai đoạn 4 · Nước rút', ja: '第4段階・直前' },
+  'n3.phase.p4': { vi: 'Nước rút', ja: '直前' },
   'n3.phase.p4.goal': {
     vi: 'Không nạp gì mới. Chỉ ôn ★ và ngủ đủ — chữ học sát ngày thi làm loãng đúng phần vừa mới nhớ được.',
     ja: '新規インプットなし。★の復習と十分な睡眠だけ。直前の新規暗記は、せっかく定着しかけた内容を薄めます。',
@@ -1201,6 +1206,7 @@ export const MESSAGES = {
   },
 
   // Bảng danh sách buổi học
+  'n3.pillar.sectionTitle': { vi: 'Sáu trụ nội dung', ja: '6つの学習の柱' },
   'n3.list.title': { vi: 'Bảng kiểm soát từng buổi học', ja: '学習単位チェックリスト' },
   'n3.list.filter.all': { vi: 'Tất cả', ja: 'すべて' },
   'n3.list.filter.todo': { vi: 'Chưa học', ja: '未学習' },
@@ -1213,16 +1219,27 @@ export const MESSAGES = {
   'n3.list.blockDone': { vi: '{done}/{total}', ja: '{done}/{total}' },
   'n3.list.tickBlock': { vi: 'Tích cả nhóm', ja: 'まとめてチェック' },
   'n3.list.untickBlock': { vi: 'Bỏ tích cả nhóm', ja: 'まとめて解除' },
+  // Nhãn cho trình đọc màn hình: trên trang có 36 nút "Tích cả nhóm" giống hệt
+  // nhau, nghe rời khỏi ngữ cảnh thì không nút nào phân biệt được với nút nào.
+  'n3.list.tickBlockOf': { vi: 'Tích cả nhóm {block}', ja: '{block}をまとめてチェック' },
+  'n3.list.untickBlockOf': { vi: 'Bỏ tích cả nhóm {block}', ja: '{block}のチェックをまとめて解除' },
   'n3.list.empty': { vi: 'Không có buổi học nào khớp bộ lọc', ja: '条件に一致する学習単位はありません' },
+  'n3.list.emptyAllDone': { vi: 'Không còn buổi nào phải học', ja: '未学習の単位はありません' },
+  'n3.list.emptyReset': { vi: 'Xem tất cả', ja: 'すべて表示' },
   'n3.list.test': { vi: 'Kiểm tra', ja: 'テスト' },
-  'n3.list.overdue': { vi: 'Trễ hẹn', ja: '期限超過' },
+  'n3.list.overdue': { vi: 'Trễ hẹn {date}', ja: '期限超過 {date}' },
   'n3.list.reset': { vi: 'Xoá toàn bộ dấu đã học', ja: 'チェックをすべて消す' },
   'n3.list.resetConfirm': {
     vi: 'Xoá dấu "đã học" của toàn bộ {count} buổi? Không lấy lại được.',
-    ja: '{count} 単位すべての学習済みチェックを消しますか。元に戻せません。',
+    ja: '{count}単位すべての学習済みチェックを消しますか。元に戻せません。',
   },
 
   // Nguồn của từng buổi
+  'n3.persistFailed.title': { vi: 'Không lưu được dấu đã học', ja: 'チェックを保存できません' },
+  'n3.persistFailed.text': {
+    vi: 'Trình duyệt đang chặn bộ lưu trữ cục bộ (chế độ ẩn danh, hết dung lượng, hoặc cookie bị tắt). Dấu tích vẫn hiện trong phiên này nhưng sẽ mất khi tải lại trang.',
+    ja: 'ブラウザがローカルストレージを拒否しています（プライベートモード、容量不足、Cookie 無効など）。チェックはこのセッション中だけ表示され、再読み込みで失われます。',
+  },
   'n3.source.app': { vi: 'Có bài trong app', ja: 'アプリ内教材あり' },
   'n3.source.book': { vi: 'Học bằng sách', ja: '書籍で学習' },
   'n3.source.none': { vi: 'Chưa có nguồn', ja: '教材なし' },

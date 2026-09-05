@@ -69,10 +69,12 @@
   stroke: var(--bg-inset);
 }
 
-/* Vạch trần: tới đâu là hết những gì học được với nguồn đang có. Vẽ bằng màu
-   cảnh báo rất nhạt — nó là thông tin, không phải lỗi. */
+/* Vạch trần: tới đâu là hết những gì học được với nguồn đang có.
+   65% chứ không phải 34%: ở 34% nó chỉ đạt khoảng 1.6:1 so với đường ray bên
+   dưới, dưới ngưỡng 3:1 mà WCAG đòi cho một hình vẽ mang thông tin — tức là
+   người học có thể không thấy vạch trần tồn tại. */
 .ring-ceiling {
-  stroke: color-mix(in srgb, var(--warning) 34%, transparent);
+  stroke: color-mix(in srgb, var(--warning) 65%, transparent);
 }
 
 .ring-fill {
@@ -225,11 +227,15 @@
   background: var(--bg-subtle);
 }
 
-/* Khối nằm ngoài phạm vi tính phần trăm: mờ đi nhưng KHÔNG ẩn. Ẩn nó đi là để
-   người học quên mất rằng có một khối 60 điểm đang bằng không. */
+/* Khối nằm ngoài phạm vi tính phần trăm: đánh dấu nhưng KHÔNG ẩn. Ẩn nó đi là để
+   người học quên mất rằng có một khối 60 điểm đang bằng không.
+   Đánh dấu bằng viền gạch nối và nền lõm, KHÔNG bằng opacity: opacity kéo con số
+   xuống khoảng 2.6:1, dưới ngưỡng đọc được của WCAG — mà đây lại là trạng thái
+   MẶC ĐỊNH của khối 聴解, nên nó là chữ khó đọc nhất trang chứ không phải một
+   trường hợp hiếm. */
 .score-block.is-muted {
-  opacity: 0.62;
   border-style: dashed;
+  background: var(--bg);
 }
 
 .score-head {
@@ -276,7 +282,7 @@
      lại. Vân sọc nói "chỗ này còn trống nhưng có thể tới được". */
   background: repeating-linear-gradient(
     -45deg,
-    color-mix(in srgb, var(--warning) 34%, transparent) 0 4px,
+    color-mix(in srgb, var(--warning) 65%, transparent) 0 4px,
     transparent 4px 8px
   );
 }
@@ -387,8 +393,12 @@
   box-shadow: var(--shadow);
 }
 
+/* Giai đoạn đã qua: 0.66 kéo phần chữ mô tả xuống khoảng 3.1:1 — dưới ngưỡng
+   4.5:1. Badge "Đã qua" đã nói đúng trạng thái đó bằng chữ, nên ở đây chỉ cần
+   lùi nền lại một bậc và giữ nguyên độ đậm của chữ. */
 .phase-card.is-past {
-  opacity: 0.66;
+  background: var(--bg-subtle);
+  border-style: dashed;
 }
 
 .phase-head {
@@ -529,12 +539,16 @@
   line-height: 1.35;
 }
 
+/* Không `flex-shrink: 0`: hàng badge đã tự xuống dòng được, nên co lại là đúng
+   cái nó cần làm khi hết chỗ. Khoá không cho co thì ở khổ 320px nó tràn ra ngoài
+   và bị `.unit-block { overflow: hidden }` cắt mất — badge "Trễ hẹn" biến mất
+   lặng lẽ đúng lúc cần thấy nhất. */
 .unit-tags {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
-  flex-shrink: 0;
+  min-width: 0;
 }
 
 .unit-open {

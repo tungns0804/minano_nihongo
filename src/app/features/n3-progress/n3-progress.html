@@ -13,9 +13,12 @@
       <div class="card hero-ring">
         <div class="card-body">
           <div class="ring-wrap">
-            <svg class="ring" viewBox="0 0 120 120" role="img" [attr.aria-label]="
-                t('n3.ring.label') + ': ' + percent() + '%'
-              ">
+            <!-- aria-hidden chứ không phải role="img" + aria-label ghép chuỗi:
+                 `.ring-center` bên dưới đã nói đúng con số đó bằng chữ thật, nên
+                 gắn nhãn cho hình vẽ chỉ khiến trình đọc màn hình đọc hai lần.
+                 Ghép chuỗi dịch bằng dấu `+` cũng là thứ cả app này không làm ở
+                 đâu khác — thứ tự từ không phải ngôn ngữ nào cũng như tiếng Việt. -->
+            <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
               <circle class="ring-track" cx="60" cy="60" r="52" />
               <!-- Vạch trần: phần không thể đạt được vì thiếu nguồn học. Vẽ trước
                    vòng tiến độ để tiến độ luôn nằm trên. -->
@@ -80,7 +83,7 @@
                 pace().state === 'behind'
               " [class.badge-danger]="
                 pace().state === 'unreachable' || pace().state === 'overdue'
-              ">
+              " [class.badge-accent]="pace().state === 'examToday'">
               {{
                 t(paceStateKey(), {
                   count: pace().drift < 0 ? -pace().drift : pace().drift,
@@ -123,6 +126,9 @@
             @if (pace().finishIso) {
               <li>{{ t('n3.pace.finish', { date: pace().finishIso }) }}</li>
             }
+            @if (pace().openRemaining > 0) {
+              <li>{{ t('n3.pace.openRemaining', { count: pace().openRemaining }) }}</li>
+            }
           </ul>
         </div>
       </div>
@@ -152,6 +158,11 @@
               <div class="score-head">
                 <span class="jp score-name">{{ t(item.labelKey) }}</span>
                 <span class="spacer"></span>
+                @if (item.ceilingPercent < 100) {
+                  <span class="badge badge-warning">
+                    {{ t('n3.pillar.blocked', { percent: item.ceilingPercent }) }}
+                  </span>
+                }
                 <span class="score-points">{{ item.earned }} / {{ item.points }}</span>
               </div>
               <div class="progress">
@@ -165,6 +176,17 @@
         </div>
       </div>
     </section>
+
+    <!-- Trình duyệt chặn localStorage: dấu tích chỉ sống trong phiên này. Phải
+         nói ngay, vì kiểu hỏng này im lặng cho tới lúc tải lại trang và mất sạch. -->
+    @if (persistFailed()) {
+      <div class="notice notice-error">
+        <div class="stack stack-sm">
+          <strong>{{ t('n3.persistFailed.title') }}</strong>
+          <span><app-t key="n3.persistFailed.text" block /></span>
+        </div>
+      </div>
+    }
 
     <!-- ── Hai giới hạn phải nói thẳng ───────────────────────────────────── -->
     @if (!includeChoukai()) {
@@ -188,7 +210,7 @@
     <!-- ── Sáu trụ nội dung ──────────────────────────────────────────────── -->
     <section class="stack">
       <div class="section-head">
-        <h2>{{ t('n3.list.title') }}</h2>
+        <h2>{{ t('n3.pillar.sectionTitle') }}</h2>
       </div>
 
       <div class="pillar-grid">
@@ -306,6 +328,10 @@
 
     <!-- ── Bảng kiểm soát từng buổi học ──────────────────────────────────── -->
     <section class="stack">
+      <div class="section-head">
+        <h2>{{ t('n3.list.title') }}</h2>
+      </div>
+
       <div class="toolbar">
         <div class="options list-filters">
           @for (option of filters; track option.value) {
@@ -338,7 +364,7 @@
             <span class="jp" aria-hidden="true">{{ section.glyph }}</span>
             <app-t [key]="section.labelKey" />
             <span class="spacer"></span>
-            <span class="filter-count">{{ tickableOf(section) }}</span>
+            <span class="filter-count">{{ tickableOf[section.pillar] }}</span>
           </button>
         }
       </div>
@@ -374,7 +400,16 @@
                     }}
                   </span>
                   @if (blockRow.tickable > 0) {
-                    <button type="button" class="btn btn-sm" (click)="toggleBlock(blockRow)">
+                    <button
+                      type="button"
+                      class="btn btn-sm"
+                      [attr.aria-label]="
+                        t(blockRow.allDone ? 'n3.list.untickBlockOf' : 'n3.list.tickBlockOf', {
+                          block: blockRow.block.titleJa,
+                        })
+                      "
+                      (click)="toggleBlock(blockRow)"
+                    >
                       {{
                         blockRow.allDone ? t('n3.list.untickBlock') : t('n3.list.tickBlock')
                       }}
@@ -426,9 +461,19 @@
                             </span>
                           }
                         } @else if (item.dueIso) {
-                          <span class="badge" [class.badge-danger]="item.overdue">
-                            {{ t('n3.list.due', { date: item.dueIso }) }}
-                          </span>
+                          <!-- Quá hẹn thì đổi hẳn CHỮ, không chỉ đổi màu badge: vạch
+                               đỏ ở mép dòng và badge đỏ đều là màu, mà màu một mình
+                               thì người mù màu hoặc đang ở chế độ tương phản cao
+                               không đọc được trạng thái này. -->
+                          @if (item.overdue) {
+                            <span class="badge badge-danger">
+                              {{ t('n3.list.overdue', { date: item.dueIso }) }}
+                            </span>
+                          } @else {
+                            <span class="badge">
+                              {{ t('n3.list.due', { date: item.dueIso }) }}
+                            </span>
+                          }
                         }
                         @if (item.unit.route) {
                           <a
@@ -452,8 +497,16 @@
 
       @if (visibleCount() === 0) {
         <div class="empty-state">
-          <span class="empty-state-icon" aria-hidden="true">✓</span>
-          <p class="empty-state-title">{{ t('n3.list.empty') }}</p>
+          @if (nothingLeftToStudy()) {
+            <span class="empty-state-icon" aria-hidden="true">✓</span>
+            <p class="empty-state-title">{{ t('n3.list.emptyAllDone') }}</p>
+          } @else {
+            <span class="empty-state-icon" aria-hidden="true">🔍</span>
+            <p class="empty-state-title">{{ t('n3.list.empty') }}</p>
+            <button type="button" class="btn btn-sm" (click)="resetFilters()">
+              {{ t('n3.list.emptyReset') }}
+            </button>
+          }
         </div>
       }
     </section>

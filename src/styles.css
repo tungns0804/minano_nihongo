@@ -330,6 +330,38 @@ a:hover {
   flex-wrap: wrap;
 }
 
+/* --- Thanh công cụ --------------------------------------------------------
+   Một hàng gồm phần điều khiển bên trái và số liệu / nút phụ bên phải.
+
+   Ở global chứ không ở từng component: bốn màn hình danh sách đều cần đúng bốn
+   dòng này, và bản sao thứ tư đã bị quên mất một lần — trang Tiến độ N3 dùng
+   class `.toolbar` mà không có luật nào áp, nên nút "Xoá dấu đã học" rơi xuống
+   một dòng riêng thay vì nằm cùng hàng với bộ lọc. Style của component là style
+   CÓ PHẠM VI: dùng lại một class từ component khác thì không thừa hưởng gì cả. */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* Con số nhỏ trong nút bộ lọc, ví dụ "N5 · bài 1–25  (25)". Cùng lý do như trên:
+   hai màn hình dùng, nên chỉ có một định nghĩa. */
+.filter-count {
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-inset);
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.option.is-active .filter-count {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+}
+
 /* --- Card ----------------------------------------------------------------- */
 
 .card {

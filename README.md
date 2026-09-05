@@ -123,7 +123,7 @@ Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba
 | Khối | Nội dung |
 | --- | --- |
 | Vòng phần trăm | Mức chuẩn bị, tính theo **điểm khối thi quy đổi**, kèm vạch **trần** khi thiếu nguồn học |
-| Nhịp học bắt buộc | **Mấy buổi mỗi ngày** để kịp — tính lại mỗi lần mở trang, kèm số ngày còn lại và trạng thái đúng hẹn/chậm |
+| Nhịp học bắt buộc | **Mấy buổi mỗi ngày** để kịp — tính lại mỗi lần mở trang, kèm số ngày còn lại và trạng thái đúng hẹn/chậm. Đếm phần **có hẹn ngày**; phần ôn tuỳ sức hiện thành một dòng riêng bên dưới |
 | Ba khối điểm | 言語知識 / 読解 / 聴解, mỗi khối 0–60 điểm |
 | Sáu trụ nội dung | Nền N5–N4, 文字, 語彙, 文法, 読解, 聴解 |
 | Bốn giai đoạn | Mốc ngày, việc làm hằng ngày, tiến độ từng giai đoạn |
@@ -160,11 +160,18 @@ cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `lo
 | [`n3.model.ts`](src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
 | [`n3-progress-store.ts`](src/app/core/services/n3-progress-store.ts) | Dấu tích trong `localStorage` |
 
-`npm run verify:n3` soát 8 việc: id không trùng, mọi đường dẫn dẫn tới bài có thật, số mục khớp
-mục lục sách (42/42/42/23), mỗi tuần đúng 7 ngày và ngày cuối là bài kiểm tra, mọi khoá chữ hiển
-thị đều có trong từ điển, bốn giai đoạn phủ kín không hở không trùng, mọi mục tích được đều có
-mốc hẹn, và **nhịp mỗi giai đoạn không vượt 3,5 buổi/ngày** — kiểm tra cuối cùng là quan trọng
-nhất với người học, vì một lộ trình đòi 6 buổi/ngày thì đúng về số học và không ai theo được.
+`npm run verify:n3` soát dữ liệu và lịch: id không trùng, tiêu đề không rỗng, trọng số > 0, số
+mục khớp mục lục sách (42/42/42/23), mỗi tuần đúng 7 ngày với ngày cuối là bài kiểm tra, mọi
+đường dẫn trỏ tới bài **có thật và đúng loại** (bài ngữ pháp phải đi qua `/grammar/`), mọi khoá
+chữ hiển thị đều có trong từ điển, bốn giai đoạn phủ kín không hở không trùng, thang điểm khớp
+cả tổng 180 lẫn từng khối 60/60/60, và **nhịp mỗi giai đoạn không vượt 3,5 buổi/ngày** — kiểm
+tra cuối cùng là quan trọng nhất với người học, vì một lộ trình đòi 6 buổi/ngày thì đúng về số
+học và không ai theo được.
+
+Workflow deploy chạy `npm run verify:ci` trước khi build, nên dữ liệu hỏng không lên được trang
+thật. `verify:ci` = `verify` trừ `verify:audio`: phần âm thanh đang thiếu 205 file mp3 cho bài N3
+(chạy `npm run generate:audio` để sinh), và một cổng CI luôn đỏ vì việc không liên quan thì
+chẳng ai đọc nữa.
 
 ## Dịch hội thoại
 

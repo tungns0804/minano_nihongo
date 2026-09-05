@@ -29,11 +29,21 @@ const {
   N3_PLAN_START,
   N3_LAST_NEW_MATERIAL_DATE,
   N3_UNSCHEDULED_BLOCKS,
+  N3_DEFAULT_OUT_OF_SCOPE,
   BUNPOU_GAP_WEIGHT,
 } = await import(toFileUrl(join(N3_DIR, 'n3-syllabus.ts')));
 
-const { N3_SECTION_POINTS, N3_TOTAL_POINTS, buildSchedule, canTick, isoToDay, unitsOf } =
-  await import(toFileUrl(join(N3_DIR, 'n3.model.ts')));
+const {
+  N3_PILLARS,
+  N3_PILLAR_BLOCK,
+  N3_SCORE_BLOCK_POINTS,
+  N3_SECTION_POINTS,
+  N3_TOTAL_POINTS,
+  buildSchedule,
+  canTick,
+  isoToDay,
+  unitsOf,
+} = await import(toFileUrl(join(N3_DIR, 'n3.model.ts')));
 
 const { MESSAGES } = await import(
   toFileUrl(join(ROOT, 'src', 'app', 'core', 'i18n', 'messages.ts'))
@@ -66,21 +76,36 @@ function warn(msg) {
 
 // ── Nguồn để đối chiếu ────────────────────────────────────────────────────
 
-/** Id bài học có thật, đọc từ public/lessons/index.json. */
-const lessonIds = new Set();
+/**
+ * Bài học có thật: id → loại, đọc từ public/lessons/index.json.
+ *
+ * Cần cả LOẠI chứ không chỉ id: bài ngữ pháp đi qua `/grammar/:id` còn ba loại
+ * kia qua `/lesson/:id`. Gộp hết vào một tập id thì một bài từ vựng bị trỏ nhầm
+ * sang nhánh `/grammar/` vẫn qua được kiểm tra, rồi ra trang trắng lúc chạy.
+ */
+const lessonKinds = new Map();
 try {
   const index = JSON.parse(readFileSync(join(ROOT, 'public', 'lessons', 'index.json'), 'utf8'));
-  for (const entry of index.lessons ?? []) lessonIds.add(entry.id);
+  for (const entry of index.lessons ?? []) lessonKinds.set(entry.id, entry.kind);
 } catch {
-  warn('Khong doc duoc public/lessons/index.json — bo qua phan kiem tra duong dan bai hoc. Chay "npm run generate" truoc.');
+  // LỖI chứ không phải cảnh báo: bỏ qua thì phần kiểm tra đường dẫn — một trong
+  // hai lý do chính để có script này — im lặng không chạy, mà dòng tổng kết cuối
+  // vẫn tuyên bố "moi duong dan hop le".
+  fail('Khong doc duoc public/lessons/index.json. Chay "npm run generate" truoc.');
 }
 
-/** Id bài tập bổ trợ cài trong mã nguồn. */
-const exerciseIds = new Set(
-  [...readFileSync(join(ROOT, 'src', 'app', 'core', 'exercises', 'exercise.model.ts'), 'utf8')
-    .matchAll(/id:\s*'([a-z-]+)'/g)]
-    .map((match) => match[1]),
+/** Id bài tập bổ trợ — nhập thẳng, không bóc bằng biểu thức chính quy.
+ *
+ * Bản trước quét `id: '...'` trong exercise.model.ts, và biểu thức đó bắt luôn
+ * sáu id của `ExerciseMode` ('to-transitive', 'masu-to-form'…) — những thứ không
+ * phải đường dẫn. Hệ quả: `/exercise/masu-to-form` qua được kiểm tra rồi ra trang
+ * trắng. Script này đã nạp ba module .ts khác qua --experimental-strip-types nên
+ * nhập thêm một module nữa không tốn gì, và nó không thể lệch với sự thật.
+ */
+const { EXERCISES } = await import(
+  toFileUrl(join(ROOT, 'src', 'app', 'core', 'exercises', 'exercise.model.ts'))
 );
+const exerciseIds = new Set(EXERCISES.map((item) => item.id));
 
 /** Đường dẫn không gắn với một bài cụ thể thì luôn hợp lệ. */
 const STATIC_ROUTES = new Set(['/kanji', '/radical', '/exercise', '/grammar', '/']);
@@ -117,6 +142,14 @@ for (const section of N3_SECTIONS) {
     if (unit.source !== 'app' && unit.route) {
       fail(`Muc "${unit.id}" co duong dan nhung source la "${unit.source}"`);
     }
+    if (!Number.isFinite(unit.weight) || unit.weight <= 0) {
+      fail(`Muc "${unit.id}" co trong so khong hop le: ${unit.weight}`);
+    }
+    // Tiêu đề rỗng vẽ ra một dòng trắng có ô tích — trông như lỗi hiển thị chứ
+    // không như dữ liệu thiếu, nên không ai đi tìm nguyên nhân.
+    if (!unit.titleJa.trim() || !unit.titleVi.trim()) {
+      fail(`Muc "${unit.id}" thieu tieu de (ja="${unit.titleJa}" vi="${unit.titleVi}")`);
+    }
     if (!unit.route || STATIC_ROUTES.has(unit.route)) continue;
 
     const lesson = /^\/lesson\/(.+)$/.exec(unit.route);
@@ -125,8 +158,13 @@ for (const section of N3_SECTIONS) {
 
     if (lesson || grammar) {
       const id = (lesson ?? grammar)[1];
-      if (lessonIds.size > 0 && !lessonIds.has(id)) {
+      const kind = lessonKinds.get(id);
+      if (lessonKinds.size > 0 && kind === undefined) {
         fail(`Muc "${unit.id}" tro toi bai hoc "${id}" khong co trong index.json`);
+      } else if (grammar && kind !== undefined && kind !== 'grammar') {
+        fail(`Muc "${unit.id}" dung /grammar/ cho bai "${id}" loai "${kind}"`);
+      } else if (lesson && kind === 'grammar') {
+        fail(`Muc "${unit.id}" dung /lesson/ cho bai ngu phap "${id}" — phai la /grammar/`);
       }
     } else if (exercise) {
       if (!exerciseIds.has(exercise[1])) {
@@ -159,6 +197,9 @@ for (const [pillar, expected] of Object.entries(EXPECTED_BOOK_UNITS)) {
 // Mỗi tuần của ba quyển 6×7 phải có đúng 7 ngày, ngày cuối là bài kiểm tra.
 for (const pillar of ['moji', 'goi', 'dokkai']) {
   const section = N3_SECTIONS.find((item) => item.pillar === pillar);
+  // Vòng lặp trên đã báo trụ thiếu; ở đây chỉ cần đừng biến một lỗi đã được báo
+  // rõ ràng thành một vết ngăn xếp không ai đọc.
+  if (!section) continue;
   for (const block of section.blocks.filter((item) => item.startPage > 0)) {
     if (block.units.length !== 7) {
       fail(`${pillar}/${block.id}: co ${block.units.length} ngay, phai la 7`);
@@ -187,6 +228,15 @@ const examDay = isoToDay(N3_EXAM_DATE);
 
 if (isoToDay(N3_PHASES[0].from) !== planStart) {
   fail(`Giai doan dau bat dau ${N3_PHASES[0].from}, phai la ${N3_PLAN_START}`);
+}
+
+const seenPhaseIds = new Set();
+for (const phase of N3_PHASES) {
+  if (seenPhaseIds.has(phase.id)) fail(`Trung id giai doan "${phase.id}"`);
+  seenPhaseIds.add(phase.id);
+  if (isoToDay(phase.to) < isoToDay(phase.from)) {
+    fail(`Giai doan "${phase.id}" ket thuc (${phase.to}) truoc khi bat dau (${phase.from})`);
+  }
 }
 
 for (let i = 1; i < N3_PHASES.length; i++) {
@@ -310,6 +360,35 @@ if (pointsSum !== N3_TOTAL_POINTS) {
   fail(`Tong diem cac tru la ${pointsSum}, phai la ${N3_TOTAL_POINTS}`);
 }
 
+// Tổng 180 một mình không đủ: chuyển 10 điểm từ 読解 sang 語彙 vẫn cho tổng 180
+// mà đã làm sai thang điểm của hai khối. Phải khớp cả theo TỪNG khối.
+for (const [blockId, blockPoints] of Object.entries(N3_SCORE_BLOCK_POINTS)) {
+  const sum = N3_PILLARS.filter((pillar) => N3_PILLAR_BLOCK[pillar] === blockId).reduce(
+    (total, pillar) => total + N3_SECTION_POINTS[pillar],
+    0,
+  );
+  if (sum !== blockPoints) {
+    fail(`Khoi "${blockId}": tong diem cac tru la ${sum}, phai la ${blockPoints}`);
+  }
+}
+
+// Mỗi trụ phải có mặt trong cả ba bảng, và không bảng nào được có khoá lạ.
+for (const pillar of N3_PILLARS) {
+  if (!(pillar in N3_SECTION_POINTS)) fail(`N3_SECTION_POINTS thieu tru "${pillar}"`);
+  if (!(pillar in N3_PILLAR_BLOCK)) fail(`N3_PILLAR_BLOCK thieu tru "${pillar}"`);
+  if (!N3_SECTIONS.some((section) => section.pillar === pillar)) {
+    fail(`Khong co N3_SECTIONS nao cho tru "${pillar}"`);
+  }
+}
+for (const key of Object.keys(N3_SECTION_POINTS)) {
+  if (!N3_PILLARS.includes(key)) fail(`N3_SECTION_POINTS co khoa la "${key}"`);
+}
+for (const pillar of N3_DEFAULT_OUT_OF_SCOPE) {
+  if (!N3_PILLARS.includes(pillar)) {
+    fail(`N3_DEFAULT_OUT_OF_SCOPE co tru khong ton tai: "${pillar}"`);
+  }
+}
+
 // ── 8. Lỗ hổng nguồn phải còn nguyên nhãn cảnh báo ───────────────────────
 
 const gapUnits = N3_SECTIONS.flatMap((section) =>
@@ -352,9 +431,13 @@ for (const section of N3_SECTIONS) {
 }
 
 log();
-if (problems === 0) {
-  log(`${c.green}OK: lo trinh khop muc luc sach, moi duong dan hop le, lich phu kin.${c.reset}`);
-} else {
+if (problems > 0) {
   log(`${c.red}${problems} van de can sua.${c.reset}`);
   process.exitCode = 1;
+} else if (warnings > 0) {
+  // Không in dòng xanh khi còn cảnh báo: một câu "OK" ngay dưới một cảnh báo dạy
+  // người đọc bỏ qua cảnh báo.
+  log(`${c.yellow}${warnings} canh bao — lo trinh dung nhung co cho can xem lai.${c.reset}`);
+} else {
+  log(`${c.green}OK: lo trinh khop muc luc sach, moi duong dan hop le, lich phu kin.${c.reset}`);
 }
