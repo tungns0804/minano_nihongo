@@ -20,6 +20,7 @@ import {
 } from '../../core/radical/radical.model';
 import { radicalById } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
+import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
@@ -106,6 +107,19 @@ export class RadicalDetail extends PracticeScreen {
     const entry = this.entry();
     return !!entry && canDraw(entry.char);
   });
+
+  /**
+   * Hiện nét mẫu mờ trong khung viết.
+   *
+   * Signal riêng chứ không dùng `showHint` của lớp cha: `showHint` ở màn hình này
+   * đang là "gợi ý" của phần luyện CHỮ GHÉP, hai khối thiết lập nằm cạnh nhau mà
+   * dùng chung một công tắc thì bật cái này lại đổi cái kia.
+   */
+  readonly drawGuide = signal(true);
+
+  toggleDrawGuide(event: Event): void {
+    this.drawGuide.set(checkedOf(event));
+  }
 
   // --- Tập chữ sẽ đem ra hỏi ---
 
@@ -233,8 +247,8 @@ export class RadicalDetail extends PracticeScreen {
    * Luyện viết đúng bộ đang mở — một câu, mở thẳng từ đầu trang.
    *
    * Không đi qua khung thiết lập như phần luyện chữ ghép: cả trang này nói về đúng
-   * một bộ, mà bộ đó lại đang vẽ to ngay trên đầu trang. Nét mẫu vì thế bật sẵn —
-   * ở đây là tập viết cho đúng thứ tự nét chứ không phải kiểm tra trí nhớ.
+   * một bộ, mà bộ đó lại đang vẽ to ngay trên đầu trang — chỉ còn đúng một thứ để
+   * chọn là có đồ theo nét mẫu hay không.
    */
   startDrawing(): void {
     const entry = this.entry();
@@ -245,7 +259,7 @@ export class RadicalDetail extends PracticeScreen {
       lessonKind: 'radical',
       scope: 'single',
       answerMode: 'draw',
-      showHanViet: true,
+      showHanViet: this.drawGuide(),
       radicalMode: 'radical-draw',
     });
 

@@ -391,10 +391,23 @@
 /* Cùng màu với nét bị tô đỏ trên khung vẽ: đọc "nét 3 viết ngược" rồi nhìn sang
    khung là thấy ngay nét nào. */
 .draw-issues {
-  margin: 0 0 var(--sp-2);
+  margin: 0;
   padding-left: 1.2em;
   font-size: 0.94rem;
   color: var(--danger);
+  align-self: stretch;
+  max-width: min(420px, 90vw);
+}
+
+.draw-score {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--danger);
+}
+
+.draw-score.is-correct {
+  color: var(--success);
 }
 
 .right-answer {

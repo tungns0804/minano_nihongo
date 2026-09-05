@@ -31,16 +31,40 @@
               }
             </div>
 
-            @if (canDrawChar()) {
-              <div>
-                <button type="button" class="btn btn-sm" (click)="startDrawing()">
-                  {{ t('kanji.drawThis') }}
-                </button>
-              </div>
-            }
           </div>
         </div>
       </header>
+
+      <!-- ── Luyện viết ─────────────────────────────────────────────────── -->
+      <!-- Đứng NGAY sau đầu trang và nằm NGOÀI nhánh "chưa có từ": hơn một nghìn
+           chữ trong danh sách JLPT chưa có từ nào trong kho, mà viết thì chữ nào
+           cũng viết được — trước đây những chữ đó mở ra chỉ thấy đúng một dòng
+           cảnh báo. -->
+      @if (canDrawChar()) {
+        <section class="card">
+          <div class="card-body stack stack-lg">
+            <div class="stack stack-sm">
+              <h2>{{ t('kanji.practiceDraw') }}</h2>
+              <p class="muted small"><app-t key="kanji.drawNote" block /></p>
+            </div>
+
+            <label class="checkbox">
+              <input type="checkbox" [checked]="drawGuide()" (change)="toggleDrawGuide($event)" />
+              <span>
+                <strong><app-t key="practice.draw.showGuide" block /></strong>
+                <span class="hint"><app-t key="practice.draw.showGuide.desc" block /></span>
+              </span>
+            </label>
+
+            <div class="start-bar">
+              <div class="small muted"><app-t key="kanji.drawThis.hint" block /></div>
+              <button type="button" class="btn btn-primary btn-lg" (click)="startDrawing()">
+                {{ t('kanji.drawThis') }}
+              </button>
+            </div>
+          </div>
+        </section>
+      }
 
       @if (hasNoWords()) {
         <div class="notice notice-warning">{{ t('kanji.noWordsYet') }}</div>

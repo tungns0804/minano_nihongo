@@ -1,4 +1,4 @@
-import { Signal, computed, inject, signal } from '@angular/core';
+import { ElementRef, Signal, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LanguageStore } from '../i18n/language-store';
@@ -34,6 +34,7 @@ export abstract class PracticeScreen {
   protected readonly session = inject(PracticeSessionStore);
   protected readonly router = inject(Router);
   protected readonly lang = inject(LanguageStore);
+  private readonly host = inject(ElementRef<HTMLElement>);
 
   /** Template gọi `t('key')` để dịch — xem `core/i18n/language-store`. */
   readonly t = this.lang.t.bind(this.lang);
@@ -139,6 +140,22 @@ export abstract class PracticeScreen {
 
   toggleOnlyFavorites(event: Event): void {
     this.onlyFavorites.set(checkedOf(event));
+  }
+
+  /**
+   * Cuộn xuống khối thiết lập luyện tập của màn hình.
+   *
+   * Hai bảng tra (Kanji, Bộ thủ) đặt khối đó DƯỚI một lưới hơn một nghìn ô, nên
+   * không cuộn tay tới nơi thì không biết là màn hình có phần luyện tập.
+   *
+   * Tìm bằng `querySelector` trong chính thẻ host chứ không phải `viewChild`:
+   * `PracticeScreen` không mang decorator nào nên Angular không gom truy vấn khai ở
+   * đây, mà khai lại ở từng lớp con thì lại đúng vào kiểu chép mã mà lớp cha này
+   * sinh ra để dẹp.
+   */
+  scrollToPractice(): void {
+    const card = (this.host.nativeElement as HTMLElement).querySelector('.practice-card');
+    card?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   /**

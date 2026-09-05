@@ -267,6 +267,7 @@ export const MESSAGES = {
   'lesson.plan.typing': { vi: 'gõ đáp án', ja: '入力解答' },
   'lesson.plan.draw': { vi: 'viết bằng chuột', ja: 'マウス書き' },
   'lesson.start': { vi: 'Bắt đầu luyện tập', ja: '練習を始める' },
+  'lesson.jumpToPractice': { vi: '↓ Tới phần luyện tập', ja: '↓ 練習へ移動' },
   'lesson.emptyScope': { vi: 'Chưa có mục nào trong phạm vi đã chọn.', ja: '選んだ範囲に項目がありません。' },
 
   'lesson.table.verb': { vi: 'Bảng chia động từ', ja: '動詞活用表' },
@@ -604,7 +605,11 @@ export const MESSAGES = {
     vi: 'Đồ theo nét mẫu trong khung, viết đúng thứ tự và chiều từng nét. Máy chấm ngay trên máy bạn, không gửi gì đi đâu.',
     ja: '枠内のお手本をなぞり、筆順と書く向きを守って書きます。採点はこの端末だけで行われ、データは送信されません。',
   },
-  'kanji.drawThis': { vi: '✎ Luyện viết chữ này', ja: '✎ この漢字を書く練習' },
+  'kanji.drawThis': { vi: 'Luyện viết chữ này', ja: 'この漢字を書く練習' },
+  'kanji.drawThis.hint': {
+    vi: 'Một câu, hỏi đúng chữ đang mở. Viết xong còn bấm viết lại được bao nhiêu lần tuỳ ý.',
+    ja: 'この漢字だけを1問出題します。採点後も好きなだけ書き直せます。',
+  },
   'kanji.drawMissing': {
     vi: '{count} chữ chưa có dữ liệu nét nên không đưa vào phiên viết.',
     ja: '{count}字は筆順データがないため、書き取りの出題から除きます。',
@@ -710,7 +715,11 @@ export const MESSAGES = {
   'radical.mode.draw.example': { vi: 'THỦY → 氵', ja: 'THỦY → 氵' },
 
   'radical.practiceDraw': { vi: 'Luyện viết bộ thủ', ja: '部首の書き取り練習' },
-  'radical.drawThis': { vi: '✎ Luyện viết bộ này', ja: '✎ この部首を書く練習' },
+  'radical.drawThis': { vi: 'Luyện viết bộ này', ja: 'この部首を書く練習' },
+  'radical.drawThis.hint': {
+    vi: 'Một câu, hỏi đúng bộ đang mở. Viết xong còn bấm viết lại được bao nhiêu lần tuỳ ý.',
+    ja: 'この部首だけを1問出題します。採点後も好きなだけ書き直せます。',
+  },
   'radical.drawMissing': {
     vi: '{count} bộ chưa có dữ liệu nét nên không đưa vào phiên viết.',
     ja: '{count}部首は筆順データがないため、書き取りの出題から除きます。',
@@ -884,6 +893,7 @@ export const MESSAGES = {
   },
   'practice.draw.hint': { vi: 'Vẽ bằng chuột rồi bấm', ja: 'マウスで書いてから押す' },
   'practice.draw.score': { vi: 'Đúng {matched}/{expected} nét.', ja: '{expected}画中{matched}画が正解。' },
+  'practice.draw.retry': { vi: 'Viết lại chữ này', ja: 'もう一度書く' },
   'practice.draw.issue.shape': { vi: 'Nét {stroke}: lệch quá xa nét mẫu', ja: '{stroke}画目：お手本から離れすぎ' },
   'practice.draw.issue.reversed': { vi: 'Nét {stroke}: viết ngược chiều', ja: '{stroke}画目：書く向きが逆' },
   'practice.draw.issue.order': { vi: 'Nét {stroke}: đúng hình nhưng sai thứ tự nét', ja: '{stroke}画目：形は合っているが筆順が違う' },

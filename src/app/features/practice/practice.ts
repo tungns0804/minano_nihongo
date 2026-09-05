@@ -210,6 +210,20 @@ export class Practice {
 
   private readonly verdict = signal<DrawingVerdict | null>(null);
 
+  /**
+   * Tăng lên mỗi lần người học bấm "viết lại" — khung vẽ xoá nét cũ khi khoá này đổi.
+   *
+   * Cần một khoá riêng chứ không dựa vào việc đổi câu hỏi: viết lại là vẫn chữ ấy,
+   * nét mẫu không đổi, nên khung vẽ không có cách nào tự biết phải xoá.
+   */
+  private readonly retryCount = signal(0);
+
+  /** Khoá nhận diện lượt vẽ hiện tại: đổi câu, hoặc bấm viết lại. */
+  readonly drawKey = computed(() => `${this.question()?.subject.id ?? ''}#${this.retryCount()}`);
+
+  /** Đang viết lại cho quen tay sau khi câu đã chấm xong — không tính điểm nữa. */
+  readonly isRedrawing = computed(() => this.isResolved() && this.retryCount() > 0);
+
   readonly wrongStrokes = computed(() =>
     (this.verdict()?.problems ?? []).map((problem) => problem.stroke),
   );
@@ -232,11 +246,21 @@ export class Practice {
   });
 
   onDrawn(strokes: StrokePoint[][]): void {
-    if (this.isResolved()) return;
-
     const verdict = checkDrawing(strokes, this.referenceStrokes());
     this.verdict.set(verdict);
+
+    // Câu đã chấm xong mà vẫn vẽ tiếp: đó là lượt viết lại cho quen tay. Vẫn chấm
+    // để người học thấy mình đã sửa được chưa, nhưng không đụng tới kết quả phiên —
+    // luyện thêm không phải là làm lại bài.
+    if (this.isResolved()) return;
+
     this.handleResult(this.session.submitDrawing(verdict.correct), '');
+  }
+
+  /** Xoá khung vẽ để viết lại chính chữ vừa chấm. */
+  retryDrawing(): void {
+    this.verdict.set(null);
+    this.retryCount.update((count) => count + 1);
   }
 
   private handleResult(result: QuestionStatus, answer: string): void {
@@ -279,6 +303,7 @@ export class Practice {
     this.typedAnswer.set('');
     this.lastWrongAnswer.set(null);
     this.verdict.set(null);
+    this.retryCount.set(0);
     this.focusAnswerInput();
   }
 

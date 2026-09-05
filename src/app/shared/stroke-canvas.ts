@@ -136,6 +136,13 @@ export class StrokeCanvas {
   readonly disabled = input(false);
   /** Số thứ tự các nét bị chấm sai (đếm từ 1) — tô đỏ để chỉ ra chỗ hỏng. */
   readonly wrongStrokes = input<readonly number[]>([]);
+  /**
+   * Khoá của lượt vẽ hiện tại: đổi khoá là xoá sạch khung.
+   *
+   * Là một khoá do nơi gọi đặt chứ không tự suy từ `reference`: bấm "viết lại" thì
+   * vẫn chữ ấy, nét mẫu y nguyên, nên nhìn vào nét mẫu không thể biết lúc nào cần xoá.
+   */
+  readonly resetKey = input.required<string>();
 
   readonly checked = output<StrokePoint[][]>();
 
@@ -159,9 +166,9 @@ export class StrokeCanvas {
       this.repaint(canvas, strokes, reference, showGuide, wrong);
     });
 
-    // Đổi sang chữ khác thì xoá nét cũ: nét của chữ trước không nói gì về chữ sau.
+    // Sang lượt vẽ khác (đổi chữ, hoặc bấm viết lại) thì xoá nét cũ đi.
     effect(() => {
-      this.reference();
+      this.resetKey();
       this.strokes.set([]);
       this.current = null;
     });

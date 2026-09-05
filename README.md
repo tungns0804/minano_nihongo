@@ -618,6 +618,16 @@ Chấm xong, máy nói rõ **sai ở nét nào và sai kiểu gì**:
 | `Nét 5: còn thiếu` / `thừa so với chữ mẫu` | số nét không đúng |
 
 Những nét sai được **tô đỏ ngay trên khung vẽ**, nên đọc "sai nét 3" là nhìn thấy ngay nét nào.
+Nhận xét hiện **ngay sau mỗi lần bấm Kiểm tra**, không đợi tới lúc hết bốn lượt: ba lần sai đầu
+câu hỏi vẫn đang mở, mà đó mới là lúc cần biết mình hỏng nét nào để sửa.
+
+Chấm xong — đúng hay hết bốn lượt đều vậy — có nút **"Viết lại chữ này"**: xoá khung và viết lại
+bao nhiêu lần tuỳ ý. Lượt viết lại vẫn được chấm để đối chiếu nhưng **không đụng tới kết quả
+phiên**; luyện thêm cho quen tay không phải là làm lại bài.
+
+Mở một chữ ở `/kanji/:id` (hay một bộ ở `/radical/:id`) là thấy ngay khối **"Luyện viết chữ này"**
+— kể cả với hơn một nghìn chữ trong danh sách JLPT mà kho từ chưa có từ nào dùng tới. Trước đây
+những chữ đó mở ra chỉ có đúng một dòng cảnh báo "chưa luyện từ ở đây được".
 
 ### Chấm ngay trên máy, không gọi dịch vụ nào
 

@@ -168,6 +168,10 @@ Ba chỗ dễ sai:
   14 chữ; để lọt vào phiên thì tới câu đó khung vẽ trống trơn, không có gì để chấm.
 - **Đổi `STROKE_SAMPLES` là phải sinh lại dữ liệu.** Chuỗi cũ giải mã ra sai độ dài
   nét chứ không báo lỗi ở đâu cả. `npm run verify:drawing` bắt được chuyện này.
+- **`<app-stroke-canvas>` xoá nét theo `resetKey`, không theo `reference`.** Bấm
+  "viết lại" là vẫn chữ ấy với nét mẫu y nguyên, nên nhìn vào nét mẫu thì khung vẽ
+  không có cách nào biết lúc nào phải xoá. Nơi gọi tự đặt khoá (xem `drawKey` ở
+  `features/practice`).
 
 ---
 

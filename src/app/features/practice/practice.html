@@ -80,11 +80,26 @@
           @if (strokesReady()) {
             <app-stroke-canvas
               [reference]="referenceStrokes()"
+              [resetKey]="drawKey()"
               [showGuide]="showGuide()"
-              [disabled]="isResolved()"
+              [disabled]="isResolved() && !isRedrawing()"
               [wrongStrokes]="wrongStrokes()"
               (checked)="onDrawn($event)"
             />
+
+            <!-- Nhận xét nằm NGAY dưới khung vẽ chứ không đợi tới khung phản hồi:
+                 ba lần sai đầu câu hỏi vẫn đang mở, mà đó mới là lúc người học cần
+                 biết mình hỏng nét nào để sửa. -->
+            @if (drawScore(); as score) {
+              <p class="draw-score" [class.is-correct]="drawIssues().length === 0">{{ score }}</p>
+            }
+            @if (drawIssues().length > 0) {
+              <ul class="draw-issues">
+                @for (issue of drawIssues(); track issue.key + issue.params.stroke) {
+                  <li><app-t [key]="issue.key" [params]="issue.params" /></li>
+                }
+              </ul>
+            }
           } @else {
             <p class="muted">{{ t('practice.draw.loading') }}</p>
           }
@@ -187,15 +202,6 @@
             <strong class="right-answer" [class.jp]="q.answerIsJapanese">{{ correctAnswerText() }}</strong>
           </p>
 
-          @if (isDrawMode() && drawIssues().length > 0) {
-            <p class="feedback-line">{{ drawScore() }}</p>
-            <ul class="draw-issues">
-              @for (issue of drawIssues(); track issue.key + issue.params.stroke) {
-                <li><app-t [key]="issue.key" [params]="issue.params" /></li>
-              }
-            </ul>
-          }
-
           <dl class="word-recap">
             @for (item of q.subject.recap; track item.labelKey) {
               <div class="recap-item">
@@ -215,6 +221,14 @@
             <button type="button" class="btn btn-primary btn-lg" (click)="goNext()">
               {{ isLastQuestion() ? t('practice.seeResult') : t('practice.next') }}
             </button>
+            <!-- Viết lại KHÔNG chấm lại: câu đã tính điểm xong rồi. Nó có mặt vì
+                 nhớ mặt chữ và viết được ra là hai việc khác nhau, mà cái sau chỉ
+                 quen được bằng cách viết thêm vài lần ngay lúc vừa thấy chỗ sai. -->
+            @if (isDrawMode()) {
+              <button type="button" class="btn btn-lg" (click)="retryDrawing()">
+                {{ t('practice.draw.retry') }}
+              </button>
+            }
             <span class="small muted">
               {{ t('practice.spacePrefix') }} <kbd>Space</kbd>
               {{ isLastQuestion() ? t('practice.spaceHintResult') : t('practice.spaceHintNext') }}

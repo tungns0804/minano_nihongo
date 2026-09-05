@@ -21,6 +21,7 @@ import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
 import { canDraw } from '../../core/strokes/stroke-store';
 import { PracticeScreen } from '../../core/screens/practice-screen';
+import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
@@ -108,6 +109,19 @@ export class KanjiDetail extends PracticeScreen {
     const entry = this.entry();
     return !!entry && canDraw(entry.char);
   });
+
+  /**
+   * Hiện nét mẫu mờ trong khung viết.
+   *
+   * Signal riêng chứ không dùng `showHint` của lớp cha: `showHint` ở màn hình này
+   * đang là "gợi ý âm Hán Việt" của phần luyện TỪ, hai khối thiết lập nằm cạnh
+   * nhau mà dùng chung một công tắc thì bật cái này lại đổi cái kia.
+   */
+  readonly drawGuide = signal(true);
+
+  toggleDrawGuide(event: Event): void {
+    this.drawGuide.set(checkedOf(event));
+  }
 
   // --- Tập từ sẽ đem ra hỏi ---
 
@@ -223,8 +237,8 @@ export class KanjiDetail extends PracticeScreen {
    * Luyện viết đúng chữ đang mở — một câu, mở thẳng từ đầu trang.
    *
    * Không đi qua khung thiết lập như phần luyện từ: cả trang này nói về đúng một
-   * chữ, mà chữ đó lại đang vẽ to ngay trên đầu trang. Nét mẫu vì thế bật sẵn —
-   * ở đây là tập viết cho đúng thứ tự nét chứ không phải kiểm tra trí nhớ.
+   * chữ, mà chữ đó lại đang vẽ to ngay trên đầu trang — chỉ còn đúng một thứ để
+   * chọn là có đồ theo nét mẫu hay không.
    */
   startDrawing(): void {
     const entry = this.entry();
@@ -235,7 +249,7 @@ export class KanjiDetail extends PracticeScreen {
       lessonKind: 'kanji',
       scope: 'single',
       answerMode: 'draw',
-      showHanViet: true,
+      showHanViet: this.drawGuide(),
       kanjiMode: 'kanji-draw',
     });
 

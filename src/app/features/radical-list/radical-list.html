@@ -4,6 +4,13 @@
     <section class="page-head">
       <h1>{{ t('radical.title') }}</h1>
       <p><app-t key="radical.subtitle" block /></p>
+      <!-- Khối thiết lập nằm dưới lưới 214 ô, nên không cuộn tới thì không biết
+           là có. -->
+      <p>
+        <button type="button" class="btn btn-sm" (click)="scrollToPractice()">
+          {{ t('lesson.jumpToPractice') }}
+        </button>
+      </p>
     </section>
 
     <!-- ── Chọn nhóm nét + lưới bộ thủ ────────────────────────────────── -->
@@ -127,8 +134,8 @@
       </div>
     </section>
 
-    <!-- ── Luyện âm Hán Việt của bộ thủ ───────────────────────────────── -->
-    <section class="card">
+    <!-- ── Luyện trên bộ: đọc âm Hán Việt, hoặc viết bộ ───────────────── -->
+    <section class="card practice-card">
       <div class="card-body stack stack-lg">
         <div class="stack stack-sm">
           <h2>{{ t(isDrawing() ? 'radical.practiceDraw' : 'radical.practiceHanViet') }}</h2>
