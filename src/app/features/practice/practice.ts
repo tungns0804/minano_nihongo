@@ -17,10 +17,11 @@ import { QuestionStatus, sessionShortKey } from '../../core/models/practice.mode
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
 import { valueOf } from '../../core/utils/dom-events';
+import { StarButton } from '../../shared/star-button';
 
 @Component({
   selector: 'app-practice',
-  imports: [T],
+  imports: [StarButton, T],
   templateUrl: './practice.html',
   styleUrl: './practice.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

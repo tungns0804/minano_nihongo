@@ -196,20 +196,11 @@
                     }
                   </div>
 
-                  <button
-                    type="button"
-                    class="star-btn"
-                    [class.is-on]="isFavorite(item.question.subject.id)"
+                  <button app-star
+                    [on]="isFavorite(item.question.subject.id)"
+                    [name]="item.question.subject.title"
                     (click)="toggleFavorite(item.question.subject.id)"
-                    [attr.aria-pressed]="isFavorite(item.question.subject.id)"
-                    [attr.aria-label]="
-                      isFavorite(item.question.subject.id)
-                        ? t('favorite.remove', { name: item.question.subject.title })
-                        : t('favorite.add', { name: item.question.subject.title })
-                    "
-                  >
-                    {{ isFavorite(item.question.subject.id) ? '★' : '☆' }}
-                  </button>
+                  ></button>
                 </li>
               }
             </ul>

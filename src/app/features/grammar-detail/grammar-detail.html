@@ -165,17 +165,12 @@
                     <ul class="example-list">
                       @for (example of usage.examples; track example.id) {
                         <li class="example">
-                          <button
-                            type="button"
-                            class="star-btn"
-                            [class.is-on]="isFavorite(example.id)"
-                            (click)="toggleFavorite(example.id)"
-                            [attr.aria-pressed]="isFavorite(example.id)"
-                            [attr.aria-label]="t('grammar.star')"
+                          <button app-star
+                            [on]="isFavorite(example.id)"
+                            [label]="t('grammar.star')"
                             [title]="t('grammar.star')"
-                          >
-                            {{ isFavorite(example.id) ? '★' : '☆' }}
-                          </button>
+                            (click)="toggleFavorite(example.id)"
+                          ></button>
                           <div class="example-body">
                             <p class="example-jp jp">{{ example.japanese }}</p>
                             @if (example.reading) {

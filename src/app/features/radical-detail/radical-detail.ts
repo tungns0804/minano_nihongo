@@ -19,6 +19,8 @@ import {
 import { radicalById } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
+import { SearchBox } from '../../shared/search-box';
+import { StarButton } from '../../shared/star-button';
 
 /**
  * Màn hình MỘT bộ thủ: bộ vẽ to, âm Hán Việt + nghĩa + tên tiếng Nhật, và bảng các
@@ -35,7 +37,7 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
  */
 @Component({
   selector: 'app-radical-detail',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, StarButton, T],
   templateUrl: './radical-detail.html',
   styleUrl: './radical-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

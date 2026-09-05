@@ -37,6 +37,8 @@ import {
 } from '../../core/practice/exercise-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
+import { SearchBox } from '../../shared/search-box';
+import { StarButton } from '../../shared/star-button';
 
 /** Một động từ của bài chuyển thể, đã chia sẵn để hiện bảng tra cứu. */
 interface VerbRow {
@@ -59,7 +61,7 @@ interface VerbRow {
  */
 @Component({
   selector: 'app-exercise-detail',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, StarButton, T],
   templateUrl: './exercise-detail.html',
   styleUrl: './exercise-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

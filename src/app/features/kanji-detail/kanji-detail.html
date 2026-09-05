@@ -51,33 +51,12 @@
           </div>
 
           <div class="row filter-row">
-            <div class="search search-input">
-              <span class="search-icon" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <circle cx="9" cy="9" r="6" />
-                  <path d="M13.5 13.5 17 17" stroke-linecap="round" />
-                </svg>
-              </span>
-              <input
-                type="search"
-                class="input"
-                [placeholder]="t('kanji.searchWord')"
-                [value]="search()"
-                (input)="onSearch($event)"
-                [attr.aria-label]="t('kanji.searchWord')"
-              />
-              @if (search()) {
-                <button
-                  type="button"
-                  class="search-clear"
-                  (click)="clearSearch()"
-                  [title]="t('home.search.clear')"
-                  [attr.aria-label]="t('home.search.clear')"
-                >
-                  <span aria-hidden="true">✕</span>
-                </button>
-              }
-            </div>
+            <app-search-box
+              class="search-input"
+              [placeholder]="t('kanji.searchWord')"
+              [value]="search()"
+              (changed)="search.set($event)"
+            />
             <label class="checkbox filter-check">
               <input
                 type="checkbox"
@@ -109,20 +88,11 @@
                   @for (word of visibleWords(); track word.id) {
                     <tr [class.is-favorite]="isFavorite(word.id)">
                       <td class="col-star">
-                        <button
-                          type="button"
-                          class="star-btn"
-                          [class.is-on]="isFavorite(word.id)"
+                        <button app-star
+                          [on]="isFavorite(word.id)"
+                          [name]="word.japanese"
                           (click)="toggleFavorite(word.id)"
-                          [attr.aria-pressed]="isFavorite(word.id)"
-                          [attr.aria-label]="
-                            isFavorite(word.id)
-                              ? t('favorite.remove', { name: word.japanese })
-                              : t('favorite.add', { name: word.japanese })
-                          "
-                        >
-                          {{ isFavorite(word.id) ? '★' : '☆' }}
-                        </button>
+                        ></button>
                       </td>
                       <td class="col-jp jp" [attr.data-label]="t('kanji.col.word')">
                         {{ word.japanese }}

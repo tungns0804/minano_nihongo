@@ -19,6 +19,7 @@ import {
 import { buildQuestions } from '../../core/practice/build-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/services/lesson-store';
+import { StarButton } from '../../shared/star-button';
 
 /**
  * Trang một bài ngữ pháp: phần lý thuyết (công thức, giải thích, bảng biến đổi,
@@ -38,7 +39,7 @@ import { LessonStore } from '../../core/services/lesson-store';
  */
 @Component({
   selector: 'app-grammar-detail',
-  imports: [RouterLink, T],
+  imports: [RouterLink, StarButton, T],
   templateUrl: './grammar-detail.html',
   styleUrl: './grammar-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

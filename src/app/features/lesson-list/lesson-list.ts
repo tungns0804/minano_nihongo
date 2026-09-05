@@ -11,6 +11,7 @@ import {
   lessonKindsOfTab,
 } from '../../core/models/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
+import { SearchBox } from '../../shared/search-box';
 
 /**
  * Trang chủ — tab "Từ vựng".
@@ -28,7 +29,7 @@ import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
  */
 @Component({
   selector: 'app-lesson-list',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, T],
   templateUrl: './lesson-list.html',
   styleUrl: './lesson-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

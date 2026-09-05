@@ -217,35 +217,13 @@
           </div>
 
           <div class="row filter-row">
-            <div class="search search-input">
-              <span class="search-icon" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <circle cx="9" cy="9" r="6" />
-                  <path d="M13.5 13.5 17 17" stroke-linecap="round" />
-                </svg>
-              </span>
-              <input
-                type="search"
-                class="input"
-                [placeholder]="
-                  isTransitivity() ? t('exercise.search.transitivity') : t('exercise.search.forms')
-                "
-                [value]="search()"
-                (input)="onSearch($event)"
-                [attr.aria-label]="t('lesson.search.aria')"
-              />
-              @if (search()) {
-                <button
-                  type="button"
-                  class="search-clear"
-                  (click)="clearSearch()"
-                  [title]="t('home.search.clear')"
-                  [attr.aria-label]="t('home.search.clear')"
-                >
-                  <span aria-hidden="true">✕</span>
-                </button>
-              }
-            </div>
+            <app-search-box
+              class="search-input"
+              [placeholder]="isTransitivity() ? t('exercise.search.transitivity') : t('exercise.search.forms')"
+              [label]="t('lesson.search.aria')"
+              [value]="search()"
+              (changed)="search.set($event)"
+            />
             <label class="checkbox filter-check">
               <input type="checkbox" [checked]="onlyFavorites()" (change)="toggleOnlyFavorites($event)" />
               <span><app-t key="lesson.onlyFavorites" /></span>
@@ -270,20 +248,11 @@
                   @for (pair of filteredPairs(); track pair.id) {
                     <tr [class.is-favorite]="isFavorite(pair.id)">
                       <td class="col-star">
-                        <button
-                          type="button"
-                          class="star-btn"
-                          [class.is-on]="isFavorite(pair.id)"
+                        <button app-star
+                          [on]="isFavorite(pair.id)"
+                          [name]="pair.intransitive.masu"
                           (click)="toggleFavorite(pair.id)"
-                          [attr.aria-pressed]="isFavorite(pair.id)"
-                          [attr.aria-label]="
-                            isFavorite(pair.id)
-                              ? t('favorite.remove', { name: pair.intransitive.masu })
-                              : t('favorite.add', { name: pair.intransitive.masu })
-                          "
-                        >
-                          {{ isFavorite(pair.id) ? '★' : '☆' }}
-                        </button>
+                        ></button>
                       </td>
                       <td class="col-pair" [attr.data-label]="t('exercise.col.intransitive')">
                         <span class="col-jp jp">{{ pair.intransitive.masu }}</span>
@@ -323,20 +292,11 @@
                   @for (row of filteredVerbRows(); track row.verb.id) {
                     <tr [class.is-favorite]="isFavorite(row.verb.id)">
                       <td class="col-star">
-                        <button
-                          type="button"
-                          class="star-btn"
-                          [class.is-on]="isFavorite(row.verb.id)"
+                        <button app-star
+                          [on]="isFavorite(row.verb.id)"
+                          [name]="row.verb.masu"
                           (click)="toggleFavorite(row.verb.id)"
-                          [attr.aria-pressed]="isFavorite(row.verb.id)"
-                          [attr.aria-label]="
-                            isFavorite(row.verb.id)
-                              ? t('favorite.remove', { name: row.verb.masu })
-                              : t('favorite.add', { name: row.verb.masu })
-                          "
-                        >
-                          {{ isFavorite(row.verb.id) ? '★' : '☆' }}
-                        </button>
+                        ></button>
                       </td>
                       <td class="col-jp jp">{{ row.verb.masu }}</td>
                       <td class="col-reading jp">{{ row.verb.reading }}</td>

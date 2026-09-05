@@ -20,6 +20,8 @@ import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
+import { SearchBox } from '../../shared/search-box';
+import { StarButton } from '../../shared/star-button';
 
 /**
  * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
@@ -36,7 +38,7 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
  */
 @Component({
   selector: 'app-kanji-detail',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, StarButton, T],
   templateUrl: './kanji-detail.html',
   styleUrl: './kanji-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

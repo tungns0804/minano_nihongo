@@ -17,6 +17,7 @@ import {
 import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { LessonStore } from '../../core/services/lesson-store';
 import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
+import { SearchBox } from '../../shared/search-box';
 
 interface ExerciseCard extends ExerciseInfo {
   itemCount: number;
@@ -57,7 +58,7 @@ interface LessonGroup {
  */
 @Component({
   selector: 'app-exercise-list',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, T],
   templateUrl: './exercise-list.html',
   styleUrl: './exercise-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

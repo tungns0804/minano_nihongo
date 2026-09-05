@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { T } from '../../core/i18n/t';
 import { LessonSummary } from '../../core/models/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
+import { SearchBox } from '../../shared/search-box';
 
 /**
  * Tab "Ngữ pháp" — danh sách các bài ngữ pháp.
@@ -17,7 +18,7 @@ import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
  */
 @Component({
   selector: 'app-grammar-list',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, T],
   templateUrl: './grammar-list.html',
   styleUrl: './grammar-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

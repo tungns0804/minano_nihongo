@@ -8,33 +8,11 @@
     <!-- Thanh công cụ: tìm kiếm bên trái, số liệu bên phải — cùng bố cục với
          trang chủ để hai tab không đòi người dùng học lại cách dùng. -->
     <div class="toolbar">
-      <div class="search">
-        <span class="search-icon" aria-hidden="true">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="9" cy="9" r="6" />
-            <path d="M13.5 13.5 17 17" stroke-linecap="round" />
-          </svg>
-        </span>
-        <input
-          type="search"
-          class="input"
-          [placeholder]="t('topic.search')"
-          [attr.aria-label]="t('topic.search')"
-          [value]="search()"
-          (input)="onSearch($event)"
-        />
-        @if (search()) {
-          <button
-            type="button"
-            class="search-clear"
-            (click)="clearSearch()"
-            [title]="t('home.search.clear')"
-            [attr.aria-label]="t('home.search.clear')"
-          >
-            <span aria-hidden="true">✕</span>
-          </button>
-        }
-      </div>
+      <app-search-box
+        [placeholder]="t('topic.search')"
+        [value]="search()"
+        (changed)="search.set($event)"
+      />
 
       <div class="row toolbar-counts">
         <span class="badge">{{ t('topic.count', { count: topics().length }) }}</span>

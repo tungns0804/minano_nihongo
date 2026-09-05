@@ -46,33 +46,12 @@
         </div>
 
         <div class="row filter-row">
-          <div class="search search-input">
-            <span class="search-icon" aria-hidden="true">
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="9" cy="9" r="6" />
-                <path d="M13.5 13.5 17 17" stroke-linecap="round" />
-              </svg>
-            </span>
-            <input
-              type="search"
-              class="input"
-              [placeholder]="t('kanji.search')"
-              [value]="search()"
-              (input)="onSearch($event)"
-              [attr.aria-label]="t('kanji.search')"
-            />
-            @if (search()) {
-              <button
-                type="button"
-                class="search-clear"
-                (click)="clearSearch()"
-                [title]="t('home.search.clear')"
-                [attr.aria-label]="t('home.search.clear')"
-              >
-                <span aria-hidden="true">✕</span>
-              </button>
-            }
-          </div>
+          <app-search-box
+            class="search-input"
+            [placeholder]="t('kanji.search')"
+            [value]="search()"
+            (changed)="search.set($event)"
+          />
           <label class="checkbox filter-check">
             <input
               type="checkbox"
@@ -100,20 +79,12 @@
                   <span class="kanji-han">{{ entry.hanViet }}</span>
                 </a>
 
-                <button
-                  type="button"
-                  class="star-btn kanji-star"
-                  [class.is-on]="isFavorite(entry.id)"
+                <button app-star
+                  class="kanji-star"
+                  [on]="isFavorite(entry.id)"
+                  [name]="entry.hanViet"
                   (click)="toggleFavorite(entry.id)"
-                  [attr.aria-pressed]="isFavorite(entry.id)"
-                  [attr.aria-label]="
-                    isFavorite(entry.id)
-                      ? t('favorite.remove', { name: entry.hanViet })
-                      : t('favorite.add', { name: entry.hanViet })
-                  "
-                >
-                  {{ isFavorite(entry.id) ? '★' : '☆' }}
-                </button>
+                ></button>
               </div>
             }
           </div>

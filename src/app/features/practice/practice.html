@@ -31,17 +31,12 @@
       <div class="card-body">
         <div class="question-top">
           <span class="question-label">{{ questionLabel() }}</span>
-          <button
-            type="button"
-            class="star-btn"
-            [class.is-on]="isCurrentFavorite()"
-            (click)="toggleFavorite()"
-            [attr.aria-pressed]="isCurrentFavorite()"
-            [attr.aria-label]="t('practice.star')"
+          <button app-star
+            [on]="isCurrentFavorite()"
+            [label]="t('practice.star')"
             [title]="t('practice.starTitle')"
-          >
-            {{ isCurrentFavorite() ? '★' : '☆' }}
-          </button>
+            (click)="toggleFavorite()"
+          ></button>
         </div>
 
         <p class="prompt" [class.jp]="q.promptIsJapanese" [class.is-sentence]="q.isSentence">

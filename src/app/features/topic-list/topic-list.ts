@@ -5,6 +5,7 @@ import { T } from '../../core/i18n/t';
 import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { TOPIC_CATALOG } from '../../core/topics/topic-catalog';
 import { normalizeSearch } from '../../core/utils/lesson-search';
+import { SearchBox } from '../../shared/search-box';
 
 /** Một thẻ chủ đề, đã trộn sẵn phần khai tay với phần dữ liệu sinh. */
 interface TopicRow {
@@ -36,7 +37,7 @@ interface TopicRow {
  */
 @Component({
   selector: 'app-topic-list',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, T],
   templateUrl: './topic-list.html',
   styleUrl: './topic-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

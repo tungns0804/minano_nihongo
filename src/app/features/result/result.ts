@@ -11,6 +11,7 @@ import { batchRange } from '../../core/practice/batch';
 import { reshuffleChoices } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { StarButton } from '../../shared/star-button';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';
 
@@ -37,7 +38,7 @@ const BACK_ROUTE: Record<LessonKind, string> = {
 
 @Component({
   selector: 'app-result',
-  imports: [T],
+  imports: [StarButton, T],
   templateUrl: './result.html',
   styleUrl: './result.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

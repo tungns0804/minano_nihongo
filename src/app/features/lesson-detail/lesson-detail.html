@@ -358,33 +358,13 @@
           </div>
 
           <div class="row filter-row">
-            <div class="search search-input">
-              <span class="search-icon" aria-hidden="true">
-                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <circle cx="9" cy="9" r="6" />
-                  <path d="M13.5 13.5 17 17" stroke-linecap="round" />
-                </svg>
-              </span>
-              <input
-                type="search"
-                class="input"
-                [placeholder]="t(kindLabelKeys().search)"
-                [value]="search()"
-                (input)="onSearch($event)"
-                [attr.aria-label]="t('lesson.search.aria')"
-              />
-              @if (search()) {
-                <button
-                  type="button"
-                  class="search-clear"
-                  (click)="clearSearch()"
-                  [title]="t('home.search.clear')"
-                  [attr.aria-label]="t('home.search.clear')"
-                >
-                  <span aria-hidden="true">✕</span>
-                </button>
-              }
-            </div>
+            <app-search-box
+              class="search-input"
+              [placeholder]="t(kindLabelKeys().search)"
+              [label]="t('lesson.search.aria')"
+              [value]="search()"
+              (changed)="search.set($event)"
+            />
             <label class="checkbox filter-check">
               <input type="checkbox" [checked]="onlyFavorites()" (change)="toggleOnlyFavorites($event)" />
               <span><app-t key="lesson.onlyFavorites" /></span>
@@ -398,20 +378,11 @@
               <ul class="line-list">
                 @for (line of filteredLines(); track line.id) {
                   <li class="line-item" [class.is-favorite]="isFavorite(line.id)">
-                    <button
-                      type="button"
-                      class="star-btn"
-                      [class.is-on]="isFavorite(line.id)"
+                    <button app-star
+                      [on]="isFavorite(line.id)"
+                      [name]="line.japanese"
                       (click)="toggleFavorite(line.id)"
-                      [attr.aria-pressed]="isFavorite(line.id)"
-                      [attr.aria-label]="
-                        isFavorite(line.id)
-                          ? t('favorite.remove', { name: line.japanese })
-                          : t('favorite.add', { name: line.japanese })
-                      "
-                    >
-                      {{ isFavorite(line.id) ? '★' : '☆' }}
-                    </button>
+                    ></button>
                     <div class="line-body">
                       @if (line.speaker || line.section) {
                         <span class="line-meta">
@@ -472,20 +443,11 @@
                     @for (row of filteredVerbRows(); track row.entry.id) {
                       <tr [class.is-favorite]="isFavorite(row.entry.id)">
                         <td class="col-star">
-                          <button
-                            type="button"
-                            class="star-btn"
-                            [class.is-on]="isFavorite(row.entry.id)"
+                          <button app-star
+                            [on]="isFavorite(row.entry.id)"
+                            [name]="row.entry.masu"
                             (click)="toggleFavorite(row.entry.id)"
-                            [attr.aria-pressed]="isFavorite(row.entry.id)"
-                            [attr.aria-label]="
-                              isFavorite(row.entry.id)
-                                ? t('favorite.remove', { name: row.entry.masu })
-                                : t('favorite.add', { name: row.entry.masu })
-                            "
-                          >
-                            {{ isFavorite(row.entry.id) ? '★' : '☆' }}
-                          </button>
+                          ></button>
                         </td>
                         <td class="col-han">{{ row.entry.hanViet }}</td>
                         <td class="col-jp jp">{{ row.entry.masu }}</td>
@@ -552,20 +514,11 @@
                     @for (word of filteredWords(); track word.id) {
                       <tr [class.is-favorite]="isFavorite(word.id)">
                         <td class="col-star">
-                          <button
-                            type="button"
-                            class="star-btn"
-                            [class.is-on]="isFavorite(word.id)"
+                          <button app-star
+                            [on]="isFavorite(word.id)"
+                            [name]="word.japanese"
                             (click)="toggleFavorite(word.id)"
-                            [attr.aria-pressed]="isFavorite(word.id)"
-                            [attr.aria-label]="
-                              isFavorite(word.id)
-                                ? t('favorite.remove', { name: word.japanese })
-                                : t('favorite.add', { name: word.japanese })
-                            "
-                          >
-                            {{ isFavorite(word.id) ? '★' : '☆' }}
-                          </button>
+                          ></button>
                         </td>
                         @if (hasHanViet()) {
                           <td class="col-han">{{ word.hanViet }}</td>

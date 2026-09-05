@@ -47,6 +47,8 @@ import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/services/lesson-store';
 import { VocabAudioPlayer } from '../../core/services/vocab-audio-player';
 import { normalizeSearch } from '../../core/utils/lesson-search';
+import { SearchBox } from '../../shared/search-box';
+import { StarButton } from '../../shared/star-button';
 
 /** Một động từ kèm kết quả chia, hoặc lý do không chia được. */
 interface VerbRow {
@@ -58,7 +60,7 @@ interface VerbRow {
 
 @Component({
   selector: 'app-lesson-detail',
-  imports: [RouterLink, T],
+  imports: [RouterLink, SearchBox, StarButton, T],
   templateUrl: './lesson-detail.html',
   styleUrl: './lesson-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
