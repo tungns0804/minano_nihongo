@@ -14,6 +14,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { c, log } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -23,12 +24,6 @@ const toFileUrl = (path) => new URL(`file:///${path.replace(/\\/g, '/')}`).href;
 const { conjugate } = await import(
   toFileUrl(join(ROOT, 'src', 'app', 'core', 'japanese', 'conjugation.ts'))
 );
-
-const USE_COLOR = process.stdout.isTTY === true && !process.env['NO_COLOR'];
-const ESC = String.fromCharCode(27);
-const ansi = (code) => (USE_COLOR ? `${ESC}[${code}m` : '');
-const c = { reset: ansi(0), bold: ansi(1), dim: ansi(2), red: ansi(31), green: ansi(32) };
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
 let failures = 0;
 

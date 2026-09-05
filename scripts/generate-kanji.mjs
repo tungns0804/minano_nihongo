@@ -27,8 +27,9 @@
  *       npm run generate:kanji -- --check   (chỉ kiểm tra, không ghi đè)
  */
 
-import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { emitGenerated, log, quote, toFileUrl } from './script-utils.mjs';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -46,9 +47,7 @@ const KANJI_ALL = /[一-鿿]/g;
 const SENTENCE = /[？！。、?!]/;
 
 const checkOnly = process.argv.includes('--check');
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
-const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92)).join('/')}`).href;
 const { HAN_VIET_SUPPLEMENT, HAN_VIET_FIX } = await import(
   toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-supplement.ts'))
 );
@@ -319,8 +318,6 @@ for (const level of LEVELS) {
 
 // ── Ghi file ──────────────────────────────────────────────────────────────
 
-const quote = (text) => `'${text.split("'").join("\\'")}'`;
-
 const body = seeds
   .map(([char, hanViet, alts, level, rows]) => {
     const head = `  [${quote(char)}, ${quote(hanViet)}, ${quote(alts)}, ${quote(level)}, [`;
@@ -350,8 +347,6 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
 ${body}
 ];
 `;
-
-const previous = existsSync(OUT_FILE) ? readFileSync(OUT_FILE, 'utf8') : '';
 
 log(`Tu       : ${allWords.length} (can chinh duoc am tiet: ${alignedWords}, lech: ${unalignedWords})`);
 log(`Chu Han  : ${seeds.length} (${levelCount}), ${wordSlots} luot tu`);
@@ -430,16 +425,8 @@ if (uselessFix.length > 0) {
   log(`[CANH BAO] sua tay thua (kho tu da dung): ${uselessFix.map(([c]) => c).join('')}`);
 }
 
-if (checkOnly) {
-  if (previous !== output) {
-    log('[LOI] kanji-words.ts khong khop voi nguon. Chay: npm run generate:kanji');
-    process.exitCode = 1;
-  } else {
-    log('OK: kanji-words.ts dang khop voi nguon.');
-  }
-} else if (previous === output) {
-  log('Khong co gi thay doi.');
-} else {
-  writeFileSync(OUT_FILE, output, 'utf8');
-  log(`Da ghi ${OUT_FILE.replace(ROOT, '.')}`);
-}
+emitGenerated([{ file: OUT_FILE, text: output }], {
+  checkOnly,
+  root: ROOT,
+  rerun: 'npm run generate:kanji',
+});

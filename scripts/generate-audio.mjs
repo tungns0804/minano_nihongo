@@ -33,6 +33,7 @@ import {
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { c, log } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -49,20 +50,6 @@ const args = new Set(process.argv.slice(2));
 const CHECK_ONLY = args.has('--check');
 const CLEAN = args.has('--clean');
 const FORCE = args.has('--force');
-
-const USE_COLOR = process.stdout.isTTY === true && !process.env['NO_COLOR'];
-const ESC = String.fromCharCode(27);
-const ansi = (code) => (USE_COLOR ? `${ESC}[${code}m` : '');
-const c = {
-  reset: ansi(0),
-  bold: ansi(1),
-  dim: ansi(2),
-  red: ansi(31),
-  green: ansi(32),
-  yellow: ansi(33),
-};
-
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
 function abort(message) {
   log(`${c.red}[LOI] ${message}${c.reset}`);

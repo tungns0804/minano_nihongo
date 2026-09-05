@@ -21,8 +21,9 @@
  *       npm run generate:radicals -- --check   (chỉ kiểm tra, không ghi đè)
  */
 
-import { readFileSync, existsSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { emitGenerated, log, quote, toFileUrl } from './script-utils.mjs';
 import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -41,8 +42,6 @@ const MAX_DEPTH = 4;
 const WORDS_PER_KANJI = 1;
 
 const checkOnly = process.argv.includes('--check');
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
-const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92)).join('/')}`).href;
 
 const { RADICAL_ROWS } = await import(toFileUrl(join(ROOT, 'src/app/core/radical/radical-list.ts')));
 const { KANJI_PARTS, PART_HAN_VIET } = await import(
@@ -235,8 +234,6 @@ for (const list of kanjiOfRadical.values()) {
 
 // ── Ghi file ──────────────────────────────────────────────────────────────
 
-const quote = (text) => `'${text.split("'").join("\'")}'`;
-
 const kanjiBody = kanjiTable
   .map(([char, hanViet, parts, partsHanViet, level, words]) => {
     const wordText = words.map((w) => `[${[w.japanese, w.reading, w.meaning].map(quote).join(', ')}]`);
@@ -284,8 +281,6 @@ ${body}
 ];
 `;
 
-const previous = existsSync(OUT_FILE) ? readFileSync(OUT_FILE, 'utf8') : '';
-
 log(`Bo thu   : ${radicals.length} (${withKanji} bo co chu ghep)`);
 log(`Chu Han  : ${inLevels.size} chu trong danh sach JLPT, ${pairCount} luot chu`);
 
@@ -323,16 +318,8 @@ if (unknownParts.size > 0) {
   log('           Them vao PART_HAN_VIET trong radical-parts.ts');
 }
 
-if (checkOnly) {
-  if (previous !== output) {
-    log('[LOI] radical-kanji.ts khong khop voi nguon. Chay: npm run generate:radicals');
-    process.exitCode = 1;
-  } else {
-    log('OK: radical-kanji.ts dang khop voi nguon.');
-  }
-} else if (previous === output) {
-  log('Khong co gi thay doi.');
-} else {
-  writeFileSync(OUT_FILE, output, 'utf8');
-  log(`Da ghi ${OUT_FILE.replace(ROOT, '.')}`);
-}
+emitGenerated([{ file: OUT_FILE, text: output }], {
+  checkOnly,
+  root: ROOT,
+  rerun: 'npm run generate:radicals',
+});

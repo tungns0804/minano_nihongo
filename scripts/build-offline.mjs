@@ -30,6 +30,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { build } from 'esbuild';
+import { c, log } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -37,13 +38,6 @@ const DIST_BROWSER = join(ROOT, 'dist', 'minano-nihongo', 'browser');
 const LESSONS_DIR = join(ROOT, 'public', 'lessons');
 const OUT_DIR = join(ROOT, 'dist', 'offline');
 const OUT_FILE = join(OUT_DIR, 'index.html');
-
-const USE_COLOR = process.stdout.isTTY === true && !process.env['NO_COLOR'];
-const ESC = String.fromCharCode(27);
-const ansi = (code) => (USE_COLOR ? `${ESC}[${code}m` : '');
-const c = { reset: ansi(0), bold: ansi(1), dim: ansi(2), red: ansi(31), green: ansi(32) };
-
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
 function abort(message) {
   log(`${c.red}[LOI] ${message}${c.reset}`);

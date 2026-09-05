@@ -15,6 +15,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { c, log } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -23,12 +24,6 @@ const MESSAGES_FILE = join(SRC, 'core', 'i18n', 'messages.ts');
 
 const toFileUrl = (path) => new URL(`file:///${path.replace(/\\/g, '/')}`).href;
 const { MESSAGES, LANGUAGES } = await import(toFileUrl(MESSAGES_FILE));
-
-const USE_COLOR = process.stdout.isTTY === true && !process.env['NO_COLOR'];
-const ESC = String.fromCharCode(27);
-const ansi = (code) => (USE_COLOR ? `${ESC}[${code}m` : '');
-const c = { reset: ansi(0), bold: ansi(1), dim: ansi(2), red: ansi(31), green: ansi(32), yellow: ansi(33) };
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
 
 let problems = 0;
 function fail(msg) {

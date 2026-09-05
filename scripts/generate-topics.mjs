@@ -39,12 +39,13 @@
  *       npm run generate:topics -- --check   (chỉ kiểm tra, không ghi đè)
  */
 
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { fillMissingHanViet, loadCharHanViet } from './han-viet-compose.mjs';
 import { parseVocabulary } from './vocab-core.mjs';
+import { c, emitGenerated, log, toFileUrl } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -57,12 +58,6 @@ const VOCAB_STEMS = new Set(['vocabulary', 'vocab', 'tu-vung', 'tuvung']);
 const VOCAB_EXTENSIONS = new Set(['.txt', '.csv', '.tsv']);
 
 const checkOnly = process.argv.includes('--check');
-const log = (msg = '') => process.stdout.write(`${msg}\n`);
-
-const USE_COLOR = process.stdout.isTTY === true && !process.env['NO_COLOR'];
-const ESC = String.fromCharCode(27);
-const ansi = (code) => (USE_COLOR ? `${ESC}[${code}m` : '');
-const c = { reset: ansi(0), bold: ansi(1), red: ansi(31), green: ansi(32), yellow: ansi(33) };
 
 let failures = 0;
 function fail(msg) {
@@ -70,7 +65,6 @@ function fail(msg) {
   failures++;
 }
 
-const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92)).join('/')}`).href;
 const { TOPIC_DEFS } = await import(toFileUrl(join(ROOT, 'src/app/core/topics/topic-list.ts')));
 
 /**
@@ -322,26 +316,5 @@ if (failures > 0) {
   log(`${c.red}${failures} loi o tren — chua ghi file.${c.reset}`);
   process.exitCode = 1;
 } else {
-  const stale = outputs.filter(
-    ({ file, text }) => (existsSync(file) ? readFileSync(file, 'utf8') : '') !== text,
-  );
-
-  if (checkOnly) {
-    if (stale.length > 0) {
-      for (const { file } of stale) {
-        log(`${c.red}[LOI] ${file.replace(ROOT, '.')} khong khop voi nguon.${c.reset}`);
-      }
-      log(`${c.red}      Chay: npm run generate:topics${c.reset}`);
-      process.exitCode = 1;
-    } else {
-      log(`${c.green}OK: topic-catalog.ts va topic-words.ts dang khop voi nguon.${c.reset}`);
-    }
-  } else if (stale.length === 0) {
-    log('Khong co gi thay doi.');
-  } else {
-    for (const { file, text } of stale) {
-      writeFileSync(file, text, 'utf8');
-      log(`${c.green}Da ghi ${file.replace(ROOT, '.')}${c.reset}`);
-    }
-  }
+  emitGenerated(outputs, { checkOnly, root: ROOT, rerun: 'npm run generate:topics' });
 }
