@@ -1,0 +1,90 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <section class="page-head">
+      <h1>{{ t('topic.title') }}</h1>
+      <p><app-t key="topic.subtitle" block /></p>
+    </section>
+
+    <!-- Thanh công cụ: tìm kiếm bên trái, số liệu bên phải — cùng bố cục với
+         trang chủ để hai tab không đòi người dùng học lại cách dùng. -->
+    <div class="toolbar">
+      <div class="search">
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="9" cy="9" r="6" />
+            <path d="M13.5 13.5 17 17" stroke-linecap="round" />
+          </svg>
+        </span>
+        <input
+          type="search"
+          class="input"
+          [placeholder]="t('topic.search')"
+          [attr.aria-label]="t('topic.search')"
+          [value]="search()"
+          (input)="onSearch($event)"
+        />
+        @if (search()) {
+          <button
+            type="button"
+            class="search-clear"
+            (click)="clearSearch()"
+            [title]="t('home.search.clear')"
+            [attr.aria-label]="t('home.search.clear')"
+          >
+            <span aria-hidden="true">✕</span>
+          </button>
+        }
+      </div>
+
+      <div class="row toolbar-counts">
+        <span class="badge">{{ t('topic.count', { count: topics().length }) }}</span>
+        <span class="badge">{{ t('topic.wordCount', { count: visibleWordCount() }) }}</span>
+      </div>
+    </div>
+
+    @if (noMatch()) {
+      <div class="empty-state">
+        <span class="empty-state-icon" aria-hidden="true">🔍</span>
+        <p class="empty-state-title">{{ t('home.noMatch.title', { term: search() }) }}</p>
+        <p class="empty-state-text"><app-t key="topic.noMatch.text" block /></p>
+        <button type="button" class="btn btn-sm" (click)="clearSearch()">
+          {{ t('home.search.clear') }}
+        </button>
+      </div>
+    } @else {
+      <div class="topic-grid">
+        @for (topic of topics(); track topic.id) {
+          <a class="card topic-card" [routerLink]="['/topic', topic.id]">
+            <div class="topic-card-top">
+              <!-- Biểu tượng thuần trang trí: nó không mang thông tin nào mà tên
+                   chủ đề ngay bên cạnh chưa nói. -->
+              <span class="topic-icon" aria-hidden="true">{{ topic.icon }}</span>
+              <span class="topic-names">
+                <span class="topic-jp jp">{{ topic.japanese }}</span>
+                <span class="topic-vi">{{ topic.vietnamese }}</span>
+              </span>
+            </div>
+
+            <p class="topic-desc muted small clamp-2">{{ topic.description }}</p>
+
+            <div class="topic-card-bottom">
+              <span class="badge">{{ t('topic.wordCount', { count: topic.wordCount }) }}</span>
+              <span class="badge badge-accent" [title]="t('topic.fromLessons.title')">
+                {{ t('topic.fromLessons', { count: topic.sourceCount }) }}
+              </span>
+              @if (favoriteCount(topic.id) > 0) {
+                <span class="badge badge-warning">
+                  {{ t('home.favoriteCount', { count: favoriteCount(topic.id) }) }}
+                </span>
+              }
+              <span class="spacer"></span>
+              <span class="topic-go" aria-hidden="true">→</span>
+            </div>
+          </a>
+        }
+      </div>
+
+      <p class="muted small"><app-t key="topic.sourceNote" block /></p>
+    }
+  </div>
+</div>

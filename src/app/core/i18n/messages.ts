@@ -51,6 +51,7 @@ export const MESSAGES = {
   // Tên ba tab nói rõ tab nào bám theo giáo trình và tab nào không: hai tab đầu là
   // nội dung của 皆の日本語, còn "bổ trợ" là bài tập chuyên đề tự soạn thêm.
   'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
+  'app.nav.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
   'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   // Tab đo tiến độ, không phải tab nội dung — tên nó nói thẳng cái đích ("thi N3")
@@ -85,6 +86,12 @@ export const MESSAGES = {
   'kind.verb.desc': {
     vi: 'Luyện chia động từ sang thể Te, Ta, Ru, Nai và nhận diện nhóm động từ.',
     ja: 'て形・た形・辞書形・ない形への活用と、動詞グループの判別を練習。',
+  },
+  'kind.topic': { vi: 'Từ vựng theo chủ đề', ja: 'テーマ別単語' },
+  'kind.topic.unit': { vi: '{count} từ', ja: '{count}語' },
+  'kind.topic.desc': {
+    vi: 'Cùng kho từ của giáo trình nhưng gom theo chủ đề, luyện đủ 4 chiều như bài từ vựng.',
+    ja: '同じ単語をテーマ別にまとめたもの。単語レッスンと同じ4方向で練習できます。',
   },
   'kind.conversation': { vi: 'Dịch hội thoại', ja: '会話の翻訳' },
   'kind.conversation.unit': { vi: '{count} câu', ja: '{count}文' },
@@ -261,6 +268,7 @@ export const MESSAGES = {
 
   'lesson.table.verb': { vi: 'Bảng chia động từ', ja: '動詞活用表' },
   'lesson.table.vocabulary': { vi: 'Từ vựng', ja: '単語' },
+  'lesson.table.topic': { vi: 'Từ vựng của chủ đề', ja: 'このテーマの単語' },
   'lesson.table.conversation': { vi: 'Các câu trong bài', ja: 'この課の文' },
   'lesson.search.conversation': {
     vi: 'Tìm theo câu tiếng Nhật, câu tiếng Việt hoặc người nói...',
@@ -302,6 +310,10 @@ export const MESSAGES = {
   'lesson.search.vocabulary': {
     vi: 'Tìm theo âm Hán Việt, tiếng Nhật hoặc nghĩa…',
     ja: '漢越音・日本語・意味で検索…',
+  },
+  'lesson.search.topic': {
+    vi: 'Tìm từ trong chủ đề này…',
+    ja: 'このテーマの単語を検索…',
   },
   'lesson.search.aria': { vi: 'Tìm trong bài học', ja: 'レッスン内を検索' },
   'lesson.onlyFavorites': { vi: 'Chỉ hiện ★', ja: '★ のみ表示' },
@@ -502,6 +514,30 @@ export const MESSAGES = {
 
   // ── Khu Kanji ──────────────────────────────────────────────────────────
   // Danh sách chữ Hán từ N5 tới N3, mỗi chữ kèm các từ dùng chữ đó (xem core/kanji/).
+  // ── Tab "Từ vựng theo chủ đề" ──────────────────────────────────────────
+  'topic.title': { vi: 'Từ vựng theo chủ đề', ja: 'テーマ別 単語' },
+  'topic.subtitle': {
+    vi: '20 chủ đề hay ra trong đề JLPT N3. Cùng kho từ với các bài minano — chỉ gom lại theo tình huống, nên một từ gặp ở đây là gặp lần thứ hai trong ngữ cảnh khác.',
+    ja: 'JLPT N3でよく出る20のテーマ。皆の日本語の単語と同じものを場面別にまとめ直したので、ここで出会う単語は別の文脈での二度目の出会いになります。',
+  },
+  'topic.search': { vi: 'Tìm chủ đề…', ja: 'テーマを検索…' },
+  'topic.count': { vi: '{count} chủ đề', ja: '{count}テーマ' },
+  'topic.wordCount': { vi: '{count} từ', ja: '{count}語' },
+  'topic.fromLessons': { vi: 'gom từ {count} bài', ja: '{count}課から' },
+  'topic.fromLessons.title': {
+    vi: 'Số bài học mà chủ đề này rút từ ra — mở chủ đề là đỡ được bấy nhiêu lần lật bài.',
+    ja: 'このテーマが単語を集めた課の数。テーマを開けば、その回数だけ課をめくらずに済みます。',
+  },
+  'topic.back': { vi: '← Danh sách chủ đề', ja: '← テーマ一覧' },
+  'topic.noMatch.text': {
+    vi: 'Thử từ khoá ngắn hơn — ví dụ “gia dinh”, “an uong” hoặc 家族.',
+    ja: 'もっと短い語で試してください。例：「家族」「食べ物」。',
+  },
+  'topic.sourceNote': {
+    vi: 'Mọi từ ở đây đều lấy từ chính kho từ của ứng dụng, không có từ nào soạn thêm — nghĩa và cách đọc luôn khớp với bài học gốc.',
+    ja: 'ここの単語はすべてアプリ内の既存の単語から取っており、新たに書き足したものはありません。意味と読み方は元のレッスンと常に一致します。',
+  },
+
   'kanji.title': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
   'kanji.subtitle': {
     vi: 'Chữ Hán từ N5 tới N1, giữ nguyên thứ tự học của danh sách gốc. Mở một chữ để xem các từ trong kho có dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
@@ -1252,6 +1288,8 @@ export const MESSAGES = {
   'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
   // Trùng chữ với nhãn tab tương ứng: tiêu đề tab trình duyệt mà gọi tên khác thì
   // mở lại lịch sử duyệt web không biết đâu là màn hình nào.
+  'route.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
+  'route.topicDetail': { vi: 'Chủ đề từ vựng', ja: '単語のテーマ' },
   'route.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
   'route.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },

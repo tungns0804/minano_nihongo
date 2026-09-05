@@ -19,6 +19,7 @@ import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
   DIRECTIONS,
   directionIsUsable,
+  directionUsesField,
   PracticeConfig,
   PracticeDirection,
   PracticeScope,
@@ -33,9 +34,11 @@ import {
   LESSON_TAB_ROUTE,
   Lesson,
   LessonKind,
+  OPTIONAL_WORD_FIELDS,
   VerbEntry,
   VocabularyWord,
   WordField,
+  fieldValue,
   hasWordField,
 } from '../../core/models/vocabulary.model';
 import { batchCount, batchRange } from '../../core/practice/batch';
@@ -122,11 +125,12 @@ export class LessonDetail {
   readonly backRoute = computed(() => LESSON_TAB_ROUTE[LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary']]);
 
   /** Chữ trên nút quay lại, gọi đúng tên cái danh sách sắp quay về. */
-  readonly backLabelKey = computed<MessageKey>(() =>
-    LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary'] === 'exercise'
-      ? 'exercise.back'
-      : 'common.back',
-  );
+  readonly backLabelKey = computed<MessageKey>(() => {
+    const tab = LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary'];
+    if (tab === 'exercise') return 'exercise.back';
+    if (tab === 'topic') return 'topic.back';
+    return 'common.back';
+  });
   readonly words = computed(() => this.lesson()?.words ?? []);
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
   readonly lines = computed(() => this.lesson()?.lines ?? []);
@@ -159,6 +163,14 @@ export class LessonDetail {
         title: 'lesson.table.vocabulary',
         search: 'lesson.search.vocabulary',
         unit: 'kind.vocabulary.unit',
+      },
+      // Chủ đề dùng ĐÚNG màn hình này: cùng kiểu dữ liệu (`words`), cùng khung
+      // thiết lập, cùng bảng tra. Chỉ nhãn là khác, để dòng đếm ghi "38 từ trong
+      // chủ đề" thay vì "38 từ trong bài".
+      topic: {
+        title: 'lesson.table.topic',
+        search: 'lesson.search.topic',
+        unit: 'kind.topic.unit',
       },
       verb: {
         title: 'lesson.table.verb',
@@ -459,13 +471,22 @@ export class LessonDetail {
         ? this.words().filter((word) => this.favoriteIds().has(word.id))
         : this.words();
 
-    // Bài điền cách đọc dở dang (một số từ có, một số không) thì ở chiều liên quan
-    // tới cách đọc phải bỏ hẳn những từ thiếu — nếu không, câu hỏi hoặc đáp án sẽ
-    // rỗng. Lọc ở đây chứ không ở nơi dựng câu hỏi để số câu hiện trên màn hình
-    // thiết lập khớp với số câu thật sự luyện.
+    // Bài điền dở dang một trường TUỲ CHỌN (một số từ có cách đọc, một số không;
+    // một số có âm Hán Việt, một số không) thì ở chiều luyện đụng tới trường đó
+    // phải bỏ hẳn những từ thiếu — nếu không, câu hỏi hoặc đáp án sẽ là chuỗi
+    // rỗng: gõ gì cũng sai, mà chẳng có lỗi nào được báo.
+    //
+    // Duyệt CẢ `OPTIONAL_WORD_FIELDS` chứ không chỉ `reading` như trước. Trước
+    // đây chưa lộ ra vì không bài nào trộn từ có và không có âm Hán Việt trong
+    // cùng một bài — nhưng bài CHỦ ĐỀ thì trộn: nó gom từ 皆の日本語 (luôn có âm
+    // Hán Việt) với từ 総まとめ N3 (nhiều từ katakana thì không).
+    //
+    // Lọc ở đây chứ không ở nơi dựng câu hỏi, để số câu hiện trên màn hình thiết
+    // lập khớp với số câu thật sự luyện.
     const info = this.currentDirection();
-    if (info.prompt !== 'reading' && info.answer !== 'reading') return scoped;
-    return scoped.filter((word) => word.reading.length > 0);
+    const needed = OPTIONAL_WORD_FIELDS.filter((field) => directionUsesField(info.id, field));
+    if (needed.length === 0) return scoped;
+    return scoped.filter((word) => needed.every((field) => fieldValue(word, field).length > 0));
   }
 
   private filterVerbs(): VerbEntry[] {

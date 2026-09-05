@@ -23,6 +23,10 @@ type ResultFilter = 'all' | 'wrong' | 'retried';
  */
 const BACK_ROUTE: Record<LessonKind, string> = {
   vocabulary: '/lesson',
+  // Chủ đề có đường dẫn riêng dù dùng chung màn hình chi tiết với bài học: trả về
+  // /lesson/<id> thì nút "quay lại" ở màn hình đó sẽ chỉ về tab chủ đề trong khi
+  // địa chỉ nói là bài học — hai thứ nói ngược nhau.
+  topic: '/topic',
   verb: '/lesson',
   conversation: '/lesson',
   grammar: '/grammar',

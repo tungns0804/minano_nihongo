@@ -53,6 +53,7 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | Loại | Nội dung | Dữ liệu | Nằm ở đâu |
 | --- | --- | --- | --- |
 | **Từ vựng** | Nghĩa từ vựng, Kanji, âm Hán Việt | 3 cột | Tab **Từ vựng minano** |
+| **Từ vựng theo chủ đề** | 20 chủ đề hay ra trong đề N3, cắt lại từ chính kho từ trên | Danh sách từ + kho từ có sẵn | Tab **Từ vựng chủ đề** |
 | **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) | Tab **Bài tập bổ trợ** |
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Tab **Bài tập bổ trợ** |
 | **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập bổ trợ** |
@@ -108,6 +109,103 @@ thẳng file bài học vào trang và dựng danh sách từ đó, không hề 
 **Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và kế hoạch là phủ
 hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
 một danh sách dài không đọc nổi.
+
+## Từ vựng theo chủ đề
+
+Tab **Từ vựng chủ đề** (`/topic`) là **cách gom thứ hai** cho đúng kho từ mà tab Từ vựng minano
+đang dùng — không phải một kho từ mới.
+
+Lý do: giáo trình xếp từ theo thứ tự **DẠY** (bài 7 có 父 và 母, bài 11 có 兄 và 姉, bài 39 có
+恋人), còn đề JLPT N3 hỏi theo **TÌNH HUỐNG** — một bài đọc về gia đình dùng cả ba nhóm đó cùng
+lúc. Học theo bài thì tới lúc thi phải tự ghép lại trong đầu; khu này ghép sẵn.
+
+### 20 chủ đề
+
+| # | Chủ đề | # | Chủ đề |
+| --- | --- | --- | --- |
+| 1 | 家族・人間関係 — Gia đình & quan hệ | 11 | 仕事・会社 — Công việc & công ty |
+| 2 | 体・健康・病気 — Cơ thể, sức khoẻ & bệnh tật | 12 | 学校・勉強 — Trường học & học tập |
+| 3 | 自然・天気 — Thiên nhiên & thời tiết | 13 | 買い物・お金 — Mua sắm & tiền bạc |
+| 4 | 動物・植物 — Động vật & cây cỏ | 14 | 町・公共施設 — Phố xá & nơi công cộng |
+| 5 | 家・家具・日用品 — Nhà cửa & đồ dùng trong nhà | 15 | 時間・日付 — Thời gian & ngày tháng |
+| 6 | 食べ物・料理 — Ăn uống & nấu nướng | 16 | 数・量・単位 — Số lượng & đơn vị |
+| 7 | 衣類・持ち物 — Quần áo & đồ mang theo | 17 | 気持ち・性格 — Cảm xúc & tính cách |
+| 8 | 方向・位置 — Phương hướng & vị trí | 18 | 自動詞・他動詞 — Tự động từ & tha động từ |
+| 9 | 交通・乗り物 — Giao thông & đi lại | 19 | 副詞・表現 — Trạng từ & cách nói |
+| 10 | 旅行・レジャー — Du lịch & giải trí | 20 | あいさつ・敬語 — Chào hỏi & kính ngữ |
+
+Mười bảy chủ đề đầu bám vào **tình huống** (nhà cửa, giao thông, mua sắm…) vì phần 読解 và 聴解
+của đề N3 đều là bài đọc và hội thoại theo tình huống. Ba chủ đề cuối bám vào **từ loại**, vì đó
+đúng là ba nhóm mà chính đề thi tách riêng ra hỏi: cặp tự/tha động từ, trạng từ, và kính ngữ.
+
+### Không có từ nào được soạn thêm
+
+Đây là ràng buộc quan trọng nhất của khu này. `topic-list.ts` chỉ khai **tên chủ đề + danh sách
+từ tiếng Nhật**; `npm run generate:topics` tra từng từ đó trong chính
+`data-source/<bài>/vocabulary*.txt` rồi sinh ra âm Hán Việt, cách đọc, nghĩa và câu ví dụ.
+
+Ba hệ quả, đều là lý do chọn cách này:
+
+- **Không có bản sao thứ hai của nghĩa một từ.** Sửa nghĩa trong `data-source/` thì chủ đề đổi
+  theo ngay lần chạy sau.
+- **Không bịa được.** Khai một từ không có trong kho là **lỗi** — script dừng, không lặng lẽ bỏ
+  từ đó đi.
+- **Phát âm dùng lại được ngay.** File mp3 đặt tên theo chuỗi đem đọc, mà chuỗi đó y hệt bài gốc,
+  nên không phải sinh thêm file nào.
+
+Hiện có **1.097 lượt từ** trên 20 chủ đề (1.011 từ khác nhau, rút từ kho 1.515 từ). Một từ có mặt
+ở nhiều chủ đề là **chủ ý**: gặp lại một từ trong ngữ cảnh khác chính là cách nhớ nó.
+
+#### Ghim bài nguồn khi một từ có hai nghĩa
+
+Mặc định script lấy nghĩa ở bài **dạy sớm nhất**. Vài từ được dạy hai lần với hai nghĩa khác
+nhau, và chủ đề cần nghĩa thứ hai — lúc đó viết thêm `@id-bài`:
+
+```ts
+'先生@minano-nihongo-17'   // "Bác sĩ", trong khi bài 1 dạy "Thầy/ cô"
+'私@minano-nihongo-50'     // わたくし, "tôi (cách nói lịch sự)"
+```
+
+Ghim vào một bài không có từ đó là lỗi, nên ghim rồi bỏ quên lúc dữ liệu đổi sẽ bị bắt.
+
+### Sinh lại sau khi sửa danh sách
+
+```bash
+npm run generate:topics    # sinh lại topic-catalog.ts + topic-words.ts
+npm run verify:topics      # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify:ci)
+```
+
+`verify:topics` nằm trong `npm run verify:ci`, tức workflow deploy chạy nó trước khi build: sửa
+`topic-list.ts` mà quên sinh lại thì CI đỏ chứ trang thật không lệch dữ liệu.
+
+### Năm file, và vì sao phải tách ra
+
+| File | Vai trò |
+| --- | --- |
+| [`topic.model.ts`](src/app/core/topics/topic.model.ts) | Kiểu + hàm dựng. Không chứa dữ liệu. |
+| [`topic-list.ts`](src/app/core/topics/topic-list.ts) | **Khai tay**: tên, mô tả, biểu tượng, danh sách từ. Chỉ script đọc file này. |
+| `topic-catalog.ts` | **Sinh tự động, nhẹ (~7 KB)**: id + tên + số từ của 20 chủ đề. |
+| `topic-words.ts` | **Sinh tự động, nặng (~130 KB)**: toàn bộ từ. |
+| [`topic-entries.ts`](src/app/core/topics/topic-entries.ts) | Dựng `Lesson` từ hai file sinh. **Nạp động**, chỉ khi mở một chủ đề. |
+
+Tách nhẹ/nặng là có chủ ý: `LessonStore` là service gốc, nên nhập thẳng phần nặng vào đó sẽ kéo
+130 KB từ vựng chủ đề vào **mọi trang** — kể cả trang chủ, nơi không hiện chủ đề nào cả. Lưới
+chủ đề chỉ tốn 6,8 KB; 179 KB kia chỉ tải khi thật sự bấm vào một chủ đề.
+
+### Màn hình chi tiết dùng chung với bài học thường
+
+`/topic/<id>` chạy đúng component [`lesson-detail`](src/app/features/lesson-detail/) như
+`/lesson/<id>`: một chủ đề **là** một `Lesson` đầy đủ, chỉ mang `kind: 'topic'`. Nhờ vậy bảng
+tra, ô tìm trong bài, dấu ★, nút phát âm, học theo cụm, cả 6 chiều luyện và màn hình kết quả
+đều có sẵn, không viết lại dòng nào.
+
+Id chủ đề **chính là** id bài học **và** đoạn cuối URL. Ba thứ đó là một chuỗi duy nhất chứ
+không phải ba chuỗi phải khớp nhau, vì cả ba đều là khoá — tách chúng ra thì mở cùng một chủ đề
+bằng hai đường sẽ ra hai kho ★ khác nhau. Cái giá là id chủ đề không được đụng id bài nào trong
+`data-source/`; `npm run generate:topics` kiểm tra đúng điều đó.
+
+Tab này **không có bộ lọc cấp độ**: mỗi chủ đề gom từ của cả N5, N4 lẫn N3 nên không chủ đề nào
+thuộc về một cấp, gán đại một cấp là nói dối người học.
 
 ## Tiến độ N3
 
@@ -781,6 +879,7 @@ scripts/
   verify-answer-check.mjs        Kiểm tra bộ chấm câu dài bỏ qua dấu câu / khoảng trắng
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
   generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
+  generate-topics.mjs            Sinh core/topics/topic-{catalog,words}.ts từ chính kho từ
   generate-radicals.mjs          Sinh core/radical/radical-kanji.ts từ bảng bộ thủ + chiết tự
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
@@ -807,6 +906,12 @@ src/app/
       kanji-supplement.ts        Âm Hán Việt viết tay cho chữ kho từ không suy được
       kanji-words.ts             2.123 chữ + 2.406 lượt từ — DO MÁY SINH
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
+    topics/
+      topic.model.ts             Kiểu dữ liệu + hàm dựng bài học của khu Chủ đề
+      topic-list.ts              20 chủ đề: tên + danh sách từ — KHAI TAY, chỉ script đọc
+      topic-catalog.ts           Danh mục nhẹ (id, tên, số từ) — DO MÁY SINH
+      topic-words.ts             1.097 lượt từ đã tra từ kho — DO MÁY SINH
+      topic-entries.ts           Dựng bài học từ hai file trên — NẠP ĐỘNG
     radical/
       radical.model.ts           Kiểu dữ liệu + chiều hỏi của khu Bộ thủ
       radical-list.ts            214 bộ thủ Khang Hy — chữ, biến thể, âm, nghĩa, tên Nhật
@@ -840,7 +945,8 @@ src/app/
     guards/                      Chặn vào /practice và /result khi không có phiên
   features/
     lesson-list/                 Trang chủ — chỉ bài từ vựng
-    lesson-detail/               Bảng từ vựng + thiết lập luyện tập
+    lesson-detail/               Bảng từ vựng + thiết lập luyện tập (dùng cho cả /topic/:id)
+    topic-list/                  Tab Từ vựng chủ đề — lưới 20 chủ đề
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập bổ trợ — bài tập chuyên đề + bài động từ + bài hội thoại
@@ -868,6 +974,7 @@ npm run verify           # chạy tất cả các lệnh kiểm tra bên dưới
 npm run verify:parser    # hai bản parser cho kết quả giống nhau
 npm run verify:answer    # dấu câu / khoảng trắng không làm sai kết quả chấm
 npm run verify:conjugation  # engine chia động từ + dữ liệu động từ thật
+npm run verify:topics    # 20 chủ đề khớp kho từ, không chủ đề nào bịa ra từ mới
 npm run verify:audio     # mọi từ vựng đều có file phát âm
 ```
 

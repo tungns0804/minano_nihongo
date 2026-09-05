@@ -135,9 +135,17 @@ export type LessonOrigin = 'builtin' | 'custom';
  * màn hình luyện tập / kết quả chung. `radical` (khu Bộ thủ, tab `/radical`, dữ
  * liệu ở `core/radical/`) là bản sao cùng lối của `kanji`, chỉ khác chiều học: đi
  * từ bộ thủ ra chữ thay vì từ chữ ra từ.
+ *
+ * `topic` (tab `/topic`) là bài TỪ VỰNG THEO CHỦ ĐỀ: cùng kiểu dữ liệu và cùng
+ * màn hình chi tiết với `vocabulary`, chỉ khác cách gom — theo chủ đề (gia đình,
+ * thiên nhiên, tự/tha động từ…) thay vì theo số bài trong giáo trình. Nó phải là
+ * một LOẠI riêng chứ không phải một bài từ vựng nữa: cùng một từ có mặt ở cả bài
+ * 11 lẫn chủ đề "Gia đình", nên hai nhóm này không được nằm chung một danh sách.
+ * Nội dung nằm ở `core/topics/`, xem `topic.model.ts`.
  */
 export type LessonKind =
   | 'vocabulary'
+  | 'topic'
   | 'verb'
   | 'conversation'
   | 'grammar'
@@ -147,6 +155,7 @@ export type LessonKind =
 
 export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary',
+  topic: 'kind.topic',
   verb: 'kind.verb',
   conversation: 'kind.conversation',
   grammar: 'kind.grammar',
@@ -157,6 +166,7 @@ export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
 
 export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary.desc',
+  topic: 'kind.topic.desc',
   verb: 'kind.verb.desc',
   conversation: 'kind.conversation.desc',
   grammar: 'kind.grammar.desc',
@@ -168,6 +178,7 @@ export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
 /** Khoá đếm số mục, ví dụ "38 từ" / "38語". */
 export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary.unit',
+  topic: 'kind.topic.unit',
   verb: 'kind.verb.unit',
   conversation: 'kind.conversation.unit',
   grammar: 'kind.grammar.unit',
@@ -177,7 +188,7 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
 };
 
 /** Các tab của ứng dụng chứa danh sách bài để chọn. */
-export type LessonTab = 'home' | 'exercise' | 'grammar' | 'kanji' | 'radical';
+export type LessonTab = 'home' | 'topic' | 'exercise' | 'grammar' | 'kanji' | 'radical';
 
 /**
  * Loại bài nào hiện ở tab nào.
@@ -197,6 +208,10 @@ export type LessonTab = 'home' | 'exercise' | 'grammar' | 'kanji' | 'radical';
  */
 export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
   vocabulary: 'home',
+  // Bài chủ đề cắt LẠI đúng kho từ của trang chủ theo chủ đề, nên nó phải đứng ở
+  // một tab khác chứ không thể nằm chung: gộp vào thì mỗi từ hiện hai lần trong
+  // cùng một danh sách, và số "bài" ngoài trang chủ tự dưng phồng lên gấp rưỡi.
+  topic: 'topic',
   // Hai loại này từng ở trang chủ. Chuyển sang tab Bài tập bổ trợ vì cả hai đều là
   // cách luyện (chia thể, dịch câu) chứ không phải một kho từ để nhớ nghĩa — cùng
   // họ với hai bài tập chuyên đề hơn là với bài từ vựng.
@@ -211,6 +226,7 @@ export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
 /** Đường dẫn tới màn hình danh sách của từng tab. */
 export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
   home: '/',
+  topic: '/topic',
   exercise: '/exercise',
   grammar: '/grammar',
   kanji: '/kanji',
@@ -220,6 +236,7 @@ export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
 /** Thứ tự hiển thị các nhóm loại bài trong một tab. */
 const LESSON_KIND_ORDER: readonly LessonKind[] = [
   'vocabulary',
+  'topic',
   'verb',
   'conversation',
   'grammar',

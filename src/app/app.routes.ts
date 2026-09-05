@@ -33,6 +33,23 @@ export const routes: Routes = [
     title: 'route.lesson',
     loadComponent: () => import('./features/lesson-detail/lesson-detail').then((m) => m.LessonDetail),
   },
+  // Khu "Từ vựng theo chủ đề": cùng NỘI DUNG với bài từ vựng ngoài trang chủ,
+  // chỉ khác cách gom — theo chủ đề thay vì theo số bài. Vì thế màn hình chi tiết
+  // dùng lại thẳng `LessonDetail`: chủ đề là một `Lesson` đầy đủ (xem
+  // `core/topics/`), chỉ mang `kind: 'topic'`. Có đường dẫn riêng `/topic/:id`
+  // chứ không mượn `/lesson/:id` để địa chỉ nói đúng thứ đang mở, và để nút quay
+  // lại đưa về đúng lưới chủ đề.
+  {
+    path: 'topic',
+    title: 'route.topic',
+    loadComponent: () => import('./features/topic-list/topic-list').then((m) => m.TopicList),
+  },
+  {
+    path: 'topic/:id',
+    title: 'route.topicDetail',
+    loadComponent: () =>
+      import('./features/lesson-detail/lesson-detail').then((m) => m.LessonDetail),
+  },
   // Tab "Tiến độ N3" đứng riêng vì nó không phải một khu nội dung mà là một khu
   // ĐO ĐẠC: nó nói về toàn bộ các khu kia, cộng thêm ba quyển 総まとめ chưa nạp vào
   // app mà vẫn phải học trên sách. Không có bài học nào tới từ route này.

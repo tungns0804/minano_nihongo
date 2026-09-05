@@ -17,9 +17,19 @@ import {
   VocabularyWord,
   isJlptLevel,
 } from '../models/vocabulary.model';
+import { TOPIC_CATALOG } from '../topics/topic-catalog';
+import { topicSummary } from '../topics/topic.model';
 import { readJson, writeJson } from './local-storage';
 
 const CUSTOM_LESSONS_KEY = 'jp-practice:custom-lessons';
+
+/**
+ * Id của mọi chủ đề, để `getLesson` biết khi nào đáng nạp phần nặng.
+ *
+ * Tra bằng Set chứ không quét mảng: `getLesson` chạy ở mỗi lần mở bài, và danh
+ * mục sẽ còn dài thêm.
+ */
+const TOPIC_IDS = new Set(TOPIC_CATALOG.map((topic) => topic.id));
 const LESSONS_BASE_PATH = 'lessons/';
 
 /**
@@ -38,9 +48,15 @@ function assetUrl(path: string): string {
 }
 
 /**
- * Nguồn bài học của ứng dụng, gộp hai chỗ:
+ * Nguồn bài học của ứng dụng, gộp ba chỗ:
  *  - `public/lessons/*.json` do `npm run generate` sinh ra (origin = 'builtin')
+ *  - các chủ đề ở `core/topics/` — cũng là 'builtin' nhưng nằm THẲNG trong mã
+ *    nguồn nên có sẵn ngay cả khi index.json tải hỏng
  *  - bài do người dùng nạp qua giao diện, lưu ở localStorage (origin = 'custom')
+ *
+ * Chủ đề đi qua đây chứ không có kho riêng, để màn hình chi tiết bài, Favorite,
+ * phiên luyện tập và màn hình kết quả dùng lại được y nguyên — chủ đề chỉ là một
+ * `Lesson` có `kind: 'topic'`.
  */
 @Injectable({ providedIn: 'root' })
 export class LessonStore {
@@ -71,6 +87,12 @@ export class LessonStore {
       level: entry.level,
       origin: 'builtin' as const,
     })),
+    // Chủ đề đứng giữa: sau bài giáo trình vì nó là cách gom thêm chứ không phải
+    // nội dung mới, và trước bài tự nạp để phần "của app" nằm liền một khối.
+    //
+    // Dựng từ DANH MỤC nhẹ (`topic-catalog.ts`) chứ không từ bài học đầy đủ: danh
+    // sách này chỉ cần tên và số từ, mà bài đầy đủ thì kéo theo 130 KB từ vựng.
+    ...TOPIC_CATALOG.map(topicSummary),
     ...this.customLessons().map((lesson) => ({
       id: lesson.id,
       name: lesson.name,
@@ -135,6 +157,24 @@ export class LessonStore {
   /** Lấy bài học đầy đủ kèm từ vựng. Trả về null nếu không tìm thấy. */
   async getLesson(id: string): Promise<Lesson | null> {
     const findCustom = () => this.customLessons().find((lesson) => lesson.id === id) ?? null;
+
+    // Chủ đề tra trước hết: nội dung nằm trong mã nguồn nên không phải chờ
+    // index.json, và mở thẳng /topic/<id> lúc mạng hỏng vẫn học được.
+    //
+    // Nạp ĐỘNG: chỉ lúc này mới thật sự cần tới từ vựng của chủ đề, và chỉ chủ đề
+    // đang mở mới đáng để tải 130 KB đó. Danh mục nhẹ ở trên đã đủ cho mọi màn
+    // hình khác. Kết quả được nhớ ở `loaded` nên lần sau vào lại không tải nữa.
+    if (TOPIC_IDS.has(id)) {
+      const cachedTopic = this.loaded.get(id);
+      if (cachedTopic) return cachedTopic;
+
+      const { topicLesson } = await import('../topics/topic-entries');
+      const topic = topicLesson(id);
+      if (topic) {
+        this.loaded.set(id, topic);
+        return topic;
+      }
+    }
 
     const custom = findCustom();
     if (custom) return custom;

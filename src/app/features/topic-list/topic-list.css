@@ -1,0 +1,129 @@
+/* --- Thanh công cụ --- */
+
+.toolbar .search {
+  flex: 1 1 360px;
+}
+
+.toolbar-counts {
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* --- Lưới chủ đề --- */
+
+/* Ô rộng hơn thẻ bài học (270px) vì mỗi thẻ ở đây mang hai dòng tên — tiếng Nhật
+   và tiếng Việt — nằm cạnh một biểu tượng, chứ không phải một dòng tiêu đề. */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+/* --- Thẻ chủ đề --- */
+
+/* Giữ nguyên hình dáng và hiệu ứng của thẻ bài học ngoài trang chủ: hai tab là
+   hai cách gom CÙNG một kho từ, nên chúng phải trông như anh em chứ không như
+   hai ứng dụng khác nhau. */
+.topic-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  color: var(--text);
+  overflow: hidden;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+/* Vạch màu dọc mép trái, chỉ hiện khi trỏ vào. Ở ::before nên không chiếm chỗ,
+   nội dung thẻ không xê dịch một pixel nào lúc nó hiện ra. */
+.topic-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .topic-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .topic-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .topic-card:hover .topic-go {
+    transform: translateX(3px);
+  }
+}
+
+.topic-card:focus-visible {
+  border-color: var(--accent);
+}
+
+.topic-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.topic-icon {
+  /* Ô vuông cố định: biểu tượng emoji rộng hẹp khác nhau tuỳ hệ máy, thả tự do
+     thì hai dòng tên của mỗi thẻ lại thụt vào một kiểu. */
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+
+.topic-names {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.topic-jp {
+  font-size: 1.05rem;
+  font-weight: 640;
+  line-height: 1.3;
+}
+
+.topic-vi {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.topic-desc {
+  flex: 1;
+  margin: 0;
+}
+
+.topic-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: var(--sp-1);
+}
+
+.topic-go {
+  color: var(--accent);
+  font-weight: 700;
+  transition: transform var(--dur) var(--ease);
+}
