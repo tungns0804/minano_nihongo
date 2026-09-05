@@ -19,7 +19,6 @@ import {
 } from '../../core/exercises/exercise.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import {
   VERB_FORM_LABEL_KEY,
@@ -29,23 +28,15 @@ import {
   conjugate,
   isIrregularVerb,
 } from '../../core/japanese/conjugation';
-import {
-  DEFAULT_MAX_WRONG_ATTEMPTS,
-  LIMIT_CHOICES,
-  practiceConfig,
-  PracticeScope,
-} from '../../core/models/practice.model';
+import { LIMIT_CHOICES, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import {
   EXERCISE_FORMS,
   buildTransitivityQuestions,
   buildVerbFormQuestions,
 } from '../../core/practice/exercise-questions';
-import { FavoriteStore } from '../../core/services/favorite-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { checkedOf, valueOf } from '../../core/utils/dom-events';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
-
 
 /** Một động từ của bài chuyển thể, đã chia sẵn để hiện bảng tra cứu. */
 interface VerbRow {
@@ -73,33 +64,23 @@ interface VerbRow {
   styleUrl: './exercise-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExerciseDetail {
+export class ExerciseDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
 
-  readonly t = this.lang.t.bind(this.lang);
   readonly formLabelKey = VERB_FORM_LABEL_KEY;
   readonly availableForms = EXERCISE_FORMS;
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
   readonly exerciseId = signal('');
   readonly info = signal<ExerciseInfo | null>(null);
 
-  // --- Thiết lập luyện tập ---
+  protected favoriteSessionId(): string {
+    return this.exerciseId();
+  }
+
+  // --- Thiết lập riêng của khu Bài tập ---
   readonly levels = signal<ExerciseLevel[]>([...EXERCISE_LEVELS]);
   readonly mode = signal<ExerciseMode>('to-transitive');
   readonly selectedForms = signal<VerbForm[]>(['te']);
-  readonly scope = signal<PracticeScope>('all');
-  readonly questionLimit = signal<number | null>(null);
-  readonly shuffleQuestions = signal(true);
-  readonly showMeaning = signal(true);
-
-  // --- Bộ lọc bảng ---
-  readonly search = signal('');
-  readonly onlyFavorites = signal(false);
 
   readonly notFound = computed(() => this.info() === null);
   readonly isTransitivity = computed(() => this.info()?.id === 'tu-tha-dong-tu');
@@ -107,12 +88,6 @@ export class ExerciseDetail {
   readonly modes = computed(() => (this.isTransitivity() ? TRANSITIVITY_MODES : FORM_MODES));
   readonly currentMode = computed(() => exerciseModeInfo(this.mode()));
   readonly needsForms = computed(() => modeNeedsForms(this.mode()));
-
-  /** Đọc qua signal của FavoriteStore để bảng tự cập nhật khi bấm sao. */
-  private readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(this.exerciseId()));
-  });
 
   // --- Lọc theo cấp độ ---
 
@@ -149,25 +124,23 @@ export class ExerciseDetail {
   readonly specialVerbs = computed(() => this.levelVerbs().filter((verb) => verb.deceptive));
   readonly specialCount = computed(() => (this.isTransitivity() ? 0 : this.specialVerbs().length));
 
-  readonly favoriteCount = computed(() => {
-    const ids = this.favoriteIds();
-    return this.isTransitivity()
-      ? this.levelPairs().filter((pair) => ids.has(pair.id)).length
-      : this.levelVerbs().filter((verb) => ids.has(verb.id)).length;
-  });
+  /** Bài chuyển thể đánh ★ trên ĐỘNG TỪ, bài tự/tha đánh trên CẶP động từ. */
+  readonly favoriteCount = computed(() =>
+    this.isTransitivity()
+      ? this.favoritesOf(this.levelPairs()).length
+      : this.favoritesOf(this.levelVerbs()).length,
+  );
 
   // --- Tập mục sẽ đem ra hỏi ---
 
   readonly poolPairs = computed<TransitivityPair[]>(() =>
-    this.scope() === 'favorite'
-      ? this.levelPairs().filter((pair) => this.favoriteIds().has(pair.id))
-      : this.levelPairs(),
+    this.scope() === 'favorite' ? this.favoritesOf(this.levelPairs()) : this.levelPairs(),
   );
 
   readonly poolVerbs = computed<ExerciseVerb[]>(() => {
     switch (this.scope()) {
       case 'favorite':
-        return this.levelVerbs().filter((verb) => this.favoriteIds().has(verb.id));
+        return this.favoritesOf(this.levelVerbs());
       case 'special':
         return this.specialVerbs();
       default:
@@ -217,7 +190,7 @@ export class ExerciseDetail {
 
   readonly filteredVerbRows = computed<VerbRow[]>(() => {
     const base = this.onlyFavorites()
-      ? this.verbRows().filter((row) => this.favoriteIds().has(row.verb.id))
+      ? this.verbRows().filter((row) => this.isFavorite(row.verb.id))
       : this.verbRows();
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -230,7 +203,7 @@ export class ExerciseDetail {
 
   readonly filteredPairs = computed<TransitivityPair[]>(() => {
     const base = this.onlyFavorites()
-      ? this.levelPairs().filter((pair) => this.favoriteIds().has(pair.id))
+      ? this.favoritesOf(this.levelPairs())
       : this.levelPairs();
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -247,6 +220,10 @@ export class ExerciseDetail {
   );
 
   constructor() {
+    super();
+    // Khu Bài tập mặc định HIỆN nghĩa tiếng Việt: câu hỏi chỉ là một động từ trơ,
+    // không có nghĩa thì nhiều từ gần giống nhau không phân biệt nổi.
+    this.showHint.set(true);
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
       const id = params.get('id') ?? '';
       this.exerciseId.set(id);
@@ -296,11 +273,6 @@ export class ExerciseDetail {
     this.questionLimit.set(null);
   }
 
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
   isFormSelected(form: VerbForm): boolean {
     return this.selectedForms().includes(form);
   }
@@ -316,52 +288,13 @@ export class ExerciseDetail {
     this.questionLimit.set(null);
   }
 
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
-  }
-
-  toggleShowMeaning(event: Event): void {
-    this.showMeaning.set(checkedOf(event));
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  onSearch(event: Event): void {
-    this.search.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.search.set('');
-  }
-
-  toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set(checkedOf(event));
-  }
-
-  /** Phạm vi đang chọn có thể rỗng đi sau khi đổi cấp độ — quay về "Toàn bộ". */
-  private fixScope(): void {
-    if (this.scope() === 'favorite' && this.favoriteCount() === 0) this.scope.set('all');
+  /** Khu này có thêm phạm vi "động từ đặc biệt", cũng có thể rỗng đi. */
+  protected override fixScope(): void {
+    super.fixScope();
     if (this.scope() === 'special' && this.specialCount() === 0) this.scope.set('all');
   }
 
   // --- Favorite ---
-
-  isFavorite(itemId: string): boolean {
-    return this.favoriteIds().has(itemId);
-  }
-
-  toggleFavorite(itemId: string): void {
-    this.favoriteStore.toggle(this.exerciseId(), itemId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(this.exerciseId());
-    }
-  }
 
   markSpecialAsFavorite(): void {
     this.favoriteStore.add(
@@ -387,7 +320,7 @@ export class ExerciseDetail {
       questionLimit: this.questionLimit(),
       shuffle: this.shuffleQuestions(),
       // Ở khu Bài tập, cờ này bật gợi ý nghĩa tiếng Việt của động từ.
-      showHanViet: this.showMeaning(),
+      showHanViet: this.showHint(),
       verbForms: this.selectedForms(),
       exercise: info.id,
       exerciseMode: this.mode(),
@@ -400,9 +333,7 @@ export class ExerciseDetail {
       config,
     );
 
-    if (this.session.start({ id: info.id, name: this.lang.t(info.nameKey) }, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+    this.launch({ id: info.id, name: this.lang.t(info.nameKey) }, config, plan);
   }
 }
 

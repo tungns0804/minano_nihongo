@@ -1,14 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
-import {
-  DEFAULT_MAX_WRONG_ATTEMPTS,
-  LIMIT_CHOICES_LONG,
-  practiceConfig,
-  PracticeScope,
-} from '../../core/models/practice.model';
+import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildRadicalHanVietQuestions } from '../../core/practice/radical-questions';
 import {
@@ -20,11 +14,8 @@ import {
   strokeGroupOf,
 } from '../../core/radical/radical.model';
 import { RADICAL_ENTRIES } from '../../core/radical/radical-entries';
-import { FavoriteStore } from '../../core/services/favorite-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { checkedOf, valueOf } from '../../core/utils/dom-events';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
-
 
 /**
  * Tab "Bộ thủ" — lưới 214 bộ thủ theo số nét, kèm phần luyện "bộ thủ → âm Hán Việt".
@@ -41,16 +32,9 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
   styleUrl: './radical-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RadicalList {
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
-  private readonly router = inject(Router);
-
-  readonly t = this.lang.t.bind(this.lang);
+export class RadicalList extends PracticeScreen {
   readonly allGroups = STROKE_GROUPS;
   readonly strokeGroupOf = strokeGroupOf;
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
   readonly hanVietMode = RADICAL_HAN_VIET_MODE;
   readonly totalCount = RADICAL_ENTRIES.length;
 
@@ -59,21 +43,10 @@ export class RadicalList {
    * 214 bộ, trộn hết vào một lưới thì không còn biết mình đang học phần nào.
    */
   readonly group = signal<StrokeGroup>('1-2');
-  readonly search = signal('');
-  readonly onlyFavorites = signal(false);
 
-  // --- Thiết lập luyện tập ---
-  readonly scope = signal<PracticeScope>('all');
-  readonly questionLimit = signal<number | null>(null);
-  readonly shuffleQuestions = signal(true);
-  readonly ignoreDiacritics = signal(false);
-  readonly showHint = signal(false);
-
-  /** Đọc qua signal của FavoriteStore để lưới tự cập nhật khi bấm sao. */
-  private readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(RADICAL_SESSION_ID));
-  });
+  protected favoriteSessionId(): string {
+    return RADICAL_SESSION_ID;
+  }
 
   /** Số bộ của từng nhóm nét — con số trên nút, tính trên toàn bộ dữ liệu. */
   readonly groupCounts = computed<Record<StrokeGroup, number>>(() => {
@@ -90,9 +63,7 @@ export class RadicalList {
     RADICAL_ENTRIES.filter((entry) => strokeGroupOf(entry.strokes) === this.group()),
   );
 
-  readonly favoriteCount = computed(
-    () => this.groupEntries().filter((entry) => this.favoriteIds().has(entry.id)).length,
-  );
+  readonly favoriteCount = computed(() => this.favoritesOf(this.groupEntries()).length);
 
   readonly groupKanjiCount = computed(() =>
     this.groupEntries().reduce((total, entry) => total + entry.kanji.length, 0),
@@ -112,9 +83,7 @@ export class RadicalList {
   readonly visibleEntries = computed<readonly RadicalEntry[]>(() => {
     const keyword = normalizeSearch(this.search());
     const scope = keyword ? RADICAL_ENTRIES : this.groupEntries();
-    const base = this.onlyFavorites()
-      ? scope.filter((entry) => this.favoriteIds().has(entry.id))
-      : scope;
+    const base = this.onlyFavorites() ? this.favoritesOf(scope) : scope;
 
     if (!keyword) return base;
 
@@ -136,7 +105,7 @@ export class RadicalList {
 
   readonly pool = computed<RadicalEntry[]>(() =>
     this.scope() === 'favorite'
-      ? this.groupEntries().filter((entry) => this.favoriteIds().has(entry.id))
+      ? this.favoritesOf(this.groupEntries())
       : this.groupEntries(),
   );
 
@@ -158,36 +127,8 @@ export class RadicalList {
   setGroup(group: StrokeGroup): void {
     this.group.set(group);
     this.questionLimit.set(null);
+    // Nhóm nét mới có thể chưa đánh dấu ★ bộ nào.
     this.fixScope();
-  }
-
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set(checkedOf(event));
-  }
-
-  toggleShowHint(event: Event): void {
-    this.showHint.set(checkedOf(event));
-  }
-
-  onSearch(event: Event): void {
-    this.search.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.search.set('');
   }
 
   /**
@@ -199,32 +140,6 @@ export class RadicalList {
   goToGroupOf(entry: RadicalEntry): void {
     this.search.set('');
     this.setGroup(strokeGroupOf(entry.strokes));
-  }
-
-  toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set(checkedOf(event));
-  }
-
-  /** Phạm vi ★ có thể rỗng đi sau khi đổi nhóm nét — quay về "Toàn bộ". */
-  private fixScope(): void {
-    if (this.scope() === 'favorite' && this.favoriteCount() === 0) this.scope.set('all');
-  }
-
-  // --- Favorite ---
-
-  isFavorite(radicalId: string): boolean {
-    return this.favoriteIds().has(radicalId);
-  }
-
-  toggleFavorite(radicalId: string): void {
-    this.favoriteStore.toggle(RADICAL_SESSION_ID, radicalId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(RADICAL_SESSION_ID);
-    }
   }
 
   // --- Bắt đầu ---
@@ -244,10 +159,10 @@ export class RadicalList {
       radicalMode: 'radical-hanviet',
     });
 
-    const plan = orderQuestions(buildRadicalHanVietQuestions(this.pool(), config), config);
-    const lesson = { id: RADICAL_SESSION_ID, name: this.lang.t('radical.practiceHanViet') };
-    if (this.session.start(lesson, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+    this.launch(
+      { id: RADICAL_SESSION_ID, name: this.lang.t('radical.practiceHanViet') },
+      config,
+      orderQuestions(buildRadicalHanVietQuestions(this.pool(), config), config),
+    );
   }
 }

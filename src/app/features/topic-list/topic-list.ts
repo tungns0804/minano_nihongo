@@ -1,11 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
+import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { TOPIC_CATALOG } from '../../core/topics/topic-catalog';
-import { FavoriteStore } from '../../core/services/favorite-store';
-import { valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 
 /** Một thẻ chủ đề, đã trộn sẵn phần khai tay với phần dữ liệu sinh. */
@@ -33,6 +31,8 @@ interface TopicRow {
  *
  * Cũng KHÔNG có bộ lọc cấp độ: mỗi chủ đề gom từ của cả N5, N4 lẫn N3 nên không
  * chủ đề nào thuộc về một cấp — xem ghi chú trong `buildTopicLessons`.
+ *
+ * Ô tìm và cách đếm ★ trên thẻ đến từ `LessonBrowser`.
  */
 @Component({
   selector: 'app-topic-list',
@@ -41,19 +41,7 @@ interface TopicRow {
   styleUrl: './topic-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TopicList {
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly lang = inject(LanguageStore);
-
-  readonly t = this.lang.t.bind(this.lang);
-
-  private readonly searchRef = signal('');
-  readonly search = this.searchRef.asReadonly();
-
-  private readonly needle = computed(() => normalizeSearch(this.searchRef()));
-
-  private readonly favoriteCounts = this.favoriteStore.counts;
-
+export class TopicList extends LessonBrowser {
   /**
    * Toàn bộ chủ đề, dựng một lần từ DANH MỤC NHẸ.
    *
@@ -93,16 +81,4 @@ export class TopicList {
     this.topics().reduce((sum, topic) => sum + topic.wordCount, 0),
   );
 
-  onSearch(event: Event): void {
-    this.searchRef.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.searchRef.set('');
-  }
-
-  /** Số từ đã đánh dấu ★ trong một chủ đề. Đọc qua signal để tự cập nhật. */
-  favoriteCount(topicId: string): number {
-    return this.favoriteCounts()[topicId] ?? 0;
-  }
 }

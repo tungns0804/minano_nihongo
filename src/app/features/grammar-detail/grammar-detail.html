@@ -302,7 +302,7 @@
             <span class="label">{{ t('lesson.options') }}</span>
             <div class="options options-2">
               <label class="checkbox">
-                <input type="checkbox" [checked]="showGrammarHint()" (change)="toggleShowHint($event)" />
+                <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
                 <span>
                   <strong><app-t key="grammar.option.showHint" block /></strong>
                   <span class="hint"><app-t key="grammar.option.showHintHint" block /></span>

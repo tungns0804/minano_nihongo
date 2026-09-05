@@ -4,7 +4,6 @@ import { RouterLink } from '@angular/router';
 import { EXERCISES, ExerciseId, ExerciseInfo } from '../../core/exercises/exercise.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
-import { LanguageStore } from '../../core/i18n/language-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
 import {
@@ -15,9 +14,8 @@ import {
   LessonSummary,
   lessonKindsOfTab,
 } from '../../core/models/vocabulary.model';
-import { FavoriteStore } from '../../core/services/favorite-store';
+import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { LessonStore } from '../../core/services/lesson-store';
-import { valueOf } from '../../core/utils/dom-events';
 import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
 
 interface ExerciseCard extends ExerciseInfo {
@@ -52,6 +50,10 @@ interface LessonGroup {
  *
  * Nhóm nào lấy loại bài nào là tra `lessonKindsOfTab('exercise')` chứ không viết
  * cứng, để việc phân chia tab chỉ nằm ở một chỗ (xem `LESSON_KIND_TAB`).
+ *
+ * Ô tìm và cách đếm ★ trên thẻ đến từ `LessonBrowser`. Không kế thừa
+ * `LeveledLessonBrowser` vì tab này không lọc theo cấp: một bài chia động từ trải
+ * suốt N5→N3, xếp nó vào một cấp thì xếp kiểu gì cũng sai.
  */
 @Component({
   selector: 'app-exercise-list',
@@ -60,25 +62,14 @@ interface LessonGroup {
   styleUrl: './exercise-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExerciseList {
+export class ExerciseList extends LessonBrowser {
   private readonly lessonStore = inject(LessonStore);
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly lang = inject(LanguageStore);
-
-  readonly t = this.lang.t.bind(this.lang);
 
   readonly status = this.lessonStore.status;
   readonly errorKey = this.lessonStore.errorKey;
 
   /** Số thẻ xám vẽ trong lúc chờ tải danh sách bài. */
   readonly skeletonCards = [0, 1, 2, 3];
-
-  /** Từ khoá tìm, không nhớ sang lần mở sau — giống trang chủ và tab Ngữ pháp. */
-  private readonly searchRef = signal('');
-
-  readonly search = this.searchRef.asReadonly();
-
-  private readonly needle = computed(() => normalizeSearch(this.searchRef()));
 
   /**
    * Các loại bài học thuộc tab này, trừ 'exercise'.
@@ -186,19 +177,8 @@ export class ExerciseList {
   );
 
   constructor() {
+    super();
     void this.lessonStore.loadIndex();
-  }
-
-  onSearch(event: Event): void {
-    this.searchRef.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.searchRef.set('');
-  }
-
-  favoriteCount(lessonId: string): number {
-    return this.favoriteStore.counts()[lessonId] ?? 0;
   }
 
   reload(): void {

@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import {
   KANJI_HAN_VIET_MODE,
@@ -12,19 +11,11 @@ import {
   emptyLevelCounts,
 } from '../../core/kanji/kanji.model';
 import { KANJI_ENTRIES } from '../../core/kanji/kanji-entries';
-import {
-  DEFAULT_MAX_WRONG_ATTEMPTS,
-  LIMIT_CHOICES_LONG,
-  practiceConfig,
-  PracticeScope,
-} from '../../core/models/practice.model';
+import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiHanVietQuestions } from '../../core/practice/kanji-questions';
-import { FavoriteStore } from '../../core/services/favorite-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { checkedOf, valueOf } from '../../core/utils/dom-events';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
-
 
 /**
  * Tab "Kanji" — lưới chữ Hán theo cấp độ, kèm phần luyện "chữ Hán → âm Hán Việt".
@@ -34,6 +25,8 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
  *
  * Phần luyện các TỪ của một chữ thì ngược lại, nằm ở `/kanji/:id` vì nó chỉ có
  * nghĩa trong phạm vi một chữ.
+ *
+ * Khung thiết lập, ô tìm và khối ★ đến từ `PracticeScreen`.
  */
 @Component({
   selector: 'app-kanji-list',
@@ -42,15 +35,8 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
   styleUrl: './kanji-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KanjiList {
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
-  private readonly router = inject(Router);
-
-  readonly t = this.lang.t.bind(this.lang);
+export class KanjiList extends PracticeScreen {
   readonly allLevels = KANJI_LEVELS;
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
   readonly hanVietMode = KANJI_HAN_VIET_MODE;
 
   /**
@@ -59,21 +45,10 @@ export class KanjiList {
    * đang học phần nào.
    */
   readonly level = signal<KanjiLevel>('N5');
-  readonly search = signal('');
-  readonly onlyFavorites = signal(false);
 
-  // --- Thiết lập luyện tập ---
-  readonly scope = signal<PracticeScope>('all');
-  readonly questionLimit = signal<number | null>(null);
-  readonly shuffleQuestions = signal(true);
-  readonly ignoreDiacritics = signal(false);
-  readonly showHint = signal(false);
-
-  /** Đọc qua signal của FavoriteStore để lưới tự cập nhật khi bấm sao. */
-  private readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(KANJI_SESSION_ID));
-  });
+  protected favoriteSessionId(): string {
+    return KANJI_SESSION_ID;
+  }
 
   /** Số chữ của từng cấp — con số trên nút, tính trên toàn bộ dữ liệu. */
   readonly levelCounts = computed<Record<KanjiLevel, number>>(() => {
@@ -87,9 +62,7 @@ export class KanjiList {
     KANJI_ENTRIES.filter((entry) => entry.level === this.level()),
   );
 
-  readonly favoriteCount = computed(
-    () => this.levelEntries().filter((entry) => this.favoriteIds().has(entry.id)).length,
-  );
+  readonly favoriteCount = computed(() => this.favoritesOf(this.levelEntries()).length);
 
   readonly levelWordCount = computed(() =>
     this.levelEntries().reduce((total, entry) => total + entry.words.length, 0),
@@ -98,7 +71,7 @@ export class KanjiList {
   /** Lưới đang hiện: lọc theo ★ và theo từ khoá tìm. */
   readonly visibleEntries = computed<KanjiEntry[]>(() => {
     const base = this.onlyFavorites()
-      ? this.levelEntries().filter((entry) => this.favoriteIds().has(entry.id))
+      ? this.favoritesOf(this.levelEntries())
       : this.levelEntries();
 
     const keyword = normalizeSearch(this.search());
@@ -117,7 +90,7 @@ export class KanjiList {
 
   readonly pool = computed<KanjiEntry[]>(() =>
     this.scope() === 'favorite'
-      ? this.levelEntries().filter((entry) => this.favoriteIds().has(entry.id))
+      ? this.favoritesOf(this.levelEntries())
       : this.levelEntries(),
   );
 
@@ -139,62 +112,8 @@ export class KanjiList {
   setLevel(level: KanjiLevel): void {
     this.level.set(level);
     this.questionLimit.set(null);
+    // Cấp mới có thể chưa đánh dấu ★ chữ nào.
     this.fixScope();
-  }
-
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set(checkedOf(event));
-  }
-
-  toggleShowHint(event: Event): void {
-    this.showHint.set(checkedOf(event));
-  }
-
-  onSearch(event: Event): void {
-    this.search.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.search.set('');
-  }
-
-  toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set(checkedOf(event));
-  }
-
-  /** Phạm vi ★ có thể rỗng đi sau khi đổi cấp — quay về "Toàn bộ". */
-  private fixScope(): void {
-    if (this.scope() === 'favorite' && this.favoriteCount() === 0) this.scope.set('all');
-  }
-
-  // --- Favorite ---
-
-  isFavorite(kanjiId: string): boolean {
-    return this.favoriteIds().has(kanjiId);
-  }
-
-  toggleFavorite(kanjiId: string): void {
-    this.favoriteStore.toggle(KANJI_SESSION_ID, kanjiId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(KANJI_SESSION_ID);
-    }
   }
 
   // --- Bắt đầu ---
@@ -214,10 +133,10 @@ export class KanjiList {
       kanjiMode: 'kanji-hanviet',
     });
 
-    const plan = orderQuestions(buildKanjiHanVietQuestions(this.pool(), config), config);
-    const lesson = { id: KANJI_SESSION_ID, name: this.lang.t('kanji.practiceHanViet') };
-    if (this.session.start(lesson, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+    this.launch(
+      { id: KANJI_SESSION_ID, name: this.lang.t('kanji.practiceHanViet') },
+      config,
+      orderQuestions(buildKanjiHanVietQuestions(this.pool(), config), config),
+    );
   }
 }

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import {
   VERB_FORM_LABEL_KEY,
@@ -11,12 +11,10 @@ import {
   conjugate,
   isIrregularVerb,
 } from '../../core/japanese/conjugation';
-import { LanguageStore } from '../../core/i18n/language-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
 import {
   AnswerMode,
-  DEFAULT_MAX_WRONG_ATTEMPTS,
   directionInfo,
   directionIsUsable,
   DIRECTIONS,
@@ -25,7 +23,6 @@ import {
   practiceConfig,
   PracticeConfig,
   PracticeDirection,
-  PracticeScope,
   VERB_MODES,
   verbModeInfo,
   VerbPracticeMode,
@@ -46,13 +43,10 @@ import {
 import { batchCount, batchRange } from '../../core/practice/batch';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
 import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
-import { FavoriteStore } from '../../core/services/favorite-store';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/services/lesson-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
 import { VocabAudioPlayer } from '../../core/services/vocab-audio-player';
-import { checkedOf, valueOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/utils/lesson-search';
-
 
 /** Một động từ kèm kết quả chia, hoặc lý do không chia được. */
 interface VerbRow {
@@ -69,34 +63,27 @@ interface VerbRow {
   styleUrl: './lesson-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LessonDetail {
+export class LessonDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
   private readonly lessonStore = inject(LessonStore);
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
   /** Public: template gọi thẳng để biết nút loa của từng từ đang ở trạng thái nào. */
   readonly audio = inject(VocabAudioPlayer);
 
-  readonly t = this.lang.t.bind(this.lang);
   readonly directions = DIRECTIONS;
   readonly verbModes = VERB_MODES;
   readonly formLabelKey = VERB_FORM_LABEL_KEY;
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
   readonly lessonId = signal('');
   readonly lesson = signal<Lesson | null>(null);
   readonly loading = signal(true);
   readonly notFound = signal(false);
 
-  // --- Thiết lập luyện tập ---
-  readonly scope = signal<PracticeScope>('all');
+  protected favoriteSessionId(): string {
+    return this.lessonId();
+  }
+
+  // --- Thiết lập riêng của bài học ---
   readonly answerMode = signal<AnswerMode>('choice');
-  readonly showHanViet = signal(true);
-  readonly shuffleQuestions = signal(true);
-  readonly ignoreDiacritics = signal(false);
-  readonly questionLimit = signal<number | null>(null);
   /**
    * Cụm đang chọn, chưa kiểm tra còn hợp lệ hay không — đọc qua `batchIndex`.
    * null = không học theo cụm (trộn cả bài rồi lấy N câu, như trước giờ).
@@ -107,10 +94,6 @@ export class LessonDetail {
   // Riêng bài động từ
   readonly verbMode = signal<VerbPracticeMode>('masu-to-form');
   readonly selectedForms = signal<VerbForm[]>(['te']);
-
-  // --- Bộ lọc bảng ---
-  readonly search = signal('');
-  readonly onlyFavorites = signal(false);
 
   readonly isVerbLesson = computed(() => this.lesson()?.kind === 'verb');
   readonly isConversationLesson = computed(() => this.lesson()?.kind === 'conversation');
@@ -143,15 +126,7 @@ export class LessonDetail {
     return this.words();
   });
 
-  /** Đọc qua signal của FavoriteStore để danh sách tự cập nhật khi bấm sao. */
-  readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(this.lessonId()));
-  });
-
-  readonly favoriteCount = computed(
-    () => this.items().filter((item) => this.favoriteIds().has(item.id)).length,
-  );
+  readonly favoriteCount = computed(() => this.favoritesOf(this.items()).length);
 
   /**
    * Khoá nhãn theo loại bài. Tra bảng thay vì viết ternary trong template — thêm
@@ -385,7 +360,7 @@ export class LessonDetail {
 
   readonly filteredWords = computed<VocabularyWord[]>(() => {
     const base = this.onlyFavorites()
-      ? this.words().filter((w) => this.favoriteIds().has(w.id))
+      ? this.favoritesOf(this.words())
       : this.words();
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -398,7 +373,7 @@ export class LessonDetail {
 
   readonly filteredLines = computed<ConversationLine[]>(() => {
     const base = this.onlyFavorites()
-      ? this.lines().filter((line) => this.favoriteIds().has(line.id))
+      ? this.favoritesOf(this.lines())
       : this.lines();
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -411,7 +386,7 @@ export class LessonDetail {
 
   readonly filteredVerbRows = computed<VerbRow[]>(() => {
     const base = this.onlyFavorites()
-      ? this.verbRows().filter((row) => this.favoriteIds().has(row.entry.id))
+      ? this.verbRows().filter((row) => this.isFavorite(row.entry.id))
       : this.verbRows();
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -423,6 +398,10 @@ export class LessonDetail {
   });
 
   constructor() {
+    super();
+    // Bài từ vựng mặc định HIỆN âm Hán Việt: nó là mốc nhớ chính của người học
+    // tiếng Việt, và ở chiều hỏi nào lộ đáp án thì `hanVietHintAvailable` tự tắt.
+    this.showHint.set(true);
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
       const id = params.get('id') ?? '';
       this.lessonId.set(id);
@@ -462,14 +441,14 @@ export class LessonDetail {
 
   private filterLines(): ConversationLine[] {
     return this.scope() === 'favorite'
-      ? this.lines().filter((line) => this.favoriteIds().has(line.id))
+      ? this.favoritesOf(this.lines())
       : this.lines();
   }
 
   private filterWords(): VocabularyWord[] {
     const scoped =
       this.scope() === 'favorite'
-        ? this.words().filter((word) => this.favoriteIds().has(word.id))
+        ? this.favoritesOf(this.words())
         : this.words();
 
     // Bài điền dở dang một trường TUỲ CHỌN (một số từ có cách đọc, một số không;
@@ -493,7 +472,7 @@ export class LessonDetail {
   private filterVerbs(): VerbEntry[] {
     switch (this.scope()) {
       case 'favorite':
-        return this.verbs().filter((verb) => this.favoriteIds().has(verb.id));
+        return this.favoritesOf(this.verbs());
       case 'special':
         return this.specialVerbs();
       default:
@@ -503,11 +482,6 @@ export class LessonDetail {
 
   // --- Sự kiện thiết lập ---
 
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
   setDirection(direction: PracticeDirection): void {
     this.direction.set(direction);
   }
@@ -516,10 +490,13 @@ export class LessonDetail {
     this.answerMode.set(mode);
   }
 
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
-    // Cụm 3 của "10 câu" không phải cụm 3 của "20 câu" — đổi số câu là chia lại
-    // bài, nên quay về đầu thay vì giữ một con số nay mang nghĩa khác.
+  /**
+   * Ngoài việc đặt số câu, còn phải bỏ cụm đang chọn: cụm 3 của "10 câu" không
+   * phải cụm 3 của "20 câu" — đổi số câu là chia lại bài, nên quay về đầu thay vì
+   * giữ một con số nay mang nghĩa khác.
+   */
+  override setQuestionLimit(limit: number | null): void {
+    super.setQuestionLimit(limit);
     this.pickedBatch.set(null);
   }
 
@@ -552,30 +529,6 @@ export class LessonDetail {
     this.questionLimit.set(null);
   }
 
-  onSearch(event: Event): void {
-    this.search.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.search.set('');
-  }
-
-  toggleShowHanViet(event: Event): void {
-    this.showHanViet.set(checkedOf(event));
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set(checkedOf(event));
-  }
-
-  toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set(checkedOf(event));
-  }
-
   // --- Phát âm ---
 
   /**
@@ -586,23 +539,6 @@ export class LessonDetail {
    */
   speak(word: VocabularyWord): void {
     this.audio.play(word);
-  }
-
-  // --- Favorite ---
-
-  isFavorite(itemId: string): boolean {
-    return this.favoriteIds().has(itemId);
-  }
-
-  toggleFavorite(itemId: string): void {
-    this.favoriteStore.toggle(this.lessonId(), itemId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(this.lessonId());
-    }
   }
 
   markSpecialAsFavorite(): void {
@@ -618,7 +554,7 @@ export class LessonDetail {
     const lesson = this.lesson();
     if (!lesson || !this.canStart()) return;
 
-    this.launch(lesson, this.buildConfig(lesson), this.pool());
+    this.startWith(lesson, this.buildConfig(lesson), this.pool());
   }
 
   /**
@@ -641,7 +577,7 @@ export class LessonDetail {
       batchIndex: null,
     });
 
-    this.launch(lesson, config, { kind: 'conversation', lines: [line] });
+    this.startWith(lesson, config, { kind: 'conversation', lines: [line] });
   }
 
   /**
@@ -665,7 +601,7 @@ export class LessonDetail {
       shuffle: this.shuffleQuestions(),
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
-      showHanViet: this.showHanViet() && this.hanVietHintAvailable(),
+      showHanViet: this.showHint() && this.hanVietHintAvailable(),
       // Bài ngữ pháp mở từ đây luôn hiện gợi ý; khung thiết lập riêng của khu ngữ
       // pháp mới cho tắt.
       showGrammarHint: true,
@@ -675,11 +611,9 @@ export class LessonDetail {
     });
   }
 
-  private launch(lesson: Lesson, config: PracticeConfig, pool: PracticePool): void {
-    const plan = buildQuestions(lesson, pool, config);
-    if (this.session.start({ id: lesson.id, name: lesson.name }, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+  /** Dựng câu hỏi từ tập mục rồi giao cho `PracticeScreen.launch`. */
+  private startWith(lesson: Lesson, config: PracticeConfig, pool: PracticePool): void {
+    this.launch({ id: lesson.id, name: lesson.name }, config, buildQuestions(lesson, pool, config));
   }
 
   deleteCustomLesson(): void {

@@ -155,7 +155,7 @@
             <span class="label">{{ t('lesson.options') }}</span>
             <div class="options options-2">
               <label class="checkbox">
-                <input type="checkbox" [checked]="showMeaning()" (change)="toggleShowMeaning($event)" />
+                <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
                 <span>
                   <strong><app-t key="lesson.option.showMeaning" block /></strong>
                   <span class="hint"><app-t key="lesson.option.harder" block /></span>

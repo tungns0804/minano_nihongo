@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import {
   KANJI_LEVELS,
@@ -16,19 +15,11 @@ import {
   kanjiQuestionsPerItem,
 } from '../../core/kanji/kanji.model';
 import { kanjiById } from '../../core/kanji/kanji-entries';
-import {
-  DEFAULT_MAX_WRONG_ATTEMPTS,
-  LIMIT_CHOICES,
-  practiceConfig,
-  PracticeScope,
-} from '../../core/models/practice.model';
+import { LIMIT_CHOICES, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
-import { FavoriteStore } from '../../core/services/favorite-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { checkedOf, valueOf } from '../../core/utils/dom-events';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
-
 
 /**
  * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
@@ -40,6 +31,8 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
  * Phần chạy phiên và chấm điểm dùng lại nguyên vẹn: câu hỏi dựng ở
  * `core/practice/kanji-questions.ts` rồi đi qua đúng màn hình luyện tập và màn
  * hình kết quả như mọi bài học khác.
+ *
+ * Khung thiết lập, ô tìm và khối ★ đến từ `PracticeScreen`.
  */
 @Component({
   selector: 'app-kanji-detail',
@@ -48,32 +41,22 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
   styleUrl: './kanji-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class KanjiDetail {
+export class KanjiDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
 
-  readonly t = this.lang.t.bind(this.lang);
   readonly modes = KANJI_WORD_MODES;
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
   readonly kanjiId = signal('');
   readonly entry = signal<KanjiEntry | null>(null);
 
-  // --- Thiết lập luyện tập ---
+  /** ★ lưu theo từng chữ: từ của 会 và từ của 社 là hai danh sách khác nhau. */
+  protected favoriteSessionId(): string {
+    return this.kanjiId();
+  }
+
+  // --- Thiết lập riêng của khu Kanji ---
   readonly levels = signal<KanjiLevel[]>([...KANJI_LEVELS]);
   readonly mode = signal<KanjiMode>('word-meaning');
-  readonly scope = signal<PracticeScope>('all');
-  readonly questionLimit = signal<number | null>(null);
-  readonly shuffleQuestions = signal(true);
-  readonly ignoreDiacritics = signal(false);
-  readonly showHint = signal(false);
-
-  // --- Bộ lọc bảng ---
-  readonly search = signal('');
-  readonly onlyFavorites = signal(false);
 
   readonly notFound = computed(() => this.entry() === null);
   /**
@@ -90,12 +73,6 @@ export class KanjiDetail {
     const entry = this.entry();
     if (!entry) return '';
     return [entry.hanViet, ...entry.altHanViet].filter(Boolean).join(' / ');
-  });
-
-  /** Đọc qua signal của FavoriteStore để bảng tự cập nhật khi bấm sao. */
-  private readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(this.kanjiId()));
   });
 
   private readonly levelSet = computed(() => new Set(this.levels()));
@@ -120,16 +97,12 @@ export class KanjiDetail {
     KANJI_LEVELS.filter((level) => this.levelCounts()[level] > 0),
   );
 
-  readonly favoriteCount = computed(
-    () => this.levelWords().filter((word) => this.favoriteIds().has(word.id)).length,
-  );
+  readonly favoriteCount = computed(() => this.favoritesOf(this.levelWords()).length);
 
   // --- Tập từ sẽ đem ra hỏi ---
 
   readonly pool = computed<KanjiWord[]>(() =>
-    this.scope() === 'favorite'
-      ? this.levelWords().filter((word) => this.favoriteIds().has(word.id))
-      : this.levelWords(),
+    this.scope() === 'favorite' ? this.favoritesOf(this.levelWords()) : this.levelWords(),
   );
 
   readonly plannedQuestionCount = computed(() => {
@@ -149,9 +122,7 @@ export class KanjiDetail {
   // --- Bảng tra cứu ---
 
   readonly visibleWords = computed<KanjiWord[]>(() => {
-    const base = this.onlyFavorites()
-      ? this.levelWords().filter((word) => this.favoriteIds().has(word.id))
-      : this.levelWords();
+    const base = this.onlyFavorites() ? this.favoritesOf(this.levelWords()) : this.levelWords();
 
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -164,6 +135,7 @@ export class KanjiDetail {
   });
 
   constructor() {
+    super();
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
       const id = params.get('id') ?? '';
       this.kanjiId.set(id);
@@ -210,61 +182,6 @@ export class KanjiDetail {
     this.questionLimit.set(null);
   }
 
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set(checkedOf(event));
-  }
-
-  toggleShowHint(event: Event): void {
-    this.showHint.set(checkedOf(event));
-  }
-
-  onSearch(event: Event): void {
-    this.search.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.search.set('');
-  }
-
-  toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set(checkedOf(event));
-  }
-
-  /** Phạm vi ★ có thể rỗng đi sau khi đổi cấp độ — quay về "Toàn bộ". */
-  private fixScope(): void {
-    if (this.scope() === 'favorite' && this.favoriteCount() === 0) this.scope.set('all');
-  }
-
-  // --- Favorite ---
-
-  isFavorite(wordId: string): boolean {
-    return this.favoriteIds().has(wordId);
-  }
-
-  toggleFavorite(wordId: string): void {
-    this.favoriteStore.toggle(this.kanjiId(), wordId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(this.kanjiId());
-    }
-  }
-
   // --- Bắt đầu ---
 
   start(): void {
@@ -285,10 +202,10 @@ export class KanjiDetail {
       kanjiMode: this.mode(),
     });
 
-    const plan = orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config);
-    const name = `${entry.char} ${entry.hanViet}`;
-    if (this.session.start({ id: entry.id, name }, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+    this.launch(
+      { id: entry.id, name: `${entry.char} ${entry.hanViet}` },
+      config,
+      orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config),
+    );
   }
 }

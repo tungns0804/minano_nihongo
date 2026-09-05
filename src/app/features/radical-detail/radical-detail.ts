@@ -2,15 +2,9 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import { KANJI_LEVELS, KanjiLevel, emptyLevelCounts } from '../../core/kanji/kanji.model';
-import {
-  DEFAULT_MAX_WRONG_ATTEMPTS,
-  LIMIT_CHOICES_LONG,
-  practiceConfig,
-  PracticeScope,
-} from '../../core/models/practice.model';
+import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildRadicalKanjiQuestions } from '../../core/practice/radical-questions';
 import {
@@ -23,11 +17,8 @@ import {
   usableForParts,
 } from '../../core/radical/radical.model';
 import { radicalById } from '../../core/radical/radical-entries';
-import { FavoriteStore } from '../../core/services/favorite-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { checkedOf, valueOf } from '../../core/utils/dom-events';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
-
 
 /**
  * Màn hình MỘT bộ thủ: bộ vẽ to, âm Hán Việt + nghĩa + tên tiếng Nhật, và bảng các
@@ -39,6 +30,8 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
  * Phần chạy phiên và chấm điểm dùng lại nguyên vẹn: câu hỏi dựng ở
  * `core/practice/radical-questions.ts` rồi đi qua đúng màn hình luyện tập và màn
  * hình kết quả như mọi bài học khác.
+ *
+ * Khung thiết lập, ô tìm và khối ★ đến từ `PracticeScreen`.
  */
 @Component({
   selector: 'app-radical-detail',
@@ -47,32 +40,22 @@ import { normalizeSearch } from '../../core/utils/lesson-search';
   styleUrl: './radical-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RadicalDetail {
+export class RadicalDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
 
-  readonly t = this.lang.t.bind(this.lang);
   readonly modes = RADICAL_KANJI_MODES;
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
   readonly radicalId = signal('');
   readonly entry = signal<RadicalEntry | null>(null);
 
-  // --- Thiết lập luyện tập ---
+  /** ★ lưu theo từng bộ: chữ của bộ 人 và chữ của bộ 木 là hai danh sách khác nhau. */
+  protected favoriteSessionId(): string {
+    return this.radicalId();
+  }
+
+  // --- Thiết lập riêng của khu Bộ thủ ---
   readonly levels = signal<KanjiLevel[]>([...KANJI_LEVELS]);
   readonly mode = signal<RadicalMode>('kanji-hanviet');
-  readonly scope = signal<PracticeScope>('all');
-  readonly questionLimit = signal<number | null>(null);
-  readonly shuffleQuestions = signal(true);
-  readonly ignoreDiacritics = signal(false);
-  readonly showHint = signal(false);
-
-  // --- Bộ lọc bảng ---
-  readonly search = signal('');
-  readonly onlyFavorites = signal(false);
 
   readonly notFound = computed(() => this.entry() === null);
   /**
@@ -88,12 +71,6 @@ export class RadicalDetail {
   readonly forms = computed(() => {
     const entry = this.entry();
     return entry ? [entry.char, ...entry.variants].join('  ') : '';
-  });
-
-  /** Đọc qua signal của FavoriteStore để bảng tự cập nhật khi bấm sao. */
-  private readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(this.radicalId()));
   });
 
   private readonly levelSet = computed(() => new Set(this.levels()));
@@ -118,16 +95,12 @@ export class RadicalDetail {
     KANJI_LEVELS.filter((level) => this.levelCounts()[level] > 0),
   );
 
-  readonly favoriteCount = computed(
-    () => this.levelKanji().filter((kanji) => this.favoriteIds().has(kanji.id)).length,
-  );
+  readonly favoriteCount = computed(() => this.favoritesOf(this.levelKanji()).length);
 
   // --- Tập chữ sẽ đem ra hỏi ---
 
   readonly pool = computed<RadicalKanji[]>(() =>
-    this.scope() === 'favorite'
-      ? this.levelKanji().filter((kanji) => this.favoriteIds().has(kanji.id))
-      : this.levelKanji(),
+    this.scope() === 'favorite' ? this.favoritesOf(this.levelKanji()) : this.levelKanji(),
   );
 
   readonly plannedQuestionCount = computed(() => {
@@ -158,9 +131,7 @@ export class RadicalDetail {
   // --- Bảng tra cứu ---
 
   readonly visibleKanji = computed<RadicalKanji[]>(() => {
-    const base = this.onlyFavorites()
-      ? this.levelKanji().filter((kanji) => this.favoriteIds().has(kanji.id))
-      : this.levelKanji();
+    const base = this.onlyFavorites() ? this.favoritesOf(this.levelKanji()) : this.levelKanji();
 
     const keyword = normalizeSearch(this.search());
     if (!keyword) return base;
@@ -174,6 +145,7 @@ export class RadicalDetail {
   });
 
   constructor() {
+    super();
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
       const id = params.get('id') ?? '';
       this.radicalId.set(id);
@@ -220,61 +192,6 @@ export class RadicalDetail {
     this.questionLimit.set(null);
   }
 
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set(checkedOf(event));
-  }
-
-  toggleShowHint(event: Event): void {
-    this.showHint.set(checkedOf(event));
-  }
-
-  onSearch(event: Event): void {
-    this.search.set(valueOf(event));
-  }
-
-  clearSearch(): void {
-    this.search.set('');
-  }
-
-  toggleOnlyFavorites(event: Event): void {
-    this.onlyFavorites.set(checkedOf(event));
-  }
-
-  /** Phạm vi ★ có thể rỗng đi sau khi đổi cấp độ — quay về "Toàn bộ". */
-  private fixScope(): void {
-    if (this.scope() === 'favorite' && this.favoriteCount() === 0) this.scope.set('all');
-  }
-
-  // --- Favorite ---
-
-  isFavorite(kanjiId: string): boolean {
-    return this.favoriteIds().has(kanjiId);
-  }
-
-  toggleFavorite(kanjiId: string): void {
-    this.favoriteStore.toggle(this.radicalId(), kanjiId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(this.radicalId());
-    }
-  }
-
   // --- Bắt đầu ---
 
   start(): void {
@@ -295,10 +212,10 @@ export class RadicalDetail {
       radicalMode: this.mode(),
     });
 
-    const plan = orderQuestions(buildRadicalKanjiQuestions(this.pool(), entry, config), config);
-    const name = `${entry.char} ${entry.hanViet}`;
-    if (this.session.start({ id: entry.id, name }, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+    this.launch(
+      { id: entry.id, name: `${entry.char} ${entry.hanViet}` },
+      config,
+      orderQuestions(buildRadicalKanjiQuestions(this.pool(), entry, config), config),
+    );
   }
 }

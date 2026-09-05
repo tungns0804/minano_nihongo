@@ -2,16 +2,13 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
-import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import {
-  DEFAULT_MAX_WRONG_ATTEMPTS,
   directionInfo,
   DIRECTIONS,
   LIMIT_CHOICES,
   practiceConfig,
   PracticeDirection,
-  PracticeScope,
 } from '../../core/models/practice.model';
 import {
   GrammarExampleRef,
@@ -20,11 +17,8 @@ import {
   flattenGrammarExamples,
 } from '../../core/models/vocabulary.model';
 import { buildQuestions } from '../../core/practice/build-questions';
-import { FavoriteStore } from '../../core/services/favorite-store';
+import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/services/lesson-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { checkedOf } from '../../core/utils/dom-events';
-
 
 /**
  * Trang một bài ngữ pháp: phần lý thuyết (công thức, giải thích, bảng biến đổi,
@@ -38,6 +32,9 @@ import { checkedOf } from '../../core/utils/dom-events';
  * Phần chạy phiên và chấm điểm thì DÙNG LẠI toàn bộ: câu hỏi được dựng qua
  * `buildQuestions`, nên bài ngữ pháp đi qua đúng màn hình luyện tập và màn hình
  * kết quả như ba loại bài kia.
+ *
+ * Khung thiết lập và khối ★ đến từ `PracticeScreen`. Không có ô tìm: cả trang là
+ * lý thuyết để đọc từ trên xuống, không phải bảng để tra.
  */
 @Component({
   selector: 'app-grammar-detail',
@@ -46,16 +43,9 @@ import { checkedOf } from '../../core/utils/dom-events';
   styleUrl: './grammar-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GrammarDetail {
+export class GrammarDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
   private readonly lessonStore = inject(LessonStore);
-  private readonly favoriteStore = inject(FavoriteStore);
-  private readonly session = inject(PracticeSessionStore);
-  private readonly lang = inject(LanguageStore);
-
-  readonly t = this.lang.t.bind(this.lang);
-  readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
   /** Bài ngữ pháp chỉ dịch qua lại Nhật/Việt — không có âm Hán Việt hay cách đọc cho cả câu. */
   readonly directions = DIRECTIONS.filter((item) => item.id === 'jp-vi' || item.id === 'vi-jp');
@@ -65,13 +55,12 @@ export class GrammarDetail {
   readonly loading = signal(true);
   readonly notFound = signal(false);
 
-  // --- Thiết lập luyện tập ---
-  readonly scope = signal<PracticeScope>('all');
+  protected favoriteSessionId(): string {
+    return this.lessonId();
+  }
+
+  // --- Thiết lập riêng của bài ngữ pháp ---
   readonly direction = signal<PracticeDirection>('vi-jp');
-  readonly showGrammarHint = signal(true);
-  readonly shuffleQuestions = signal(true);
-  readonly ignoreDiacritics = signal(false);
-  readonly questionLimit = signal<number | null>(null);
 
   /** Id các mẫu ngữ pháp được đem ra hỏi. Mặc định là tất cả, đặt lại mỗi lần đổi bài. */
   readonly selectedPointIds = signal<string[]>([]);
@@ -85,12 +74,10 @@ export class GrammarDetail {
 
   readonly exampleCount = computed(() => this.allExamples().length);
 
-  /** Đọc qua signal của FavoriteStore để danh sách tự cập nhật khi bấm sao. */
-  readonly favoriteIds = computed(() => {
-    void this.favoriteStore.counts();
-    return new Set(this.favoriteStore.idsOf(this.lessonId()));
-  });
-
+  /**
+   * ★ ở đây đánh trên CÂU VÍ DỤ chứ không trên mẫu ngữ pháp, nên id nằm ở
+   * `item.example.id` — không dùng được `favoritesOf` của lớp cha.
+   */
   readonly favoriteCount = computed(
     () => this.allExamples().filter((item) => this.favoriteIds().has(item.example.id)).length,
   );
@@ -123,6 +110,10 @@ export class GrammarDetail {
   readonly modeShort = computed(() => this.lang.t(this.currentDirection().shortKey));
 
   constructor() {
+    super();
+    // Bài ngữ pháp mặc định BẬT gợi ý: mẫu ngữ pháp là thứ đang học, bắt tự nhớ ra
+    // mẫu nào hợp với câu là một bài khó hơn hẳn.
+    this.showHint.set(true);
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
       const id = params.get('id') ?? '';
       this.lessonId.set(id);
@@ -155,17 +146,8 @@ export class GrammarDetail {
 
   // --- Sự kiện thiết lập ---
 
-  setScope(scope: PracticeScope): void {
-    this.scope.set(scope);
-    this.questionLimit.set(null);
-  }
-
   setDirection(direction: PracticeDirection): void {
     this.direction.set(direction);
-  }
-
-  setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
   }
 
   isPointSelected(pointId: string): boolean {
@@ -204,34 +186,7 @@ export class GrammarDetail {
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  toggleShowHint(event: Event): void {
-    this.showGrammarHint.set(checkedOf(event));
-  }
-
-  toggleShuffle(event: Event): void {
-    this.shuffleQuestions.set(checkedOf(event));
-  }
-
-  toggleIgnoreDiacritics(event: Event): void {
-    this.ignoreDiacritics.set(checkedOf(event));
-  }
-
   // --- Favorite ---
-
-  isFavorite(exampleId: string): boolean {
-    return this.favoriteIds().has(exampleId);
-  }
-
-  toggleFavorite(exampleId: string): void {
-    this.favoriteStore.toggle(this.lessonId(), exampleId);
-  }
-
-  clearFavorites(): void {
-    if (this.favoriteCount() === 0) return;
-    if (confirm(this.lang.t('lesson.confirm.clearFavorites', { count: this.favoriteCount() }))) {
-      this.favoriteStore.clearLesson(this.lessonId());
-    }
-  }
 
   // --- Bắt đầu ---
 
@@ -247,12 +202,13 @@ export class GrammarDetail {
       shuffle: this.shuffleQuestions(),
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
-      showGrammarHint: this.showGrammarHint(),
+      showGrammarHint: this.showHint(),
     });
 
-    const plan = buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config);
-    if (this.session.start({ id: lesson.id, name: lesson.name }, config, plan)) {
-      void this.router.navigate(['/practice']);
-    }
+    this.launch(
+      { id: lesson.id, name: lesson.name },
+      config,
+      buildQuestions(lesson, { kind: 'grammar', examples: this.pool() }, config),
+    );
   }
 }

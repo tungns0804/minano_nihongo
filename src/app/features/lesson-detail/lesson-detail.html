@@ -254,7 +254,7 @@
             <div class="options options-2">
               @if (isVerbLesson()) {
                 <label class="checkbox">
-                  <input type="checkbox" [checked]="showHanViet()" (change)="toggleShowHanViet($event)" />
+                  <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
                   <span>
                     <strong><app-t key="lesson.option.showMeaning" block /></strong>
                     <span class="hint"><app-t key="lesson.option.harder" block /></span>
@@ -272,9 +272,9 @@
                 >
                   <input
                     type="checkbox"
-                    [checked]="showHanViet() && hanVietHintAvailable()"
+                    [checked]="showHint() && hanVietHintAvailable()"
                     [disabled]="!hanVietHintAvailable()"
-                    (change)="toggleShowHanViet($event)"
+                    (change)="toggleShowHint($event)"
                   />
                   <span>
                     <strong><app-t key="lesson.option.showHanViet" block /></strong>
