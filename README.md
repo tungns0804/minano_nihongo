@@ -7,6 +7,10 @@ nghĩa tiếng Việt. Chỉ có frontend (Angular 20) và dữ liệu JSON tĩn
 > [`src/app/core/app-title.ts`](src/app/core/app-title.ts). Đổi tên thì sửa ở đó, cộng thêm thẻ
 > `<title>` tĩnh trong `src/index.html` và `scripts/build-offline.mjs`.
 
+> Sắp thêm một màn hình hay một kiểu luyện tập mới? Đọc
+> [CODING.md](CODING.md) trước — nó nói lớp cha nào đã có sẵn khung thiết lập,
+> khối ★ và ô tìm, để khỏi chép lại lần thứ tám.
+
 ## Chạy nhanh
 
 ```bash
