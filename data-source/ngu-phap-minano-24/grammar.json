@@ -1,0 +1,183 @@
+{
+  "points": [
+    {
+      "title": "くれます",
+      "summary": "Động từ 'cho' khi người nhận là TÔI hoặc người thân của tôi.",
+      "structures": ["N（người khác）が わたしに N を くれます"],
+      "explanation": [
+        "Ở bài 7 đã học あげます (cho đi) và もらいます (nhận về). くれます là mảnh còn thiếu: người khác cho TÔI.",
+        "Không bao giờ nói 「ミラーさんは わたしに はなを あげました」. Khi người nhận là わたし thì bắt buộc dùng くれます.",
+        "Người nhận cũng có thể là người trong nhóm của tôi — gia đình tôi, công ty tôi — chứ không nhất thiết phải chính tôi.",
+        "Vì người nhận đã ngầm hiểu là わたし nên phần 「わたしに」 thường được lược bỏ."
+      ],
+      "tables": [
+        {
+          "caption": "Ba động từ cho nhận",
+          "headers": ["Động từ", "Chủ ngữ", "Chiều"],
+          "rows": [
+            ["あげます", "Người cho", "Tôi hoặc người khác cho người khác"],
+            ["もらいます", "Người nhận", "Tôi nhận từ người khác"],
+            ["くれます", "Người cho", "Người khác cho tôi"]
+          ]
+        }
+      ],
+      "notes": [
+        "もらいます và くれます nói cùng một sự việc nhưng đứng ở hai điểm nhìn: 「わたしは ミラーさんに もらいました」 lấy tôi làm chủ ngữ, còn 「ミラーさんが わたしに くれました」 lấy người cho làm chủ ngữ."
+      ],
+      "usages": [
+        {
+          "title": "Người khác cho tôi",
+          "detail": "Phần わたしに thường được lược.",
+          "examples": [
+            {
+              "japanese": "ミラーさんが わたしに クリスマスカードを くれました。",
+              "vietnamese": "Anh Miller đã tặng tôi tấm thiệp Giáng sinh."
+            },
+            {
+              "japanese": "ともだちが おいしい おかしを くれました。",
+              "vietnamese": "Bạn tôi đã cho tôi món bánh ngon."
+            },
+            {
+              "japanese": "ちちが たんじょうびに とけいを くれました。",
+              "vietnamese": "Bố đã tặng tôi chiếc đồng hồ vào ngày sinh nhật."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V て あげます",
+      "summary": "Làm giúp ai đó một việc, mang sắc thái ban ơn.",
+      "structures": ["わたしは N（người）に V て あげます"],
+      "explanation": [
+        "Ghép thể て với あげます để nói mình chủ động làm gì đó cho người khác.",
+        "Mẫu này mang sắc thái BAN ƠN, nên KHÔNG dùng trực tiếp với người trên. Nói với sếp 「にもつを もって あげましょうか」 là bất lịch sự.",
+        "Với người trên thì dùng 「～ましょうか」 ở bài 14, hoặc 「お～します」 ở bài 50."
+      ],
+      "notes": [
+        "Kể lại việc mình đã làm giúp ai đó thì mẫu này bình thường; nhưng ngỏ ý làm giúp ngay trước mặt người ta thì nên tránh."
+      ],
+      "usages": [
+        {
+          "title": "Làm giúp người ngang hàng hoặc người dưới",
+          "detail": "Người được giúp đi với に.",
+          "examples": [
+            {
+              "japanese": "わたしは ともだちに ほんを かして あげました。",
+              "vietnamese": "Tôi đã cho bạn mượn sách."
+            },
+            {
+              "japanese": "テレサちゃんに おりがみを おしえて あげました。",
+              "vietnamese": "Tôi đã dạy bé Teresa cách gấp giấy origami."
+            },
+            {
+              "japanese": "ともだちを えきまで おくって あげました。",
+              "vietnamese": "Tôi đã tiễn bạn ra tận nhà ga."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V て もらいます",
+      "summary": "Được ai đó làm cho một việc, mang sắc thái biết ơn.",
+      "structures": ["わたしは N（người）に V て もらいます"],
+      "explanation": [
+        "Chủ ngữ là NGƯỜI ĐƯỢC NHẬN ơn, người làm giúp đi với に.",
+        "Mẫu này hàm ý chính người nhận đã nhờ vả hoặc mong muốn việc đó, và biết ơn vì được giúp.",
+        "Đây là mẫu an toàn nhất để kể lại việc mình được người khác giúp."
+      ],
+      "usages": [
+        {
+          "title": "Kể việc mình được giúp",
+          "detail": "Người làm giúp đi với に.",
+          "examples": [
+            {
+              "japanese": "わたしは やまださんに としょかんの でんわばんごうを おしえて もらいました。",
+              "vietnamese": "Tôi đã được anh Yamada cho biết số điện thoại của thư viện."
+            },
+            {
+              "japanese": "ともだちに にほんごを なおして もらいました。",
+              "vietnamese": "Tôi đã được bạn sửa lại tiếng Nhật cho."
+            },
+            {
+              "japanese": "せんせいに しゅくだいを みて もらいました。",
+              "vietnamese": "Tôi đã được thầy xem bài tập giúp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V て くれます",
+      "summary": "Ai đó tự nguyện làm giúp tôi một việc.",
+      "structures": ["N（người khác）が わたしに V て くれます"],
+      "explanation": [
+        "Chủ ngữ là NGƯỜI LÀM GIÚP, và người được giúp là tôi.",
+        "Khác với ～て もらいます ở chỗ: もらいます hàm ý tôi đã nhờ, còn くれます hàm ý người kia TỰ NGUYỆN làm mà tôi không nhờ.",
+        "Vì vậy くれます mang sắc thái cảm động, biết ơn rõ hơn."
+      ],
+      "tables": [
+        {
+          "caption": "Ba mẫu ghép với thể て",
+          "headers": ["Mẫu", "Chủ ngữ", "Sắc thái"],
+          "rows": [
+            ["V て あげます", "Người làm giúp", "Ban ơn, tránh dùng với người trên"],
+            ["V て もらいます", "Người được giúp", "Đã nhờ và được đáp ứng"],
+            ["V て くれます", "Người làm giúp", "Tự nguyện giúp tôi, cảm động"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Được người khác tự nguyện giúp",
+          "detail": "わたしに thường được lược bỏ.",
+          "examples": [
+            {
+              "japanese": "ともだちが くうこうまで むかえに きて くれました。",
+              "vietnamese": "Bạn tôi đã ra tận sân bay đón tôi."
+            },
+            {
+              "japanese": "やまださんが ひっこしを てつだって くれました。",
+              "vietnamese": "Anh Yamada đã giúp tôi chuyển nhà."
+            },
+            {
+              "japanese": "ははが セーターを おくって くれました。",
+              "vietnamese": "Mẹ đã gửi cho tôi chiếc áo len."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N が — chủ ngữ trong câu hỏi",
+      "summary": "Khi từ để hỏi làm chủ ngữ thì dùng が, và câu trả lời cũng dùng が.",
+      "structures": ["だれが ～ V ますか。→ N が V ます。"],
+      "explanation": [
+        "Từ để hỏi không bao giờ đi với は, vì は đánh dấu thứ đã biết còn từ để hỏi lại là thứ chưa biết.",
+        "Câu trả lời giữ nguyên が, vì đó chính là thông tin mới mà người hỏi cần.",
+        "Đây cũng là lý do các mẫu くれます ở trên thường có が đứng sau người cho."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi ai làm việc gì",
+          "detail": "Cả câu hỏi lẫn câu trả lời đều dùng が.",
+          "examples": [
+            {
+              "japanese": "だれが てつだって くれましたか。",
+              "vietnamese": "Ai đã giúp anh vậy?"
+            },
+            {
+              "japanese": "やまださんが てつだって くれました。",
+              "vietnamese": "Anh Yamada đã giúp tôi."
+            },
+            {
+              "japanese": "だれが この ケーキを つくりましたか。",
+              "vietnamese": "Ai đã làm cái bánh này vậy?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

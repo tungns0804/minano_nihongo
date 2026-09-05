@@ -218,6 +218,77 @@ main:focus-visible {
   text-align: center;
 }
 
+/* --- Thanh tiến trình chuyển trang -----------------------------------------
+   Một vệt mảnh chạy ngang, dính ngay dưới header.
+
+   Vì sao chỉ là một vệt chứ không phải cả màn hình chờ: trang cũ vẫn còn nguyên
+   trên màn hình trong lúc chờ, và đó là điều tốt — người dùng vẫn đọc được. Cái
+   duy nhất còn thiếu là câu trả lời cho "máy có nhận cú bấm của tôi không", mà
+   một vệt chạy là đủ trả lời. Phủ lớp mờ lên cả trang chỉ để nói chừng ấy thì
+   vừa che mất nội dung vừa làm mỗi lần đổi tab thành một cú giật màn hình.
+
+   Chiều cao giữ nguyên kể cả khi ẩn, và đặt ở lớp nền phía sau chữ, để trang
+   không xê dịch một nhịp mỗi lần thanh hiện ra rồi tắt đi. */
+
+.route-progress {
+  position: sticky;
+  /* Bám ngay dưới header dính. Cùng biến chiều cao mà header đang dùng. */
+  top: calc(var(--header-h) + env(safe-area-inset-top));
+  z-index: 19;
+  height: 3px;
+  margin-bottom: -3px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease);
+}
+
+.route-progress.is-active {
+  opacity: 1;
+}
+
+/* Vệt sáng chạy đi chạy lại. Đây là thanh VÔ ĐỊNH: không đo được còn bao nhiêu
+   phần trăm nữa mới xong, nên đừng vẽ ra một mức lấp đầy giả. */
+.route-progress-bar {
+  display: block;
+  height: 100%;
+  width: 40%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: translateX(-100%);
+}
+
+.route-progress.is-active .route-progress-bar {
+  animation: route-progress-slide 1.1s var(--ease) infinite;
+}
+
+@keyframes route-progress-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(350%);
+  }
+}
+
+/* Tắt hiệu ứng chuyển động thì khối @media ở cuối styles.css bóp thời lượng mọi
+   animation về 0.01ms. Với một animation lặp vô hạn như trên, kết quả không phải
+   là đứng im mà là nháy loạn — đúng thứ mà người bật tuỳ chọn đó muốn tránh.
+
+   Vì vậy ở đây phải TẮT HẲN animation và vẽ một vạch đặc kín bề ngang: vẫn báo
+   được là trang đang tải, mà không có gì nhúc nhích. */
+@media (prefers-reduced-motion: reduce) {
+  .route-progress.is-active .route-progress-bar {
+    animation: none;
+  }
+
+  .route-progress-bar {
+    width: 100%;
+    transform: none;
+    background: var(--accent);
+  }
+}
+
 /* --- Nút quay lên đầu trang ------------------------------------------------
    Cố định ở góc dưới phải. Luôn có trong DOM, chỉ mờ đi và trượt xuống khi chưa
    cần tới, nên lúc hiện ra có cái để chuyển động thay vì bụp một cái. */

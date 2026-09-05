@@ -1,0 +1,241 @@
+{
+  "points": [
+    {
+      "title": "ここ ／ そこ ／ あそこ",
+      "summary": "Bộ ba chỉ nơi chốn, cùng luật gần xa với これ・それ・あれ.",
+      "structures": ["ここ は N です", "そこ は N です", "あそこ は N です"],
+      "explanation": [
+        "ここ là chỗ người nói đang đứng, そこ là chỗ người nghe đang đứng, あそこ là chỗ xa cả hai.",
+        "Khi nói chuyện điện thoại thì ここ là chỗ của người nói, そこ là chỗ của người đang nghe máy.",
+        "Ba từ này là danh từ chỉ nơi chốn nên đứng trước は, trước で, trước へ đều được."
+      ],
+      "tables": [
+        {
+          "caption": "Đối chiếu ba bộ chỉ định đã học",
+          "headers": ["Vật", "Đi kèm danh từ", "Nơi chốn", "Hướng lịch sự"],
+          "rows": [
+            ["これ", "この N", "ここ", "こちら"],
+            ["それ", "その N", "そこ", "そちら"],
+            ["あれ", "あの N", "あそこ", "あちら"],
+            ["どれ", "どの N", "どこ", "どちら"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Nói một nơi là gì",
+          "detail": "Giới thiệu các phòng trong công ty, trong trường.",
+          "examples": [
+            {
+              "japanese": "ここは しょくどうです。",
+              "vietnamese": "Chỗ này là nhà ăn."
+            },
+            {
+              "japanese": "そこは じむしょです。",
+              "vietnamese": "Chỗ đó là văn phòng."
+            },
+            {
+              "japanese": "あそこは かいぎしつです。",
+              "vietnamese": "Chỗ kia là phòng họp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "こちら ／ そちら ／ あちら ／ どちら",
+      "summary": "Bản lịch sự của ここ・そこ・あそこ・どこ, đồng thời chỉ phương hướng.",
+      "structures": ["こちら は N です", "N は どちら ですか"],
+      "explanation": [
+        "こちら mang hai nghĩa: 'phía này, hướng này' và 'chỗ này' theo lối nói lịch sự.",
+        "Trong hội thoại lễ độ, どちら thay cho どこ khi hỏi nước, hỏi công ty, hỏi nơi ở của người trên."
+      ],
+      "notes": [
+        "こちら còn dùng để giới thiệu người: 「こちらは ミラーさんです」 — trang trọng hơn 「この ひとは ミラーさんです」."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi lịch sự về nước, về công ty",
+          "detail": "Kèm tiếp đầu ngữ お ở danh từ.",
+          "examples": [
+            {
+              "japanese": "おくには どちらですか。",
+              "vietnamese": "Anh là người nước nào ạ?"
+            },
+            {
+              "japanese": "ベトナムです。",
+              "vietnamese": "Tôi là người Việt Nam."
+            },
+            {
+              "japanese": "かいしゃは どちらですか。",
+              "vietnamese": "Anh làm ở công ty nào ạ?"
+            }
+          ]
+        },
+        {
+          "title": "Chỉ hướng và giới thiệu người",
+          "detail": "Lịch sự hơn hẳn ここ và この ひと.",
+          "examples": [
+            {
+              "japanese": "エレベーターは あちらです。",
+              "vietnamese": "Thang máy ở phía kia ạ."
+            },
+            {
+              "japanese": "こちらは ミラーさんです。",
+              "vietnamese": "Đây là anh Miller."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 は N2（nơi chốn）です",
+      "summary": "Nói một người hay một vật đang ở đâu.",
+      "structures": ["N1 は N2（nơi chốn）です", "N1 は どこ ですか"],
+      "explanation": [
+        "Mẫu này KHÔNG có nghĩa 'N1 chính là N2' mà có nghĩa 'N1 ở tại N2'. Người học hay dịch nhầm thành 'nhà vệ sinh là chỗ kia'.",
+        "Cả người, con vật lẫn đồ vật đều dùng được mẫu này.",
+        "Bài 10 sẽ học cách nói đầy đủ hơn bằng あります／います."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời vị trí",
+          "detail": "Câu hỏi dùng どこ hoặc どちら.",
+          "examples": [
+            {
+              "japanese": "トイレは どこですか。",
+              "vietnamese": "Nhà vệ sinh ở đâu ạ?"
+            },
+            {
+              "japanese": "あそこです。",
+              "vietnamese": "Ở chỗ kia ạ."
+            },
+            {
+              "japanese": "きょうしつは ３がいです。",
+              "vietnamese": "Lớp học ở tầng 3.",
+              "reading": "きょうしつは さんがいです。"
+            },
+            {
+              "japanese": "やまださんは かいぎしつです。",
+              "vietnamese": "Anh Yamada đang ở phòng họp."
+            }
+          ]
+        },
+        {
+          "title": "Hỏi nơi bán, nơi đặt một mặt hàng",
+          "detail": "Câu cửa miệng khi đi siêu thị.",
+          "examples": [
+            {
+              "japanese": "うりばは なんがいですか。",
+              "vietnamese": "Quầy hàng ở tầng mấy ạ?"
+            },
+            {
+              "japanese": "でんわは どこですか。",
+              "vietnamese": "Điện thoại ở đâu ạ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 の N2 — nước sản xuất, nơi xuất xứ",
+      "summary": "Một nghĩa nữa của の: N1 là nơi làm ra N2.",
+      "structures": ["N（nước, hãng）の N（sản phẩm）"],
+      "explanation": [
+        "Hỏi xuất xứ bằng 「どこの N ですか」 chứ không phải 「なんの N ですか」. なんの hỏi về nội dung, どこの hỏi về nơi làm ra.",
+        "Trả lời có thể lược danh từ phía sau như đã học ở bài 2."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời về xuất xứ",
+          "detail": "Đối tượng là nước hoặc hãng sản xuất.",
+          "examples": [
+            {
+              "japanese": "これは どこの くるまですか。",
+              "vietnamese": "Đây là xe ô tô của hãng nào vậy?"
+            },
+            {
+              "japanese": "にほんの くるまです。",
+              "vietnamese": "Là xe ô tô của Nhật."
+            },
+            {
+              "japanese": "この カメラは ドイツのです。",
+              "vietnamese": "Chiếc máy ảnh này là của Đức."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N は いくらですか",
+      "summary": "Hỏi giá tiền của một món hàng.",
+      "structures": ["N は いくら ですか", "～えん です"],
+      "explanation": [
+        "Đơn vị tiền Nhật là えん（円）, đặt sau con số.",
+        "Cách đọc số lớn cần thuộc: せん（1.000）, まん（10.000）. 「いちまんえん」 là 10.000 yên chứ không phải 1.000."
+      ],
+      "tables": [
+        {
+          "caption": "Vài mốc số tiền hay gặp",
+          "headers": ["Số", "Cách đọc"],
+          "rows": [
+            ["100円", "ひゃくえん"],
+            ["300円", "さんびゃくえん"],
+            ["600円", "ろっぴゃくえん"],
+            ["800円", "はっぴゃくえん"],
+            ["3.000円", "さんぜんえん"],
+            ["8.000円", "はっせんえん"],
+            ["10.000円", "いちまんえん"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Hỏi giá khi mua hàng",
+          "detail": "Mẫu câu bắt buộc thuộc để đi chợ.",
+          "examples": [
+            {
+              "japanese": "この とけいは いくらですか。",
+              "vietnamese": "Chiếc đồng hồ này giá bao nhiêu ạ?"
+            },
+            {
+              "japanese": "２８００えんです。",
+              "vietnamese": "Giá 2.800 yên ạ.",
+              "reading": "にせんはっぴゃくえんです。"
+            },
+            {
+              "japanese": "すみません、それを ください。",
+              "vietnamese": "Xin lỗi, cho tôi cái đó."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "お～ — tiếp đầu ngữ lịch sự",
+      "summary": "Thêm お vào trước danh từ để nói về chuyện của người nghe một cách lịch sự.",
+      "structures": ["お ＋ N（của người nghe）"],
+      "explanation": [
+        "お gắn vào danh từ thuộc về người nghe: おくに, おなまえ, おしごと.",
+        "KHÔNG gắn お vào thứ của chính mình. Trả lời 「おくには どちらですか」 thì nói 「ベトナムです」 chứ không nói 「おくには ベトナムです」.",
+        "Một số từ luôn đi kèm お bất kể của ai: おちゃ, おかね, おさけ."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi lịch sự về người nghe",
+          "detail": "Nghe mềm hơn hẳn khi bỏ お.",
+          "examples": [
+            {
+              "japanese": "おなまえは。",
+              "vietnamese": "Tên anh là gì ạ?"
+            },
+            {
+              "japanese": "おしごとは なんですか。",
+              "vietnamese": "Anh làm nghề gì ạ?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

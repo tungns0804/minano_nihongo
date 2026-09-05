@@ -1,0 +1,321 @@
+{
+  "id": "ngu-phap-minano-19",
+  "lessonNumber": 19,
+  "name": "皆の日本語 — Bài 19 · Ngữ pháp",
+  "description": "Thể た, Vた ことが あります, Vたり Vたり します, ～く なります・～に なります",
+  "kind": "grammar",
+  "itemCount": 4,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1h5sfvz",
+      "title": "Cách chia thể た",
+      "summary": "Thể た chia y hệt thể て, chỉ việc đổi て thành た và で thành だ.",
+      "structures": [
+        "Thể て → thể た: て đổi thành た, で đổi thành だ"
+      ],
+      "explanation": [
+        "Ai đã chia được thể て ở bài 14 thì có ngay thể た mà không phải học luật mới.",
+        "かいて → かいた, のんで → のんだ, たべて → たべた, きて → きた, して → した.",
+        "Thể た cũng chính là thể thông thường của thì quá khứ, dùng nhiều từ bài 20 trở đi."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Đối chiếu thể て và thể た",
+          "headers": [
+            "Thể ます",
+            "Thể て",
+            "Thể た"
+          ],
+          "rows": [
+            [
+              "かきます",
+              "かいて",
+              "かいた"
+            ],
+            [
+              "のみます",
+              "のんで",
+              "のんだ"
+            ],
+            [
+              "かいます",
+              "かって",
+              "かった"
+            ],
+            [
+              "たべます",
+              "たべて",
+              "たべた"
+            ],
+            [
+              "きます",
+              "きて",
+              "きた"
+            ],
+            [
+              "します",
+              "して",
+              "した"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Luyện chia thể た",
+          "detail": "Đi qua thể て rồi đổi đuôi.",
+          "examples": [
+            {
+              "id": "1xnb2f0",
+              "japanese": "いきます → いって → いった",
+              "reading": "",
+              "vietnamese": "ikimasu qua itte rồi thành itta.",
+              "note": ""
+            },
+            {
+              "id": "0c8atgt",
+              "japanese": "およぎます → およいで → およいだ",
+              "reading": "",
+              "vietnamese": "oyogimasu qua oyoide rồi thành oyoida.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "028zeaq",
+      "title": "V た ことが あります",
+      "summary": "Nói về KINH NGHIỆM — đã từng làm việc đó bao giờ chưa.",
+      "structures": [
+        "V た ことが あります",
+        "V た ことが ありません"
+      ],
+      "explanation": [
+        "Đây là kinh nghiệm trong đời chứ không phải một việc cụ thể vừa xảy ra.",
+        "Vì vậy KHÔNG dùng mẫu này với mốc thời gian xác định. Nói 「きのう すしを たべた ことが あります」 là sai — chuyện hôm qua thì chỉ cần 「きのう すしを たべました」.",
+        "Hay đi kèm các trạng từ: いちど, にど, なんども, まだ."
+      ],
+      "notes": [
+        "Phân biệt rõ: 「なっとうを たべました」 kể một lần ăn cụ thể; 「なっとうを たべた ことが あります」 nói rằng trong đời mình đã từng ăn."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Kể kinh nghiệm đã có",
+          "detail": "Thường kèm số lần.",
+          "examples": [
+            {
+              "id": "17cy5ws",
+              "japanese": "わたしは にほんへ いった ことが あります。",
+              "reading": "",
+              "vietnamese": "Tôi đã từng đi Nhật.",
+              "note": ""
+            },
+            {
+              "id": "0fl59p9",
+              "japanese": "うまに のった ことが ありますか。",
+              "reading": "",
+              "vietnamese": "Anh đã từng cưỡi ngựa bao giờ chưa?",
+              "note": ""
+            },
+            {
+              "id": "1pmf77g",
+              "japanese": "いいえ、いちども ありません。",
+              "reading": "",
+              "vietnamese": "Chưa, tôi chưa từng một lần nào.",
+              "note": ""
+            },
+            {
+              "id": "1qmrspf",
+              "japanese": "ふじさんに のぼった ことが あります。",
+              "reading": "",
+              "vietnamese": "Tôi đã từng leo núi Phú Sĩ.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1igfo75",
+      "title": "V たり V たり します",
+      "summary": "Liệt kê vài hành động tiêu biểu, không theo thứ tự thời gian.",
+      "structures": [
+        "V1 た り、V2 た り します。"
+      ],
+      "explanation": [
+        "Bỏ た của thể た rồi thêm たり: たべた → たべたり.",
+        "Khác hẳn cách nối bằng thể て ở bài 16: thể て kể ĐÚNG thứ tự thời gian, còn たり chỉ nêu VÀI việc tiêu biểu, còn nhiều việc khác chưa kể.",
+        "Động từ します ở cuối mang thì của cả câu: したり しました là quá khứ."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Thể て và thể たり",
+          "headers": [
+            "Cách nối",
+            "Ý",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "V て、V て",
+              "Đúng thứ tự thời gian, kể đủ",
+              "おきて、たべて、いきます"
+            ],
+            [
+              "V たり、V たり",
+              "Nêu tiêu biểu, không theo thứ tự",
+              "そうじしたり、せんたくしたり します"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Kể việc làm trong ngày nghỉ",
+          "detail": "Chỉ nêu vài việc tiêu biểu.",
+          "examples": [
+            {
+              "id": "1arlxe9",
+              "japanese": "にちようびは そうじしたり、せんたくしたり します。",
+              "reading": "",
+              "vietnamese": "Chủ nhật tôi dọn nhà, giặt giũ và làm nhiều việc khác.",
+              "note": ""
+            },
+            {
+              "id": "1g5lg3g",
+              "japanese": "きのうは ほんを よんだり、おんがくを きいたり しました。",
+              "reading": "",
+              "vietnamese": "Hôm qua tôi đọc sách, nghe nhạc và làm mấy việc khác nữa.",
+              "note": ""
+            },
+            {
+              "id": "0uuma0g",
+              "japanese": "やすみの ひは なにを したり しますか。",
+              "reading": "",
+              "vietnamese": "Ngày nghỉ anh thường làm những việc gì?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16dv8u9",
+      "title": "A く なります ／ A に なります ／ N に なります",
+      "summary": "Diễn tả sự thay đổi: trở nên như thế nào, trở thành cái gì.",
+      "structures": [
+        "Aい（bỏ い）＋ く なります",
+        "Aな ＋ に なります",
+        "N ＋ に なります"
+      ],
+      "explanation": [
+        "Tính từ い bỏ い thêm くなります: さむい → さむく なります.",
+        "Tính từ な và danh từ thêm になります: げんき → げんきに なります, いしゃ → いしゃに なります.",
+        "いい chia bất quy tắc: いい → よく なります."
+      ],
+      "notes": [
+        "なります nói về sự thay đổi TỰ NHIÊN, không do ai tác động. Thay đổi do người làm ra thì dùng します, học ở bài 21."
+      ],
+      "tables": [
+        {
+          "caption": "Ba cách nối với なります",
+          "headers": [
+            "Loại",
+            "Cách nối",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Tính từ い",
+              "Bỏ い thêm く",
+              "おおきい → おおきく なります"
+            ],
+            [
+              "Tính từ な",
+              "Thêm に",
+              "しずか → しずかに なります"
+            ],
+            [
+              "Danh từ",
+              "Thêm に",
+              "はる → はるに なります"
+            ],
+            [
+              "いい",
+              "Bất quy tắc",
+              "いい → よく なります"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Thay đổi về tính chất",
+          "detail": "Thời tiết, sức khỏe, trình độ.",
+          "examples": [
+            {
+              "id": "071k4qx",
+              "japanese": "さむく なりました。",
+              "reading": "",
+              "vietnamese": "Trời đã trở lạnh.",
+              "note": ""
+            },
+            {
+              "id": "1ui4w2s",
+              "japanese": "にほんごが じょうずに なりました。",
+              "reading": "",
+              "vietnamese": "Tiếng Nhật của tôi đã giỏi lên.",
+              "note": ""
+            },
+            {
+              "id": "16yeoru",
+              "japanese": "からだが げんきに なりました。",
+              "reading": "",
+              "vietnamese": "Sức khỏe tôi đã khá lên.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Trở thành cái gì",
+          "detail": "Nghề nghiệp, mùa, tuổi.",
+          "examples": [
+            {
+              "id": "1q0a46z",
+              "japanese": "むすこは いしゃに なりました。",
+              "reading": "",
+              "vietnamese": "Con trai tôi đã trở thành bác sĩ.",
+              "note": ""
+            },
+            {
+              "id": "154gmuz",
+              "japanese": "らいげつ ２０さいに なります。",
+              "reading": "らいげつ はたちに なります。",
+              "vietnamese": "Tháng sau tôi tròn 20 tuổi.",
+              "note": ""
+            },
+            {
+              "id": "1c6rons",
+              "japanese": "もう すぐ はるに なります。",
+              "reading": "",
+              "vietnamese": "Sắp sang mùa xuân rồi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

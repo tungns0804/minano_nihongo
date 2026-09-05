@@ -1,0 +1,346 @@
+{
+  "id": "ngu-phap-minano-18",
+  "lessonNumber": 18,
+  "name": "皆の日本語 — Bài 18 · Ngữ pháp",
+  "description": "Thể từ điển, Vることが できます, 趣味は Vること, Vるまえに, なかなか・ぜひ",
+  "kind": "grammar",
+  "itemCount": 5,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "0v2v9ua",
+      "title": "Thể từ điển — 辞書形",
+      "summary": "Dạng gốc của động từ, chính là dạng tra được trong từ điển.",
+      "structures": [
+        "Nhóm I — hàng い đổi sang hàng う",
+        "Nhóm II — bỏ ます thêm る",
+        "Nhóm III — くる, する"
+      ],
+      "explanation": [
+        "Nhóm I: âm ngay trước ます chuyển từ hàng い sang hàng う — かきます → かく, のみます → のむ.",
+        "Nhóm II: bỏ ます thêm る — たべます → たべる.",
+        "Nhóm III: きます → くる, します → する.",
+        "Thể từ điển cũng chính là thể thông thường của thì hiện tại, sẽ dùng nhiều từ bài 20 trở đi."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Luật chia thể từ điển",
+          "headers": [
+            "Nhóm",
+            "Cách chia",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "I",
+              "Hàng い sang hàng う",
+              "かきます → かく"
+            ],
+            [
+              "I",
+              "Hàng い sang hàng う",
+              "かいます → かう"
+            ],
+            [
+              "II",
+              "Bỏ ます thêm る",
+              "たべます → たべる"
+            ],
+            [
+              "III",
+              "Học thuộc",
+              "きます → くる / します → する"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Luyện chia thể từ điển",
+          "detail": "Nhóm I là nhóm cần chú ý nhất.",
+          "examples": [
+            {
+              "id": "130pm76",
+              "japanese": "いきます → いく",
+              "reading": "",
+              "vietnamese": "ikimasu chuyển thành iku.",
+              "note": ""
+            },
+            {
+              "id": "0flbpa2",
+              "japanese": "およぎます → およぐ",
+              "reading": "",
+              "vietnamese": "oyogimasu chuyển thành oyogu.",
+              "note": ""
+            },
+            {
+              "id": "0kgzynp",
+              "japanese": "ねます → ねる",
+              "reading": "",
+              "vietnamese": "nemasu chuyển thành neru.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03akjc6",
+      "title": "V る ことが できます",
+      "summary": "Nói về khả năng làm được việc gì, hoặc điều kiện cho phép làm việc đó.",
+      "structures": [
+        "V る ことが できます",
+        "N が できます"
+      ],
+      "explanation": [
+        "こと biến động từ thành danh từ. Cả cụm 「Vる こと」 trở thành đối tượng của できます, nên đi với が.",
+        "Với danh từ chỉ hoạt động thì bỏ luôn 「Vる こと」 mà dùng thẳng: 「にほんごが できます」.",
+        "Mẫu này diễn tả hai điều: năng lực của bản thân, và hoàn cảnh cho phép."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói năng lực bản thân",
+          "detail": "Biết làm gì, làm được gì.",
+          "examples": [
+            {
+              "id": "01m54zo",
+              "japanese": "わたしは にほんごを はなす ことが できます。",
+              "reading": "",
+              "vietnamese": "Tôi nói được tiếng Nhật.",
+              "note": ""
+            },
+            {
+              "id": "1phr614",
+              "japanese": "ミラーさんは かんじを よむ ことが できます。",
+              "reading": "",
+              "vietnamese": "Anh Miller đọc được chữ Hán.",
+              "note": ""
+            },
+            {
+              "id": "07kaq3x",
+              "japanese": "わたしは ピアノを ひく ことが できません。",
+              "reading": "",
+              "vietnamese": "Tôi không chơi được đàn piano.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Hoàn cảnh cho phép",
+          "detail": "Không nói về năng lực mà nói về điều kiện.",
+          "examples": [
+            {
+              "id": "0db4ero",
+              "japanese": "この ホテルで インターネットを つかう ことが できます。",
+              "reading": "",
+              "vietnamese": "Ở khách sạn này có thể dùng internet.",
+              "note": ""
+            },
+            {
+              "id": "1v30p9r",
+              "japanese": "カードで はらう ことが できますか。",
+              "reading": "",
+              "vietnamese": "Tôi trả bằng thẻ có được không ạ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0kiiclq",
+      "title": "わたしの しゅみは V る こと です",
+      "summary": "Nói sở thích bằng một hành động, không phải bằng một danh từ.",
+      "structures": [
+        "N（しゅみ）は N です",
+        "N（しゅみ）は V る こと です"
+      ],
+      "explanation": [
+        "Nếu sở thích là một danh từ thì nói thẳng: 「しゅみは おんがくです」.",
+        "Nếu sở thích là một hành động thì phải danh từ hóa bằng こと: 「しゅみは えいがを みる ことです」.",
+        "Không được nói 「しゅみは えいがを みますです」 — hai vị ngữ không đứng chồng lên nhau được."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Giới thiệu sở thích",
+          "detail": "Câu hỏi thường gặp: 「しゅみは なんですか」.",
+          "examples": [
+            {
+              "id": "1au0h1n",
+              "japanese": "わたしの しゅみは おんがくを きく ことです。",
+              "reading": "",
+              "vietnamese": "Sở thích của tôi là nghe nhạc.",
+              "note": ""
+            },
+            {
+              "id": "1juotdm",
+              "japanese": "しゅみは ほんを よむ ことです。",
+              "reading": "",
+              "vietnamese": "Sở thích của tôi là đọc sách.",
+              "note": ""
+            },
+            {
+              "id": "197z9oz",
+              "japanese": "しゅみは なんですか。",
+              "reading": "",
+              "vietnamese": "Sở thích của anh là gì?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0r3iq7d",
+      "title": "V る まえに ／ N の まえに ／ Khoảng thời gian ＋ まえに",
+      "summary": "Nói việc gì đó xảy ra trước một mốc khác.",
+      "structures": [
+        "V る まえに、～",
+        "N の まえに、～",
+        "Khoảng thời gian ＋ まえに、～"
+      ],
+      "explanation": [
+        "Động từ đứng trước まえに LUÔN ở thể từ điển, kể cả khi cả câu ở thì quá khứ. Đây là điểm dễ sai nhất.",
+        "Với danh từ thì thêm の: 「しょくじの まえに」.",
+        "Với khoảng thời gian thì KHÔNG thêm の: 「３ねん まえに」."
+      ],
+      "notes": [
+        "Câu 「にほんへ くる まえに、にほんごを べんきょうしました」 dùng thể từ điển くる dù việc đã xảy ra trong quá khứ. Thì của cả câu do động từ cuối quyết định."
+      ],
+      "tables": [
+        {
+          "caption": "Ba dạng đi với まえに",
+          "headers": [
+            "Loại",
+            "Cách nối",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Động từ",
+              "Thể từ điển",
+              "ねる まえに"
+            ],
+            [
+              "Danh từ",
+              "Thêm の",
+              "しょくじの まえに"
+            ],
+            [
+              "Khoảng thời gian",
+              "Không thêm gì",
+              "１じかん まえに"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Trước khi làm gì đó",
+          "detail": "Động từ luôn ở thể từ điển.",
+          "examples": [
+            {
+              "id": "1c87zb5",
+              "japanese": "ねる まえに、ほんを よみます。",
+              "reading": "",
+              "vietnamese": "Trước khi ngủ tôi đọc sách.",
+              "note": ""
+            },
+            {
+              "id": "1a3qo1i",
+              "japanese": "にほんへ くる まえに、にほんごを べんきょうしました。",
+              "reading": "",
+              "vietnamese": "Trước khi đến Nhật tôi đã học tiếng Nhật.",
+              "note": ""
+            },
+            {
+              "id": "0qyb0v0",
+              "japanese": "しょくじの まえに、てを あらいます。",
+              "reading": "",
+              "vietnamese": "Trước bữa ăn tôi rửa tay.",
+              "note": ""
+            },
+            {
+              "id": "0911c2s",
+              "japanese": "３ねん まえに けっこんしました。",
+              "reading": "さんねん まえに けっこんしました。",
+              "vietnamese": "Tôi đã kết hôn cách đây ba năm.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0x4poy6",
+      "title": "なかなか ／ ぜひ",
+      "summary": "Hai phó từ đi kèm cố định với một loại vị ngữ nhất định.",
+      "structures": [
+        "なかなか ＋ vị ngữ phủ định",
+        "ぜひ ＋ ～たいです／～て ください"
+      ],
+      "explanation": [
+        "なかなか đi với vị ngữ PHỦ ĐỊNH, nghĩa là 'mãi mà không ...', diễn tả sự việc không diễn ra như mong đợi.",
+        "ぜひ đi với câu nói lên nguyện vọng hoặc lời mời, nghĩa là 'nhất định'. Không dùng ぜひ với câu trần thuật thường."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "なかなか — mãi mà không được",
+          "detail": "Vị ngữ bắt buộc phủ định.",
+          "examples": [
+            {
+              "id": "0z5k7bx",
+              "japanese": "にほんごは なかなか じょうずに なりません。",
+              "reading": "",
+              "vietnamese": "Tiếng Nhật của tôi mãi mà không giỏi lên được.",
+              "note": ""
+            },
+            {
+              "id": "190abwz",
+              "japanese": "バスが なかなか きません。",
+              "reading": "",
+              "vietnamese": "Xe buýt mãi vẫn chưa đến.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "ぜひ — nhất định",
+          "detail": "Đi với nguyện vọng hoặc lời mời.",
+          "examples": [
+            {
+              "id": "1pd2sn2",
+              "japanese": "ぜひ にほんへ いきたいです。",
+              "reading": "",
+              "vietnamese": "Tôi nhất định muốn đi Nhật.",
+              "note": ""
+            },
+            {
+              "id": "1yoyd1e",
+              "japanese": "ぜひ うちへ あそびに きて ください。",
+              "reading": "",
+              "vietnamese": "Anh nhất định phải đến nhà tôi chơi nhé.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

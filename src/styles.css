@@ -1208,4 +1208,17 @@ kbd {
     animation-delay: 0ms !important;
     transition-duration: 0.01ms !important;
   }
+
+  /* Riêng khung chờ phải TẮT HẲN animation chứ không chỉ rút ngắn.
+
+     Quy tắc ở trên xử lý đúng những hiệu ứng chạy MỘT lần: rút về 0.01ms thì
+     coi như chúng nhảy thẳng tới trạng thái cuối. Nhưng hiệu ứng lấp lánh của
+     khung chờ lại lặp VÔ HẠN, nên rút ngắn không làm nó dừng — nó chạy hết vòng
+     này tới vòng khác trong mỗi khung hình, thành ra nhấp nháy loạn xạ, đúng thứ
+     mà người bật tuỳ chọn này muốn tránh. Không có hiệu ứng thì khối xám vẫn nói
+     đủ ý là "chỗ này đang chờ dữ liệu". */
+  .skeleton {
+    animation: none !important;
+    background: var(--bg-subtle);
+  }
 }

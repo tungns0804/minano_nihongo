@@ -396,9 +396,17 @@ const GOI_BLOCKS: N3Block[] = [
 
 // ── Trụ 4: 文法 — nền N4 trong app, phần N3 chưa có sách ──────────────────
 
-/** Bài ngữ pháp 皆の日本語 đã nạp sẵn, bài 26–50 (bài 39 sách không có). */
+/**
+ * Bài ngữ pháp 皆の日本語 đem vào lộ trình N3: bài 26–50, liền mạch.
+ *
+ * Bài 1–25 nay cũng có trong app nhưng KHÔNG xếp vào đây. Lộ trình này đo phần
+ * còn phải học để thi N3, mà bài 1–25 là nền N5 người học đã qua — nhét vào thì
+ * mẫu số phình thêm 25 mục và phần trăm tụt xuống dù chẳng thiếu kiến thức nào.
+ * Cần tra lại nền N5 thì vào thẳng tab Ngữ pháp.
+ */
 const MINNA_GRAMMAR_LESSONS: readonly number[] = [
-  26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49,
+  50,
 ];
 
 const BUNPOU_BLOCKS: N3Block[] = [
@@ -407,7 +415,7 @@ const BUNPOU_BLOCKS: N3Block[] = [
     labelJa: '土台',
     labelVi: 'Phần nền',
     titleJa: '皆の日本語 初級II · 文法',
-    titleVi: 'Ngữ pháp N4 — 24 bài đã có trong app',
+    titleVi: 'Ngữ pháp N4 — 25 bài đã có trong app',
     startPage: 0,
     units: MINNA_GRAMMAR_LESSONS.map((lesson, index) =>
       appUnit(

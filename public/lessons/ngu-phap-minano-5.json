@@ -1,0 +1,360 @@
+{
+  "id": "ngu-phap-minano-5",
+  "lessonNumber": 5,
+  "name": "皆の日本語 — Bài 5 · Ngữ pháp",
+  "description": "N（場所）へ 行きます, どこも, N（乗り物）で, N（人）と, いつ, ～よ",
+  "kind": "grammar",
+  "itemCount": 6,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "10x0fxc",
+      "title": "N（nơi chốn）へ いきます ／ きます ／ かえります",
+      "summary": "Ba động từ di chuyển, đi cùng trợ từ へ chỉ đích đến.",
+      "structures": [
+        "N（nơi chốn）へ いきます",
+        "N（nơi chốn）へ きます",
+        "N（nơi chốn）へ かえります"
+      ],
+      "explanation": [
+        "へ viết bằng chữ へ nhưng đọc là 「え」. Cùng loại bẫy chính tả với は đọc là 「わ」.",
+        "いきます là rời khỏi chỗ đang đứng để tới nơi khác. きます là tiến về phía người nói đang đứng. かえります là trở về nơi mình thuộc về — nhà, quê hương, nước mình.",
+        "Trợ từ に cũng dùng được thay cho へ với ba động từ này, nghĩa gần như nhau. へ nhấn vào HƯỚNG đi, に nhấn vào ĐIỂM đến."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Chọn động từ nào",
+          "headers": [
+            "Động từ",
+            "Điểm mấu chốt",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "いきます",
+              "Rời chỗ hiện tại",
+              "がっこうへ いきます"
+            ],
+            [
+              "きます",
+              "Tiến về chỗ người nói",
+              "にほんへ きました"
+            ],
+            [
+              "かえります",
+              "Về nơi mình thuộc về",
+              "うちへ かえります"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói nơi mình đi tới",
+          "detail": "Có thể kèm trạng từ thời gian ở đầu câu.",
+          "examples": [
+            {
+              "id": "1eexlsl",
+              "japanese": "わたしは がっこうへ いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đi đến trường.",
+              "note": ""
+            },
+            {
+              "id": "04emu8z",
+              "japanese": "あした スーパーへ いきます。",
+              "reading": "",
+              "vietnamese": "Ngày mai tôi sẽ đi siêu thị.",
+              "note": ""
+            },
+            {
+              "id": "1yhz52z",
+              "japanese": "きょねん にほんへ きました。",
+              "reading": "",
+              "vietnamese": "Năm ngoái tôi đã đến Nhật.",
+              "note": ""
+            },
+            {
+              "id": "1ub4xd8",
+              "japanese": "らいげつ くにへ かえります。",
+              "reading": "",
+              "vietnamese": "Tháng sau tôi về nước.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Hỏi nơi đến — どこへ",
+          "detail": "Trả lời bằng chính tên nơi đó.",
+          "examples": [
+            {
+              "id": "0sy8gxm",
+              "japanese": "どこへ いきますか。",
+              "reading": "",
+              "vietnamese": "Anh đi đâu vậy?",
+              "note": ""
+            },
+            {
+              "id": "09oqaap",
+              "japanese": "きょうとへ いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đi Kyoto.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1m2224w",
+      "title": "どこ［へ］も いきません",
+      "summary": "Phủ định hoàn toàn: không đi đâu cả.",
+      "structures": [
+        "どこ［へ］も ＋ V phủ định"
+      ],
+      "explanation": [
+        "Từ nghi vấn ＋ も ＋ vị ngữ phủ định cho nghĩa 'không ... một chút nào', 'chẳng ... đâu cả'.",
+        "Trợ từ へ ở giữa thường được lược, nói 「どこも いきませんでした」 là tự nhiên nhất.",
+        "Vị ngữ BẮT BUỘC phải ở thể phủ định. Nói 「どこも いきました」 là sai."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Trả lời rằng chẳng đi đâu",
+          "detail": "Hay dùng khi kể về ngày nghỉ.",
+          "examples": [
+            {
+              "id": "1aj1wgo",
+              "japanese": "どこへも いきません。",
+              "reading": "",
+              "vietnamese": "Tôi không đi đâu cả.",
+              "note": ""
+            },
+            {
+              "id": "1epqjax",
+              "japanese": "せんしゅうの にちようびは どこも いきませんでした。",
+              "reading": "",
+              "vietnamese": "Chủ nhật tuần trước tôi chẳng đi đâu cả.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0q249zr",
+      "title": "N（phương tiện）で いきます",
+      "summary": "Trợ từ で chỉ phương tiện đi lại.",
+      "structures": [
+        "N（phương tiện）で いきます／きます／かえります",
+        "なんで いきますか"
+      ],
+      "explanation": [
+        "で đứng sau tên phương tiện: でんしゃで, バスで, ひこうきで, じてんしゃで.",
+        "Riêng あるいて（đi bộ）KHÔNG có で. Nói 「あるいてで いきます」 là sai — あるいて đã là một thể của động từ 'đi bộ'."
+      ],
+      "notes": [
+        "Câu hỏi 「なんで いきますか」 có thể bị hiểu nhầm thành 'tại sao đi'. Khi cần rõ nghĩa phương tiện thì hỏi 「なにで いきますか」."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nêu phương tiện",
+          "detail": "Đứng trước cụm chỉ nơi đến.",
+          "examples": [
+            {
+              "id": "0ltcj1d",
+              "japanese": "でんしゃで かいしゃへ いきます。",
+              "reading": "",
+              "vietnamese": "Tôi đi đến công ty bằng tàu điện.",
+              "note": ""
+            },
+            {
+              "id": "1xytepr",
+              "japanese": "なにで ふるさとへ かえりますか。",
+              "reading": "",
+              "vietnamese": "Anh về quê bằng phương tiện gì vậy?",
+              "note": ""
+            },
+            {
+              "id": "0lwa6nh",
+              "japanese": "バスで かえります。",
+              "reading": "",
+              "vietnamese": "Tôi về bằng xe buýt.",
+              "note": ""
+            },
+            {
+              "id": "12wylwd",
+              "japanese": "あるいて うちへ かえります。",
+              "reading": "",
+              "vietnamese": "Tôi đi bộ về nhà.",
+              "note": "あるいて không đi kèm で."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0m6qrnv",
+      "title": "N（người, động vật）と V",
+      "summary": "Trợ từ と chỉ người cùng thực hiện hành động.",
+      "structures": [
+        "N（người）と V",
+        "だれと V ますか"
+      ],
+      "explanation": [
+        "と ở đây khác với と nối danh từ đã học ở bài 4. Ở đây nó có nghĩa 'cùng với'.",
+        "Đi một mình thì nói 「ひとりで」, không dùng と."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Đi cùng ai đó",
+          "detail": "Trật tự thường gặp: thời gian, phương tiện, người, nơi đến, động từ.",
+          "examples": [
+            {
+              "id": "1vwpvjp",
+              "japanese": "かぞくと にほんへ きました。",
+              "reading": "",
+              "vietnamese": "Tôi đã đến Nhật cùng gia đình.",
+              "note": ""
+            },
+            {
+              "id": "1ihgo0q",
+              "japanese": "きのう じてんしゃで ともだちと がっこうへ いきました。",
+              "reading": "",
+              "vietnamese": "Hôm qua tôi đã đi đến trường cùng bạn bằng xe đạp.",
+              "note": ""
+            },
+            {
+              "id": "196bm6l",
+              "japanese": "だれと きょうとへ いきましたか。",
+              "reading": "",
+              "vietnamese": "Anh đã đi Kyoto cùng ai vậy?",
+              "note": ""
+            },
+            {
+              "id": "0gaqw31",
+              "japanese": "ひとりで いきました。",
+              "reading": "",
+              "vietnamese": "Tôi đã đi một mình.",
+              "note": "Đi một mình thì dùng ひとりで chứ không dùng と."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10q3q6t",
+      "title": "いつ",
+      "summary": "Từ hỏi thời điểm, không đi kèm に.",
+      "structures": [
+        "いつ ＋ V ますか"
+      ],
+      "explanation": [
+        "いつ tự nó đã là câu hỏi thời gian nên KHÔNG thêm に. Nói 「いつに いきますか」 là sai.",
+        "Trả lời thì mới cần に nếu mốc thời gian có con số."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi thời điểm",
+          "detail": "Đứng ngay đầu câu hoặc trước động từ.",
+          "examples": [
+            {
+              "id": "0m03flu",
+              "japanese": "いつ にほんへ きましたか。",
+              "reading": "",
+              "vietnamese": "Anh đến Nhật khi nào?",
+              "note": ""
+            },
+            {
+              "id": "1m2amrp",
+              "japanese": "３がつ２５にちに きました。",
+              "reading": "さんがつ にじゅうごにちに きました。",
+              "vietnamese": "Tôi đã đến vào ngày 25 tháng 3.",
+              "note": ""
+            },
+            {
+              "id": "1oqjsd0",
+              "japanese": "いつ くにへ かえりますか。",
+              "reading": "",
+              "vietnamese": "Bao giờ anh về nước?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1k78uy3",
+      "title": "～よ",
+      "summary": "Tiểu từ cuối câu, nhấn mạnh thông tin mà người nghe chưa biết.",
+      "structures": [
+        "Câu ＋ よ"
+      ],
+      "explanation": [
+        "よ dùng khi người nói tin rằng người nghe CHƯA biết điều này, mang sắc thái mách bảo, nhắc nhở.",
+        "Khác hẳn ね ở bài 4: ね chờ đồng tình về điều cả hai đều biết, còn よ đưa ra thông tin mới."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "So sánh ね và よ",
+          "headers": [
+            "Tiểu từ",
+            "Người nghe đã biết chưa",
+            "Sắc thái"
+          ],
+          "rows": [
+            [
+              "ね",
+              "Đã biết",
+              "Cùng cảm nhận, chờ đồng tình"
+            ],
+            [
+              "よ",
+              "Chưa biết",
+              "Mách bảo, nhắc nhở"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Mách một thông tin mới",
+          "detail": "Người nghe chưa biết điều đó.",
+          "examples": [
+            {
+              "id": "0kvt5fd",
+              "japanese": "この でんしゃは こうしえんへ いきませんよ。",
+              "reading": "",
+              "vietnamese": "Tàu này không đi Koshien đâu đấy.",
+              "note": ""
+            },
+            {
+              "id": "0dxirns",
+              "japanese": "きょうは やすみですよ。",
+              "reading": "",
+              "vietnamese": "Hôm nay là ngày nghỉ đấy.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

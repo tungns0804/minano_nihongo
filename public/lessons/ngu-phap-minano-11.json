@@ -1,0 +1,333 @@
+{
+  "id": "ngu-phap-minano-11",
+  "lessonNumber": 11,
+  "name": "皆の日本語 — Bài 11 · Ngữ pháp",
+  "description": "Trợ số từ, số lượng ＋ V, 期間に ～回, 数量だけ, ～ぐらい, どのくらい",
+  "kind": "grammar",
+  "itemCount": 5,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "08ryxzo",
+      "title": "Trợ số từ — 助数詞",
+      "summary": "Tiếng Nhật đếm vật bằng cách ghép số với một hậu tố hợp với hình dạng của vật.",
+      "structures": [
+        "Số ＋ trợ số từ"
+      ],
+      "explanation": [
+        "Không có cách đếm chung cho mọi thứ: hậu tố thay đổi theo hình dạng và loại của vật.",
+        "Bộ đếm ひとつ〜とお dùng cho những thứ không có hậu tố riêng, nên là bộ an toàn nhất khi chưa nhớ hết.",
+        "Từ 11 trở đi thì bộ ひとつ hết dùng, chuyển sang 「じゅういち」 kèm hậu tố hoặc dùng số thường."
+      ],
+      "notes": [
+        "Với ～ほん, ～さつ, ～かい thì âm đầu biến đổi ở các số 1, 3, 6, 8, 10. Đây là chỗ phải học thuộc, không suy ra được."
+      ],
+      "tables": [
+        {
+          "caption": "Bộ đếm chung ひとつ 〜 とお",
+          "headers": [
+            "Số",
+            "Cách đọc"
+          ],
+          "rows": [
+            [
+              "1",
+              "ひとつ"
+            ],
+            [
+              "2",
+              "ふたつ"
+            ],
+            [
+              "3",
+              "みっつ"
+            ],
+            [
+              "4",
+              "よっつ"
+            ],
+            [
+              "5",
+              "いつつ"
+            ],
+            [
+              "6",
+              "むっつ"
+            ],
+            [
+              "7",
+              "ななつ"
+            ],
+            [
+              "8",
+              "やっつ"
+            ],
+            [
+              "9",
+              "ここのつ"
+            ],
+            [
+              "10",
+              "とお"
+            ],
+            [
+              "Mấy cái",
+              "いくつ"
+            ]
+          ]
+        },
+        {
+          "caption": "Các trợ số từ hay dùng",
+          "headers": [
+            "Hậu tố",
+            "Dùng cho",
+            "Bất quy tắc"
+          ],
+          "rows": [
+            [
+              "～にん",
+              "Người",
+              "ひとり, ふたり, よにん"
+            ],
+            [
+              "～だい",
+              "Máy móc, xe cộ",
+              "—"
+            ],
+            [
+              "～まい",
+              "Vật mỏng, dẹt",
+              "—"
+            ],
+            [
+              "～かい",
+              "Số lần",
+              "いっかい, ろっかい, はっかい"
+            ],
+            [
+              "～さつ",
+              "Sách vở",
+              "いっさつ, はっさつ"
+            ],
+            [
+              "～ほん",
+              "Vật dài",
+              "いっぽん, さんぼん, ろっぽん"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Đếm người và đồ vật",
+          "detail": "Chọn hậu tố theo loại vật.",
+          "examples": [
+            {
+              "id": "00yt33x",
+              "japanese": "みかんを みっつ かいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã mua ba quả quýt.",
+              "note": ""
+            },
+            {
+              "id": "1neiwe8",
+              "japanese": "きってを ５まい ください。",
+              "reading": "きってを ごまい ください。",
+              "vietnamese": "Cho tôi 5 con tem.",
+              "note": ""
+            },
+            {
+              "id": "14hu8wc",
+              "japanese": "がいこくじんの しゃいんが ４にん います。",
+              "reading": "がいこくじんの しゃいんが よにん います。",
+              "vietnamese": "Có 4 nhân viên người nước ngoài.",
+              "note": ""
+            },
+            {
+              "id": "099uits",
+              "japanese": "うちに くるまが ２だい あります。",
+              "reading": "うちに くるまが にだい あります。",
+              "vietnamese": "Nhà tôi có 2 chiếc ô tô.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0qi0tms",
+      "title": "Số lượng ＋ V",
+      "summary": "Từ chỉ số lượng đứng NGAY TRƯỚC động từ, không đi kèm trợ từ nào.",
+      "structures": [
+        "N を + số lượng + V"
+      ],
+      "explanation": [
+        "Vị trí chuẩn của từ chỉ số lượng là ngay trước động từ, sau khi đã nêu tân ngữ.",
+        "Từ chỉ số lượng KHÔNG mang trợ từ. Nói 「りんごを みっつを かいます」 là sai.",
+        "Cũng có thể viết 「みっつの りんごを かいます」 nhưng cách này nghe cứng, ít dùng trong hội thoại."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nêu số lượng của hành động",
+          "detail": "Đặt sát động từ.",
+          "examples": [
+            {
+              "id": "1dyafi0",
+              "japanese": "りんごを よっつ かいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã mua bốn quả táo.",
+              "note": ""
+            },
+            {
+              "id": "1n91su8",
+              "japanese": "きょうしつに がくせいが １５にん います。",
+              "reading": "きょうしつに がくせいが じゅうごにん います。",
+              "vietnamese": "Trong lớp có 15 sinh viên.",
+              "note": ""
+            },
+            {
+              "id": "09msxvs",
+              "japanese": "ビールを ２ほん のみました。",
+              "reading": "ビールを にほん のみました。",
+              "vietnamese": "Tôi đã uống hai chai bia.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "00e8z7v",
+      "title": "Khoảng thời gian ＋ に ＋ số lần ＋ V",
+      "summary": "Nói tần suất: trong bao lâu thì làm mấy lần.",
+      "structures": [
+        "N（khoảng thời gian）に ～かい V"
+      ],
+      "explanation": [
+        "Khoảng thời gian đứng trước に, số lần đứng sau.",
+        "Các khoảng thời gian hay dùng: いちにち (một ngày), いっしゅうかん (một tuần), いっかげつ (một tháng), いちねん (một năm)."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói tần suất",
+          "detail": "Câu trả lời cho câu hỏi 'mấy lần'.",
+          "examples": [
+            {
+              "id": "1p2rabp",
+              "japanese": "１かげつに ２かい えいがを みます。",
+              "reading": "いっかげつに にかい えいがを みます。",
+              "vietnamese": "Một tháng tôi xem phim hai lần.",
+              "note": ""
+            },
+            {
+              "id": "1nb5doi",
+              "japanese": "１しゅうかんに ３かい にほんごを べんきょうします。",
+              "reading": "いっしゅうかんに さんかい にほんごを べんきょうします。",
+              "vietnamese": "Một tuần tôi học tiếng Nhật ba lần.",
+              "note": ""
+            },
+            {
+              "id": "1wxrcyu",
+              "japanese": "１ねんに ２かい くにへ かえります。",
+              "reading": "いちねんに にかい くにへ かえります。",
+              "vietnamese": "Một năm tôi về nước hai lần.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0y0pdv1",
+      "title": "Số lượng ＋ だけ",
+      "summary": "Nhấn mạnh rằng chỉ có chừng ấy, không hơn.",
+      "structures": [
+        "Số lượng ＋ だけ",
+        "N ＋ だけ"
+      ],
+      "explanation": [
+        "だけ đứng sau từ chỉ số lượng hoặc sau danh từ, mang nghĩa 'chỉ ... mà thôi'.",
+        "Vị ngữ đi kèm ở thể KHẲNG ĐỊNH. Đây là điểm khác với しか (bài 27) vốn bắt buộc phủ định."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói chỉ có chừng đó",
+          "detail": "Vị ngữ giữ nguyên thể khẳng định.",
+          "examples": [
+            {
+              "id": "1fo0k8u",
+              "japanese": "やすみは にちようびだけです。",
+              "reading": "",
+              "vietnamese": "Tôi chỉ nghỉ mỗi Chủ nhật.",
+              "note": ""
+            },
+            {
+              "id": "0cuzp42",
+              "japanese": "パソコンが １だいだけ あります。",
+              "reading": "パソコンが いちだいだけ あります。",
+              "vietnamese": "Chỉ có một chiếc máy tính thôi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "033l346",
+      "title": "～ぐらい ／ どのくらい",
+      "summary": "Nói con số áng chừng và hỏi mức độ, thời lượng.",
+      "structures": [
+        "Số lượng ＋ ぐらい",
+        "どのくらい ＋ V ますか"
+      ],
+      "explanation": [
+        "ぐらい đứng sau từ chỉ số lượng, nghĩa là 'khoảng chừng'. Viết là くらい cũng được.",
+        "どのくらい hỏi thời lượng, quãng đường, mức độ — trả lời bằng một con số kèm ぐらい."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi và trả lời con số áng chừng",
+          "detail": "Rất hay gặp khi hỏi đường và hỏi thời gian.",
+          "examples": [
+            {
+              "id": "08166tb",
+              "japanese": "うちから かいしゃまで どのくらい かかりますか。",
+              "reading": "",
+              "vietnamese": "Từ nhà đến công ty mất khoảng bao lâu?",
+              "note": ""
+            },
+            {
+              "id": "1hoq9xg",
+              "japanese": "１じかんぐらい かかります。",
+              "reading": "いちじかんぐらい かかります。",
+              "vietnamese": "Mất khoảng một tiếng.",
+              "note": ""
+            },
+            {
+              "id": "1jhrqk1",
+              "japanese": "まいにち ３じかんぐらい べんきょうします。",
+              "reading": "まいにち さんじかんぐらい べんきょうします。",
+              "vietnamese": "Mỗi ngày tôi học khoảng ba tiếng.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

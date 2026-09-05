@@ -1,0 +1,275 @@
+{
+  "points": [
+    {
+      "title": "これ ／ それ ／ あれ",
+      "summary": "Ba đại từ chỉ đồ vật, phân biệt theo khoảng cách với người nói và người nghe.",
+      "structures": ["これ は N です", "それ は N です", "あれ は N です"],
+      "explanation": [
+        "Tiếng Nhật chia không gian làm ba vùng chứ không phải hai như tiếng Việt: これ (gần người nói), それ (gần người nghe), あれ (xa cả hai).",
+        "Cả ba đều là DANH TỪ, đứng một mình được và đứng ngay trước は được. Đây là điểm khác với この／その／あの ở mẫu sau."
+      ],
+      "tables": [
+        {
+          "caption": "Ba vùng không gian",
+          "headers": ["Từ", "Vị trí", "Tiếng Việt"],
+          "rows": [
+            ["これ", "Gần người nói", "cái này"],
+            ["それ", "Gần người nghe", "cái đó"],
+            ["あれ", "Xa cả người nói lẫn người nghe", "cái kia"]
+          ]
+        }
+      ],
+      "notes": [
+        "Nếu người nói và người nghe đứng cùng một chỗ nhìn về một vật ở xa thì cả hai cùng gọi là あれ."
+      ],
+      "usages": [
+        {
+          "title": "Nói tên một vật",
+          "detail": "Chỉ vào vật rồi gọi tên nó.",
+          "examples": [
+            {
+              "japanese": "これは カメラです。",
+              "vietnamese": "Cái này là máy ảnh."
+            },
+            {
+              "japanese": "それは わたしの てちょうです。",
+              "vietnamese": "Cái đó là sổ tay của tôi."
+            },
+            {
+              "japanese": "あれは とけいです。",
+              "vietnamese": "Cái kia là đồng hồ."
+            },
+            {
+              "japanese": "これは ざっしじゃ ありません。ほんです。",
+              "vietnamese": "Cái này không phải là tạp chí. Đây là sách.",
+              "note": "Câu sau lược これは vì chủ đề đã rõ."
+            }
+          ]
+        },
+        {
+          "title": "Hỏi tên một vật — なんですか",
+          "detail": "Thay chỗ chưa biết bằng なん.",
+          "examples": [
+            {
+              "japanese": "あれは なんですか。",
+              "vietnamese": "Cái kia là cái gì vậy?"
+            },
+            {
+              "japanese": "てちょうです。",
+              "vietnamese": "Là quyển sổ tay."
+            },
+            {
+              "japanese": "それは なんですか。",
+              "vietnamese": "Cái đó là cái gì vậy?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "この N ／ その N ／ あの N",
+      "summary": "Cũng chỉ gần xa nhưng phải đi kèm một danh từ ngay sau.",
+      "structures": ["この N は ～です", "その N は ～です", "あの N は ～です"],
+      "explanation": [
+        "この／その／あの KHÔNG đứng một mình được, luôn phải có danh từ theo sau. Nói 「この は ほんです」 là sai.",
+        "Dùng khi cần nói rõ vật đó là gì: 「これは わたしのです」 chỉ nói 'cái này của tôi', còn 「この ほんは わたしのです」 nói rõ là quyển sách."
+      ],
+      "tables": [
+        {
+          "caption": "Đứng một mình hay đi kèm danh từ",
+          "headers": ["Đứng một mình", "Đi kèm danh từ"],
+          "rows": [
+            ["これ", "この ほん"],
+            ["それ", "その かばん"],
+            ["あれ", "あの ひと"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Chỉ rõ vật đang nói tới",
+          "detail": "Danh từ đi ngay sau この／その／あの.",
+          "examples": [
+            {
+              "japanese": "この ほんは わたしのです。",
+              "vietnamese": "Quyển sách này là của tôi."
+            },
+            {
+              "japanese": "その かばんは あなたのですか。",
+              "vietnamese": "Cái cặp đó có phải của anh không?"
+            },
+            {
+              "japanese": "あの ひとは サントスさんです。",
+              "vietnamese": "Người kia là anh Santos."
+            },
+            {
+              "japanese": "この テレビは わたしのです。",
+              "vietnamese": "Cái tivi này là của tôi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "そうです ／ そうじゃ ありません",
+      "summary": "Trả lời ngắn gọn cho câu hỏi có vị ngữ là danh từ.",
+      "structures": [
+        "はい、そうです。",
+        "いいえ、そうじゃ ありません。",
+        "いいえ、ちがいます。"
+      ],
+      "explanation": [
+        "そう thay cho toàn bộ phần vị ngữ vừa được hỏi, nhờ vậy không phải nhắc lại cả câu dài.",
+        "ちがいます nghe dứt khoát hơn そうじゃ ありません, thường dùng khi phải đính chính một điều sai."
+      ],
+      "notes": [
+        "そうです CHỈ dùng được khi vị ngữ là danh từ. Câu hỏi có động từ hay tính từ thì phải trả lời bằng chính động từ, tính từ đó."
+      ],
+      "usages": [
+        {
+          "title": "Xác nhận là đúng",
+          "detail": "Ngắn hơn việc nhắc lại cả danh từ.",
+          "examples": [
+            {
+              "japanese": "それは ざっしですか。",
+              "vietnamese": "Cái đó là tạp chí phải không?"
+            },
+            {
+              "japanese": "はい、そうです。",
+              "vietnamese": "Vâng, đúng vậy."
+            }
+          ]
+        },
+        {
+          "title": "Phủ nhận và đính chính",
+          "detail": "Nói sai rồi thì thường kèm luôn thông tin đúng.",
+          "examples": [
+            {
+              "japanese": "いいえ、そうじゃ ありません。",
+              "vietnamese": "Không, không phải vậy."
+            },
+            {
+              "japanese": "いいえ、ちがいます。ボールペンです。",
+              "vietnamese": "Không, nhầm rồi. Đây là bút bi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～か、～か",
+      "summary": "Câu hỏi lựa chọn: đưa ra hai khả năng cho người nghe chọn một.",
+      "structures": ["N1 ですか、N2 ですか。"],
+      "explanation": [
+        "Mỗi lựa chọn đều có か riêng của nó. Đây là lý do câu này có hai chữ か.",
+        "Không trả lời bằng はい／いいえ mà chọn thẳng một trong hai."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi chọn giữa hai khả năng",
+          "detail": "Trả lời bằng chính lựa chọn đó.",
+          "examples": [
+            {
+              "japanese": "それは コーヒーですか、こうちゃですか。",
+              "vietnamese": "Cái đó là cà phê hay là trà đen?"
+            },
+            {
+              "japanese": "コーヒーです。",
+              "vietnamese": "Là cà phê."
+            },
+            {
+              "japanese": "これは ざっしですか、しんぶんですか。",
+              "vietnamese": "Cái này là tạp chí hay là báo?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 の N2 ／ N1 の（lược N2）",
+      "summary": "の nối hai danh từ, và khi danh từ sau đã rõ thì được phép bỏ đi.",
+      "structures": ["N1 の N2", "N1 の（lược bỏ N2）"],
+      "explanation": [
+        "Ở bài 2, の mang hai nghĩa mới: N1 là chủ đề mà N2 nói về (「コンピューターの ざっし」— tạp chí về máy tính), và N1 là chủ sở hữu của N2 (「わたしの とけい」— đồng hồ của tôi).",
+        "Khi N2 đã rõ trong ngữ cảnh thì bỏ luôn N2, chỉ để lại 「N1 の」. Đây là chỗ hay lúng túng: 「わたしのです」 nghĩa là 'của tôi'.",
+        "Nhưng KHÔNG được lược danh từ chỉ người: 「あれは ミラーさんのです」 chỉ có nghĩa là đồ của anh Miller, không bao giờ có nghĩa 'người của anh Miller'."
+      ],
+      "tables": [
+        {
+          "caption": "Các nghĩa của の đã học",
+          "headers": ["Nghĩa", "Ví dụ", "Dịch"],
+          "rows": [
+            ["Nơi trực thuộc", "IMCの しゃいん", "nhân viên công ty IMC"],
+            ["Nói về cái gì", "コンピューターの ざっし", "tạp chí về máy tính"],
+            ["Sở hữu", "わたしの とけい", "đồng hồ của tôi"],
+            ["Lược danh từ sau", "わたしの", "cái của tôi"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Nội dung — N2 nói về N1",
+          "detail": "Hỏi bằng 「なんの N ですか」.",
+          "examples": [
+            {
+              "japanese": "これは コンピューターの ざっしです。",
+              "vietnamese": "Cái này là tạp chí về máy tính."
+            },
+            {
+              "japanese": "それは なんの ほんですか。",
+              "vietnamese": "Cái đó là sách về cái gì vậy?"
+            },
+            {
+              "japanese": "にほんごの ほんです。",
+              "vietnamese": "Là sách tiếng Nhật."
+            }
+          ]
+        },
+        {
+          "title": "Sở hữu — hỏi bằng だれの",
+          "detail": "Trả lời thường lược luôn danh từ phía sau.",
+          "examples": [
+            {
+              "japanese": "これは だれの かさですか。",
+              "vietnamese": "Cái ô này là của ai vậy?"
+            },
+            {
+              "japanese": "サントスさんのです。",
+              "vietnamese": "Là của anh Santos.",
+              "note": "Đã rõ đang nói về cái ô nên lược かさ."
+            },
+            {
+              "japanese": "この かぎは わたしのです。",
+              "vietnamese": "Chiếc chìa khóa này là của tôi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "そうですか",
+      "summary": "Đáp lại một thông tin vừa nghe được lần đầu.",
+      "structures": ["そうですか。"],
+      "explanation": [
+        "Đây KHÔNG phải câu hỏi dù có か. Nó là lời đáp cho biết mình đã tiếp nhận thông tin, tương đương 'thế à', 'vậy à' trong tiếng Việt.",
+        "Đọc với ngữ điệu XUỐNG giọng ở cuối. Lên giọng thì lại thành câu hỏi nghi ngờ."
+      ],
+      "usages": [
+        {
+          "title": "Tiếp nhận thông tin mới",
+          "detail": "Câu đệm giữ nhịp hội thoại.",
+          "examples": [
+            {
+              "japanese": "これは にほんの カメラです。",
+              "vietnamese": "Đây là máy ảnh của Nhật."
+            },
+            {
+              "japanese": "そうですか。",
+              "vietnamese": "Thế à."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

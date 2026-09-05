@@ -1,0 +1,345 @@
+{
+  "id": "ngu-phap-minano-12",
+  "lessonNumber": 12,
+  "name": "皆の日本語 — Bài 12 · Ngữ pháp",
+  "description": "Thì quá khứ của danh từ và tính từ, N1は N2より, どちらが, いちばん",
+  "kind": "grammar",
+  "itemCount": 5,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1t26cr3",
+      "title": "Thì quá khứ của danh từ và tính từ な",
+      "summary": "Danh từ và tính từ な chia quá khứ giống hệt nhau: でした và じゃ ありませんでした.",
+      "structures": [
+        "N ／ Aな ＋ でした",
+        "N ／ Aな ＋ じゃ ありませんでした"
+      ],
+      "explanation": [
+        "です đổi thành でした ở thì quá khứ.",
+        "じゃ ありません đổi thành じゃ ありませんでした — chỉ việc thêm でした vào cuối.",
+        "Tính từ な chia y hệt danh từ. Đây là lý do nhiều sách gọi nó là 'tính từ kiểu danh từ'."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Bảng chia danh từ và tính từ な",
+          "headers": [
+            "",
+            "Khẳng định",
+            "Phủ định"
+          ],
+          "rows": [
+            [
+              "Hiện tại",
+              "あめです",
+              "あめじゃ ありません"
+            ],
+            [
+              "Quá khứ",
+              "あめでした",
+              "あめじゃ ありませんでした"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Kể lại chuyện đã qua",
+          "detail": "Thời tiết, lễ hội, chuyến đi.",
+          "examples": [
+            {
+              "id": "1yt36g9",
+              "japanese": "きのうは あめでした。",
+              "reading": "",
+              "vietnamese": "Hôm qua trời mưa.",
+              "note": ""
+            },
+            {
+              "id": "0i7t8c7",
+              "japanese": "きのうは やすみじゃ ありませんでした。",
+              "reading": "",
+              "vietnamese": "Hôm qua không phải ngày nghỉ.",
+              "note": ""
+            },
+            {
+              "id": "0tttktf",
+              "japanese": "おまつりは にぎやかでした。",
+              "reading": "",
+              "vietnamese": "Lễ hội đã rất nhộn nhịp.",
+              "note": ""
+            },
+            {
+              "id": "1jwojqe",
+              "japanese": "ホテルは しずかじゃ ありませんでした。",
+              "reading": "",
+              "vietnamese": "Khách sạn đã không yên tĩnh.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1h1oz4v",
+      "title": "Thì quá khứ của tính từ い",
+      "summary": "Tính từ い tự biến đuôi: い đổi thành かった.",
+      "structures": [
+        "Aい → A かったです",
+        "Aい → A くなかったです"
+      ],
+      "explanation": [
+        "Bỏ い cuối rồi thêm かったです: たのしい → たのしかったです.",
+        "Phủ định quá khứ: bỏ い thêm くなかったです: たのしい → たのしくなかったです.",
+        "Chú ý です KHÔNG đổi thành でした. Nói 「たのしいでした」 là sai — bản thân かった đã mang nghĩa quá khứ rồi."
+      ],
+      "notes": [
+        "いい chia bất quy tắc: よかったです, よくなかったです. Gốc chia là よい chứ không phải いい."
+      ],
+      "tables": [
+        {
+          "caption": "Bảng chia tính từ い",
+          "headers": [
+            "",
+            "Khẳng định",
+            "Phủ định"
+          ],
+          "rows": [
+            [
+              "Hiện tại",
+              "たのしいです",
+              "たのしくないです"
+            ],
+            [
+              "Quá khứ",
+              "たのしかったです",
+              "たのしくなかったです"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Kể cảm nhận về chuyện đã qua",
+          "detail": "Câu trả lời quen thuộc khi được hỏi 「どうでしたか」.",
+          "examples": [
+            {
+              "id": "1p7qh8h",
+              "japanese": "りょこうは たのしかったです。",
+              "reading": "",
+              "vietnamese": "Chuyến du lịch đã rất vui.",
+              "note": ""
+            },
+            {
+              "id": "1uszav8",
+              "japanese": "てんきは よくなかったです。",
+              "reading": "",
+              "vietnamese": "Thời tiết đã không tốt.",
+              "note": ""
+            },
+            {
+              "id": "10pqun9",
+              "japanese": "しけんは むずかしかったですか。",
+              "reading": "",
+              "vietnamese": "Bài thi có khó không?",
+              "note": ""
+            },
+            {
+              "id": "1dqjpsm",
+              "japanese": "いいえ、あまり むずかしくなかったです。",
+              "reading": "",
+              "vietnamese": "Không, không khó lắm.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "021mxz0",
+      "title": "N1 は N2 より Aです",
+      "summary": "So sánh hơn: N1 thì hơn N2 ở tính chất A.",
+      "structures": [
+        "N1 は N2 より Aです"
+      ],
+      "explanation": [
+        "より đứng sau đối tượng bị đem ra so sánh, tương đương 'hơn' trong tiếng Việt nhưng ở vị trí khác.",
+        "Trật tự: thứ được đề cao đứng đầu câu với は, thứ bị so sánh đứng trước より.",
+        "Cụm 「N2 より」 có thể lược khi ngữ cảnh đã rõ."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "So sánh hai đối tượng",
+          "detail": "Thứ hơn đứng đầu.",
+          "examples": [
+            {
+              "id": "1ioovlw",
+              "japanese": "この くるまは あの くるまより おおきいです。",
+              "reading": "",
+              "vietnamese": "Chiếc xe này to hơn chiếc xe kia.",
+              "note": ""
+            },
+            {
+              "id": "025g2hm",
+              "japanese": "しんかんせんは バスより はやいです。",
+              "reading": "",
+              "vietnamese": "Tàu Shinkansen nhanh hơn xe buýt.",
+              "note": ""
+            },
+            {
+              "id": "0b49af8",
+              "japanese": "とうきょうは ハノイより さむいです。",
+              "reading": "",
+              "vietnamese": "Tokyo lạnh hơn Hà Nội.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1pe6c7p",
+      "title": "N1 と N2 と どちらが Aですか",
+      "summary": "Hỏi so sánh giữa đúng hai đối tượng.",
+      "structures": [
+        "N1 と N2 と どちらが Aですか。",
+        "→ N1 の ほうが Aです。",
+        "→ どちらも Aです。"
+      ],
+      "explanation": [
+        "Khi so sánh HAI thứ thì luôn dùng どちら, kể cả khi đối tượng là đồ vật hay nơi chốn — không dùng どれ hay どこ.",
+        "Trả lời bằng 「～の ほうが Aです」. Cụm の ほう nghĩa là 'phía bên ...'.",
+        "Nếu cả hai như nhau thì đáp 「どちらも Aです」."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi và trả lời so sánh đôi",
+          "detail": "Luôn dùng どちら dù đối tượng là gì.",
+          "examples": [
+            {
+              "id": "1pd7t88",
+              "japanese": "サッカーと やきゅうと どちらが おもしろいですか。",
+              "reading": "",
+              "vietnamese": "Bóng đá và bóng chày thì môn nào thú vị hơn?",
+              "note": ""
+            },
+            {
+              "id": "0isb1qf",
+              "japanese": "サッカーの ほうが おもしろいです。",
+              "reading": "",
+              "vietnamese": "Bóng đá thú vị hơn.",
+              "note": ""
+            },
+            {
+              "id": "1xky5o5",
+              "japanese": "とうきょうと おおさかと どちらが にぎやかですか。",
+              "reading": "",
+              "vietnamese": "Tokyo và Osaka thì nơi nào nhộn nhịp hơn?",
+              "note": ""
+            },
+            {
+              "id": "0a05ejm",
+              "japanese": "どちらも にぎやかです。",
+              "reading": "",
+              "vietnamese": "Nơi nào cũng nhộn nhịp cả.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ynqc4c",
+      "title": "N［の なか］で なにが いちばん Aですか",
+      "summary": "So sánh nhất: hỏi trong một nhóm thì cái nào nhất.",
+      "structures": [
+        "N の なかで ＋ từ hỏi ＋ が いちばん Aですか。",
+        "→ N が いちばん Aです。"
+      ],
+      "explanation": [
+        "Phạm vi so sánh đứng đầu câu, kèm 「の なかで」. Nếu phạm vi là nơi chốn hay thời gian thì chỉ cần で.",
+        "Từ hỏi chọn theo loại đối tượng: なに cho vật, どこ cho nơi chốn, だれ cho người, いつ cho thời gian, どれ khi chọn trong danh sách cụ thể.",
+        "Câu trả lời KHÔNG dùng は mà dùng が, vì phần trả lời chính là thông tin mới."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Chọn từ hỏi theo loại đối tượng",
+          "headers": [
+            "Đối tượng",
+            "Từ hỏi"
+          ],
+          "rows": [
+            [
+              "Vật nói chung",
+              "なに"
+            ],
+            [
+              "Nơi chốn",
+              "どこ"
+            ],
+            [
+              "Người",
+              "だれ"
+            ],
+            [
+              "Thời gian",
+              "いつ"
+            ],
+            [
+              "Chọn trong danh sách đã nêu",
+              "どれ"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi cái nhất trong một nhóm",
+          "detail": "Phạm vi đứng đầu câu.",
+          "examples": [
+            {
+              "id": "0avqh0z",
+              "japanese": "にほんりょうりで なにが いちばん おいしいですか。",
+              "reading": "",
+              "vietnamese": "Trong các món Nhật thì món nào ngon nhất?",
+              "note": ""
+            },
+            {
+              "id": "0zkdcgl",
+              "japanese": "てんぷらが いちばん おいしいです。",
+              "reading": "",
+              "vietnamese": "Món tempura là ngon nhất.",
+              "note": ""
+            },
+            {
+              "id": "1bb2o3n",
+              "japanese": "かぞくの なかで だれが いちばん せが たかいですか。",
+              "reading": "",
+              "vietnamese": "Trong gia đình thì ai cao nhất?",
+              "note": ""
+            },
+            {
+              "id": "0tyf5m3",
+              "japanese": "１ねんで いつが いちばん さむいですか。",
+              "reading": "いちねんで いつが いちばん さむいですか。",
+              "vietnamese": "Trong một năm thì lúc nào lạnh nhất?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

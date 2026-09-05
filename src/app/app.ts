@@ -4,6 +4,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { IMPORT_LESSON_ENABLED } from './core/feature-flags';
 import { LanguageStore } from './core/i18n/language-store';
 import { T } from './core/i18n/t';
+import { NavigationProgress } from './core/services/navigation-progress';
 import { ThemeStore } from './core/services/theme-store';
 
 /** Cuộn quá ngưỡng này thì nút "lên đầu trang" hiện ra (đơn vị: px). */
@@ -19,6 +20,12 @@ const BACK_TO_TOP_AT = 700;
 export class App {
   protected readonly theme = inject(ThemeStore);
   protected readonly lang = inject(LanguageStore);
+
+  /**
+   * Đang chuyển trang hay không. Mọi màn hình đều nạp động, nên bấm menu là phải
+   * chờ tải tệp — không báo gì thì người dùng tưởng cú bấm bị trượt.
+   */
+  protected readonly navigating = inject(NavigationProgress).active;
 
   protected readonly t = this.lang.t.bind(this.lang);
 

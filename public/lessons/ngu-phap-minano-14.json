@@ -1,0 +1,388 @@
+{
+  "id": "ngu-phap-minano-14",
+  "lessonNumber": 14,
+  "name": "皆の日本語 — Bài 14 · Ngữ pháp",
+  "description": "Nhóm động từ, thể て, Vて ください, Vて います, Vましょうか",
+  "kind": "grammar",
+  "itemCount": 5,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "0g7ey9w",
+      "title": "Ba nhóm động từ",
+      "summary": "Muốn chia được thể て thì trước hết phải biết động từ thuộc nhóm nào.",
+      "structures": [
+        "Nhóm I — âm trước ます thuộc hàng い",
+        "Nhóm II — âm trước ます thuộc hàng え, và một số ngoại lệ",
+        "Nhóm III — きます, します"
+      ],
+      "explanation": [
+        "Nhóm I: âm ngay trước ます thuộc hàng い — かきます, のみます, いいます. Đây là nhóm đông nhất.",
+        "Nhóm II: âm ngay trước ます thuộc hàng え — たべます, おしえます. Kèm theo một nhóm ngoại lệ có âm い ở trước ます: みます, おきます, かります, います, あびます.",
+        "Nhóm III chỉ có hai động từ: きます và します, cộng với mọi động từ ghép dạng 「N します」 như べんきょうします."
+      ],
+      "notes": [
+        "かえります, はいります, はしります, きります kết thúc bằng ります và trông rất giống nhóm II, nhưng thực ra là nhóm I. Đây là nhóm động từ dễ chia sai nhất."
+      ],
+      "tables": [
+        {
+          "caption": "Nhận diện ba nhóm",
+          "headers": [
+            "Nhóm",
+            "Dấu hiệu",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "I",
+              "Âm hàng い trước ます",
+              "かきます, のみます, かえります"
+            ],
+            [
+              "II",
+              "Âm hàng え trước ます",
+              "たべます, ねます, おしえます"
+            ],
+            [
+              "II ngoại lệ",
+              "Âm hàng い nhưng vẫn nhóm II",
+              "みます, おきます, かります, います"
+            ],
+            [
+              "III",
+              "Chỉ hai động từ",
+              "きます, します"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Phân loại vài động từ đã học",
+          "detail": "Nhận nhóm rồi mới chia được thể て.",
+          "examples": [
+            {
+              "id": "0txbg4o",
+              "japanese": "かきます は １グループです。",
+              "reading": "",
+              "vietnamese": "Động từ kakimasu thuộc nhóm I.",
+              "note": ""
+            },
+            {
+              "id": "00xyd43",
+              "japanese": "たべます は ２グループです。",
+              "reading": "",
+              "vietnamese": "Động từ tabemasu thuộc nhóm II.",
+              "note": ""
+            },
+            {
+              "id": "19rz847",
+              "japanese": "べんきょうします は ３グループです。",
+              "reading": "",
+              "vietnamese": "Động từ benkyou shimasu thuộc nhóm III.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15s8qg4",
+      "title": "Cách chia thể て",
+      "summary": "Thể て là cửa ngõ dẫn tới rất nhiều mẫu ngữ pháp về sau.",
+      "structures": [
+        "Nhóm I — biến âm theo luật",
+        "Nhóm II — bỏ ます thêm て",
+        "Nhóm III — きて, して"
+      ],
+      "explanation": [
+        "Nhóm II và nhóm III chia rất dễ: bỏ ます rồi thêm て.",
+        "Nhóm I mới là phần phải học thuộc, vì âm cuối biến đổi theo năm luật khác nhau.",
+        "Có một ngoại lệ duy nhất phải nhớ riêng: いきます → いって, chứ không phải いいて."
+      ],
+      "notes": [
+        "いきます → いって là ngoại lệ. Theo luật thì phải là いいて nhưng không ai nói vậy."
+      ],
+      "tables": [
+        {
+          "caption": "Luật chia thể て của nhóm I",
+          "headers": [
+            "Âm trước ます",
+            "Đổi thành",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "い, ち, り",
+              "って",
+              "かいます → かって"
+            ],
+            [
+              "み, び, に",
+              "んで",
+              "のみます → のんで"
+            ],
+            [
+              "き",
+              "いて",
+              "かきます → かいて"
+            ],
+            [
+              "ぎ",
+              "いで",
+              "いそぎます → いそいで"
+            ],
+            [
+              "し",
+              "して",
+              "はなします → はなして"
+            ]
+          ]
+        },
+        {
+          "caption": "Nhóm II và III",
+          "headers": [
+            "Nhóm",
+            "Cách chia",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "II",
+              "Bỏ ます thêm て",
+              "たべます → たべて"
+            ],
+            [
+              "III",
+              "Học thuộc",
+              "きます → きて / します → して"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Luyện chia thể て",
+          "detail": "Xác định nhóm trước, rồi áp luật.",
+          "examples": [
+            {
+              "id": "08b444p",
+              "japanese": "かいます → かって",
+              "reading": "",
+              "vietnamese": "kaimasu chuyển thành katte.",
+              "note": ""
+            },
+            {
+              "id": "1994z59",
+              "japanese": "のみます → のんで",
+              "reading": "",
+              "vietnamese": "nomimasu chuyển thành nonde.",
+              "note": ""
+            },
+            {
+              "id": "0exw3co",
+              "japanese": "いきます → いって",
+              "reading": "",
+              "vietnamese": "ikimasu chuyển thành itte.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "061ge2z",
+      "title": "V て ください",
+      "summary": "Nhờ vả, chỉ dẫn hoặc mời mọc người nghe làm gì đó.",
+      "structures": [
+        "V て ください。"
+      ],
+      "explanation": [
+        "Đây là mẫu nhờ vả cơ bản nhất, dùng được với bạn bè, đồng nghiệp ngang hàng và người dưới.",
+        "Với người trên thì mẫu này vẫn hơi thiếu lễ độ vì nó mang sắc thái chỉ thị. Bài 26 sẽ học 「～て いただけませんか」 mềm hơn nhiều.",
+        "Ngoài nhờ vả, mẫu này còn dùng để MỜI: 「どうぞ たべて ください」."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nhờ ai đó làm gì",
+          "detail": "Thêm すみませんが ở đầu cho lịch sự.",
+          "examples": [
+            {
+              "id": "1x8210s",
+              "japanese": "すみませんが、しおを とって ください。",
+              "reading": "",
+              "vietnamese": "Xin lỗi, anh lấy giúp tôi lọ muối với.",
+              "note": ""
+            },
+            {
+              "id": "1kdpqq8",
+              "japanese": "この かんじの よみかたを おしえて ください。",
+              "reading": "",
+              "vietnamese": "Anh dạy tôi cách đọc chữ Hán này với.",
+              "note": ""
+            },
+            {
+              "id": "0ab5i91",
+              "japanese": "ゆっくり はなして ください。",
+              "reading": "",
+              "vietnamese": "Anh nói chậm lại giúp tôi.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Mời mọc, chỉ dẫn",
+          "detail": "Đi kèm どうぞ thì thành lời mời.",
+          "examples": [
+            {
+              "id": "1yzzw54",
+              "japanese": "どうぞ たくさん たべて ください。",
+              "reading": "",
+              "vietnamese": "Mời anh ăn thật nhiều vào.",
+              "note": ""
+            },
+            {
+              "id": "0h8rrd9",
+              "japanese": "ここに なまえを かいて ください。",
+              "reading": "",
+              "vietnamese": "Anh viết tên vào đây giúp tôi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1loa9qf",
+      "title": "V て います — hành động đang diễn ra",
+      "summary": "Diễn tả một hành động đang tiếp diễn ngay lúc nói.",
+      "structures": [
+        "V て います"
+      ],
+      "explanation": [
+        "Ghép thể て với います để tả hành động đang xảy ra tại thời điểm nói.",
+        "Cùng dạng này ở bài 15 sẽ mang thêm nghĩa trạng thái và thói quen. Ở bài 14 chỉ học nghĩa đang diễn ra."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Tả việc đang làm",
+          "detail": "Hay dùng khi gọi điện hỏi thăm.",
+          "examples": [
+            {
+              "id": "00hd624",
+              "japanese": "ミラーさんは いま でんわを かけて います。",
+              "reading": "",
+              "vietnamese": "Anh Miller đang gọi điện thoại.",
+              "note": ""
+            },
+            {
+              "id": "1ei2s21",
+              "japanese": "いま なにを して いますか。",
+              "reading": "",
+              "vietnamese": "Bây giờ anh đang làm gì vậy?",
+              "note": ""
+            },
+            {
+              "id": "1c7p66w",
+              "japanese": "ごはんを たべて います。",
+              "reading": "",
+              "vietnamese": "Tôi đang ăn cơm.",
+              "note": ""
+            },
+            {
+              "id": "0cz5cz3",
+              "japanese": "あめが ふって います。",
+              "reading": "",
+              "vietnamese": "Trời đang mưa.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0x60am6",
+      "title": "V ましょうか",
+      "summary": "Ngỏ ý giúp đỡ, hoặc đề nghị cùng làm.",
+      "structures": [
+        "V ましょうか。"
+      ],
+      "explanation": [
+        "Nghĩa thứ nhất: đề nghị làm giúp người nghe một việc — 'để tôi ... nhé'.",
+        "Nghĩa thứ hai: rủ cùng làm, gần với ましょう ở bài 6 nhưng có thêm か nên nhẹ nhàng hơn, để ngỏ cho người nghe quyết định.",
+        "Nhận lời thì đáp 「ええ、おねがいします」; từ chối thì đáp 「いいえ、けっこうです」."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Ngỏ ý giúp đỡ",
+          "detail": "Chủ ngữ ngầm hiểu là わたし.",
+          "examples": [
+            {
+              "id": "17lb8eo",
+              "japanese": "にもつを もちましょうか。",
+              "reading": "",
+              "vietnamese": "Để tôi xách hành lý giúp anh nhé?",
+              "note": ""
+            },
+            {
+              "id": "10lg4m3",
+              "japanese": "ええ、おねがいします。",
+              "reading": "",
+              "vietnamese": "Vâng, phiền anh.",
+              "note": ""
+            },
+            {
+              "id": "0cw4o3r",
+              "japanese": "いいえ、けっこうです。",
+              "reading": "",
+              "vietnamese": "Không, không cần đâu ạ.",
+              "note": ""
+            },
+            {
+              "id": "1vsjwkr",
+              "japanese": "エアコンを つけましょうか。",
+              "reading": "",
+              "vietnamese": "Để tôi bật điều hòa nhé?",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Rủ cùng làm",
+          "detail": "Chủ ngữ ngầm hiểu là わたしたち.",
+          "examples": [
+            {
+              "id": "0s2692h",
+              "japanese": "ちょっと やすみましょうか。",
+              "reading": "",
+              "vietnamese": "Chúng ta nghỉ một chút nhé?",
+              "note": ""
+            },
+            {
+              "id": "139872t",
+              "japanese": "なんじに いきましょうか。",
+              "reading": "",
+              "vietnamese": "Mấy giờ chúng ta đi nhỉ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

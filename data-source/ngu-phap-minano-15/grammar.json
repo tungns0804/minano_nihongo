@@ -1,0 +1,197 @@
+{
+  "points": [
+    {
+      "title": "V て も いいです",
+      "summary": "Xin phép làm gì đó, hoặc cho phép người khác làm.",
+      "structures": ["V て も いいですか。（xin phép）", "V て も いいです。（cho phép）"],
+      "explanation": [
+        "Thêm も いいです vào sau thể て. Nghĩa đen là 'làm ... thì cũng được'.",
+        "Câu hỏi 「～ても いいですか」 là cách xin phép chuẩn mực nhất ở trình độ sơ cấp.",
+        "Cho phép thì đáp 「ええ、いいですよ」 hoặc 「はい、どうぞ」."
+      ],
+      "notes": [
+        "Từ chối thì KHÔNG đáp 「いいえ、いけません」 với người trên vì nghe quá nặng. Thường nói 「すみません、ちょっと…」 rồi nêu lý do."
+      ],
+      "usages": [
+        {
+          "title": "Xin phép",
+          "detail": "Câu hỏi kết thúc bằng いいですか.",
+          "examples": [
+            {
+              "japanese": "しゃしんを とっても いいですか。",
+              "vietnamese": "Tôi chụp ảnh có được không ạ?"
+            },
+            {
+              "japanese": "ええ、いいですよ。",
+              "vietnamese": "Vâng, được chứ."
+            },
+            {
+              "japanese": "ここに すわっても いいですか。",
+              "vietnamese": "Tôi ngồi đây có được không ạ?"
+            },
+            {
+              "japanese": "すみません、ちょっと…",
+              "vietnamese": "Xin lỗi, hơi bất tiện một chút…",
+              "note": "Cách từ chối lịch sự, không nói thẳng いけません."
+            }
+          ]
+        },
+        {
+          "title": "Cho phép",
+          "detail": "Câu trần thuật, không có か.",
+          "examples": [
+            {
+              "japanese": "きょうは はやく かえっても いいです。",
+              "vietnamese": "Hôm nay anh về sớm cũng được."
+            },
+            {
+              "japanese": "えんぴつで かいても いいです。",
+              "vietnamese": "Viết bằng bút chì cũng được."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V て は いけません",
+      "summary": "Cấm đoán: không được phép làm việc đó.",
+      "structures": ["V て は いけません。"],
+      "explanation": [
+        "Đây là lời cấm dứt khoát, dùng khi có quyền cấm: nội quy, biển báo, người trên nói với người dưới.",
+        "は ở giữa đọc là 「わ」 như mọi trợ từ は khác.",
+        "Người dưới KHÔNG dùng mẫu này với người trên. Muốn nhắc nhở nhẹ thì nói 「～ないで ください」 học ở bài 17."
+      ],
+      "usages": [
+        {
+          "title": "Cấm theo nội quy",
+          "detail": "Hay đi kèm ここで hoặc trạng ngữ nơi chốn.",
+          "examples": [
+            {
+              "japanese": "ここで たばこを すっては いけません。",
+              "vietnamese": "Không được hút thuốc ở đây."
+            },
+            {
+              "japanese": "この へやに はいっては いけません。",
+              "vietnamese": "Không được vào căn phòng này."
+            },
+            {
+              "japanese": "しけんちゅうに はなしては いけません。",
+              "vietnamese": "Không được nói chuyện trong lúc thi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V て います — trạng thái sau hành động",
+      "summary": "Hành động đã xong nhưng kết quả của nó vẫn còn kéo dài.",
+      "structures": ["V て います"],
+      "explanation": [
+        "Ở bài 14, 「Vて います」 tả hành động ĐANG diễn ra. Ở bài này nó tả TRẠNG THÁI còn lại sau khi hành động đã kết thúc.",
+        "Nhóm động từ mang nghĩa này thường là động từ chỉ sự thay đổi trạng thái: けっこんします, すみます, つとめます, しります, もちます.",
+        "Ví dụ 「けっこんして います」 không có nghĩa 'đang làm đám cưới' mà nghĩa là 'đã kết hôn và hiện vẫn đang có gia đình'."
+      ],
+      "tables": [
+        {
+          "caption": "Hai nghĩa của Vて います",
+          "headers": ["Nghĩa", "Loại động từ", "Ví dụ"],
+          "rows": [
+            ["Đang diễn ra (bài 14)", "Động từ kéo dài", "ごはんを たべて います"],
+            ["Trạng thái còn lại (bài 15)", "Động từ đổi trạng thái", "けっこんして います"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Nói về hoàn cảnh hiện tại",
+          "detail": "Nơi ở, nơi làm việc, tình trạng hôn nhân.",
+          "examples": [
+            {
+              "japanese": "わたしは おおさかに すんで います。",
+              "vietnamese": "Tôi đang sống ở Osaka."
+            },
+            {
+              "japanese": "ミラーさんは IMCに つとめて います。",
+              "vietnamese": "Anh Miller đang làm việc ở công ty IMC."
+            },
+            {
+              "japanese": "わたしは けっこんして います。",
+              "vietnamese": "Tôi đã lập gia đình."
+            },
+            {
+              "japanese": "デジカメを もって いますか。",
+              "vietnamese": "Anh có máy ảnh kỹ thuật số không?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "しって います ／ しりません",
+      "summary": "Cặp động từ bất đối xứng: khẳng định thì có て います, phủ định thì không.",
+      "structures": ["しって います（biết）", "しりません（không biết）"],
+      "explanation": [
+        "Khẳng định phải dùng 「しって います」 chứ không nói 「しります」.",
+        "Nhưng phủ định lại phải dùng 「しりません」 chứ KHÔNG nói 「しって いません」. Đây là ngoại lệ duy nhất kiểu này, phải nhớ riêng.",
+        "Lý do: 'biết' là trạng thái có được sau khi tiếp nhận thông tin, còn 'không biết' là chưa từng tiếp nhận nên không có trạng thái nào cả."
+      ],
+      "tables": [
+        {
+          "caption": "So sánh với もちます",
+          "headers": ["Động từ", "Khẳng định", "Phủ định"],
+          "rows": [
+            ["しります", "しって います", "しりません"],
+            ["もちます", "もって います", "もって いません"],
+            ["すみます", "すんで います", "すんで いません"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời có biết hay không",
+          "detail": "Chú ý vế phủ định.",
+          "examples": [
+            {
+              "japanese": "ミラーさんの じゅうしょを しって いますか。",
+              "vietnamese": "Anh có biết địa chỉ của anh Miller không?"
+            },
+            {
+              "japanese": "はい、しって います。",
+              "vietnamese": "Vâng, tôi biết."
+            },
+            {
+              "japanese": "いいえ、しりません。",
+              "vietnamese": "Không, tôi không biết.",
+              "note": "Tuyệt đối không nói しって いません."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（nghề nghiệp）を して います",
+      "summary": "Nói mình đang làm nghề gì.",
+      "structures": ["N を して います"],
+      "explanation": [
+        "Dùng khi hỏi và trả lời về nghề nghiệp một cách tự nhiên hơn 「N です」.",
+        "Câu hỏi thường gặp: 「おしごとは なんですか」 hoặc 「なんの しごとを して いますか」."
+      ],
+      "usages": [
+        {
+          "title": "Giới thiệu nghề nghiệp",
+          "detail": "Nghe đời thường hơn cách nói ở bài 1.",
+          "examples": [
+            {
+              "japanese": "ちちは きょうしを して います。",
+              "vietnamese": "Bố tôi làm giáo viên."
+            },
+            {
+              "japanese": "あには いしゃを して います。",
+              "vietnamese": "Anh trai tôi làm bác sĩ."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "points": [
+    {
+      "title": "丁寧体 và 普通体 — thể lịch sự và thể thông thường",
+      "summary": "Tiếng Nhật có hai hệ thống nói song song, chọn theo quan hệ với người nghe.",
+      "structures": ["丁寧体 — kết thúc bằng です／ます", "普通体 — kết thúc bằng thể từ điển, ない, た, だ"],
+      "explanation": [
+        "Thể lịch sự dùng với người mới quen, người trên, khách hàng, và trong mọi tình huống trang trọng.",
+        "Thể thông thường dùng với bạn bè thân, người trong gia đình, người dưới, và khi viết nhật ký, ghi chú, luận văn.",
+        "Chọn sai thể là lỗi giao tiếp nặng hơn cả lỗi ngữ pháp: nói thể thông thường với sếp là bất lịch sự, còn nói thể lịch sự với bạn thân lại tạo khoảng cách."
+      ],
+      "notes": [
+        "Người nước ngoài mới học nên dùng thể lịch sự cho tới khi đối phương chủ động chuyển sang thể thông thường trước."
+      ],
+      "usages": [
+        {
+          "title": "Cùng một ý, hai cách nói",
+          "detail": "So sánh trực tiếp hai thể.",
+          "examples": [
+            {
+              "japanese": "あした とうきょうへ いきます。",
+              "vietnamese": "Ngày mai tôi sẽ đi Tokyo.",
+              "note": "Thể lịch sự."
+            },
+            {
+              "japanese": "あした とうきょうへ いく。",
+              "vietnamese": "Mai tớ đi Tokyo.",
+              "note": "Thể thông thường, cùng nghĩa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cách lập thể thông thường",
+      "summary": "Bốn nhóm từ loại, mỗi nhóm một cách chuyển.",
+      "structures": [
+        "Động từ — thể từ điển, ない, た, なかった",
+        "Tính từ い — bỏ です",
+        "Tính từ な và danh từ — です đổi thành だ"
+      ],
+      "explanation": [
+        "Động từ dùng thẳng bốn thể đã học: thể từ điển, thể ない, thể た, và なかった cho phủ định quá khứ.",
+        "Tính từ い chỉ việc bỏ です đi: たかいです → たかい, たかくないです → たかくない.",
+        "Tính từ な và danh từ thì です đổi thành だ, và phủ định rút thành じゃ ない."
+      ],
+      "tables": [
+        {
+          "caption": "Động từ",
+          "headers": ["Thể lịch sự", "Thể thông thường"],
+          "rows": [
+            ["いきます", "いく"],
+            ["いきません", "いかない"],
+            ["いきました", "いった"],
+            ["いきませんでした", "いかなかった"]
+          ]
+        },
+        {
+          "caption": "Tính từ い",
+          "headers": ["Thể lịch sự", "Thể thông thường"],
+          "rows": [
+            ["たかいです", "たかい"],
+            ["たかくないです", "たかくない"],
+            ["たかかったです", "たかかった"],
+            ["たかくなかったです", "たかくなかった"]
+          ]
+        },
+        {
+          "caption": "Tính từ な và danh từ",
+          "headers": ["Thể lịch sự", "Thể thông thường"],
+          "rows": [
+            ["げんきです", "げんきだ"],
+            ["げんきじゃ ありません", "げんきじゃ ない"],
+            ["げんきでした", "げんきだった"],
+            ["げんきじゃ ありませんでした", "げんきじゃ なかった"]
+          ]
+        }
+      ],
+      "notes": [
+        "Cụm bốn dạng của mỗi từ loại gọi chung là 普通形 (thể thông thường). Từ bài 21 trở đi rất nhiều mẫu ngữ pháp bắt phần đứng trước phải ở 普通形."
+      ],
+      "usages": [
+        {
+          "title": "Chuyển đổi qua lại giữa hai thể",
+          "detail": "Luyện từng từ loại một.",
+          "examples": [
+            {
+              "japanese": "たべませんでした → たべなかった",
+              "vietnamese": "tabemasen deshita chuyển thành tabenakatta."
+            },
+            {
+              "japanese": "おもしろかったです → おもしろかった",
+              "vietnamese": "omoshirokatta desu chuyển thành omoshirokatta."
+            },
+            {
+              "japanese": "がくせいじゃ ありません → がくせいじゃ ない",
+              "vietnamese": "gakusei ja arimasen chuyển thành gakusei ja nai."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hội thoại bằng thể thông thường",
+      "summary": "Trong hội thoại thân mật, ngoài việc đổi thể còn phải lược bớt trợ từ và tiểu từ.",
+      "structures": ["Bỏ か ở câu hỏi, lên giọng cuối câu", "Lược を, は, が khi ngữ cảnh đã rõ", "Danh từ và tính từ な bỏ luôn だ ở câu hỏi"],
+      "explanation": [
+        "Câu hỏi thân mật KHÔNG dùng か mà chỉ lên giọng ở cuối. Thêm か vào thể thông thường nghe thô lỗ.",
+        "Với danh từ và tính từ な, câu hỏi bỏ luôn だ: 「げんき？」 chứ không nói 「げんきだ？」.",
+        "Các trợ từ を, は, が hay bị lược khi ngữ cảnh đã rõ. Nhưng に, で, へ, から thì thường giữ lại vì bỏ đi sẽ mất nghĩa.",
+        "Trong câu trả lời khẳng định thì hay thêm よ, ね, hoặc chỉ đáp gọn một từ."
+      ],
+      "tables": [
+        {
+          "caption": "Cùng nội dung, hai kiểu hội thoại",
+          "headers": ["Lịch sự", "Thân mật"],
+          "rows": [
+            ["ごはんを たべますか。", "ごはん、たべる？"],
+            ["いいえ、たべません。", "ううん、たべない。"],
+            ["げんきですか。", "げんき？"],
+            ["はい、げんきです。", "うん、げんき。"]
+          ]
+        }
+      ],
+      "notes": [
+        "はい／いいえ trong hội thoại thân mật đổi thành うん／ううん."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi đáp thân mật giữa bạn bè",
+          "detail": "Bỏ か, lược trợ từ, lên giọng ở cuối.",
+          "examples": [
+            {
+              "japanese": "あした ひま？",
+              "vietnamese": "Mai cậu rảnh không?"
+            },
+            {
+              "japanese": "うん、ひま。",
+              "vietnamese": "Ừ, rảnh."
+            },
+            {
+              "japanese": "いっしょに えいが みない？",
+              "vietnamese": "Cùng đi xem phim không?"
+            },
+            {
+              "japanese": "ううん、あんまり すきじゃ ない。",
+              "vietnamese": "Không, tớ không thích lắm."
+            },
+            {
+              "japanese": "この ケーキ、おいしいね。",
+              "vietnamese": "Cái bánh này ngon nhỉ."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

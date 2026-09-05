@@ -1,0 +1,232 @@
+{
+  "points": [
+    {
+      "title": "N が あります ／ N が います",
+      "summary": "Hai động từ chỉ sự tồn tại, chọn theo việc chủ thể có tự di chuyển được hay không.",
+      "structures": ["N（đồ vật, cây cối）が あります", "N（người, động vật）が います"],
+      "explanation": [
+        "あります dùng cho vật vô tri: đồ đạc, cây cối, tòa nhà, sự kiện.",
+        "います dùng cho thứ TỰ DI CHUYỂN được: người, động vật.",
+        "Ranh giới nằm ở khả năng tự di chuyển chứ không phải ở việc có sự sống: cây cối vẫn dùng あります."
+      ],
+      "tables": [
+        {
+          "caption": "Chọn động từ nào",
+          "headers": ["Chủ thể", "Động từ", "Ví dụ"],
+          "rows": [
+            ["Đồ vật", "あります", "つくえが あります"],
+            ["Cây cối", "あります", "きが あります"],
+            ["Người", "います", "おとこの ひとが います"],
+            ["Động vật", "います", "いぬが います"]
+          ]
+        }
+      ],
+      "notes": [
+        "Xe ô tô đang có người lái vẫn dùng あります, vì bản thân chiếc xe không tự di chuyển."
+      ],
+      "usages": [
+        {
+          "title": "Nói có cái gì đó, có ai đó",
+          "detail": "Chủ thể đi với が.",
+          "examples": [
+            {
+              "japanese": "コンピューターが あります。",
+              "vietnamese": "Có một chiếc máy tính."
+            },
+            {
+              "japanese": "おとこの ひとが います。",
+              "vietnamese": "Có một người đàn ông."
+            },
+            {
+              "japanese": "きょうしつに だれも いません。",
+              "vietnamese": "Trong lớp học không có ai cả."
+            },
+            {
+              "japanese": "つくえの うえに なにも ありません。",
+              "vietnamese": "Trên bàn không có gì cả."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（nơi chốn）に N が あります ／ います",
+      "summary": "Nói tại một nơi nào đó có cái gì, có ai — trọng tâm là VẬT.",
+      "structures": ["N（nơi chốn）に N が あります／います"],
+      "explanation": [
+        "Trợ từ に đánh dấu nơi TỒN TẠI. Khác hẳn で ở bài 6 vốn đánh dấu nơi HÀNH ĐỘNG xảy ra.",
+        "Mẫu này trả lời cho câu hỏi 'ở đó có gì', nên thông tin mới nằm ở phần danh từ đi với が."
+      ],
+      "tables": [
+        {
+          "caption": "に và で",
+          "headers": ["Trợ từ", "Vai trò", "Ví dụ"],
+          "rows": [
+            ["に", "Nơi tồn tại", "へやに つくえが あります"],
+            ["で", "Nơi hành động xảy ra", "へやで べんきょうします"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Miêu tả một căn phòng, một nơi chốn",
+          "detail": "Nơi chốn đứng đầu câu.",
+          "examples": [
+            {
+              "japanese": "へやに つくえが あります。",
+              "vietnamese": "Trong phòng có một cái bàn."
+            },
+            {
+              "japanese": "うけつけに おんなの ひとが います。",
+              "vietnamese": "Ở quầy lễ tân có một người phụ nữ."
+            },
+            {
+              "japanese": "この へやに なにが ありますか。",
+              "vietnamese": "Trong căn phòng này có gì vậy?"
+            },
+            {
+              "japanese": "にわに だれが いますか。",
+              "vietnamese": "Ở ngoài vườn có ai vậy?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N は N（nơi chốn）に あります ／ います",
+      "summary": "Nói một thứ đã biết thì nằm ở đâu — trọng tâm là NƠI CHỐN.",
+      "structures": ["N は N（nơi chốn）に あります／います"],
+      "explanation": [
+        "Cùng nội dung với mẫu trên nhưng đảo trọng tâm: ở đây vật đã biết rồi, cái cần hỏi là nó nằm ở đâu.",
+        "Vì vật đã biết nên nó lên làm chủ đề và đi với は.",
+        "Đây là bản đầy đủ của mẫu 「N1 は N2 です」 đã học ở bài 3."
+      ],
+      "tables": [
+        {
+          "caption": "Hai trọng tâm khác nhau",
+          "headers": ["Mẫu", "Câu hỏi tương ứng", "Thông tin mới"],
+          "rows": [
+            ["へやに つくえが あります", "へやに なにが ありますか", "Cái bàn"],
+            ["つくえは へやに あります", "つくえは どこに ありますか", "Trong phòng"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời vị trí",
+          "detail": "Câu hỏi dùng どこに.",
+          "examples": [
+            {
+              "japanese": "とうきょうディズニーランドは ちばけんに あります。",
+              "vietnamese": "Tokyo Disneyland nằm ở tỉnh Chiba."
+            },
+            {
+              "japanese": "やまださんは どこに いますか。",
+              "vietnamese": "Anh Yamada đang ở đâu?"
+            },
+            {
+              "japanese": "かいぎしつに います。",
+              "vietnamese": "Anh ấy đang ở phòng họp."
+            },
+            {
+              "japanese": "わたしの かぎは かばんの なかに あります。",
+              "vietnamese": "Chìa khóa của tôi ở trong cặp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Từ chỉ vị trí — うえ・した・まえ・うしろ…",
+      "summary": "Danh từ chỉ vị trí, luôn nối với vật mốc bằng の.",
+      "structures": ["N（vật mốc）の ＋ từ chỉ vị trí ＋ に"],
+      "explanation": [
+        "Trật tự cố định: vật mốc đứng trước, の, rồi mới đến từ chỉ vị trí. Ngược hẳn tiếng Việt.",
+        "Tiếng Việt nói 'trên bàn' còn tiếng Nhật nói 「つくえの うえ」 — nghĩa đen là 'bàn của phần trên'.",
+        "Cả cụm đó là một danh từ chỉ nơi chốn nên thêm に vào sau là dùng được ngay."
+      ],
+      "tables": [
+        {
+          "caption": "Các từ chỉ vị trí ở bài 10",
+          "headers": ["Từ", "Nghĩa"],
+          "rows": [
+            ["うえ", "trên"],
+            ["した", "dưới"],
+            ["まえ", "trước"],
+            ["うしろ", "sau"],
+            ["みぎ", "bên phải"],
+            ["ひだり", "bên trái"],
+            ["なか", "bên trong"],
+            ["そと", "bên ngoài"],
+            ["となり", "bên cạnh"],
+            ["ちかく", "gần"],
+            ["あいだ", "ở giữa hai vật"]
+          ]
+        }
+      ],
+      "notes": [
+        "あいだ cần HAI vật mốc, nối với nhau bằng と: 「ぎんこうと ゆうびんきょくの あいだ」.",
+        "となり chỉ dùng cho hai vật cùng loại đứng kề nhau; ちかく chỉ nói chung là ở gần."
+      ],
+      "usages": [
+        {
+          "title": "Nêu vị trí tương đối",
+          "detail": "Vật mốc, の, từ chỉ vị trí, に.",
+          "examples": [
+            {
+              "japanese": "つくえの うえに ほんが あります。",
+              "vietnamese": "Trên bàn có một quyển sách."
+            },
+            {
+              "japanese": "いすの したに ねこが います。",
+              "vietnamese": "Dưới ghế có một con mèo."
+            },
+            {
+              "japanese": "ゆうびんきょくは ぎんこうの となりに あります。",
+              "vietnamese": "Bưu điện nằm bên cạnh ngân hàng."
+            },
+            {
+              "japanese": "ぎんこうと ゆうびんきょくの あいだに コンビニが あります。",
+              "vietnamese": "Giữa ngân hàng và bưu điện có một cửa hàng tiện lợi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 や N2［など］",
+      "summary": "Liệt kê một vài thứ tiêu biểu, còn nhiều thứ khác chưa kể hết.",
+      "structures": ["N1 や N2", "N1 や N2 など"],
+      "explanation": [
+        "や khác と ở bài 4: と liệt kê ĐẦY ĐỦ, や chỉ nêu VÀI THỨ TIÊU BIỂU.",
+        "Thêm など vào cuối để nhấn mạnh rằng còn nữa, tương đương 'vân vân' trong tiếng Việt."
+      ],
+      "tables": [
+        {
+          "caption": "と và や",
+          "headers": ["Trợ từ", "Ý", "Ví dụ"],
+          "rows": [
+            ["と", "Liệt kê đủ, không thiếu gì", "はこの なかに ほんと ノートが あります"],
+            ["や ～ など", "Nêu tiêu biểu, còn nữa", "はこの なかに ほんや ノートなどが あります"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Kể vài thứ tiêu biểu",
+          "detail": "Rất hay dùng khi tả một nơi chốn.",
+          "examples": [
+            {
+              "japanese": "はこの なかに てがみや しゃしんが あります。",
+              "vietnamese": "Trong hộp có thư, ảnh và mấy thứ khác nữa."
+            },
+            {
+              "japanese": "つくえの うえに ペンや じしょなどが あります。",
+              "vietnamese": "Trên bàn có bút, từ điển và nhiều thứ khác."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

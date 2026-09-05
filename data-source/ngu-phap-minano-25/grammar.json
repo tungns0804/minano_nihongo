@@ -1,0 +1,173 @@
+{
+  "points": [
+    {
+      "title": "～たら、～",
+      "summary": "Điều kiện linh hoạt nhất: nếu xảy ra việc này thì làm việc kia.",
+      "structures": [
+        "V た ＋ ら、～",
+        "Aい（bỏ い）＋ かったら、～",
+        "Aな ＋ だったら、～",
+        "N ＋ だったら、～"
+      ],
+      "explanation": [
+        "Cách lập rất dễ nhớ: lấy thể た rồi thêm ら. Với tính từ và danh từ thì lấy dạng quá khứ thể thông thường rồi thêm ら.",
+        "Khác với と ở bài 23, vế sau của たら ĐƯỢC PHÉP chứa ý chí của người nói: lời nhờ vả, lời mời, mệnh lệnh, dự định. Đây là lý do たら dùng được rộng hơn hẳn.",
+        "たら có hai nghĩa: điều kiện giả định ('nếu') và thời điểm chắc chắn sẽ tới ('khi ... xong')."
+      ],
+      "tables": [
+        {
+          "caption": "Cách lập ～たら",
+          "headers": ["Loại", "Cách lập", "Ví dụ"],
+          "rows": [
+            ["Động từ", "Thể た ＋ ら", "ふる → ふったら"],
+            ["Tính từ い", "Bỏ い ＋ かったら", "やすい → やすかったら"],
+            ["Tính từ な", "Thêm だったら", "ひま → ひまだったら"],
+            ["Danh từ", "Thêm だったら", "あめ → あめだったら"]
+          ]
+        },
+        {
+          "caption": "と và たら",
+          "headers": ["Mẫu", "Vế sau chứa ý chí", "Dùng khi"],
+          "rows": [
+            ["V る と", "Không được", "Quy luật, máy móc, chỉ đường"],
+            ["V たら", "Được", "Giả định, kế hoạch, nhờ vả"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Điều kiện giả định — nếu",
+          "detail": "Vế sau tự do, kể cả nhờ vả và mệnh lệnh.",
+          "examples": [
+            {
+              "japanese": "あめが ふったら、でかけません。",
+              "vietnamese": "Nếu trời mưa thì tôi không ra ngoài."
+            },
+            {
+              "japanese": "やすかったら、かいたいです。",
+              "vietnamese": "Nếu rẻ thì tôi muốn mua."
+            },
+            {
+              "japanese": "じかんが あったら、てつだって ください。",
+              "vietnamese": "Nếu có thời gian thì anh giúp tôi với."
+            },
+            {
+              "japanese": "１おくえん あったら、いえを かいます。",
+              "vietnamese": "Nếu có 100 triệu yên thì tôi sẽ mua nhà.",
+              "reading": "いちおくえん あったら、いえを かいます。"
+            }
+          ]
+        },
+        {
+          "title": "Thời điểm chắc chắn tới — khi xong",
+          "detail": "Không phải giả định mà là chuyện sẽ xảy ra.",
+          "examples": [
+            {
+              "japanese": "しごとが おわったら、すぐ かえります。",
+              "vietnamese": "Xong việc là tôi về ngay."
+            },
+            {
+              "japanese": "２０さいに なったら、たばこを すっても いいです。",
+              "vietnamese": "Đến 20 tuổi thì được phép hút thuốc.",
+              "reading": "はたちに なったら、たばこを すっても いいです。"
+            },
+            {
+              "japanese": "にほんへ きたら、れんらくして ください。",
+              "vietnamese": "Khi nào đến Nhật anh liên lạc với tôi nhé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ても、～",
+      "summary": "Nghịch điều kiện: dù có xảy ra việc này thì kết quả vẫn không đổi.",
+      "structures": [
+        "V て ＋ も、～",
+        "Aい（bỏ い）＋ くても、～",
+        "Aな ＋ でも、～",
+        "N ＋ でも、～"
+      ],
+      "explanation": [
+        "Lấy thể て rồi thêm も. Tính từ い bỏ い thêm くても; tính từ な và danh từ thêm でも.",
+        "Vế sau đi ngược lại điều mà vế trước gợi ra. Đây chính là chỗ khác たら: たら thì vế sau thuận theo, còn ても thì vế sau đi ngược.",
+        "Đã gặp dạng này ở bài 15 với 「～ても いいです」 — đó cũng chính là mẫu này ghép với いいです."
+      ],
+      "tables": [
+        {
+          "caption": "たら và ても",
+          "headers": ["Mẫu", "Quan hệ hai vế", "Ví dụ"],
+          "rows": [
+            ["V たら", "Thuận — nếu A thì B", "あめが ふったら、いきません"],
+            ["V ても", "Nghịch — dù A vẫn B", "あめが ふっても、いきます"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Dù thế nào vẫn không đổi",
+          "detail": "Vế sau đi ngược mong đợi.",
+          "examples": [
+            {
+              "japanese": "あめが ふっても、でかけます。",
+              "vietnamese": "Dù trời mưa tôi vẫn ra ngoài."
+            },
+            {
+              "japanese": "やすくても、かいません。",
+              "vietnamese": "Dù rẻ tôi cũng không mua."
+            },
+            {
+              "japanese": "にちようびでも、はたらきます。",
+              "vietnamese": "Dù là Chủ nhật tôi vẫn đi làm."
+            },
+            {
+              "japanese": "べんきょうしても、なかなか じょうずに なりません。",
+              "vietnamese": "Dù có học thì mãi vẫn không giỏi lên được."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "もし ／ いくら",
+      "summary": "Hai phó từ báo trước cho người nghe biết câu sắp tới là câu điều kiện.",
+      "structures": ["もし ～たら、～", "いくら ～ても、～"],
+      "explanation": [
+        "もし đứng đầu câu たら, báo rằng đây là chuyện giả định. Nó không đổi nghĩa mà chỉ giúp người nghe chuẩn bị.",
+        "いくら đứng đầu câu ても, nhấn mạnh 'dù có ... đến mấy đi nữa'.",
+        "Hai phó từ này chỉ đi đúng với mẫu của mình: không nói 「もし ～ても」 hay 「いくら ～たら」."
+      ],
+      "usages": [
+        {
+          "title": "もし — giả định",
+          "detail": "Đi cùng ～たら.",
+          "examples": [
+            {
+              "japanese": "もし あした ひまだったら、うみへ いきませんか。",
+              "vietnamese": "Nếu mai anh rảnh thì mình đi biển nhé?"
+            },
+            {
+              "japanese": "もし １おくえん あったら、なにを しますか。",
+              "vietnamese": "Nếu có 100 triệu yên thì anh sẽ làm gì?",
+              "reading": "もし いちおくえん あったら、なにを しますか。"
+            }
+          ]
+        },
+        {
+          "title": "いくら — dù đến mấy",
+          "detail": "Đi cùng ～ても.",
+          "examples": [
+            {
+              "japanese": "いくら かんがえても、わかりません。",
+              "vietnamese": "Dù có nghĩ đến mấy tôi cũng không hiểu."
+            },
+            {
+              "japanese": "いくら たかくても、これが ほしいです。",
+              "vietnamese": "Dù đắt đến mấy tôi cũng muốn có cái này."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

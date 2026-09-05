@@ -1,0 +1,213 @@
+{
+  "points": [
+    {
+      "title": "N（công cụ, phương tiện）で V",
+      "summary": "Một nghĩa nữa của で: dùng cái gì để làm việc gì.",
+      "structures": ["N（công cụ）で V", "なにで V ますか"],
+      "explanation": [
+        "Ở bài 5, で chỉ phương tiện đi lại; ở bài 6, で chỉ nơi xảy ra hành động; ở bài này で chỉ công cụ và ngôn ngữ được dùng.",
+        "Ba nghĩa đó không lẫn nhau vì danh từ đứng trước で đã cho biết đang nói về loại gì."
+      ],
+      "tables": [
+        {
+          "caption": "Ba nghĩa của で đã học",
+          "headers": ["Nghĩa", "Ví dụ"],
+          "rows": [
+            ["Phương tiện đi lại (bài 5)", "でんしゃで いきます"],
+            ["Nơi hành động xảy ra (bài 6)", "としょかんで よみます"],
+            ["Công cụ, ngôn ngữ (bài 7)", "はしで たべます"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Dùng dụng cụ để làm gì đó",
+          "detail": "Công cụ đứng trước で.",
+          "examples": [
+            {
+              "japanese": "はしで ごはんを たべます。",
+              "vietnamese": "Tôi ăn cơm bằng đũa."
+            },
+            {
+              "japanese": "はさみで かみを きります。",
+              "vietnamese": "Tôi cắt giấy bằng kéo."
+            },
+            {
+              "japanese": "パソコンで レポートを かきます。",
+              "vietnamese": "Tôi viết báo cáo bằng máy tính."
+            },
+            {
+              "japanese": "なにで ごはんを たべますか。",
+              "vietnamese": "Anh ăn cơm bằng gì vậy?"
+            }
+          ]
+        },
+        {
+          "title": "Dùng ngôn ngữ nào",
+          "detail": "Tên ngôn ngữ cũng đứng trước で.",
+          "examples": [
+            {
+              "japanese": "えいごで レポートを かきます。",
+              "vietnamese": "Tôi viết báo cáo bằng tiếng Anh."
+            },
+            {
+              "japanese": "にほんごで てがみを かきました。",
+              "vietnamese": "Tôi đã viết thư bằng tiếng Nhật."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "「～」は ～ごで なんですか",
+      "summary": "Hỏi một từ trong ngôn ngữ này thì tiếng kia gọi là gì.",
+      "structures": ["「N1」は N2ご で なんですか。→ 「N3」です。"],
+      "explanation": [
+        "Đây là ứng dụng trực tiếp của で chỉ ngôn ngữ ở mẫu trên.",
+        "Câu này cực kỳ hữu dụng khi học: gặp từ chưa biết thì hỏi ngay bằng chính tiếng Nhật."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi cách nói một từ",
+          "detail": "Từ cần hỏi đặt trong ngoặc kép.",
+          "examples": [
+            {
+              "japanese": "「ありがとう」は えいごで なんですか。",
+              "vietnamese": "Từ 'arigatou' trong tiếng Anh là gì?"
+            },
+            {
+              "japanese": "「Thank you」です。",
+              "vietnamese": "Là 'Thank you'."
+            },
+            {
+              "japanese": "「こいびと」は ベトナムごで なんですか。",
+              "vietnamese": "Từ 'koibito' trong tiếng Việt là gì?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（người）に あげます ／ かします ／ おしえます",
+      "summary": "Nhóm động từ CHO đi: người nhận đứng trước に.",
+      "structures": ["わたしは N（người）に N（vật）を あげます"],
+      "explanation": [
+        "Nhóm này gồm あげます (tặng), かします (cho mượn), おしえます (dạy), おくります (gửi), かけます (gọi điện).",
+        "に đánh dấu NGƯỜI NHẬN. Chủ ngữ là người cho.",
+        "Không dùng あげます khi người nhận là わたし. Muốn nói ai đó cho tôi thì phải dùng もらいます ở mẫu sau, hoặc くれます học ở bài 24."
+      ],
+      "usages": [
+        {
+          "title": "Tặng, cho mượn, dạy cho ai đó",
+          "detail": "Người nhận đứng trước に, vật trước を.",
+          "examples": [
+            {
+              "japanese": "わたしは やまださんに はなを あげました。",
+              "vietnamese": "Tôi đã tặng hoa cho chị Yamada."
+            },
+            {
+              "japanese": "ミラーさんは アンさんに ほんを あげます。",
+              "vietnamese": "Anh Miller tặng sách cho chị An."
+            },
+            {
+              "japanese": "ともだちに ５０００えんを かしました。",
+              "vietnamese": "Tôi đã cho bạn mượn 5.000 yên.",
+              "reading": "ともだちに ごせんえんを かしました。"
+            },
+            {
+              "japanese": "だれに でんわを かけましたか。",
+              "vietnamese": "Anh đã gọi điện cho ai vậy?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（người）に もらいます ／ かります ／ ならいます",
+      "summary": "Nhóm động từ NHẬN về: người cho đứng trước に.",
+      "structures": [
+        "わたしは N（người）に N（vật）を もらいます",
+        "わたしは N（tổ chức）から N を もらいます"
+      ],
+      "explanation": [
+        "Nhóm này gồm もらいます (nhận), かります (mượn), ならいます (học từ ai đó).",
+        "Ở đây に lại đánh dấu NGƯỜI CHO — ngược hẳn với mẫu trên. Phân biệt bằng chính động từ chứ không bằng trợ từ.",
+        "Khi bên cho là một tổ chức chứ không phải người (công ty, trường học) thì dùng から thay cho に."
+      ],
+      "tables": [
+        {
+          "caption": "Hai chiều của một sự việc",
+          "headers": ["Chiều", "Chủ ngữ là", "Câu"],
+          "rows": [
+            ["Cho đi", "Người cho", "マイさんは トランさんに プレゼントを あげました"],
+            ["Nhận về", "Người nhận", "トランさんは マイさんに プレゼントを もらいました"]
+          ]
+        }
+      ],
+      "notes": [
+        "Hai câu trong bảng nói cùng một sự việc nhưng đứng từ hai điểm nhìn: あげます kể theo cảm xúc của người trao, もらいます kể theo lòng biết ơn của người nhận."
+      ],
+      "usages": [
+        {
+          "title": "Nhận, mượn, học từ ai đó",
+          "detail": "Người cho đứng trước に.",
+          "examples": [
+            {
+              "japanese": "わたしは アンさんに はなを もらいました。",
+              "vietnamese": "Tôi đã nhận hoa từ chị An."
+            },
+            {
+              "japanese": "ともだちに じしょを かりました。",
+              "vietnamese": "Tôi đã mượn từ điển của bạn."
+            },
+            {
+              "japanese": "わたしは たなかせんせいに にほんごを ならいました。",
+              "vietnamese": "Tôi đã học tiếng Nhật từ thầy Tanaka."
+            },
+            {
+              "japanese": "かいしゃから パソコンを もらいました。",
+              "vietnamese": "Tôi đã được công ty cấp cho một chiếc máy tính.",
+              "note": "Bên cho là tổ chức nên dùng から."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "もう V ました",
+      "summary": "Nói một việc đã hoàn thành xong rồi.",
+      "structures": ["もう V ましたか。→ はい、もう V ました。／ いいえ、まだです。"],
+      "explanation": [
+        "もう nghĩa là 'đã ... rồi', nhấn vào chỗ việc đó đã xong.",
+        "Trả lời phủ định KHÔNG dùng 「いいえ、もう Vませんでした」 mà nói gọn 「いいえ、まだです」 — nghĩa là 'chưa, vẫn còn chưa xong'."
+      ],
+      "notes": [
+        "「まだです」 hàm ý sẽ làm, chỉ là chưa làm. Nếu muốn nói dứt khoát là không làm thì mới dùng thể phủ định quá khứ."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời việc đã xong chưa",
+          "detail": "Cặp câu cố định, học thuộc cả hai vế.",
+          "examples": [
+            {
+              "japanese": "もう ひるごはんを たべましたか。",
+              "vietnamese": "Anh ăn trưa chưa?"
+            },
+            {
+              "japanese": "はい、もう たべました。",
+              "vietnamese": "Vâng, tôi ăn rồi."
+            },
+            {
+              "japanese": "いいえ、まだです。",
+              "vietnamese": "Chưa, tôi vẫn chưa ăn."
+            },
+            {
+              "japanese": "もう てがみを おくりました。",
+              "vietnamese": "Tôi đã gửi thư rồi."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

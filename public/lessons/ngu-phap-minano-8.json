@@ -1,0 +1,376 @@
+{
+  "id": "ngu-phap-minano-8",
+  "lessonNumber": 8,
+  "name": "皆の日本語 — Bài 8 · Ngữ pháp",
+  "description": "Tính từ い và な, Adj + N, とても・あまり, Nは どうですか, どんな N, そして・が",
+  "kind": "grammar",
+  "itemCount": 6,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1iv03ad",
+      "title": "Tính từ đuôi い và tính từ đuôi な",
+      "summary": "Tiếng Nhật có hai loại tính từ, chia khác nhau hoàn toàn.",
+      "structures": [
+        "N は Aい です",
+        "N は Aな です"
+      ],
+      "explanation": [
+        "Tính từ い kết thúc bằng い và tự nó biến đổi đuôi khi chia: おおきい → おおきくない.",
+        "Tính từ な không tự biến đổi, mà mượn です／じゃ ありません để chia — giống hệt danh từ ở bài 1. Chữ な chỉ xuất hiện khi nó bổ nghĩa cho danh từ.",
+        "Trong từ điển và trong giáo trình, tính từ な thường được ghi kèm な trong ngoặc: 「しんせつ［な］」."
+      ],
+      "notes": [
+        "いい là tính từ bất quy tắc: phủ định là 「よくないです」 chứ không phải 「いくないです」. Mọi tính từ ghép có chứa いい cũng theo luật này: かっこいい → かっこよくない.",
+        "きれい, ゆうめい, きらい kết thúc bằng い nhưng là tính từ な. Nhớ riêng ba từ này để khỏi chia sai."
+      ],
+      "tables": [
+        {
+          "caption": "Bảng chia hai loại tính từ",
+          "headers": [
+            "Thể",
+            "Tính từ い（おおきい）",
+            "Tính từ な（しんせつ）"
+          ],
+          "rows": [
+            [
+              "Khẳng định",
+              "おおきいです",
+              "しんせつです"
+            ],
+            [
+              "Phủ định",
+              "おおきくないです",
+              "しんせつじゃ ありません"
+            ],
+            [
+              "Nghi vấn",
+              "おおきいですか",
+              "しんせつですか"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Khẳng định và phủ định",
+          "detail": "Chú ý hai kiểu chia khác nhau.",
+          "examples": [
+            {
+              "id": "01h9izv",
+              "japanese": "この まちは おおきいです。",
+              "reading": "",
+              "vietnamese": "Thành phố này lớn.",
+              "note": ""
+            },
+            {
+              "id": "0g14cjq",
+              "japanese": "この まちは おおきくないです。",
+              "reading": "",
+              "vietnamese": "Thành phố này không lớn.",
+              "note": ""
+            },
+            {
+              "id": "1jkhs2i",
+              "japanese": "アンさんは しんせつです。",
+              "reading": "",
+              "vietnamese": "Chị An tốt bụng.",
+              "note": ""
+            },
+            {
+              "id": "0737xib",
+              "japanese": "この へやは きれいじゃ ありません。",
+              "reading": "",
+              "vietnamese": "Căn phòng này không sạch đẹp.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03hdgbn",
+      "title": "Tính từ bổ nghĩa cho danh từ",
+      "summary": "Tính từ đứng TRƯỚC danh từ, ngược trật tự với tiếng Việt.",
+      "structures": [
+        "Aい ＋ N",
+        "Aな ＋ な ＋ N"
+      ],
+      "explanation": [
+        "Tính từ い giữ nguyên đuôi い rồi ghép thẳng vào danh từ: 「おおきい まち」.",
+        "Tính từ な phải thêm な vào giữa: 「しんせつな ひと」. Đây chính là lý do người ta gọi nó là tính từ な.",
+        "Tiếng Việt nói 'thành phố lớn' còn tiếng Nhật nói 'lớn thành phố'. Đảo trật tự này là bước đầu tiên phải quen."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Ghép tính từ vào danh từ",
+          "detail": "Nhớ thêm な với loại tính từ な.",
+          "examples": [
+            {
+              "id": "1wpx818",
+              "japanese": "ミラーさんは おもしろい ひとです。",
+              "reading": "",
+              "vietnamese": "Anh Miller là người thú vị.",
+              "note": ""
+            },
+            {
+              "id": "1oksf1q",
+              "japanese": "この くるまは あたらしい くるまです。",
+              "reading": "",
+              "vietnamese": "Chiếc xe này là xe mới.",
+              "note": ""
+            },
+            {
+              "id": "1dkm7pm",
+              "japanese": "アンさんは しんせつな ひとです。",
+              "reading": "",
+              "vietnamese": "Chị An là người tốt bụng.",
+              "note": ""
+            },
+            {
+              "id": "0arvljw",
+              "japanese": "きょうとは ゆうめいな まちです。",
+              "reading": "",
+              "vietnamese": "Kyoto là một thành phố nổi tiếng.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0wred0k",
+      "title": "とても ／ あまり",
+      "summary": "Hai phó từ chỉ mức độ, một dùng với câu khẳng định, một dùng với câu phủ định.",
+      "structures": [
+        "とても ＋ A です（khẳng định）",
+        "あまり ＋ A phủ định"
+      ],
+      "explanation": [
+        "とても đứng trước tính từ trong câu khẳng định, nghĩa là 'rất'.",
+        "あまり BẮT BUỘC đi với vị ngữ phủ định, nghĩa là 'không ... lắm'. Nói 「あまり おおきいです」 là sai."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nhấn mạnh mức độ cao",
+          "detail": "とても đứng ngay trước tính từ.",
+          "examples": [
+            {
+              "id": "1tr7zbj",
+              "japanese": "ミラーさんは とても ハンサムです。",
+              "reading": "",
+              "vietnamese": "Anh Miller rất đẹp trai.",
+              "note": ""
+            },
+            {
+              "id": "0pvsst5",
+              "japanese": "この りょうりは とても おいしいです。",
+              "reading": "",
+              "vietnamese": "Món ăn này rất ngon.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Nói mức độ thấp — luôn kèm phủ định",
+          "detail": "Vế sau bắt buộc phủ định.",
+          "examples": [
+            {
+              "id": "0e9bb8g",
+              "japanese": "この まちは あまり おおきくないです。",
+              "reading": "",
+              "vietnamese": "Thành phố này không lớn lắm.",
+              "note": ""
+            },
+            {
+              "id": "1qckbgm",
+              "japanese": "にほんごは あまり むずかしくないです。",
+              "reading": "",
+              "vietnamese": "Tiếng Nhật không khó lắm.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17x2v78",
+      "title": "N は どうですか",
+      "summary": "Hỏi cảm nhận, ấn tượng của người nghe về một việc.",
+      "structures": [
+        "N は どうですか。"
+      ],
+      "explanation": [
+        "どう hỏi về ẤN TƯỢNG, cảm nghĩ — dùng khi người nghe đã trải nghiệm việc đó.",
+        "Trả lời bằng một tính từ."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi cảm nghĩ về một trải nghiệm",
+          "detail": "Bữa tiệc, chuyến đi, công việc.",
+          "examples": [
+            {
+              "id": "1fnq4kb",
+              "japanese": "にほんの せいかつは どうですか。",
+              "reading": "",
+              "vietnamese": "Cuộc sống ở Nhật thế nào ạ?",
+              "note": ""
+            },
+            {
+              "id": "1clnfw7",
+              "japanese": "たのしいです。",
+              "reading": "",
+              "vietnamese": "Vui lắm ạ.",
+              "note": ""
+            },
+            {
+              "id": "0vw2g0t",
+              "japanese": "パーティーは どうでしたか。",
+              "reading": "",
+              "vietnamese": "Bữa tiệc thế nào?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0nz11yw",
+      "title": "N1 は どんな N2 ですか",
+      "summary": "Hỏi tính chất, đặc điểm của một sự vật thuộc nhóm nào đó.",
+      "structures": [
+        "N1 は どんな N2 ですか。"
+      ],
+      "explanation": [
+        "どんな luôn đi kèm một danh từ ngay sau, không đứng một mình.",
+        "Khác どう ở chỗ: どう hỏi cảm nghĩ chủ quan, còn どんな hỏi đặc điểm khách quan của sự vật."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "どう và どんな",
+          "headers": [
+            "Từ hỏi",
+            "Hỏi về",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "どう",
+              "Cảm nghĩ, ấn tượng",
+              "にほんは どうですか"
+            ],
+            [
+              "どんな N",
+              "Đặc điểm của sự vật",
+              "にほんは どんな くにですか"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi đặc điểm",
+          "detail": "Trả lời bằng tính từ bổ nghĩa cho chính danh từ đó.",
+          "examples": [
+            {
+              "id": "1xqulyt",
+              "japanese": "ハノイは どんな まちですか。",
+              "reading": "",
+              "vietnamese": "Hà Nội là thành phố như thế nào?",
+              "note": ""
+            },
+            {
+              "id": "0yxe7oo",
+              "japanese": "にぎやかな まちです。",
+              "reading": "",
+              "vietnamese": "Là một thành phố nhộn nhịp.",
+              "note": ""
+            },
+            {
+              "id": "0ck3nmp",
+              "japanese": "ミラーさんは どんな ひとですか。",
+              "reading": "",
+              "vietnamese": "Anh Miller là người như thế nào?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "000fljt",
+      "title": "そして ／ ～が、～",
+      "summary": "Hai cách nối câu: cùng chiều và ngược chiều.",
+      "structures": [
+        "A です。そして、A です。",
+        "A ですが、A です。"
+      ],
+      "explanation": [
+        "そして nối hai vế CÙNG CHIỀU, cùng khen hoặc cùng chê.",
+        "が nối hai vế NGƯỢC CHIỀU, tương đương 'nhưng'. Chú ý が này viết liền sau です, không đứng đầu câu.",
+        "Đừng nhầm が nối câu với が làm trợ từ chủ ngữ ở bài 9."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nối hai ý cùng chiều — そして",
+          "detail": "Cả hai vế cùng khen hoặc cùng chê.",
+          "examples": [
+            {
+              "id": "117g6k5",
+              "japanese": "この しごとは たのしいです。そして、おもしろいです。",
+              "reading": "",
+              "vietnamese": "Công việc này vui. Và thú vị nữa.",
+              "note": ""
+            },
+            {
+              "id": "0x563sg",
+              "japanese": "アンさんは しんせつです。そして、きれいです。",
+              "reading": "",
+              "vietnamese": "Chị An tốt bụng. Và xinh đẹp nữa.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Nối hai ý ngược chiều — が",
+          "detail": "が đứng liền sau です của vế đầu.",
+          "examples": [
+            {
+              "id": "08lswkc",
+              "japanese": "にほんごは むずかしいですが、おもしろいです。",
+              "reading": "",
+              "vietnamese": "Tiếng Nhật khó nhưng thú vị.",
+              "note": ""
+            },
+            {
+              "id": "0w6p2jh",
+              "japanese": "この へやは ふるいですが、きれいです。",
+              "reading": "",
+              "vietnamese": "Căn phòng này cũ nhưng sạch đẹp.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

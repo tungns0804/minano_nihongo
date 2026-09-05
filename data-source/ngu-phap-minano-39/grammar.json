@@ -1,0 +1,222 @@
+{
+  "points": [
+    {
+      "title": "V て、～ — nêu nguyên nhân",
+      "summary": "Thể て không chỉ nối hành động mà còn nêu nguyên nhân cho vế sau.",
+      "structures": ["V て、～", "V なくて、～"],
+      "explanation": [
+        "Ở bài 16 thể て nối các hành động theo thứ tự; ở bài 34 nó tả cách thức. Ở bài này vế trước て là NGUYÊN NHÂN, vế sau là kết quả sinh ra từ nguyên nhân đó.",
+        "Vế sau BẮT BUỘC là biểu hiện mang tính trạng thái, không mang ý chí của người nói. Không được dùng lời nhờ vả, mệnh lệnh, rủ rê hay dự định ở vế sau.",
+        "Muốn vế sau mang ý chí thì phải quay lại dùng から như đã học ở bài 9.",
+        "Phủ định của vế nguyên nhân là ～なくて, không phải ～ないで."
+      ],
+      "tables": [
+        {
+          "caption": "Các nhóm hay đứng ở vế sau",
+          "headers": ["Nhóm", "Ví dụ ở vế sau"],
+          "rows": [
+            ["Cảm xúc", "びっくりしました, あんしんしました, さびしいです, うれしいです"],
+            ["Khả năng và trạng thái", "できません, わかりません, まにあいません"],
+            ["Sự việc ngoài ý muốn", "おくれました, こまりました, つかれました"]
+          ]
+        }
+      ],
+      "notes": [
+        "Câu 「あぶなくて、きかいに さわらないで ください」 là SAI vì vế sau là lời nhờ vả. Phải nói 「あぶないですから、きかいに さわらないで ください」."
+      ],
+      "usages": [
+        {
+          "title": "Nguyên nhân dẫn tới cảm xúc",
+          "detail": "Vế sau là động từ hoặc tính từ chỉ cảm xúc.",
+          "examples": [
+            {
+              "japanese": "ニュースを きいて、びっくりしました。",
+              "vietnamese": "Nghe tin đó xong tôi đã rất ngạc nhiên."
+            },
+            {
+              "japanese": "かぞくに あえなくて、さびしいです。",
+              "vietnamese": "Vì không được gặp gia đình nên tôi thấy cô đơn."
+            },
+            {
+              "japanese": "こどもが ぶじで、あんしんしました。",
+              "vietnamese": "Vì con bình an vô sự nên tôi đã yên tâm."
+            }
+          ]
+        },
+        {
+          "title": "Nguyên nhân dẫn tới việc ngoài ý muốn",
+          "detail": "Vế sau tả kết quả tự nhiên sinh ra.",
+          "examples": [
+            {
+              "japanese": "じこが あって、バスが おくれました。",
+              "vietnamese": "Vì có tai nạn nên xe buýt đến muộn."
+            },
+            {
+              "japanese": "がっこうに おくれて、せんせいに しかられました。",
+              "vietnamese": "Vì đi học muộn nên tôi bị thầy mắng."
+            },
+            {
+              "japanese": "はなしが ふくざつで、よく わかりませんでした。",
+              "vietnamese": "Vì câu chuyện phức tạp nên tôi không hiểu lắm."
+            },
+            {
+              "japanese": "どようびは ようじが あって、いけません。",
+              "vietnamese": "Thứ Bảy tôi có việc bận nên không đi được."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A くて ／ A で ／ N で — nêu nguyên nhân",
+      "summary": "Tính từ và danh từ cũng nêu được nguyên nhân, bằng chính cách nối đã học ở bài 16.",
+      "structures": ["Aい（bỏ い）＋ くて、～", "Aな ＋ で、～", "N ＋ で、～"],
+      "explanation": [
+        "Cách nối giống hệt bài 16, chỉ khác ở quan hệ giữa hai vế: bài 16 là liệt kê song song, còn ở đây vế trước là nguyên nhân.",
+        "Danh từ dùng ở mẫu này thường chỉ hiện tượng tự nhiên hoặc sự cố: じしん, かじ, びょうき, じこ.",
+        "Ràng buộc về vế sau giống hệt mẫu trên: không được mang ý chí."
+      ],
+      "tables": [
+        {
+          "caption": "Ba cách nối",
+          "headers": ["Loại", "Cách nối", "Ví dụ"],
+          "rows": [
+            ["Tính từ い", "Bỏ い ＋ くて", "さむい → さむくて"],
+            ["Tính từ な", "Thêm で", "ふくざつ → ふくざつで"],
+            ["Danh từ", "Thêm で", "じしん → じしんで"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Tính từ làm nguyên nhân",
+          "detail": "Bỏ い thêm くて, hoặc thêm で.",
+          "examples": [
+            {
+              "japanese": "しごとが いそがしくて、やすむ じかんが ありません。",
+              "vietnamese": "Vì công việc bận rộn nên tôi không có thời gian nghỉ."
+            },
+            {
+              "japanese": "この もんだいは むずかしくて、ぜんぜん わかりません。",
+              "vietnamese": "Bài này khó quá nên tôi hoàn toàn không hiểu."
+            },
+            {
+              "japanese": "こうつうが ふべんで、こまって います。",
+              "vietnamese": "Vì giao thông bất tiện nên tôi đang gặp khó khăn."
+            }
+          ]
+        },
+        {
+          "title": "Danh từ chỉ sự cố làm nguyên nhân",
+          "detail": "Thêm で vào sau danh từ.",
+          "examples": [
+            {
+              "japanese": "じしんで ビルが たおれました。",
+              "vietnamese": "Tòa nhà đã đổ vì động đất."
+            },
+            {
+              "japanese": "びょうきで かいしゃを やすみました。",
+              "vietnamese": "Tôi đã nghỉ làm vì bị ốm."
+            },
+            {
+              "japanese": "じこで でんしゃが とまりました。",
+              "vietnamese": "Tàu điện đã dừng vì tai nạn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ので、～",
+      "summary": "Nêu lý do một cách mềm mại, khách quan hơn から.",
+      "structures": [
+        "V thể thông thường ＋ ので、～",
+        "Aい ＋ ので、～",
+        "Aな ＋ な ＋ ので、～",
+        "N ＋ な ＋ ので、～"
+      ],
+      "explanation": [
+        "Phần trước ので ở thể thông thường. Riêng tính từ な và danh từ phải thêm な chứ không phải だ: 「べんりなので」, 「やすみなので」.",
+        "ので trình bày quan hệ nhân quả như một sự thật khách quan, nên nghe nhẹ nhàng và lễ độ hơn から. Vì vậy nó rất hợp khi xin phép, khi nêu lý do với người trên.",
+        "から nhấn vào lý do CHỦ QUAN của người nói, nên nghe mạnh hơn và có thể mang sắc thái biện hộ."
+      ],
+      "tables": [
+        {
+          "caption": "から và ので",
+          "headers": ["Mẫu", "Sắc thái", "Dạng đứng trước"],
+          "rows": [
+            ["から", "Chủ quan, dứt khoát", "Thể lịch sự hoặc thể thông thường"],
+            ["ので", "Khách quan, mềm mại", "Thể thông thường, Aな và N thêm な"]
+          ]
+        }
+      ],
+      "notes": [
+        "Trong văn nói lịch sự cũng gặp 「～ですので」, 「～ますので」 — dạng này còn trang trọng hơn nữa, hay dùng khi thông báo với khách hàng."
+      ],
+      "usages": [
+        {
+          "title": "Xin phép, nhờ vả một cách lễ độ",
+          "detail": "Đây là chỗ ので tỏa sáng so với から.",
+          "examples": [
+            {
+              "japanese": "にほんごが わからないので、えいごで はなして いただけませんか。",
+              "vietnamese": "Vì tôi không hiểu tiếng Nhật nên anh nói bằng tiếng Anh giúp tôi được không?"
+            },
+            {
+              "japanese": "ようじが あるので、おさきに しつれいします。",
+              "vietnamese": "Vì có việc bận nên tôi xin phép về trước."
+            },
+            {
+              "japanese": "あしたは やすみなので、どこかへ いきたいです。",
+              "vietnamese": "Vì mai là ngày nghỉ nên tôi muốn đi đâu đó.",
+              "note": "Danh từ thêm な chứ không thêm だ."
+            }
+          ]
+        },
+        {
+          "title": "Nêu lý do khách quan",
+          "detail": "Sự việc tự nó dẫn tới kết quả.",
+          "examples": [
+            {
+              "japanese": "この へやは しずかなので、よく べんきょうできます。",
+              "vietnamese": "Vì phòng này yên tĩnh nên tôi học được tốt."
+            },
+            {
+              "japanese": "あめが ふって いるので、きょうは でかけません。",
+              "vietnamese": "Vì trời đang mưa nên hôm nay tôi không ra ngoài."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "とちゅうで",
+      "summary": "Ở một điểm nào đó trên đường di chuyển tới nơi khác.",
+      "structures": ["V る ＋ とちゅうで、～", "N の ＋ とちゅうで、～"],
+      "explanation": [
+        "とちゅう nghĩa là 'giữa đường, dở chừng'. Cả cụm chỉ một điểm nằm giữa hành trình chứ không phải điểm đầu hay điểm cuối.",
+        "Động từ đứng trước ở thể từ điển; danh từ thì thêm の."
+      ],
+      "usages": [
+        {
+          "title": "Việc xảy ra giữa đường",
+          "detail": "Thể từ điển hoặc N の.",
+          "examples": [
+            {
+              "japanese": "かいしゃへ いく とちゅうで、じこを みました。",
+              "vietnamese": "Trên đường đến công ty tôi đã nhìn thấy một vụ tai nạn."
+            },
+            {
+              "japanese": "うちへ かえる とちゅうで、ゆうびんきょくに よりました。",
+              "vietnamese": "Trên đường về nhà tôi đã ghé bưu điện."
+            },
+            {
+              "japanese": "りょこうの とちゅうで、さいふを なくしました。",
+              "vietnamese": "Giữa chuyến du lịch tôi đã đánh mất ví."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

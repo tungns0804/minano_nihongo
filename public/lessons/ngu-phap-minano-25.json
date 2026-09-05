@@ -1,0 +1,283 @@
+{
+  "id": "ngu-phap-minano-25",
+  "lessonNumber": 25,
+  "name": "皆の日本語 — Bài 25 · Ngữ pháp",
+  "description": "～たら、～, ～ても、～, もし・いくら",
+  "kind": "grammar",
+  "itemCount": 3,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1qf4xbm",
+      "title": "～たら、～",
+      "summary": "Điều kiện linh hoạt nhất: nếu xảy ra việc này thì làm việc kia.",
+      "structures": [
+        "V た ＋ ら、～",
+        "Aい（bỏ い）＋ かったら、～",
+        "Aな ＋ だったら、～",
+        "N ＋ だったら、～"
+      ],
+      "explanation": [
+        "Cách lập rất dễ nhớ: lấy thể た rồi thêm ら. Với tính từ và danh từ thì lấy dạng quá khứ thể thông thường rồi thêm ら.",
+        "Khác với と ở bài 23, vế sau của たら ĐƯỢC PHÉP chứa ý chí của người nói: lời nhờ vả, lời mời, mệnh lệnh, dự định. Đây là lý do たら dùng được rộng hơn hẳn.",
+        "たら có hai nghĩa: điều kiện giả định ('nếu') và thời điểm chắc chắn sẽ tới ('khi ... xong')."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Cách lập ～たら",
+          "headers": [
+            "Loại",
+            "Cách lập",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Động từ",
+              "Thể た ＋ ら",
+              "ふる → ふったら"
+            ],
+            [
+              "Tính từ い",
+              "Bỏ い ＋ かったら",
+              "やすい → やすかったら"
+            ],
+            [
+              "Tính từ な",
+              "Thêm だったら",
+              "ひま → ひまだったら"
+            ],
+            [
+              "Danh từ",
+              "Thêm だったら",
+              "あめ → あめだったら"
+            ]
+          ]
+        },
+        {
+          "caption": "と và たら",
+          "headers": [
+            "Mẫu",
+            "Vế sau chứa ý chí",
+            "Dùng khi"
+          ],
+          "rows": [
+            [
+              "V る と",
+              "Không được",
+              "Quy luật, máy móc, chỉ đường"
+            ],
+            [
+              "V たら",
+              "Được",
+              "Giả định, kế hoạch, nhờ vả"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Điều kiện giả định — nếu",
+          "detail": "Vế sau tự do, kể cả nhờ vả và mệnh lệnh.",
+          "examples": [
+            {
+              "id": "0mcn7jm",
+              "japanese": "あめが ふったら、でかけません。",
+              "reading": "",
+              "vietnamese": "Nếu trời mưa thì tôi không ra ngoài.",
+              "note": ""
+            },
+            {
+              "id": "12wo0wr",
+              "japanese": "やすかったら、かいたいです。",
+              "reading": "",
+              "vietnamese": "Nếu rẻ thì tôi muốn mua.",
+              "note": ""
+            },
+            {
+              "id": "1g5xrc8",
+              "japanese": "じかんが あったら、てつだって ください。",
+              "reading": "",
+              "vietnamese": "Nếu có thời gian thì anh giúp tôi với.",
+              "note": ""
+            },
+            {
+              "id": "053emom",
+              "japanese": "１おくえん あったら、いえを かいます。",
+              "reading": "いちおくえん あったら、いえを かいます。",
+              "vietnamese": "Nếu có 100 triệu yên thì tôi sẽ mua nhà.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Thời điểm chắc chắn tới — khi xong",
+          "detail": "Không phải giả định mà là chuyện sẽ xảy ra.",
+          "examples": [
+            {
+              "id": "0xsxrs4",
+              "japanese": "しごとが おわったら、すぐ かえります。",
+              "reading": "",
+              "vietnamese": "Xong việc là tôi về ngay.",
+              "note": ""
+            },
+            {
+              "id": "0hbfnn3",
+              "japanese": "２０さいに なったら、たばこを すっても いいです。",
+              "reading": "はたちに なったら、たばこを すっても いいです。",
+              "vietnamese": "Đến 20 tuổi thì được phép hút thuốc.",
+              "note": ""
+            },
+            {
+              "id": "1ldkhmm",
+              "japanese": "にほんへ きたら、れんらくして ください。",
+              "reading": "",
+              "vietnamese": "Khi nào đến Nhật anh liên lạc với tôi nhé.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0imoegm",
+      "title": "～ても、～",
+      "summary": "Nghịch điều kiện: dù có xảy ra việc này thì kết quả vẫn không đổi.",
+      "structures": [
+        "V て ＋ も、～",
+        "Aい（bỏ い）＋ くても、～",
+        "Aな ＋ でも、～",
+        "N ＋ でも、～"
+      ],
+      "explanation": [
+        "Lấy thể て rồi thêm も. Tính từ い bỏ い thêm くても; tính từ な và danh từ thêm でも.",
+        "Vế sau đi ngược lại điều mà vế trước gợi ra. Đây chính là chỗ khác たら: たら thì vế sau thuận theo, còn ても thì vế sau đi ngược.",
+        "Đã gặp dạng này ở bài 15 với 「～ても いいです」 — đó cũng chính là mẫu này ghép với いいです."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "たら và ても",
+          "headers": [
+            "Mẫu",
+            "Quan hệ hai vế",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "V たら",
+              "Thuận — nếu A thì B",
+              "あめが ふったら、いきません"
+            ],
+            [
+              "V ても",
+              "Nghịch — dù A vẫn B",
+              "あめが ふっても、いきます"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Dù thế nào vẫn không đổi",
+          "detail": "Vế sau đi ngược mong đợi.",
+          "examples": [
+            {
+              "id": "1om8mxd",
+              "japanese": "あめが ふっても、でかけます。",
+              "reading": "",
+              "vietnamese": "Dù trời mưa tôi vẫn ra ngoài.",
+              "note": ""
+            },
+            {
+              "id": "0at6f6v",
+              "japanese": "やすくても、かいません。",
+              "reading": "",
+              "vietnamese": "Dù rẻ tôi cũng không mua.",
+              "note": ""
+            },
+            {
+              "id": "12mcp6x",
+              "japanese": "にちようびでも、はたらきます。",
+              "reading": "",
+              "vietnamese": "Dù là Chủ nhật tôi vẫn đi làm.",
+              "note": ""
+            },
+            {
+              "id": "0bj6def",
+              "japanese": "べんきょうしても、なかなか じょうずに なりません。",
+              "reading": "",
+              "vietnamese": "Dù có học thì mãi vẫn không giỏi lên được.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09h4nqv",
+      "title": "もし ／ いくら",
+      "summary": "Hai phó từ báo trước cho người nghe biết câu sắp tới là câu điều kiện.",
+      "structures": [
+        "もし ～たら、～",
+        "いくら ～ても、～"
+      ],
+      "explanation": [
+        "もし đứng đầu câu たら, báo rằng đây là chuyện giả định. Nó không đổi nghĩa mà chỉ giúp người nghe chuẩn bị.",
+        "いくら đứng đầu câu ても, nhấn mạnh 'dù có ... đến mấy đi nữa'.",
+        "Hai phó từ này chỉ đi đúng với mẫu của mình: không nói 「もし ～ても」 hay 「いくら ～たら」."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "もし — giả định",
+          "detail": "Đi cùng ～たら.",
+          "examples": [
+            {
+              "id": "150nmnv",
+              "japanese": "もし あした ひまだったら、うみへ いきませんか。",
+              "reading": "",
+              "vietnamese": "Nếu mai anh rảnh thì mình đi biển nhé?",
+              "note": ""
+            },
+            {
+              "id": "1o98hjp",
+              "japanese": "もし １おくえん あったら、なにを しますか。",
+              "reading": "もし いちおくえん あったら、なにを しますか。",
+              "vietnamese": "Nếu có 100 triệu yên thì anh sẽ làm gì?",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "いくら — dù đến mấy",
+          "detail": "Đi cùng ～ても.",
+          "examples": [
+            {
+              "id": "19cmmcc",
+              "japanese": "いくら かんがえても、わかりません。",
+              "reading": "",
+              "vietnamese": "Dù có nghĩ đến mấy tôi cũng không hiểu.",
+              "note": ""
+            },
+            {
+              "id": "0fftmg8",
+              "japanese": "いくら たかくても、これが ほしいです。",
+              "reading": "",
+              "vietnamese": "Dù đắt đến mấy tôi cũng muốn có cái này.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

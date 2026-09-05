@@ -1,0 +1,238 @@
+{
+  "points": [
+    {
+      "title": "N を V",
+      "summary": "Trợ từ を đánh dấu tân ngữ — đối tượng chịu tác động của hành động.",
+      "structures": ["N を V"],
+      "explanation": [
+        "を chỉ dùng làm trợ từ, không bao giờ dùng để ghi âm tiết trong từ. Vì vậy hễ thấy を trong câu thì trước nó chắc chắn là tân ngữ.",
+        "Đọc là 「お」, giống hệt chữ お.",
+        "Những động từ hay đi với を ở bài này: たべます, のみます, すいます, よみます, みます, ききます, かいます, かきます, します."
+      ],
+      "usages": [
+        {
+          "title": "Nêu đối tượng của hành động",
+          "detail": "Tân ngữ đứng trước động từ.",
+          "examples": [
+            {
+              "japanese": "ごはんを たべます。",
+              "vietnamese": "Tôi ăn cơm."
+            },
+            {
+              "japanese": "たばこを すいます。",
+              "vietnamese": "Tôi hút thuốc."
+            },
+            {
+              "japanese": "きのう えいがを みました。",
+              "vietnamese": "Hôm qua tôi đã đi xem phim."
+            },
+            {
+              "japanese": "まいあさ しんぶんを よみます。",
+              "vietnamese": "Sáng nào tôi cũng đọc báo."
+            }
+          ]
+        },
+        {
+          "title": "Hỏi đối tượng — なにを",
+          "detail": "Thay tân ngữ bằng なに.",
+          "examples": [
+            {
+              "japanese": "けさ なにを のみましたか。",
+              "vietnamese": "Sáng nay anh đã uống gì?"
+            },
+            {
+              "japanese": "ミルクを のみました。",
+              "vietnamese": "Tôi đã uống sữa."
+            },
+            {
+              "japanese": "にちようび なにを しますか。",
+              "vietnamese": "Chủ nhật anh sẽ làm gì?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N を します",
+      "summary": "します kết hợp với danh từ để diễn tả rất nhiều hoạt động.",
+      "structures": ["N（môn thể thao, trò chơi, công việc）を します"],
+      "explanation": [
+        "します là động từ vạn năng: ghép với danh từ chỉ hoạt động là ra ngay một hành động cụ thể.",
+        "Với danh từ gốc Hán như べんきょう, かいもの, しごと thì thường viết liền: 「べんきょうします」, không cần を."
+      ],
+      "tables": [
+        {
+          "caption": "Vài nhóm hay gặp",
+          "headers": ["Nhóm", "Ví dụ"],
+          "rows": [
+            ["Thể thao", "サッカーを します"],
+            ["Trò chơi", "トランプを します"],
+            ["Việc phải làm", "しゅくだいを します"],
+            ["Sự kiện", "パーティーを します"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Chơi thể thao, làm việc gì đó",
+          "detail": "Danh từ chỉ hoạt động đứng trước を します.",
+          "examples": [
+            {
+              "japanese": "テニスを します。",
+              "vietnamese": "Tôi chơi tennis."
+            },
+            {
+              "japanese": "サッカーを しました。",
+              "vietnamese": "Tôi đã chơi bóng đá."
+            },
+            {
+              "japanese": "しゅくだいを します。",
+              "vietnamese": "Tôi làm bài tập về nhà."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "なん ／ なに",
+      "summary": "Cùng một chữ 何 nhưng đọc hai kiểu tùy âm đứng sau.",
+      "structures": ["なに ＋ を／が", "なん ＋ です／の／人・時・曜日"],
+      "explanation": [
+        "Đọc là なん khi đứng trước âm thuộc hàng た, な, だ: なんですか, なんの, なんにん, なんじ.",
+        "Đọc là なに trong các trường hợp còn lại, đặc biệt là khi đi với を: なにを たべますか.",
+        "Đây là luật phát âm cho dễ nói, không phải hai từ khác nhau."
+      ],
+      "usages": [
+        {
+          "title": "Phân biệt hai cách đọc",
+          "detail": "Nhìn âm đầu của từ đứng ngay sau.",
+          "examples": [
+            {
+              "japanese": "なにを かいましたか。",
+              "vietnamese": "Anh đã mua gì vậy?"
+            },
+            {
+              "japanese": "それは なんですか。",
+              "vietnamese": "Cái đó là cái gì vậy?"
+            },
+            {
+              "japanese": "なんの ざっしですか。",
+              "vietnamese": "Đó là tạp chí về cái gì vậy?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（nơi chốn）で V",
+      "summary": "Trợ từ で chỉ nơi diễn ra hành động.",
+      "structures": ["N（nơi chốn）で V"],
+      "explanation": [
+        "で đánh dấu SÂN KHẤU của hành động — nơi hành động xảy ra.",
+        "Đừng nhầm với へ (đích đến của việc di chuyển) hay に (nơi tồn tại, học ở bài 10). 「としょかんへ いきます」 là đi tới thư viện, còn 「としょかんで よみます」 là đọc tại thư viện."
+      ],
+      "tables": [
+        {
+          "caption": "Ba trợ từ nơi chốn dễ nhầm",
+          "headers": ["Trợ từ", "Vai trò", "Ví dụ"],
+          "rows": [
+            ["へ", "Đích đến của di chuyển", "スーパーへ いきます"],
+            ["で", "Nơi hành động xảy ra", "スーパーで かいます"],
+            ["で", "Phương tiện đi lại", "バスで いきます"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Nêu nơi làm việc gì đó",
+          "detail": "Cụm nơi chốn đứng trước tân ngữ.",
+          "examples": [
+            {
+              "japanese": "きょうしつで ごはんを たべます。",
+              "vietnamese": "Tôi ăn cơm ở lớp học."
+            },
+            {
+              "japanese": "きのう としょかんで ほんを よみました。",
+              "vietnamese": "Hôm qua tôi đã đọc sách ở thư viện."
+            },
+            {
+              "japanese": "どこで にくを かいますか。",
+              "vietnamese": "Anh mua thịt ở đâu vậy?"
+            },
+            {
+              "japanese": "スーパーで かいます。",
+              "vietnamese": "Tôi mua ở siêu thị."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ませんか",
+      "summary": "Rủ rê, mời mọc người nghe cùng làm gì đó.",
+      "structures": ["いっしょに ～ V ませんか。"],
+      "explanation": [
+        "Dạng phủ định ませんか nghe nhẹ nhàng hơn hẳn câu khẳng định, vì nó chừa chỗ cho người nghe từ chối.",
+        "Rất hay đi kèm いっしょに ở đầu câu.",
+        "Nhận lời thì đáp 「ええ、いいですね」; từ chối thì đáp 「すみません、ちょっと…」 rồi bỏ lửng."
+      ],
+      "notes": [
+        "Bỏ lửng bằng 「ちょっと…」 là cách từ chối lịch sự chuẩn mực của tiếng Nhật. Nói rõ lý do từ chối đôi khi lại bị coi là thiếu tế nhị."
+      ],
+      "usages": [
+        {
+          "title": "Rủ đi ăn, đi chơi",
+          "detail": "Người nghe được quyền từ chối dễ dàng.",
+          "examples": [
+            {
+              "japanese": "いっしょに ごはんを たべませんか。",
+              "vietnamese": "Anh ăn cơm cùng tôi nhé?"
+            },
+            {
+              "japanese": "ええ、いいですね。",
+              "vietnamese": "Vâng, hay đấy."
+            },
+            {
+              "japanese": "すみません、ちょっと…",
+              "vietnamese": "Xin lỗi, tôi hơi bận một chút…"
+            },
+            {
+              "japanese": "いっしょに きょうとへ いきませんか。",
+              "vietnamese": "Chúng ta cùng đi Kyoto nhé?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ましょう",
+      "summary": "Đề nghị cùng làm khi cả hai đã đồng ý, hoặc hô hào bắt tay vào việc.",
+      "structures": ["V ましょう。"],
+      "explanation": [
+        "ましょう mang tính chủ động hơn ませんか: nó coi như người nghe đã sẵn sàng, chỉ còn hô một tiếng là cùng làm.",
+        "Vì vậy trình tự tự nhiên trong hội thoại là: rủ bằng ませんか → đồng ý → chốt lại bằng ましょう."
+      ],
+      "usages": [
+        {
+          "title": "Chốt lại sau khi đã đồng ý",
+          "detail": "Thường đi ngay sau lời nhận rủ.",
+          "examples": [
+            {
+              "japanese": "ええ、いいですね。たべましょう。",
+              "vietnamese": "Vâng, hay đấy. Chúng ta ăn thôi."
+            },
+            {
+              "japanese": "いっしょに かえりましょう。",
+              "vietnamese": "Chúng ta cùng về nhé."
+            },
+            {
+              "japanese": "１２じですね。ひるごはんを たべましょう。",
+              "vietnamese": "12 giờ rồi nhỉ. Chúng ta ăn trưa thôi.",
+              "reading": "じゅうにじですね。ひるごはんを たべましょう。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

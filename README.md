@@ -106,9 +106,11 @@ từ của nhiều bài) rơi vào nhóm **“Không theo bài”**, không bị
 Phải ghi `lessonNumber` vào cả `index.json` lẫn từng file bài học, không thừa: bản offline nhúng
 thẳng file bài học vào trang và dựng danh sách từ đó, không hề đọc `index.json`.
 
-**Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và kế hoạch là phủ
-hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
-một danh sách dài không đọc nổi.
+**Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và khu này nay phủ
+trọn 50 bài; gom 50 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
+một danh sách dài không đọc nổi. Tab Ngữ pháp có bộ lọc **Cấp độ** riêng, dùng chung helper
+`core/models/level-filter.ts` với trang chủ (khoá lưu riêng, để cấp đang chọn ở hai tab không
+đè lên nhau).
 
 ## Từ vựng theo chủ đề
 
@@ -275,7 +277,8 @@ cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `lo
    NGOÀI phần trăm (để con số còn phản ánh việc học đang diễn ra) nhưng trang **luôn hiện cảnh
    báo** và có ô bật để xem con số đủ. 23 mục của quyển 聴解 vẫn tích được, chỉ không hẹn ngày.
 2. **Thiếu quyển 総まとめ N3 文法** trong thư mục giáo trình → trần tiến độ bị chặn ở **89%**.
-   Có sách thì nạp thành bài học được ngay, định dạng `grammar.json` đã chạy tốt với 93 mẫu N4.
+   Có sách thì nạp thành bài học được ngay, định dạng `grammar.json` đã chạy tốt với 219 mẫu
+   N5 và N4.
 3. **Không có file âm thanh nào** trên máy, kể cả đĩa kèm quyển 聴解.
 
 ### Ba file
@@ -360,9 +363,12 @@ Vào tab **Ngữ pháp** → chọn một bài. Trang bài gồm hai phần:
 
 Bài ngữ pháp dùng lại nguyên màn hình luyện tập và màn hình kết quả của ba loại bài kia.
 
-**Hiện có: bài 26–50 trừ bài 39** — 24 bài, 87 mẫu ngữ pháp, 310 câu ví dụ, 48 bảng biến đổi.
-Bài 39 chưa có vì thư mục nguồn không có file `第39課.pptx`; thêm được ngay khi có nguồn, chỉ cần
-tạo `data-source/ngu-phap-minano-39/grammar.json` rồi chạy `npm run generate`.
+**Hiện có: trọn 50 bài** — 219 mẫu ngữ pháp, 828 câu ví dụ, 118 bảng biến đổi. Bài 1–25 là N5,
+bài 26–50 là N4; lọc nhanh bằng nút **Cấp độ** ngay trên lưới thẻ.
+
+Bài 1–25 và bài 39 soạn từ thư mục giáo trình trong `Downloads/Japanese`: slide `第NN課.pptx`
+của phần N5, đối chiếu với mục "IV. Giải thích ngữ pháp" trong `Sách/Bản dịch và giải thích
+ngữ pháp - Tập 1.pdf` và `Tập 2.pdf`. Riêng bài 39 không có slide nên bám hẳn theo Tập 2.
 
 ## Chia động từ
 

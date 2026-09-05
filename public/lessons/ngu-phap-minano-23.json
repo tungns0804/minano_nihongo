@@ -1,0 +1,277 @@
+{
+  "id": "ngu-phap-minano-23",
+  "lessonNumber": 23,
+  "name": "皆の日本語 — Bài 23 · Ngữ pháp",
+  "description": "～とき, ～と（điều kiện tất yếu）, Nが — chủ ngữ của mệnh đề phụ",
+  "kind": "grammar",
+  "itemCount": 3,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1m36jud",
+      "title": "～とき、～",
+      "summary": "Nêu thời điểm, hoàn cảnh xảy ra sự việc ở vế sau.",
+      "structures": [
+        "V thể thông thường ＋ とき、～",
+        "Aい ＋ とき、～",
+        "Aな ＋ な ＋ とき、～",
+        "N ＋ の ＋ とき、～"
+      ],
+      "explanation": [
+        "とき là danh từ nghĩa là 'lúc', nên phần đứng trước nó chính là một mệnh đề bổ nghĩa như đã học ở bài 22.",
+        "Vì vậy cách nối tuân đúng luật bổ nghĩa danh từ: tính từ な thêm な, danh từ thêm の.",
+        "Thì của cả câu do vế SAU quyết định, còn thể của động từ trước とき quyết định quan hệ trước sau giữa hai việc."
+      ],
+      "notes": [
+        "Bảng thứ hai là điểm khó nhất của bài. 「かえる とき」 là lúc còn trên đường về — mua bánh giữa đường. 「かえった とき」 là lúc đã về tới nơi — về đến nhà rồi mới nói."
+      ],
+      "tables": [
+        {
+          "caption": "Cách nối với とき",
+          "headers": [
+            "Loại",
+            "Cách nối",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Động từ",
+              "Thể thông thường",
+              "つかう とき"
+            ],
+            [
+              "Tính từ い",
+              "Giữ nguyên",
+              "わかい とき"
+            ],
+            [
+              "Tính từ な",
+              "Thêm な",
+              "ひまな とき"
+            ],
+            [
+              "Danh từ",
+              "Thêm の",
+              "こどもの とき"
+            ]
+          ]
+        },
+        {
+          "caption": "Thể từ điển hay thể た trước とき",
+          "headers": [
+            "Dạng",
+            "Quan hệ thời gian",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "V る とき",
+              "Việc ở vế sau xảy ra TRƯỚC",
+              "うちへ かえる とき、ケーキを かいます"
+            ],
+            [
+              "V た とき",
+              "Việc ở vế sau xảy ra SAU",
+              "うちへ かえった とき、「ただいま」と いいます"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nêu hoàn cảnh chung",
+          "detail": "Vế sau quyết định thì của cả câu.",
+          "examples": [
+            {
+              "id": "0w26fe3",
+              "japanese": "こどもの とき、よく かわで およぎました。",
+              "reading": "",
+              "vietnamese": "Hồi bé tôi hay bơi ở sông.",
+              "note": ""
+            },
+            {
+              "id": "002nlmj",
+              "japanese": "ひまな とき、うちへ あそびに きませんか。",
+              "reading": "",
+              "vietnamese": "Lúc nào rảnh anh đến nhà tôi chơi nhé?",
+              "note": ""
+            },
+            {
+              "id": "0w1nvth",
+              "japanese": "からだの ちょうしが わるい とき、この くすりを のみます。",
+              "reading": "",
+              "vietnamese": "Lúc thấy trong người khó chịu thì tôi uống thuốc này.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Phân biệt Vる とき và Vた とき",
+          "detail": "Chú ý trình tự trước sau.",
+          "examples": [
+            {
+              "id": "1e19is8",
+              "japanese": "うちへ かえる とき、ケーキを かいます。",
+              "reading": "",
+              "vietnamese": "Trên đường về nhà tôi sẽ mua bánh.",
+              "note": ""
+            },
+            {
+              "id": "1wx4moo",
+              "japanese": "うちへ かえった とき、「ただいま」と いいます。",
+              "reading": "",
+              "vietnamese": "Khi về đến nhà thì tôi nói 'tadaima'.",
+              "note": ""
+            },
+            {
+              "id": "0y0gnxo",
+              "japanese": "でかける とき、かぎを かけて ください。",
+              "reading": "",
+              "vietnamese": "Lúc đi ra ngoài anh nhớ khóa cửa nhé.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0414jjz",
+      "title": "V る と、～",
+      "summary": "Điều kiện tất yếu: hễ làm việc này thì chắc chắn xảy ra việc kia.",
+      "structures": [
+        "V thể từ điển ＋ と、～",
+        "V ない ＋ と、～"
+      ],
+      "explanation": [
+        "と diễn tả quan hệ tất yếu, luôn đúng: quy luật tự nhiên, cách vận hành máy móc, chỉ đường.",
+        "Vế sau KHÔNG được chứa ý chí của người nói. Không nói 「ボタンを おすと、きっぷを かって ください」 — vì vế sau là lời nhờ vả.",
+        "Vế sau cũng không dùng được lời mời, lời rủ, lời cho phép. Đây là ràng buộc quan trọng nhất của mẫu này."
+      ],
+      "notes": [
+        "Vì có ràng buộc trên nên と rất hay dùng để hướng dẫn dùng máy và chỉ đường — hai tình huống mà kết quả luôn cố định."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hướng dẫn sử dụng máy móc",
+          "detail": "Bấm nút này thì ra kết quả kia.",
+          "examples": [
+            {
+              "id": "1ku2lx1",
+              "japanese": "この ボタンを おすと、きっぷが でます。",
+              "reading": "",
+              "vietnamese": "Ấn nút này thì vé sẽ ra.",
+              "note": ""
+            },
+            {
+              "id": "13cg0wn",
+              "japanese": "みぎの ボタンを おすと、こうちゃが でます。",
+              "reading": "",
+              "vietnamese": "Ấn nút bên phải thì trà đen sẽ ra.",
+              "note": ""
+            },
+            {
+              "id": "1kaf1sp",
+              "japanese": "この つまみを まわすと、おとが おおきく なります。",
+              "reading": "",
+              "vietnamese": "Vặn cái núm này thì âm thanh sẽ to lên.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Chỉ đường",
+          "detail": "Đi thế này thì thấy thế kia.",
+          "examples": [
+            {
+              "id": "0955hnw",
+              "japanese": "みぎへ まがると、ゆうびんきょくが あります。",
+              "reading": "",
+              "vietnamese": "Rẽ phải thì sẽ thấy bưu điện.",
+              "note": ""
+            },
+            {
+              "id": "0rxfoa6",
+              "japanese": "この みちを まっすぐ いくと、えきが あります。",
+              "reading": "",
+              "vietnamese": "Đi thẳng con đường này thì sẽ thấy nhà ga.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u3",
+          "title": "Quy luật tự nhiên",
+          "detail": "Chuyện luôn đúng, không phụ thuộc ý ai.",
+          "examples": [
+            {
+              "id": "1rg51rm",
+              "japanese": "はるに なると、さくらが さきます。",
+              "reading": "",
+              "vietnamese": "Cứ đến mùa xuân là hoa anh đào nở.",
+              "note": ""
+            },
+            {
+              "id": "1pyaoze",
+              "japanese": "まいにち れんしゅうしないと、じょうずに なりません。",
+              "reading": "",
+              "vietnamese": "Không luyện tập hằng ngày thì không giỏi lên được.",
+              "note": "Vế trước dùng thể ない ＋ と để nêu điều kiện phủ định."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1u4qnci",
+      "title": "N が — chủ ngữ trong mệnh đề phụ",
+      "summary": "Chủ ngữ của mệnh đề phụ luôn đi với が, không đi với は.",
+      "structures": [
+        "N が ＋ mệnh đề phụ ＋ とき／と、～"
+      ],
+      "explanation": [
+        "は đánh dấu chủ đề của CẢ CÂU, nên nó không chui vào trong một mệnh đề phụ được.",
+        "Chủ ngữ của mệnh đề bổ nghĩa (bài 22), của mệnh đề とき và của mệnh đề と đều dùng が.",
+        "Đây là lý do vì sao câu 「わたしが すんで いる まちは しずかです」 dùng が ở đầu nhưng dùng は ở giữa."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hai chủ ngữ trong một câu",
+          "detail": "Mệnh đề phụ dùng が, mệnh đề chính dùng は.",
+          "examples": [
+            {
+              "id": "1kfzxpm",
+              "japanese": "つまが びょうきの とき、かいしゃを やすみます。",
+              "reading": "",
+              "vietnamese": "Lúc vợ tôi bị ốm thì tôi nghỉ làm.",
+              "note": ""
+            },
+            {
+              "id": "0cqc6nf",
+              "japanese": "ともだちが きた とき、いっしょに ごはんを たべます。",
+              "reading": "",
+              "vietnamese": "Lúc bạn đến thì chúng tôi cùng ăn cơm.",
+              "note": ""
+            },
+            {
+              "id": "0jaj165",
+              "japanese": "わたしが つくった りょうりは あまり おいしくないです。",
+              "reading": "",
+              "vietnamese": "Món ăn tôi nấu không ngon lắm.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "id": "ngu-phap-minano-16",
+  "lessonNumber": 16,
+  "name": "皆の日本語 — Bài 16 · Ngữ pháp",
+  "description": "Nối câu bằng thể て, Aくて・Aで・Nで, Vてから, N1は N2が A, どうやって, どの N",
+  "kind": "grammar",
+  "itemCount": 6,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "0uidmpl",
+      "title": "V て、V て、～ — nối các hành động theo thứ tự",
+      "summary": "Thể て nối nhiều hành động xảy ra liên tiếp trong một câu.",
+      "structures": [
+        "V1 て、V2 て、V3 ます。"
+      ],
+      "explanation": [
+        "Chỉ động từ CUỐI CÙNG mới mang thì và thể lịch sự. Các động từ trước đều ở thể て.",
+        "Vì vậy muốn đổi cả câu sang quá khứ thì chỉ cần đổi động từ cuối: 「おきて、あさごはんを たべて、かいしゃへ いきました」.",
+        "Thứ tự các vế PHẢI đúng thứ tự thời gian thực tế. Đảo vế là đảo luôn nghĩa."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Kể chuỗi việc làm trong ngày",
+          "detail": "Động từ cuối quyết định thì của cả câu.",
+          "examples": [
+            {
+              "id": "1taoyvw",
+              "japanese": "あさ ６じに おきて、あさごはんを たべて、かいしゃへ いきます。",
+              "reading": "あさ ろくじに おきて、あさごはんを たべて、かいしゃへ いきます。",
+              "vietnamese": "Buổi sáng tôi dậy lúc 6 giờ, ăn sáng rồi đi đến công ty.",
+              "note": ""
+            },
+            {
+              "id": "0c6pc3b",
+              "japanese": "きのう としょかんへ いって、ほんを かりました。",
+              "reading": "",
+              "vietnamese": "Hôm qua tôi đã đến thư viện và mượn sách.",
+              "note": ""
+            },
+            {
+              "id": "19wwz94",
+              "japanese": "うちへ かえって、シャワーを あびて、ねます。",
+              "reading": "",
+              "vietnamese": "Tôi về nhà, tắm rồi đi ngủ.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1iqajyi",
+      "title": "Aくて ／ Aで ／ Nで — nối tính từ và danh từ",
+      "summary": "Cách nối hai tính từ, hoặc danh từ với tính từ, trong cùng một câu.",
+      "structures": [
+        "Aい → A くて",
+        "Aな → Aな bỏ な ＋ で",
+        "N → N で"
+      ],
+      "explanation": [
+        "Tính từ い bỏ い thêm くて: おおきい → おおきくて.",
+        "Tính từ な và danh từ đều thêm で: しんせつ → しんせつで, がくせい → がくせいで.",
+        "いい nối bất quy tắc: いい → よくて."
+      ],
+      "notes": [
+        "Chỉ nối được các vế CÙNG CHIỀU — cùng khen hoặc cùng chê. Hai ý trái chiều thì phải dùng が như ở bài 8: 「やすいですが、まずいです」."
+      ],
+      "tables": [
+        {
+          "caption": "Cách nối ba loại",
+          "headers": [
+            "Loại",
+            "Cách nối",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Tính từ い",
+              "Bỏ い thêm くて",
+              "やすい → やすくて"
+            ],
+            [
+              "Tính từ な",
+              "Thêm で",
+              "しずか → しずかで"
+            ],
+            [
+              "Danh từ",
+              "Thêm で",
+              "２５さい → ２５さいで"
+            ],
+            [
+              "いい",
+              "Bất quy tắc",
+              "いい → よくて"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nối hai tính chất cùng chiều",
+          "detail": "Vế cuối mang thì và thể lịch sự.",
+          "examples": [
+            {
+              "id": "0u6h2no",
+              "japanese": "この へやは ひろくて、あかるいです。",
+              "reading": "",
+              "vietnamese": "Căn phòng này rộng và sáng sủa.",
+              "note": ""
+            },
+            {
+              "id": "12o5hs4",
+              "japanese": "ミラーさんは しんせつで、ハンサムです。",
+              "reading": "",
+              "vietnamese": "Anh Miller tốt bụng và đẹp trai.",
+              "note": ""
+            },
+            {
+              "id": "0mym7yl",
+              "japanese": "アンさんは ２３さいで、がくせいです。",
+              "reading": "アンさんは にじゅうさんさいで、がくせいです。",
+              "vietnamese": "Chị An 23 tuổi và là sinh viên.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ypu45u",
+      "title": "V て から、～",
+      "summary": "Sau khi làm xong việc trước thì mới làm việc sau.",
+      "structures": [
+        "V1 て から、V2。"
+      ],
+      "explanation": [
+        "から ở đây KHÔNG mang nghĩa lý do như ở bài 9, mà là 'sau khi'.",
+        "Khác với cách nối bằng thể て đơn thuần ở chỗ: てから nhấn mạnh rằng việc trước phải HOÀN TẤT rồi mới sang việc sau.",
+        "Cả câu chỉ có một vế てから. Muốn kể ba việc liên tiếp thì dùng thể て nối thường."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nhấn mạnh trình tự trước sau",
+          "detail": "Việc trước phải xong hẳn.",
+          "examples": [
+            {
+              "id": "0kxj425",
+              "japanese": "しごとが おわってから、えいがを みます。",
+              "reading": "",
+              "vietnamese": "Sau khi xong việc tôi sẽ đi xem phim.",
+              "note": ""
+            },
+            {
+              "id": "1omis9f",
+              "japanese": "しゅくだいを してから、あそびます。",
+              "reading": "",
+              "vietnamese": "Làm bài tập xong rồi tôi mới đi chơi.",
+              "note": ""
+            },
+            {
+              "id": "16fqk8l",
+              "japanese": "おかねを いれてから、ボタンを おして ください。",
+              "reading": "",
+              "vietnamese": "Anh cho tiền vào rồi mới ấn nút.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19cy6e4",
+      "title": "N1 は N2 が A",
+      "summary": "Nói về một bộ phận hoặc một khía cạnh của chủ đề.",
+      "structures": [
+        "N1 は N2 が A です"
+      ],
+      "explanation": [
+        "N1 là chủ đề tổng thể, N2 là bộ phận hay khía cạnh của N1, A là tính chất của bộ phận đó.",
+        "Cấu trúc này rất Nhật: nêu cả rồi mới nêu phần. Tiếng Việt thường gộp lại thành một cụm.",
+        "Đã gặp bóng dáng của nó ở bài 9 với 「わたしは にほんごが わかります」."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Miêu tả bộ phận hoặc đặc điểm",
+          "detail": "Chủ đề lớn trước, bộ phận sau.",
+          "examples": [
+            {
+              "id": "0k02p26",
+              "japanese": "この まちは けしきが きれいです。",
+              "reading": "",
+              "vietnamese": "Thành phố này có phong cảnh đẹp.",
+              "note": ""
+            },
+            {
+              "id": "0xtki40",
+              "japanese": "とうきょうは ものが たかいです。",
+              "reading": "",
+              "vietnamese": "Ở Tokyo đồ đạc đắt đỏ.",
+              "note": ""
+            },
+            {
+              "id": "1axshjj",
+              "japanese": "アンさんは かみが ながいです。",
+              "reading": "",
+              "vietnamese": "Chị An có mái tóc dài.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1fsoh97",
+      "title": "どうやって",
+      "summary": "Hỏi cách làm, hỏi đường đi.",
+      "structures": [
+        "どうやって ＋ V ますか。"
+      ],
+      "explanation": [
+        "どうやって hỏi về PHƯƠNG PHÁP, quy trình — trả lời bằng một chuỗi hành động nối bằng thể て.",
+        "Rất hay dùng để hỏi đường: hỏi đi từ đâu tới đâu bằng cách nào."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi đường và hỏi cách làm",
+          "detail": "Trả lời bằng chuỗi thể て.",
+          "examples": [
+            {
+              "id": "0djc11y",
+              "japanese": "だいがくまで どうやって いきますか。",
+              "reading": "",
+              "vietnamese": "Đi đến trường đại học bằng cách nào ạ?",
+              "note": ""
+            },
+            {
+              "id": "0utvd97",
+              "japanese": "きょうとえきから １６ばんの バスに のって、だいがくまえで おります。",
+              "reading": "きょうとえきから じゅうろくばんの バスに のって、だいがくまえで おります。",
+              "vietnamese": "Từ ga Kyoto anh lên xe buýt số 16 rồi xuống ở trạm trước trường đại học.",
+              "note": ""
+            },
+            {
+              "id": "04l6lj6",
+              "japanese": "この きかいは どうやって つかいますか。",
+              "reading": "",
+              "vietnamese": "Cái máy này dùng như thế nào ạ?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "067mjie",
+      "title": "どの N ／ どれ",
+      "summary": "Chọn một trong ba thứ trở lên.",
+      "structures": [
+        "どの N が Aですか。",
+        "どれが Aですか。"
+      ],
+      "explanation": [
+        "Chọn giữa HAI thứ thì dùng どちら (bài 12); chọn giữa BA thứ trở lên thì dùng どれ hoặc どの N.",
+        "どれ đứng một mình, どの phải đi kèm danh từ — cùng luật với これ và この đã học ở bài 2."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Chọn trong nhiều lựa chọn",
+          "detail": "Từ ba thứ trở lên.",
+          "examples": [
+            {
+              "id": "1qlz6xq",
+              "japanese": "ミラーさんの かさは どれですか。",
+              "reading": "",
+              "vietnamese": "Cái ô của anh Miller là cái nào?",
+              "note": ""
+            },
+            {
+              "id": "0c6eezj",
+              "japanese": "どの ひとが やまださんですか。",
+              "reading": "",
+              "vietnamese": "Người nào là anh Yamada vậy?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

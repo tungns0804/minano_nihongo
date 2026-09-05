@@ -1,0 +1,138 @@
+{
+  "points": [
+    {
+      "title": "Mệnh đề bổ nghĩa cho danh từ",
+      "summary": "Cả một câu có thể đứng trước danh từ để bổ nghĩa cho nó.",
+      "structures": ["Mệnh đề ở thể thông thường ＋ N"],
+      "explanation": [
+        "Đây là một trong những điểm khác biệt lớn nhất giữa tiếng Nhật và tiếng Việt. Tiếng Việt nói 'người đi Kyoto' với phần bổ nghĩa ĐỨNG SAU; tiếng Nhật nói 「きょうとへ いく ひと」 với phần bổ nghĩa ĐỨNG TRƯỚC.",
+        "Mệnh đề bổ nghĩa luôn ở THỂ THÔNG THƯỜNG, dù cả câu vẫn lịch sự.",
+        "Tính từ な đổi な giữ nguyên; danh từ thì だ đổi thành の khi bổ nghĩa: 「せんせいの ひと」."
+      ],
+      "tables": [
+        {
+          "caption": "Bốn thể của mệnh đề bổ nghĩa",
+          "headers": ["Thể", "Cụm", "Nghĩa"],
+          "rows": [
+            ["Hiện tại khẳng định", "きょうとへ いく ひと", "người đi Kyoto"],
+            ["Hiện tại phủ định", "きょうとへ いかない ひと", "người không đi Kyoto"],
+            ["Quá khứ khẳng định", "きょうとへ いった ひと", "người đã đi Kyoto"],
+            ["Quá khứ phủ định", "きょうとへ いかなかった ひと", "người đã không đi Kyoto"]
+          ]
+        }
+      ],
+      "notes": [
+        "Chủ ngữ TRONG mệnh đề bổ nghĩa dùng が chứ không dùng は. Nói 「ミラーさんが つくった ケーキ」 chứ không nói 「ミラーさんは つくった ケーキ」.",
+        "Tính từ い và cụm N の đã học từ bài 2 và bài 8 cũng chính là mệnh đề bổ nghĩa ở dạng đơn giản nhất."
+      ],
+      "usages": [
+        {
+          "title": "Chỉ rõ một người, một vật giữa nhiều thứ",
+          "detail": "Mệnh đề đứng ngay trước danh từ.",
+          "examples": [
+            {
+              "japanese": "これは ミラーさんが つくった ケーキです。",
+              "vietnamese": "Đây là cái bánh do anh Miller làm."
+            },
+            {
+              "japanese": "きのう ならった ことばを ふくしゅうします。",
+              "vietnamese": "Tôi ôn lại những từ đã học hôm qua."
+            },
+            {
+              "japanese": "せが たかくて、かみが くろい ひとが やまださんです。",
+              "vietnamese": "Người cao và tóc đen là anh Yamada."
+            },
+            {
+              "japanese": "わたしが すんで いる まちは しずかです。",
+              "vietnamese": "Thành phố tôi đang sống rất yên tĩnh."
+            }
+          ]
+        },
+        {
+          "title": "Mệnh đề bổ nghĩa làm chủ ngữ, làm tân ngữ",
+          "detail": "Cụm được bổ nghĩa dùng như một danh từ bình thường.",
+          "examples": [
+            {
+              "japanese": "わたしが うまれた まちは ハノイです。",
+              "vietnamese": "Thành phố tôi sinh ra là Hà Nội."
+            },
+            {
+              "japanese": "ともだちが とった しゃしんを みました。",
+              "vietnamese": "Tôi đã xem tấm ảnh do bạn tôi chụp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V る じかん ／ やくそく ／ ようじ",
+      "summary": "Một nhóm danh từ hay đi cùng mệnh đề bổ nghĩa để nói về kế hoạch.",
+      "structures": ["V る ＋ じかん／やくそく／ようじ が あります"],
+      "explanation": [
+        "じかん (thời gian), やくそく (lời hẹn), ようじ (việc bận) là ba danh từ hay đứng sau mệnh đề bổ nghĩa nhất ở bài này.",
+        "Động từ đứng trước ở THỂ TỪ ĐIỂN, vì việc chưa xảy ra.",
+        "Cả cụm thường làm chủ ngữ của あります hoặc ありません."
+      ],
+      "usages": [
+        {
+          "title": "Nói có hay không có thời gian, có hẹn",
+          "detail": "Hay dùng để từ chối một lời rủ.",
+          "examples": [
+            {
+              "japanese": "けさ しんぶんを よむ じかんが ありませんでした。",
+              "vietnamese": "Sáng nay tôi không có thời gian đọc báo."
+            },
+            {
+              "japanese": "ともだちに あう やくそくが あります。",
+              "vietnamese": "Tôi có hẹn gặp bạn."
+            },
+            {
+              "japanese": "きょうは ようじが ありますから、はやく かえります。",
+              "vietnamese": "Hôm nay tôi có việc bận nên về sớm."
+            },
+            {
+              "japanese": "ゆっくり やすむ じかんが ほしいです。",
+              "vietnamese": "Tôi muốn có thời gian nghỉ ngơi thong thả."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Đối chiếu — mệnh đề bổ nghĩa và câu hoàn chỉnh",
+      "summary": "Cùng nội dung nhưng một bên là cả câu, một bên chỉ là một cụm danh từ.",
+      "structures": ["Câu — ミラーさんが ケーキを つくりました", "Cụm — ミラーさんが つくった ケーキ"],
+      "explanation": [
+        "Bí quyết dựng mệnh đề bổ nghĩa: viết câu hoàn chỉnh trước, rồi lấy danh từ cần nhấn ra làm trung tâm và đưa phần còn lại lên trước nó.",
+        "Trong bước đó, vị ngữ phải hạ về thể thông thường và trợ từ đứng ngay trước danh từ trung tâm sẽ biến mất."
+      ],
+      "tables": [
+        {
+          "caption": "Biến câu thành cụm bổ nghĩa",
+          "headers": ["Câu gốc", "Cụm bổ nghĩa"],
+          "rows": [
+            ["ミラーさんが ケーキを つくりました", "ミラーさんが つくった ケーキ"],
+            ["わたしは きょうとに すんで います", "わたしが すんで いる きょうと"],
+            ["きのう ともだちに あいました", "きのう あった ともだち"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Luyện chuyển đổi",
+          "detail": "Trợ từ trước danh từ trung tâm biến mất.",
+          "examples": [
+            {
+              "japanese": "あそこに いる ひとは だれですか。",
+              "vietnamese": "Người đang ở đằng kia là ai vậy?"
+            },
+            {
+              "japanese": "わたしが かった ほんは とても おもしろいです。",
+              "vietnamese": "Quyển sách tôi mua rất thú vị."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

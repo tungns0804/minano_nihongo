@@ -1,0 +1,214 @@
+{
+  "points": [
+    {
+      "title": "Thì quá khứ của danh từ và tính từ な",
+      "summary": "Danh từ và tính từ な chia quá khứ giống hệt nhau: でした và じゃ ありませんでした.",
+      "structures": ["N ／ Aな ＋ でした", "N ／ Aな ＋ じゃ ありませんでした"],
+      "explanation": [
+        "です đổi thành でした ở thì quá khứ.",
+        "じゃ ありません đổi thành じゃ ありませんでした — chỉ việc thêm でした vào cuối.",
+        "Tính từ な chia y hệt danh từ. Đây là lý do nhiều sách gọi nó là 'tính từ kiểu danh từ'."
+      ],
+      "tables": [
+        {
+          "caption": "Bảng chia danh từ và tính từ な",
+          "headers": ["", "Khẳng định", "Phủ định"],
+          "rows": [
+            ["Hiện tại", "あめです", "あめじゃ ありません"],
+            ["Quá khứ", "あめでした", "あめじゃ ありませんでした"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Kể lại chuyện đã qua",
+          "detail": "Thời tiết, lễ hội, chuyến đi.",
+          "examples": [
+            {
+              "japanese": "きのうは あめでした。",
+              "vietnamese": "Hôm qua trời mưa."
+            },
+            {
+              "japanese": "きのうは やすみじゃ ありませんでした。",
+              "vietnamese": "Hôm qua không phải ngày nghỉ."
+            },
+            {
+              "japanese": "おまつりは にぎやかでした。",
+              "vietnamese": "Lễ hội đã rất nhộn nhịp."
+            },
+            {
+              "japanese": "ホテルは しずかじゃ ありませんでした。",
+              "vietnamese": "Khách sạn đã không yên tĩnh."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Thì quá khứ của tính từ い",
+      "summary": "Tính từ い tự biến đuôi: い đổi thành かった.",
+      "structures": ["Aい → A かったです", "Aい → A くなかったです"],
+      "explanation": [
+        "Bỏ い cuối rồi thêm かったです: たのしい → たのしかったです.",
+        "Phủ định quá khứ: bỏ い thêm くなかったです: たのしい → たのしくなかったです.",
+        "Chú ý です KHÔNG đổi thành でした. Nói 「たのしいでした」 là sai — bản thân かった đã mang nghĩa quá khứ rồi."
+      ],
+      "tables": [
+        {
+          "caption": "Bảng chia tính từ い",
+          "headers": ["", "Khẳng định", "Phủ định"],
+          "rows": [
+            ["Hiện tại", "たのしいです", "たのしくないです"],
+            ["Quá khứ", "たのしかったです", "たのしくなかったです"]
+          ]
+        }
+      ],
+      "notes": [
+        "いい chia bất quy tắc: よかったです, よくなかったです. Gốc chia là よい chứ không phải いい."
+      ],
+      "usages": [
+        {
+          "title": "Kể cảm nhận về chuyện đã qua",
+          "detail": "Câu trả lời quen thuộc khi được hỏi 「どうでしたか」.",
+          "examples": [
+            {
+              "japanese": "りょこうは たのしかったです。",
+              "vietnamese": "Chuyến du lịch đã rất vui."
+            },
+            {
+              "japanese": "てんきは よくなかったです。",
+              "vietnamese": "Thời tiết đã không tốt."
+            },
+            {
+              "japanese": "しけんは むずかしかったですか。",
+              "vietnamese": "Bài thi có khó không?"
+            },
+            {
+              "japanese": "いいえ、あまり むずかしくなかったです。",
+              "vietnamese": "Không, không khó lắm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 は N2 より Aです",
+      "summary": "So sánh hơn: N1 thì hơn N2 ở tính chất A.",
+      "structures": ["N1 は N2 より Aです"],
+      "explanation": [
+        "より đứng sau đối tượng bị đem ra so sánh, tương đương 'hơn' trong tiếng Việt nhưng ở vị trí khác.",
+        "Trật tự: thứ được đề cao đứng đầu câu với は, thứ bị so sánh đứng trước より.",
+        "Cụm 「N2 より」 có thể lược khi ngữ cảnh đã rõ."
+      ],
+      "usages": [
+        {
+          "title": "So sánh hai đối tượng",
+          "detail": "Thứ hơn đứng đầu.",
+          "examples": [
+            {
+              "japanese": "この くるまは あの くるまより おおきいです。",
+              "vietnamese": "Chiếc xe này to hơn chiếc xe kia."
+            },
+            {
+              "japanese": "しんかんせんは バスより はやいです。",
+              "vietnamese": "Tàu Shinkansen nhanh hơn xe buýt."
+            },
+            {
+              "japanese": "とうきょうは ハノイより さむいです。",
+              "vietnamese": "Tokyo lạnh hơn Hà Nội."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 と N2 と どちらが Aですか",
+      "summary": "Hỏi so sánh giữa đúng hai đối tượng.",
+      "structures": [
+        "N1 と N2 と どちらが Aですか。",
+        "→ N1 の ほうが Aです。",
+        "→ どちらも Aです。"
+      ],
+      "explanation": [
+        "Khi so sánh HAI thứ thì luôn dùng どちら, kể cả khi đối tượng là đồ vật hay nơi chốn — không dùng どれ hay どこ.",
+        "Trả lời bằng 「～の ほうが Aです」. Cụm の ほう nghĩa là 'phía bên ...'.",
+        "Nếu cả hai như nhau thì đáp 「どちらも Aです」."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời so sánh đôi",
+          "detail": "Luôn dùng どちら dù đối tượng là gì.",
+          "examples": [
+            {
+              "japanese": "サッカーと やきゅうと どちらが おもしろいですか。",
+              "vietnamese": "Bóng đá và bóng chày thì môn nào thú vị hơn?"
+            },
+            {
+              "japanese": "サッカーの ほうが おもしろいです。",
+              "vietnamese": "Bóng đá thú vị hơn."
+            },
+            {
+              "japanese": "とうきょうと おおさかと どちらが にぎやかですか。",
+              "vietnamese": "Tokyo và Osaka thì nơi nào nhộn nhịp hơn?"
+            },
+            {
+              "japanese": "どちらも にぎやかです。",
+              "vietnamese": "Nơi nào cũng nhộn nhịp cả."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N［の なか］で なにが いちばん Aですか",
+      "summary": "So sánh nhất: hỏi trong một nhóm thì cái nào nhất.",
+      "structures": [
+        "N の なかで ＋ từ hỏi ＋ が いちばん Aですか。",
+        "→ N が いちばん Aです。"
+      ],
+      "explanation": [
+        "Phạm vi so sánh đứng đầu câu, kèm 「の なかで」. Nếu phạm vi là nơi chốn hay thời gian thì chỉ cần で.",
+        "Từ hỏi chọn theo loại đối tượng: なに cho vật, どこ cho nơi chốn, だれ cho người, いつ cho thời gian, どれ khi chọn trong danh sách cụ thể.",
+        "Câu trả lời KHÔNG dùng は mà dùng が, vì phần trả lời chính là thông tin mới."
+      ],
+      "tables": [
+        {
+          "caption": "Chọn từ hỏi theo loại đối tượng",
+          "headers": ["Đối tượng", "Từ hỏi"],
+          "rows": [
+            ["Vật nói chung", "なに"],
+            ["Nơi chốn", "どこ"],
+            ["Người", "だれ"],
+            ["Thời gian", "いつ"],
+            ["Chọn trong danh sách đã nêu", "どれ"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Hỏi cái nhất trong một nhóm",
+          "detail": "Phạm vi đứng đầu câu.",
+          "examples": [
+            {
+              "japanese": "にほんりょうりで なにが いちばん おいしいですか。",
+              "vietnamese": "Trong các món Nhật thì món nào ngon nhất?"
+            },
+            {
+              "japanese": "てんぷらが いちばん おいしいです。",
+              "vietnamese": "Món tempura là ngon nhất."
+            },
+            {
+              "japanese": "かぞくの なかで だれが いちばん せが たかいですか。",
+              "vietnamese": "Trong gia đình thì ai cao nhất?"
+            },
+            {
+              "japanese": "１ねんで いつが いちばん さむいですか。",
+              "vietnamese": "Trong một năm thì lúc nào lạnh nhất?",
+              "reading": "いちねんで いつが いちばん さむいですか。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

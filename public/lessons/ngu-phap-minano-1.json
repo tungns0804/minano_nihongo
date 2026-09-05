@@ -1,0 +1,489 @@
+{
+  "id": "ngu-phap-minano-1",
+  "lessonNumber": 1,
+  "name": "皆の日本語 — Bài 1 · Ngữ pháp",
+  "description": "N1は N2です, じゃありません, ～か, Nも, N1の N2, ～さん, おいくつ",
+  "kind": "grammar",
+  "itemCount": 7,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1retxe9",
+      "title": "N1 は N2 です",
+      "summary": "Câu khẳng định cơ bản nhất: nói N1 chính là N2.",
+      "structures": [
+        "N1 は N2 です"
+      ],
+      "explanation": [
+        "は là trợ từ đánh dấu CHỦ ĐỀ của câu — thứ mà cả câu đang nói về. Viết bằng chữ は nhưng đọc là 「わ」. Đây là chỗ sai hay gặp nhất của người mới học.",
+        "です đứng cuối câu, gắn vào danh từ để tạo vị ngữ và đồng thời thể hiện thái độ lịch sự của người nói với người nghe.",
+        "Chủ đề đã rõ trong ngữ cảnh thì thường được lược bỏ. Tự giới thiệu chỉ cần nói 「ミラーです」 chứ không nhất thiết phải 「わたしは ミラーです」."
+      ],
+      "notes": [
+        "です KHÔNG phải là động từ 'là'. Nó chỉ là dấu hiệu lịch sự đặt cuối câu, nên nó cũng đứng sau tính từ (bài 8) chứ không riêng gì danh từ."
+      ],
+      "tables": [
+        {
+          "caption": "です chia theo thể",
+          "headers": [
+            "Thể",
+            "Câu"
+          ],
+          "rows": [
+            [
+              "Khẳng định",
+              "がくせいです"
+            ],
+            [
+              "Phủ định",
+              "がくせいじゃ ありません"
+            ],
+            [
+              "Nghi vấn",
+              "がくせいですか"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Tự giới thiệu và giới thiệu người khác",
+          "detail": "Câu đầu tiên ai cũng phải nói được.",
+          "examples": [
+            {
+              "id": "12kqmzt",
+              "japanese": "わたしは マイク・ミラーです。",
+              "reading": "",
+              "vietnamese": "Tôi là Mike Miller.",
+              "note": ""
+            },
+            {
+              "id": "0nl6ylv",
+              "japanese": "わたしは かいしゃいんです。",
+              "reading": "",
+              "vietnamese": "Tôi là nhân viên công ty.",
+              "note": ""
+            },
+            {
+              "id": "0pa29na",
+              "japanese": "あの ひとは やまださんです。",
+              "reading": "",
+              "vietnamese": "Người kia là anh Yamada.",
+              "note": ""
+            },
+            {
+              "id": "1m71ejq",
+              "japanese": "サントスさんは ブラジルじんです。",
+              "reading": "",
+              "vietnamese": "Anh Santos là người Brazil.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Nói nghề nghiệp, quốc tịch, tuổi",
+          "detail": "Ba thông tin xuất hiện nhiều nhất ở bài 1.",
+          "examples": [
+            {
+              "id": "1prhclw",
+              "japanese": "ワンさんは いしゃです。",
+              "reading": "",
+              "vietnamese": "Anh Wang là bác sĩ.",
+              "note": ""
+            },
+            {
+              "id": "0253oqj",
+              "japanese": "カリナさんは がくせいです。",
+              "reading": "",
+              "vietnamese": "Chị Karina là sinh viên.",
+              "note": ""
+            },
+            {
+              "id": "0th26pw",
+              "japanese": "テレサちゃんは ９さいです。",
+              "reading": "テレサちゃんは きゅうさいです。",
+              "vietnamese": "Bé Teresa 9 tuổi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1pb6op8",
+      "title": "N1 は N2 じゃ ありません",
+      "summary": "Phủ định của mẫu N1 は N2 です.",
+      "structures": [
+        "N1 は N2 じゃ ありません",
+        "N1 は N2 では ありません（trang trọng hơn）"
+      ],
+      "explanation": [
+        "じゃ ありません dùng trong hội thoại hằng ngày; では ありません dùng khi viết hoặc khi phát biểu trang trọng. Ý nghĩa hoàn toàn giống nhau.",
+        "じゃ chính là dạng nói rút gọn của では, nên bản chất chỉ là một mẫu chứ không phải hai."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nói một điều không đúng sự thật",
+          "detail": "Thường đi sau いいえ để trả lời câu hỏi.",
+          "examples": [
+            {
+              "id": "1pya2ww",
+              "japanese": "サントスさんは がくせいじゃ ありません。",
+              "reading": "",
+              "vietnamese": "Anh Santos không phải là sinh viên.",
+              "note": ""
+            },
+            {
+              "id": "1c4jl5w",
+              "japanese": "わたしは にほんじんじゃ ありません。",
+              "reading": "",
+              "vietnamese": "Tôi không phải là người Nhật.",
+              "note": ""
+            },
+            {
+              "id": "1m7lpx9",
+              "japanese": "ワンさんは ぎんこういんでは ありません。",
+              "reading": "",
+              "vietnamese": "Anh Wang không phải là nhân viên ngân hàng.",
+              "note": "では ありません nghe trang trọng hơn じゃ ありません."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1q2bz72",
+      "title": "N1 は N2 ですか",
+      "summary": "Biến một câu trần thuật thành câu hỏi bằng cách thêm か.",
+      "structures": [
+        "N1 は N2 ですか。→ はい、N2 です。",
+        "N1 は N2 ですか。→ いいえ、N2 じゃ ありません。"
+      ],
+      "explanation": [
+        "か đặt ở cuối câu là dấu hiệu nghi vấn. Vì đã có か nên tiếng Nhật KHÔNG cần đảo trật tự từ như tiếng Anh, và cuối câu vẫn viết dấu 。",
+        "Khi hỏi thông tin còn thiếu thì thay chỗ chưa biết bằng từ để hỏi (だれ, なんさい…) và giữ nguyên trật tự câu."
+      ],
+      "notes": [
+        "Câu hỏi bằng từ nghi vấn KHÔNG trả lời bằng はい／いいえ. Hỏi 「だれですか」 mà đáp 「はい」 là sai."
+      ],
+      "tables": [
+        {
+          "caption": "Hai kiểu câu hỏi",
+          "headers": [
+            "Kiểu",
+            "Ví dụ",
+            "Cách trả lời"
+          ],
+          "rows": [
+            [
+              "Hỏi đúng hay sai",
+              "ミラーさんは かいしゃいんですか。",
+              "はい、かいしゃいんです。"
+            ],
+            [
+              "Hỏi bằng từ nghi vấn",
+              "あの ひとは だれですか。",
+              "ミラーさんです。"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi để xác nhận — trả lời はい hay いいえ",
+          "detail": "Người hỏi đã đoán được câu trả lời, chỉ muốn kiểm chứng.",
+          "examples": [
+            {
+              "id": "1ofsogd",
+              "japanese": "ミラーさんは かいしゃいんですか。",
+              "reading": "",
+              "vietnamese": "Anh Miller có phải là nhân viên công ty không?",
+              "note": ""
+            },
+            {
+              "id": "1p9h8sh",
+              "japanese": "はい、かいしゃいんです。",
+              "reading": "",
+              "vietnamese": "Vâng, tôi là nhân viên công ty.",
+              "note": ""
+            },
+            {
+              "id": "192meet",
+              "japanese": "いいえ、がくせいじゃ ありません。",
+              "reading": "",
+              "vietnamese": "Không, tôi không phải là sinh viên.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Hỏi bằng từ nghi vấn — だれ・どなた・おいくつ",
+          "detail": "どなた lịch sự hơn だれ; おいくつ lịch sự hơn なんさい.",
+          "examples": [
+            {
+              "id": "15jxugb",
+              "japanese": "あの かたは どなたですか。",
+              "reading": "",
+              "vietnamese": "Vị kia là ai vậy ạ?",
+              "note": ""
+            },
+            {
+              "id": "0p3l1xo",
+              "japanese": "ワットさんです。さくらだいがくの せんせいです。",
+              "reading": "",
+              "vietnamese": "Đó là thầy Watt. Thầy là giảng viên trường Đại học Sakura.",
+              "note": ""
+            },
+            {
+              "id": "05m7ijx",
+              "japanese": "しつれいですが、おいくつですか。",
+              "reading": "",
+              "vietnamese": "Xin lỗi cho hỏi, anh bao nhiêu tuổi ạ?",
+              "note": "しつれいですが là câu rào đón trước khi hỏi chuyện riêng tư."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0k9hkqb",
+      "title": "N も",
+      "summary": "Nói rằng điều vừa nêu cũng đúng với một đối tượng khác.",
+      "structures": [
+        "N1 は ～です。N2 も ～です。"
+      ],
+      "explanation": [
+        "も THAY THẾ chỗ của は chứ không đứng thêm vào. Nói 「グプタさんはも かいしゃいんです」 là sai.",
+        "Chỉ dùng も khi phần vị ngữ giống hệt câu trước. Khác vị ngữ thì quay lại dùng は."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Bổ sung một đối tượng cùng đặc điểm",
+          "detail": "Câu trước đã nêu đặc điểm, câu sau chỉ đổi chủ đề.",
+          "examples": [
+            {
+              "id": "04ebzbw",
+              "japanese": "ミラーさんは かいしゃいんです。グプタさんも かいしゃいんです。",
+              "reading": "",
+              "vietnamese": "Anh Miller là nhân viên công ty. Anh Gupta cũng là nhân viên công ty.",
+              "note": ""
+            },
+            {
+              "id": "06bac0z",
+              "japanese": "カリナさんも がくせいですか。",
+              "reading": "",
+              "vietnamese": "Chị Karina cũng là sinh viên phải không?",
+              "note": ""
+            },
+            {
+              "id": "1s09a3j",
+              "japanese": "いいえ、カリナさんは がくせいじゃ ありません。",
+              "reading": "",
+              "vietnamese": "Không, chị Karina không phải là sinh viên.",
+              "note": "Trả lời phủ định thì も quay về thành は."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0fewrwm",
+      "title": "N1 の N2",
+      "summary": "Nối hai danh từ: N1 bổ nghĩa cho N2 đứng sau.",
+      "structures": [
+        "N1 の N2"
+      ],
+      "explanation": [
+        "Trật tự ngược với tiếng Việt: tiếng Việt nói 'nhân viên công ty IMC' còn tiếng Nhật nói 「IMCの しゃいん」 — phần bổ nghĩa đứng TRƯỚC.",
+        "Ở bài 1, の chủ yếu chỉ nơi trực thuộc và lĩnh vực chuyên môn. Các nghĩa khác của の học tiếp ở bài 2 và bài 3."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "の trong bài 1",
+          "headers": [
+            "Nghĩa",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Nơi trực thuộc",
+              "IMCの しゃいん"
+            ],
+            [
+              "Nơi công tác",
+              "さくらだいがくの せんせい"
+            ],
+            [
+              "Lĩnh vực chuyên môn",
+              "コンピューターの けんきゅうしゃ"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nơi làm việc, nơi học tập",
+          "detail": "Tên công ty, tên trường đứng trước の.",
+          "examples": [
+            {
+              "id": "1paa8a8",
+              "japanese": "ミラーさんは IMCの しゃいんです。",
+              "reading": "",
+              "vietnamese": "Anh Miller là nhân viên công ty IMC.",
+              "note": ""
+            },
+            {
+              "id": "1yv1yrn",
+              "japanese": "ワットさんは さくらだいがくの せんせいです。",
+              "reading": "",
+              "vietnamese": "Thầy Watt là giảng viên trường Đại học Sakura.",
+              "note": ""
+            },
+            {
+              "id": "165w91a",
+              "japanese": "サントスさんは ブラジルエアーの しゃいんです。",
+              "reading": "",
+              "vietnamese": "Anh Santos là nhân viên hãng hàng không Brazil Air.",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Lĩnh vực chuyên môn",
+          "detail": "Nói mình nghiên cứu hay phụ trách mảng gì.",
+          "examples": [
+            {
+              "id": "08hd85n",
+              "japanese": "わたしは コンピューターの けんきゅうしゃです。",
+              "reading": "",
+              "vietnamese": "Tôi là nhà nghiên cứu máy tính.",
+              "note": ""
+            },
+            {
+              "id": "1ultbly",
+              "japanese": "せんもんは でんきです。",
+              "reading": "",
+              "vietnamese": "Chuyên môn của tôi là điện.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1kpata6",
+      "title": "～さん ／ ～ちゃん ／ ～くん",
+      "summary": "Các hậu tố gắn sau tên người khi xưng hô.",
+      "structures": [
+        "Tên ＋ さん",
+        "Tên bé gái ＋ ちゃん",
+        "Tên bé trai ＋ くん"
+      ],
+      "explanation": [
+        "さん gắn sau họ hoặc tên của người nghe và người thứ ba, không phân biệt nam nữ, không phân biệt tuổi.",
+        "Tuyệt đối KHÔNG gắn さん vào tên chính mình. 「わたしは ミラーさんです」 là lỗi nặng, nghe như tự đề cao mình.",
+        "Với trẻ em thì dùng ちゃん cho bé gái và くん cho bé trai, mang sắc thái thân mật."
+      ],
+      "notes": [
+        "Khi đã biết tên người nghe thì gọi thẳng tên kèm さん chứ đừng dùng あなた. あなた chỉ dùng giữa những người rất thân — vợ chồng, người yêu — nên gọi あなた với người mới quen dễ gây khó chịu."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Gọi tên người nghe thay cho あなた",
+          "detail": "Tiếng Nhật gọi thẳng tên ở chỗ tiếng Việt dùng 'anh, chị, bạn'.",
+          "examples": [
+            {
+              "id": "0rz0p83",
+              "japanese": "ミラーさんは がくせいですか。",
+              "reading": "",
+              "vietnamese": "Anh Miller có phải là sinh viên không?",
+              "note": "Hỏi thẳng người tên Miller, không dùng あなた."
+            },
+            {
+              "id": "084xf4z",
+              "japanese": "テレサちゃんは なんさいですか。",
+              "reading": "",
+              "vietnamese": "Bé Teresa mấy tuổi rồi?",
+              "note": ""
+            },
+            {
+              "id": "0vnjbxo",
+              "japanese": "たろうくんは しょうがくせいです。",
+              "reading": "",
+              "vietnamese": "Bé Taro là học sinh tiểu học.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1q1gc5j",
+      "title": "はじめまして ／ どうぞ よろしく",
+      "summary": "Bộ câu chào cố định khi lần đầu gặp mặt.",
+      "structures": [
+        "はじめまして。～です。どうぞ よろしく おねがいします。"
+      ],
+      "explanation": [
+        "Trình tự tự giới thiệu chuẩn: はじめまして → tên và nơi trực thuộc → どうぞ よろしく おねがいします.",
+        "しつれいですが là câu rào đón, đặt trước khi hỏi những thông tin riêng tư như tên, tuổi, địa chỉ."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Chào hỏi lần đầu gặp mặt",
+          "detail": "Học thuộc cả cụm, không phân tích ngữ pháp.",
+          "examples": [
+            {
+              "id": "1eq27mu",
+              "japanese": "はじめまして。",
+              "reading": "",
+              "vietnamese": "Rất hân hạnh được gặp anh.",
+              "note": ""
+            },
+            {
+              "id": "0fp0g0o",
+              "japanese": "どうぞ よろしく おねがいします。",
+              "reading": "",
+              "vietnamese": "Rất mong nhận được sự giúp đỡ của anh.",
+              "note": ""
+            },
+            {
+              "id": "0kzejpm",
+              "japanese": "アメリカから きました。",
+              "reading": "",
+              "vietnamese": "Tôi đến từ Mỹ.",
+              "note": ""
+            },
+            {
+              "id": "1qd5olu",
+              "japanese": "しつれいですが、おなまえは。",
+              "reading": "",
+              "vietnamese": "Xin lỗi, cho hỏi tên anh là gì ạ?",
+              "note": "Bỏ lửng sau は nghe lịch sự hơn là hỏi trọn câu."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "points": [
+    {
+      "title": "Cách chia thể ない",
+      "summary": "Thể ない là gốc của mọi mẫu phủ định từ bài này trở đi.",
+      "structures": ["Nhóm I — âm hàng い đổi sang hàng あ ＋ ない", "Nhóm II — bỏ ます thêm ない", "Nhóm III — こない, しない"],
+      "explanation": [
+        "Nhóm I: âm ngay trước ます chuyển từ hàng い sang hàng あ rồi thêm ない — かきます → かかない.",
+        "Ngoại lệ nhóm I: động từ có âm い trước ます thì chuyển thành わ chứ không phải あ — かいます → かわない. Lý do là tiếng Nhật cổ không có âm 「わ」 ở giữa từ theo lối đó.",
+        "Nhóm II bỏ ます thêm ない. Nhóm III học thuộc: きます → こない, します → しない."
+      ],
+      "tables": [
+        {
+          "caption": "Luật chia thể ない",
+          "headers": ["Nhóm", "Cách chia", "Ví dụ"],
+          "rows": [
+            ["I", "Hàng い sang hàng あ ＋ ない", "かきます → かかない"],
+            ["I ngoại lệ", "い đổi thành わ", "すいます → すわない"],
+            ["II", "Bỏ ます thêm ない", "たべます → たべない"],
+            ["III", "Học thuộc", "きます → こない / します → しない"]
+          ]
+        }
+      ],
+      "notes": [
+        "あります là ngoại lệ lớn: thể ない của nó là ない chứ không phải あらない."
+      ],
+      "usages": [
+        {
+          "title": "Luyện chia thể ない",
+          "detail": "Xác định nhóm rồi áp luật.",
+          "examples": [
+            {
+              "japanese": "のみます → のまない",
+              "vietnamese": "nomimasu chuyển thành nomanai."
+            },
+            {
+              "japanese": "すいます → すわない",
+              "vietnamese": "suimasu chuyển thành suwanai."
+            },
+            {
+              "japanese": "きます → こない",
+              "vietnamese": "kimasu chuyển thành konai."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ないで ください",
+      "summary": "Yêu cầu người nghe đừng làm việc gì đó.",
+      "structures": ["V ないで ください。"],
+      "explanation": [
+        "Đây là cặp đối của 「Vて ください」 ở bài 14.",
+        "Nhẹ hơn hẳn 「Vては いけません」 ở bài 15: mẫu kia là lệnh cấm, còn mẫu này là lời nhờ vả, khuyên nhủ.",
+        "Vì vậy đây là mẫu dùng được với người ngang hàng và cả với người trên khi kèm すみませんが."
+      ],
+      "usages": [
+        {
+          "title": "Nhờ đừng làm gì",
+          "detail": "Hay dùng trong bệnh viện, trong lớp học.",
+          "examples": [
+            {
+              "japanese": "ここで しゃしんを とらないで ください。",
+              "vietnamese": "Xin đừng chụp ảnh ở đây."
+            },
+            {
+              "japanese": "しんぱいしないで ください。",
+              "vietnamese": "Anh đừng lo lắng."
+            },
+            {
+              "japanese": "この ことは だれにも いわないで ください。",
+              "vietnamese": "Chuyện này anh đừng nói với ai nhé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V なければ なりません",
+      "summary": "Nghĩa vụ: bắt buộc phải làm việc đó.",
+      "structures": ["V ない（bỏ ない）＋ なければ なりません"],
+      "explanation": [
+        "Bỏ ない của thể ない rồi thêm なければ なりません: のまない → のまなければ なりません.",
+        "Dịch sát nghĩa là 'nếu không làm thì không xong' — đó là cách tiếng Nhật diễn đạt sự bắt buộc.",
+        "Trong hội thoại thân mật hay rút gọn thành 「～なきゃ」."
+      ],
+      "notes": [
+        "Mẫu này nói về nghĩa vụ khách quan, không mang cảm xúc của người nói. Nó dùng được cho cả bản thân lẫn người khác."
+      ],
+      "usages": [
+        {
+          "title": "Nêu việc bắt buộc phải làm",
+          "detail": "Quy định, nghĩa vụ, lịch trình.",
+          "examples": [
+            {
+              "japanese": "くすりを のまなければ なりません。",
+              "vietnamese": "Tôi phải uống thuốc."
+            },
+            {
+              "japanese": "あした ７じに こなければ なりません。",
+              "vietnamese": "Ngày mai tôi phải đến lúc 7 giờ.",
+              "reading": "あした しちじに こなければ なりません。"
+            },
+            {
+              "japanese": "レポートを だすまえに なまえを かかなければ なりません。",
+              "vietnamese": "Trước khi nộp báo cáo phải viết tên vào."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V なくても いいです",
+      "summary": "Không cần phải làm việc đó cũng được.",
+      "structures": ["V ない（bỏ ない）＋ なくても いいです"],
+      "explanation": [
+        "Bỏ ない rồi thêm なくても いいです.",
+        "Đây là cặp đối của 「Vなければ なりません」: một bên bắt buộc phải làm, một bên không cần làm.",
+        "Cùng họ với 「Vても いいです」 ở bài 15, chỉ khác ở chỗ vế trước là phủ định."
+      ],
+      "tables": [
+        {
+          "caption": "Bốn mẫu ghép đôi",
+          "headers": ["Ý", "Mẫu"],
+          "rows": [
+            ["Được phép làm", "V ても いいです"],
+            ["Không được làm", "V ては いけません"],
+            ["Bắt buộc phải làm", "V なければ なりません"],
+            ["Không cần làm", "V なくても いいです"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Nói không cần làm gì",
+          "detail": "Giải tỏa lo lắng của người nghe.",
+          "examples": [
+            {
+              "japanese": "あした こなくても いいです。",
+              "vietnamese": "Ngày mai anh không cần đến cũng được."
+            },
+            {
+              "japanese": "くつを ぬがなくても いいです。",
+              "vietnamese": "Anh không cần cởi giày đâu."
+            },
+            {
+              "japanese": "レポートは きょう ださなくても いいですか。",
+              "vietnamese": "Báo cáo hôm nay không nộp cũng được ạ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Tân ngữ làm chủ đề — N は",
+      "summary": "Đưa tân ngữ lên đầu câu làm chủ đề, đổi を thành は.",
+      "structures": ["N（tân ngữ）は ～"],
+      "explanation": [
+        "Khi muốn nhấn mạnh tân ngữ hoặc đối chiếu nó với thứ khác thì đưa nó lên đầu câu và đổi を thành は.",
+        "Trợ từ が cũng biến mất theo cách tương tự khi từ đó lên làm chủ đề.",
+        "Các trợ từ khác như に, で, へ thì GIỮ NGUYÊN và thêm は vào sau: 「ここには…」."
+      ],
+      "usages": [
+        {
+          "title": "Nhấn mạnh và đối chiếu",
+          "detail": "を biến mất khi tân ngữ lên làm chủ đề.",
+          "examples": [
+            {
+              "japanese": "レポートは あした ださなければ なりません。",
+              "vietnamese": "Báo cáo thì ngày mai phải nộp."
+            },
+            {
+              "japanese": "コーヒーは のみますが、おさけは のみません。",
+              "vietnamese": "Cà phê thì tôi uống nhưng rượu thì không."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（thời điểm）までに",
+      "summary": "Hạn chót: phải xong trước thời điểm đó.",
+      "structures": ["N（thời điểm）までに V"],
+      "explanation": [
+        "までに khác hẳn まで ở bài 4: まで chỉ giới hạn cuối của một việc KÉO DÀI, còn までに chỉ HẠN CHÓT của một việc xảy ra một lần.",
+        "Ví dụ 「５じまで はたらきます」 là làm việc liên tục cho tới 5 giờ; 「５じまでに かえります」 là về nhà trước 5 giờ, không nói rõ lúc nào."
+      ],
+      "tables": [
+        {
+          "caption": "まで và までに",
+          "headers": ["Mẫu", "Ý", "Ví dụ"],
+          "rows": [
+            ["まで", "Kéo dài cho tới lúc đó", "５じまで はたらきます"],
+            ["までに", "Hạn chót, xong trước lúc đó", "５じまでに かえります"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Nêu hạn chót",
+          "detail": "Đi với động từ chỉ việc xảy ra một lần.",
+          "examples": [
+            {
+              "japanese": "レポートは きんようびまでに ださなければ なりません。",
+              "vietnamese": "Báo cáo phải nộp trước thứ Sáu."
+            },
+            {
+              "japanese": "１０じまでに かえって ください。",
+              "vietnamese": "Anh hãy về trước 10 giờ nhé.",
+              "reading": "じゅうじまでに かえって ください。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

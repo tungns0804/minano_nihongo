@@ -126,7 +126,7 @@ project React xếp lẫn vào thư mục giáo trình.
 | --- | --- | --- |
 | 文字 | **375/375 chữ Kanji N3** (`kanji-levels.ts`), 345 chữ có chiết tự bộ thủ | 103 chữ chưa có từ ví dụ; app dạy **âm Hán Việt**, mà đề JLPT hỏi **音読み/訓読み** — hai việc khác nhau |
 | 語彙 | **6/42 bài** 総まとめ N3, 215 từ | 36 bài. Trong 215 từ: **0 từ có câu ví dụ**, 0 từ có âm Hán Việt, chỉ ~120 từ có cách đọc |
-| 文法 | 24 bài ngữ pháp 皆の日本語 26–50 (93 mẫu) | **0 mẫu N3.** Định dạng `grammar.json` và màn hình đã có sẵn — chỉ thiếu nội dung |
+| 文法 | **50/50 bài** ngữ pháp 皆の日本語 (219 mẫu) | **0 mẫu N3.** Định dạng `grammar.json` và màn hình đã có sẵn — chỉ thiếu nội dung |
 | 読解 | — | **0.** Và chưa có cả đường ống: `LessonKind` chưa có `reading`, chưa có bộ đọc dữ liệu, chưa có màn hình |
 | 聴解 | Chỉ có nút đọc **từng từ** trong bảng từ vựng | **0** dạng bài nghe. Chưa có chiều luyện "nghe rồi trả lời" |
 | Bổ trợ | 29 cặp tự/tha động từ N3, 63 động từ N3 để chia thể, 214 bộ thủ | — |
@@ -162,7 +162,7 @@ chéo trên thanh tiến độ, đúng nghĩa "chỗ này không phải chưa h�
 
 **Cần làm:** bổ sung quyển đó vào `C:\Users\Admin\Downloads\Japanese\N3`. Có sách
 thì phần ngữ pháp N3 nạp thành bài học trong app được ngay — định dạng
-`grammar.json` và hai màn hình `/grammar` đã chạy tốt với 93 mẫu N4.
+`grammar.json` và hai màn hình `/grammar` đã chạy tốt với 219 mẫu N5 và N4.
 
 Trong lúc chờ, phần ngữ pháp làm được như mục 6.3.
 
@@ -230,7 +230,7 @@ nhất đẩy giai đoạn 1 lên mức không theo được. Tích khi nào ôn
    phần đỡ nhiều nhất cho việc đọc sách N3.
 2. Mỗi ngày 1–2 bài từ vựng 皆の日本語 **26–50**: luyện thẳng trong app, **không đọc
    lại sách**. Từ nào sai thì bấm ★.
-3. Mỗi ngày 1 bài ngữ pháp 26–50 ở tab Ngữ pháp. Chỗ nào mờ thì tra
+3. Mỗi ngày 1 bài ngữ pháp 26–50 ở tab Ngữ pháp (bài 1–25 nay cũng có, để tra lại nền N5). Chỗ nào mờ thì tra
    `Bản dịch và giải thích ngữ pháp - Tập 2.pdf`.
 4. Cửa vào: xong **80% phần nền có hẹn ngày** thì mới mở 総まとめ. Tab `/n3` hiện
    trạng thái cửa vào ngay trên thẻ "Nền N5–N4".
@@ -305,7 +305,7 @@ biết nghĩa của 今ごろ không giúp chọn được câu dùng nó đúng
 
 Chưa có sách N3. Việc làm được ngay, theo đúng thứ tự:
 
-1. **24 bài ngữ pháp 皆の日本語 26–50 trong app** (93 mẫu) — 受身, 使役, 使役受身,
+1. **25 bài ngữ pháp 皆の日本語 26–50 trong app** (91 mẫu) — 受身, 使役, 使役受身,
    尊敬語/謙譲語, 条件形, 〜ようだ/らしい/そうだ. Đây là nền mà 総まとめ N3 giả định
    đã biết, và bản thân nó vẫn được hỏi trong đề N3.
 2. **Bảng まとめ của `Luyện tập mẫu câu - Tập 2.pdf`** tách 可能/受身/尊敬 và
@@ -659,23 +659,24 @@ Mục không ghi gì trong ngoặc là **có bài trong app**.
 
 ### 文 文法 Ngữ pháp — `皆の日本語 初級II（総まとめ N3 文法 chưa có）`
 
-**土台 皆の日本語 初級II · 文法** — Ngữ pháp N4 — 24 bài đã có trong app
+**土台 皆の日本語 初級II · 文法** — Ngữ pháp N4 — 25 bài đã có trong app
 
 - [ ] `2026-09-05` 第26課 — Ngữ pháp bài 26
-- [ ] `2026-09-06` 第27課 — Ngữ pháp bài 27
+- [ ] `2026-09-05` 第27課 — Ngữ pháp bài 27
 - [ ] `2026-09-06` 第28課 — Ngữ pháp bài 28
 - [ ] `2026-09-07` 第29課 — Ngữ pháp bài 29
-- [ ] `2026-09-08` 第30課 — Ngữ pháp bài 30
+- [ ] `2026-09-07` 第30課 — Ngữ pháp bài 30
 - [ ] `2026-09-08` 第31課 — Ngữ pháp bài 31
 - [ ] `2026-09-09` 第32課 — Ngữ pháp bài 32
-- [ ] `2026-09-10` 第33課 — Ngữ pháp bài 33
+- [ ] `2026-09-09` 第33課 — Ngữ pháp bài 33
 - [ ] `2026-09-10` 第34課 — Ngữ pháp bài 34
 - [ ] `2026-09-11` 第35課 — Ngữ pháp bài 35
-- [ ] `2026-09-12` 第36課 — Ngữ pháp bài 36
+- [ ] `2026-09-11` 第36課 — Ngữ pháp bài 36
 - [ ] `2026-09-12` 第37課 — Ngữ pháp bài 37
 - [ ] `2026-09-13` 第38課 — Ngữ pháp bài 38
+- [ ] `2026-09-13` 第39課 — Ngữ pháp bài 39
 - [ ] `2026-09-14` 第40課 — Ngữ pháp bài 40
-- [ ] `2026-09-14` 第41課 — Ngữ pháp bài 41
+- [ ] `2026-09-15` 第41課 — Ngữ pháp bài 41
 - [ ] `2026-09-15` 第42課 — Ngữ pháp bài 42
 - [ ] `2026-09-16` 第43課 — Ngữ pháp bài 43
 - [ ] `2026-09-17` 第44課 — Ngữ pháp bài 44

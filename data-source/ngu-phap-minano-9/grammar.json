@@ -1,0 +1,239 @@
+{
+  "points": [
+    {
+      "title": "N が あります ／ わかります",
+      "summary": "Trợ từ が đánh dấu đối tượng của những vị ngữ chỉ trạng thái, không phải hành động.",
+      "structures": ["N が あります", "N が わかります"],
+      "explanation": [
+        "あります ở bài này nghĩa là 'có' theo kiểu sở hữu, có sự kiện, chứ chưa phải nghĩa tồn tại ở một nơi — cái đó học ở bài 10.",
+        "わかります nghĩa là 'hiểu, biết'. Vì nó tả một TRẠNG THÁI chứ không tả một hành động nên đối tượng đi với が chứ không đi với を.",
+        "Đây là điểm rất dễ sai: người học quen dùng を cho mọi tân ngữ, nên hay nói 「にほんごを わかります」."
+      ],
+      "notes": [
+        "Chỉ cần nhớ một nguyên tắc: hễ vị ngữ nói về trạng thái, năng lực, cảm xúc thì đối tượng đi với が."
+      ],
+      "usages": [
+        {
+          "title": "Có gì đó, có việc gì đó",
+          "detail": "Sở hữu, sự kiện, thời gian rảnh.",
+          "examples": [
+            {
+              "japanese": "わたしは くるまが あります。",
+              "vietnamese": "Tôi có xe ô tô."
+            },
+            {
+              "japanese": "あした しけんが あります。",
+              "vietnamese": "Ngày mai có bài kiểm tra."
+            },
+            {
+              "japanese": "きょうは じかんが ありません。",
+              "vietnamese": "Hôm nay tôi không có thời gian."
+            },
+            {
+              "japanese": "こまかい おかねが ありますか。",
+              "vietnamese": "Anh có tiền lẻ không?"
+            }
+          ]
+        },
+        {
+          "title": "Hiểu được điều gì",
+          "detail": "Đối tượng đi với が.",
+          "examples": [
+            {
+              "japanese": "にほんごが わかりますか。",
+              "vietnamese": "Anh có hiểu tiếng Nhật không?"
+            },
+            {
+              "japanese": "はい、すこし わかります。",
+              "vietnamese": "Vâng, tôi hiểu một chút."
+            },
+            {
+              "japanese": "かんじが ぜんぜん わかりません。",
+              "vietnamese": "Tôi hoàn toàn không hiểu chữ Hán."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N が すき ／ きらい ／ じょうず ／ へた です",
+      "summary": "Bốn tính từ な nói về sở thích và năng lực, đối tượng đều đi với が.",
+      "structures": ["N は N が すきです", "N は N が じょうずです"],
+      "explanation": [
+        "すき (thích), きらい (ghét), じょうず (giỏi), へた (kém) đều là tính từ な.",
+        "Cả bốn đều lấy が cho đối tượng, vì chúng mô tả trạng thái tình cảm và năng lực chứ không phải hành động.",
+        "Trong câu đầy đủ có hai phần: 「N は」 là người có tình cảm hay năng lực đó, 「N が」 là đối tượng."
+      ],
+      "notes": [
+        "じょうず KHÔNG dùng để khen chính mình, cũng ít dùng để khen người trên. Nói về mình thì dùng 「じょうずじゃ ありません」 hoặc 「できます」 (bài 27)."
+      ],
+      "usages": [
+        {
+          "title": "Nói sở thích",
+          "detail": "Chủ đề đi với は, đối tượng đi với が.",
+          "examples": [
+            {
+              "japanese": "わたしは にほんの おんがくが すきです。",
+              "vietnamese": "Tôi thích nhạc Nhật."
+            },
+            {
+              "japanese": "わたしは やさいが きらいです。",
+              "vietnamese": "Tôi ghét rau."
+            },
+            {
+              "japanese": "どんな スポーツが すきですか。",
+              "vietnamese": "Anh thích môn thể thao nào?"
+            }
+          ]
+        },
+        {
+          "title": "Nói năng lực",
+          "detail": "じょうず và へた.",
+          "examples": [
+            {
+              "japanese": "アンさんは りょうりが じょうずです。",
+              "vietnamese": "Chị An nấu ăn giỏi."
+            },
+            {
+              "japanese": "わたしは えが へたです。",
+              "vietnamese": "Tôi vẽ kém."
+            },
+            {
+              "japanese": "ミラーさんは にほんごが じょうずですね。",
+              "vietnamese": "Anh Miller giỏi tiếng Nhật nhỉ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん",
+      "summary": "Các phó từ chỉ mức độ và tần suất, chia làm hai nhóm theo vị ngữ đi kèm.",
+      "structures": ["よく／だいたい／たくさん／すこし ＋ vị ngữ khẳng định", "あまり／ぜんぜん ＋ vị ngữ phủ định"],
+      "explanation": [
+        "Bốn phó từ đầu đi với vị ngữ khẳng định, sắp theo mức độ giảm dần: よく (rất, thường xuyên) > だいたい (đại khái) > すこし (một chút).",
+        "あまり và ぜんぜん BẮT BUỘC đi với vị ngữ phủ định. ぜんぜん mạnh hơn, nghĩa là 'hoàn toàn không'."
+      ],
+      "tables": [
+        {
+          "caption": "Thang mức độ",
+          "headers": ["Phó từ", "Mức độ", "Vị ngữ"],
+          "rows": [
+            ["よく", "Nhiều, thường xuyên", "Khẳng định"],
+            ["だいたい", "Phần lớn", "Khẳng định"],
+            ["すこし", "Một chút", "Khẳng định"],
+            ["あまり", "Không ... lắm", "Phủ định"],
+            ["ぜんぜん", "Hoàn toàn không", "Phủ định"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Đi với vị ngữ khẳng định",
+          "detail": "Đứng ngay trước vị ngữ.",
+          "examples": [
+            {
+              "japanese": "えいごが よく わかります。",
+              "vietnamese": "Tôi hiểu rõ tiếng Anh."
+            },
+            {
+              "japanese": "かんじが すこし わかります。",
+              "vietnamese": "Tôi hiểu chữ Hán một chút."
+            },
+            {
+              "japanese": "ともだちが たくさん います。",
+              "vietnamese": "Tôi có nhiều bạn."
+            }
+          ]
+        },
+        {
+          "title": "Đi với vị ngữ phủ định",
+          "detail": "Quên phủ định là câu sai ngay.",
+          "examples": [
+            {
+              "japanese": "ドイツごは あまり わかりません。",
+              "vietnamese": "Tôi không hiểu tiếng Đức lắm."
+            },
+            {
+              "japanese": "おさけは ぜんぜん のみません。",
+              "vietnamese": "Tôi hoàn toàn không uống rượu."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～から — nêu lý do",
+      "summary": "から đứng cuối vế lý do, nối với vế kết quả.",
+      "structures": ["Câu lý do ＋ から、câu kết quả。", "Câu kết quả。Câu lý do ＋ から。"],
+      "explanation": [
+        "Trật tự chuẩn là LÝ DO trước, KẾT QUẢ sau — ngược với tiếng Việt vốn hay nói kết quả trước.",
+        "Nhưng cũng được phép tách làm hai câu, đặt vế から xuống sau để bổ sung lý do.",
+        "Trước から là câu hoàn chỉnh ở thể lịch sự: 「じかんが ありませんから」."
+      ],
+      "usages": [
+        {
+          "title": "Lý do đứng trước",
+          "detail": "Cách viết chuẩn mực.",
+          "examples": [
+            {
+              "japanese": "じかんが ありませんから、しんぶんを よみません。",
+              "vietnamese": "Vì không có thời gian nên tôi không đọc báo."
+            },
+            {
+              "japanese": "あたまが いたいですから、きょうは やすみます。",
+              "vietnamese": "Vì đau đầu nên hôm nay tôi nghỉ."
+            }
+          ]
+        },
+        {
+          "title": "Lý do bổ sung sau",
+          "detail": "Hay gặp trong hội thoại.",
+          "examples": [
+            {
+              "japanese": "きょうは いきません。びょうきですから。",
+              "vietnamese": "Hôm nay tôi không đi. Vì tôi bị ốm."
+            },
+            {
+              "japanese": "こんばん パーティーが ありますから、はやく かえります。",
+              "vietnamese": "Vì tối nay có tiệc nên tôi về sớm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "どうして ／ ～から",
+      "summary": "Hỏi lý do bằng どうして, trả lời bằng câu kết thúc ở から.",
+      "structures": ["どうして ～ですか。→ ～から。"],
+      "explanation": [
+        "どうして đứng đầu câu hỏi.",
+        "Câu trả lời KẾT THÚC ở から, không cần thêm vế kết quả vì người hỏi đã biết rồi."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời lý do",
+          "detail": "Trả lời chỉ cần vế から.",
+          "examples": [
+            {
+              "japanese": "どうして きょう はやく かえりますか。",
+              "vietnamese": "Tại sao hôm nay anh về sớm vậy?"
+            },
+            {
+              "japanese": "つまが びょうきですから。",
+              "vietnamese": "Vì vợ tôi bị ốm."
+            },
+            {
+              "japanese": "どうして にほんへ きましたか。",
+              "vietnamese": "Tại sao anh lại đến Nhật?"
+            },
+            {
+              "japanese": "にほんの ぶんかを べんきょうしたいですから。",
+              "vietnamese": "Vì tôi muốn học văn hóa Nhật Bản."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

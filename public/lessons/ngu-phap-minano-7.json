@@ -1,0 +1,333 @@
+{
+  "id": "ngu-phap-minano-7",
+  "lessonNumber": 7,
+  "name": "皆の日本語 — Bài 7 · Ngữ pháp",
+  "description": "N（道具）で, ～語で 何ですか, Nに あげます, Nに もらいます, もう Vました",
+  "kind": "grammar",
+  "itemCount": 5,
+  "words": [],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": [
+    {
+      "id": "1d6bf27",
+      "title": "N（công cụ, phương tiện）で V",
+      "summary": "Một nghĩa nữa của で: dùng cái gì để làm việc gì.",
+      "structures": [
+        "N（công cụ）で V",
+        "なにで V ますか"
+      ],
+      "explanation": [
+        "Ở bài 5, で chỉ phương tiện đi lại; ở bài 6, で chỉ nơi xảy ra hành động; ở bài này で chỉ công cụ và ngôn ngữ được dùng.",
+        "Ba nghĩa đó không lẫn nhau vì danh từ đứng trước で đã cho biết đang nói về loại gì."
+      ],
+      "notes": [],
+      "tables": [
+        {
+          "caption": "Ba nghĩa của で đã học",
+          "headers": [
+            "Nghĩa",
+            "Ví dụ"
+          ],
+          "rows": [
+            [
+              "Phương tiện đi lại (bài 5)",
+              "でんしゃで いきます"
+            ],
+            [
+              "Nơi hành động xảy ra (bài 6)",
+              "としょかんで よみます"
+            ],
+            [
+              "Công cụ, ngôn ngữ (bài 7)",
+              "はしで たべます"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Dùng dụng cụ để làm gì đó",
+          "detail": "Công cụ đứng trước で.",
+          "examples": [
+            {
+              "id": "02prrvx",
+              "japanese": "はしで ごはんを たべます。",
+              "reading": "",
+              "vietnamese": "Tôi ăn cơm bằng đũa.",
+              "note": ""
+            },
+            {
+              "id": "0vrw5lf",
+              "japanese": "はさみで かみを きります。",
+              "reading": "",
+              "vietnamese": "Tôi cắt giấy bằng kéo.",
+              "note": ""
+            },
+            {
+              "id": "0ij2nio",
+              "japanese": "パソコンで レポートを かきます。",
+              "reading": "",
+              "vietnamese": "Tôi viết báo cáo bằng máy tính.",
+              "note": ""
+            },
+            {
+              "id": "0utz22b",
+              "japanese": "なにで ごはんを たべますか。",
+              "reading": "",
+              "vietnamese": "Anh ăn cơm bằng gì vậy?",
+              "note": ""
+            }
+          ]
+        },
+        {
+          "id": "u2",
+          "title": "Dùng ngôn ngữ nào",
+          "detail": "Tên ngôn ngữ cũng đứng trước で.",
+          "examples": [
+            {
+              "id": "1onhymu",
+              "japanese": "えいごで レポートを かきます。",
+              "reading": "",
+              "vietnamese": "Tôi viết báo cáo bằng tiếng Anh.",
+              "note": ""
+            },
+            {
+              "id": "0zfhilm",
+              "japanese": "にほんごで てがみを かきました。",
+              "reading": "",
+              "vietnamese": "Tôi đã viết thư bằng tiếng Nhật.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0vudh3w",
+      "title": "「～」は ～ごで なんですか",
+      "summary": "Hỏi một từ trong ngôn ngữ này thì tiếng kia gọi là gì.",
+      "structures": [
+        "「N1」は N2ご で なんですか。→ 「N3」です。"
+      ],
+      "explanation": [
+        "Đây là ứng dụng trực tiếp của で chỉ ngôn ngữ ở mẫu trên.",
+        "Câu này cực kỳ hữu dụng khi học: gặp từ chưa biết thì hỏi ngay bằng chính tiếng Nhật."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi cách nói một từ",
+          "detail": "Từ cần hỏi đặt trong ngoặc kép.",
+          "examples": [
+            {
+              "id": "1ikruvq",
+              "japanese": "「ありがとう」は えいごで なんですか。",
+              "reading": "",
+              "vietnamese": "Từ 'arigatou' trong tiếng Anh là gì?",
+              "note": ""
+            },
+            {
+              "id": "09gc2ah",
+              "japanese": "「Thank you」です。",
+              "reading": "",
+              "vietnamese": "Là 'Thank you'.",
+              "note": ""
+            },
+            {
+              "id": "0pneq7v",
+              "japanese": "「こいびと」は ベトナムごで なんですか。",
+              "reading": "",
+              "vietnamese": "Từ 'koibito' trong tiếng Việt là gì?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1fmdtl4",
+      "title": "N（người）に あげます ／ かします ／ おしえます",
+      "summary": "Nhóm động từ CHO đi: người nhận đứng trước に.",
+      "structures": [
+        "わたしは N（người）に N（vật）を あげます"
+      ],
+      "explanation": [
+        "Nhóm này gồm あげます (tặng), かします (cho mượn), おしえます (dạy), おくります (gửi), かけます (gọi điện).",
+        "に đánh dấu NGƯỜI NHẬN. Chủ ngữ là người cho.",
+        "Không dùng あげます khi người nhận là わたし. Muốn nói ai đó cho tôi thì phải dùng もらいます ở mẫu sau, hoặc くれます học ở bài 24."
+      ],
+      "notes": [],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Tặng, cho mượn, dạy cho ai đó",
+          "detail": "Người nhận đứng trước に, vật trước を.",
+          "examples": [
+            {
+              "id": "1qn7uyp",
+              "japanese": "わたしは やまださんに はなを あげました。",
+              "reading": "",
+              "vietnamese": "Tôi đã tặng hoa cho chị Yamada.",
+              "note": ""
+            },
+            {
+              "id": "0j5zl61",
+              "japanese": "ミラーさんは アンさんに ほんを あげます。",
+              "reading": "",
+              "vietnamese": "Anh Miller tặng sách cho chị An.",
+              "note": ""
+            },
+            {
+              "id": "0u5bw81",
+              "japanese": "ともだちに ５０００えんを かしました。",
+              "reading": "ともだちに ごせんえんを かしました。",
+              "vietnamese": "Tôi đã cho bạn mượn 5.000 yên.",
+              "note": ""
+            },
+            {
+              "id": "1ptyu80",
+              "japanese": "だれに でんわを かけましたか。",
+              "reading": "",
+              "vietnamese": "Anh đã gọi điện cho ai vậy?",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0elrkds",
+      "title": "N（người）に もらいます ／ かります ／ ならいます",
+      "summary": "Nhóm động từ NHẬN về: người cho đứng trước に.",
+      "structures": [
+        "わたしは N（người）に N（vật）を もらいます",
+        "わたしは N（tổ chức）から N を もらいます"
+      ],
+      "explanation": [
+        "Nhóm này gồm もらいます (nhận), かります (mượn), ならいます (học từ ai đó).",
+        "Ở đây に lại đánh dấu NGƯỜI CHO — ngược hẳn với mẫu trên. Phân biệt bằng chính động từ chứ không bằng trợ từ.",
+        "Khi bên cho là một tổ chức chứ không phải người (công ty, trường học) thì dùng から thay cho に."
+      ],
+      "notes": [
+        "Hai câu trong bảng nói cùng một sự việc nhưng đứng từ hai điểm nhìn: あげます kể theo cảm xúc của người trao, もらいます kể theo lòng biết ơn của người nhận."
+      ],
+      "tables": [
+        {
+          "caption": "Hai chiều của một sự việc",
+          "headers": [
+            "Chiều",
+            "Chủ ngữ là",
+            "Câu"
+          ],
+          "rows": [
+            [
+              "Cho đi",
+              "Người cho",
+              "マイさんは トランさんに プレゼントを あげました"
+            ],
+            [
+              "Nhận về",
+              "Người nhận",
+              "トランさんは マイさんに プレゼントを もらいました"
+            ]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Nhận, mượn, học từ ai đó",
+          "detail": "Người cho đứng trước に.",
+          "examples": [
+            {
+              "id": "0vk4xux",
+              "japanese": "わたしは アンさんに はなを もらいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã nhận hoa từ chị An.",
+              "note": ""
+            },
+            {
+              "id": "1dyi382",
+              "japanese": "ともだちに じしょを かりました。",
+              "reading": "",
+              "vietnamese": "Tôi đã mượn từ điển của bạn.",
+              "note": ""
+            },
+            {
+              "id": "0vwecab",
+              "japanese": "わたしは たなかせんせいに にほんごを ならいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã học tiếng Nhật từ thầy Tanaka.",
+              "note": ""
+            },
+            {
+              "id": "0iv0azv",
+              "japanese": "かいしゃから パソコンを もらいました。",
+              "reading": "",
+              "vietnamese": "Tôi đã được công ty cấp cho một chiếc máy tính.",
+              "note": "Bên cho là tổ chức nên dùng から."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16xwj13",
+      "title": "もう V ました",
+      "summary": "Nói một việc đã hoàn thành xong rồi.",
+      "structures": [
+        "もう V ましたか。→ はい、もう V ました。／ いいえ、まだです。"
+      ],
+      "explanation": [
+        "もう nghĩa là 'đã ... rồi', nhấn vào chỗ việc đó đã xong.",
+        "Trả lời phủ định KHÔNG dùng 「いいえ、もう Vませんでした」 mà nói gọn 「いいえ、まだです」 — nghĩa là 'chưa, vẫn còn chưa xong'."
+      ],
+      "notes": [
+        "「まだです」 hàm ý sẽ làm, chỉ là chưa làm. Nếu muốn nói dứt khoát là không làm thì mới dùng thể phủ định quá khứ."
+      ],
+      "tables": [],
+      "usages": [
+        {
+          "id": "u1",
+          "title": "Hỏi và trả lời việc đã xong chưa",
+          "detail": "Cặp câu cố định, học thuộc cả hai vế.",
+          "examples": [
+            {
+              "id": "16rqc5t",
+              "japanese": "もう ひるごはんを たべましたか。",
+              "reading": "",
+              "vietnamese": "Anh ăn trưa chưa?",
+              "note": ""
+            },
+            {
+              "id": "0w8x04p",
+              "japanese": "はい、もう たべました。",
+              "reading": "",
+              "vietnamese": "Vâng, tôi ăn rồi.",
+              "note": ""
+            },
+            {
+              "id": "0fjgeha",
+              "japanese": "いいえ、まだです。",
+              "reading": "",
+              "vietnamese": "Chưa, tôi vẫn chưa ăn.",
+              "note": ""
+            },
+            {
+              "id": "1vpplgt",
+              "japanese": "もう てがみを おくりました。",
+              "reading": "",
+              "vietnamese": "Tôi đã gửi thư rồi.",
+              "note": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

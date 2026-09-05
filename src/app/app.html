@@ -76,6 +76,26 @@
   </div>
 </header>
 
+<!-- Thanh tiến trình chuyển trang. Luôn nằm trong DOM và chỉ đổi độ mờ, cùng lý do
+     với nút "lên đầu trang" bên dưới: bật/tắt bằng @if thì nó bụp một cái.
+
+     Nằm NGAY DƯỚI header và cũng dính (sticky) theo header, để cú bấm menu và phản
+     hồi cho cú bấm đó ở sát nhau — người dùng không phải nhìn sang chỗ khác.
+
+     Không khai role="progressbar": thanh này chạy vô định, không có phần trăm nào
+     để đọc. role="status" cho trình đọc màn hình biết trang đang tải, còn vệt vẽ
+     thì aria-hidden.
+
+     Lời báo là NỘI DUNG bên trong (thêm vào rồi bỏ đi), không phải aria-label:
+     role="status" chỉ đọc khi nội dung của vùng đó thay đổi, còn đổi giá trị một
+     thuộc tính thì phần lớn trình đọc màn hình bỏ qua. -->
+<div class="route-progress" [class.is-active]="navigating()" role="status">
+  @if (navigating()) {
+    <span class="sr-only">{{ t('app.navigating') }}</span>
+  }
+  <span class="route-progress-bar" aria-hidden="true"></span>
+</div>
+
 <main id="main-content" tabindex="-1">
   <router-outlet />
 </main>

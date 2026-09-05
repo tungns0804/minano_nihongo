@@ -1,0 +1,289 @@
+{
+  "points": [
+    {
+      "title": "いま ～じ ～ふんです",
+      "summary": "Nói và hỏi giờ.",
+      "structures": ["いま ～じ ～ふんです", "いま なんじですか"],
+      "explanation": [
+        "Giờ dùng đơn vị じ, phút dùng ふん hoặc ぷん tùy con số đứng trước.",
+        "Nửa giờ nói là はん: 「７じはん」 là 7 rưỡi.",
+        "ごぜん đứng TRƯỚC giờ để chỉ buổi sáng, ごご chỉ buổi chiều — ngược với tiếng Việt vốn để 'sáng, chiều' ở sau."
+      ],
+      "tables": [
+        {
+          "caption": "Giờ đọc bất quy tắc",
+          "headers": ["Số", "Cách đọc"],
+          "rows": [
+            ["4時", "よじ"],
+            ["7時", "しちじ"],
+            ["9時", "くじ"],
+            ["Mấy giờ", "なんじ"]
+          ]
+        },
+        {
+          "caption": "Phút đọc bất quy tắc",
+          "headers": ["Số", "Cách đọc"],
+          "rows": [
+            ["1分", "いっぷん"],
+            ["3分", "さんぷん"],
+            ["4分", "よんぷん"],
+            ["6分", "ろっぷん"],
+            ["8分", "はっぷん"],
+            ["10分", "じゅっぷん"],
+            ["Mấy phút", "なんぷん"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Hỏi và trả lời giờ",
+          "detail": "Câu hỏi bằng なんじ.",
+          "examples": [
+            {
+              "japanese": "いま なんじですか。",
+              "vietnamese": "Bây giờ là mấy giờ?"
+            },
+            {
+              "japanese": "いま ７じ１０ぷんです。",
+              "vietnamese": "Bây giờ là 7 giờ 10 phút.",
+              "reading": "いま しちじ じゅっぷんです。"
+            },
+            {
+              "japanese": "ニューヨークは いま ごぜん ４じです。",
+              "vietnamese": "New York bây giờ là 4 giờ sáng.",
+              "reading": "ニューヨークは いま ごぜん よじです。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Vます ／ Vません ／ Vました ／ Vませんでした",
+      "summary": "Bốn dạng chia của động từ thể ます: hiện tại và quá khứ, khẳng định và phủ định.",
+      "structures": [
+        "Vます — hiện tại, tương lai, thói quen",
+        "Vません — phủ định hiện tại",
+        "Vました — quá khứ",
+        "Vませんでした — phủ định quá khứ"
+      ],
+      "explanation": [
+        "Tiếng Nhật chỉ có HAI thì: thì không quá khứ (dùng cho cả hiện tại, tương lai và thói quen) và thì quá khứ.",
+        "Vì vậy 「いきます」 vừa có nghĩa 'tôi đi' vừa có nghĩa 'tôi sẽ đi'. Muốn rõ thời điểm thì thêm trạng từ thời gian.",
+        "Đuôi ます luôn giữ thái độ lịch sự với người nghe, dùng an toàn trong mọi tình huống."
+      ],
+      "tables": [
+        {
+          "caption": "Bảng chia đầy đủ",
+          "headers": ["", "Khẳng định", "Phủ định"],
+          "rows": [
+            ["Hiện tại và tương lai", "おきます", "おきません"],
+            ["Quá khứ", "おきました", "おきませんでした"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Thói quen và việc sẽ làm",
+          "detail": "Dùng đuôi ます, kèm trạng từ để rõ thời điểm.",
+          "examples": [
+            {
+              "japanese": "まいあさ ６じに おきます。",
+              "vietnamese": "Sáng nào tôi cũng dậy lúc 6 giờ.",
+              "reading": "まいあさ ろくじに おきます。"
+            },
+            {
+              "japanese": "あした べんきょうします。",
+              "vietnamese": "Ngày mai tôi sẽ học bài."
+            },
+            {
+              "japanese": "まいばん １１じに ねます。",
+              "vietnamese": "Tối nào tôi cũng ngủ lúc 11 giờ.",
+              "reading": "まいばん じゅういちじに ねます。"
+            }
+          ]
+        },
+        {
+          "title": "Việc đã xảy ra và không xảy ra",
+          "detail": "Đuôi ました và ませんでした.",
+          "examples": [
+            {
+              "japanese": "きのう １０じまで べんきょうしました。",
+              "vietnamese": "Hôm qua tôi đã học đến 10 giờ.",
+              "reading": "きのう じゅうじまで べんきょうしました。"
+            },
+            {
+              "japanese": "けさ はたらきませんでした。",
+              "vietnamese": "Sáng nay tôi đã không đi làm."
+            },
+            {
+              "japanese": "きのう はたらきましたか。",
+              "vietnamese": "Hôm qua anh có đi làm không?"
+            },
+            {
+              "japanese": "いいえ、はたらきませんでした。",
+              "vietnamese": "Không, tôi đã không đi làm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（thời gian）に V",
+      "summary": "Trợ từ に đánh dấu thời điểm xảy ra hành động.",
+      "structures": ["N（thời gian có con số）に V"],
+      "explanation": [
+        "Chỉ những mốc thời gian CÓ CON SỐ mới đi với に: 「６じに」, 「１がつ１にちに」, 「２００５ねんに」.",
+        "Những từ chỉ thời gian không có con số thì KHÔNG dùng に: きょう, あした, きのう, けさ, こんばん, まいあさ, いま.",
+        "Thứ trong tuần thì tùy: 「にちようびに いきます」 và 「にちようび いきます」 đều được, có に nghe nhấn vào ngày đó hơn."
+      ],
+      "tables": [
+        {
+          "caption": "Có に hay không",
+          "headers": ["Dùng に", "Không dùng に", "Tùy chọn"],
+          "rows": [
+            ["７じに", "きょう", "にちようび"],
+            ["１２がつ２５にちに", "あした", "どようび"],
+            ["２０２０ねんに", "まいあさ", "しゅうまつ"]
+          ]
+        }
+      ],
+      "notes": [
+        "Sai hay gặp nhất: nói 「あしたに いきます」. あした không có con số nên không được thêm に."
+      ],
+      "usages": [
+        {
+          "title": "Nêu thời điểm cụ thể",
+          "detail": "Mốc thời gian có con số.",
+          "examples": [
+            {
+              "japanese": "８じはんに ねます。",
+              "vietnamese": "Tôi ngủ lúc 8 rưỡi.",
+              "reading": "はちじはんに ねます。"
+            },
+            {
+              "japanese": "７がつ２１にちに にほんへ きました。",
+              "vietnamese": "Tôi đã đến Nhật vào ngày 21 tháng 7.",
+              "reading": "しちがつ にじゅういちにちに にほんへ きました。"
+            }
+          ]
+        },
+        {
+          "title": "Thời gian không có con số — bỏ に",
+          "detail": "Đứng thẳng trước động từ.",
+          "examples": [
+            {
+              "japanese": "きょう べんきょうします。",
+              "vietnamese": "Hôm nay tôi học bài."
+            },
+            {
+              "japanese": "まいにち はたらきます。",
+              "vietnamese": "Ngày nào tôi cũng đi làm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 から N2 まで",
+      "summary": "Nêu điểm bắt đầu và điểm kết thúc, cả về thời gian lẫn nơi chốn.",
+      "structures": ["N1 から N2 まで", "N1 から（chỉ nêu điểm đầu）", "N2 まで（chỉ nêu điểm cuối）"],
+      "explanation": [
+        "から là điểm bắt đầu, まで là điểm kết thúc. Dùng được cho thời gian và cho quãng đường.",
+        "Không nhất thiết phải đủ cặp — nêu một vế cũng được.",
+        "Cụm 「N1 から N2 まで」 đứng trước です thì cả cụm làm vị ngữ của câu."
+      ],
+      "usages": [
+        {
+          "title": "Khoảng thời gian",
+          "detail": "Giờ làm việc, giờ nghỉ, giờ mở cửa.",
+          "examples": [
+            {
+              "japanese": "しごとは ９じから ５じまでです。",
+              "vietnamese": "Công việc từ 9 giờ đến 5 giờ.",
+              "reading": "しごとは くじから ごじまでです。"
+            },
+            {
+              "japanese": "ひるやすみは １２じはんから １じまでです。",
+              "vietnamese": "Giờ nghỉ trưa từ 12 rưỡi đến 1 giờ.",
+              "reading": "ひるやすみは じゅうにじはんから いちじまでです。"
+            },
+            {
+              "japanese": "しけんは なんじまでですか。",
+              "vietnamese": "Bài thi kéo dài đến mấy giờ?"
+            }
+          ]
+        },
+        {
+          "title": "Quãng đường",
+          "detail": "Cũng dùng đúng cặp から～まで.",
+          "examples": [
+            {
+              "japanese": "おおさかから とうきょうまで しんかんせんで いきます。",
+              "vietnamese": "Tôi đi từ Osaka đến Tokyo bằng tàu Shinkansen."
+            },
+            {
+              "japanese": "うちから かいしゃまで ３０ぷんです。",
+              "vietnamese": "Từ nhà đến công ty mất 30 phút.",
+              "reading": "うちから かいしゃまで さんじゅっぷんです。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 と N2",
+      "summary": "Trợ từ と nối hai danh từ với nghĩa 'và'.",
+      "structures": ["N1 と N2"],
+      "explanation": [
+        "と chỉ nối DANH TỪ với danh từ, không nối được hai câu hay hai động từ. Nối câu là việc của そして, học ở bài 8.",
+        "と liệt kê ĐẦY ĐỦ, không thiếu thứ nào. Muốn liệt kê tiêu biểu vài thứ thì dùng や, học ở bài 10."
+      ],
+      "usages": [
+        {
+          "title": "Liệt kê đủ các mục",
+          "detail": "Thường gặp khi nói ngày nghỉ, giờ nghỉ.",
+          "examples": [
+            {
+              "japanese": "やすみは どようびと にちようびです。",
+              "vietnamese": "Ngày nghỉ của tôi là thứ Bảy và Chủ nhật."
+            },
+            {
+              "japanese": "ぎんこうの やすみは どようびと にちようびと しゅくじつです。",
+              "vietnamese": "Ngân hàng nghỉ thứ Bảy, Chủ nhật và ngày lễ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～ね",
+      "summary": "Tiểu từ cuối câu, mong người nghe đồng tình hoặc xác nhận.",
+      "structures": ["Câu ＋ ね"],
+      "explanation": [
+        "ね đặt cuối câu khi người nói tin rằng người nghe cũng nghĩ như vậy, tương đương 'nhỉ' trong tiếng Việt.",
+        "Cũng dùng để xác nhận lại một thông tin mình vừa nghe: nhắc lại rồi thêm ね."
+      ],
+      "usages": [
+        {
+          "title": "Chia sẻ cảm nhận",
+          "detail": "Chờ người nghe đồng tình.",
+          "examples": [
+            {
+              "japanese": "たいへんですね。",
+              "vietnamese": "Vất vả nhỉ."
+            },
+            {
+              "japanese": "きょうは にちようびですね。",
+              "vietnamese": "Hôm nay là Chủ nhật nhỉ."
+            },
+            {
+              "japanese": "まいにち ９じから ５じまでですか。たいへんですね。",
+              "vietnamese": "Ngày nào cũng từ 9 giờ đến 5 giờ sao? Vất vả nhỉ.",
+              "reading": "まいにち くじから ごじまでですか。たいへんですね。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

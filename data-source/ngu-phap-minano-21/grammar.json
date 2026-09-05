@@ -1,0 +1,245 @@
+{
+  "points": [
+    {
+      "title": "～と おもいます",
+      "summary": "Nêu phán đoán hoặc ý kiến của bản thân.",
+      "structures": ["Thể thông thường ＋ と おもいます"],
+      "explanation": [
+        "Phần đứng trước と luôn ở THỂ THÔNG THƯỜNG, dù cả câu vẫn lịch sự nhờ おもいます ở cuối.",
+        "Riêng danh từ và tính từ な thì giữ nguyên だ trước と: 「にちようびだと おもいます」.",
+        "Muốn nói phán đoán mang nghĩa phủ định thì để phần TRƯỚC と ở thể phủ định, chứ không phủ định おもいます."
+      ],
+      "tables": [
+        {
+          "caption": "Dạng đứng trước と",
+          "headers": ["Từ loại", "Ví dụ"],
+          "rows": [
+            ["Động từ", "あめが ふると おもいます"],
+            ["Tính từ い", "たかいと おもいます"],
+            ["Tính từ な", "べんりだと おもいます"],
+            ["Danh từ", "やすみだと おもいます"]
+          ]
+        }
+      ],
+      "notes": [
+        "Hỏi ý kiến người khác thì dùng 「～に ついて どう おもいますか」. Không hỏi 「なにを おもいますか」."
+      ],
+      "usages": [
+        {
+          "title": "Phán đoán, dự đoán",
+          "detail": "Điều mình cho là sẽ xảy ra.",
+          "examples": [
+            {
+              "japanese": "あした あめが ふると おもいます。",
+              "vietnamese": "Tôi nghĩ ngày mai trời sẽ mưa."
+            },
+            {
+              "japanese": "テレサちゃんは もう ねたと おもいます。",
+              "vietnamese": "Tôi nghĩ bé Teresa đã ngủ rồi."
+            },
+            {
+              "japanese": "ミラーさんは この ニュースを しらないと おもいます。",
+              "vietnamese": "Tôi nghĩ anh Miller không biết tin này.",
+              "note": "Phủ định nằm ở vế trước と."
+            }
+          ]
+        },
+        {
+          "title": "Bày tỏ ý kiến",
+          "detail": "Câu hỏi thường là 「どう おもいますか」.",
+          "examples": [
+            {
+              "japanese": "にほんの ぶっかに ついて どう おもいますか。",
+              "vietnamese": "Anh nghĩ thế nào về giá cả ở Nhật?"
+            },
+            {
+              "japanese": "たかいと おもいます。",
+              "vietnamese": "Tôi nghĩ là đắt."
+            },
+            {
+              "japanese": "この まちは べんりだと おもいます。",
+              "vietnamese": "Tôi nghĩ thành phố này tiện lợi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～と いいます",
+      "summary": "Thuật lại lời của người khác hoặc lời mình sắp nói.",
+      "structures": [
+        "「Câu nguyên văn」と いいました（trích trực tiếp）",
+        "Thể thông thường ＋ と いいました（trích gián tiếp）"
+      ],
+      "explanation": [
+        "Trích trực tiếp giữ nguyên si lời nói, đặt trong ngoặc kép 「」.",
+        "Trích gián tiếp đưa lời nói về thể thông thường, và phải đổi ngôi, đổi từ chỉ thời gian cho hợp với người đang thuật.",
+        "Cả hai đều dùng と trước いいます."
+      ],
+      "tables": [
+        {
+          "caption": "Hai kiểu trích dẫn",
+          "headers": ["Kiểu", "Câu"],
+          "rows": [
+            ["Trực tiếp", "ミラーさんは「あした やすみます」と いいました"],
+            ["Gián tiếp", "ミラーさんは あした やすむと いいました"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Thuật lại lời người khác",
+          "detail": "Chọn một trong hai kiểu.",
+          "examples": [
+            {
+              "japanese": "やまださんは「あした ７じに いきます」と いいました。",
+              "vietnamese": "Anh Yamada nói rằng 7 giờ ngày mai anh ấy sẽ đi.",
+              "reading": "やまださんは「あした しちじに いきます」と いいました。"
+            },
+            {
+              "japanese": "ミラーさんは あした やすむと いいました。",
+              "vietnamese": "Anh Miller nói rằng ngày mai anh ấy nghỉ."
+            }
+          ]
+        },
+        {
+          "title": "Giới thiệu tên và cách chào",
+          "detail": "Cụm cố định hay dùng.",
+          "examples": [
+            {
+              "japanese": "わたしは ミラーと いいます。",
+              "vietnamese": "Tôi tên là Miller."
+            },
+            {
+              "japanese": "にほんでは しょくじの まえに「いただきます」と いいます。",
+              "vietnamese": "Ở Nhật, trước bữa ăn người ta nói 'itadakimasu'."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～でしょう？",
+      "summary": "Xác nhận lại điều mình tin là người nghe cũng biết.",
+      "structures": ["Thể thông thường ＋ でしょう？"],
+      "explanation": [
+        "でしょう ở đây đọc với ngữ điệu LÊN, mang nghĩa 'đúng không?', mong người nghe đồng ý.",
+        "Danh từ và tính từ な thì BỎ だ trước でしょう: 「やすみでしょう？」.",
+        "Khác với ね ở bài 4: ね chỉ chia sẻ cảm nhận, còn でしょう？ đòi người nghe xác nhận một thông tin cụ thể."
+      ],
+      "notes": [
+        "Cùng chữ でしょう nhưng đọc XUỐNG giọng thì lại mang nghĩa phỏng đoán 'có lẽ', không đòi xác nhận."
+      ],
+      "usages": [
+        {
+          "title": "Đòi xác nhận",
+          "detail": "Lên giọng ở cuối.",
+          "examples": [
+            {
+              "japanese": "あした パーティーに いくでしょう？",
+              "vietnamese": "Ngày mai anh đi dự tiệc đúng không?"
+            },
+            {
+              "japanese": "この しごとは たいへんでしょう？",
+              "vietnamese": "Công việc này vất vả đúng không?"
+            },
+            {
+              "japanese": "きのうは しけんだったでしょう？",
+              "vietnamese": "Hôm qua có bài thi đúng không?",
+              "note": "Danh từ ở thì quá khứ là だった, không phải でした."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N に ついて",
+      "summary": "Nêu chủ đề của việc nói, nghĩ, viết, nghiên cứu.",
+      "structures": ["N に ついて ＋ V"],
+      "explanation": [
+        "Đi với các động từ chỉ hoạt động ngôn ngữ và tư duy: はなします, かきます, しらべます, おもいます, けんきゅうします.",
+        "Cả cụm 「N に ついて」 đứng như một trạng ngữ, thường ở ngay trước động từ."
+      ],
+      "usages": [
+        {
+          "title": "Nêu đề tài",
+          "detail": "Trước động từ chỉ nói, nghĩ, viết.",
+          "examples": [
+            {
+              "japanese": "にほんの けいざいに ついて はなします。",
+              "vietnamese": "Tôi sẽ nói về kinh tế Nhật Bản."
+            },
+            {
+              "japanese": "この ことに ついて どう おもいますか。",
+              "vietnamese": "Anh nghĩ thế nào về chuyện này?"
+            },
+            {
+              "japanese": "にほんの れきしに ついて しらべました。",
+              "vietnamese": "Tôi đã tìm hiểu về lịch sử Nhật Bản."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（nơi chốn）で N が あります",
+      "summary": "Nói ở đâu đó có DIỄN RA một sự kiện.",
+      "structures": ["N（nơi chốn）で N（sự kiện）が あります"],
+      "explanation": [
+        "Chú ý dùng で chứ không dùng に. Ở bài 10, 「に あります」 nói về vật TỒN TẠI ở đâu; ở đây 「で あります」 nói về sự kiện DIỄN RA ở đâu.",
+        "Danh từ đi với が phải là sự kiện: パーティー, まつり, かいぎ, コンサート, じこ."
+      ],
+      "tables": [
+        {
+          "caption": "に あります và で あります",
+          "headers": ["Mẫu", "Chủ thể", "Ví dụ"],
+          "rows": [
+            ["に あります", "Đồ vật tồn tại", "きょうしつに つくえが あります"],
+            ["で あります", "Sự kiện diễn ra", "きょうしつで かいぎが あります"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Thông báo sự kiện",
+          "detail": "Nơi chốn đi với で.",
+          "examples": [
+            {
+              "japanese": "とうきょうで にほんごの かいぎが あります。",
+              "vietnamese": "Ở Tokyo có một hội nghị về tiếng Nhật."
+            },
+            {
+              "japanese": "こうえんで おまつりが あります。",
+              "vietnamese": "Ở công viên có lễ hội."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N でも V",
+      "summary": "Gợi ý một thứ tiêu biểu, hàm ý còn lựa chọn khác cũng được.",
+      "structures": ["N でも ＋ V ませんか"],
+      "explanation": [
+        "でも nêu MỘT VÍ DỤ để gợi ý, ngầm hiểu là thứ khác cũng không sao. Nhờ vậy lời rủ nghe nhẹ nhàng, không áp đặt.",
+        "Rất hay đi kèm 「～ませんか」 ở bài 6."
+      ],
+      "usages": [
+        {
+          "title": "Rủ rê nhẹ nhàng",
+          "detail": "Đưa ra một gợi ý không bắt buộc.",
+          "examples": [
+            {
+              "japanese": "ちょっと ビールでも のみませんか。",
+              "vietnamese": "Mình uống chút bia hay gì đó không?"
+            },
+            {
+              "japanese": "こんど えいがでも みませんか。",
+              "vietnamese": "Lần tới mình đi xem phim hay gì đó nhé?"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

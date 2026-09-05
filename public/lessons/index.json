@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T10:13:49.524Z",
+  "generatedAt": "2026-09-05T11:19:05.606Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -11,6 +11,15 @@
       "file": "minano-nihongo-1.json"
     },
     {
+      "id": "ngu-phap-minano-1",
+      "name": "皆の日本語 — Bài 1 · Ngữ pháp",
+      "description": "N1は N2です, じゃありません, ～か, Nも, N1の N2, ～さん, おいくつ",
+      "kind": "grammar",
+      "itemCount": 7,
+      "lessonNumber": 1,
+      "file": "ngu-phap-minano-1.json"
+    },
+    {
       "id": "minano-nihongo-2",
       "name": "皆の日本語 — Bài 2 · Từ vựng",
       "description": "Từ vựng bài 2",
@@ -18,6 +27,15 @@
       "itemCount": 15,
       "lessonNumber": 2,
       "file": "minano-nihongo-2.json"
+    },
+    {
+      "id": "ngu-phap-minano-2",
+      "name": "皆の日本語 — Bài 2 · Ngữ pháp",
+      "description": "これ・それ・あれ, この・その・あの N, そうです, ～か、～か, N1の N2, そうですか",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 2,
+      "file": "ngu-phap-minano-2.json"
     },
     {
       "id": "minano-nihongo-3",
@@ -29,6 +47,15 @@
       "file": "minano-nihongo-3.json"
     },
     {
+      "id": "ngu-phap-minano-3",
+      "name": "皆の日本語 — Bài 3 · Ngữ pháp",
+      "description": "ここ・そこ・あそこ, こちら, Nは 場所です, どこ・どちら, N1の N2 xuất xứ, いくら",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 3,
+      "file": "ngu-phap-minano-3.json"
+    },
+    {
       "id": "minano-nihongo-4",
       "name": "皆の日本語 — Bài 4 · Từ vựng",
       "description": "Từ vựng bài 4",
@@ -36,6 +63,15 @@
       "itemCount": 36,
       "lessonNumber": 4,
       "file": "minano-nihongo-4.json"
+    },
+    {
+      "id": "ngu-phap-minano-4",
+      "name": "皆の日本語 — Bài 4 · Ngữ pháp",
+      "description": "今～時～分です, Vます・ません・ました・ませんでした, N（時）に, ～から～まで, N1と N2, ～ね",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 4,
+      "file": "ngu-phap-minano-4.json"
     },
     {
       "id": "minano-nihongo-5",
@@ -47,6 +83,15 @@
       "file": "minano-nihongo-5.json"
     },
     {
+      "id": "ngu-phap-minano-5",
+      "name": "皆の日本語 — Bài 5 · Ngữ pháp",
+      "description": "N（場所）へ 行きます, どこも, N（乗り物）で, N（人）と, いつ, ～よ",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 5,
+      "file": "ngu-phap-minano-5.json"
+    },
+    {
       "id": "minano-nihongo-6",
       "name": "皆の日本語 — Bài 6 · Từ vựng",
       "description": "Từ vựng bài 6",
@@ -54,6 +99,15 @@
       "itemCount": 32,
       "lessonNumber": 6,
       "file": "minano-nihongo-6.json"
+    },
+    {
+      "id": "ngu-phap-minano-6",
+      "name": "皆の日本語 — Bài 6 · Ngữ pháp",
+      "description": "Nを V, Nを します, なに, N（場所）で V, Vませんか, Vましょう",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 6,
+      "file": "ngu-phap-minano-6.json"
     },
     {
       "id": "minano-nihongo-7",
@@ -65,6 +119,15 @@
       "file": "minano-nihongo-7.json"
     },
     {
+      "id": "ngu-phap-minano-7",
+      "name": "皆の日本語 — Bài 7 · Ngữ pháp",
+      "description": "N（道具）で, ～語で 何ですか, Nに あげます, Nに もらいます, もう Vました",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 7,
+      "file": "ngu-phap-minano-7.json"
+    },
+    {
       "id": "minano-nihongo-8",
       "name": "皆の日本語 — Bài 8 · Từ vựng",
       "description": "Từ vựng bài 8",
@@ -72,6 +135,15 @@
       "itemCount": 35,
       "lessonNumber": 8,
       "file": "minano-nihongo-8.json"
+    },
+    {
+      "id": "ngu-phap-minano-8",
+      "name": "皆の日本語 — Bài 8 · Ngữ pháp",
+      "description": "Tính từ い và な, Adj + N, とても・あまり, Nは どうですか, どんな N, そして・が",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 8,
+      "file": "ngu-phap-minano-8.json"
     },
     {
       "id": "minano-nihongo-9",
@@ -83,6 +155,15 @@
       "file": "minano-nihongo-9.json"
     },
     {
+      "id": "ngu-phap-minano-9",
+      "name": "皆の日本語 — Bài 9 · Ngữ pháp",
+      "description": "Nが あります・わかります, Nが 好き・上手, よく・あまり・全然, ～から, どうして",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 9,
+      "file": "ngu-phap-minano-9.json"
+    },
+    {
       "id": "minano-nihongo-10",
       "name": "皆の日本語 — Bài 10 · Từ vựng",
       "description": "Từ vựng bài 10",
@@ -90,6 +171,15 @@
       "itemCount": 29,
       "lessonNumber": 10,
       "file": "minano-nihongo-10.json"
+    },
+    {
+      "id": "ngu-phap-minano-10",
+      "name": "皆の日本語 — Bài 10 · Ngữ pháp",
+      "description": "Nが あります・います, 場所に N, Nは 場所に, N1や N2, từ chỉ vị trí",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 10,
+      "file": "ngu-phap-minano-10.json"
     },
     {
       "id": "minano-nihongo-11",
@@ -101,6 +191,15 @@
       "file": "minano-nihongo-11.json"
     },
     {
+      "id": "ngu-phap-minano-11",
+      "name": "皆の日本語 — Bài 11 · Ngữ pháp",
+      "description": "Trợ số từ, số lượng ＋ V, 期間に ～回, 数量だけ, ～ぐらい, どのくらい",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 11,
+      "file": "ngu-phap-minano-11.json"
+    },
+    {
       "id": "minano-nihongo-12",
       "name": "皆の日本語 — Bài 12 · Từ vựng",
       "description": "Từ vựng bài 12",
@@ -108,6 +207,15 @@
       "itemCount": 37,
       "lessonNumber": 12,
       "file": "minano-nihongo-12.json"
+    },
+    {
+      "id": "ngu-phap-minano-12",
+      "name": "皆の日本語 — Bài 12 · Ngữ pháp",
+      "description": "Thì quá khứ của danh từ và tính từ, N1は N2より, どちらが, いちばん",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 12,
+      "file": "ngu-phap-minano-12.json"
     },
     {
       "id": "minano-nihongo-13",
@@ -137,6 +245,15 @@
       "file": "minano-nihongo-14.json"
     },
     {
+      "id": "ngu-phap-minano-14",
+      "name": "皆の日本語 — Bài 14 · Ngữ pháp",
+      "description": "Nhóm động từ, thể て, Vて ください, Vて います, Vましょうか",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 14,
+      "file": "ngu-phap-minano-14.json"
+    },
+    {
       "id": "minano-nihongo-15",
       "name": "皆の日本語 — Bài 15 · Từ vựng",
       "description": "Từ vựng bài 15",
@@ -144,6 +261,15 @@
       "itemCount": 22,
       "lessonNumber": 15,
       "file": "minano-nihongo-15.json"
+    },
+    {
+      "id": "ngu-phap-minano-15",
+      "name": "皆の日本語 — Bài 15 · Ngữ pháp",
+      "description": "Vても いいです, Vては いけません, Vて います trạng thái, 知って います・持って います",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 15,
+      "file": "ngu-phap-minano-15.json"
     },
     {
       "id": "minano-nihongo-16",
@@ -155,6 +281,15 @@
       "file": "minano-nihongo-16.json"
     },
     {
+      "id": "ngu-phap-minano-16",
+      "name": "皆の日本語 — Bài 16 · Ngữ pháp",
+      "description": "Nối câu bằng thể て, Aくて・Aで・Nで, Vてから, N1は N2が A, どうやって, どの N",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 16,
+      "file": "ngu-phap-minano-16.json"
+    },
+    {
       "id": "minano-nihongo-17",
       "name": "皆の日本語 — Bài 17 · Từ vựng",
       "description": "Từ vựng bài 17",
@@ -162,6 +297,15 @@
       "itemCount": 27,
       "lessonNumber": 17,
       "file": "minano-nihongo-17.json"
+    },
+    {
+      "id": "ngu-phap-minano-17",
+      "name": "皆の日本語 — Bài 17 · Ngữ pháp",
+      "description": "Thể ない, Vないで ください, Vなければ なりません, Vなくても いいです, ～までに",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 17,
+      "file": "ngu-phap-minano-17.json"
     },
     {
       "id": "minano-nihongo-18",
@@ -173,6 +317,15 @@
       "file": "minano-nihongo-18.json"
     },
     {
+      "id": "ngu-phap-minano-18",
+      "name": "皆の日本語 — Bài 18 · Ngữ pháp",
+      "description": "Thể từ điển, Vることが できます, 趣味は Vること, Vるまえに, なかなか・ぜひ",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 18,
+      "file": "ngu-phap-minano-18.json"
+    },
+    {
       "id": "minano-nihongo-19",
       "name": "皆の日本語 — Bài 19 · Từ vựng",
       "description": "Từ vựng bài 19",
@@ -180,6 +333,15 @@
       "itemCount": 19,
       "lessonNumber": 19,
       "file": "minano-nihongo-19.json"
+    },
+    {
+      "id": "ngu-phap-minano-19",
+      "name": "皆の日本語 — Bài 19 · Ngữ pháp",
+      "description": "Thể た, Vた ことが あります, Vたり Vたり します, ～く なります・～に なります",
+      "kind": "grammar",
+      "itemCount": 4,
+      "lessonNumber": 19,
+      "file": "ngu-phap-minano-19.json"
     },
     {
       "id": "minano-nihongo-20",
@@ -191,6 +353,15 @@
       "file": "minano-nihongo-20.json"
     },
     {
+      "id": "ngu-phap-minano-20",
+      "name": "皆の日本語 — Bài 20 · Ngữ pháp",
+      "description": "Thể lịch sự và thể thông thường, cách lập 普通形, hội thoại thân mật",
+      "kind": "grammar",
+      "itemCount": 3,
+      "lessonNumber": 20,
+      "file": "ngu-phap-minano-20.json"
+    },
+    {
       "id": "minano-nihongo-21",
       "name": "皆の日本語 — Bài 21 · Từ vựng",
       "description": "Từ vựng bài 21",
@@ -198,6 +369,15 @@
       "itemCount": 16,
       "lessonNumber": 21,
       "file": "minano-nihongo-21.json"
+    },
+    {
+      "id": "ngu-phap-minano-21",
+      "name": "皆の日本語 — Bài 21 · Ngữ pháp",
+      "description": "～と思います, ～と言います, ～でしょう？, Nについて, N（場所）で ～が あります, Nでも",
+      "kind": "grammar",
+      "itemCount": 6,
+      "lessonNumber": 21,
+      "file": "ngu-phap-minano-21.json"
     },
     {
       "id": "minano-nihongo-22",
@@ -209,6 +389,15 @@
       "file": "minano-nihongo-22.json"
     },
     {
+      "id": "ngu-phap-minano-22",
+      "name": "皆の日本語 — Bài 22 · Ngữ pháp",
+      "description": "Mệnh đề bổ nghĩa cho danh từ, Vる 時間・約束・用事",
+      "kind": "grammar",
+      "itemCount": 3,
+      "lessonNumber": 22,
+      "file": "ngu-phap-minano-22.json"
+    },
+    {
       "id": "minano-nihongo-23",
       "name": "皆の日本語 — Bài 23 · Từ vựng",
       "description": "Từ vựng bài 23",
@@ -216,6 +405,15 @@
       "itemCount": 23,
       "lessonNumber": 23,
       "file": "minano-nihongo-23.json"
+    },
+    {
+      "id": "ngu-phap-minano-23",
+      "name": "皆の日本語 — Bài 23 · Ngữ pháp",
+      "description": "～とき, ～と（điều kiện tất yếu）, Nが — chủ ngữ của mệnh đề phụ",
+      "kind": "grammar",
+      "itemCount": 3,
+      "lessonNumber": 23,
+      "file": "ngu-phap-minano-23.json"
     },
     {
       "id": "minano-nihongo-24",
@@ -227,6 +425,15 @@
       "file": "minano-nihongo-24.json"
     },
     {
+      "id": "ngu-phap-minano-24",
+      "name": "皆の日本語 — Bài 24 · Ngữ pháp",
+      "description": "くれます, ～て あげます, ～て もらいます, ～て くれます, Nが — chủ ngữ",
+      "kind": "grammar",
+      "itemCount": 5,
+      "lessonNumber": 24,
+      "file": "ngu-phap-minano-24.json"
+    },
+    {
       "id": "minano-nihongo-25",
       "name": "皆の日本語 — Bài 25 · Từ vựng",
       "description": "Từ vựng bài 25",
@@ -234,6 +441,15 @@
       "itemCount": 11,
       "lessonNumber": 25,
       "file": "minano-nihongo-25.json"
+    },
+    {
+      "id": "ngu-phap-minano-25",
+      "name": "皆の日本語 — Bài 25 · Ngữ pháp",
+      "description": "～たら、～, ～ても、～, もし・いくら",
+      "kind": "grammar",
+      "itemCount": 3,
+      "lessonNumber": 25,
+      "file": "ngu-phap-minano-25.json"
     },
     {
       "id": "minano-nihongo-26",
@@ -531,6 +747,15 @@
       "itemCount": 8,
       "lessonNumber": 39,
       "file": "hoi-thoai-minano-39.json"
+    },
+    {
+      "id": "ngu-phap-minano-39",
+      "name": "皆の日本語 — Bài 39 · Ngữ pháp",
+      "description": "～て、～（nguyên nhân）, Aくて・Aで・Nで, ～ので, 途中で",
+      "kind": "grammar",
+      "itemCount": 4,
+      "lessonNumber": 39,
+      "file": "ngu-phap-minano-39.json"
     },
     {
       "id": "minano-nihongo-40",

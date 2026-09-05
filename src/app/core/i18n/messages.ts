@@ -63,6 +63,7 @@ export const MESSAGES = {
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
   'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
   'app.backToTop': { vi: 'Lên đầu trang', ja: 'ページの先頭へ' },
+  'app.navigating': { vi: 'Đang mở trang…', ja: 'ページを読み込み中…' },
 
   // ── Giao diện sáng/tối ─────────────────────────────────────────────────
   'theme.system': { vi: 'Tự động', ja: '自動' },
@@ -364,8 +365,8 @@ export const MESSAGES = {
     ja: 'レッスンを選ぶと文型と解説が表示され、その文型どおりに文を書く練習ができます。',
   },
   'grammar.roadmap': {
-    vi: 'Phần ngữ pháp dự kiến phủ từ bài 26 đến bài 50. Bài chưa có trong danh sách là chưa được thêm vào.',
-    ja: '文法は第26課から第50課までを順次追加します。一覧にない課はまだ未収録です。',
+    vi: 'Phần ngữ pháp đã phủ trọn 50 bài của 皆の日本語 — bài 1–25 (N5) và bài 26–50 (N4).',
+    ja: '文法は『皆の日本語』全50課を収録しています（第1〜25課はN5、第26〜50課はN4）。',
   },
   'grammar.empty': { vi: 'Chưa có bài ngữ pháp nào.', ja: '文法レッスンがまだありません。' },
   'grammar.empty.hint': {

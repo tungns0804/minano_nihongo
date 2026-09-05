@@ -1,6 +1,18 @@
 <div class="container page">
+  <!-- Khung chờ dựng đúng hình dạng trang sắp hiện: dòng quay lại, tên bài, hàng
+       badge, rồi khối thiết lập và bảng dữ liệu. Một dòng chữ "Đang tải…" thì
+       không cho biết trang sắp có gì, và lúc dữ liệu về thì bố cục nhảy một nhịp. -->
   @if (loading()) {
-    <div class="notice">{{ t('lesson.loading') }}</div>
+    <div class="detail-skeleton" role="status" [attr.aria-label]="t('lesson.loading')">
+      <div class="skeleton sk-back"></div>
+      <div class="skeleton sk-title"></div>
+      <div class="sk-row" aria-hidden="true">
+        <div class="skeleton sk-pill"></div>
+        <div class="skeleton sk-pill"></div>
+      </div>
+      <div class="skeleton sk-panel"></div>
+      <div class="skeleton sk-table"></div>
+    </div>
   } @else if (notFound()) {
     <div class="stack">
       <div class="notice notice-error">

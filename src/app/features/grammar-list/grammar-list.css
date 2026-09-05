@@ -13,6 +13,13 @@
   flex-shrink: 0;
 }
 
+/* --- Bộ lọc cấp độ --- */
+
+/* Nhãn cấp độ khá dài ("N5 · bài 1–25") nên cần ô rộng hơn nút thường. */
+.level-options {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
 /* --- Thẻ bài học --- */
 
 .lesson-grid {
