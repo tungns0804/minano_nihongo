@@ -8,6 +8,7 @@
    - Không có data-theme  -> color-scheme: light dark -> đi theo cài đặt hệ điều hành.
    - data-theme="light"   -> ép sáng.
    - data-theme="dark"    -> ép tối.
+   - data-theme="night"   -> đèn đêm: bảng màu ấm riêng, xem khối cuối phần này.
 
    Thuộc tính data-theme do ThemeStore (src/app/core/services/theme-store.ts) đặt
    trên thẻ <html>, và được khôi phục sớm bởi đoạn script nhỏ trong index.html để
@@ -140,6 +141,68 @@
 
 :root[data-theme='dark'] {
   color-scheme: dark;
+}
+
+/* --- Đèn đêm --------------------------------------------------------------
+   Tông thứ ba, làm theo Night light của Windows: giữ độ sáng vừa phải của giao
+   diện sáng nhưng cắt bớt ánh sáng xanh, nên nền ngả màu giấy ngà và chữ là nâu
+   đậm thay vì xanh đen. Dành cho lúc học buổi tối, khi nền trắng thì chói mà nền
+   tối lại quá tương phản với đèn phòng.
+
+   Đây là bảng màu duy nhất phải viết tay lần thứ hai, vì light-dark() chỉ biết
+   đúng hai giá trị. Đổi lại, không component nào phải biết tông này tồn tại —
+   chúng vẫn chỉ đọc biến như cũ.
+
+   color-scheme vẫn là light: ô nhập liệu, thanh cuộn, hộp chọn của trình duyệt
+   đều lấy bản sáng, khớp với nền ngà chứ không phải nền tối.
+
+   Độ tương phản: ba bậc chữ và bốn màu trạng thái đều ≥ 4.5:1 trên nền thẻ lẫn
+   nền trang, tức đạt WCAG AA cho chữ nhỏ. Riêng trên ô lõm sâu nhất (--bg-inset)
+   bậc chữ nhạt nhất còn 4.0:1 — vẫn nhỉnh hơn chính bảng màu sáng ở trên (3.8:1),
+   chỗ đó chỉ có nhãn phụ chứ không có chữ để đọc lâu. Sửa màu thì phải đo lại. */
+:root[data-theme='night'] {
+  color-scheme: light;
+
+  --bg: #f1e7d5;
+  --bg-elevated: #fbf3e3;
+  --bg-subtle: #ece0cb;
+  --bg-inset: #e3d5bb;
+
+  --text: #2b2113;
+  --text-muted: #66502f;
+  --text-faint: #786243;
+
+  --border: #e0cfb1;
+  --border-strong: #c9b48f;
+
+  /* Chàm là màu xanh nhất trong bảng màu sáng, nên nó là thứ đầu tiên phải thay
+     khi cả tông này sinh ra để bớt ánh sáng xanh. Cam đất giữ đúng vai trò "màu
+     nhấn ấm" mà vẫn không lẫn với --warning (ngả vàng) hay --danger (ngả đỏ). */
+  --accent: #9a4c15;
+  --accent-hover: #7f3d0e;
+  --accent-soft: #f7e6cd;
+  --accent-text: #fffaf0;
+  --accent-ring: rgb(154 76 21 / 18%);
+
+  --success: #4a6b1f;
+  --success-soft: #e7edd0;
+  --success-border: #b5c98a;
+
+  --danger: #a32e1e;
+  --danger-soft: #f8dfd5;
+  --danger-border: #e0a48c;
+
+  --warning: #7d5b05;
+  --warning-soft: #f4e6bd;
+  --warning-border: #d8bc71;
+
+  --star: #c07c0b;
+
+  /* Bóng đổ pha nâu chứ không pha xanh đen: bóng xám lạnh trên nền ngà nhìn ra
+     ngay là bẩn, vì nó là mảng duy nhất trong trang không cùng họ màu. */
+  --shadow-sm: 0 1px 2px rgb(74 48 14 / 10%);
+  --shadow: 0 4px 16px rgb(74 48 14 / 12%);
+  --shadow-lg: 0 12px 32px rgb(74 48 14 / 18%);
 }
 
 /* --- Reset ---------------------------------------------------------------- */

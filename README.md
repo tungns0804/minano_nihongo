@@ -613,11 +613,16 @@ Phần **không dịch** là nội dung bài học — nghĩa tiếng Việt c�
 từ `meta.json`. Đó là dữ liệu học chứ không phải giao diện; muốn tên bài hiện bằng tiếng Nhật thì
 sửa `name` trong `data-source/<bài>/meta.json`.
 
-**Giao diện sáng / tối**
+**Giao diện sáng / tối / đèn đêm**
 
-Nút ở góc phải header xoay vòng **Tự động → Sáng → Tối**. “Tự động” đi theo cài đặt sáng/tối của
-hệ điều hành và đổi ngay khi bạn đổi cài đặt đó; hai lựa chọn còn lại ép cứng bất kể hệ thống
-đang để gì. Lựa chọn được nhớ lại cho lần mở sau.
+Nút ở góc phải header xoay vòng **Tự động → Sáng → Tối → Đèn đêm**. “Tự động” đi theo cài đặt
+sáng/tối của hệ điều hành và đổi ngay khi bạn đổi cài đặt đó; ba lựa chọn còn lại ép cứng bất kể
+hệ thống đang để gì. Lựa chọn được nhớ lại cho lần mở sau.
+
+**Đèn đêm** làm đúng việc mà Night light của Windows làm, nhưng chỉ trong trang này: giữ độ sáng
+vừa phải của giao diện sáng và cắt bớt ánh sáng xanh, nên nền ngả màu giấy ngà, chữ là nâu đậm,
+màu nhấn đổi từ chàm sang cam đất. Hợp với lúc học buổi tối — nền trắng thì chói, mà nền tối lại
+quá tương phản với đèn phòng. Ba bậc chữ và bốn màu trạng thái vẫn đạt WCAG AA như hai tông kia.
 
 **Kết quả**
 
@@ -826,7 +831,7 @@ src/app/
       lesson-store.ts            Nạp bài học từ JSON + localStorage
       favorite-store.ts          Danh sách mục chưa nhớ
       practice-session-store.ts  Chạy phiên và chấm điểm
-      theme-store.ts             Lựa chọn giao diện sáng/tối
+      theme-store.ts             Lựa chọn giao diện sáng/tối/đèn đêm
       vocab-audio-player.ts      Phát file mp3 phát âm, mỗi lúc chỉ một từ
       n3-progress-store.ts       Dấu "đã học xong" của từng buổi trong lộ trình N3
     utils/
@@ -927,13 +932,18 @@ khác nhau, làm mọi thứ bên dưới nhảy chỗ. Cách xử lý:
   Chỉ cần dùng ở chỗ kích thước ảnh hưởng tới vị trí phần khác; chữ nằm một mình thì `{{ t('key') }}`
   là đủ.
 - Bảng dùng `table-layout: fixed` + bề rộng cột khai báo sẵn, nên cột không co giãn theo độ dài chữ.
-- `.icon-btn-glyph` có bề rộng cố định: cùng ký tự `◐`/`☀`/`🌐` nhưng khi `<html lang>` đổi thì
+- `.icon-btn-glyph` có bề rộng cố định: cùng ký tự `◐`/`☀`/`🕯`/`🌐` nhưng khi `<html lang>` đổi thì
   trình duyệt chọn font khác và ký tự render rộng hẹp khác nhau (đo được 13px ↔ 16px).
 
 **Bảng màu chỉ khai báo một lần.** `src/styles.css` dùng `light-dark(giá trị sáng, giá trị tối)`
 cho từng biến màu, nên không có chuyện bảng màu tối bị lệch khỏi bảng màu sáng khi sửa. Đổi tông
 thực chất chỉ là đổi thuộc tính `color-scheme`, do `ThemeStore` đặt qua `data-theme` trên thẻ
 `<html>`. Thêm màu mới thì viết đúng một dòng `light-dark(...)`.
+
+Tông **đèn đêm** là ngoại lệ, vì `light-dark()` chỉ biết đúng hai giá trị: nó là một bảng màu ấm
+viết tay dưới `:root[data-theme='night']`, ghi đè lên đúng các biến đã khai báo ở `:root`. Cái giá
+phải trả là thêm màu mới thì phải nhớ thêm cả ở đó; đổi lại, không component nào phải biết tông
+này tồn tại — chúng vẫn chỉ đọc biến như cũ.
 
 Trong `index.html` có một đoạn script nhỏ đọc lựa chọn đã lưu và đặt `data-theme` **trước khi**
 Angular khởi động, để trang không chớp sai màu một nhịp lúc mới mở. Nếu đổi khoá lưu trữ trong

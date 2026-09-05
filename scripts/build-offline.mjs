@@ -188,7 +188,7 @@ async function main() {
 <script>
 try {
   var saved = JSON.parse(localStorage.getItem('jp-practice:theme') || '""');
-  if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  if (saved === 'light' || saved === 'dark' || saved === 'night') document.documentElement.setAttribute('data-theme', saved);
   var lang = JSON.parse(localStorage.getItem('jp-practice:language') || '""');
   if (lang === 'vi' || lang === 'ja') document.documentElement.lang = lang;
 } catch (e) {}

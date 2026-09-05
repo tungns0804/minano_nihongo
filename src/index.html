@@ -13,7 +13,7 @@
     // chớp màu hệ thống một nhịp rồi mới đổi. Giữ đoạn này đồng bộ với ThemeStore.
     try {
       var saved = JSON.parse(localStorage.getItem('jp-practice:theme') || '""');
-      if (saved === 'light' || saved === 'dark') {
+      if (saved === 'light' || saved === 'dark' || saved === 'night') {
         document.documentElement.setAttribute('data-theme', saved);
       }
       var lang = JSON.parse(localStorage.getItem('jp-practice:language') || '""');

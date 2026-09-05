@@ -67,6 +67,7 @@ export const MESSAGES = {
   'theme.system': { vi: 'Tự động', ja: '自動' },
   'theme.light': { vi: 'Sáng', ja: 'ライト' },
   'theme.dark': { vi: 'Tối', ja: 'ダーク' },
+  'theme.night': { vi: 'Đèn đêm', ja: 'ナイトライト' },
   'theme.title': {
     vi: 'Giao diện: {current} — bấm để chuyển sang {next}',
     ja: 'テーマ: {current} — クリックで{next}に切り替え',
