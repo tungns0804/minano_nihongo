@@ -295,9 +295,10 @@ tra cuối cùng là quan trọng nhất với người học, vì một lộ tr
 học và không ai theo được.
 
 Workflow deploy chạy `npm run verify:ci` trước khi build, nên dữ liệu hỏng không lên được trang
-thật. `verify:ci` = `verify` trừ `verify:audio`: phần âm thanh đang thiếu 205 file mp3 cho bài N3
-(chạy `npm run generate:audio` để sinh), và một cổng CI luôn đỏ vì việc không liên quan thì
-chẳng ai đọc nữa.
+thật. `verify:ci` nay gồm **cả** `verify:audio`, tức thiếu một file mp3 nào đó là deploy đỏ. Trước
+đây không làm được vậy: bài N3 còn thiếu 205 file, nên cổng sẽ đỏ ở mọi lần deploy vì một việc
+không liên quan gì tới thay đổi đang deploy — mà một cổng luôn đỏ thì chẳng ai đọc nữa. Nay 205
+file đó đã sinh xong, và thiếu mp3 nghĩa là nút loa chết trên trang thật, nên chặn lại là đúng.
 
 ## Dịch hội thoại
 

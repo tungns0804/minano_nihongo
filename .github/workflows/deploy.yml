@@ -36,10 +36,11 @@ jobs:
       # trình N3 trỏ tới bài học không tồn tại, hay một khoá dịch thiếu, vẫn lên
       # trang thật rồi mới hỏng trong tay người dùng.
       #
-      # `verify:ci` chứ không phải `verify`: bản đầy đủ gồm cả `verify:audio`, mà
-      # phần đó cần 205 file mp3 chưa sinh cho bài N3 (xem LO-TRINH-N3.md, mục 3).
-      # Đưa nó vào đây thì mọi lần deploy đều đỏ vì một việc không liên quan gì
-      # tới lần thay đổi đang deploy — và một cổng luôn đỏ thì chẳng ai đọc nữa.
+      # `verify:ci` nay gom ca `verify:audio`. Truoc day khong the: bai N3 con
+      # thieu 205 file mp3, nen cong nay se do o moi lan deploy vi mot viec khong
+      # lien quan gi toi thay doi dang deploy — ma mot cong luon do thi khong ai
+      # doc nua. Nay 205 file do da sinh xong, va thieu mp3 nghia la nut loa chet
+      # tren trang that, nen chan lai la dung.
       - run: npm run verify:ci
 
       # base-href phải là tên repo vì trang nằm ở <user>.github.io/minano_nihongo/

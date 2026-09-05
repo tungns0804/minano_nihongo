@@ -133,9 +133,10 @@ project React xếp lẫn vào thư mục giáo trình.
 
 Ba lỗi lặng lẽ phát hiện khi kiểm kê, nên sửa nhưng **không thuộc phạm vi lần này**:
 
-1. `npm run verify:audio` **đang fail**: 205 trong 215 từ N3 chưa có file mp3
-   (`public/audio` sinh lần cuối 22/08, trước khi có bài N3). Sửa bằng một lệnh:
-   `npm run generate:audio`.
+1. ~~`npm run verify:audio` **đang fail**: 205 trong 215 từ N3 chưa có file mp3
+   (`public/audio` sinh lần cuối 22/08, trước khi có bài N3).~~ **ĐÃ SỬA** — đã chạy
+   `npm run generate:audio`, đủ 1487 file. `verify:audio` nay nằm trong `verify:ci`
+   nên lần sau thiếu file là deploy đỏ ngay.
 2. `scripts/generate-kanji.mjs` chỉ quét thư mục khớp `minano-nihongo-<số>`, nên
    **từ vựng N3 không bao giờ chảy vào tab Kanji**. 63 từ gắn nhãn N3 trong
    `kanji-words.ts` đều đến từ danh sách động từ của khu Bài tập, không phải từ
@@ -824,4 +825,4 @@ trỏ vào một id `ExerciseMode` không phải đường dẫn, đưa bài ng�
 và trả về mã thoát khác 0.
 
 Workflow deploy chạy `npm run verify:ci` **trước khi build**, nên một lộ trình hỏng
-không lên được trang thật. `verify:ci` là bản đầy đủ trừ `verify:audio` — xem mục 3.
+không lên được trang thật. `verify:ci` nay là bản đầy đủ, gồm cả `verify:audio`.
