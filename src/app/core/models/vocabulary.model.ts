@@ -187,6 +187,42 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   radical: 'kind.radical.unit',
 };
 
+/**
+ * Tiêu đề của BẢNG TRA ở màn hình chi tiết bài.
+ *
+ * Khác `LESSON_KIND_LABEL_KEY` ở trên: cái kia gọi tên LOẠI BÀI ("Từ vựng"), cái
+ * này gọi tên cái bảng đang nhìn ("Danh sách từ trong bài").
+ *
+ * Bốn loại cuối không bao giờ được vẽ bằng màn hình đó — bài ngữ pháp có màn hình
+ * riêng, còn ba loại kia không tới từ file bài học nào. Vẫn phải khai vì `Record`
+ * đòi đủ, và chính đòi hỏi đó là thứ nhắc người thêm loại bài mới phải ghé qua đây.
+ */
+export const LESSON_KIND_TABLE_KEY: Record<LessonKind, MessageKey> = {
+  vocabulary: 'lesson.table.vocabulary',
+  // Chủ đề dùng ĐÚNG màn hình chi tiết bài: cùng kiểu dữ liệu (`words`), cùng
+  // khung thiết lập, cùng bảng tra. Chỉ nhãn là khác, để dòng đếm ghi "38 từ
+  // trong chủ đề" thay vì "38 từ trong bài".
+  topic: 'lesson.table.topic',
+  verb: 'lesson.table.verb',
+  conversation: 'lesson.table.conversation',
+  grammar: 'kind.grammar',
+  exercise: 'kind.exercise',
+  kanji: 'kind.kanji',
+  radical: 'kind.radical',
+};
+
+/** Chữ gợi ý trong ô tìm của bảng tra đó. */
+export const LESSON_KIND_SEARCH_KEY: Record<LessonKind, MessageKey> = {
+  vocabulary: 'lesson.search.vocabulary',
+  topic: 'lesson.search.topic',
+  verb: 'lesson.search.verb',
+  conversation: 'lesson.search.conversation',
+  grammar: 'lesson.search.vocabulary',
+  exercise: 'lesson.search.verb',
+  kanji: 'kanji.search',
+  radical: 'radical.search',
+};
+
 /** Các tab của ứng dụng chứa danh sách bài để chọn. */
 export type LessonTab = 'home' | 'topic' | 'exercise' | 'grammar' | 'kanji' | 'radical';
 

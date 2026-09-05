@@ -10,89 +10,33 @@ import {
   N3_LAST_NEW_MATERIAL_DATE,
   N3_PHASES,
   N3_SECTIONS,
-  N3_SOURCE_LABEL_KEY,
 } from '../../core/n3/n3-syllabus';
 import {
   N3_FOUNDATION_GATE,
   N3_PACE_CEILING,
-  N3_PILLAR_BLOCK,
-  N3_SCORE_BLOCK_POINTS,
   N3_SECTION_POINTS,
-  N3Block,
   N3Pace,
   N3Pillar,
-  N3ScoreBlock,
-  N3Section,
-  N3Unit,
-  buildSchedule,
   canTick,
   computePace,
   computeProgress,
-  dayToIso,
   isoToDay,
-  phaseDays,
   todayDay,
-  unitsOf,
 } from '../../core/n3/n3.model';
+import {
+  N3_LIST_FILTERS,
+  N3_SCHEDULE,
+  N3_TICKABLE_OF,
+  N3BlockRow,
+  N3ListFilter,
+  foundationGateStat,
+  phaseCards as buildPhaseCards,
+  pillarCards as buildPillarCards,
+  scoreBlockCards,
+  unitSections,
+} from '../../core/n3/n3-view';
 import { N3ProgressStore } from '../../core/services/n3-progress-store';
 import { checkedOf } from '../../core/utils/dom-events';
-
-/**
- * Lịch dựng MỘT LẦN lúc nạp module, không phải trong computed.
- *
- * Nó chỉ phụ thuộc vào hai hằng số dữ liệu nên không bao giờ đổi giữa các lần vẽ.
- * Đặt trong computed thì mỗi lần tích một ô là dựng lại toàn bộ lịch 230 mục.
- */
-const SCHEDULE = buildSchedule(N3_SECTIONS, N3_PHASES);
-
-/**
- * Số mục tích được của từng trụ — bảng tra dựng sẵn, không phải hàm.
- *
- * Nhãn nút chọn trụ cần con số này. Gọi một phương thức trong `@for` thì Angular
- * chạy lại nó ở MỌI lượt phát hiện thay đổi, sáu lần một lượt, để tính lại một
- * con số không bao giờ đổi.
- */
-const TICKABLE_OF: Partial<Record<N3Pillar, number>> = Object.fromEntries(
-  N3_SECTIONS.map((section) => [section.pillar, unitsOf(section).filter(canTick).length]),
-);
-
-/** Bộ lọc của bảng kiểm soát. */
-type ListFilter = 'all' | 'todo' | 'done' | 'due';
-
-const FILTERS: readonly { value: ListFilter; labelKey: MessageKey }[] = [
-  { value: 'all', labelKey: 'n3.list.filter.all' },
-  { value: 'todo', labelKey: 'n3.list.filter.todo' },
-  { value: 'due', labelKey: 'n3.list.filter.due' },
-  { value: 'done', labelKey: 'n3.list.filter.done' },
-];
-
-/** Một dòng trong bảng kiểm soát, đã gộp sẵn mọi thứ template cần. */
-interface UnitRow {
-  unit: N3Unit;
-  done: boolean;
-  doneOn: string;
-  /** Ngày hẹn học xong, dạng ISO. Rỗng với mục không xếp lịch được. */
-  dueIso: string;
-  /** Đã qua hẹn mà chưa tích. */
-  overdue: boolean;
-  sourceKey: MessageKey;
-}
-
-interface BlockRow {
-  block: N3Block;
-  rows: UnitRow[];
-  done: number;
-  tickable: number;
-  /** Cả nhóm đã tích hết chưa — quyết định nút "tích cả nhóm" đổi thành "bỏ tích". */
-  allDone: boolean;
-}
-
-interface SectionRow {
-  section: N3Section;
-  blocks: BlockRow[];
-  /** Số dòng còn lại sau khi lọc, để ẩn cả trụ khi lọc không ra gì. */
-  visible: number;
-}
 
 /**
  * Tab "Tiến độ N3" — bảng kiểm soát việc học để đỗ N3 vào 10/12.
@@ -122,14 +66,14 @@ export class N3Progress {
 
   protected readonly sections = N3_SECTIONS;
   protected readonly phases = N3_PHASES;
-  protected readonly filters = FILTERS;
+  protected readonly filters = N3_LIST_FILTERS;
   protected readonly examIso = N3_EXAM_DATE;
   protected readonly lastNewIso = N3_LAST_NEW_MATERIAL_DATE;
   protected readonly paceCeiling = N3_PACE_CEILING;
   protected readonly foundationGate = Math.round(N3_FOUNDATION_GATE * 100);
   protected readonly sectionPoints = N3_SECTION_POINTS;
 
-  protected readonly filter = signal<ListFilter>('all');
+  protected readonly filter = signal<N3ListFilter>('all');
   /** Trụ đang mở trong bảng kiểm soát. Rỗng nghĩa là mở tất cả. */
   protected readonly openPillar = signal<N3Pillar | ''>('');
 
@@ -177,7 +121,7 @@ export class N3Progress {
 
   protected readonly pace = computed<N3Pace>(() =>
     computePace(
-      SCHEDULE,
+      N3_SCHEDULE,
       N3_SECTIONS,
       this.isDone(),
       this.inScope(),
@@ -227,141 +171,36 @@ export class N3Progress {
 
   // ── Ba khối điểm của đề ─────────────────────────────────────────────────
 
-  protected readonly scoreBlocks = computed(() => {
-    const byPillar = new Map(this.progress().pillars.map((item) => [item.pillar, item]));
-
-    return (['chishiki', 'dokkai', 'choukai'] as const).map((block) => {
-      const pillars = (Object.keys(N3_PILLAR_BLOCK) as N3Pillar[]).filter(
-        (pillar) => N3_PILLAR_BLOCK[pillar] === block,
-      );
-      const points = N3_SCORE_BLOCK_POINTS[block];
-      // Cộng giá trị ĐÃ LÀM TRÒN của từng trụ, giống cách `computeProgress` dựng
-      // con số tổng. Cộng giá trị thô rồi mới làm tròn thì ba khối cộng lại lệch
-      // 0,1 điểm so với dòng "điểm quy đổi" ở đầu trang — hai con số nằm cách
-      // nhau một khối trên cùng màn hình, và độ lệch đó đọc thành lỗi tính toán.
-      const earned = pillars.reduce((sum, pillar) => sum + (byPillar.get(pillar)?.earned ?? 0), 0);
-      const ceiling = pillars.reduce(
-        (sum, pillar) => sum + (byPillar.get(pillar)?.ceiling ?? 1) * N3_SECTION_POINTS[pillar],
-        0,
-      );
-
-      return {
-        block: block as N3ScoreBlock,
-        labelKey: `n3.block.${block}` as MessageKey,
-        points,
-        earned: Math.round(earned * 10) / 10,
-        percent: Math.round((earned / points) * 100),
-        ceilingPercent: Math.round((ceiling / points) * 100),
-        /** Khối đang nằm ngoài phạm vi tính phần trăm. */
-        muted: !this.inScope()(pillars[0]),
-      };
-    });
-  });
+  protected readonly scoreBlocks = computed(() =>
+    scoreBlockCards(this.progress(), this.inScope()),
+  );
 
   // ── Trụ nội dung ────────────────────────────────────────────────────────
 
-  protected readonly pillarCards = computed(() => {
-    const byPillar = new Map(this.progress().pillars.map((item) => [item.pillar, item]));
+  protected readonly pillarCards = computed(() =>
+    buildPillarCards(this.progress(), this.inScope()),
+  );
 
-    return N3_SECTIONS.map((section) => {
-      const stat = byPillar.get(section.pillar);
-      return {
-        section,
-        percent: Math.round((stat?.ratio ?? 0) * 100),
-        ceilingPercent: Math.round((stat?.ceiling ?? 1) * 100),
-        capped: (stat?.ceiling ?? 1) < 0.999,
-        doneUnits: stat?.doneUnits ?? 0,
-        tickableUnits: stat?.tickableUnits ?? 0,
-        points: N3_SECTION_POINTS[section.pillar],
-        earned: stat?.earned ?? 0,
-        inScope: this.inScope()(section.pillar),
-      };
-    });
-  });
-
-  /**
-   * Ôn nền đã đủ để mở sách N3 chưa.
-   *
-   * Tính trên phần nền CÓ HẸN NGÀY, không trên cả trụ: 25 bài từ vựng N5 là phần
-   * ôn tuỳ sức, không có ngày hẹn (xem `N3_UNSCHEDULED_BLOCKS`). Gộp chúng vào
-   * mẫu số thì cửa vào không bao giờ mở được — làm xong đúng những gì kế hoạch
-   * yêu cầu vẫn chỉ ra 60%.
-   */
-  protected readonly foundationGateStat = computed(() => {
-    const scheduled = SCHEDULE.units.filter((item) => item.pillar === 'foundation');
-    const done = scheduled.filter((item) => this.isDone()(item.unit.id)).length;
-    const need = Math.ceil(scheduled.length * N3_FOUNDATION_GATE);
-    return { ready: done >= need, remaining: Math.max(0, need - done) };
-  });
+  /** Ôn nền đã đủ để mở sách N3 chưa — xem `foundationGateStat`. */
+  protected readonly foundationGateStat = computed(() => foundationGateStat(this.isDone()));
 
   // ── Bốn giai đoạn ───────────────────────────────────────────────────────
 
   protected readonly phaseCards = computed(() =>
-    this.phases.map((phase) => {
-      const from = isoToDay(phase.from);
-      const to = isoToDay(phase.to);
-      const units = SCHEDULE.units.filter((item) => item.phaseId === phase.id);
-      const done = units.filter((item) => this.isDone()(item.unit.id)).length;
-      const days = phaseDays(phase);
-
-      return {
-        phase,
-        days,
-        units: units.length,
-        done,
-        percent: units.length === 0 ? 0 : Math.round((done / units.length) * 100),
-        /** Số buổi mỗi ngày mà giai đoạn này đòi hỏi, làm tròn tới 0.1. */
-        perDay: Math.round((units.length / days) * 10) / 10,
-        current: this.today() >= from && this.today() <= to,
-        past: this.today() > to,
-      };
-    }),
+    buildPhaseCards(this.isDone(), this.today()),
   );
 
   // ── Bảng kiểm soát ──────────────────────────────────────────────────────
 
-  protected readonly listRows = computed<SectionRow[]>(() => {
-    const isDone = this.isDone();
-    const filter = this.filter();
-    const open = this.openPillar();
-
-    return N3_SECTIONS.filter((section) => open === '' || section.pillar === open).map(
-      (section) => {
-        const blocks = section.blocks.map((block): BlockRow => {
-          const rows = block.units.map((unit): UnitRow => {
-            const done = isDone(unit.id);
-            const scheduled = SCHEDULE.byUnitId.get(unit.id);
-            const dueIso = scheduled ? dayToIso(scheduled.targetDay) : '';
-            return {
-              unit,
-              done,
-              doneOn: this.store.dateOf(unit.id),
-              dueIso,
-              overdue: !done && scheduled !== undefined && scheduled.targetDay < this.today(),
-              sourceKey: N3_SOURCE_LABEL_KEY[unit.source],
-            };
-          });
-
-          const tickable = block.units.filter(canTick);
-          const done = rows.filter((row) => row.done).length;
-
-          return {
-            block,
-            rows: rows.filter((row) => this.keep(row, filter)),
-            done,
-            tickable: tickable.length,
-            allDone: tickable.length > 0 && done === tickable.length,
-          };
-        });
-
-        return {
-          section,
-          blocks: blocks.filter((item) => item.rows.length > 0),
-          visible: blocks.reduce((sum, item) => sum + item.rows.length, 0),
-        };
-      },
-    );
-  });
+  protected readonly listRows = computed(() =>
+    unitSections({
+      filter: this.filter(),
+      openPillar: this.openPillar(),
+      today: this.today(),
+      isDone: this.isDone(),
+      dateOf: (unitId) => this.store.dateOf(unitId),
+    }),
+  );
 
   /**
    * Bộ lọc rỗng vì đã học hết, hay vì bộ lọc không khớp gì.
@@ -383,16 +222,6 @@ export class N3Progress {
     this.listRows().reduce((sum, row) => sum + row.visible, 0),
   );
 
-  private keep(row: UnitRow, filter: ListFilter): boolean {
-    if (filter === 'all') return true;
-    if (filter === 'done') return row.done;
-    if (filter === 'todo') return !row.done;
-    // 'due': chưa học và đã tới hẹn (hoặc quá hẹn). Đây là bộ lọc trả lời đúng câu
-    // "hôm nay phải học gì", nên nó gộp cả phần trễ vào chứ không chỉ đúng hôm nay.
-    const scheduled = SCHEDULE.byUnitId.get(row.unit.id);
-    return !row.done && scheduled !== undefined && scheduled.targetDay <= this.today();
-  }
-
   // ── Sự kiện ─────────────────────────────────────────────────────────────
 
   constructor() {
@@ -404,7 +233,7 @@ export class N3Progress {
     });
   }
 
-  protected setFilter(value: ListFilter): void {
+  protected setFilter(value: N3ListFilter): void {
     this.filter.set(value);
   }
 
@@ -422,7 +251,7 @@ export class N3Progress {
     this.store.toggle(unitId);
   }
 
-  protected toggleBlock(row: BlockRow): void {
+  protected toggleBlock(row: N3BlockRow): void {
     const ids = row.block.units.filter(canTick).map((unit) => unit.id);
     row.allDone ? this.store.unset(ids) : this.store.set(ids);
   }
@@ -438,5 +267,5 @@ export class N3Progress {
   }
 
   /** Tổng số mục tích được của một trụ, dùng cho nhãn nút chọn trụ. */
-  protected readonly tickableOf = TICKABLE_OF;
+  protected readonly tickableOf = N3_TICKABLE_OF;
 }

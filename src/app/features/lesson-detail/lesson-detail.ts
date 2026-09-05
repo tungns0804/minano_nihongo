@@ -6,10 +6,7 @@ import {
   VERB_FORM_LABEL_KEY,
   VERB_GROUP_LABEL_KEY,
   VerbForm,
-  VerbForms,
   VerbGroup,
-  conjugate,
-  isIrregularVerb,
 } from '../../core/japanese/conjugation';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
@@ -29,10 +26,12 @@ import {
 } from '../../core/models/practice.model';
 import {
   ConversationLine,
+  LESSON_KIND_SEARCH_KEY,
   LESSON_KIND_TAB,
+  LESSON_KIND_TABLE_KEY,
+  LESSON_KIND_UNIT_KEY,
   LESSON_TAB_ROUTE,
   Lesson,
-  LessonKind,
   OPTIONAL_WORD_FIELDS,
   VerbEntry,
   VocabularyWord,
@@ -49,14 +48,7 @@ import { VocabAudioPlayer } from '../../core/services/vocab-audio-player';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
-
-/** Một động từ kèm kết quả chia, hoặc lý do không chia được. */
-interface VerbRow {
-  entry: VerbEntry;
-  forms: VerbForms | null;
-  error: string | null;
-  irregular: boolean;
-}
+import { VerbRow, buildVerbRows, formsText } from './verb-rows';
 
 @Component({
   selector: 'app-lesson-detail',
@@ -131,66 +123,17 @@ export class LessonDetail extends PracticeScreen {
   readonly favoriteCount = computed(() => this.favoritesOf(this.items()).length);
 
   /**
-   * Khoá nhãn theo loại bài. Tra bảng thay vì viết ternary trong template — thêm
-   * loại bài thứ tư mà quên khai báo thì TypeScript báo lỗi ngay tại bảng.
+   * Ba khoá nhãn của bảng tra, theo loại bài đang mở. Bảng tra cứu nằm ở
+   * `core/models/vocabulary.model.ts` cạnh những bảng cùng loại — thêm một loại
+   * bài mà quên khai thì TypeScript báo lỗi ngay tại đó.
    */
   readonly kindLabelKeys = computed(() => {
     const kind = this.lesson()?.kind ?? 'vocabulary';
-    const table: Record<LessonKind, { title: MessageKey; search: MessageKey; unit: MessageKey }> = {
-      vocabulary: {
-        title: 'lesson.table.vocabulary',
-        search: 'lesson.search.vocabulary',
-        unit: 'kind.vocabulary.unit',
-      },
-      // Chủ đề dùng ĐÚNG màn hình này: cùng kiểu dữ liệu (`words`), cùng khung
-      // thiết lập, cùng bảng tra. Chỉ nhãn là khác, để dòng đếm ghi "38 từ trong
-      // chủ đề" thay vì "38 từ trong bài".
-      topic: {
-        title: 'lesson.table.topic',
-        search: 'lesson.search.topic',
-        unit: 'kind.topic.unit',
-      },
-      verb: {
-        title: 'lesson.table.verb',
-        search: 'lesson.search.verb',
-        unit: 'kind.verb.unit',
-      },
-      conversation: {
-        title: 'lesson.table.conversation',
-        search: 'lesson.search.conversation',
-        unit: 'kind.conversation.unit',
-      },
-      // Bài ngữ pháp không bao giờ được vẽ ở màn hình này (xem `load` — nó chuyển
-      // hướng sang /grammar/:id). Vẫn phải khai báo vì bảng là Record đủ mọi loại,
-      // và chính đòi hỏi đó là thứ nhắc người thêm loại bài thứ năm phải ghé qua đây.
-      grammar: {
-        title: 'kind.grammar',
-        search: 'lesson.search.vocabulary',
-        unit: 'kind.grammar.unit',
-      },
-      // Bài tập cũng không bao giờ được vẽ ở đây: nó không tới từ file bài học nào
-      // nên `getLesson` không trả về loại này. Vẫn phải khai báo, cùng lý do trên.
-      exercise: {
-        title: 'kind.exercise',
-        search: 'lesson.search.verb',
-        unit: 'kind.exercise.unit',
-      },
-      // Khu Kanji cũng vậy: nội dung nằm ở `core/kanji/`, màn hình riêng là
-      // /kanji và /kanji/:id.
-      kanji: {
-        title: 'kind.kanji',
-        search: 'kanji.search',
-        unit: 'kind.kanji.unit',
-      },
-      // Khu Bộ thủ cũng vậy: nội dung nằm ở `core/radical/`, màn hình riêng là
-      // /radical và /radical/:id.
-      radical: {
-        title: 'kind.radical',
-        search: 'radical.search',
-        unit: 'kind.radical.unit',
-      },
+    return {
+      title: LESSON_KIND_TABLE_KEY[kind],
+      search: LESSON_KIND_SEARCH_KEY[kind],
+      unit: LESSON_KIND_UNIT_KEY[kind],
     };
-    return table[kind];
   });
 
   /** Chỉ hiện cột ví dụ khi bài có ít nhất một câu — tránh cột trống vô ích. */
@@ -221,17 +164,7 @@ export class LessonDetail extends PracticeScreen {
   readonly specialCount = computed(() => this.specialVerbs().length);
 
   /** Động từ đã chia sẵn để hiện bảng tra cứu. */
-  readonly verbRows = computed<VerbRow[]>(() =>
-    this.verbs().map((entry) => {
-      const result = conjugate(entry.masu, entry.group);
-      return {
-        entry,
-        forms: result.ok ? result.forms : null,
-        error: result.ok ? null : result.reason,
-        irregular: isIrregularVerb(entry.masu),
-      };
-    }),
-  );
+  readonly verbRows = computed<VerbRow[]>(() => buildVerbRows(this.verbs()));
 
   /** Động từ khai báo sai nhóm — cảnh báo ngay để không lòi ra lúc đang luyện. */
   readonly brokenVerbs = computed(() => this.verbRows().filter((row) => row.error !== null));
@@ -642,8 +575,4 @@ export class LessonDetail extends PracticeScreen {
       this.isVerbLesson() ? this.currentVerbMode().shortKey : this.currentDirection().shortKey,
     ),
   );
-}
-
-function formsText(forms: VerbForms | null): string {
-  return forms ? `${forms.dictionary} ${forms.te} ${forms.ta} ${forms.nai}` : '';
 }
