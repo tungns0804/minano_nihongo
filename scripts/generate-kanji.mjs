@@ -5,6 +5,8 @@
  * Rút DANH SÁCH CHỮ HÁN + âm Hán Việt của từng chữ + các từ dùng chữ đó, tất cả
  * từ kho từ có sẵn của ứng dụng:
  *   - `data-source/minano-nihongo-<n> / vocabulary.txt` (N5: bài 1-25, N4: bài 26-50)
+ *   - `data-source/soumatome-n3-<n> / vocabulary.txt` (N3) — chỉ góp TỪ minh hoạ,
+ *     không góp âm, vì sách 総まとめ không chú âm Hán Việt
  *   - `src/app/core/exercises/exercise-verbs.ts` và `transitive-pairs.ts` (thêm phần N3)
  *
  * ── Âm Hán Việt của TỪNG CHỮ suy ra thế nào ────────────────────────────────
@@ -68,15 +70,41 @@ for (const level of LEVELS) {
 // ── Kho từ ────────────────────────────────────────────────────────────────
 
 /** Từ vựng giáo trình: `ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA|ví dụ`. */
+/**
+ * Cấp độ và thứ tự của một thư mục từ vựng, null nếu thư mục không phải nguồn
+ * từ vựng của khu Kanji.
+ *
+ * Hai giáo trình đánh số độc lập nhau nên phải tách ra: 皆の日本語 có 50 bài liền
+ * mạch và suy được cấp từ số bài, còn 総まとめ N3 đánh lại từ 1 ở mỗi quyển nên số
+ * bài của nó KHÔNG so được với số bài kia — cấp phải gán thẳng.
+ *
+ * Trước đây hàm này không có và vòng lặp chỉ nhận `minano-nihongo-<số>`, nên toàn
+ * bộ từ vựng 総まとめ N3 không bao giờ chảy vào tab Kanji: mở chữ 網 ra thì trống
+ * trơn dù kho từ có 網戸. Xem LO-TRINH-N3.md, mục 3.
+ */
+function vocabularySource(dir) {
+  const minano = /^minano-nihongo-(\d+)$/.exec(dir);
+  // Mốc chia N5/N4 lấy đúng theo `JLPT_RANGE` của ứng dụng: hết bài 25 là hết N5.
+  if (minano) {
+    const lesson = Number(minano[1]);
+    return { level: lesson <= 25 ? 'N5' : 'N4', order: lesson };
+  }
+
+  // `order` là ngày thứ mấy trong quyển. Chỉ đem so với từ N3 khác nên không đụng
+  // số bài của 皆の日本語 — `sortWords` so cấp độ trước đã.
+  const soumatome = /^soumatome-n3-(\d+)$/.exec(dir);
+  if (soumatome) return { level: 'N3', order: Number(soumatome[1]) };
+
+  return null;
+}
+
 function readVocabulary() {
   const words = [];
   for (const dir of readdirSync(join(ROOT, 'data-source'))) {
-    const match = /^minano-nihongo-(\d+)$/.exec(dir);
-    if (!match) continue;
+    const source = vocabularySource(dir);
+    if (!source) continue;
 
-    const lesson = Number(match[1]);
-    // Mốc chia N5/N4 lấy đúng theo `JLPT_RANGE` của ứng dụng: hết bài 25 là hết N5.
-    const level = lesson <= 25 ? 'N5' : 'N4';
+    const { level, order } = source;
     const file = join(ROOT, 'data-source', dir, 'vocabulary.txt');
     if (!existsSync(file)) continue;
 
@@ -110,7 +138,10 @@ function readVocabulary() {
       // hiragana" không có đáp án, nhưng âm Hán Việt của nó vẫn dùng để suy âm
       // của từng chữ được — bỏ luôn cả dòng là mất âm DỤC của chữ 浴.
       const usable = Boolean(reading && meaning);
-      words.push({ japanese, reading, hanViet, meaning, level, order: lesson, usable });
+      // `hanViet` của từ 総まとめ luôn rỗng (sách không chú âm) nên chúng KHÔNG bỏ
+      // phiếu suy âm của từng chữ — xem vòng lặp `votes` bên dưới. Đúng như mong
+      // muốn: bảng âm vẫn chỉ suy từ 皆の日本語, N3 chỉ góp từ minh hoạ.
+      words.push({ japanese, reading, hanViet, meaning, level, order, usable });
     }
   }
   return words;
@@ -336,9 +367,16 @@ if (process.argv.includes('--list-outside')) log([...outOfScope].join(''));
  * trong ba danh sách thì đáng ngờ: giáo trình có dùng vài chữ khó thật, nhưng
  * 病 院 週 切 所 mà rơi ra ngoài thì gần như chắc chắn là danh sách chép thiếu
  * chứ không phải chữ đó ngoài phạm vi N5→N3.
+ *
+ * Phải lọc CẢ `level === 'N5'` chứ không chỉ `order <= 25`: từ 総まとめ N3 mang
+ * `order` là ngày thứ mấy trong quyển (1-6), lọt thẳng vào khoảng đó và làm cảnh
+ * báo réo tên những chữ chẳng liên quan gì tới bài 1-25.
  */
 const earlyOutside = [...outOfScope]
-  .map((char) => [char, allWords.filter((w) => w.order <= 25 && w.japanese.includes(char)).length])
+  .map((char) => [
+    char,
+    allWords.filter((w) => w.level === 'N5' && w.order <= 25 && w.japanese.includes(char)).length,
+  ])
   .filter(([, count]) => count > 0)
   .sort((a, b) => b[1] - a[1]);
 if (earlyOutside.length > 0) {
