@@ -73,7 +73,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['上手', 'じょうず', 'THƯỢNG THỦ', 'giỏi, khéo', 'N5'],
     ['下手', 'へた', 'HẠ THỦ', 'kém', 'N5'],
     ['切手', 'きって', 'THIẾT THỦ', 'tem', 'N5'],
-    ['お手洗い', 'おてあらい', 'THỦ TẢY', 'nhà vệ sinh, phòng vệ sinh, toa-lét', 'N5'],
+    ['お手洗い', 'おてあらい', 'THỦ TẨY', 'nhà vệ sinh, phòng vệ sinh, toa-lét', 'N5'],
     ['手伝います', 'てつだいます', 'THỦ TRUYỀN', 'Giúp', 'N5'],
     ['手紙を出します', 'てがみをだします', 'THỦ CHỈ XUẤT', 'gửi thư', 'N5'],
     ['歌手', 'かしゅ', 'CA THỦ', 'ca sĩ', 'N4'],
@@ -427,7 +427,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['月・水・金', 'げつ・すい・きん', 'NGUYỆT THỦY KIM', 'thứ hai, thứ tư, thứ sáu', 'N4'],
   ]],
   ['泳', 'VỊNH', '', 'N5', [
-    ['泳ぎます', 'およぎます', 'VĨNH', 'bơi', 'N5'],
+    ['泳ぎます', 'およぎます', 'VỊNH', 'bơi', 'N5'],
     ['水泳', 'すいえい', 'THỦY VỊNH', 'bơi/ môn bơi', 'N4'],
   ]],
   ['火', 'HỎA', '', 'N5', [
@@ -606,7 +606,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['分', 'PHÂN', '', 'N5', [
     ['何分', 'なんぷん', 'HÀ PHÂN', 'Mấy phút', 'N5'],
-    ['自分で', 'じぶんで', 'BỘ PHÂN', 'Tự mình', 'N5'],
+    ['自分で', 'じぶんで', 'TỰ PHÂN', 'Tự mình', 'N5'],
     ['分かります', 'わかります', '', 'hiểu', 'N5'],
     ['自分', 'じぶん', 'TỰ PHÂN', 'bản thân/ mình/ tự mình', 'N4'],
     ['十分', 'じゅうぶん', 'THẬP PHÂN', 'đủ/ đầy đủ', 'N4'],
@@ -682,7 +682,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['輸出します', 'ゆしゅつします', 'THÂU XUẤT', 'xuất khẩu', 'N4'],
     ['出発します', 'しゅっぱつします', 'XUẤT PHÁT', 'xuất phát/ khởi hành', 'N4'],
     ['本が出ます', 'ほんがでます', 'BẢN XUẤT', 'sách được xuất bản', 'N4'],
-    ['試合に出ます', 'しあいにでます', 'THỨC HỢP XUẤT', 'tham gia trận đấu/ ra sân thi đấu', 'N4'],
+    ['試合に出ます', 'しあいにでます', 'THÍ HỢP XUẤT', 'tham gia trận đấu/ ra sân thi đấu', 'N4'],
     ['バスが出ます', 'バスがでます', 'XUẤT', 'xe buýt xuất phát/ xe chạy', 'N4'],
     ['熱を出します', 'ねつをだします', 'NHIỆT XUẤT', 'bị sốt', 'N4'],
     ['輸出が増えます', 'ゆしゅつがふえます', 'THÂU XUẤT TĂNG', 'xuất khẩu tăng lên', 'N4'],
@@ -1141,16 +1141,16 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['雪祭り', 'ゆきまつり', 'TUYẾT TẾ', 'Lễ hội tuyết', 'N4'],
   ]],
   ['合', 'HỢP', '', 'N4', [
-    ['試合', 'しあい', 'THỨC HỢP', 'Trận đấu', 'N5'],
+    ['試合', 'しあい', 'THÍ HỢP', 'Trận đấu', 'N5'],
     ['具合', 'ぐあい', 'CỤ HỢP', 'trạng thái/ tình hình', 'N4'],
     ['お見合い', 'おみあい', 'KIẾN HỢP', 'xem mặt/ làm mối', 'N4'],
     ['合います', 'あいます', 'HỢP', 'vừa/ hợp', 'N4'],
     ['都合がいい', 'つごうがいい', 'ĐÔ HỢP', 'tiện/ thuận tiện/ có thời gian', 'N4'],
     ['都合が悪い', 'つごうがわるい', 'ĐÔ HỢP ÁC', 'không tiện/ bận/ vướng việc', 'N4'],
-    ['試合に出ます', 'しあいにでます', 'THỨC HỢP XUẤT', 'tham gia trận đấu/ ra sân thi đấu', 'N4'],
+    ['試合に出ます', 'しあいにでます', 'THÍ HỢP XUẤT', 'tham gia trận đấu/ ra sân thi đấu', 'N4'],
     ['知り合います', 'しりあいます', 'TRI HỢP', 'làm quen/ gặp gỡ làm quen', 'N4'],
     ['間に合います', 'まにあいます', '', 'kịp giờ', 'N4'],
-    ['試験に合格します', 'しけんにごうかくします', 'THỨC NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
+    ['試験に合格します', 'しけんにごうかくします', 'THÍ NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
     ['サイズが合います', 'サイズがあいます', 'HỢP', 'vừa kích thước/ hợp cỡ', 'N4'],
     ['合格します', 'ごうかくします', '', 'thi đỗ', 'N3'],
   ]],
@@ -1176,9 +1176,9 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['試験', 'しけん', 'THÍ NGHIỆM', 'Kỳ thi, bài thi', 'N5'],
     ['経験', 'けいけん', 'KINH NGHIỆM', 'kinh nghiệm', 'N4'],
     ['実験', 'じっけん', 'THỰC NGHIỆM', 'thí nghiệm/ thực nghiệm', 'N4'],
-    ['試験を受けます', 'しけんをうけます', 'THỨC NGHIỆM THỤ', 'thi/ dự kỳ thi', 'N4'],
-    ['試験に合格します', 'しけんにごうかくします', 'THỨC NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
-    ['試験に失敗します', 'しけんにしっぱいします', 'THỨC NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
+    ['試験を受けます', 'しけんをうけます', 'THÍ NGHIỆM THỤ', 'thi/ dự kỳ thi', 'N4'],
+    ['試験に合格します', 'しけんにごうかくします', 'THÍ NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
+    ['試験に失敗します', 'しけんにしっぱいします', 'THÍ NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
     ['経験します', 'けいけんします', '', 'trải nghiệm', 'N3'],
   ]],
   ['毎', 'MỖI', '', 'N4', [
@@ -1399,7 +1399,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['日本語', 'にほんご', 'NHẬT BẢN NGỮ', 'Tiếng Nhật', 'N5'],
   ]],
   ['部', 'BỘ', '', 'N4', [
-    ['部屋', 'へや', 'BỘ ÓC', 'căn phòng', 'N5'],
+    ['部屋', 'へや', 'BỘ ỐC', 'căn phòng', 'N5'],
     ['部長', 'ぶちょう', 'BỘ TRƯỞNG', 'Trưởng phòng', 'N5'],
     ['全部', 'ぜんぶ', 'TOÀN BỘ', 'Toàn bộ, tất cả', 'N5'],
     ['全部で', 'ぜんぶで', 'TOÀN BỘ', 'tổng cộng', 'N5'],
@@ -1516,7 +1516,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['教室を開きます', 'きょうしつをひらきます', 'GIÁO THẤT KHAI', 'mở lớp học', 'N4'],
   ]],
   ['屋', 'ỐC', '', 'N4', [
-    ['部屋', 'へや', 'BỘ ÓC', 'căn phòng', 'N5'],
+    ['部屋', 'へや', 'BỘ ỐC', 'căn phòng', 'N5'],
     ['本屋', 'ほんや', 'BỔN ỐC', 'hiệu sách', 'N5'],
     ['床屋', 'とこや', 'SÀNG ỐC', 'Hiệu cắt tóc', 'N5'],
     ['電気屋', 'でんきや', 'ĐIỆN KHÍ ỐC', 'Cửa hàng đồ điện', 'N5'],
@@ -1688,11 +1688,11 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['試', 'THÍ', '', 'N4', [
     ['試験', 'しけん', 'THÍ NGHIỆM', 'Kỳ thi, bài thi', 'N5'],
-    ['試合', 'しあい', 'THỨC HỢP', 'Trận đấu', 'N5'],
-    ['試合に出ます', 'しあいにでます', 'THỨC HỢP XUẤT', 'tham gia trận đấu/ ra sân thi đấu', 'N4'],
-    ['試験を受けます', 'しけんをうけます', 'THỨC NGHIỆM THỤ', 'thi/ dự kỳ thi', 'N4'],
-    ['試験に合格します', 'しけんにごうかくします', 'THỨC NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
-    ['試験に失敗します', 'しけんにしっぱいします', 'THỨC NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
+    ['試合', 'しあい', 'THÍ HỢP', 'Trận đấu', 'N5'],
+    ['試合に出ます', 'しあいにでます', 'THÍ HỢP XUẤT', 'tham gia trận đấu/ ra sân thi đấu', 'N4'],
+    ['試験を受けます', 'しけんをうけます', 'THÍ NGHIỆM THỤ', 'thi/ dự kỳ thi', 'N4'],
+    ['試験に合格します', 'しけんにごうかくします', 'THÍ NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
+    ['試験に失敗します', 'しけんにしっぱいします', 'THÍ NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
   ]],
   ['鉄', 'THIẾT', '', 'N4', [
     ['地下鉄', 'ちかてつ', 'ĐỊA HẠ THIẾT', 'tàu điện ngầm', 'N5'],
@@ -1723,7 +1723,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['失', 'THẤT', '', 'N3', [
     ['失礼いたします', 'しつれいいたします', 'THẤT LỄ', 'Tôi xin phép.', 'N4'],
-    ['試験に失敗します', 'しけんにしっぱいします', 'THỨC NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
+    ['試験に失敗します', 'しけんにしっぱいします', 'THÍ NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
     ['お先に失礼します', 'おさきにしつれいします', 'TIÊN THẤT LỄ', 'Tôi xin phép về trước.', 'N4'],
     ['失敗します', 'しっぱいします', '', 'thất bại', 'N3'],
   ]],
@@ -1839,7 +1839,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['負けます', 'まけます', 'PHỤ', 'Thua', 'N5'],
   ]],
   ['敗', 'BẠI', '', 'N3', [
-    ['試験に失敗します', 'しけんにしっぱいします', 'THỨC NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
+    ['試験に失敗します', 'しけんにしっぱいします', 'THÍ NGHIỆM THẤT BẠI', 'thất bại/ trượt thi', 'N4'],
     ['失敗します', 'しっぱいします', '', 'thất bại', 'N3'],
   ]],
   ['則', 'TẮC', '', 'N3', [
@@ -2187,7 +2187,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['受', 'THỤ', '', 'N3', [
     ['受付', 'うけつけ', 'THỤ PHÓ', 'bộ phận tiếp tân, phòng thường trực', 'N5'],
     ['受賞します', 'じゅしょうします', 'THỤ THƯỞNG', 'nhận giải thưởng', 'N4'],
-    ['試験を受けます', 'しけんをうけます', 'THỨC NGHIỆM THỤ', 'thi/ dự kỳ thi', 'N4'],
+    ['試験を受けます', 'しけんをうけます', 'THÍ NGHIỆM THỤ', 'thi/ dự kỳ thi', 'N4'],
   ]],
   ['授', 'THỤ', '', 'N3', [
     ['授業', 'じゅぎょう', 'THỤ NGHIỆP', 'giờ học', 'N4'],
@@ -2307,7 +2307,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['格', 'CÁCH', '', 'N3', [
     ['性格', 'せいかく', 'TÍNH CÁCH', 'tính cách/ tính tình', 'N4'],
-    ['試験に合格します', 'しけんにごうかくします', 'THỨC NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
+    ['試験に合格します', 'しけんにごうかくします', 'THÍ NGHIỆM HỢP CÁCH', 'đỗ thi/ đậu kỳ thi', 'N4'],
     ['合格します', 'ごうかくします', '', 'thi đỗ', 'N3'],
   ]],
   ['落', 'LẠC', '', 'N3', [
@@ -2813,7 +2813,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['変えます', 'かえます', 'BIẾN', 'Đổi', 'N5'],
     ['変', 'へん', 'BIẾN', 'lạ/ kỳ quặc', 'N4'],
     ['変わります', 'かわります', '', 'thay đổi', 'N4'],
-    ['色が変わります', 'いろがかわります', 'SẮC PHẢN', 'đổi màu/ thay đổi màu', 'N4'],
+    ['色が変わります', 'いろがかわります', 'SẮC BIẾN', 'đổi màu/ thay đổi màu', 'N4'],
     ['変更します', 'へんこうします', '', 'thay đổi/ điều chỉnh', 'N2'],
   ]],
   ['訳', 'DỊCH', '', 'N3', [
@@ -3005,7 +3005,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['担当します', 'たんとうします', '', 'phụ trách', 'N2'],
   ]],
   ['洗', 'TẨY', '', 'N3', [
-    ['お手洗い', 'おてあらい', 'THỦ TẢY', 'nhà vệ sinh, phòng vệ sinh, toa-lét', 'N5'],
+    ['お手洗い', 'おてあらい', 'THỦ TẨY', 'nhà vệ sinh, phòng vệ sinh, toa-lét', 'N5'],
     ['洗います', 'あらいます', 'TẨY', 'Rửa', 'N5'],
     ['洗濯します', 'せんたくします', 'TẨY TRẠC', 'Giặt', 'N5'],
     ['洗濯機', 'せんたくき', 'TẨY TRẠC CƠ', 'máy giặt', 'N4'],
@@ -3434,10 +3434,10 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['牧場', 'ぼくじょう', 'MỤC TRƯỜNG', 'Trang trại chăn nuôi', 'N5'],
   ]],
   ['掃', 'TẢO', '', 'N2', [
-    ['掃除します', 'そうじします', 'TẢO TRÚ', 'Dọn vệ sinh', 'N5'],
+    ['掃除します', 'そうじします', 'TẢO TRỪ', 'Dọn vệ sinh', 'N5'],
   ]],
-  ['除', 'TRÚ', '', 'N2', [
-    ['掃除します', 'そうじします', 'TẢO TRÚ', 'Dọn vệ sinh', 'N5'],
+  ['除', 'TRỪ', '', 'N2', [
+    ['掃除します', 'そうじします', 'TẢO TRỪ', 'Dọn vệ sinh', 'N5'],
   ]],
   ['練', 'LUYỆN', '', 'N2', [
     ['練習します', 'れんしゅうします', 'LUYỆN TẬP', 'Luyện tập, thực hành', 'N5'],
@@ -3492,7 +3492,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['自', 'TỰ', '', 'N2', [
     ['自動車', 'じどうしゃ', 'TỰ ĐỘNG XA', 'ô tô, xe hơi', 'N5'],
     ['自転車', 'じてんしゃ', 'TỰ CHUYỂN XA', 'xe đạp', 'N5'],
-    ['自分で', 'じぶんで', 'BỘ PHÂN', 'Tự mình', 'N5'],
+    ['自分で', 'じぶんで', 'TỰ PHÂN', 'Tự mình', 'N5'],
     ['自分', 'じぶん', 'TỰ PHÂN', 'bản thân/ mình/ tự mình', 'N4'],
     ['自然', 'しぜん', 'TỰ NHIÊN', 'tự nhiên/ thiên nhiên', 'N4'],
     ['自由に', 'じゆうに', 'TỰ DO', 'tự do/ tuỳ thích/ thoải mái', 'N4'],
@@ -3673,7 +3673,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['景色', 'けしき', 'CẢNH SẮC', 'phong cảnh/ cảnh sắc', 'N4'],
     ['茶色', 'ちゃいろ', 'TRÀ SẮC', 'màu nâu', 'N4'],
     ['黄色', 'きいろ', 'HOÀNG SẮC', 'màu vàng', 'N4'],
-    ['色が変わります', 'いろがかわります', 'SẮC PHẢN', 'đổi màu/ thay đổi màu', 'N4'],
+    ['色が変わります', 'いろがかわります', 'SẮC BIẾN', 'đổi màu/ thay đổi màu', 'N4'],
   ]],
   ['販', 'PHIÊN', '', 'N2', [
     ['通信販売', 'つうしんはんばい', 'THÔNG TÍN PHIÊN MẠI', 'bán hàng qua bưu điện/ thương mại viễn thông', 'N4'],

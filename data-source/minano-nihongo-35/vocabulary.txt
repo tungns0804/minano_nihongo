@@ -8,7 +8,7 @@
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
 HOA TIẾU,花が咲きます (はながさきます),hoa nở|春になると、桜の花が咲きます。
-SẮC PHẢN,色が変わります (いろがかわります),đổi màu/ thay đổi màu|秋になると、葉の色が変わります。
+SẮC BIẾN,色が変わります (いろがかわります),đổi màu/ thay đổi màu|秋になると、葉の色が変わります。
 KHỐN,困ります (こまります),rắc rối/ khó xử/ gặp khó|お金がなくて困っています。
 HOÀN PHÓ,丸を付けます (まるをつけます),khoanh tròn/ đánh dấu tròn|正しい答えに丸を付けてください。
 THẬP,拾います (ひろいます),nhặt/ nhặt lên|道でさいふを拾いました。

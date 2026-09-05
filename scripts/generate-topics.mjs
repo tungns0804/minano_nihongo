@@ -43,6 +43,7 @@ import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { fillMissingHanViet, loadCharHanViet } from './han-viet-compose.mjs';
 import { parseVocabulary } from './vocab-core.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -71,6 +72,16 @@ function fail(msg) {
 
 const toFileUrl = (path) => new URL(`file:///${path.split(String.fromCharCode(92)).join('/')}`).href;
 const { TOPIC_DEFS } = await import(toFileUrl(join(ROOT, 'src/app/core/topics/topic-list.ts')));
+
+/**
+ * Bảng âm Hán Việt của từng chữ, để điền cột trống của phần 総まとめ N3.
+ *
+ * Phải ghép Ở ĐÂY nữa chứ không chỉ ở `generate-lessons.mjs`: script này đọc
+ * thẳng `data-source/`, nơi cột đó vẫn trống. Bỏ qua thì cùng một từ sẽ có âm
+ * Hán Việt ở bài học mà lại trống ở chủ đề — hai màn hình nói khác nhau về đúng
+ * một từ. Xem `han-viet-compose.mjs`.
+ */
+const charHanViet = await loadCharHanViet(ROOT);
 
 // ── Kho từ ────────────────────────────────────────────────────────────────
 
@@ -126,6 +137,7 @@ function readCorpus() {
 
     for (const file of files.sort()) {
       const { words } = parseVocabulary(readFileSync(join(folderPath, file), 'utf8'));
+      fillMissingHanViet(words, charHanViet);
       for (const word of words) {
         byLesson.set(`${id}\u0000${word.japanese}`, { word, lesson: id, order });
         const current = byJapanese.get(word.japanese);

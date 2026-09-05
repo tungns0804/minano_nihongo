@@ -20,6 +20,7 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync, rmSync, existsSync
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { fillMissingHanViet, loadCharHanViet } from './han-viet-compose.mjs';
 import {
   parseConversation,
   parseGrammar,
@@ -35,6 +36,14 @@ const SOURCE_DIR = join(ROOT, 'data-source');
 const OUTPUT_DIR = join(ROOT, 'public', 'lessons');
 const INDEX_FILE = join(OUTPUT_DIR, 'index.json');
 const VOCAB_EXTENSIONS = new Set(['.txt', '.csv', '.tsv']);
+
+/**
+ * Bảng âm Hán Việt của TỪNG CHỮ, nạp một lần cho cả lượt chạy.
+ *
+ * Dùng để điền cột âm Hán Việt cho những từ có chữ Hán mà nguồn để trống — toàn
+ * bộ phần 総まとめ N3, vì sách đó không chú âm. Xem `han-viet-compose.mjs`.
+ */
+const charHanViet = await loadCharHanViet(ROOT);
 
 const args = new Set(process.argv.slice(2));
 const CLEAN = args.has('--clean');
@@ -358,13 +367,28 @@ function buildLesson(folderName) {
   );
 
   // Cột âm Hán Việt được phép rỗng (xem vocab-core.mjs), nên thiếu nó không còn là
-  // lỗi từng dòng nữa. In ra con số tổng để vẫn bắt được lỗi gõ thiếu: bài 皆の日本語
-  // mà hiện "1 từ không có âm Hán Việt" là sai rõ ràng, còn bài 総まとめ N3 hiện vài
-  // chục từ là chuyện bình thường.
+  // lỗi từng dòng nữa. Nhưng "trống" có hai nghĩa rất khác nhau, nên phải tách ra:
+  //
+  //  - từ THUẦN KANA (キッチン, ほうき) thì không bao giờ có âm Hán Việt. Bình thường.
+  //  - từ CÓ CHỮ HÁN mà cột vẫn trống thì đó là chỗ nguồn chưa ghi. Sách 総まとめ
+  //    không chú âm Hán Việt nên cả 143 từ như vậy đều nằm ở phần N3.
+  //
+  // Với nhóm thứ hai, ghép âm từ bảng âm của TỪNG CHỮ mà chính app đã suy ra —
+  // xem `han-viet-compose.mjs`. Ghép ở đây chứ không ghi vào data-source để id
+  // của từ (và dấu ★ khoá theo id) không đổi.
   if (kind === 'vocabulary') {
-    const missing = items.filter((word) => !word.hanViet).length;
-    if (missing > 0) {
-      log(`  ${c.dim}${missing}/${items.length} tu khong co am Han Viet${c.reset}`);
+    const { filled, missing } = fillMissingHanViet(items, charHanViet);
+    const kana = items.filter((word) => !word.hanViet).length - missing.length;
+
+    if (filled > 0) log(`  ${c.dim}ghep am Han Viet cho ${filled} tu${c.reset}`);
+    if (kana > 0) log(`  ${c.dim}${kana}/${items.length} tu thuan kana, khong co am Han Viet${c.reset}`);
+    // Đây mới là con số đáng ngờ: bài 皆の日本語 hiện dòng này nghĩa là gõ thiếu,
+    // còn hiện ở bài nào cũng có nghĩa là bảng âm còn thiếu chữ.
+    if (missing.length > 0) {
+      log(
+        `  ${c.yellow}${missing.length} tu co chu Han nhung chua ghep duoc am: ` +
+          `${missing.join(' ')}${c.reset}`,
+      );
     }
   }
 

@@ -136,8 +136,24 @@ dấu phẩy**:
 Bài nào không có từ nào mang âm Hán Việt thì cột đó tự ẩn khỏi bảng, và hai chiều luyện
 liên quan (Nhật → Hán Việt, Hán Việt → Nhật) cũng biến mất khỏi khung thiết lập.
 
-`npm run generate` in ra `3/4 tu khong co am Han Viet` cho mỗi bài từ vựng có ô trống.
-Với bài 総まとめ đó là bình thường; với bài 皆の日本語 thì gần như chắc chắn là gõ thiếu.
+**Từ CÓ chữ Hán mà bỏ trống ô này thì script tự điền.** `npm run generate` ghép âm Hán
+Việt của cả từ từ âm của từng chữ mà chính app đã suy ra từ kho từ 皆の日本語 — xem
+[`scripts/han-viet-compose.mjs`](../scripts/han-viet-compose.mjs). Nhờ vậy 140 từ của
+総まとめ N3 (sách này không chú âm Hán Việt) có âm mà không phải chép tay chữ nào.
+
+Ghép ở bước sinh dữ liệu chứ **không ghi ngược vào file nguồn**: id của từ băm từ
+`japanese|hanViet` và id là khoá lưu dấu ★, nên ghi vào nguồn là mất ★ của cả 140 từ.
+
+`npm run generate` in ba dòng khác nhau cho ba tình huống khác nhau:
+
+| Dòng in ra | Nghĩa |
+| --- | --- |
+| `ghep am Han Viet cho N tu` | N từ có chữ Hán được điền tự động. Bình thường với bài 総まとめ. |
+| `N/M tu thuan kana, khong co am Han Viet` | Từ katakana / thuần kana. Không bao giờ có âm, không phải thiếu sót. |
+| `N tu co chu Han nhung chua ghep duoc am` | **Đáng đọc kỹ.** Bảng âm còn thiếu chữ nào đó; script in luôn danh sách từ. |
+
+Với bài 皆の日本語 mà hiện dòng đầu tiên thì gần như chắc chắn là gõ thiếu ô âm Hán Việt —
+âm ghép được nhưng đáng ra người nhập phải ghi.
 
 #### Câu ví dụ (tuỳ chọn)
 

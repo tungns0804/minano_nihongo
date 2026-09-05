@@ -12,7 +12,7 @@ BẤT TIỆN,不便 (ふべん),Bất tiện
 THỦ TƯỚNG,首相 (しゅしょう),Thủ tướng
 ĐẠI THỐNG LÃNH,大統領 (だいとうりょう),Tổng thống
 CHÍNH TRỊ,政治 (せいじ),Chính trị
-THỨC HỢP,試合 (しあい),Trận đấu
+THÍ HỢP,試合 (しあい),Trận đấu
 Ý KIẾN,意見 (いけん),Ý kiến
 THOẠI,お話 (おはなし),Câu chuyện, bài nói chuyện
 GIAO THÔNG,交通 (こうつう),Giao thông, đi lại

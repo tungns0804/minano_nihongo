@@ -1,30 +1,30 @@
 # 日本語総まとめ N3 · 語彙 — 洗濯をしましょう
 # Nguồn: Nihongo_Soumatome_N3-Goi.pdf, trang 20-21
-# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT (English)
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
-# Chú giải tiếng Anh trong ngoặc là chép từ chính sách, để đối chiếu bản in.
-,洗濯物 (せんたくもの),đồ giặt (laundry)
-,洗濯物がたまる (せんたくものがたまる),đồ giặt dồn đống ((laundry) piles up)
-,洗濯物をためる (せんたくものをためる),để đồ giặt dồn lại (let it pile up)
-,ぬれている,đang ướt (wet)
-,ぬらす,làm ướt (wet)
-,湿っている (しめっている),còn ẩm (not dry)
-,乾く (かわく),khô (dry)
-,干す (ほす),phơi (put it out for drying)
-,乾燥機で乾かす (かんそうきでかわかす),sấy bằng máy sấy (dry in the dryer)
-,真っ白に仕上がる (まっしろにしあがる),giặt ra trắng tinh (comes out pure white)
-,たたむ,gấp (fold)
-,服を汚す (ふくをよごす),làm bẩn quần áo (get one's clothes dirty)
-,そでが真っ黒に汚れる (そでがまっくろによごれる),tay áo bẩn đen sì (the cuffs have become very dirty)
-,汚れ (よごれ),vết bẩn (dirt)
-,洗剤を入れる (せんざいをいれる),cho bột giặt (add detergent)
-,台所用洗剤 (だいどころようせんざい),nước rửa bát (dish soap)
-,スーツをクリーニングに出す (スーツをクリーニングにだす),mang vest đi giặt khô (send a suit to the dry cleaners)
-,コインランドリーで洗濯をする (コインランドリーでせんたくをする),giặt ở tiệm giặt tự động (wash the laundry in a Laundromat)
-,タオルを干す (タオルをほす),phơi khăn (dry a towel)
-,服をつるす (ふくをつるす),treo quần áo lên (hang an outfit)
-,ワイシャツにアイロンをかける,là áo sơ mi (iron a shirt)
-,しわを伸ばす (しわをのばす),vuốt phẳng nếp nhăn (take the creases out)
-,しわが伸びる (しわがのびる),nếp nhăn đã phẳng (the creases have been smoothed out)
-,ウールのセーターが縮む (ウールのセーターがちぢむ),áo len bị co (the woolen sweater has shrunk)
-,ジーンズの色が落ちる (ジーンズのいろがおちる),quần bò bị phai màu (a pair of jeans has faded)
+# Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
+,洗濯物 (せんたくもの),đồ giặt
+,洗濯物がたまる (せんたくものがたまる),đồ giặt dồn đống
+,洗濯物をためる (せんたくものをためる),để đồ giặt dồn lại
+,ぬれている,đang ướt
+,ぬらす,làm ướt
+,湿っている (しめっている),còn ẩm
+,乾く (かわく),khô
+,干す (ほす),phơi
+,乾燥機で乾かす (かんそうきでかわかす),sấy bằng máy sấy
+,真っ白に仕上がる (まっしろにしあがる),giặt ra trắng tinh
+,たたむ,gấp
+,服を汚す (ふくをよごす),làm bẩn quần áo
+,そでが真っ黒に汚れる (そでがまっくろによごれる),tay áo bẩn đen sì
+,汚れ (よごれ),vết bẩn
+,洗剤を入れる (せんざいをいれる),cho bột giặt
+,台所用洗剤 (だいどころようせんざい),nước rửa bát
+,スーツをクリーニングに出す (スーツをクリーニングにだす),mang vest đi giặt khô
+,コインランドリーで洗濯をする (コインランドリーでせんたくをする),giặt ở tiệm giặt tự động
+,タオルを干す (タオルをほす),phơi khăn
+,服をつるす (ふくをつるす),treo quần áo lên
+,ワイシャツにアイロンをかける,là áo sơ mi
+,しわを伸ばす (しわをのばす),vuốt phẳng nếp nhăn
+,しわが伸びる (しわがのびる),nếp nhăn đã phẳng
+,ウールのセーターが縮む (ウールのセーターがちぢむ),áo len bị co
+,ジーンズの色が落ちる (ジーンズのいろがおちる),quần bò bị phai màu

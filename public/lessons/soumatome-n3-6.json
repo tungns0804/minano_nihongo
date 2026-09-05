@@ -12,7 +12,7 @@
       "hanViet": "",
       "japanese": "かわいらしい",
       "reading": "",
-      "vietnamese": "dễ thương (lovely)",
+      "vietnamese": "dễ thương",
       "example": ""
     },
     {
@@ -20,23 +20,23 @@
       "hanViet": "",
       "japanese": "かわいそうな",
       "reading": "",
-      "vietnamese": "tội nghiệp (poor)",
+      "vietnamese": "tội nghiệp",
       "example": ""
     },
     {
       "id": "17pklep",
-      "hanViet": "",
+      "hanViet": "HÀNH NGHI",
       "japanese": "行儀がいい",
       "reading": "ぎょうぎがいい",
-      "vietnamese": "ngoan/ lễ phép (well-mannered)",
+      "vietnamese": "ngoan/ lễ phép",
       "example": ""
     },
     {
       "id": "1k83coj",
-      "hanViet": "",
+      "hanViet": "LỢI KHẨU",
       "japanese": "利口な",
       "reading": "りこうな",
-      "vietnamese": "khôn/ thông minh (smart)",
+      "vietnamese": "khôn/ thông minh",
       "example": ""
     },
     {
@@ -44,15 +44,15 @@
       "hanViet": "",
       "japanese": "かしこい",
       "reading": "",
-      "vietnamese": "khôn/ thông minh (smart)",
+      "vietnamese": "khôn/ thông minh",
       "example": ""
     },
     {
       "id": "1c9j6rl",
-      "hanViet": "",
+      "hanViet": "NHÂN",
       "japanese": "人なつっこい",
       "reading": "ひとなつっこい",
-      "vietnamese": "dễ gần/ quấn người (friendly)",
+      "vietnamese": "dễ gần/ quấn người",
       "example": ""
     },
     {
@@ -60,31 +60,31 @@
       "hanViet": "",
       "japanese": "わがままな",
       "reading": "",
-      "vietnamese": "ích kỷ/ đòi hỏi (self-centered)",
+      "vietnamese": "ích kỷ/ đòi hỏi",
       "example": ""
     },
     {
       "id": "1lvm8ay",
-      "hanViet": "",
+      "hanViet": "SINH Ý KHÍ",
       "japanese": "生意気な",
       "reading": "なまいきな",
-      "vietnamese": "xấc xược (impertinent)",
+      "vietnamese": "xấc xược",
       "example": ""
     },
     {
       "id": "0jtpfsx",
-      "hanViet": "",
+      "hanViet": "SINH Ý KHÍ THÁI ĐỘ",
       "japanese": "生意気な態度",
       "reading": "なまいきなたいど",
-      "vietnamese": "thái độ xấc xược (impudent)",
+      "vietnamese": "thái độ xấc xược",
       "example": ""
     },
     {
       "id": "1cqmmcz",
-      "hanViet": "",
+      "hanViet": "CAM",
       "japanese": "甘やかす",
       "reading": "あまやかす",
-      "vietnamese": "nuông chiều (spoil)",
+      "vietnamese": "nuông chiều",
       "example": ""
     },
     {
@@ -92,7 +92,7 @@
       "hanViet": "",
       "japanese": "かわいがる",
       "reading": "",
-      "vietnamese": "cưng chiều (adore)",
+      "vietnamese": "cưng chiều",
       "example": ""
     },
     {
@@ -100,23 +100,23 @@
       "hanViet": "",
       "japanese": "おんぶする",
       "reading": "",
-      "vietnamese": "cõng (piggyback)",
+      "vietnamese": "cõng",
       "example": ""
     },
     {
       "id": "0kplghq",
-      "hanViet": "",
+      "hanViet": "BÃO",
       "japanese": "抱っこする",
       "reading": "だっこする",
-      "vietnamese": "bế/ ẵm (pick the baby up)",
+      "vietnamese": "bế/ ẵm",
       "example": ""
     },
     {
       "id": "15s88tf",
-      "hanViet": "",
+      "hanViet": "UYỂN BÃO",
       "japanese": "腕に抱く",
       "reading": "うでにだく",
-      "vietnamese": "ôm trong tay (pick the baby up)",
+      "vietnamese": "ôm trong tay",
       "example": ""
     },
     {
@@ -124,23 +124,23 @@
       "hanViet": "",
       "japanese": "ほえる",
       "reading": "",
-      "vietnamese": "sủa (bark)",
+      "vietnamese": "sủa",
       "example": ""
     },
     {
       "id": "1g9x47y",
-      "hanViet": "",
+      "hanViet": "CHẤN",
       "japanese": "しっぽを振る",
       "reading": "しっぽをふる",
-      "vietnamese": "vẫy đuôi (wag its tail)",
+      "vietnamese": "vẫy đuôi",
       "example": ""
     },
     {
       "id": "0z2g4u3",
-      "hanViet": "",
+      "hanViet": "NHÂN",
       "japanese": "人になれる",
       "reading": "ひとになれる",
-      "vietnamese": "quen người (become tame)",
+      "vietnamese": "quen người",
       "example": ""
     },
     {
@@ -148,7 +148,7 @@
       "hanViet": "",
       "japanese": "うなる",
       "reading": "",
-      "vietnamese": "gầm gừ (growl)",
+      "vietnamese": "gầm gừ",
       "example": ""
     },
     {
@@ -156,7 +156,7 @@
       "hanViet": "",
       "japanese": "穴をほる",
       "reading": "あなをほる",
-      "vietnamese": "đào hố (dig a whole)",
+      "vietnamese": "đào hố",
       "example": ""
     },
     {
@@ -164,55 +164,55 @@
       "hanViet": "",
       "japanese": "穴をうめる",
       "reading": "あなをうめる",
-      "vietnamese": "lấp hố (fill a whole)",
+      "vietnamese": "lấp hố",
       "example": ""
     },
     {
       "id": "0eufli1",
-      "hanViet": "",
+      "hanViet": "DỤC NHI",
       "japanese": "育児",
       "reading": "いくじ",
-      "vietnamese": "việc nuôi con (child rearing)",
+      "vietnamese": "việc nuôi con",
       "example": ""
     },
     {
       "id": "1oz70m5",
-      "hanViet": "",
+      "hanViet": "TỬ DỤC",
       "japanese": "子育て",
       "reading": "こそだて",
-      "vietnamese": "việc nuôi con (child rearing)",
+      "vietnamese": "việc nuôi con",
       "example": ""
     },
     {
       "id": "1kpj0c7",
-      "hanViet": "",
+      "hanViet": "ẤU NHI",
       "japanese": "幼児",
       "reading": "ようじ",
-      "vietnamese": "trẻ nhỏ (young children)",
+      "vietnamese": "trẻ nhỏ",
       "example": ""
     },
     {
       "id": "1xt03ik",
-      "hanViet": "",
+      "hanViet": "ẤU TỬ",
       "japanese": "幼い子ども",
       "reading": "おさないこども",
-      "vietnamese": "trẻ nhỏ (young children)",
+      "vietnamese": "trẻ nhỏ",
       "example": ""
     },
     {
       "id": "0tov74v",
-      "hanViet": "",
+      "hanViet": "TỬ THÀNH TRƯỜNG",
       "japanese": "子どもが成長する",
       "reading": "こどもがせいちょうする",
-      "vietnamese": "trẻ lớn lên (kids grow)",
+      "vietnamese": "trẻ lớn lên",
       "example": ""
     },
     {
       "id": "02p56ur",
-      "hanViet": "",
+      "hanViet": "DỤC",
       "japanese": "わがままに育つ",
       "reading": "わがままにそだつ",
-      "vietnamese": "lớn lên hư hỏng (grow up spoiled)",
+      "vietnamese": "lớn lên hư hỏng",
       "example": ""
     },
     {
@@ -220,31 +220,31 @@
       "hanViet": "",
       "japanese": "えらい",
       "reading": "",
-      "vietnamese": "giỏi/ đáng khen (admirable)",
+      "vietnamese": "giỏi/ đáng khen",
       "example": ""
     },
     {
       "id": "1u47vpi",
-      "hanViet": "",
+      "hanViet": "ĐẦU",
       "japanese": "頭をなでる",
       "reading": "あたまをなでる",
-      "vietnamese": "xoa đầu (pat on the head)",
+      "vietnamese": "xoa đầu",
       "example": ""
     },
     {
       "id": "191ph0d",
-      "hanViet": "",
+      "hanViet": "KHAO",
       "japanese": "尻をたたく",
       "reading": "しりをたたく",
-      "vietnamese": "phát vào mông (spank)",
+      "vietnamese": "phát vào mông",
       "example": ""
     },
     {
       "id": "1d1l4ua",
-      "hanViet": "",
+      "hanViet": "KHAO",
       "japanese": "尻をぶつ",
       "reading": "しりをぶつ",
-      "vietnamese": "phát vào mông (spank)",
+      "vietnamese": "phát vào mông",
       "example": ""
     },
     {
@@ -252,7 +252,7 @@
       "hanViet": "",
       "japanese": "いたずらをする",
       "reading": "",
-      "vietnamese": "nghịch ngợm (get into mischief)",
+      "vietnamese": "nghịch ngợm",
       "example": ""
     },
     {
@@ -260,15 +260,15 @@
       "hanViet": "",
       "japanese": "いたずらな",
       "reading": "",
-      "vietnamese": "tinh nghịch (mischievous)",
+      "vietnamese": "tinh nghịch",
       "example": ""
     },
     {
       "id": "01th452",
-      "hanViet": "",
+      "hanViet": "THỦ",
       "japanese": "手をつなぐ",
       "reading": "てをつなぐ",
-      "vietnamese": "nắm tay (hold hands)",
+      "vietnamese": "nắm tay",
       "example": ""
     },
     {
@@ -276,55 +276,55 @@
       "hanViet": "",
       "japanese": "はなす",
       "reading": "",
-      "vietnamese": "buông ra (let go)",
+      "vietnamese": "buông ra",
       "example": ""
     },
     {
       "id": "0z15ep5",
-      "hanViet": "",
+      "hanViet": "TỬ MÊ TỬ",
       "japanese": "子どもが迷子になる",
       "reading": "こどもがまいごになる",
-      "vietnamese": "trẻ bị lạc (a child gets lost)",
+      "vietnamese": "trẻ bị lạc",
       "example": ""
     },
     {
       "id": "1wnpezk",
-      "hanViet": "",
+      "hanViet": "TỬ MẪU THÂN HẬU",
       "japanese": "子どもが母親の後をついていく",
       "reading": "こどもがははおやのあとをついていく",
-      "vietnamese": "trẻ đi theo sau mẹ (a child following it's mother)",
+      "vietnamese": "trẻ đi theo sau mẹ",
       "example": ""
     },
     {
       "id": "1rp7qnz",
-      "hanViet": "",
+      "hanViet": "KHUYỂN TỰ",
       "japanese": "犬を飼う",
       "reading": "いぬをかう",
-      "vietnamese": "nuôi chó (keep a dog)",
+      "vietnamese": "nuôi chó",
       "example": ""
     },
     {
       "id": "071yr54",
-      "hanViet": "",
+      "hanViet": "TÁN BỘ LIÊN",
       "japanese": "散歩に連れていく",
       "reading": "さんぽにつれていく",
-      "vietnamese": "dắt đi dạo (take out for a walk)",
+      "vietnamese": "dắt đi dạo",
       "example": ""
     },
     {
       "id": "1lou3ty",
-      "hanViet": "",
+      "hanViet": "KHUYỂN",
       "japanese": "犬にえさをやる",
       "reading": "いぬにえさをやる",
-      "vietnamese": "cho chó ăn (feed a dog)",
+      "vietnamese": "cho chó ăn",
       "example": ""
     },
     {
       "id": "0372bva",
-      "hanViet": "",
+      "hanViet": "KHUYỂN DỮ",
       "japanese": "犬にえさを与える",
       "reading": "いぬにえさをあたえる",
-      "vietnamese": "cho chó ăn (feed a dog)",
+      "vietnamese": "cho chó ăn",
       "example": ""
     }
   ],

@@ -6,8 +6,8 @@ THỰC ĐƯỜNG,食堂 (しょくどう),nhà ăn
 SỰ VỤ SỞ,事務所 (じむしょ),văn phòng
 HỘI NGHỊ THẤT,会議室 (かいぎしつ),phòng họp
 THỤ PHÓ,受付 (うけつけ),bộ phận tiếp tân, phòng thường trực
-BỘ ÓC,部屋 (へや),căn phòng
-THỦ TẢY,お手洗い (おてあらい),nhà vệ sinh, phòng vệ sinh, toa-lét
+BỘ ỐC,部屋 (へや),căn phòng
+THỦ TẨY,お手洗い (おてあらい),nhà vệ sinh, phòng vệ sinh, toa-lét
 GIAI ĐOẠN,階段 (かいだん),Cầu thang
 QUỐC,お国 (おくに),đất nước
 HỘI XÃ,会社 (かいしゃ),công ty

@@ -8,7 +8,7 @@
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
 HÀ VẬT GIỚI,荷物が届きます (にもつがとどきます),hành lý được gửi đến|国から荷物が届きました。
-THỨC HỢP XUẤT,試合に出ます (しあいにでます),tham gia trận đấu/ ra sân thi đấu|来週の試合に出ます。
+THÍ HỢP XUẤT,試合に出ます (しあいにでます),tham gia trận đấu/ ra sân thi đấu|来週の試合に出ます。
 ĐẢ,ワープロを打ちます (ワープロをうちます),đánh máy chữ/ gõ máy chữ|速くワープロを打てるようになりました。
 TRỮ KIM,貯金します (ちょきんします),tiết kiệm tiền/ để dành tiền|車を買うために貯金しています。
 THÁI,太ります (ふとります),béo lên/ tăng cân|運動しないと太りますよ。

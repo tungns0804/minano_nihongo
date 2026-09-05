@@ -168,6 +168,34 @@ nhau, và chủ đề cần nghĩa thứ hai — lúc đó viết thêm `@id-bà
 
 Ghim vào một bài không có từ đó là lỗi, nên ghim rồi bỏ quên lúc dữ liệu đổi sẽ bị bắt.
 
+### Âm Hán Việt cho phần 総まとめ N3
+
+Sách 総まとめ **không chú âm Hán Việt**, nên cả 215 dòng N3 trong `data-source/` đều bỏ
+trống ô đó. Trong số này 143 từ **có chữ Hán** — với chúng, ô trống là chỗ nguồn chưa
+ghi chứ không phải một sự thật.
+
+[`scripts/han-viet-compose.mjs`](scripts/han-viet-compose.mjs) ghép âm của cả từ từ âm
+của **từng chữ** mà `npm run generate:kanji` đã suy ra từ chính kho từ 皆の日本語, theo
+đúng quy ước sẵn có của kho (nối âm các chữ Hán, bỏ qua kana: `時間に遅れます` →
+`THỜI GIAN TRÌ`). Thiếu âm của dù chỉ một chữ thì để trống chứ không ghép nửa vời.
+
+Kết quả: **140/143 từ** được điền. Ba từ còn lại thiếu chữ 栄 và 穴 — hai chữ này không
+nằm trong danh sách JLPT của [`kanji-levels.ts`](src/app/core/kanji/kanji-levels.ts) nên
+chưa có âm nào; danh sách đó chép từ ảnh người dùng cung cấp nên không tự thêm vào.
+
+72 từ N3 còn lại viết thuần kana/katakana (`キッチン`, `なべ`, `ほうき`, `ほえる`) thì
+**không bao giờ** có âm Hán Việt — đó là sự thật về từ, không phải thiếu sót.
+
+Hai điều đáng nhớ về cách làm này:
+
+- **Ghép ở bước sinh dữ liệu, không ghi ngược vào `data-source/`.** Id của từ băm từ
+  `japanese|hanViet`, mà id là khoá lưu dấu ★ — ghi vào nguồn là mất ★ của cả 140 từ.
+  Hệ quả: với những từ này, `id` trong JSON đã sinh **không** bằng
+  `hashId(japanese|hanViet)` của chính JSON đó; nó bằng `hashId(japanese|)` của dòng nguồn.
+- **`generate-kanji.mjs` không bao giờ nhìn thấy âm ghép** — nó đọc thẳng `data-source/`.
+  Nếu thấy, những âm này sẽ quay lại bỏ phiếu cho chính các chữ đã sinh ra chúng, và một
+  âm sai sẽ tự củng cố mình mãi mãi.
+
 ### Sinh lại sau khi sửa danh sách
 
 ```bash
@@ -449,9 +477,12 @@ nguồn gốc**:
 - **146 âm bổ sung** — phần lớn là chữ nằm trong danh sách JLPT mà kho từ chưa có từ nào chứa
   nó (chữ số kanji 三 六 八, và các chữ N3 như 匹 厚 肯 翌…), cộng vài chữ chỉ có trong bộ động từ
   khu Bài tập vốn không có cột âm Hán Việt.
-- **6 chỗ sửa** những chữ mà nguồn nói hai kiểu và cái sai lại nhiều phiếu hơn: `試` (5 chỗ ghi
-  THỨC, 1 chỗ ghi THÍ), `泳`, `屋`, `洗`, `自`, `変`. Mỗi dòng có chú thích chỉ đúng dòng nguồn
-  đang lệch.
+- **0 chỗ sửa tay** — và đó là trạng thái đúng. Sáu chữ từng phải sửa (`試 泳 屋 洗 自 変`) đều
+  là do một dòng nguồn gõ lệch dấu so với các dòng khác cùng chữ: `BỘ ÓC,部屋` cạnh `BỔN ỐC,本屋`,
+  `THỦ TẢY,お手洗い` cạnh `TẨY,洗います`. Bản vá chữa cái BẢNG chứ không chữa cái NGUỒN, nên hai
+  nơi nói khác nhau mãi. Nay 11 dòng nguồn đó đã sửa, kho từ tự nói đúng, và bảng chữ sinh ra
+  **không đổi một chữ nào** sau khi bỏ hết bản vá — đúng bằng chứng rằng vá và sửa nguồn cho
+  cùng một kết quả. Chỗ khai `HAN_VIET_FIX` vẫn giữ (rỗng) vì cơ chế còn cần cho lần sau.
 
 ```bash
 npm run generate:kanji     # sinh lại kanji-words.ts
@@ -880,6 +911,7 @@ scripts/
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
   generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
   generate-topics.mjs            Sinh core/topics/topic-{catalog,words}.ts từ chính kho từ
+  han-viet-compose.mjs           Ghép âm Hán Việt của cả từ từ âm của từng chữ
   generate-radicals.mjs          Sinh core/radical/radical-kanji.ts từ bảng bộ thủ + chiết tự
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)

@@ -9,8 +9,8 @@
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
 VẬN ĐỘNG,運動します (うんどうします),vận động/ tập thể thao|毎朝公園で運動しています。
 THÀNH CÔNG,成功します (せいこうします),thành công|実験は成功しました。
-THỨC NGHIỆM THẤT BẠI,試験に失敗します (しけんにしっぱいします),thất bại/ trượt thi|試験に失敗してしまいました。
-THỨC NGHIỆM HỢP CÁCH,試験に合格します (しけんにごうかくします),đỗ thi/ đậu kỳ thi|息子が試験に合格しました。
+THÍ NGHIỆM THẤT BẠI,試験に失敗します (しけんにしっぱいします),thất bại/ trượt thi|試験に失敗してしまいました。
+THÍ NGHIỆM HỢP CÁCH,試験に合格します (しけんにごうかくします),đỗ thi/ đậu kỳ thi|息子が試験に合格しました。
 LỆ,戻ります (もどります),quay lại/ trở lại|3時までに会社に戻ります。
 VŨ,雨がやみます (あめがやみます),tạnh mưa/ ngừng mưa|雨がやんだら、出かけましょう。
 TÌNH,晴れます (はれます),nắng/ quang đãng/ trời hửng|明日は晴れるでしょう。

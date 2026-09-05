@@ -12,28 +12,28 @@
       "hanViet": "",
       "japanese": "キッチン",
       "reading": "",
-      "vietnamese": "bếp (Kitchen)",
+      "vietnamese": "bếp",
       "example": ""
     },
     {
       "id": "022oy6r",
-      "hanViet": "",
+      "hanViet": "ĐÀI SỞ",
       "japanese": "台所",
       "reading": "だいどころ",
-      "vietnamese": "bếp (Kitchen)",
+      "vietnamese": "bếp",
       "example": ""
     },
     {
       "id": "1u3ezjv",
-      "hanViet": "",
+      "hanViet": "ĐIỆN TỬ",
       "japanese": "電子レンジ",
       "reading": "でんしレンジ",
-      "vietnamese": "lò vi sóng (microwave)",
+      "vietnamese": "lò vi sóng",
       "example": ""
     },
     {
       "id": "0l8y2ta",
-      "hanViet": "",
+      "hanViet": "TRÀ",
       "japanese": "（お）茶わん",
       "reading": "ちゃわん",
       "vietnamese": "bát ăn cơm",
@@ -44,7 +44,7 @@
       "hanViet": "",
       "japanese": "ワイングラス",
       "reading": "",
-      "vietnamese": "ly rượu vang (wine glass)",
+      "vietnamese": "ly rượu vang",
       "example": ""
     },
     {
@@ -52,20 +52,20 @@
       "hanViet": "",
       "japanese": "コーヒーカップ",
       "reading": "",
-      "vietnamese": "tách cà phê (coffee cup)",
+      "vietnamese": "tách cà phê",
       "example": ""
     },
     {
       "id": "0g2dhpj",
-      "hanViet": "",
+      "hanViet": "THANG ẨM",
       "japanese": "湯飲み",
       "reading": "ゆのみ",
-      "vietnamese": "chén trà (tea cup)",
+      "vietnamese": "chén trà",
       "example": ""
     },
     {
       "id": "1bmbyvy",
-      "hanViet": "",
+      "hanViet": "LÃNH TÀNG KHỐ",
       "japanese": "冷蔵庫",
       "reading": "れいぞうこ",
       "vietnamese": "tủ lạnh",
@@ -76,7 +76,7 @@
       "hanViet": "",
       "japanese": "ガスレンジ",
       "reading": "",
-      "vietnamese": "bếp ga (gas stove)",
+      "vietnamese": "bếp ga",
       "example": ""
     },
     {
@@ -84,7 +84,7 @@
       "hanViet": "",
       "japanese": "ガスコンロ",
       "reading": "",
-      "vietnamese": "bếp ga (gas stove)",
+      "vietnamese": "bếp ga",
       "example": ""
     },
     {
@@ -92,7 +92,7 @@
       "hanViet": "",
       "japanese": "ガラスのコップ",
       "reading": "",
-      "vietnamese": "cốc thuỷ tinh (glass)",
+      "vietnamese": "cốc thuỷ tinh",
       "example": ""
     },
     {
@@ -100,15 +100,15 @@
       "hanViet": "",
       "japanese": "レバー",
       "reading": "",
-      "vietnamese": "cần gạt/ tay gạt (lever)",
+      "vietnamese": "cần gạt/ tay gạt",
       "example": ""
     },
     {
       "id": "0y8uojr",
-      "hanViet": "",
+      "hanViet": "LƯU",
       "japanese": "流し",
       "reading": "ながし",
-      "vietnamese": "bồn rửa (sink)",
+      "vietnamese": "bồn rửa",
       "example": ""
     },
     {
@@ -116,55 +116,55 @@
       "hanViet": "",
       "japanese": "リビング",
       "reading": "",
-      "vietnamese": "phòng khách (Living Room)",
+      "vietnamese": "phòng khách",
       "example": ""
     },
     {
       "id": "1o1bibz",
-      "hanViet": "",
+      "hanViet": "CƯ GIAN",
       "japanese": "居間",
       "reading": "いま",
-      "vietnamese": "phòng khách (Living Room)",
+      "vietnamese": "phòng khách",
       "example": ""
     },
     {
       "id": "0v5lzx0",
-      "hanViet": "",
+      "hanViet": "SONG",
       "japanese": "窓ガラス",
       "reading": "まどガラス",
-      "vietnamese": "kính cửa sổ (window glass)",
+      "vietnamese": "kính cửa sổ",
       "example": ""
     },
     {
       "id": "1p7wqxf",
-      "hanViet": "",
+      "hanViet": "VŨ HỘ",
       "japanese": "雨戸",
       "reading": "あまど",
-      "vietnamese": "cửa chống mưa bão (shutter)",
+      "vietnamese": "cửa chống mưa bão",
       "example": ""
     },
     {
       "id": "04sta0h",
-      "hanViet": "",
+      "hanViet": "VÕNG HỘ",
       "japanese": "網戸",
       "reading": "あみど",
-      "vietnamese": "cửa lưới chống côn trùng (screen)",
+      "vietnamese": "cửa lưới chống côn trùng",
       "example": ""
     },
     {
       "id": "0cewlnx",
-      "hanViet": "",
+      "hanViet": "THIÊN TỈNH",
       "japanese": "天井",
       "reading": "てんじょう",
-      "vietnamese": "trần nhà (ceiling)",
+      "vietnamese": "trần nhà",
       "example": ""
     },
     {
       "id": "1cexh4j",
-      "hanViet": "",
+      "hanViet": "SÀNG",
       "japanese": "床",
       "reading": "ゆか",
-      "vietnamese": "sàn nhà (floor)",
+      "vietnamese": "sàn nhà",
       "example": ""
     },
     {
@@ -172,7 +172,7 @@
       "hanViet": "",
       "japanese": "コンセント",
       "reading": "",
-      "vietnamese": "ổ cắm điện (electrical outlet)",
+      "vietnamese": "ổ cắm điện",
       "example": ""
     },
     {
@@ -180,7 +180,7 @@
       "hanViet": "",
       "japanese": "コード",
       "reading": "",
-      "vietnamese": "dây điện (cord)",
+      "vietnamese": "dây điện",
       "example": ""
     },
     {
@@ -188,7 +188,7 @@
       "hanViet": "",
       "japanese": "エアコン",
       "reading": "",
-      "vietnamese": "điều hoà (air conditioner)",
+      "vietnamese": "điều hoà",
       "example": ""
     },
     {
@@ -196,7 +196,7 @@
       "hanViet": "",
       "japanese": "ヒーター",
       "reading": "",
-      "vietnamese": "lò sưởi (heater)",
+      "vietnamese": "lò sưởi",
       "example": ""
     },
     {
@@ -204,7 +204,7 @@
       "hanViet": "",
       "japanese": "じゅうたん",
       "reading": "",
-      "vietnamese": "thảm (carpet)",
+      "vietnamese": "thảm",
       "example": ""
     },
     {
@@ -212,63 +212,63 @@
       "hanViet": "",
       "japanese": "カーペット",
       "reading": "",
-      "vietnamese": "thảm (carpet)",
+      "vietnamese": "thảm",
       "example": ""
     },
     {
       "id": "1ysl9v4",
-      "hanViet": "",
+      "hanViet": "THỦY ĐẠO XÀ KHẨU",
       "japanese": "水道の蛇口をひねる",
       "reading": "すいどうのじゃぐちをひねる",
-      "vietnamese": "vặn vòi nước (turn on a tap)",
+      "vietnamese": "vặn vòi nước",
       "example": ""
     },
     {
       "id": "0yiac07",
-      "hanViet": "",
+      "hanViet": "THỦY ĐÔNG",
       "japanese": "水が凍る",
       "reading": "みずがこおる",
-      "vietnamese": "nước đóng băng (water freezes)",
+      "vietnamese": "nước đóng băng",
       "example": ""
     },
     {
       "id": "0a3zpqw",
-      "hanViet": "",
+      "hanViet": "BĂNG",
       "japanese": "氷になる",
       "reading": "こおりになる",
-      "vietnamese": "đóng thành đá (turn into ice)",
+      "vietnamese": "đóng thành đá",
       "example": ""
     },
     {
       "id": "0jnoon3",
-      "hanViet": "",
+      "hanViet": "LÃNH ĐÔNG BẢO TỒN",
       "japanese": "冷凍して保存する",
       "reading": "れいとうしてほぞんする",
-      "vietnamese": "cấp đông để bảo quản (freeze to store)",
+      "vietnamese": "cấp đông để bảo quản",
       "example": ""
     },
     {
       "id": "0l695de",
-      "hanViet": "",
+      "hanViet": "TÀN VẬT ÔN",
       "japanese": "残り物を温める",
       "reading": "のこりものをあたためる",
-      "vietnamese": "hâm nóng đồ ăn thừa (warm up leftover food in a microwave)",
+      "vietnamese": "hâm nóng đồ ăn thừa",
       "example": ""
     },
     {
       "id": "0igve99",
-      "hanViet": "",
+      "hanViet": "LÃNH",
       "japanese": "ビールを冷やす",
       "reading": "ビールをひやす",
-      "vietnamese": "ướp lạnh bia (chill the beer)",
+      "vietnamese": "ướp lạnh bia",
       "example": ""
     },
     {
       "id": "1vwhx5b",
-      "hanViet": "",
+      "hanViet": "LÃNH",
       "japanese": "ビールが冷えている",
       "reading": "ビールがひえている",
-      "vietnamese": "bia đang lạnh (the beer is chilled)",
+      "vietnamese": "bia đang lạnh",
       "example": ""
     },
     {
@@ -276,7 +276,7 @@
       "hanViet": "",
       "japanese": "エアコンのリモコン",
       "reading": "",
-      "vietnamese": "điều khiển điều hoà (Remote Control for an Air Conditioner)",
+      "vietnamese": "điều khiển điều hoà",
       "example": ""
     },
     {
@@ -284,71 +284,71 @@
       "hanViet": "",
       "japanese": "スイッチ",
       "reading": "",
-      "vietnamese": "công tắc (switch)",
+      "vietnamese": "công tắc",
       "example": ""
     },
     {
       "id": "0i0m0tm",
-      "hanViet": "",
+      "hanViet": "ĐIỆN NGUYÊN NHẬP",
       "japanese": "電源を入れる",
       "reading": "でんげんをいれる",
-      "vietnamese": "cắm điện/ bật nguồn (plug in)",
+      "vietnamese": "cắm điện/ bật nguồn",
       "example": ""
     },
     {
       "id": "00l3l1a",
-      "hanViet": "",
+      "hanViet": "ĐIỆN NGUYÊN THIẾT",
       "japanese": "電源を切る",
       "reading": "でんげんをきる",
-      "vietnamese": "rút điện/ tắt nguồn (unplug)",
+      "vietnamese": "rút điện/ tắt nguồn",
       "example": ""
     },
     {
       "id": "0cn1au6",
-      "hanViet": "",
+      "hanViet": "PHU",
       "japanese": "じゅうたんを敷く",
       "reading": "じゅうたんをしく",
-      "vietnamese": "trải thảm (carpet the floor)",
+      "vietnamese": "trải thảm",
       "example": ""
     },
     {
       "id": "1ma6uuw",
-      "hanViet": "",
+      "hanViet": "BỘ ỐC NOÃN",
       "japanese": "部屋を暖める",
       "reading": "へやをあたためる",
-      "vietnamese": "làm ấm phòng (heat up the room)",
+      "vietnamese": "làm ấm phòng",
       "example": ""
     },
     {
       "id": "1gyplso",
-      "hanViet": "",
+      "hanViet": "NOÃN PHÒNG",
       "japanese": "暖房をつける",
       "reading": "だんぼうをつける",
-      "vietnamese": "bật sưởi (turn the heater on)",
+      "vietnamese": "bật sưởi",
       "example": ""
     },
     {
       "id": "00nswx1",
-      "hanViet": "",
+      "hanViet": "LÃNH PHÒNG HIỆU",
       "japanese": "冷房が効いている",
       "reading": "れいぼうがきいている",
-      "vietnamese": "điều hoà mát tốt (be well air-conditioned)",
+      "vietnamese": "điều hoà mát tốt",
       "example": ""
     },
     {
       "id": "1dqma4o",
-      "hanViet": "",
+      "hanViet": "NHẬT ĐƯƠNG",
       "japanese": "日当たりがいい",
       "reading": "ひあたりがいい",
-      "vietnamese": "nhiều nắng/ hướng nắng tốt (have good exposure to the sun)",
+      "vietnamese": "nhiều nắng/ hướng nắng tốt",
       "example": ""
     },
     {
       "id": "15qctu2",
-      "hanViet": "",
+      "hanViet": "NHẬT ĐƯƠNG ÁC",
       "japanese": "日当たりが悪い",
       "reading": "ひあたりがわるい",
-      "vietnamese": "thiếu nắng/ hướng nắng kém (have poor exposure to the sun)",
+      "vietnamese": "thiếu nắng/ hướng nắng kém",
       "example": ""
     }
   ],

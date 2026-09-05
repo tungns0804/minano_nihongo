@@ -1,45 +1,45 @@
 # 日本語総まとめ N3 · 語彙 — 子どもやペットの世話をしましょう
 # Nguồn: Nihongo_Soumatome_N3-Goi.pdf, trang 22-23
-# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT (English)
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
-# Chú giải tiếng Anh trong ngoặc là chép từ chính sách, để đối chiếu bản in.
-,かわいらしい,dễ thương (lovely)
-,かわいそうな,tội nghiệp (poor)
-,行儀がいい (ぎょうぎがいい),ngoan/ lễ phép (well-mannered)
-,利口な (りこうな),khôn/ thông minh (smart)
-,かしこい,khôn/ thông minh (smart)
-,人なつっこい (ひとなつっこい),dễ gần/ quấn người (friendly)
-,わがままな,ích kỷ/ đòi hỏi (self-centered)
-,生意気な (なまいきな),xấc xược (impertinent)
-,生意気な態度 (なまいきなたいど),thái độ xấc xược (impudent)
-,甘やかす (あまやかす),nuông chiều (spoil)
-,かわいがる,cưng chiều (adore)
-,おんぶする,cõng (piggyback)
-,抱っこする (だっこする),bế/ ẵm (pick the baby up)
-,腕に抱く (うでにだく),ôm trong tay (pick the baby up)
-,ほえる,sủa (bark)
-,しっぽを振る (しっぽをふる),vẫy đuôi (wag its tail)
-,人になれる (ひとになれる),quen người (become tame)
-,うなる,gầm gừ (growl)
-,穴をほる (あなをほる),đào hố (dig a whole)
-,穴をうめる (あなをうめる),lấp hố (fill a whole)
-,育児 (いくじ),việc nuôi con (child rearing)
-,子育て (こそだて),việc nuôi con (child rearing)
-,幼児 (ようじ),trẻ nhỏ (young children)
-,幼い子ども (おさないこども),trẻ nhỏ (young children)
-,子どもが成長する (こどもがせいちょうする),trẻ lớn lên (kids grow)
-,わがままに育つ (わがままにそだつ),lớn lên hư hỏng (grow up spoiled)
-,えらい,giỏi/ đáng khen (admirable)
-,頭をなでる (あたまをなでる),xoa đầu (pat on the head)
-,尻をたたく (しりをたたく),phát vào mông (spank)
-,尻をぶつ (しりをぶつ),phát vào mông (spank)
-,いたずらをする,nghịch ngợm (get into mischief)
-,いたずらな,tinh nghịch (mischievous)
-,手をつなぐ (てをつなぐ),nắm tay (hold hands)
-,はなす,buông ra (let go)
-,子どもが迷子になる (こどもがまいごになる),trẻ bị lạc (a child gets lost)
-,子どもが母親の後をついていく (こどもがははおやのあとをついていく),trẻ đi theo sau mẹ (a child following it's mother)
-,犬を飼う (いぬをかう),nuôi chó (keep a dog)
-,散歩に連れていく (さんぽにつれていく),dắt đi dạo (take out for a walk)
-,犬にえさをやる (いぬにえさをやる),cho chó ăn (feed a dog)
-,犬にえさを与える (いぬにえさをあたえる),cho chó ăn (feed a dog)
+# Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
+,かわいらしい,dễ thương
+,かわいそうな,tội nghiệp
+,行儀がいい (ぎょうぎがいい),ngoan/ lễ phép
+,利口な (りこうな),khôn/ thông minh
+,かしこい,khôn/ thông minh
+,人なつっこい (ひとなつっこい),dễ gần/ quấn người
+,わがままな,ích kỷ/ đòi hỏi
+,生意気な (なまいきな),xấc xược
+,生意気な態度 (なまいきなたいど),thái độ xấc xược
+,甘やかす (あまやかす),nuông chiều
+,かわいがる,cưng chiều
+,おんぶする,cõng
+,抱っこする (だっこする),bế/ ẵm
+,腕に抱く (うでにだく),ôm trong tay
+,ほえる,sủa
+,しっぽを振る (しっぽをふる),vẫy đuôi
+,人になれる (ひとになれる),quen người
+,うなる,gầm gừ
+,穴をほる (あなをほる),đào hố
+,穴をうめる (あなをうめる),lấp hố
+,育児 (いくじ),việc nuôi con
+,子育て (こそだて),việc nuôi con
+,幼児 (ようじ),trẻ nhỏ
+,幼い子ども (おさないこども),trẻ nhỏ
+,子どもが成長する (こどもがせいちょうする),trẻ lớn lên
+,わがままに育つ (わがままにそだつ),lớn lên hư hỏng
+,えらい,giỏi/ đáng khen
+,頭をなでる (あたまをなでる),xoa đầu
+,尻をたたく (しりをたたく),phát vào mông
+,尻をぶつ (しりをぶつ),phát vào mông
+,いたずらをする,nghịch ngợm
+,いたずらな,tinh nghịch
+,手をつなぐ (てをつなぐ),nắm tay
+,はなす,buông ra
+,子どもが迷子になる (こどもがまいごになる),trẻ bị lạc
+,子どもが母親の後をついていく (こどもがははおやのあとをついていく),trẻ đi theo sau mẹ
+,犬を飼う (いぬをかう),nuôi chó
+,散歩に連れていく (さんぽにつれていく),dắt đi dạo
+,犬にえさをやる (いぬにえさをやる),cho chó ăn
+,犬にえさを与える (いぬにえさをあたえる),cho chó ăn

@@ -12,7 +12,7 @@
       "hanViet": "",
       "japanese": "エプロン",
       "reading": "",
-      "vietnamese": "tạp dề (apron)",
+      "vietnamese": "tạp dề",
       "example": ""
     },
     {
@@ -20,7 +20,7 @@
       "hanViet": "",
       "japanese": "ほうき",
       "reading": "",
-      "vietnamese": "chổi (broom)",
+      "vietnamese": "chổi",
       "example": ""
     },
     {
@@ -28,7 +28,7 @@
       "hanViet": "",
       "japanese": "ちりとり",
       "reading": "",
-      "vietnamese": "hót rác (dust pan)",
+      "vietnamese": "hót rác",
       "example": ""
     },
     {
@@ -36,7 +36,7 @@
       "hanViet": "",
       "japanese": "ぞうきん",
       "reading": "",
-      "vietnamese": "giẻ lau (rag)",
+      "vietnamese": "giẻ lau",
       "example": ""
     },
     {
@@ -44,7 +44,7 @@
       "hanViet": "",
       "japanese": "バケツ",
       "reading": "",
-      "vietnamese": "xô (bucket)",
+      "vietnamese": "xô",
       "example": ""
     },
     {
@@ -52,7 +52,7 @@
       "hanViet": "",
       "japanese": "エプロンをする",
       "reading": "",
-      "vietnamese": "đeo tạp dề (put apron on)",
+      "vietnamese": "đeo tạp dề",
       "example": ""
     },
     {
@@ -60,7 +60,7 @@
       "hanViet": "",
       "japanese": "エプロンをかける",
       "reading": "",
-      "vietnamese": "đeo tạp dề (put apron on)",
+      "vietnamese": "đeo tạp dề",
       "example": ""
     },
     {
@@ -68,7 +68,7 @@
       "hanViet": "",
       "japanese": "エプロンをつける",
       "reading": "",
-      "vietnamese": "đeo tạp dề (put apron on)",
+      "vietnamese": "đeo tạp dề",
       "example": ""
     },
     {
@@ -76,7 +76,7 @@
       "hanViet": "",
       "japanese": "ソファーをどける",
       "reading": "",
-      "vietnamese": "dịch ghế sofa ra (push the couch aside)",
+      "vietnamese": "dịch ghế sofa ra",
       "example": ""
     },
     {
@@ -84,39 +84,39 @@
       "hanViet": "",
       "japanese": "どく",
       "reading": "",
-      "vietnamese": "tránh ra/ dịch ra (step aside)",
+      "vietnamese": "tránh ra/ dịch ra",
       "example": ""
     },
     {
       "id": "0k9hfmi",
-      "hanViet": "",
+      "hanViet": "BỘ ỐC TÁN",
       "japanese": "部屋を散らかす",
       "reading": "へやをちらかす",
-      "vietnamese": "bày bừa phòng (clutter the room)",
+      "vietnamese": "bày bừa phòng",
       "example": ""
     },
     {
       "id": "0y6fjj2",
-      "hanViet": "",
+      "hanViet": "BỘ ỐC TÁN",
       "japanese": "部屋が散らかる",
       "reading": "へやがちらかる",
-      "vietnamese": "phòng bừa bộn (the room is cluttered)",
+      "vietnamese": "phòng bừa bộn",
       "example": ""
     },
     {
       "id": "18567yy",
-      "hanViet": "",
+      "hanViet": "BỘ ỐC PHIẾN",
       "japanese": "部屋を片づける",
       "reading": "へやをかたづける",
-      "vietnamese": "dọn phòng (tidy up the room)",
+      "vietnamese": "dọn phòng",
       "example": ""
     },
     {
       "id": "0twh5wb",
-      "hanViet": "",
+      "hanViet": "BỘ ỐC PHIẾN",
       "japanese": "部屋が片づく",
       "reading": "へやがかたづく",
-      "vietnamese": "phòng đã gọn (the room is tidied)",
+      "vietnamese": "phòng đã gọn",
       "example": ""
     },
     {
@@ -124,7 +124,7 @@
       "hanViet": "",
       "japanese": "ジュースをこぼす",
       "reading": "",
-      "vietnamese": "làm đổ nước ngọt (spill the juice)",
+      "vietnamese": "làm đổ nước ngọt",
       "example": ""
     },
     {
@@ -132,7 +132,7 @@
       "hanViet": "",
       "japanese": "ジュースがこぼれる",
       "reading": "",
-      "vietnamese": "nước ngọt bị đổ (the juice is spilled)",
+      "vietnamese": "nước ngọt bị đổ",
       "example": ""
     },
     {
@@ -140,7 +140,7 @@
       "hanViet": "",
       "japanese": "ほこりがたまる",
       "reading": "",
-      "vietnamese": "bụi đọng lại (collect dust)",
+      "vietnamese": "bụi đọng lại",
       "example": ""
     },
     {
@@ -148,47 +148,47 @@
       "hanViet": "",
       "japanese": "ほこりがつもる",
       "reading": "",
-      "vietnamese": "bụi phủ dày (covered with dust)",
+      "vietnamese": "bụi phủ dày",
       "example": ""
     },
     {
       "id": "0r0afia",
-      "hanViet": "",
+      "hanViet": "TUYẾT",
       "japanese": "雪がつもる",
       "reading": "ゆきがつもる",
-      "vietnamese": "tuyết phủ (snow fall)",
+      "vietnamese": "tuyết phủ",
       "example": ""
     },
     {
       "id": "1wxqxk0",
-      "hanViet": "",
+      "hanViet": "THỦ",
       "japanese": "ほこりを取る",
       "reading": "ほこりをとる",
-      "vietnamese": "phủi bụi (dust)",
+      "vietnamese": "phủi bụi",
       "example": ""
     },
     {
       "id": "14udqso",
-      "hanViet": "",
+      "hanViet": "TẢO TRỪ CƠ",
       "japanese": "掃除機をかける",
       "reading": "そうじきをかける",
-      "vietnamese": "hút bụi (vacuum)",
+      "vietnamese": "hút bụi",
       "example": ""
     },
     {
       "id": "0zwxm8m",
-      "hanViet": "",
+      "hanViet": "TẢO",
       "japanese": "ほうきで掃く",
       "reading": "ほうきではく",
-      "vietnamese": "quét bằng chổi (sweep)",
+      "vietnamese": "quét bằng chổi",
       "example": ""
     },
     {
       "id": "1vyxryo",
-      "hanViet": "",
+      "hanViet": "THỦY",
       "japanese": "水をくむ",
       "reading": "みずをくむ",
-      "vietnamese": "múc/ hứng nước (fill with water)",
+      "vietnamese": "múc/ hứng nước",
       "example": ""
     },
     {
@@ -196,7 +196,7 @@
       "hanViet": "",
       "japanese": "ぞうきんをぬらす",
       "reading": "",
-      "vietnamese": "làm ướt giẻ lau (wet the rag)",
+      "vietnamese": "làm ướt giẻ lau",
       "example": ""
     },
     {
@@ -204,39 +204,39 @@
       "hanViet": "",
       "japanese": "ぞうきんをしぼる",
       "reading": "",
-      "vietnamese": "vắt giẻ lau (wring the rag)",
+      "vietnamese": "vắt giẻ lau",
       "example": ""
     },
     {
       "id": "0vb76q3",
-      "hanViet": "",
+      "hanViet": "SÀNG",
       "japanese": "床をふく",
       "reading": "ゆかをふく",
-      "vietnamese": "lau sàn (wipe the floor)",
+      "vietnamese": "lau sàn",
       "example": ""
     },
     {
       "id": "1abrl8g",
-      "hanViet": "",
+      "hanViet": "THỰC KHÍ",
       "japanese": "ふきんで食器をふく",
       "reading": "ふきんでしょっきをふく",
-      "vietnamese": "lau bát đĩa bằng khăn (dry the dishes with a tea towel)",
+      "vietnamese": "lau bát đĩa bằng khăn",
       "example": ""
     },
     {
       "id": "19a1uqv",
-      "hanViet": "",
+      "hanViet": "ĐÀI",
       "japanese": "台ぶきんでテーブルをふく",
       "reading": "だいぶきんでテーブルをふく",
-      "vietnamese": "lau bàn bằng khăn (wipe the table with a cloth)",
+      "vietnamese": "lau bàn bằng khăn",
       "example": ""
     },
     {
       "id": "1ax5e1c",
-      "hanViet": "",
+      "hanViet": "GIA CỤ",
       "japanese": "家具をみがく",
       "reading": "かぐをみがく",
-      "vietnamese": "đánh bóng đồ gỗ (polish the furniture)",
+      "vietnamese": "đánh bóng đồ gỗ",
       "example": ""
     },
     {
@@ -244,47 +244,47 @@
       "hanViet": "",
       "japanese": "ブラシでこする",
       "reading": "",
-      "vietnamese": "cọ bằng bàn chải (scrub with a brush)",
+      "vietnamese": "cọ bằng bàn chải",
       "example": ""
     },
     {
       "id": "1wikxe5",
-      "hanViet": "",
+      "hanViet": "SINH",
       "japanese": "生ゴミ",
       "reading": "なまゴミ",
-      "vietnamese": "rác nhà bếp (kitchen garbage)",
+      "vietnamese": "rác nhà bếp",
       "example": ""
     },
     {
       "id": "11fhyhu",
-      "hanViet": "",
+      "hanViet": "NHIÊN",
       "japanese": "燃えるゴミ",
       "reading": "もえるゴミ",
-      "vietnamese": "rác cháy được (burnable garbage)",
+      "vietnamese": "rác cháy được",
       "example": ""
     },
     {
       "id": "17nitgn",
-      "hanViet": "",
+      "hanViet": "NHIÊN",
       "japanese": "燃えないゴミ",
       "reading": "もえないゴミ",
-      "vietnamese": "rác không cháy được (non-burnable garbage)",
+      "vietnamese": "rác không cháy được",
       "example": ""
     },
     {
       "id": "00y9j6x",
-      "hanViet": "",
+      "hanViet": "DIỆN ĐẢO",
       "japanese": "面倒だ",
       "reading": "めんどうだ",
-      "vietnamese": "phiền phức (a hassle)",
+      "vietnamese": "phiền phức",
       "example": ""
     },
     {
       "id": "1wztwqh",
-      "hanViet": "",
+      "hanViet": "DIỆN ĐẢO",
       "japanese": "面倒くさい",
       "reading": "めんどうくさい",
-      "vietnamese": "ngại/ phiền phức (a hassle)",
+      "vietnamese": "ngại/ phiền phức",
       "example": ""
     },
     {
@@ -292,15 +292,15 @@
       "hanViet": "",
       "japanese": "スリッパをそろえる",
       "reading": "",
-      "vietnamese": "xếp dép cho ngay ngắn (place the slippers nicely)",
+      "vietnamese": "xếp dép cho ngay ngắn",
       "example": ""
     },
     {
       "id": "1o6uoq8",
-      "hanViet": "",
+      "hanViet": "VẬT TRÍ",
       "japanese": "物置にしまう",
       "reading": "ものおきにしまう",
-      "vietnamese": "cất vào nhà kho (put it away in the storage)",
+      "vietnamese": "cất vào nhà kho",
       "example": ""
     }
   ],

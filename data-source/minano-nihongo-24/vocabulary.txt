@@ -11,6 +11,6 @@ CHUẨN BỊ,準備 (じゅんび),Chuẩn bị
 Ý VỊ,意味 (いみ),Ý nghĩa
 QUẢ TỬ,お菓子 (おかし),Bánh kẹo
 TOÀN BỘ,全部 (ぜんぶ),Toàn bộ, tất cả
-BỘ PHÂN,自分で (じぶんで),Tự mình
+TỰ PHÂN,自分で (じぶんで),Tự mình
 BIỆN ĐƯƠNG,お弁当 (おべんとう),Cơm hộp
 MẪU NHẬT,母の日 (ははのひ),Ngày của Mẹ

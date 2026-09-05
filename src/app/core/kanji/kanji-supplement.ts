@@ -193,23 +193,19 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
  * lệch để sau này soát lại.
  *
  * Sửa thẳng ở `data-source/` mới là cách dứt điểm; sửa xong chạy lại script thì nó
- * sẽ báo dòng ở đây đã thừa. Không tự sửa file nguồn vì nguồn là bản chép từ PDF
- * người dùng chỉ định — đổi nội dung nguồn là việc của người dùng.
+ * sẽ báo dòng ở đây đã thừa.
+ *
+ * HIỆN ĐANG RỖNG — và đó là trạng thái đúng.
+ *
+ * Sáu chữ từng nằm ở đây (試 泳 屋 洗 自 変) đều là do MỘT dòng nguồn gõ lệch dấu
+ * so với các dòng khác cùng chữ: "BỘ ÓC,部屋" cạnh "BỔN ỐC,本屋", "THỦ TẢY,お手洗い"
+ * cạnh "TẨY,洗います"… Bản vá ở đây chữa cái bảng, không chữa cái nguồn, nên bảng
+ * và nguồn nói khác nhau mãi. Nay 11 dòng nguồn đó đã sửa, kho từ tự nói đúng, và
+ * script xác nhận cả sáu bản vá đều thừa.
+ *
+ * Giữ lại chỗ khai này (rỗng) chứ không xoá hẳn: cơ chế vẫn cần cho lần sau, và
+ * `generate-kanji.mjs` đọc thẳng tên này.
  *
  * Nhiều âm thì ngăn bằng '/', âm đầu là âm chính.
  */
-export const HAN_VIET_FIX: Readonly<Record<string, string>> = {
-  // bài 12 ghi "THÍ NGHIỆM,試験" (đúng), nhưng bài 21/31/32/36 ghi "THỨC HỢP,試合"
-  // và "THỨC NGHIỆM..." — 5 phiếu THỨC thắng 1 phiếu THÍ, mà THÍ mới đúng.
-  試: 'THÍ',
-  // bài 13 ghi "VĨNH,泳ぎます", bài 36 ghi "THỦY VỊNH,水泳" — hoà 1-1, VỊNH đúng.
-  泳: 'VỊNH',
-  // bài 22 ghi "BỘ ÓC,部屋" — lệch dấu so với "BỔN ỐC,本屋" và hai chỗ khác.
-  屋: 'ỐC',
-  // bài 34 ghi "TẢY..." một lần, bốn chỗ khác đều "TẨY".
-  洗: 'TẨY',
-  // bài 6 ghi "BỘ PHÂN,自分で", trong khi hai chỗ khác ghi "TỰ PHÂN,自分".
-  自: 'TỰ',
-  // một chỗ ghi "PHẢN" cho 変, bốn chỗ khác đều "BIẾN".
-  変: 'BIẾN',
-};
+export const HAN_VIET_FIX: Readonly<Record<string, string>> = {};
