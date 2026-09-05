@@ -1,0 +1,556 @@
+/* ============================================================================
+   Tab "Tiến độ N3".
+
+   Trang này có rất nhiều số. Nguyên tắc bố cục duy nhất: mỗi khối chỉ được có
+   MỘT con số to. Vòng phần trăm to nhất, ô nhịp học có đúng một số nổi ("mấy
+   buổi mỗi ngày"), còn lại là chữ nhỏ. Cho hai số cùng cỡ cạnh nhau thì mắt
+   không biết đọc cái nào trước, và cả trang thành một bảng thống kê để tra chứ
+   không còn là một trang để nhìn một cái là biết mình đang ở đâu.
+   ========================================================================== */
+
+/* --- Khối đầu trang --- */
+
+.hero {
+  display: grid;
+  /* Vòng tròn cần chỗ vừa đủ, phần nhịp học lấy hết phần còn lại. Ngưỡng 760px
+     là lúc bốn ô số của phần nhịp học bắt đầu phải xuống hai hàng. */
+  grid-template-columns: minmax(240px, 300px) 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cao bằng cả thẻ rồi mới căn giữa: thẻ này thấp hơn ô nhịp học bên cạnh nên bị
+   lưới kéo cao ra bằng nó. Không chiếm hết chiều cao thì `align-items: center`
+   chỉ căn giữa trong phần nội dung, và vòng tròn dính lên mép trên với một
+   khoảng trống 160px bên dưới. */
+.hero-ring .card-body {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 420px) {
+  .hero-ring .card-body {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* --- Vòng phần trăm --- */
+
+.ring-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 132px;
+  height: 132px;
+}
+
+.ring {
+  width: 100%;
+  height: 100%;
+  /* Bắt đầu từ 12 giờ thay vì 3 giờ: người ta đọc đồng hồ, không đọc hệ toạ độ. */
+  transform: rotate(-90deg);
+}
+
+.ring circle {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.ring-track {
+  stroke: var(--bg-inset);
+}
+
+/* Vạch trần: tới đâu là hết những gì học được với nguồn đang có. Vẽ bằng màu
+   cảnh báo rất nhạt — nó là thông tin, không phải lỗi. */
+.ring-ceiling {
+  stroke: color-mix(in srgb, var(--warning) 34%, transparent);
+}
+
+.ring-fill {
+  stroke: var(--accent);
+  transition: stroke-dashoffset 0.5s var(--ease);
+}
+
+.ring-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  /* Chữ ở giữa không được nhận chuột: nó nằm trên vòng SVG và sẽ chắn tooltip. */
+  pointer-events: none;
+}
+
+.ring-percent {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.ring-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: 1px;
+}
+
+.ring-caption {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Bảng bốn con số phụ dưới vòng tròn. Hai cột: nhãn co giãn và tự xuống dòng,
+   giá trị thẳng cột phải để bốn con số so được với nhau. */
+.ring-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0;
+  min-width: 0;
+  flex: 1;
+}
+
+.ring-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.ring-stats dt {
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.ring-stats dd {
+  margin: 0 0 0 auto;
+  font-size: var(--fs-sm);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ring-stats .is-warning dt,
+.ring-stats .is-warning dd {
+  color: var(--warning);
+}
+
+/* --- Ô nhịp học --- */
+
+.pace-title {
+  font-size: var(--fs-lg);
+}
+
+.pace-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  gap: var(--sp-2);
+}
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+}
+
+.figure strong {
+  font-size: var(--fs-xl);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.figure span {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* Ô "mấy buổi mỗi ngày" là con số duy nhất trong ô này được to hơn hẳn: đó là
+   thứ duy nhất người học phải hành động theo ngay hôm nay. */
+.figure-main {
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.figure-main strong {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.pace-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 18px;
+}
+
+/* --- Ba khối điểm --- */
+
+.scope-toggle {
+  padding: 6px 10px;
+  font-size: var(--fs-sm);
+}
+
+.score-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.score-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+}
+
+/* Khối nằm ngoài phạm vi tính phần trăm: mờ đi nhưng KHÔNG ẩn. Ẩn nó đi là để
+   người học quên mất rằng có một khối 60 điểm đang bằng không. */
+.score-block.is-muted {
+  opacity: 0.62;
+  border-style: dashed;
+}
+
+.score-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.score-name {
+  font-weight: 640;
+  font-size: var(--fs-sm);
+}
+
+.score-points {
+  font-size: var(--fs-sm);
+  font-weight: 650;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* --- Thanh tiến độ dùng chung cho cả trang --- */
+
+.progress {
+  position: relative;
+  height: 9px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-inset);
+  overflow: hidden;
+}
+
+.progress-sm {
+  height: 6px;
+}
+
+/* Vạch trần nằm DƯỚI phần đã học, cùng một đường ray. Nhờ vậy khoảng cách từ
+   mép phần đã học tới mép vạch trần đọc được thành "còn học được bấy nhiêu nữa
+   với sách đang có", còn khoảng trắng sau vạch trần là "phần phải mua sách". */
+.progress-ceiling {
+  position: absolute;
+  inset: 0 auto 0 0;
+  /* Gạch chéo, không phải khối màu đặc: vạch trần nằm cùng đường ray với phần đã
+     học, nên nếu tô đặc thì nó đọc thành "đã học tới đây" — đúng cái nghĩa ngược
+     lại. Vân sọc nói "chỗ này còn trống nhưng có thể tới được". */
+  background: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--warning) 34%, transparent) 0 4px,
+    transparent 4px 8px
+  );
+}
+
+.progress-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 72%, transparent),
+    var(--accent)
+  );
+  transition: width 0.4s var(--ease);
+}
+
+/* --- Thẻ trụ nội dung --- */
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.pillar-card.is-out {
+  border-style: dashed;
+}
+
+.pillar-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pillar-glyph {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.pillar-title {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.pillar-title strong {
+  font-size: var(--fs-md);
+}
+
+/* Tên sách dài (日本語総まとめ N3 · 読解) không được đẩy con số phần trăm ra ngoài thẻ. */
+.pillar-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pillar-percent {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.pillar-badges {
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* --- Bốn giai đoạn --- */
+
+.phase-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* Đếm số thứ tự bằng CSS: bỏ list-style rồi mà vẫn cần "1." đứng trước tên
+     giai đoạn, và <ol> vẫn phải là <ol> để trình đọc màn hình biết đây là bốn
+     bước có thứ tự. */
+  counter-reset: phase;
+}
+
+.phase-card {
+  counter-increment: phase;
+  position: relative;
+}
+
+.phase-card .phase-head strong::before {
+  content: counter(phase) '. ';
+  color: var(--text-faint);
+}
+
+/* Giai đoạn đang diễn ra: viền màu và nền hơi ấm. Đây là chỗ mắt phải rơi vào
+   trước tiên trong bốn thẻ. */
+.phase-card.is-current {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: linear-gradient(180deg, var(--accent-soft), var(--bg-elevated) 46%);
+  box-shadow: var(--shadow);
+}
+
+.phase-card.is-past {
+  opacity: 0.66;
+}
+
+.phase-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+/* --- Bảng kiểm soát --- */
+
+.list-filters {
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  flex: 1 1 340px;
+}
+
+.pillar-filters {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.unit-section {
+  scroll-margin-top: calc(var(--header-h) + var(--sp-4));
+}
+
+.unit-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-lg);
+  padding-top: var(--sp-2);
+}
+
+.unit-block {
+  overflow: hidden;
+}
+
+.unit-block-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 12px var(--sp-5);
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+
+.unit-block-label {
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  flex-shrink: 0;
+}
+
+.unit-block-title {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.unit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.unit-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 9px var(--sp-5);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.unit-row:last-child {
+  border-bottom: 0;
+}
+
+@media (hover: hover) {
+  .unit-row:hover {
+    background: var(--bg-subtle);
+  }
+}
+
+/* Dòng đã học: chữ nhạt đi, KHÔNG gạch ngang. Gạch ngang hàng chục dòng liền
+   nhau làm cả bảng trông như một danh sách bị huỷ. */
+.unit-row.is-done .unit-ja {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Trễ hẹn: vạch đỏ mảnh ở mép trái. Không tô đỏ cả dòng — quá hẹn là chuyện
+   thường trong một lộ trình 96 ngày, tô đỏ rực thì mất hết ý nghĩa cảnh báo. */
+.unit-row.is-overdue {
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.unit-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  min-width: 0;
+  flex: 1 1 260px;
+}
+
+.unit-check.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.unit-check input {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+.unit-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.unit-ja {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+}
+
+.unit-vi {
+  line-height: 1.35;
+}
+
+.unit-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.unit-open {
+  padding: 3px 9px;
+  font-size: var(--fs-xs);
+}
+
+/* Ở khổ hẹp, nút mở bài chỉ còn mũi tên: nhãn của nó đã lặp lại điều mà mũi tên
+   nói rồi, mà hàng badge thì đang chật. */
+@media (max-width: 560px) {
+  .unit-open-label {
+    display: none;
+  }
+
+  .unit-block-head,
+  .unit-row {
+    padding-inline: var(--sp-4);
+  }
+}

@@ -33,6 +33,14 @@ export const routes: Routes = [
     title: 'route.lesson',
     loadComponent: () => import('./features/lesson-detail/lesson-detail').then((m) => m.LessonDetail),
   },
+  // Tab "Tiến độ N3" đứng riêng vì nó không phải một khu nội dung mà là một khu
+  // ĐO ĐẠC: nó nói về toàn bộ các khu kia, cộng thêm ba quyển 総まとめ chưa nạp vào
+  // app mà vẫn phải học trên sách. Không có bài học nào tới từ route này.
+  {
+    path: 'n3',
+    title: 'route.n3',
+    loadComponent: () => import('./features/n3-progress/n3-progress').then((m) => m.N3Progress),
+  },
   // Bài ngữ pháp có nhánh riêng chứ không đi chung `lesson/:id`: nội dung của nó là
   // một trang lý thuyết có phân cấp, không phải bảng dữ liệu như ba loại bài kia.
   {

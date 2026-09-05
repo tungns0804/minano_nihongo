@@ -1,0 +1,461 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <section class="page-head">
+      <h1>{{ t('n3.title') }}</h1>
+      <p><app-t key="n3.subtitle" block /></p>
+    </section>
+
+    <!-- ── Khối đầu trang: vòng phần trăm bên trái, nhịp học bên phải ──────
+         Hai thứ này đi cùng nhau vì chúng trả lời hai nửa của cùng một câu hỏi:
+         "đang ở đâu" và "hôm nay phải làm gì". Tách ra hai chỗ thì phải cuộn qua
+         lại để so, mà so được chúng mới là điểm của cả trang. -->
+    <div class="hero">
+      <div class="card hero-ring">
+        <div class="card-body">
+          <div class="ring-wrap">
+            <svg class="ring" viewBox="0 0 120 120" role="img" [attr.aria-label]="
+                t('n3.ring.label') + ': ' + percent() + '%'
+              ">
+              <circle class="ring-track" cx="60" cy="60" r="52" />
+              <!-- Vạch trần: phần không thể đạt được vì thiếu nguồn học. Vẽ trước
+                   vòng tiến độ để tiến độ luôn nằm trên. -->
+              @if (hasGap()) {
+                <circle
+                  class="ring-ceiling"
+                  cx="60"
+                  cy="60"
+                  r="52"
+                  [attr.stroke-dasharray]="ringLength"
+                  [attr.stroke-dashoffset]="ringCeilingOffset()"
+                />
+              }
+              <circle
+                class="ring-fill"
+                cx="60"
+                cy="60"
+                r="52"
+                [attr.stroke-dasharray]="ringLength"
+                [attr.stroke-dashoffset]="ringOffset()"
+              />
+            </svg>
+            <div class="ring-center">
+              <strong class="ring-percent">{{ percent() }}<span class="ring-unit">%</span></strong>
+              <span class="ring-caption">{{ t('n3.ring.label') }}</span>
+            </div>
+          </div>
+
+          <!-- Bốn con số phụ xếp thành bảng nhãn/giá trị thay vì một chồng badge:
+               badge có white-space: nowrap nên câu dài ("Trần hiện tại 89% — thiếu
+               nguồn học") tràn ra ngoài thẻ và bị cắt mất đuôi. Bảng hai cột thì
+               nhãn tự xuống dòng được, và bốn giá trị thẳng cột nhau để so. -->
+          <dl class="ring-stats">
+            <div>
+              <dt><app-t key="n3.ring.statPoints" /></dt>
+              <dd>{{ progress().earned }} / {{ progress().points }}</dd>
+            </div>
+            <div>
+              <dt><app-t key="n3.ring.statUnits" /></dt>
+              <dd>{{ progress().doneUnits }} / {{ progress().tickableUnits }}</dd>
+            </div>
+            @if (hasGap()) {
+              <div class="is-warning">
+                <dt><app-t key="n3.ring.statCeiling" /></dt>
+                <dd>{{ ceilingPercent() }}%</dd>
+              </div>
+            }
+            <div>
+              <dt><app-t key="n3.ring.statRecent" /></dt>
+              <dd>{{ recentCount() }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="card hero-pace">
+        <div class="card-body stack">
+          <div class="section-head">
+            <h2 class="pace-title">{{ t('n3.pace.title') }}</h2>
+            <span class="spacer"></span>
+            <span class="badge" [class.badge-success]="pace().state === 'ahead'" [class.badge-warning]="
+                pace().state === 'behind'
+              " [class.badge-danger]="
+                pace().state === 'unreachable' || pace().state === 'overdue'
+              ">
+              {{
+                t(paceStateKey(), {
+                  count: pace().drift < 0 ? -pace().drift : pace().drift,
+                  ceiling: paceCeiling,
+                })
+              }}
+            </span>
+          </div>
+
+          <!-- Con số to nhất trang là "mỗi ngày mấy buổi": đó là thứ duy nhất
+               người học phải làm gì với nó ngay hôm nay. -->
+          <div class="pace-figures">
+            <div class="figure figure-main">
+              <strong>{{ pace().perDay }}</strong>
+              <span><app-t key="n3.pace.perDay" block /></span>
+            </div>
+            <div class="figure">
+              <strong>{{ pace().daysLeft }}</strong>
+              <span><app-t key="n3.pace.daysLeft" block /></span>
+            </div>
+            <div class="figure">
+              <strong>{{ pace().studyDaysLeft }}</strong>
+              <span><app-t key="n3.pace.studyDaysLeft" block /></span>
+            </div>
+            <div class="figure">
+              <strong>{{ pace().remaining }}</strong>
+              <span><app-t key="n3.pace.remaining" block /></span>
+            </div>
+          </div>
+
+          <p class="muted small">
+            <app-t key="n3.pace.perDayNote" [params]="{ date: lastNewIso }" block />
+          </p>
+
+          <ul class="pace-notes muted small">
+            <li>{{ t('n3.pace.planned', { count: pace().plannedPerDay }) }}</li>
+            <li>
+              {{ t('n3.pace.dueToday', { due: pace().dueToday, done: pace().doneScheduled }) }}
+            </li>
+            @if (pace().finishIso) {
+              <li>{{ t('n3.pace.finish', { date: pace().finishIso }) }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Ba khối điểm của đề ───────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack">
+        <div class="section-head">
+          <h2>{{ t('n3.block.title') }}</h2>
+          <span class="spacer"></span>
+          <label class="checkbox scope-toggle">
+            <input
+              type="checkbox"
+              [checked]="includeChoukai()"
+              (change)="toggleChoukaiScope($event)"
+            />
+            <span><app-t key="n3.scope.choukai" /></span>
+          </label>
+        </div>
+
+        <p class="muted small"><app-t key="n3.block.note" block /></p>
+
+        <div class="score-blocks">
+          @for (item of scoreBlocks(); track item.block) {
+            <div class="score-block" [class.is-muted]="item.muted">
+              <div class="score-head">
+                <span class="jp score-name">{{ t(item.labelKey) }}</span>
+                <span class="spacer"></span>
+                <span class="score-points">{{ item.earned }} / {{ item.points }}</span>
+              </div>
+              <div class="progress">
+                @if (item.ceilingPercent < 100) {
+                  <div class="progress-ceiling" [style.width.%]="item.ceilingPercent"></div>
+                }
+                <div class="progress-fill" [style.width.%]="item.percent"></div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Hai giới hạn phải nói thẳng ───────────────────────────────────── -->
+    @if (!includeChoukai()) {
+      <div class="notice notice-warning">
+        <div class="stack stack-sm">
+          <strong>{{ t('n3.scope.warning.title') }}</strong>
+          <span><app-t key="n3.scope.warning.text" block /></span>
+        </div>
+      </div>
+    }
+
+    @if (hasGap()) {
+      <div class="notice notice-warning">
+        <div class="stack stack-sm">
+          <strong>{{ t('n3.scope.gap.title') }}</strong>
+          <span><app-t key="n3.scope.gap.text" block /></span>
+        </div>
+      </div>
+    }
+
+    <!-- ── Sáu trụ nội dung ──────────────────────────────────────────────── -->
+    <section class="stack">
+      <div class="section-head">
+        <h2>{{ t('n3.list.title') }}</h2>
+      </div>
+
+      <div class="pillar-grid">
+        @for (card of pillarCards(); track card.section.pillar) {
+          <div class="card pillar-card" [class.is-out]="!card.inScope">
+            <div class="card-body stack stack-sm">
+              <div class="pillar-head">
+                <span class="jp pillar-glyph" aria-hidden="true">{{ card.section.glyph }}</span>
+                <div class="pillar-title">
+                  <strong><app-t [key]="card.section.labelKey" /></strong>
+                  <span class="muted small jp">{{ card.section.book }}</span>
+                </div>
+                <span class="spacer"></span>
+                <span class="pillar-percent">{{ card.percent }}%</span>
+              </div>
+
+              <div class="progress">
+                @if (card.capped) {
+                  <div class="progress-ceiling" [style.width.%]="card.ceilingPercent"></div>
+                }
+                <div class="progress-fill" [style.width.%]="card.percent"></div>
+              </div>
+
+              <div class="row pillar-badges">
+                <span class="badge">
+                  {{ t('n3.list.blockDone', { done: card.doneUnits, total: card.tickableUnits }) }}
+                </span>
+                @if (card.points > 0) {
+                  <span class="badge badge-accent">
+                    {{ t('n3.pillar.points', { points: card.points }) }}
+                  </span>
+                }
+                @if (card.capped) {
+                  <span class="badge badge-warning">
+                    {{ t('n3.pillar.blocked', { percent: card.ceilingPercent }) }}
+                  </span>
+                }
+                <!-- Cửa vào chỉ hiện trên thẻ phần nền: nó là điều kiện của riêng
+                     trụ đó, và là thứ quyết định có được mở sách N3 hay chưa. -->
+                @if (card.section.pillar === 'foundation') {
+                  @if (foundationGateStat().ready) {
+                    <span class="badge badge-success">{{ t('n3.gate.open') }}</span>
+                  } @else {
+                    <span class="badge badge-warning">
+                      {{ t('n3.gate.closed', { count: foundationGateStat().remaining }) }}
+                    </span>
+                  }
+                }
+              </div>
+
+              <p class="muted small">
+                <app-t
+                  [key]="card.section.descKey"
+                  [params]="{ gate: foundationGate }"
+                  block
+                />
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- ── Bốn giai đoạn ─────────────────────────────────────────────────── -->
+    <section class="stack">
+      <div class="section-head">
+        <h2>{{ t('n3.phase.title') }}</h2>
+      </div>
+
+      <ol class="phase-list">
+        @for (card of phaseCards(); track card.phase.id) {
+          <li class="card phase-card" [class.is-current]="card.current" [class.is-past]="card.past">
+            <div class="card-body stack stack-sm">
+              <div class="phase-head">
+                <strong><app-t [key]="card.phase.labelKey" /></strong>
+                @if (card.current) {
+                  <span class="badge badge-accent">{{ t('n3.phase.current') }}</span>
+                } @else if (card.past) {
+                  <span class="badge">{{ t('n3.phase.done') }}</span>
+                }
+                <span class="spacer"></span>
+                @if (card.units > 0) {
+                  <span class="badge">
+                    {{ t('n3.list.blockDone', { done: card.done, total: card.units }) }}
+                  </span>
+                }
+              </div>
+
+              <span class="muted small">
+                {{
+                  t('n3.phase.range', {
+                    from: card.phase.from,
+                    to: card.phase.to,
+                    days: card.days,
+                  })
+                }}
+                @if (card.perDay > 0) {
+                  · {{ card.perDay }} {{ t('n3.pace.perDay') }}
+                }
+              </span>
+
+              @if (card.units > 0) {
+                <div class="progress progress-sm">
+                  <div class="progress-fill" [style.width.%]="card.percent"></div>
+                </div>
+              }
+
+              <p class="small"><app-t [key]="card.phase.goalKey" block /></p>
+              <p class="muted small"><app-t [key]="card.phase.routineKey" block /></p>
+            </div>
+          </li>
+        }
+      </ol>
+    </section>
+
+    <!-- ── Bảng kiểm soát từng buổi học ──────────────────────────────────── -->
+    <section class="stack">
+      <div class="toolbar">
+        <div class="options list-filters">
+          @for (option of filters; track option.value) {
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="filter() === option.value"
+              [attr.aria-pressed]="filter() === option.value"
+              (click)="setFilter(option.value)"
+            >
+              <app-t [key]="option.labelKey" />
+            </button>
+          }
+        </div>
+        <span class="spacer"></span>
+        <button type="button" class="btn btn-sm btn-ghost" (click)="resetAll()">
+          {{ t('n3.list.reset') }}
+        </button>
+      </div>
+
+      <div class="options pillar-filters">
+        @for (section of sections; track section.pillar) {
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="openPillar() === section.pillar"
+            [attr.aria-pressed]="openPillar() === section.pillar"
+            (click)="togglePillar(section.pillar)"
+          >
+            <span class="jp" aria-hidden="true">{{ section.glyph }}</span>
+            <app-t [key]="section.labelKey" />
+            <span class="spacer"></span>
+            <span class="filter-count">{{ tickableOf(section) }}</span>
+          </button>
+        }
+      </div>
+
+      @for (row of listRows(); track row.section.pillar) {
+        @if (row.visible > 0) {
+          <div class="stack stack-sm unit-section">
+            <h3 class="unit-section-title">
+              <span class="jp" aria-hidden="true">{{ row.section.glyph }}</span>
+              <app-t [key]="row.section.labelKey" />
+            </h3>
+
+            @for (blockRow of row.blocks; track blockRow.block.id) {
+              <div class="card unit-block">
+                <div class="unit-block-head">
+                  <span class="jp unit-block-label">{{ blockRow.block.labelJa }}</span>
+                  <div class="unit-block-title">
+                    <strong class="jp">{{ blockRow.block.titleJa }}</strong>
+                    <span class="muted small">{{ blockRow.block.titleVi }}</span>
+                  </div>
+                  <span class="spacer"></span>
+                  @if (blockRow.block.startPage > 0) {
+                    <span class="badge">
+                      {{ t('n3.list.page', { page: blockRow.block.startPage }) }}
+                    </span>
+                  }
+                  <span class="badge">
+                    {{
+                      t('n3.list.blockDone', {
+                        done: blockRow.done,
+                        total: blockRow.tickable,
+                      })
+                    }}
+                  </span>
+                  @if (blockRow.tickable > 0) {
+                    <button type="button" class="btn btn-sm" (click)="toggleBlock(blockRow)">
+                      {{
+                        blockRow.allDone ? t('n3.list.untickBlock') : t('n3.list.tickBlock')
+                      }}
+                    </button>
+                  }
+                </div>
+
+                <ul class="unit-list">
+                  @for (item of blockRow.rows; track item.unit.id) {
+                    <li class="unit-row" [class.is-done]="item.done" [class.is-overdue]="
+                        item.overdue
+                      ">
+                      <label class="unit-check" [class.is-disabled]="item.unit.source === 'no-source'">
+                        <input
+                          type="checkbox"
+                          [checked]="item.done"
+                          [disabled]="item.unit.source === 'no-source'"
+                          (change)="toggleUnit(item.unit.id)"
+                        />
+                        <span class="unit-labels">
+                          <span class="jp unit-ja">{{ item.unit.titleJa }}</span>
+                          <span class="unit-vi muted small">{{ item.unit.titleVi }}</span>
+                        </span>
+                      </label>
+
+                      <span class="spacer"></span>
+
+                      <span class="unit-tags">
+                        @if (item.unit.kind === 'test') {
+                          <span class="badge badge-warning">{{ t('n3.list.test') }}</span>
+                        }
+                        @if (item.unit.page > 0) {
+                          <span class="badge">
+                            {{ t('n3.list.page', { page: item.unit.page }) }}
+                          </span>
+                        }
+                        <!-- Không gắn nhãn nguồn cho mục có bài trong app: nút "Mở
+                             bài trong app" ngay bên phải đã nói đúng điều đó, và
+                             lặp lại làm mỗi dòng dài thêm một pill vô ích. -->
+                        @if (item.unit.source !== 'app') {
+                          <span class="badge">
+                            <app-t [key]="item.sourceKey" />
+                          </span>
+                        }
+                        @if (item.done) {
+                          @if (item.doneOn) {
+                            <span class="badge badge-success">
+                              {{ t('n3.list.doneOn', { date: item.doneOn }) }}
+                            </span>
+                          }
+                        } @else if (item.dueIso) {
+                          <span class="badge" [class.badge-danger]="item.overdue">
+                            {{ t('n3.list.due', { date: item.dueIso }) }}
+                          </span>
+                        }
+                        @if (item.unit.route) {
+                          <a
+                            class="btn btn-sm unit-open"
+                            [routerLink]="item.unit.route"
+                            [title]="t('n3.list.open')"
+                          >
+                            <span aria-hidden="true">→</span>
+                            <span class="unit-open-label">{{ t('n3.list.open') }}</span>
+                          </a>
+                        }
+                      </span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+        }
+      }
+
+      @if (visibleCount() === 0) {
+        <div class="empty-state">
+          <span class="empty-state-icon" aria-hidden="true">✓</span>
+          <p class="empty-state-title">{{ t('n3.list.empty') }}</p>
+        </div>
+      }
+    </section>
+  </div>
+</div>

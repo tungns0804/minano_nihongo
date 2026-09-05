@@ -109,6 +109,63 @@ thẳng file bài học vào trang và dựng danh sách từ đó, không hề 
 hết bài 26–50; gom 25 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
 một danh sách dài không đọc nổi.
 
+## Tiến độ N3
+
+Tab **Tiến độ N3** (`/n3`) là bảng kiểm soát việc học để đỗ N3 vào **10/12/2026**. Nó không
+chứa bài học nào — nó ĐO các khu kia, cộng thêm ba quyển 総まとめ chưa nạp vào app mà vẫn phải
+học trên sách.
+
+Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba lỗ hổng, cách học từng phần, bảng
+239 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](LO-TRINH-N3.md)**.
+
+### Trang này hiện gì
+
+| Khối | Nội dung |
+| --- | --- |
+| Vòng phần trăm | Mức chuẩn bị, tính theo **điểm khối thi quy đổi**, kèm vạch **trần** khi thiếu nguồn học |
+| Nhịp học bắt buộc | **Mấy buổi mỗi ngày** để kịp — tính lại mỗi lần mở trang, kèm số ngày còn lại và trạng thái đúng hẹn/chậm |
+| Ba khối điểm | 言語知識 / 読解 / 聴解, mỗi khối 0–60 điểm |
+| Sáu trụ nội dung | Nền N5–N4, 文字, 語彙, 文法, 読解, 聴解 |
+| Bốn giai đoạn | Mốc ngày, việc làm hằng ngày, tiến độ từng giai đoạn |
+| Bảng kiểm soát | 239 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
+
+### Vì sao đo bằng điểm khối, không đo bằng số bài
+
+Trang 6 của cả bốn quyển 総まとめ N3 ghi rõ: mỗi khối điểm có **điểm chuẩn riêng**, thiếu điểm
+chuẩn ở dù chỉ một khối là trượt cho dù tổng điểm cao. Nên "đã học 90% số bài" là một con số vô
+nghĩa nếu 90% đó nằm cả trong một khối. `N3_SECTION_POINTS` quy 20/20/20 điểm cho
+文字/語彙/文法, 60 cho 読解, 60 cho 聴解 — tổng 180, đúng thang điểm thật.
+
+### Vì sao phải tự tay tích
+
+Trang này KHÔNG suy tiến độ ra từ việc đã luyện bài nào trong app. Phần lớn lộ trình học **trên
+sách** — ba quyển 漢字 / 語彙 / 読解 chưa nạp vào app — nên đo bằng hoạt động trong app sẽ báo 0%
+cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `localStorage` khoá
+`jp-practice:n3-progress`, kèm **ngày tích** để trang tính được "7 ngày qua học mấy buổi".
+
+### Ba giới hạn đã biết
+
+1. **Phần nghe 聴解 chưa xây.** Nó chiếm 60/180 điểm và có điểm chuẩn riêng, nên mặc định nằm
+   NGOÀI phần trăm (để con số còn phản ánh việc học đang diễn ra) nhưng trang **luôn hiện cảnh
+   báo** và có ô bật để xem con số đủ. 23 mục của quyển 聴解 vẫn tích được, chỉ không hẹn ngày.
+2. **Thiếu quyển 総まとめ N3 文法** trong thư mục giáo trình → trần tiến độ bị chặn ở **89%**.
+   Có sách thì nạp thành bài học được ngay, định dạng `grammar.json` đã chạy tốt với 93 mẫu N4.
+3. **Không có file âm thanh nào** trên máy, kể cả đĩa kèm quyển 聴解.
+
+### Ba file
+
+| File | Việc |
+| --- | --- |
+| [`n3-syllabus.ts`](src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 239 buổi học chép từ mục lục bốn quyển, bốn giai đoạn, mốc ngày |
+| [`n3.model.ts`](src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
+| [`n3-progress-store.ts`](src/app/core/services/n3-progress-store.ts) | Dấu tích trong `localStorage` |
+
+`npm run verify:n3` soát 8 việc: id không trùng, mọi đường dẫn dẫn tới bài có thật, số mục khớp
+mục lục sách (42/42/42/23), mỗi tuần đúng 7 ngày và ngày cuối là bài kiểm tra, mọi khoá chữ hiển
+thị đều có trong từ điển, bốn giai đoạn phủ kín không hở không trùng, mọi mục tích được đều có
+mốc hẹn, và **nhịp mỗi giai đoạn không vượt 3,5 buổi/ngày** — kiểm tra cuối cùng là quan trọng
+nhất với người học, vì một lộ trình đòi 6 buổi/ngày thì đúng về số học và không ai theo được.
+
 ## Dịch hội thoại
 
 Vào tab **Bài tập bổ trợ** → nhóm **Dịch hội thoại** → chọn một bài. Trang bài liệt kê
@@ -696,6 +753,7 @@ Bài tự nạp có nhãn **“Tự nạp”** và xoá được bất cứ lúc
 ## Cấu trúc dự án
 
 ```
+LO-TRINH-N3.md                   Bản phân tích lộ trình thi N3 (đề thi, kiểm kê, 239 ô tích)
 data-source/                     Nguồn dữ liệu dạng text, mỗi thư mục là một bài
   minano-nihongo-33/
     meta.json                    Tên hiển thị + loại bài (tuỳ chọn)
@@ -714,6 +772,7 @@ scripts/
   generate-radicals.mjs          Sinh core/radical/radical-kanji.ts từ bảng bộ thủ + chiết tự
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
+  verify-n3.mjs                  Kiểm lộ trình N3: khớp mục lục sách, lịch phủ kín, nhịp học
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
   index.json
   minano-nihongo-33.json
@@ -743,6 +802,9 @@ src/app/
       radical-kanji.ts           214 bộ + 5.604 lượt chữ ghép — DO MÁY SINH
       radical-entries.ts         Dựng danh sách bộ + tra theo id
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
+    n3/
+      n3.model.ts                Kiểu + toán thuần: rải mục vào lịch, tính phần trăm và nhịp
+      n3-syllabus.ts             239 buổi học chép từ mục lục bốn quyển 総まとめ + bốn giai đoạn
     practice/
       batch.ts                   Chia phạm vi thành từng cụm liền nhau (học theo cụm)
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
@@ -759,6 +821,7 @@ src/app/
       practice-session-store.ts  Chạy phiên và chấm điểm
       theme-store.ts             Lựa chọn giao diện sáng/tối
       vocab-audio-player.ts      Phát file mp3 phát âm, mỗi lúc chỉ một từ
+      n3-progress-store.ts       Dấu "đã học xong" của từng buổi trong lộ trình N3
     utils/
       vocabulary-parser.ts       Bản TypeScript của vocab-core.mjs
       answer-check.ts            So khớp đáp án gõ tay
@@ -770,6 +833,7 @@ src/app/
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập bổ trợ — bài tập chuyên đề + bài động từ + bài hội thoại
     exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
+    n3-progress/                 Tab Tiến độ N3 — phần trăm, nhịp học mỗi ngày, bảng kiểm soát
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ
     radical-list/                Tab Bộ thủ — lưới 214 bộ + luyện âm Hán Việt

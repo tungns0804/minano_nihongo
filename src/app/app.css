@@ -160,6 +160,21 @@ main:focus-visible {
   font-weight: 620;
 }
 
+/* Mục "Tiến độ N3" mang một dấu chấm nhỏ: bốn mục kia dẫn tới nội dung để học,
+   riêng mục này dẫn tới cái đích. Đánh dấu bằng một chấm 5px thay vì đổi màu cả
+   chữ — thanh điều hướng chỉ được có một màu nhấn, và màu đó đang dành cho mục
+   đang mở. */
+.app-nav a.nav-n3::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 6px;
+  vertical-align: 1px;
+  border-radius: 50%;
+  background: var(--star);
+}
+
 /* --- Nút biểu tượng trên header (ngôn ngữ, sáng/tối) --- */
 
 .icon-btn {
