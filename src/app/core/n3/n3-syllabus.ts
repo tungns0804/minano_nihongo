@@ -232,6 +232,8 @@ const FOUNDATION_BLOCKS: N3Block[] = [
       appUnit('nen-3-10', '第28課 · 会話', 'Dịch hội thoại bài 28', '/lesson/hoi-thoai-minano-28'),
       appUnit('nen-3-11', '第29課 · 会話', 'Dịch hội thoại bài 29', '/lesson/hoi-thoai-minano-29'),
       appUnit('nen-3-12', '第33課 · 会話', 'Dịch hội thoại bài 33', '/lesson/hoi-thoai-minano-33'),
+      appUnit('nen-3-13', '第39課 · 会話', 'Dịch hội thoại bài 39', '/lesson/hoi-thoai-minano-39'),
+      appUnit('nen-3-14', '第40課 · 会話', 'Dịch hội thoại bài 40', '/lesson/hoi-thoai-minano-40'),
     ],
   },
 ];

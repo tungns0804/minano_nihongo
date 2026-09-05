@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T09:53:17.257Z",
+  "generatedAt": "2026-09-05T10:13:49.524Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -524,6 +524,15 @@
       "file": "minano-nihongo-39.json"
     },
     {
+      "id": "hoi-thoai-minano-39",
+      "name": "皆の日本語 — Bài 39 · Hội thoại",
+      "description": "Dịch hội thoại bài 39 giữa Nhật và Việt",
+      "kind": "conversation",
+      "itemCount": 8,
+      "lessonNumber": 39,
+      "file": "hoi-thoai-minano-39.json"
+    },
+    {
       "id": "minano-nihongo-40",
       "name": "皆の日本語 — Bài 40 · Từ vựng",
       "description": "Từ vựng bài 40",
@@ -531,6 +540,15 @@
       "itemCount": 40,
       "lessonNumber": 40,
       "file": "minano-nihongo-40.json"
+    },
+    {
+      "id": "hoi-thoai-minano-40",
+      "name": "皆の日本語 — Bài 40 · Hội thoại",
+      "description": "Dịch câu mẫu, ví dụ và hội thoại bài 40 giữa Nhật và Việt",
+      "kind": "conversation",
+      "itemCount": 24,
+      "lessonNumber": 40,
+      "file": "hoi-thoai-minano-40.json"
     },
     {
       "id": "ngu-phap-minano-40",

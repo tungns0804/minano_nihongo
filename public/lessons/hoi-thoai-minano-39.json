@@ -1,0 +1,69 @@
+{
+  "id": "hoi-thoai-minano-39",
+  "lessonNumber": 39,
+  "name": "皆の日本語 — Bài 39 · Hội thoại",
+  "description": "Dịch hội thoại bài 39 giữa Nhật và Việt",
+  "kind": "conversation",
+  "itemCount": 8,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "1rdpb2b",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "ミラー",
+      "japanese": "課長、遅れて、すみません。",
+      "vietnamese": "Tổ trưởng ơi, xin lỗi tôi đã đến muộn."
+    },
+    {
+      "id": "0tbcyav",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "中村課長",
+      "japanese": "ミラーさん、どう したんですか。",
+      "vietnamese": "Cậu Miller, đã có chuyện gì thế?"
+    },
+    {
+      "id": "1riumyf",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "ミラー",
+      "japanese": "実は 来る 途中で 事故が あって、バスが 遅れて しまったんです。",
+      "vietnamese": "Sự tình là có một vụ tai nạn trên đường đến nên xe buýt bị chậm."
+    },
+    {
+      "id": "18xar4t",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "中村課長",
+      "japanese": "バスの 事故ですか。",
+      "vietnamese": "Tai nạn xe buýt à?"
+    },
+    {
+      "id": "1bryggm",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "ミラー",
+      "japanese": "いいえ。交差点で トラックと 車が ぶつかって、バスが 動かなかったんです。",
+      "vietnamese": "Không. Xe tải và xe ô-tô đâm nhau ở ngã tư, vì thế xe buýt không đi được."
+    },
+    {
+      "id": "142zzpm",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "中村課長",
+      "japanese": "それは 大変でしたね。連絡が ないので、みんな 心配して いたんですよ。",
+      "vietnamese": "Thế là cậu đã vất vả quá nhỉ. Vì không nhận được liên lạc của cậu nên mọi người đã lo lắng đấy."
+    },
+    {
+      "id": "0xmsppq",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "ミラー",
+      "japanese": "電話したかったんですが、ケータイを うちに 忘れて しまって……。どうも すみませんでした。",
+      "vietnamese": "Tôi đã muốn gọi điện nhưng tôi để quên điện thoại ở nhà mất.... Xin lỗi chị."
+    },
+    {
+      "id": "0i9zeuh",
+      "section": "Hội thoại — 遅れて、すみません",
+      "speaker": "中村課長",
+      "japanese": "わかりました。じゃ、会議を 始めましょう。",
+      "vietnamese": "Được rồi. Thôi, chúng ta bắt đầu cuộc họp thôi."
+    }
+  ],
+  "grammarPoints": []
+}

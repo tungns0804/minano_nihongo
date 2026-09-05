@@ -1,0 +1,39 @@
+# Bài 40 — 文型 / 例文 / 会話
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT                     (câu không thuộc lời của ai)
+#   NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT           (lời thoại)
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+#
+# Câu trả lời trong sách in kèm dấu "……" ở đầu; ở đây bỏ dấu đó và tách thành
+# một dòng riêng, đúng như các bài hội thoại đã nạp trước.
+
+## Mẫu câu
+JL107便は 何時に 到着するか、調べて ください。|Anh/Chị hãy kiểm tra xem chuyến bay JL107 đến lúc mấy giờ.
+台風9号は 東京へ 来るか どうか、まだ わかりません。|Tôi không biết cơn bão số 9 có đến Tokyo hay không.
+この 服を 着て みても いいですか。|Tôi mặc thử bộ quần áo này có được không?
+
+## Ví dụ
+二次会は どこへ 行きましたか。|"Tăng hai" mọi người đi đâu?
+酔って いたので、どこへ 行ったか、全然 覚えて いないんです。|Tôi say nên không nhớ là đã đi đâu.
+山の 高さは どうやって 測るか、知って いますか。|Anh/Chị có biết người ta đo chiều cao của núi như thế nào không?
+さあ……。インターネットで 調べましょう。|Ờ, chúng ta tra trên in-tơ-nét đi.
+わたしたちが 初めて 会ったのは いつか、覚えて いますか。|Anh/Chị còn nhớ chúng ta gặp nhau lần đầu tiên khi nào không?
+昔の ことなので、もう 忘れて しまいました。|Vì là chuyện ngày xưa lâu quá rồi nên tôi đã quên mất.
+忘年会に 出席できるか どうか、メールで 返事を ください。|Anh/Chị trả lời cho tôi qua email về việc có tham dự được bữa tiệc tất niên hay không.
+はい、わかりました。|Vâng, tôi biết rồi.
+大学に 出す 書類なんですが、まちがいが ないか どうか、見て いただけませんか。|Anh/Chị có thể xem giúp tôi hồ sơ nộp cho trường đại học xem có sai sót gì không ạ?
+いいですよ。|Ừ, được.
+長崎へ 行った ことが ありますか。|Anh/Chị đã từng đi Nagasaki chưa?
+まだ ありません。ぜひ 一度 行って みたいです。|Tôi chưa đi. Nhất định tôi muốn đi thử một lần.
+
+## Hội thoại — 友達が できたか どうか、心配です
+クララ|先生、ハンスは 学校で どうでしょうか。友達が できたか どうか、心配なんですが……。|Thưa cô, Hans ở trường như thế nào ạ? Tôi lo không biết nó có kết bạn được với ai hay không....
+伊藤先生|大丈夫ですよ。ハンス君は クラスで とても 人気が あります。|Không có vấn đề gì đâu. Em Hans ở lớp rất được các bạn quý.
+クララ|そうですか。安心しました。勉強は どうですか。漢字が 大変だと 言って いますが……。|Thế ạ. Thế thì tôi yên tâm rồi. Việc học tập thì thế nào ạ? Cháu nói là chữ Hán học vất vả lắm....
+伊藤先生|毎日 漢字の テストを して いますが、ハンス君は いい 成績ですよ。|Hàng ngày có bài kiểm tra chữ Hán, và kết quả của em Hans tốt đấy.
+クララ|そうですか。ありがとう ございます。|Thế ạ. Cám ơn cô.
+伊藤先生|ところで、もうすぐ 運動会ですが、お父さんも いらっしゃいますか。|Nhân tiện đây xin hỏi chị, sắp đến ngày hội thể thao rồi. Hôm đó bố em Hans có đến được không?
+クララ|ええ。|Có ạ.
+伊藤先生|ハンス君が 学校で どんな 様子か、ぜひ 見て ください。|Anh chị hãy đến và xem em Hans ở trường như thế nào nhé.
+クララ|わかりました。これからも よろしく お願いします。|Vâng ạ. Nhờ cô tiếp tục giúp đỡ ạ.

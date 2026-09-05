@@ -1,0 +1,181 @@
+{
+  "id": "hoi-thoai-minano-40",
+  "lessonNumber": 40,
+  "name": "皆の日本語 — Bài 40 · Hội thoại",
+  "description": "Dịch câu mẫu, ví dụ và hội thoại bài 40 giữa Nhật và Việt",
+  "kind": "conversation",
+  "itemCount": 24,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "1y0x2d3",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "JL107便は 何時に 到着するか、調べて ください。",
+      "vietnamese": "Anh/Chị hãy kiểm tra xem chuyến bay JL107 đến lúc mấy giờ."
+    },
+    {
+      "id": "1iqrvjj",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "台風9号は 東京へ 来るか どうか、まだ わかりません。",
+      "vietnamese": "Tôi không biết cơn bão số 9 có đến Tokyo hay không."
+    },
+    {
+      "id": "1dhikk3",
+      "section": "Mẫu câu",
+      "speaker": "",
+      "japanese": "この 服を 着て みても いいですか。",
+      "vietnamese": "Tôi mặc thử bộ quần áo này có được không?"
+    },
+    {
+      "id": "0q5472l",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "二次会は どこへ 行きましたか。",
+      "vietnamese": "\"Tăng hai\" mọi người đi đâu?"
+    },
+    {
+      "id": "1nx4hay",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "酔って いたので、どこへ 行ったか、全然 覚えて いないんです。",
+      "vietnamese": "Tôi say nên không nhớ là đã đi đâu."
+    },
+    {
+      "id": "09a6iaz",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "山の 高さは どうやって 測るか、知って いますか。",
+      "vietnamese": "Anh/Chị có biết người ta đo chiều cao của núi như thế nào không?"
+    },
+    {
+      "id": "1qu3oib",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "さあ……。インターネットで 調べましょう。",
+      "vietnamese": "Ờ, chúng ta tra trên in-tơ-nét đi."
+    },
+    {
+      "id": "0g6r2rv",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "わたしたちが 初めて 会ったのは いつか、覚えて いますか。",
+      "vietnamese": "Anh/Chị còn nhớ chúng ta gặp nhau lần đầu tiên khi nào không?"
+    },
+    {
+      "id": "1wec2i1",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "昔の ことなので、もう 忘れて しまいました。",
+      "vietnamese": "Vì là chuyện ngày xưa lâu quá rồi nên tôi đã quên mất."
+    },
+    {
+      "id": "1fpkl46",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "忘年会に 出席できるか どうか、メールで 返事を ください。",
+      "vietnamese": "Anh/Chị trả lời cho tôi qua email về việc có tham dự được bữa tiệc tất niên hay không."
+    },
+    {
+      "id": "0rmm1e1",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "はい、わかりました。",
+      "vietnamese": "Vâng, tôi biết rồi."
+    },
+    {
+      "id": "1sgn4c1",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "大学に 出す 書類なんですが、まちがいが ないか どうか、見て いただけませんか。",
+      "vietnamese": "Anh/Chị có thể xem giúp tôi hồ sơ nộp cho trường đại học xem có sai sót gì không ạ?"
+    },
+    {
+      "id": "009icqf",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "いいですよ。",
+      "vietnamese": "Ừ, được."
+    },
+    {
+      "id": "044zayp",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "長崎へ 行った ことが ありますか。",
+      "vietnamese": "Anh/Chị đã từng đi Nagasaki chưa?"
+    },
+    {
+      "id": "1wg9748",
+      "section": "Ví dụ",
+      "speaker": "",
+      "japanese": "まだ ありません。ぜひ 一度 行って みたいです。",
+      "vietnamese": "Tôi chưa đi. Nhất định tôi muốn đi thử một lần."
+    },
+    {
+      "id": "17vgxq5",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "クララ",
+      "japanese": "先生、ハンスは 学校で どうでしょうか。友達が できたか どうか、心配なんですが……。",
+      "vietnamese": "Thưa cô, Hans ở trường như thế nào ạ? Tôi lo không biết nó có kết bạn được với ai hay không...."
+    },
+    {
+      "id": "0io4b6w",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "伊藤先生",
+      "japanese": "大丈夫ですよ。ハンス君は クラスで とても 人気が あります。",
+      "vietnamese": "Không có vấn đề gì đâu. Em Hans ở lớp rất được các bạn quý."
+    },
+    {
+      "id": "0tsjwdq",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "クララ",
+      "japanese": "そうですか。安心しました。勉強は どうですか。漢字が 大変だと 言って いますが……。",
+      "vietnamese": "Thế ạ. Thế thì tôi yên tâm rồi. Việc học tập thì thế nào ạ? Cháu nói là chữ Hán học vất vả lắm...."
+    },
+    {
+      "id": "1tgn91w",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "伊藤先生",
+      "japanese": "毎日 漢字の テストを して いますが、ハンス君は いい 成績ですよ。",
+      "vietnamese": "Hàng ngày có bài kiểm tra chữ Hán, và kết quả của em Hans tốt đấy."
+    },
+    {
+      "id": "1gv9wim",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "クララ",
+      "japanese": "そうですか。ありがとう ございます。",
+      "vietnamese": "Thế ạ. Cám ơn cô."
+    },
+    {
+      "id": "04mrfm3",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "伊藤先生",
+      "japanese": "ところで、もうすぐ 運動会ですが、お父さんも いらっしゃいますか。",
+      "vietnamese": "Nhân tiện đây xin hỏi chị, sắp đến ngày hội thể thao rồi. Hôm đó bố em Hans có đến được không?"
+    },
+    {
+      "id": "0cnwol9",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "クララ",
+      "japanese": "ええ。",
+      "vietnamese": "Có ạ."
+    },
+    {
+      "id": "1ruyuy2",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "伊藤先生",
+      "japanese": "ハンス君が 学校で どんな 様子か、ぜひ 見て ください。",
+      "vietnamese": "Anh chị hãy đến và xem em Hans ở trường như thế nào nhé."
+    },
+    {
+      "id": "07zyebx",
+      "section": "Hội thoại — 友達が できたか どうか、心配です",
+      "speaker": "クララ",
+      "japanese": "わかりました。これからも よろしく お願いします。",
+      "vietnamese": "Vâng ạ. Nhờ cô tiếp tục giúp đỡ ạ."
+    }
+  ],
+  "grammarPoints": []
+}

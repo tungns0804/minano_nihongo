@@ -1,0 +1,22 @@
+# Bài 39 — 会話
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT                     (câu không thuộc lời của ai)
+#   NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT           (lời thoại)
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+#
+# CHƯA CÓ phần 文型 (Mẫu câu) và 例文 (Ví dụ), khác với các bài hội thoại kia.
+# Lý do: ảnh nguồn mới có trang DỊCH tiếng Việt của hai phần đó, chưa có trang
+# tiếng Nhật. Bài hội thoại cần ĐỦ CẶP Nhật/Việt để dịch qua lại được, nên chép
+# một vế rồi tự viết vế còn lại là bịa. Có ảnh trang 文型/例文 tiếng Nhật của
+# bài 39 thì thêm vào đây, mô tả trong meta.json cũng sửa lại cho khớp.
+
+## Hội thoại — 遅れて、すみません
+ミラー|課長、遅れて、すみません。|Tổ trưởng ơi, xin lỗi tôi đã đến muộn.
+中村課長|ミラーさん、どう したんですか。|Cậu Miller, đã có chuyện gì thế?
+ミラー|実は 来る 途中で 事故が あって、バスが 遅れて しまったんです。|Sự tình là có một vụ tai nạn trên đường đến nên xe buýt bị chậm.
+中村課長|バスの 事故ですか。|Tai nạn xe buýt à?
+ミラー|いいえ。交差点で トラックと 車が ぶつかって、バスが 動かなかったんです。|Không. Xe tải và xe ô-tô đâm nhau ở ngã tư, vì thế xe buýt không đi được.
+中村課長|それは 大変でしたね。連絡が ないので、みんな 心配して いたんですよ。|Thế là cậu đã vất vả quá nhỉ. Vì không nhận được liên lạc của cậu nên mọi người đã lo lắng đấy.
+ミラー|電話したかったんですが、ケータイを うちに 忘れて しまって……。どうも すみませんでした。|Tôi đã muốn gọi điện nhưng tôi để quên điện thoại ở nhà mất.... Xin lỗi chị.
+中村課長|わかりました。じゃ、会議を 始めましょう。|Được rồi. Thôi, chúng ta bắt đầu cuộc họp thôi.

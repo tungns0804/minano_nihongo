@@ -242,7 +242,7 @@ chứa bài học nào — nó ĐO các khu kia, cộng thêm ba quyển 総ま�
 học trên sách.
 
 Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba lỗ hổng, cách học từng phần, bảng
-239 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](LO-TRINH-N3.md)**.
+241 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](LO-TRINH-N3.md)**.
 
 ### Trang này hiện gì
 
@@ -253,7 +253,7 @@ Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba
 | Ba khối điểm | 言語知識 / 読解 / 聴解, mỗi khối 0–60 điểm |
 | Sáu trụ nội dung | Nền N5–N4, 文字, 語彙, 文法, 読解, 聴解 |
 | Bốn giai đoạn | Mốc ngày, việc làm hằng ngày, tiến độ từng giai đoạn |
-| Bảng kiểm soát | 239 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
+| Bảng kiểm soát | 241 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
 
 ### Vì sao đo bằng điểm khối, không đo bằng số bài
 
@@ -282,7 +282,7 @@ cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `lo
 
 | File | Việc |
 | --- | --- |
-| [`n3-syllabus.ts`](src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 239 buổi học chép từ mục lục bốn quyển, bốn giai đoạn, mốc ngày |
+| [`n3-syllabus.ts`](src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 241 buổi học chép từ mục lục bốn quyển, bốn giai đoạn, mốc ngày |
 | [`n3.model.ts`](src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
 | [`n3-progress-store.ts`](src/app/core/services/n3-progress-store.ts) | Dấu tích trong `localStorage` |
 
@@ -326,7 +326,8 @@ sẵn ngay trước mắt.
   sinh để giữ đúng điều này.
 - Phạm vi **★ Chưa nhớ**, giới hạn số câu, trộn thứ tự — giống các loại bài khác.
 
-**Hiện có: bài 26, 28, 29, 33.**
+**Hiện có: bài 26, 28, 29, 33, 39, 40.** Riêng bài 39 mới có phần 会話 — trang 文型/例文
+tiếng Nhật của bài đó chưa có ảnh nguồn, mà bài dịch cần đủ cặp Nhật/Việt mới luyện được.
 
 ## Ngữ pháp
 
@@ -895,7 +896,7 @@ Bài tự nạp có nhãn **“Tự nạp”** và xoá được bất cứ lúc
 ## Cấu trúc dự án
 
 ```
-LO-TRINH-N3.md                   Bản phân tích lộ trình thi N3 (đề thi, kiểm kê, 239 ô tích)
+LO-TRINH-N3.md                   Bản phân tích lộ trình thi N3 (đề thi, kiểm kê, 241 ô tích)
 data-source/                     Nguồn dữ liệu dạng text, mỗi thư mục là một bài
   minano-nihongo-33/
     meta.json                    Tên hiển thị + loại bài (tuỳ chọn)
@@ -954,7 +955,7 @@ src/app/
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     n3/
       n3.model.ts                Kiểu + toán thuần: rải mục vào lịch, tính phần trăm và nhịp
-      n3-syllabus.ts             239 buổi học chép từ mục lục bốn quyển 総まとめ + bốn giai đoạn
+      n3-syllabus.ts             241 buổi học chép từ mục lục bốn quyển 総まとめ + bốn giai đoạn
     practice/
       batch.ts                   Chia phạm vi thành từng cụm liền nhau (học theo cụm)
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
