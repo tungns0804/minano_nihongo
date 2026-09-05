@@ -95,12 +95,18 @@ export interface KanjiEntry {
 }
 
 /**
- * Ba chiều hỏi của khu Kanji.
+ * Các chiều hỏi của khu Kanji.
  *
- * `kanji-hanviet` hỏi trên CHỮ nên chỉ có ở màn hình danh sách; hai chiều còn lại
- * (và chiều trộn của chúng) hỏi trên TỪ nên chỉ có ở màn hình một chữ.
+ * `kanji-hanviet` và `kanji-draw` hỏi trên CHỮ nên chỉ có ở màn hình danh sách;
+ * hai chiều còn lại (và chiều trộn của chúng) hỏi trên TỪ nên chỉ có ở màn hình
+ * một chữ.
  */
-export type KanjiMode = 'kanji-hanviet' | 'word-meaning' | 'word-reading' | 'word-mixed';
+export type KanjiMode =
+  | 'kanji-hanviet'
+  | 'kanji-draw'
+  | 'word-meaning'
+  | 'word-reading'
+  | 'word-mixed';
 
 export interface KanjiModeInfo {
   id: KanjiMode;
@@ -138,7 +144,17 @@ export const KANJI_HAN_VIET_MODE: KanjiModeInfo = {
   exampleKey: 'kanji.mode.kanjiHanViet.example',
 };
 
-const ALL_MODES: readonly KanjiModeInfo[] = [KANJI_HAN_VIET_MODE, ...KANJI_WORD_MODES];
+export const KANJI_DRAW_MODE: KanjiModeInfo = {
+  id: 'kanji-draw',
+  labelKey: 'kanji.mode.draw',
+  shortKey: 'kanji.mode.draw.short',
+  exampleKey: 'kanji.mode.draw.example',
+};
+
+/** Chiều hỏi của màn hình danh sách (hỏi trên chữ). */
+export const KANJI_LIST_MODES: readonly KanjiModeInfo[] = [KANJI_HAN_VIET_MODE, KANJI_DRAW_MODE];
+
+const ALL_MODES: readonly KanjiModeInfo[] = [...KANJI_LIST_MODES, ...KANJI_WORD_MODES];
 
 export function kanjiModeInfo(id: KanjiMode): KanjiModeInfo {
   return ALL_MODES.find((mode) => mode.id === id) ?? ALL_MODES[0];

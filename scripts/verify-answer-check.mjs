@@ -15,26 +15,15 @@
  */
 
 import { readFileSync, readdirSync } from 'node:fs';
-import { registerHooks } from 'node:module';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { resolveTsImports } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 
-// answer-check.ts import "./vocabulary-parser" KHÔNG kèm đuôi file, đúng kiểu của
-// Angular/TypeScript. Node thì đòi đuôi, nên thêm ".ts" giúp khi nó không tìm ra.
-// Nhờ vậy script chạy thẳng trên file nguồn mà app đang dùng, không phải bản chép lại.
-registerHooks({
-  resolve(specifier, context, nextResolve) {
-    try {
-      return nextResolve(specifier, context);
-    } catch (error) {
-      if (!specifier.startsWith('.')) throw error;
-      return nextResolve(`${specifier}.ts`, context);
-    }
-  },
-});
+// answer-check.ts import "./vocabulary-parser" không kèm đuôi file — xem `resolveTsImports`.
+resolveTsImports();
 
 const { isAnswerCorrect } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'utils', 'answer-check.ts'))

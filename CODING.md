@@ -145,6 +145,32 @@ Mọi builder câu hỏi đặt trong `core/practice/`, một file một loại 
 
 ---
 
+## Luyện viết chữ (`core/strokes/`)
+
+Câu hỏi vẽ tay không đi qua `isAnswerCorrect` như hai cách trả lời kia — đáp án của
+nó là hình các nét, không phải chuỗi ký tự. Đường đi của một câu:
+
+| File | Lo việc |
+|---|---|
+| `stroke.model.ts` | kiểu `Stroke`, mã hoá/giải mã, lấy mẫu lại nét vẽ tay |
+| `stroke-score.ts` | `checkDrawing()` — so nét vẽ với nét mẫu, trả về sai ở đâu |
+| `stroke-store.ts` | nạp dữ liệu nét (`import()` động) + `canDraw(char)` |
+| `stroke-data.ts` `stroke-coverage.ts` | do `npm run generate:strokes` sinh từ KanjiVG |
+| `shared/stroke-canvas.ts` | khung vẽ bằng chuột |
+| `core/practice/draw-questions.ts` | dựng câu hỏi cho cả khu Kanji lẫn khu Bộ thủ |
+
+Ba chỗ dễ sai:
+
+- **Đừng import `stroke-data.ts` thẳng.** Nó nặng gần 500 kB và cố ý nằm ở một gói
+  tải riêng; import thẳng là ném ngần ấy vào gói của màn hình. Cần biết chữ nào viết
+  được thì hỏi `canDraw()` — nó đọc `stroke-coverage.ts`, chỉ vài kB.
+- **Lọc pool bằng `drawableKanji()` / `drawableRadicals()`.** KanjiVG thiếu nét của
+  14 chữ; để lọt vào phiên thì tới câu đó khung vẽ trống trơn, không có gì để chấm.
+- **Đổi `STROKE_SAMPLES` là phải sinh lại dữ liệu.** Chuỗi cũ giải mã ra sai độ dài
+  nét chứ không báo lỗi ở đâu cả. `npm run verify:drawing` bắt được chuyện này.
+
+---
+
 ## Template
 
 Ô tìm và nút ★ đã là component — **đừng chép lại markup**:
@@ -181,7 +207,7 @@ chung của nhiều màn hình"* đã có: khung thiết lập (`.options-2`,
 `.options-limit`, `.option-stacked`, `.start-bar`), hàng lọc (`.filter-row`,
 `.search-input`, `.filter-check`), nút ★, bảng từ (`.word-table`, `.col-star`),
 `.back-link`, thẻ bài học (`.lesson-card`, `.lesson-grid`, `.skeleton-*`), và
-tab chọn nhóm (`.level-tab*`, `.mode-still`).
+tab chọn nhóm (`.level-tab*`).
 
 Màn hình cần khác một chút thì **chỉ khai phần khác** trong file của nó. Việc đó
 luôn thắng: Angular gắn `[_ngcontent-…]` vào selector của component nên

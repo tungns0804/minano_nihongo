@@ -238,6 +238,15 @@
   gap: 7px;
 }
 
+/* Khung viết chữ đứng giữa: nó vuông và hẹp hơn hẳn ô nhập, dạt sang trái thì
+   nhìn như bị rơi ra khỏi bố cục. */
+.draw-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
 .typing-row {
   display: flex;
   gap: 10px;
@@ -376,6 +385,15 @@
 
 .wrong-answer {
   text-decoration: line-through;
+  color: var(--danger);
+}
+
+/* Cùng màu với nét bị tô đỏ trên khung vẽ: đọc "nét 3 viết ngược" rồi nhìn sang
+   khung là thấy ngay nét nào. */
+.draw-issues {
+  margin: 0 0 var(--sp-2);
+  padding-left: 1.2em;
+  font-size: 0.94rem;
   color: var(--danger);
 }
 

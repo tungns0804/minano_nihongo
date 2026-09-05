@@ -1236,23 +1236,6 @@ a:hover {
   color: var(--accent);
 }
 
-/* Dòng "kiểu luyện" ở khung thiết lập của hai bảng tra: chỉ có một kiểu nên nó
-   là một dòng chữ chứ không phải nút bấm. */
-.mode-still {
-  display: flex;
-  align-items: baseline;
-  gap: var(--sp-3);
-  flex-wrap: wrap;
-  padding: 11px 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-subtle);
-}
-
-.mode-still strong {
-  font-weight: 620;
-}
-
 /* --- Khung chờ của màn hình chi tiết ------------------------------------- */
 
 .detail-skeleton {

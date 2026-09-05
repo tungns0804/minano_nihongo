@@ -4,13 +4,16 @@ import { RouterLink } from '@angular/router';
 import { T } from '../../core/i18n/t';
 import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
+import { buildRadicalDrawQuestions, drawableRadicals } from '../../core/practice/draw-questions';
 import { buildRadicalHanVietQuestions } from '../../core/practice/radical-questions';
 import {
-  RADICAL_HAN_VIET_MODE,
+  RADICAL_LIST_MODES,
   RADICAL_SESSION_ID,
   RadicalEntry,
+  RadicalMode,
   STROKE_GROUPS,
   StrokeGroup,
+  radicalModeInfo,
   strokeGroupOf,
 } from '../../core/radical/radical.model';
 import { RADICAL_ENTRIES } from '../../core/radical/radical-entries';
@@ -37,8 +40,12 @@ import { StarButton } from '../../shared/star-button';
 export class RadicalList extends PracticeScreen {
   readonly allGroups = STROKE_GROUPS;
   readonly strokeGroupOf = strokeGroupOf;
-  readonly hanVietMode = RADICAL_HAN_VIET_MODE;
+  readonly modes = RADICAL_LIST_MODES;
   readonly totalCount = RADICAL_ENTRIES.length;
+
+  /** Chiều hỏi: đọc âm Hán Việt của bộ, hay viết ra chính bộ đó. */
+  readonly mode = signal<RadicalMode>('radical-hanviet');
+  readonly isDrawing = computed(() => this.mode() === 'radical-draw');
 
   /**
    * Nhóm nét đang xem. Một nhóm mỗi lần, cùng lý do với tab Kanji: đây là bảng tra
@@ -105,10 +112,20 @@ export class RadicalList extends PracticeScreen {
 
   // --- Tập bộ sẽ đem ra hỏi ---
 
-  readonly pool = computed<RadicalEntry[]>(() =>
+  private readonly scopeEntries = computed<RadicalEntry[]>(() =>
     this.scope() === 'favorite'
       ? this.favoritesOf(this.groupEntries())
       : this.groupEntries(),
+  );
+
+  /** KanjiVG thiếu nét của vài biến thể bộ thủ — chiều viết phải bỏ chúng ra. */
+  readonly pool = computed<RadicalEntry[]>(() =>
+    this.isDrawing() ? drawableRadicals(this.scopeEntries()) : this.scopeEntries(),
+  );
+
+  /** Số bộ bị loại khỏi phiên viết vì chưa có dữ liệu nét. */
+  readonly missingStrokeCount = computed(() =>
+    this.isDrawing() ? this.scopeEntries().length - this.pool().length : 0,
   );
 
   readonly plannedQuestionCount = computed(() => {
@@ -122,7 +139,7 @@ export class RadicalList extends PracticeScreen {
     LIMIT_CHOICES_LONG.filter((limit) => limit < this.pool().length),
   );
 
-  readonly modeShort = computed(() => this.lang.t(RADICAL_HAN_VIET_MODE.shortKey));
+  readonly modeShort = computed(() => this.lang.t(radicalModeInfo(this.mode()).shortKey));
 
   // --- Sự kiện ---
 
@@ -131,6 +148,13 @@ export class RadicalList extends PracticeScreen {
     this.questionLimit.set(null);
     // Nhóm nét mới có thể chưa đánh dấu ★ bộ nào.
     this.fixScope();
+  }
+
+  setMode(mode: RadicalMode): void {
+    this.mode.set(mode);
+    // Đổi chiều hỏi là đổi số bộ hỏi được (chiều viết bỏ bộ thiếu nét), nên con số
+    // câu vừa chọn không còn nghĩa.
+    this.questionLimit.set(null);
   }
 
   /**
@@ -149,22 +173,33 @@ export class RadicalList extends PracticeScreen {
   start(): void {
     if (!this.canStart()) return;
 
+    const drawing = this.isDrawing();
     const config = practiceConfig({
       lessonId: RADICAL_SESSION_ID,
       lessonKind: 'radical',
       scope: this.scope(),
+      answerMode: drawing ? 'draw' : 'typing',
       questionLimit: this.questionLimit(),
       shuffle: this.shuffleQuestions(),
       ignoreDiacritics: this.ignoreDiacritics(),
-      // Ở khu Bộ thủ, cờ này bật gợi ý "một chữ ghép từ bộ đang hỏi".
+      // Ở khu Bộ thủ, cờ này bật gợi ý "một chữ ghép từ bộ đang hỏi"; ở chiều viết
+      // thì nó bật nét mẫu mờ để đồ theo.
       showHanViet: this.showHint(),
-      radicalMode: 'radical-hanviet',
+      radicalMode: this.mode(),
     });
 
     this.launch(
-      { id: RADICAL_SESSION_ID, name: this.lang.t('radical.practiceHanViet') },
+      {
+        id: RADICAL_SESSION_ID,
+        name: this.lang.t(drawing ? 'radical.practiceDraw' : 'radical.practiceHanViet'),
+      },
       config,
-      orderQuestions(buildRadicalHanVietQuestions(this.pool(), config), config),
+      orderQuestions(
+        drawing
+          ? buildRadicalDrawQuestions(this.pool(), config)
+          : buildRadicalHanVietQuestions(this.pool(), config),
+        config,
+      ),
     );
   }
 }

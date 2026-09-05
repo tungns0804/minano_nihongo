@@ -17,7 +17,9 @@ import {
 import { kanjiById } from '../../core/kanji/kanji-entries';
 import { LIMIT_CHOICES, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
+import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
+import { canDraw } from '../../core/strokes/stroke-store';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
 import { SearchBox } from '../../shared/search-box';
@@ -100,6 +102,12 @@ export class KanjiDetail extends PracticeScreen {
   );
 
   readonly favoriteCount = computed(() => this.favoritesOf(this.levelWords()).length);
+
+  /** Chữ này có dữ liệu nét để luyện viết không — KanjiVG thiếu vài chữ hiếm. */
+  readonly canDrawChar = computed(() => {
+    const entry = this.entry();
+    return !!entry && canDraw(entry.char);
+  });
 
   // --- Tập từ sẽ đem ra hỏi ---
 
@@ -208,6 +216,33 @@ export class KanjiDetail extends PracticeScreen {
       { id: entry.id, name: `${entry.char} ${entry.hanViet}` },
       config,
       orderQuestions(buildKanjiWordQuestions(this.pool(), entry, config), config),
+    );
+  }
+
+  /**
+   * Luyện viết đúng chữ đang mở — một câu, mở thẳng từ đầu trang.
+   *
+   * Không đi qua khung thiết lập như phần luyện từ: cả trang này nói về đúng một
+   * chữ, mà chữ đó lại đang vẽ to ngay trên đầu trang. Nét mẫu vì thế bật sẵn —
+   * ở đây là tập viết cho đúng thứ tự nét chứ không phải kiểm tra trí nhớ.
+   */
+  startDrawing(): void {
+    const entry = this.entry();
+    if (!entry || !this.canDrawChar()) return;
+
+    const config = practiceConfig({
+      lessonId: entry.id,
+      lessonKind: 'kanji',
+      scope: 'single',
+      answerMode: 'draw',
+      showHanViet: true,
+      kanjiMode: 'kanji-draw',
+    });
+
+    this.launch(
+      { id: entry.id, name: `${entry.char} ${entry.hanViet}` },
+      config,
+      orderQuestions(buildKanjiDrawQuestions([entry], config), config),
     );
   }
 }

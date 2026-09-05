@@ -417,14 +417,18 @@ chữ khác đi trước). Lưới hiện 12 ô một hàng, mỗi ô là chữ 
 Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng các từ trong kho của ứng dụng có dùng
 chữ đó (từ · cách đọc · âm Hán Việt của cả từ · nghĩa · cấp độ).
 
-### Hai phần luyện tập — đều chỉ gõ đáp án
+### Các phần luyện tập
 
-| Ở đâu | Chiều hỏi | Ví dụ |
-| --- | --- | --- |
-| `/kanji` (danh sách) | Chữ Hán → âm Hán Việt | `海` → `HẢI` |
-| `/kanji/:id` (một chữ) | Từ kanji → nghĩa tiếng Việt | `海` → `biển` |
-| `/kanji/:id` | Từ kanji → hiragana | `海` → `うみ` |
-| `/kanji/:id` | Hỏi cả hai (mỗi từ 2 câu) | `海` → `biển` / `うみ` |
+| Ở đâu | Chiều hỏi | Ví dụ | Cách trả lời |
+| --- | --- | --- | --- |
+| `/kanji` (danh sách) | Chữ Hán → âm Hán Việt | `海` → `HẢI` | gõ đáp án |
+| `/kanji` (danh sách) | Âm Hán Việt → viết chữ | `HẢI` → vẽ 海 | viết bằng chuột |
+| `/kanji/:id` (một chữ) | Viết đúng chữ đang mở | `HẢI` → vẽ 海 | viết bằng chuột |
+| `/kanji/:id` | Từ kanji → nghĩa tiếng Việt | `海` → `biển` | gõ đáp án |
+| `/kanji/:id` | Từ kanji → hiragana | `海` → `うみ` | gõ đáp án |
+| `/kanji/:id` | Hỏi cả hai (mỗi từ 2 câu) | `海` → `biển` / `うみ` | gõ đáp án |
+
+Phần viết tay xem ở mục [Luyện viết chữ](#luyện-viết-chữ) bên dưới.
 
 Phần luyện âm Hán Việt nằm ở màn hình **danh sách** vì nó hỏi trên cả cấp đang xem — mở từng chữ
 ra để luyện đúng một chữ thì mỗi phiên chỉ có một câu. Ba chiều còn lại hỏi trên **từ** nên nằm ở
@@ -534,14 +538,16 @@ Nhật** (にんべん, さんずい…), số nét, và bảng các chữ Hán 
 Dòng `寺=土+寸` chỉ hiện khi bộ đang xem **nằm sâu bên trong** một thành phần: nhìn 時 = 日 + 寺
 thì không ai đoán được vì sao chữ này lại nằm trong bộ 寸, nên bảng chỉ luôn ra chỗ đó.
 
-### Hai phần luyện tập — đều chỉ gõ đáp án
+### Các phần luyện tập
 
-| Ở đâu | Chiều hỏi | Ví dụ |
-| --- | --- | --- |
-| `/radical` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` |
-| `/radical/:id` (một bộ) | Chữ ghép → âm Hán Việt | `休` → `HƯU` |
-| `/radical/:id` | Chữ ghép → các bộ tạo thành | `休` → `NHÂN MỘC` |
-| `/radical/:id` | Hỏi cả hai (mỗi chữ 2 câu) | `休` → `HƯU` / `NHÂN MỘC` |
+| Ở đâu | Chiều hỏi | Ví dụ | Cách trả lời |
+| --- | --- | --- | --- |
+| `/radical` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` | gõ đáp án |
+| `/radical` (danh sách) | Âm Hán Việt → viết bộ | `THỦY` → vẽ 氵 | viết bằng chuột |
+| `/radical/:id` (một bộ) | Viết đúng bộ đang mở | `THỦY` → vẽ 氵 | viết bằng chuột |
+| `/radical/:id` | Chữ ghép → âm Hán Việt | `休` → `HƯU` | gõ đáp án |
+| `/radical/:id` | Chữ ghép → các bộ tạo thành | `休` → `NHÂN MỘC` | gõ đáp án |
+| `/radical/:id` | Hỏi cả hai (mỗi chữ 2 câu) | `休` → `HƯU` / `NHÂN MỘC` | gõ đáp án |
 
 Chiều **chiết tự** là phần riêng của khu này: gõ âm Hán Việt của từng bộ theo đúng thứ tự viết.
 Gõ `NHÂN MỘC`, `NHÂN + MỘC` hay `NHÂN, MỘC` đều được tính đúng — dấu câu và khoảng trắng không
@@ -594,6 +600,67 @@ npm run verify:radicals     # kiểm tra file sinh có khớp nguồn không (n�
 Hiện có **195 / 214 bộ** có chữ ghép trong kho N5→N1; 19 bộ còn lại (龠, 鬯, 黹, 鼎…) vẫn hiện ở
 lưới và vẫn luyện âm Hán Việt được, chỉ chưa luyện chữ được — bảng jōyō không có chữ thông dụng
 nào ghép từ chúng.
+
+
+## Luyện viết chữ
+
+Cả tab **Kanji** lẫn tab **Bộ thủ** có thêm một chiều hỏi thứ hai: hiện âm Hán Việt rồi bắt
+**viết chữ ra bằng chuột**. Trong khung vẽ có nét mẫu vẽ mờ kèm số thứ tự từng nét để đồ theo;
+tắt tuỳ chọn *"Hiện nét mẫu để đồ theo"* thì phải viết từ trí nhớ.
+
+Chấm xong, máy nói rõ **sai ở nét nào và sai kiểu gì**:
+
+| Báo lỗi | Nghĩa |
+| --- | --- |
+| `Nét 3: viết ngược chiều` | đúng hình nhưng kéo ngược đầu (一 viết từ phải sang trái) |
+| `Nét 2: đúng hình nhưng sai thứ tự nét` | nét này là nét khác của chữ, viết lộn trình tự |
+| `Nét 4: lệch quá xa nét mẫu` | nét vẽ không khớp nét nào |
+| `Nét 5: còn thiếu` / `thừa so với chữ mẫu` | số nét không đúng |
+
+Những nét sai được **tô đỏ ngay trên khung vẽ**, nên đọc "sai nét 3" là nhìn thấy ngay nét nào.
+
+### Chấm ngay trên máy, không gọi dịch vụ nào
+
+Không có nhận dạng chữ viết tay, không gọi API, không tốn chi phí mỗi lượt chấm: ở đây đã biết
+trước người học **đang viết chữ nào**, nên việc còn lại chỉ là so hình nét vừa vẽ với nét mẫu.
+Cách so: mỗi nét được rút về 10 điểm cách đều theo chiều dài, rồi đo khoảng lệch trung bình giữa
+nét vẽ và nét mẫu **cùng thứ tự**. Thêm một phép so hướng nét riêng, vì viết ngược một nét ngắn
+chỉ làm các điểm lệch đi đúng bằng chiều dài nét — đo khoảng cách không thôi thì một phần ba số
+chữ viết ngược vẫn lọt.
+
+`npm run verify:drawing` chạy lại toàn bộ 2.231 chữ mỗi lần: chữ phải tự khớp chính nó, vẫn khớp
+khi thêm nhiễu cỡ bàn tay run, và phải bị bắt lỗi khi cố tình viết ngược / lộn thứ tự / thiếu /
+thừa nét.
+
+### Dữ liệu nét lấy từ KanjiVG
+
+Nét mẫu rút từ [**KanjiVG**](https://kanjivg.tagaini.net) — bộ dữ liệu nét viết chữ Hán, giấy
+phép **CC BY-SA 3.0**, lấy qua devDependency `@madcat/kanjivg` (chỉ dùng lúc sinh dữ liệu, không
+đi vào bản build).
+
+```
+src/app/core/strokes/
+  stroke.model.ts       ← kiểu dữ liệu nét, mã hoá/giải mã, lấy mẫu lại nét vẽ tay
+  stroke-score.ts       ← cách chấm: so nét vẽ với nét mẫu
+  stroke-store.ts       ← nạp dữ liệu nét theo yêu cầu
+  stroke-data.ts        ← DO MÁY SINH: nét của 2.231 chữ (473 kB)
+  stroke-coverage.ts    ← DO MÁY SINH: danh sách chữ có dữ liệu nét
+```
+
+`stroke-data.ts` **không đi vào gói chính**: nó chỉ được nạp bằng `import()` động lúc người học
+mở phần luyện viết, nên ai không dùng tính năng này thì không phải tải 473 kB đó. Danh sách chữ
+viết được tách riêng ra `stroke-coverage.ts` (vài kB) để màn hình danh sách đếm được số câu mà
+không phải nạp cả kho.
+
+Sinh lại sau khi đổi danh sách chữ hoặc đổi số điểm lấy mẫu:
+
+```bash
+npm run generate:strokes
+```
+
+KanjiVG không có nét của **14 chữ** (叚 丩 业 丰 丂 乚 㔾 戶 爫 牜 犭 ⺼ 辵 靑 — phần lớn là biến thể
+bộ thủ hiếm). Những chữ đó không hiện nút luyện viết, và màn thiết lập nói rõ có bao nhiêu chữ bị
+loại khỏi phiên.
 
 
 ## Bài tập bổ trợ
@@ -925,6 +992,8 @@ scripts/
   generate-topics.mjs            Sinh core/topics/topic-{catalog,words}.ts từ chính kho từ
   han-viet-compose.mjs           Ghép âm Hán Việt của cả từ từ âm của từng chữ
   generate-radicals.mjs          Sinh core/radical/radical-kanji.ts từ bảng bộ thủ + chiết tự
+  generate-strokes.mjs           Sinh core/strokes/stroke-{data,coverage}.ts từ KanjiVG
+  verify-drawing.mjs             Kiểm tra dữ liệu nét + cách chấm chữ viết tay
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
   verify-n3.mjs                  Kiểm lộ trình N3: khớp mục lục sách, lịch phủ kín, nhịp học
@@ -962,6 +1031,12 @@ src/app/
       radical-parts.ts           Chiết tự 642 chữ N5→N3 thành các bộ (N2/N1 khai ở kanji-levels)
       radical-kanji.ts           214 bộ + 5.604 lượt chữ ghép — DO MÁY SINH
       radical-entries.ts         Dựng danh sách bộ + tra theo id
+    strokes/
+      stroke.model.ts            Kiểu dữ liệu nét, mã hoá/giải mã, lấy mẫu lại nét vẽ tay
+      stroke-score.ts            Chấm chữ viết tay: so nét vẽ với nét mẫu, chỉ ra nét sai
+      stroke-store.ts            Nạp dữ liệu nét theo yêu cầu + tra chữ nào viết được
+      stroke-data.ts             Nét của 2.231 chữ từ KanjiVG — DO MÁY SINH, NẠP ĐỘNG
+      stroke-coverage.ts         Danh sách chữ có dữ liệu nét — DO MÁY SINH
     models/                      Kiểu dữ liệu bài học và phiên luyện tập
     n3/
       n3.model.ts                Kiểu + toán thuần: rải mục vào lịch, tính phần trăm và nhịp
@@ -976,6 +1051,7 @@ src/app/
       exercise-questions.ts      Câu hỏi cho hai bài tập
       kanji-questions.ts         Câu hỏi cho khu Kanji
       radical-questions.ts       Câu hỏi cho khu Bộ thủ
+      draw-questions.ts          Câu hỏi viết tay, dùng chung cho khu Kanji và Bộ thủ
     services/
       lesson-store.ts            Nạp bài học từ JSON + localStorage
       favorite-store.ts          Danh sách mục chưa nhớ

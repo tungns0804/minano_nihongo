@@ -114,12 +114,17 @@ export function strokeGroupOf(strokes: number): StrokeGroup {
 }
 
 /**
- * Bốn chiều hỏi của khu Bộ thủ.
+ * Các chiều hỏi của khu Bộ thủ.
  *
- * `radical-hanviet` hỏi trên BỘ nên chỉ có ở màn hình danh sách; ba chiều còn
- * lại hỏi trên CHỮ ghép nên chỉ có ở màn hình một bộ.
+ * `radical-hanviet` và `radical-draw` hỏi trên BỘ nên chỉ có ở màn hình danh
+ * sách; ba chiều còn lại hỏi trên CHỮ ghép nên chỉ có ở màn hình một bộ.
  */
-export type RadicalMode = 'radical-hanviet' | 'kanji-hanviet' | 'kanji-parts' | 'kanji-mixed';
+export type RadicalMode =
+  | 'radical-hanviet'
+  | 'radical-draw'
+  | 'kanji-hanviet'
+  | 'kanji-parts'
+  | 'kanji-mixed';
 
 export interface RadicalModeInfo {
   id: RadicalMode;
@@ -157,7 +162,20 @@ export const RADICAL_HAN_VIET_MODE: RadicalModeInfo = {
   exampleKey: 'radical.mode.radicalHanViet.example',
 };
 
-const ALL_MODES: readonly RadicalModeInfo[] = [RADICAL_HAN_VIET_MODE, ...RADICAL_KANJI_MODES];
+export const RADICAL_DRAW_MODE: RadicalModeInfo = {
+  id: 'radical-draw',
+  labelKey: 'radical.mode.draw',
+  shortKey: 'radical.mode.draw.short',
+  exampleKey: 'radical.mode.draw.example',
+};
+
+/** Chiều hỏi của màn hình danh sách (hỏi trên bộ). */
+export const RADICAL_LIST_MODES: readonly RadicalModeInfo[] = [
+  RADICAL_HAN_VIET_MODE,
+  RADICAL_DRAW_MODE,
+];
+
+const ALL_MODES: readonly RadicalModeInfo[] = [...RADICAL_LIST_MODES, ...RADICAL_KANJI_MODES];
 
 export function radicalModeInfo(id: RadicalMode): RadicalModeInfo {
   return ALL_MODES.find((mode) => mode.id === id) ?? ALL_MODES[0];

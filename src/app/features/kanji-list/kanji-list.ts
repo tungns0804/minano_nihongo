@@ -3,16 +3,19 @@ import { RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
 import {
-  KANJI_HAN_VIET_MODE,
   KANJI_LEVELS,
+  KANJI_LIST_MODES,
   KANJI_SESSION_ID,
   KanjiEntry,
   KanjiLevel,
+  KanjiMode,
   emptyLevelCounts,
+  kanjiModeInfo,
 } from '../../core/kanji/kanji.model';
 import { KANJI_ENTRIES } from '../../core/kanji/kanji-entries';
 import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
+import { buildKanjiDrawQuestions, drawableKanji } from '../../core/practice/draw-questions';
 import { buildKanjiHanVietQuestions } from '../../core/practice/kanji-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/utils/lesson-search';
@@ -39,7 +42,11 @@ import { StarButton } from '../../shared/star-button';
 })
 export class KanjiList extends PracticeScreen {
   readonly allLevels = KANJI_LEVELS;
-  readonly hanVietMode = KANJI_HAN_VIET_MODE;
+  readonly modes = KANJI_LIST_MODES;
+
+  /** Chiều hỏi: đọc âm Hán Việt của chữ, hay viết ra chính chữ đó. */
+  readonly mode = signal<KanjiMode>('kanji-hanviet');
+  readonly isDrawing = computed(() => this.mode() === 'kanji-draw');
 
   /**
    * Cấp đang xem. Một cấp mỗi lần chứ không phải nhiều lựa chọn như khu Bài tập:
@@ -90,10 +97,20 @@ export class KanjiList extends PracticeScreen {
 
   // --- Tập chữ sẽ đem ra hỏi ---
 
-  readonly pool = computed<KanjiEntry[]>(() =>
+  private readonly scopeEntries = computed<KanjiEntry[]>(() =>
     this.scope() === 'favorite'
       ? this.favoritesOf(this.levelEntries())
       : this.levelEntries(),
+  );
+
+  /** KanjiVG thiếu nét của vài chữ hiếm — chiều viết chữ phải bỏ chúng ra. */
+  readonly pool = computed<KanjiEntry[]>(() =>
+    this.isDrawing() ? drawableKanji(this.scopeEntries()) : this.scopeEntries(),
+  );
+
+  /** Số chữ bị loại khỏi phiên viết vì chưa có dữ liệu nét. */
+  readonly missingStrokeCount = computed(() =>
+    this.isDrawing() ? this.scopeEntries().length - this.pool().length : 0,
   );
 
   readonly plannedQuestionCount = computed(() => {
@@ -107,7 +124,7 @@ export class KanjiList extends PracticeScreen {
     LIMIT_CHOICES_LONG.filter((limit) => limit < this.pool().length),
   );
 
-  readonly modeShort = computed(() => this.lang.t(KANJI_HAN_VIET_MODE.shortKey));
+  readonly modeShort = computed(() => this.lang.t(kanjiModeInfo(this.mode()).shortKey));
 
   // --- Sự kiện ---
 
@@ -118,27 +135,45 @@ export class KanjiList extends PracticeScreen {
     this.fixScope();
   }
 
+  setMode(mode: KanjiMode): void {
+    this.mode.set(mode);
+    // Đổi chiều hỏi là đổi số chữ hỏi được (chiều viết bỏ chữ thiếu nét), nên con
+    // số câu vừa chọn không còn nghĩa.
+    this.questionLimit.set(null);
+  }
+
   // --- Bắt đầu ---
 
   start(): void {
     if (!this.canStart()) return;
 
+    const drawing = this.isDrawing();
     const config = practiceConfig({
       lessonId: KANJI_SESSION_ID,
       lessonKind: 'kanji',
       scope: this.scope(),
+      answerMode: drawing ? 'draw' : 'typing',
       questionLimit: this.questionLimit(),
       shuffle: this.shuffleQuestions(),
       ignoreDiacritics: this.ignoreDiacritics(),
-      // Ở khu Kanji, cờ này bật gợi ý "một từ dùng chữ đang hỏi".
+      // Ở khu Kanji, cờ này bật gợi ý "một từ dùng chữ đang hỏi"; ở chiều viết chữ
+      // thì nó bật nét mẫu mờ để đồ theo.
       showHanViet: this.showHint(),
-      kanjiMode: 'kanji-hanviet',
+      kanjiMode: this.mode(),
     });
 
     this.launch(
-      { id: KANJI_SESSION_ID, name: this.lang.t('kanji.practiceHanViet') },
+      {
+        id: KANJI_SESSION_ID,
+        name: this.lang.t(drawing ? 'kanji.practiceDraw' : 'kanji.practiceHanViet'),
+      },
       config,
-      orderQuestions(buildKanjiHanVietQuestions(this.pool(), config), config),
+      orderQuestions(
+        drawing
+          ? buildKanjiDrawQuestions(this.pool(), config)
+          : buildKanjiHanVietQuestions(this.pool(), config),
+        config,
+      ),
     );
   }
 }

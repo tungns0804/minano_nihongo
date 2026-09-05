@@ -136,8 +136,33 @@ export class PracticeSessionStore {
             ignorePunctuation: question.ignorePunctuation,
           });
 
-    const attempts = [...state.attempts, answer];
+    return this.record(correct, question, state, [...state.attempts, answer]);
+  }
 
+  /**
+   * Chấm một chữ viết tay.
+   *
+   * Đúng hay sai do màn hình luyện tập tự tính bằng `checkDrawing`: đáp án ở đây
+   * là hình các nét chứ không phải chuỗi ký tự, mà kho phiên thì không biết gì về
+   * hình. Nó chỉ ghi nhận kết quả và đếm số lần sai như mọi câu khác.
+   *
+   * Không ghi thêm gì vào `attempts` vì không có chữ nào để ghi — màn hình kết quả
+   * nhờ vậy bỏ qua dòng "đã trả lời" thay vì hiện một dòng trống.
+   */
+  submitDrawing(correct: boolean): QuestionStatus {
+    const question = this.current();
+    const state = this.currentState();
+    if (!question || !state || state.status !== 'pending') return state?.status ?? 'pending';
+
+    return this.record(correct, question, state, state.attempts);
+  }
+
+  private record(
+    correct: boolean,
+    question: PracticeQuestion,
+    state: QuestionState,
+    attempts: string[],
+  ): QuestionStatus {
     if (correct) {
       this.patchCurrentState({ status: 'correct', attempts });
       return 'correct';

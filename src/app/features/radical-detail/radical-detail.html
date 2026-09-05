@@ -36,6 +36,14 @@
                 </span>
               }
             </div>
+
+            @if (canDrawChar()) {
+              <div>
+                <button type="button" class="btn btn-sm" (click)="startDrawing()">
+                  {{ t('radical.drawThis') }}
+                </button>
+              </div>
+            }
           </div>
         </div>
       </header>

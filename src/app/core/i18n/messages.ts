@@ -214,6 +214,7 @@ export const MESSAGES = {
   'lesson.answerMode': { vi: 'Cách trả lời', ja: '解答方法' },
   'lesson.answerMode.choice': { vi: 'Trắc nghiệm 4 đáp án', ja: '4択問題' },
   'lesson.answerMode.typing': { vi: 'Gõ đáp án', ja: '入力して解答' },
+  'lesson.answerMode.draw': { vi: 'Viết bằng chuột', ja: 'マウスで書く' },
   'lesson.questionCount': { vi: 'Số câu', ja: '問題数' },
   'lesson.questionCount.n': { vi: '{count} câu', ja: '{count}問' },
 
@@ -264,6 +265,7 @@ export const MESSAGES = {
   },
   'lesson.plan.choice': { vi: 'trắc nghiệm', ja: '4択' },
   'lesson.plan.typing': { vi: 'gõ đáp án', ja: '入力解答' },
+  'lesson.plan.draw': { vi: 'viết bằng chuột', ja: 'マウス書き' },
   'lesson.start': { vi: 'Bắt đầu luyện tập', ja: '練習を始める' },
   'lesson.emptyScope': { vi: 'Chưa có mục nào trong phạm vi đã chọn.', ja: '選んだ範囲に項目がありません。' },
 
@@ -593,8 +595,23 @@ export const MESSAGES = {
   'kanji.mode.wordMixed': { vi: 'Hỏi cả nghĩa lẫn hiragana', ja: '意味と読み方の両方' },
   'kanji.mode.wordMixed.short': { vi: 'Nghĩa + hiragana', ja: '意味＋読み' },
   'kanji.mode.wordMixed.example': { vi: '海 → biển / うみ', ja: '海 → biển / うみ' },
+  'kanji.mode.draw': { vi: 'Âm Hán Việt → viết chữ', ja: '漢越音 → 書く' },
+  'kanji.mode.draw.short': { vi: 'Viết chữ', ja: '書き取り' },
+  'kanji.mode.draw.example': { vi: 'HẢI → 海', ja: 'HẢI → 海' },
+
+  'kanji.practiceDraw': { vi: 'Luyện viết chữ Hán', ja: '漢字の書き取り練習' },
+  'kanji.drawNote': {
+    vi: 'Đồ theo nét mẫu trong khung, viết đúng thứ tự và chiều từng nét. Máy chấm ngay trên máy bạn, không gửi gì đi đâu.',
+    ja: '枠内のお手本をなぞり、筆順と書く向きを守って書きます。採点はこの端末だけで行われ、データは送信されません。',
+  },
+  'kanji.drawThis': { vi: '✎ Luyện viết chữ này', ja: '✎ この漢字を書く練習' },
+  'kanji.drawMissing': {
+    vi: '{count} chữ chưa có dữ liệu nét nên không đưa vào phiên viết.',
+    ja: '{count}字は筆順データがないため、書き取りの出題から除きます。',
+  },
 
   'kanji.label.kanjiHanViet': { vi: 'Chữ này đọc âm Hán Việt là gì?', ja: 'この漢字の漢越音は？' },
+  'kanji.label.draw': { vi: 'Viết chữ Hán có âm Hán Việt này', ja: 'この漢越音の漢字を書いてください' },
   'kanji.label.wordMeaning': { vi: 'Từ này nghĩa là gì?', ja: 'この単語の意味は？' },
   'kanji.label.wordReading': { vi: 'Từ này viết hiragana thế nào?', ja: 'この単語のひらがなは？' },
   'kanji.answerPrompt.hanViet': { vi: 'Nhập âm Hán Việt của chữ', ja: '漢字の漢越音を入力' },
@@ -688,8 +705,19 @@ export const MESSAGES = {
   'radical.mode.kanjiMixed': { vi: 'Hỏi cả âm Hán Việt lẫn chiết tự', ja: '漢越音と分解の両方' },
   'radical.mode.kanjiMixed.short': { vi: 'Hán Việt + chiết tự', ja: '漢越音＋分解' },
   'radical.mode.kanjiMixed.example': { vi: '休 → HƯU / NHÂN MỘC', ja: '休 → HƯU / NHÂN MỘC' },
+  'radical.mode.draw': { vi: 'Âm Hán Việt → viết bộ thủ', ja: '漢越音 → 書く' },
+  'radical.mode.draw.short': { vi: 'Viết bộ', ja: '部首の書き取り' },
+  'radical.mode.draw.example': { vi: 'THỦY → 氵', ja: 'THỦY → 氵' },
+
+  'radical.practiceDraw': { vi: 'Luyện viết bộ thủ', ja: '部首の書き取り練習' },
+  'radical.drawThis': { vi: '✎ Luyện viết bộ này', ja: '✎ この部首を書く練習' },
+  'radical.drawMissing': {
+    vi: '{count} bộ chưa có dữ liệu nét nên không đưa vào phiên viết.',
+    ja: '{count}部首は筆順データがないため、書き取りの出題から除きます。',
+  },
 
   'radical.label.radicalHanViet': { vi: 'Bộ này đọc âm Hán Việt là gì?', ja: 'この部首の漢越音は？' },
+  'radical.label.draw': { vi: 'Viết bộ thủ có âm Hán Việt này', ja: 'この漢越音の部首を書いてください' },
   'radical.label.kanjiHanViet': { vi: 'Chữ này đọc âm Hán Việt là gì?', ja: 'この漢字の漢越音は？' },
   'radical.label.kanjiParts': {
     vi: 'Chữ này ghép từ những bộ nào? (gõ âm Hán Việt của các bộ)',
@@ -841,6 +869,26 @@ export const MESSAGES = {
   'practice.answerPrompt.masu': { vi: 'Nhập thể ます', ja: 'ます形を入力' },
   'practice.answerPrompt.form': { vi: 'Nhập {form}', ja: '{form}を入力' },
   'practice.answerPrompt.group': { vi: 'Nhập số nhóm (1, 2 hoặc 3)', ja: 'グループ番号（1・2・3）を入力' },
+  'practice.answerPrompt.draw': { vi: 'Viết chữ vào khung bên dưới', ja: '下の枠に書いてください' },
+
+  // ── Viết tay ─────────────────────────────────────────────────────────────
+  'practice.draw.canvas': { vi: 'Khung viết chữ', ja: '書き取り用の枠' },
+  'practice.draw.strokeCount': { vi: 'Đã vẽ {count} nét', ja: '{count}画を記入' },
+  'practice.draw.undo': { vi: 'Bỏ nét cuối', ja: '最後の画を取消' },
+  'practice.draw.clear': { vi: 'Xoá hết', ja: 'すべて消す' },
+  'practice.draw.loading': { vi: 'Đang tải dữ liệu nét viết…', ja: '筆順データを読み込み中…' },
+  'practice.draw.showGuide': { vi: 'Hiện nét mẫu để đồ theo', ja: 'なぞる用のお手本を表示' },
+  'practice.draw.showGuide.desc': {
+    vi: 'Tắt đi là viết từ trí nhớ. Chấm xong thì nét mẫu luôn hiện lại để đối chiếu.',
+    ja: 'オフにすると記憶だけで書きます。採点後はお手本を必ず表示します。',
+  },
+  'practice.draw.hint': { vi: 'Vẽ bằng chuột rồi bấm', ja: 'マウスで書いてから押す' },
+  'practice.draw.score': { vi: 'Đúng {matched}/{expected} nét.', ja: '{expected}画中{matched}画が正解。' },
+  'practice.draw.issue.shape': { vi: 'Nét {stroke}: lệch quá xa nét mẫu', ja: '{stroke}画目：お手本から離れすぎ' },
+  'practice.draw.issue.reversed': { vi: 'Nét {stroke}: viết ngược chiều', ja: '{stroke}画目：書く向きが逆' },
+  'practice.draw.issue.order': { vi: 'Nét {stroke}: đúng hình nhưng sai thứ tự nét', ja: '{stroke}画目：形は合っているが筆順が違う' },
+  'practice.draw.issue.missing': { vi: 'Nét {stroke}: còn thiếu', ja: '{stroke}画目：書かれていない' },
+  'practice.draw.issue.extra': { vi: 'Nét {stroke}: thừa so với chữ mẫu', ja: '{stroke}画目：お手本にない余分な画' },
 
   'practice.label.toForm': { vi: '{from} → {to}', ja: '{from} → {to}' },
   'practice.label.identifyGroup': { vi: 'Động từ này thuộc nhóm mấy?', ja: 'この動詞は何グループ？' },

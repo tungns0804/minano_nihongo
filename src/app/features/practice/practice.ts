@@ -16,12 +16,16 @@ import type { MessageKey } from '../../core/i18n/messages';
 import { QuestionStatus, sessionShortKey } from '../../core/models/practice.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { DrawingVerdict, STROKE_ISSUE_KEY, checkDrawing } from '../../core/strokes/stroke-score';
+import { StrokePoint } from '../../core/strokes/stroke.model';
+import { StrokeStore } from '../../core/strokes/stroke-store';
 import { valueOf } from '../../core/utils/dom-events';
 import { StarButton } from '../../shared/star-button';
+import { StrokeCanvas } from '../../shared/stroke-canvas';
 
 @Component({
   selector: 'app-practice',
-  imports: [StarButton, T],
+  imports: [StarButton, StrokeCanvas, T],
   templateUrl: './practice.html',
   styleUrl: './practice.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +33,7 @@ import { StarButton } from '../../shared/star-button';
 export class Practice {
   private readonly session = inject(PracticeSessionStore);
   private readonly favoriteStore = inject(FavoriteStore);
+  private readonly strokeStore = inject(StrokeStore);
   private readonly lang = inject(LanguageStore);
   private readonly router = inject(Router);
 
@@ -70,6 +75,7 @@ export class Practice {
   });
 
   readonly isChoiceMode = computed(() => this.config()?.answerMode === 'choice');
+  readonly isDrawMode = computed(() => this.config()?.answerMode === 'draw');
   readonly modeLabel = computed(() => {
     const config = this.config();
     return config ? this.lang.t(sessionShortKey(config)) : '';
@@ -113,6 +119,12 @@ export class Practice {
     if (!question) return 0;
     return Math.max(0, question.maxWrongAttempts - this.wrongAttempts());
   });
+
+  constructor() {
+    // Dữ liệu nét nằm ở một gói tải riêng, nên phiên viết tay phải gọi lấy ngay từ
+    // đầu — chờ tới câu đầu tiên mới tải thì khung vẽ trống mất mấy trăm mili giây.
+    if (this.config()?.answerMode === 'draw') void this.strokeStore.load();
+  }
 
   readonly isCurrentFavorite = computed(() => {
     // Đọc signal counts để computed này chạy lại mỗi khi Favorite đổi.
@@ -171,6 +183,62 @@ export class Practice {
     this.submitTyped();
   }
 
+  // --- Viết tay ---
+
+  /**
+   * Nét mẫu của chữ đang hỏi; rỗng khi dữ liệu nét chưa tải xong.
+   *
+   * Đọc `ready()` trước để computed chạy lại ngay khi gói dữ liệu về tới — nếu
+   * không thì câu đầu tiên mãi mãi không có nét mẫu.
+   */
+  readonly referenceStrokes = computed(() => {
+    void this.strokeStore.ready();
+    const char = this.question()?.drawChar;
+    return char ? (this.strokeStore.strokesOf(char) ?? []) : [];
+  });
+
+  readonly strokesReady = computed(() => this.referenceStrokes().length > 0);
+
+  /**
+   * Có vẽ nét mẫu mờ để đồ theo không.
+   *
+   * Khi đang làm bài thì theo tuỳ chọn gợi ý của khung thiết lập — tắt đi là kiểm
+   * tra trí nhớ thật. Chấm xong thì luôn hiện, vì lúc ấy nó là đáp án chứ không
+   * còn là gợi ý.
+   */
+  readonly showGuide = computed(() => this.isResolved() || (this.config()?.showHanViet ?? false));
+
+  private readonly verdict = signal<DrawingVerdict | null>(null);
+
+  readonly wrongStrokes = computed(() =>
+    (this.verdict()?.problems ?? []).map((problem) => problem.stroke),
+  );
+
+  readonly drawIssues = computed(() =>
+    (this.verdict()?.problems ?? []).map((problem) => ({
+      key: STROKE_ISSUE_KEY[problem.issue],
+      params: { stroke: problem.stroke },
+    })),
+  );
+
+  readonly drawScore = computed(() => {
+    const verdict = this.verdict();
+    return verdict
+      ? this.lang.t('practice.draw.score', {
+          matched: verdict.matched,
+          expected: verdict.expected,
+        })
+      : '';
+  });
+
+  onDrawn(strokes: StrokePoint[][]): void {
+    if (this.isResolved()) return;
+
+    const verdict = checkDrawing(strokes, this.referenceStrokes());
+    this.verdict.set(verdict);
+    this.handleResult(this.session.submitDrawing(verdict.correct), '');
+  }
+
   private handleResult(result: QuestionStatus, answer: string): void {
     if (result === 'correct') {
       this.lastWrongAnswer.set(null);
@@ -210,6 +278,7 @@ export class Practice {
 
     this.typedAnswer.set('');
     this.lastWrongAnswer.set(null);
+    this.verdict.set(null);
     this.focusAnswerInput();
   }
 

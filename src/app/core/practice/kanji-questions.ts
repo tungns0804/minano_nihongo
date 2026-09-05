@@ -21,7 +21,7 @@ import { limitAttempts } from './vocabulary-questions';
 
 // ── Chiều 1: chữ Hán → âm Hán Việt ─────────────────────────────────────
 
-function kanjiSubject(entry: KanjiEntry): QuestionSubject {
+export function kanjiSubject(entry: KanjiEntry): QuestionSubject {
   const readings = [entry.hanViet, ...entry.altHanViet].filter(Boolean).join(' / ');
   const examples = entry.words
     .slice(0, 4)

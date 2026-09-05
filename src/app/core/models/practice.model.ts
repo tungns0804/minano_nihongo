@@ -20,8 +20,14 @@ export type PracticeDirection = 'jp-vi' | 'vi-jp' | 'jp-han' | 'han-jp' | 'jp-ka
 /** Bốn dạng câu hỏi của bài ĐỘNG TỪ. */
 export type VerbPracticeMode = 'masu-to-form' | 'form-to-masu' | 'identify-group' | 'meaning-to-form';
 
-/** Cách người dùng trả lời. */
-export type AnswerMode = 'choice' | 'typing';
+/**
+ * Cách người dùng trả lời.
+ *
+ * `draw` là viết chữ bằng chuột: đáp án không phải chuỗi ký tự mà là hình các nét,
+ * nên nó chấm bằng `checkDrawing` (xem `core/strokes/`) chứ không đi qua
+ * `isAnswerCorrect` như hai cách kia.
+ */
+export type AnswerMode = 'choice' | 'typing' | 'draw';
 
 /**
  * Phạm vi luyện tập.
@@ -35,6 +41,12 @@ export type AnswerMode = 'choice' | 'typing';
  * quả gọi tên đúng phiên vừa làm thay vì hiện "Toàn bộ bài" cho một câu.
  */
 export type PracticeScope = 'all' | 'favorite' | 'special' | 'single';
+
+export const ANSWER_MODE_LABEL_KEY: Record<AnswerMode, MessageKey> = {
+  choice: 'lesson.answerMode.choice',
+  typing: 'lesson.answerMode.typing',
+  draw: 'lesson.answerMode.draw',
+};
 
 export const SCOPE_LABEL_KEY: Record<PracticeScope, MessageKey> = {
   all: 'scope.all',
@@ -387,6 +399,14 @@ export interface PracticeQuestion {
   isSentence: boolean;
   /** Số lần sai tối đa của riêng câu này. */
   maxWrongAttempts: number;
+  /**
+   * Chữ phải viết ra ở câu vẽ tay; null với mọi câu hỏi khác.
+   *
+   * Chỉ giữ CHỮ chứ không giữ luôn các nét mẫu: nét nằm ở một gói tải riêng
+   * (`core/strokes/stroke-store.ts`), nhét vào đây thì cả phiên hai mươi câu phải
+   * mang theo dữ liệu nét dù màn hình kết quả không bao giờ vẽ lại chúng.
+   */
+  drawChar: string | null;
 }
 
 /**
@@ -431,6 +451,7 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     choiceLabelKeys: null,
     ignorePunctuation: false,
     isSentence: false,
+    drawChar: null,
     ...draft,
   };
 }
@@ -477,7 +498,7 @@ export function sessionShortKey(config: PracticeConfig): MessageKey {
 /** Các khoá mô tả thiết lập của một phiên, dùng cho badge ở màn hình kết quả. */
 export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
   const keys: MessageKey[] = [
-    config.answerMode === 'choice' ? 'lesson.answerMode.choice' : 'lesson.answerMode.typing',
+    ANSWER_MODE_LABEL_KEY[config.answerMode],
     SCOPE_LABEL_KEY[config.scope],
   ];
 

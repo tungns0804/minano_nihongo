@@ -72,6 +72,23 @@
             </button>
           }
         </div>
+      } @else if (isDrawMode()) {
+        <div class="draw-area">
+          <span class="label">{{ answerPrompt() }}</span>
+          <!-- Dữ liệu nét nằm ở gói tải riêng nên câu đầu tiên có thể phải chờ nó
+               về; hiện dòng báo thay vì một khung trắng không rõ đang chờ gì. -->
+          @if (strokesReady()) {
+            <app-stroke-canvas
+              [reference]="referenceStrokes()"
+              [showGuide]="showGuide()"
+              [disabled]="isResolved()"
+              [wrongStrokes]="wrongStrokes()"
+              (checked)="onDrawn($event)"
+            />
+          } @else {
+            <p class="muted">{{ t('practice.draw.loading') }}</p>
+          }
+        </div>
       } @else {
         <div class="typing-area">
           <label class="label" for="answer-input">{{ answerPrompt() }}</label>
@@ -170,6 +187,15 @@
             <strong class="right-answer" [class.jp]="q.answerIsJapanese">{{ correctAnswerText() }}</strong>
           </p>
 
+          @if (isDrawMode() && drawIssues().length > 0) {
+            <p class="feedback-line">{{ drawScore() }}</p>
+            <ul class="draw-issues">
+              @for (issue of drawIssues(); track issue.key + issue.params.stroke) {
+                <li><app-t [key]="issue.key" [params]="issue.params" /></li>
+              }
+            </ul>
+          }
+
           <dl class="word-recap">
             @for (item of q.subject.recap; track item.labelKey) {
               <div class="recap-item">
@@ -219,6 +245,8 @@
           <span class="small muted hint-line">
             @if (isChoiceMode()) {
               <app-t key="practice.hintChoice" /> <kbd>1</kbd>–<kbd>{{ q.choices.length }}</kbd>.
+            } @else if (isDrawMode()) {
+              <app-t key="practice.draw.hint" /> <kbd>{{ t('practice.check') }}</kbd>.
             } @else {
               <app-t key="practice.hintTyping" /> <kbd>Enter</kbd>.
             }

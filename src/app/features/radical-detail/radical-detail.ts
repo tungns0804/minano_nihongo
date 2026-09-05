@@ -6,7 +6,9 @@ import { T } from '../../core/i18n/t';
 import { KANJI_LEVELS, KanjiLevel, emptyLevelCounts } from '../../core/kanji/kanji.model';
 import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
+import { buildRadicalDrawQuestions } from '../../core/practice/draw-questions';
 import { buildRadicalKanjiQuestions } from '../../core/practice/radical-questions';
+import { canDraw } from '../../core/strokes/stroke-store';
 import {
   RADICAL_KANJI_MODES,
   RadicalEntry,
@@ -98,6 +100,12 @@ export class RadicalDetail extends PracticeScreen {
   );
 
   readonly favoriteCount = computed(() => this.favoritesOf(this.levelKanji()).length);
+
+  /** Bộ này có dữ liệu nét để luyện viết không — KanjiVG thiếu vài biến thể. */
+  readonly canDrawChar = computed(() => {
+    const entry = this.entry();
+    return !!entry && canDraw(entry.char);
+  });
 
   // --- Tập chữ sẽ đem ra hỏi ---
 
@@ -218,6 +226,33 @@ export class RadicalDetail extends PracticeScreen {
       { id: entry.id, name: `${entry.char} ${entry.hanViet}` },
       config,
       orderQuestions(buildRadicalKanjiQuestions(this.pool(), entry, config), config),
+    );
+  }
+
+  /**
+   * Luyện viết đúng bộ đang mở — một câu, mở thẳng từ đầu trang.
+   *
+   * Không đi qua khung thiết lập như phần luyện chữ ghép: cả trang này nói về đúng
+   * một bộ, mà bộ đó lại đang vẽ to ngay trên đầu trang. Nét mẫu vì thế bật sẵn —
+   * ở đây là tập viết cho đúng thứ tự nét chứ không phải kiểm tra trí nhớ.
+   */
+  startDrawing(): void {
+    const entry = this.entry();
+    if (!entry || !this.canDrawChar()) return;
+
+    const config = practiceConfig({
+      lessonId: entry.id,
+      lessonKind: 'radical',
+      scope: 'single',
+      answerMode: 'draw',
+      showHanViet: true,
+      radicalMode: 'radical-draw',
+    });
+
+    this.launch(
+      { id: entry.id, name: `${entry.char} ${entry.hanViet}` },
+      config,
+      orderQuestions(buildRadicalDrawQuestions([entry], config), config),
     );
   }
 }

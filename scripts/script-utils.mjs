@@ -9,6 +9,7 @@
  */
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { registerHooks } from 'node:module';
 
 /** Ghi một dòng ra stdout. */
 export const log = (msg = '') => process.stdout.write(`${msg}\n`);
@@ -40,6 +41,30 @@ export const toFileUrl = (path) =>
 
 /** Chuỗi TypeScript trong dấu nháy đơn, đã escape dấu nháy nằm trong nội dung. */
 export const quote = (text) => `'${text.split("'").join("\\'")}'`;
+
+/**
+ * Cho phép nạp thẳng file `.ts` của app dù nó import lẫn nhau KHÔNG kèm đuôi file.
+ *
+ * Angular/TypeScript viết `import './vocabulary-parser'`, còn Node thì đòi đuôi và
+ * chịu thua cả những tên có sẵn dấu chấm (`./kanji.model` bị hiểu là đã có đuôi).
+ * Thêm `.ts` khi Node không tìm ra là script chạy được trên ĐÚNG file nguồn mà app
+ * đang dùng, thay vì phải chép lại logic sang một bản `.mjs` rồi để hai bản trôi
+ * khỏi nhau.
+ *
+ * Gọi TRƯỚC mọi `await import()` tới file nguồn.
+ */
+export function resolveTsImports() {
+  registerHooks({
+    resolve(specifier, context, nextResolve) {
+      try {
+        return nextResolve(specifier, context);
+      } catch (error) {
+        if (!specifier.startsWith('.')) throw error;
+        return nextResolve(`${specifier}.ts`, context);
+      }
+    },
+  });
+}
 
 /**
  * Ghi một file do máy sinh, hoặc chỉ đối chiếu khi chạy với `--check`.

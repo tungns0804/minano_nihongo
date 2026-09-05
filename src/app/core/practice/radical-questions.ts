@@ -21,7 +21,7 @@ import { limitAttempts } from './vocabulary-questions';
 
 // ── Chiều 1: bộ thủ → âm Hán Việt ──────────────────────────────────────
 
-function radicalSubject(entry: RadicalEntry): QuestionSubject {
+export function radicalSubject(entry: RadicalEntry): QuestionSubject {
   const forms = [entry.char, ...entry.variants].join(' ');
   const examples = entry.kanji
     .slice(0, 6)

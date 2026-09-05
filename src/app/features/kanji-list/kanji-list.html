@@ -100,15 +100,24 @@
     <section class="card">
       <div class="card-body stack stack-lg">
         <div class="stack stack-sm">
-          <h2>{{ t('kanji.practiceHanViet') }}</h2>
+          <h2>{{ t(isDrawing() ? 'kanji.practiceDraw' : 'kanji.practiceHanViet') }}</h2>
           <p class="muted small"><app-t key="kanji.practiceHanViet.hint" block /></p>
         </div>
 
         <div class="field">
           <span class="label">{{ t('kanji.mode') }}</span>
-          <div class="mode-still">
-            <strong><app-t [key]="hanVietMode.labelKey" /></strong>
-            <span class="jp faint"><app-t [key]="hanVietMode.exampleKey" /></span>
+          <div class="options options-2">
+            @for (item of modes; track item.id) {
+              <button
+                type="button"
+                class="option option-stacked"
+                [class.is-active]="mode() === item.id"
+                (click)="setMode(item.id)"
+              >
+                <strong><app-t [key]="item.labelKey" block /></strong>
+                <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+              </button>
+            }
           </div>
         </div>
 
@@ -140,8 +149,18 @@
 
         <div class="field">
           <span class="label">{{ t('lesson.answerMode') }}</span>
-          <p class="muted small"><app-t key="kanji.typingOnly" block /></p>
+          @if (isDrawing()) {
+            <p class="muted small"><app-t key="kanji.drawNote" block /></p>
+          } @else {
+            <p class="muted small"><app-t key="kanji.typingOnly" block /></p>
+          }
         </div>
+
+        @if (missingStrokeCount() > 0) {
+          <div class="notice notice-warning">
+            {{ t('kanji.drawMissing', { count: missingStrokeCount() }) }}
+          </div>
+        }
 
         <div class="field">
           <span class="label">{{ t('lesson.questionCount') }}</span>
@@ -173,22 +192,31 @@
             <label class="checkbox">
               <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
               <span>
-                <strong><app-t key="kanji.option.showWordHint" block /></strong>
-                <span class="hint"><app-t key="kanji.option.showWordHint.desc" block /></span>
+                @if (isDrawing()) {
+                  <strong><app-t key="practice.draw.showGuide" block /></strong>
+                  <span class="hint"><app-t key="practice.draw.showGuide.desc" block /></span>
+                } @else {
+                  <strong><app-t key="kanji.option.showWordHint" block /></strong>
+                  <span class="hint"><app-t key="kanji.option.showWordHint.desc" block /></span>
+                }
               </span>
             </label>
 
-            <label class="checkbox">
-              <input
-                type="checkbox"
-                [checked]="ignoreDiacritics()"
-                (change)="toggleIgnoreDiacritics($event)"
-              />
-              <span>
-                <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
-                <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
-              </span>
-            </label>
+            <!-- Bỏ dấu chỉ có nghĩa khi đáp án là chữ Latin gõ tay; chiều viết chữ
+                 chấm bằng hình nét nên tuỳ chọn này không đụng tới gì cả. -->
+            @if (!isDrawing()) {
+              <label class="checkbox">
+                <input
+                  type="checkbox"
+                  [checked]="ignoreDiacritics()"
+                  (change)="toggleIgnoreDiacritics($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+                </span>
+              </label>
+            }
 
             <label class="checkbox">
               <input
@@ -212,7 +240,7 @@
               [params]="{
                 count: plannedQuestionCount(),
                 mode: modeShort(),
-                answer: t('lesson.plan.typing'),
+                answer: t(isDrawing() ? 'lesson.plan.draw' : 'lesson.plan.typing'),
                 max: maxWrongAttempts
               }"
             />
