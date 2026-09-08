@@ -11,6 +11,13 @@
 # NGUỒN: 皆の日本語 II bản tiếng Việt, bài 42 — mục I. Từ vựng (tr. 104-105),
 # gồm cả phần 〈会話〉 và 〈読み物〉. Danh sách cũ ở đây chép nhầm sang bài 43
 # (輸出が増えます…収入) nên đã thay toàn bộ.
+#
+# 18 dòng bỏ trống ô âm Hán Việt là CỐ Ý, không phải gõ sót: sách viết chúng
+# bằng kana (アパート, ミキサー, ローン, なぜ, どのくらい, ふた, めん, どんぶり,
+# やかん, ふろしき, そろばん…), mà kana thì không có âm Hán Việt. Đây là bài
+# 皆の日本語 đầu tiên trộn từ có âm và từ không có — 49 bài kia chỉ chép các từ
+# có chữ Hán. Hai chiều luyện Nhật→Hán Việt và Hán Việt→Nhật vì vậy hỏi 36 từ
+# chứ không phải 54; `filterWords` trong lesson-detail.ts lo phần đó.
 BAO,包みます (つつみます),gói|プレゼントをきれいな紙で包みます。
 PHÍ,沸かします (わかします),đun sôi|お茶を飲むために、お湯を沸かします。
 HỖN,混ぜます (まぜます),trộn|材料をよく混ぜてください。
