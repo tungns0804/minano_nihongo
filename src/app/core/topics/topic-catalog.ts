@@ -33,7 +33,7 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     description: 'Mây, gió, núi, biển, bốn mùa và các hiện tượng thời tiết — chủ đề ruột của bài đọc.',
     icon: '🌤️',
     wordCount: 49,
-    sourceCount: 20,
+    sourceCount: 21,
   },
   {
     id: 'dong-vat-thuc-vat',
@@ -150,7 +150,7 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     description: 'Số lớn, đơn vị đếm, cách đo lường và các cặp tăng/giảm — phần dễ mất điểm vì đọc lướt.',
     icon: '🔢',
     wordCount: 52,
-    sourceCount: 16,
+    sourceCount: 17,
   },
   {
     id: 'cam-xuc-tinh-cach',

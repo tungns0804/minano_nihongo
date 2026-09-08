@@ -2,153 +2,441 @@
   "id": "minano-nihongo-42",
   "lessonNumber": 42,
   "name": "皆の日本語 — Bài 42 · Từ vựng",
-  "description": "Từ vựng bài 42 (PDF nguồn ghi trùng danh sách với bài 43)",
+  "description": "Từ vựng bài 42",
   "kind": "vocabulary",
-  "itemCount": 18,
+  "itemCount": 54,
   "words": [
     {
-      "id": "1uz0zt0",
-      "hanViet": "THÂU XUẤT TĂNG",
-      "japanese": "輸出が増えます",
-      "reading": "ゆしゅつがふえます",
-      "vietnamese": "xuất khẩu tăng lên",
-      "example": "車の輸出が増えています。"
+      "id": "0xt7p4i",
+      "hanViet": "BAO",
+      "japanese": "包みます",
+      "reading": "つつみます",
+      "vietnamese": "gói",
+      "example": "プレゼントをきれいな紙で包みます。"
     },
     {
-      "id": "1f879g6",
-      "hanViet": "THÂU XUẤT GIẢM",
-      "japanese": "輸出が減ります",
-      "reading": "ゆしゅつがへります",
-      "vietnamese": "xuất khẩu giảm xuống",
-      "example": "今年は輸出が減りました。"
+      "id": "14vl94n",
+      "hanViet": "PHÍ",
+      "japanese": "沸かします",
+      "reading": "わかします",
+      "vietnamese": "đun sôi",
+      "example": "お茶を飲むために、お湯を沸かします。"
     },
     {
-      "id": "0084zz8",
-      "hanViet": "TRỊ ĐOẠN THƯỢNG",
-      "japanese": "値段が上がります",
-      "reading": "ねだんがあがります",
-      "vietnamese": "giá tăng lên",
-      "example": "野菜の値段が上がりました。"
+      "id": "0y1l81z",
+      "hanViet": "HỖN",
+      "japanese": "混ぜます",
+      "reading": "まぜます",
+      "vietnamese": "trộn",
+      "example": "材料をよく混ぜてください。"
     },
     {
-      "id": "13s0x59",
-      "hanViet": "TRỊ ĐOẠN HẠ",
-      "japanese": "値段が下がります",
-      "reading": "ねだんがさがります",
-      "vietnamese": "giá giảm xuống",
-      "example": "パソコンの値段が下がりました。"
+      "id": "0sgl07t",
+      "hanViet": "KẾ TOÁN",
+      "japanese": "計算します",
+      "reading": "けいさんします",
+      "vietnamese": "tính/ tính toán",
+      "example": "そろばんは計算するのに使います。"
     },
     {
-      "id": "0yv4x0s",
-      "hanViet": "THIẾT",
-      "japanese": "ひもが切れます",
-      "reading": "ひもがきれます",
-      "vietnamese": "sợi dây bị đứt",
-      "example": "荷物のひもが切れました。"
-    },
-    {
-      "id": "0v4n9gs",
-      "hanViet": "THỦ",
-      "japanese": "ボタンがとれます",
-      "reading": "",
-      "vietnamese": "cái cúc bị tuột",
-      "example": "シャツのボタンがとれました。"
-    },
-    {
-      "id": "05990l7",
-      "hanViet": "HÀ VẬT LẠC",
-      "japanese": "荷物が落ちます",
-      "reading": "にもつがおちます",
-      "vietnamese": "hành lý bị rơi",
-      "example": "棚から荷物が落ちました。"
+      "id": "1lye11x",
+      "hanViet": "TỊNH",
+      "japanese": "並びます",
+      "reading": "ならびます",
+      "vietnamese": "xếp hàng",
+      "example": "切符を買うために並んでいます。"
     },
     {
       "id": "1gcfcbf",
       "hanViet": "TRƯỢNG PHU",
       "japanese": "丈夫",
       "reading": "じょうぶ",
-      "vietnamese": "chắc/ bền",
-      "example": "丈夫なかばんを買いました。"
+      "vietnamese": "chắc chắn",
+      "example": "この袋は丈夫で、荷物を入れるのに便利です。"
     },
     {
-      "id": "18j523x",
-      "hanViet": "BIẾN",
-      "japanese": "変",
-      "reading": "へん",
-      "vietnamese": "lạ/ kỳ quặc",
-      "example": "変な人に会いました。"
+      "id": "0ulve6k",
+      "hanViet": "",
+      "japanese": "アパート",
+      "reading": "",
+      "vietnamese": "phòng trọ",
+      "example": "大学の近くのアパートに住んでいます。"
     },
     {
-      "id": "171233q",
-      "hanViet": "HẠNH",
-      "japanese": "幸せ",
-      "reading": "しあわせ",
-      "vietnamese": "hạnh phúc",
-      "example": "家族と一緒にいると幸せです。"
+      "id": "01zpgxg",
+      "hanViet": "BIỆN HỘ SĨ",
+      "japanese": "弁護士",
+      "reading": "べんごし",
+      "vietnamese": "luật sư",
+      "example": "弁護士になるために、法律を勉強しています。"
     },
     {
-      "id": "1ygsvz7",
-      "hanViet": "HỎA",
-      "japanese": "火",
-      "reading": "ひ",
-      "vietnamese": "lửa",
-      "example": "火を消してください。"
+      "id": "02tw18e",
+      "hanViet": "ÂM NHẠC GIA",
+      "japanese": "音楽家",
+      "reading": "おんがくか",
+      "vietnamese": "nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc",
+      "example": "ベートーベンは有名な音楽家です。"
     },
     {
-      "id": "1yrvs45",
-      "hanViet": "NOÃN PHÒNG",
-      "japanese": "暖房",
-      "reading": "だんぼう",
-      "vietnamese": "lò sưởi/ thiết bị làm ấm",
-      "example": "暖房のために電気をたくさん使います。"
+      "id": "0dea0zc",
+      "hanViet": "TỬ",
+      "japanese": "子どもたち",
+      "reading": "こどもたち",
+      "vietnamese": "những đứa trẻ/ bọn trẻ",
+      "example": "子どもたちのために公園を作りました。"
     },
     {
-      "id": "0sy7n07",
-      "hanViet": "LÃNH PHÒNG",
-      "japanese": "冷房",
-      "reading": "れいぼう",
-      "vietnamese": "máy lạnh/ thiết bị làm mát",
-      "example": "夏は冷房が必要です。"
+      "id": "0953jr6",
+      "hanViet": "TỰ NHIÊN",
+      "japanese": "自然",
+      "reading": "しぜん",
+      "vietnamese": "tự nhiên",
+      "example": "自然を守るために、何ができますか。"
     },
     {
-      "id": "1h3j4z7",
-      "hanViet": "KIM",
-      "japanese": "今にも",
-      "reading": "いまにも",
-      "vietnamese": "sắp/ chỉ chực",
-      "example": "今にも雨が降りそうな空です。"
+      "id": "1dwwnxj",
+      "hanViet": "GIÁO DỤC",
+      "japanese": "教育",
+      "reading": "きょういく",
+      "vietnamese": "giáo dục",
+      "example": "子どもの教育のためにお金をためています。"
     },
     {
-      "id": "1ov4pec",
-      "hanViet": "HỘI VIÊN",
-      "japanese": "会員",
-      "reading": "かいいん",
-      "vietnamese": "hội viên/ thành viên",
-      "example": "会員になるために申し込みます。"
+      "id": "0pmzjk2",
+      "hanViet": "VĂN HÓA",
+      "japanese": "文化",
+      "reading": "ぶんか",
+      "vietnamese": "văn hóa",
+      "example": "日本の文化を知るために、お茶を習っています。"
     },
     {
-      "id": "06qu27t",
-      "hanViet": "THÍCH ĐƯƠNG",
-      "japanese": "適当",
-      "reading": "てきとう",
-      "vietnamese": "thích hợp/ vừa phải",
-      "example": "適当な大きさに切ってください。"
+      "id": "02lnbc5",
+      "hanViet": "XÃ HỘI",
+      "japanese": "社会",
+      "reading": "しゃかい",
+      "vietnamese": "xã hội",
+      "example": "大学を出て、社会に出ます。"
     },
     {
-      "id": "1h83xvd",
-      "hanViet": "NIÊN LINH",
-      "japanese": "年齢",
-      "reading": "ねんれい",
-      "vietnamese": "tuổi",
-      "example": "申し込みに年齢を書きます。"
+      "id": "1p2rdof",
+      "hanViet": "CHÍNH TRỊ",
+      "japanese": "政治",
+      "reading": "せいじ",
+      "vietnamese": "chính trị",
+      "example": "新聞で政治のニュースを読みます。"
     },
     {
-      "id": "0z53zhp",
-      "hanViet": "THÂU NHẬP",
-      "japanese": "収入",
-      "reading": "しゅうにゅう",
-      "vietnamese": "thu nhập",
-      "example": "生活のために収入が必要です。"
+      "id": "1rhy0gl",
+      "hanViet": "PHÁP LUẬT",
+      "japanese": "法律",
+      "reading": "ほうりつ",
+      "vietnamese": "pháp luật",
+      "example": "法律を守らなければなりません。"
+    },
+    {
+      "id": "0pi5we5",
+      "hanViet": "CHIẾN TRANH",
+      "japanese": "戦争",
+      "reading": "せんそう",
+      "vietnamese": "chiến tranh",
+      "example": "戦争のない世界にしたいです。"
+    },
+    {
+      "id": "04tsk5n",
+      "hanViet": "BÌNH HÒA",
+      "japanese": "平和",
+      "reading": "へいわ",
+      "vietnamese": "hòa bình",
+      "example": "平和のために働いています。"
+    },
+    {
+      "id": "1686kxr",
+      "hanViet": "MỤC ĐÍCH",
+      "japanese": "目的",
+      "reading": "もくてき",
+      "vietnamese": "mục đích",
+      "example": "旅行の目的は何ですか。"
+    },
+    {
+      "id": "04hrrxp",
+      "hanViet": "LUẬN VĂN",
+      "japanese": "論文",
+      "reading": "ろんぶん",
+      "vietnamese": "luận văn",
+      "example": "論文を書くために、資料を集めています。"
+    },
+    {
+      "id": "177k4ib",
+      "hanViet": "LẠC",
+      "japanese": "楽しみ",
+      "reading": "たのしみ",
+      "vietnamese": "niềm vui",
+      "example": "旅行は私の楽しみです。"
+    },
+    {
+      "id": "1gvam58",
+      "hanViet": "",
+      "japanese": "ミキサー",
+      "reading": "",
+      "vietnamese": "máy xay",
+      "example": "ミキサーはジュースを作るのに使います。"
+    },
+    {
+      "id": "1tmjqx3",
+      "hanViet": "",
+      "japanese": "やかん",
+      "reading": "",
+      "vietnamese": "ấm đun nước",
+      "example": "やかんでお湯を沸かします。"
+    },
+    {
+      "id": "10ltbeb",
+      "hanViet": "",
+      "japanese": "ふた",
+      "reading": "",
+      "vietnamese": "nắp",
+      "example": "なべのふたを取ってください。"
+    },
+    {
+      "id": "0rq5zgf",
+      "hanViet": "THUYÊN BẠT",
+      "japanese": "栓抜き",
+      "reading": "せんぬき",
+      "vietnamese": "cái bật nắp chai",
+      "example": "栓抜きはびんを開けるのに使います。"
+    },
+    {
+      "id": "13ydutc",
+      "hanViet": "PHỮU THIẾT",
+      "japanese": "缶切り",
+      "reading": "かんきり",
+      "vietnamese": "cái mở nắp hộp",
+      "example": "缶切りで缶詰を開けます。"
+    },
+    {
+      "id": "1g9akdp",
+      "hanViet": "PHỮU CẬT",
+      "japanese": "缶詰",
+      "reading": "かんづめ",
+      "vietnamese": "đồ hộp/ thực phẩm đóng hộp",
+      "example": "旅行に缶詰を持って行きます。"
+    },
+    {
+      "id": "1x6og8s",
+      "hanViet": "ĐẠI",
+      "japanese": "のし袋",
+      "reading": "のしぶくろ",
+      "vietnamese": "phong bì dùng để bỏ tiền mừng",
+      "example": "結婚のお祝いはのし袋に入れます。"
+    },
+    {
+      "id": "075w341",
+      "hanViet": "",
+      "japanese": "ふろしき",
+      "reading": "",
+      "vietnamese": "khăn vuông để gói đồ kiểu Nhật",
+      "example": "ふろしきは物を包むのに使います。"
+    },
+    {
+      "id": "1onpllu",
+      "hanViet": "",
+      "japanese": "そろばん",
+      "reading": "",
+      "vietnamese": "bàn tính",
+      "example": "そろばんで計算します。"
+    },
+    {
+      "id": "0e0qj0q",
+      "hanViet": "THỂ ÔN KẾ",
+      "japanese": "体温計",
+      "reading": "たいおんけい",
+      "vietnamese": "nhiệt kế",
+      "example": "熱があるので、体温計を借りました。"
+    },
+    {
+      "id": "1apc85x",
+      "hanViet": "TÀI LIỆU",
+      "japanese": "材料",
+      "reading": "ざいりょう",
+      "vietnamese": "nguyên liệu",
+      "example": "カレーの材料を買いに行きます。"
+    },
+    {
+      "id": "11wjow0",
+      "hanViet": "",
+      "japanese": "ある～",
+      "reading": "",
+      "vietnamese": "một ～ nọ",
+      "example": "ある日、山で犬を見つけました。"
+    },
+    {
+      "id": "0ifetug",
+      "hanViet": "NHẤT SINH HUYỀN MỆNH",
+      "japanese": "一生懸命",
+      "reading": "いっしょうけんめい",
+      "vietnamese": "chăm chỉ/ gắng hết sức",
+      "example": "将来のために一生懸命働いています。"
+    },
+    {
+      "id": "072zl7h",
+      "hanViet": "",
+      "japanese": "なぜ",
+      "reading": "",
+      "vietnamese": "tại sao",
+      "example": "なぜ日本語を勉強しているんですか。"
+    },
+    {
+      "id": "1ofxq46",
+      "hanViet": "",
+      "japanese": "どのくらい",
+      "reading": "",
+      "vietnamese": "bao nhiêu",
+      "example": "駅までどのくらいかかりますか。"
+    },
+    {
+      "id": "0onjtt3",
+      "hanViet": "QUỐC LIÊN",
+      "japanese": "国連",
+      "reading": "こくれん",
+      "vietnamese": "Liên Hợp Quốc",
+      "example": "国連で働くために、英語を勉強しています。"
+    },
+    {
+      "id": "11ca0so",
+      "hanViet": "",
+      "japanese": "エリーゼのために",
+      "reading": "",
+      "vietnamese": "Dành cho Elise/ tên một bản nhạc",
+      "example": "「エリーゼのために」はベートーベンの曲です。"
+    },
+    {
+      "id": "1kp5ydc",
+      "hanViet": "",
+      "japanese": "ベートーベン",
+      "reading": "",
+      "vietnamese": "Beethoven/ nhà soạn nhạc người Đức (1770-1827)",
+      "example": "ベートーベンはドイツの音楽家です。"
+    },
+    {
+      "id": "0tuv8cq",
+      "hanViet": "",
+      "japanese": "こどもニュース",
+      "reading": "",
+      "vietnamese": "Bản tin thiếu nhi/ chương trình tin tức giả định",
+      "example": "こどもニュースは子どもたちのための番組です。"
+    },
+    {
+      "id": "16cwkom",
+      "hanViet": "XUẤT",
+      "japanese": "ボーナスが出ます",
+      "reading": "ボーナスがでます",
+      "vietnamese": "có thưởng/ được thưởng",
+      "example": "今年もボーナスが出ました。"
+    },
+    {
+      "id": "0o9hh64",
+      "hanViet": "BÁN PHÂN",
+      "japanese": "半分",
+      "reading": "はんぶん",
+      "vietnamese": "một nửa",
+      "example": "ボーナスの半分を貯金します。"
+    },
+    {
+      "id": "02pnxfn",
+      "hanViet": "",
+      "japanese": "ローン",
+      "reading": "",
+      "vietnamese": "khoản vay ngân hàng",
+      "example": "ローンで車を買いました。"
+    },
+    {
+      "id": "0fxyyew",
+      "hanViet": "",
+      "japanese": "カップめん",
+      "reading": "",
+      "vietnamese": "mì ly/ mì ăn liền để trong ly dùng một lần",
+      "example": "お湯を沸かして、カップめんを作ります。"
+    },
+    {
+      "id": "00yfox0",
+      "hanViet": "THẾ GIỚI SƠ",
+      "japanese": "世界初",
+      "reading": "せかいはつ",
+      "vietnamese": "đầu tiên trên thế giới",
+      "example": "これは世界初のカップめんです。"
+    },
+    {
+      "id": "08lwrop",
+      "hanViet": "",
+      "japanese": "～によって",
+      "reading": "",
+      "vietnamese": "bởi ～",
+      "example": "カップめんは安藤百福によって作られました。"
+    },
+    {
+      "id": "1dzbawf",
+      "hanViet": "",
+      "japanese": "どんぶり",
+      "reading": "",
+      "vietnamese": "bát tô lớn",
+      "example": "どんぶりにご飯を入れます。"
+    },
+    {
+      "id": "0dvmvqb",
+      "hanViet": "",
+      "japanese": "めん",
+      "reading": "",
+      "vietnamese": "mì sợi",
+      "example": "どんぶりのめんにお湯を注ぎます。"
+    },
+    {
+      "id": "1qvm1nj",
+      "hanViet": "QUẢNG",
+      "japanese": "広めます",
+      "reading": "ひろめます",
+      "vietnamese": "phổ cập/ nhân rộng/ mở rộng",
+      "example": "日本の文化を世界に広めたいです。"
+    },
+    {
+      "id": "09ntews",
+      "hanViet": "THỊ TRƯỜNG ĐIỀU TRA",
+      "japanese": "市場調査",
+      "reading": "しじょうちょうさ",
+      "vietnamese": "điều tra thị trường",
+      "example": "新しい商品のために市場調査をします。"
+    },
+    {
+      "id": "0c0zqjs",
+      "hanViet": "CÁT",
+      "japanese": "割ります",
+      "reading": "わります",
+      "vietnamese": "bẻ ra/ chia nhỏ ra",
+      "example": "めんを半分に割って、どんぶりに入れます。"
+    },
+    {
+      "id": "14jntuh",
+      "hanViet": "CHÚ",
+      "japanese": "注ぎます",
+      "reading": "そそぎます",
+      "vietnamese": "đổ vào",
+      "example": "カップにお湯を注ぎます。"
+    },
+    {
+      "id": "1gqtj4j",
+      "hanViet": "",
+      "japanese": "チキンラーメン",
+      "reading": "",
+      "vietnamese": "Chikin Ramen/ tên của một loại mì ăn liền",
+      "example": "チキンラーメンは世界初のインスタントラーメンです。"
+    },
+    {
+      "id": "0d9cz0g",
+      "hanViet": "AN ĐẰNG BÁCH PHÚC",
+      "japanese": "安藤百福",
+      "reading": "あんどうももふく",
+      "vietnamese": "Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)",
+      "example": "安藤百福はカップめんを発明しました。"
     }
   ],
   "verbs": [],

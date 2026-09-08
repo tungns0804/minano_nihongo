@@ -6,7 +6,7 @@
  * `core/exercises/`). Âm Hán Việt của từng chữ suy ra bằng cách căn âm tiết của
  * âm Hán Việt cả từ với các chữ Hán trong từ — xem `scripts/generate-kanji.mjs`.
  *
- * Thống kê lần sinh gần nhất: 2123 chữ (N5=118 N4=149 N3=375 N2=362 N1=1119), 2655 lượt từ.
+ * Thống kê lần sinh gần nhất: 2123 chữ (N5=118 N4=149 N3=375 N2=362 N1=1119), 2705 lượt từ.
  */
 
 import type { KanjiSeed } from './kanji.model';
@@ -62,6 +62,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['目', 'MỤC', '', 'N5', [
     ['目', 'め', 'MỤC', 'Mắt', 'N5'],
+    ['目的', 'もくてき', 'MỤC ĐÍCH', 'mục đích', 'N4'],
     ['目が覚めます', 'めがさめます', 'MỤC GIÁC', 'tỉnh giấc/ mở mắt', 'N4'],
     ['目覚まし時計', 'めざましどけい', 'MỤC GIÁC THỜI KẾ', 'đồng hồ báo thức', 'N4'],
     ['お目にかかります', 'おめにかかります', 'MỤC', 'gặp (khiêm nhường ngữ)', 'N4'],
@@ -431,12 +432,14 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['体', 'からだ', 'THỂ', 'Người, cơ thể', 'N5'],
     ['体にいい', 'からだにいい', 'THỂ', 'Tốt cho sức khỏe', 'N5'],
     ['体育館', 'たいいくかん', 'THỂ DỤC QUÁN', 'nhà tập/ nhà thi đấu thể thao', 'N4'],
+    ['体温計', 'たいおんけい', 'THỂ ÔN KẾ', 'nhiệt kế', 'N4'],
   ]],
   ['音', 'ÂM', '', 'N5', [
     ['音', 'おと', 'ÂM', 'Âm thanh', 'N5'],
     ['音楽', 'おんがく', 'ÂM NHẠC/LẠC', 'âm nhạc', 'N5'],
     ['騒音', 'そうおん', 'TAO ÂM', 'tiếng ồn', 'N4'],
     ['発音', 'はつおん', 'PHÁT ÂM', 'phát âm', 'N4'],
+    ['音楽家', 'おんがくか', 'ÂM NHẠC GIA', 'nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc', 'N4'],
     ['音がします', 'おとがします', 'ÂM', 'có tiếng/ nghe thấy tiếng động', 'N4'],
     ['音が聞こえます', 'おとがきこえます', 'ÂM VĂN', 'có thể nghe thấy âm thanh', 'N4'],
   ]],
@@ -679,6 +682,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['百', 'BÁCH', '', 'N5', [
     ['百', 'ひゃく', 'BÁCH', 'Trăm', 'N5'],
+    ['安藤百福', 'あんどうももふく', 'AN ĐẰNG BÁCH PHÚC', 'Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)', 'N4'],
   ]],
   ['読', 'ĐỘC', '', 'N5', [
     ['読む', 'よむ', 'ĐỘC', 'đọc', 'N5'],
@@ -730,6 +734,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['輸出が増えます', 'ゆしゅつがふえます', 'THÂU XUẤT TĂNG', 'xuất khẩu tăng lên', 'N4'],
     ['輸出が減ります', 'ゆしゅつがへります', 'THÂU XUẤT GIẢM', 'xuất khẩu giảm xuống', 'N4'],
     ['会議に出席します', 'かいぎにしゅっせきします', 'HỘI NGHỊ XUẤT TỊCH', 'tham dự cuộc họp/ tham gia cuộc họp', 'N4'],
+    ['ボーナスが出ます', 'ボーナスがでます', 'XUẤT', 'có thưởng/ được thưởng', 'N4'],
     ['スーツをクリーニングに出す', 'スーツをクリーニングにだす', '', 'mang vest đi giặt khô', 'N3'],
     ['提出します', 'ていしゅつします', '', 'nộp', 'N2'],
   ]],
@@ -849,6 +854,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['安', 'AN', '', 'N5', [
     ['安い', 'やすい', 'AN', 'rẻ', 'N5'],
     ['安全', 'あんぜん', 'AN TOÀN', 'an toàn', 'N4'],
+    ['安藤百福', 'あんどうももふく', 'AN ĐẰNG BÁCH PHÚC', 'Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)', 'N4'],
     ['安心します', 'あんしんします', 'AN TÂM', 'yên tâm', 'N4'],
   ]],
   ['町', 'ĐINH', '', 'N5', [
@@ -1022,6 +1028,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['会社を休みます', 'かいしゃをやすみます', 'HỘI XÃ', 'nghỉ làm việc', 'N5'],
     ['会社をやめます', 'かいしゃをやめます', 'HỘI XÃ', 'Bỏ, thôi việc công ty', 'N5'],
     ['本社', 'ほんしゃ', 'BẢN XÃ', 'trụ sở chính', 'N4'],
+    ['社会', 'しゃかい', 'XÃ HỘI', 'xã hội', 'N4'],
     ['～会社', '～かいしゃ', 'HỘI XÃ', 'công ty ~', 'N4'],
     ['新聞社', 'しんぶんしゃ', 'TÂN VĂN XÃ', 'toà soạn báo/ công ty báo chí', 'N4'],
     ['旅行社', 'りょこうしゃ', 'LỮ HÀNH XÃ', 'công ty du lịch', 'N4'],
@@ -1051,7 +1058,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['夫', 'PHU', '', 'N4', [
     ['夫', 'おっと', 'PHU', 'chồng', 'N5'],
     ['大丈夫', 'だいじょうぶ', 'ĐẠI TRƯỢNG PHU', 'Không sao, không có vấn đề gì', 'N5'],
-    ['丈夫', 'じょうぶ', 'TRƯỢNG PHU', 'chắc/ bền', 'N4'],
+    ['丈夫', 'じょうぶ', 'TRƯỢNG PHU', 'chắc chắn', 'N4'],
   ]],
   ['有', 'HỮU', '', 'N4', [
     ['有名', 'ゆうめい', 'HỮU DANH', 'nổi tiếng', 'N5'],
@@ -1061,6 +1068,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['午後', 'ごご', 'NGỌ HẬU', 'Chiều, sau 12 giờ trưa', 'N5'],
   ]],
   ['化', 'HÓA', '', 'N4', [
+    ['文化', 'ぶんか', 'VĂN HÓA', 'văn hóa', 'N4'],
     ['化粧', 'けしょう', 'HÓA TRANG', 'sự trang điểm', 'N4'],
     ['化粧品', 'けしょうひん', 'HÓA TRANG PHẨM', 'mỹ phẩm', 'N4'],
     ['西洋化します', 'せいようかします', 'TÂY DƯƠNG HÓA', 'Tây Âu hóa', 'N4'],
@@ -1068,6 +1076,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['界', 'GIỚI', '', 'N4', [
     ['世界', 'せかい', 'THẾ GIỚI', 'Thế giới', 'N5'],
     ['世界中', 'せかいじゅう', 'THẾ GIỚI TRUNG', 'khắp thế giới/ toàn thế giới', 'N4'],
+    ['世界初', 'せかいはつ', 'THẾ GIỚI SƠ', 'đầu tiên trên thế giới', 'N4'],
     ['世界的に', 'せかいてきに', 'THẾ GIỚI', 'tầm cỡ thế giới', 'N4'],
   ]],
   ['奥', 'ÁO', '', 'N4', [
@@ -1124,6 +1133,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['お国', 'おくに', 'QUỐC', 'đất nước', 'N5'],
     ['外国', 'がいこく', 'NGOẠI QUỐC', 'nước ngoài', 'N5'],
     ['国際～', 'こくさい～', 'QUỐC TẾ', '~ Quốc tế', 'N5'],
+    ['国連', 'こくれん', 'QUỐC LIÊN', 'Liên Hợp Quốc', 'N4'],
     ['再入国ビザ', 'さいにゅうこくビザ', 'TÁI NHẬP QUỐC', 'thị thực tái nhập cảnh', 'N4'],
   ]],
   ['谷', 'CỐC', '', 'N4', [
@@ -1203,6 +1213,8 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['文', 'VĂN', '', 'N4', [
     ['作文', 'さくぶん', 'TÁC VĂN', 'bài văn/ bài tập làm văn', 'N4'],
     ['文法', 'ぶんぽう', 'VĂN PHÁP', 'ngữ pháp', 'N4'],
+    ['文化', 'ぶんか', 'VĂN HÓA', 'văn hóa', 'N4'],
+    ['論文', 'ろんぶん', 'LUẬN VĂN', 'luận văn', 'N4'],
     ['文学', 'ぶんがく', 'VĂN HỌC', 'văn học', 'N4'],
   ]],
   ['雪', 'TUYẾT', '', 'N4', [
@@ -1283,6 +1295,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['会場', 'かいじょう', 'HỘI TRƯỜNG', 'hội trường', 'N4'],
     ['置き場', 'おきば', 'TRÍ TRƯỜNG', 'nơi để/ chỗ để/ bãi để', 'N4'],
     ['スキー場', 'スキーじょう', 'TRƯỜNG', 'bãi trượt tuyết', 'N4'],
+    ['市場調査', 'しじょうちょうさ', 'THỊ TRƯỜNG ĐIỀU TRA', 'điều tra thị trường', 'N4'],
   ]],
   ['後', 'HẬU', '', 'N4', [
     ['午後', 'ごご', 'NGỌ HẬU', 'Chiều, sau 12 giờ trưa', 'N5'],
@@ -1336,6 +1349,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['教会', 'きょうかい', 'GIÁO HỘI', 'nhà thờ', 'N4'],
     ['機会', 'きかい', 'CƠ HỘI', 'cơ hội', 'N4'],
     ['大会', 'たいかい', 'ĐẠI HỘI', 'đại hội/ cuộc thi', 'N4'],
+    ['社会', 'しゃかい', 'XÃ HỘI', 'xã hội', 'N4'],
     ['会員', 'かいいん', 'HỘI VIÊN', 'hội viên/ thành viên', 'N4'],
     ['会場', 'かいじょう', 'HỘI TRƯỜNG', 'hội trường', 'N4'],
     ['～会社', '～かいしゃ', 'HỘI XÃ', 'công ty ~', 'N4'],
@@ -1381,6 +1395,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['広', 'QUẢNG', '', 'N4', [
     ['広い', 'ひろい', 'QUẢNG', 'rộng', 'N5'],
+    ['広めます', 'ひろめます', 'QUẢNG', 'phổ cập/ nhân rộng/ mở rộng', 'N4'],
   ]],
   ['売', 'MẠI', '', 'N4', [
     ['売り場', 'うりば', 'MẠI TRƯỜNG', 'quầy bán (trong một cửa hàng bách hóa)', 'N5'],
@@ -1468,6 +1483,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['作家', 'さっか', 'TÁC GIA', 'nhà văn', 'N4'],
     ['小説家', 'しょうせつか', 'TIỂU THUYẾT GIA', 'tiểu thuyết gia/ nhà văn', 'N4'],
     ['建築家', 'けんちくか', 'KIẾN TRÚC GIA', 'kiến trúc sư', 'N4'],
+    ['音楽家', 'おんがくか', 'ÂM NHẠC GIA', 'nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc', 'N4'],
     ['家具をみがく', 'かぐをみがく', '', 'đánh bóng đồ gỗ', 'N3'],
   ]],
   ['才', 'TÀI', '', 'N4', [
@@ -1513,6 +1529,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['教えます', 'おしえます', '', 'dạy/ chỉ cho', 'N5'],
     ['住所を教えます', 'じゅうしょをおしえます', 'TRÚ SỞ GIÁO', 'Nói, cho biết địa chỉ', 'N5'],
     ['教会', 'きょうかい', 'GIÁO HỘI', 'nhà thờ', 'N4'],
+    ['教育', 'きょういく', 'GIÁO DỤC', 'giáo dục', 'N4'],
     ['教室を開きます', 'きょうしつをひらきます', 'GIÁO THẤT KHAI', 'mở lớp học', 'N4'],
   ]],
   ['考', 'KHẢO', '', 'N4', [
@@ -1522,7 +1539,9 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['計', 'KẾ', '', 'N4', [
     ['時計', 'とけい', 'THỜI KẾ', 'Đồng hồ', 'N5'],
     ['時計が動きます', 'とけいがうごきます', 'THỜI KẾ ĐỘNG', 'Chuyển động, chạy đồng hồ', 'N5'],
+    ['体温計', 'たいおんけい', 'THỂ ÔN KẾ', 'nhiệt kế', 'N4'],
     ['設計します', 'せっけいします', 'THIẾT KẾ', 'thiết kế', 'N4'],
+    ['計算します', 'けいさんします', 'KẾ TOÁN', 'tính/ tính toán', 'N4'],
     ['目覚まし時計', 'めざましどけい', 'MỤC GIÁC THỜI KẾ', 'đồng hồ báo thức', 'N4'],
   ]],
   ['園', 'VIÊN', '', 'N4', [
@@ -1581,7 +1600,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['然', 'NHIÊN', '', 'N4', [
     ['全然', 'ぜんぜん', 'TOÀN NHIÊN', 'hoàn toàn ~ không', 'N5'],
-    ['自然', 'しぜん', 'TỰ NHIÊN', 'tự nhiên/ thiên nhiên', 'N4'],
+    ['自然', 'しぜん', 'TỰ NHIÊN', 'tự nhiên', 'N4'],
   ]],
   ['馬', 'MÃ', '', 'N4', [
     ['馬', 'うま', 'MÃ', 'Ngựa', 'N5'],
@@ -1593,6 +1612,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['世界', 'せかい', 'THẾ GIỚI', 'Thế giới', 'N5'],
     ['世紀', 'せいき', 'THẾ KỶ', 'thế kỷ', 'N4'],
     ['世界中', 'せかいじゅう', 'THẾ GIỚI TRUNG', 'khắp thế giới/ toàn thế giới', 'N4'],
+    ['世界初', 'せかいはつ', 'THẾ GIỚI SƠ', 'đầu tiên trên thế giới', 'N4'],
     ['世界的に', 'せかいてきに', 'THẾ GIỚI', 'tầm cỡ thế giới', 'N4'],
     ['世話をします', 'せわをします', 'THẾ THOẠI', 'chăm sóc/ giúp đỡ', 'N4'],
   ]],
@@ -1645,6 +1665,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['楽', 'らく', 'LẠC', 'thoải mái/ nhàn hạ', 'N4'],
     ['楽しみ', 'たのしみ', 'NHẠC', 'niềm vui/ điều mong đợi', 'N4'],
     ['楽しく', 'たのしく', 'LẠC', 'vui/ vui vẻ', 'N4'],
+    ['音楽家', 'おんがくか', 'ÂM NHẠC GIA', 'nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc', 'N4'],
     ['楽しみます', 'たのしみます', 'LẠC', 'vui/ tận hưởng', 'N4'],
     ['楽しみにしています', 'たのしみにしています', 'LẠC', 'đang mong đợi/ lấy làm vui', 'N4'],
   ]],
@@ -1747,6 +1768,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['市', 'THỊ', '', 'N4', [
     ['市役所', 'しやくしょ', 'THỊ DỊCH SỞ', 'văn phòng hành chính quận, thành phố', 'N5'],
+    ['市場調査', 'しじょうちょうさ', 'THỊ TRƯỜNG ĐIỀU TRA', 'điều tra thị trường', 'N4'],
   ]],
   ['姉', 'TỶ', '', 'N4', [
     ['姉', 'あね', 'TỶ', 'chị gái', 'N5'],
@@ -1792,6 +1814,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['地下鉄', 'ちかてつ', 'ĐỊA HẠ THIẾT', 'tàu điện ngầm', 'N5'],
   ]],
   ['育', 'DỤC', '', 'N4', [
+    ['教育', 'きょういく', 'GIÁO DỤC', 'giáo dục', 'N4'],
     ['体育館', 'たいいくかん', 'THỂ DỤC QUÁN', 'nhà tập/ nhà thi đấu thể thao', 'N4'],
     ['育てます', 'そだてます', 'DỤC', 'nuôi/ trồng', 'N4'],
     ['育児', 'いくじ', '', 'việc nuôi con', 'N3'],
@@ -1828,6 +1851,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['和', 'HÒA', '', 'N3', [
     ['和室', 'わしつ', 'HÒA THẤT', 'Phòng kiểu Nhật', 'N5'],
+    ['平和', 'へいわ', 'BÌNH HÒA', 'hòa bình', 'N4'],
     ['和食', 'わしょく', 'HÒA THỰC', 'món ăn Nhật', 'N4'],
   ]],
   ['厚', 'HẬU', '', 'N3', [
@@ -1993,6 +2017,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['副', 'PHÓ', '', 'N3', [
   ]],
   ['福', 'PHÚC', '', 'N3', [
+    ['安藤百福', 'あんどうももふく', 'AN ĐẰNG BÁCH PHÚC', 'Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)', 'N4'],
   ]],
   ['富', 'PHÚ', '', 'N3', [
   ]],
@@ -2032,6 +2057,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['温', 'ÔN', '', 'N3', [
     ['温かい', 'あたたかい', 'ÔN', 'ấm áp', 'N5'],
+    ['体温計', 'たいおんけい', 'THỂ ÔN KẾ', 'nhiệt kế', 'N4'],
     ['温めます', 'あたためます', '', 'hâm nóng/ làm ấm', 'N3'],
     ['温まります', 'あたたまります', '', 'ấm lên', 'N3'],
     ['残り物を温める', 'のこりものをあたためる', '', 'hâm nóng đồ ăn thừa', 'N3'],
@@ -2126,6 +2152,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['冷房が効いている', 'れいぼうがきいている', '', 'điều hoà mát tốt', 'N3'],
   ]],
   ['算', 'TOÁN', '', 'N3', [
+    ['計算します', 'けいさんします', 'KẾ TOÁN', 'tính/ tính toán', 'N4'],
   ]],
   ['泊', 'BẠC', '', 'N3', [
     ['ホテルに泊まります', 'ホテルにとまります', 'BẠC', 'Trọ ở khách sạn', 'N5'],
@@ -2161,6 +2188,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['情報が手に入ります', 'じょうほうがてにはいります', 'TÌNH BÁO THỦ NHẬP', 'lấy được thông tin', 'N4'],
   ]],
   ['争', 'TRANH', '', 'N3', [
+    ['戦争', 'せんそう', 'CHIẾN TRANH', 'chiến tranh', 'N4'],
   ]],
   ['庫', 'KHỐ', '', 'N3', [
     ['冷蔵庫', 'れいぞうこ', 'LÃNH TÀNG KHỐ', 'tủ lạnh', 'N5'],
@@ -2172,6 +2200,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['連れて来ます', 'つれてきます', 'LIÊN LAI', 'Dẫn đến', 'N5'],
     ['連れて行きます', 'つれていきます', 'LIÊN HÀNH', 'Dẫn đi', 'N5'],
     ['連休', 'れんきゅう', 'LIÊN HƯU', 'ngày nghỉ liền nhau/ kỳ nghỉ dài', 'N4'],
+    ['国連', 'こくれん', 'QUỐC LIÊN', 'Liên Hợp Quốc', 'N4'],
     ['連絡します', 'れんらくします', 'LIÊN LẠC', 'liên lạc/ liên hệ', 'N4'],
     ['散歩に連れていく', 'さんぽにつれていく', '', 'dắt đi dạo', 'N3'],
   ]],
@@ -2189,9 +2218,9 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['注', 'CHÚ', '', 'N3', [
     ['注射', 'ちゅうしゃ', 'CHÚ XẠ', 'tiêm', 'N4'],
+    ['注ぎます', 'そそぎます', 'CHÚ', 'đổ vào', 'N4'],
     ['注意します', 'ちゅういします', 'CHÚ Ý', 'chú ý/ nhắc nhở', 'N4'],
     ['車に注意します', 'くるまにちゅういします', 'XA CHÚ Ý', 'chú ý xe cộ/ coi chừng xe', 'N4'],
-    ['注ぎます', 'そそぎます', '', 'rót/ dồn vào', 'N2'],
   ]],
   ['柱', 'TRỤ', '', 'N3', [
   ]],
@@ -2261,6 +2290,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['鉛筆', 'えんぴつ', 'DUYÊN BÚT', 'Bút chì', 'N5'],
   ]],
   ['律', 'LUẬT', '', 'N3', [
+    ['法律', 'ほうりつ', 'PHÁP LUẬT', 'pháp luật', 'N4'],
   ]],
   ['建', 'KIẾN', '', 'N3', [
     ['建物', 'たてもの', 'KIẾN VẬT', 'Tòa nhà', 'N5'],
@@ -2308,6 +2338,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['袋', 'ĐẠI', '', 'N3', [
     ['袋', 'ふくろ', 'ĐẠI', 'cái túi', 'N4'],
     ['手袋', 'てぶくろ', 'THỦ ĐẠI', 'cái găng tay', 'N4'],
+    ['のし袋', 'のしぶくろ', 'ĐẠI', 'phong bì dùng để bỏ tiền mừng', 'N4'],
   ]],
   ['貸', 'THẢI', '', 'N3', [
     ['貸す', 'かす', 'THẢI', 'cho mượn, cho vay', 'N5'],
@@ -2336,6 +2367,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['調子がわるい', 'ちょうしがわるい', 'ĐIỀU TỬ', 'Trong tình trạng xấu', 'N5'],
     ['調べ', 'しらべ', 'ĐIỀU', 'điều tra/ khảo sát', 'N4'],
     ['調味料', 'ちょうみりょう', 'ĐIỀU VỊ LIỆU', 'gia vị', 'N4'],
+    ['市場調査', 'しじょうちょうさ', 'THỊ TRƯỜNG ĐIỀU TRA', 'điều tra thị trường', 'N4'],
     ['調節します', 'ちょうせつします', 'ĐIỀU TIẾT', 'điều tiết/ điều chỉnh', 'N4'],
   ]],
   ['可', 'KHẢ', '', 'N3', [
@@ -2389,6 +2421,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['初', 'SƠ', '', 'N3', [
     ['初めて', 'はじめて', 'SƠ', 'Lần đầu tiên', 'N5'],
     ['初めに', 'はじめに', 'SƠ', 'đầu tiên/ trước hết', 'N4'],
+    ['世界初', 'せかいはつ', 'THẾ GIỚI SƠ', 'đầu tiên trên thế giới', 'N4'],
     ['最初に', 'さいしょに', 'TỐI SƠ', 'đầu tiên/ trước hết', 'N4'],
   ]],
   ['覚', 'GIÁC', '', 'N3', [
@@ -2475,6 +2508,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['海岸', 'かいがん', 'HẢI NGẠN', 'bờ biển', 'N4'],
   ]],
   ['平', 'BÌNH', '', 'N3', [
+    ['平和', 'へいわ', 'BÌNH HÒA', 'hòa bình', 'N4'],
     ['平均寿命', 'へいきんじゅみょう', 'BÌNH QUÂN THỌ MỆNH', 'tuổi thọ trung bình', 'N4'],
   ]],
   ['呼', 'HÔ', '', 'N3', [
@@ -2550,6 +2584,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['簡単', 'かんたん', 'GIẢN ĐƠN', 'Đơn giản, dễ', 'N5'],
   ]],
   ['戦', 'CHIẾN', '', 'N3', [
+    ['戦争', 'せんそう', 'CHIẾN TRANH', 'chiến tranh', 'N4'],
   ]],
   ['任', 'NHIỆM', '', 'N3', [
   ]],
@@ -2597,6 +2632,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['兆', 'TRIỆU', '', 'N3', [
   ]],
   ['包', 'BAO', '', 'N3', [
+    ['包みます', 'つつみます', 'BAO', 'gói', 'N4'],
     ['包丁', 'ほうちょう', '', 'dao làm bếp', 'N3'],
   ]],
   ['補', 'BỔ', '', 'N3', [
@@ -2611,6 +2647,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['他', 'THA', '', 'N3', [
   ]],
   ['的', 'ĐÍCH', '', 'N3', [
+    ['目的', 'もくてき', 'MỤC ĐÍCH', 'mục đích', 'N4'],
     ['世界的に', 'せかいてきに', 'THẾ GIỚI', 'tầm cỡ thế giới', 'N4'],
   ]],
   ['約', 'ƯỚC', '', 'N3', [
@@ -2807,6 +2844,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['助かります', 'たすかります', 'TRỢ', 'được giúp/ đỡ được', 'N4'],
   ]],
   ['査', 'TRA', '', 'N3', [
+    ['市場調査', 'しじょうちょうさ', 'THỊ TRƯỜNG ĐIỀU TRA', 'điều tra thị trường', 'N4'],
   ]],
   ['商', 'THƯƠNG', '', 'N3', [
   ]],
@@ -3008,6 +3046,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['法', 'PHÁP', '', 'N3', [
     ['方法', 'ほうほう', 'PHƯƠNG PHÁP', 'phương pháp/ cách làm', 'N4'],
     ['文法', 'ぶんぽう', 'VĂN PHÁP', 'ngữ pháp', 'N4'],
+    ['法律', 'ほうりつ', 'PHÁP LUẬT', 'pháp luật', 'N4'],
   ]],
   ['飛', 'PHI', '', 'N3', [
     ['飛行機', 'ひこうき', 'PHI HÀNH CƠ', 'máy bay', 'N5'],
@@ -3215,6 +3254,8 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['缶', 'PHỮU', '', 'N3', [
     ['缶', 'かん', 'PHỮU', 'lon/ cái lon/ hộp thiếc', 'N4'],
+    ['缶詰', 'かんづめ', 'PHỮU CẬT', 'đồ hộp/ thực phẩm đóng hộp', 'N4'],
+    ['缶切り', 'かんきり', 'PHỮU THIẾT', 'cái mở nắp hộp', 'N4'],
   ]],
   ['候', 'HẬU', '', 'N3', [
   ]],
@@ -3305,6 +3346,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['切手', 'きって', 'THIẾT THỦ', 'tem', 'N5'],
     ['大切', 'たいせつ', 'ĐẠI THIẾT', 'Quan trọng, quý giá', 'N5'],
     ['切ります', 'きります', '', 'cắt', 'N5'],
+    ['缶切り', 'かんきり', 'PHỮU THIẾT', 'cái mở nắp hộp', 'N4'],
     ['切れます', 'きれます', '', 'đứt/ hết (hàng)', 'N4'],
     ['親切にします', 'しんせつにします', 'THÂN THIẾT', 'đối xử thân thiện/ tốt với', 'N4'],
     ['電源を切ります', 'でんげんをきります', 'ĐIỆN NGUYÊN THIẾT', 'tắt công tắc điện', 'N4'],
@@ -3560,7 +3602,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['丈', 'TRƯỢNG', '', 'N2', [
     ['大丈夫', 'だいじょうぶ', 'ĐẠI TRƯỢNG PHU', 'Không sao, không có vấn đề gì', 'N5'],
-    ['丈夫', 'じょうぶ', 'TRƯỢNG PHU', 'chắc/ bền', 'N4'],
+    ['丈夫', 'じょうぶ', 'TRƯỢNG PHU', 'chắc chắn', 'N4'],
   ]],
   ['題', 'ĐỀ', '', 'N2', [
     ['宿題', 'しゅくだい', 'TÚC ĐỀ', 'bài tập về nhà', 'N5'],
@@ -3687,7 +3729,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['自転車', 'じてんしゃ', 'TỰ CHUYỂN XA', 'xe đạp', 'N5'],
     ['自分で', 'じぶんで', 'TỰ PHÂN', 'Tự mình', 'N5'],
     ['自分', 'じぶん', 'TỰ PHÂN', 'bản thân/ mình/ tự mình', 'N4'],
-    ['自然', 'しぜん', 'TỰ NHIÊN', 'tự nhiên/ thiên nhiên', 'N4'],
+    ['自然', 'しぜん', 'TỰ NHIÊN', 'tự nhiên', 'N4'],
     ['自由に', 'じゆうに', 'TỰ DO', 'tự do/ tuỳ thích/ thoải mái', 'N4'],
     ['自動販売機', 'じどうはんばいき', 'TỰ ĐỘNG PHIÊN MẠI CƠ', 'máy bán hàng tự động', 'N4'],
   ]],
@@ -3779,6 +3821,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['弁', 'BIỆN', '', 'N2', [
     ['お弁当', 'おべんとう', 'BIỆN ĐƯƠNG', 'Cơm hộp', 'N5'],
+    ['弁護士', 'べんごし', 'BIỆN HỘ SĨ', 'luật sư', 'N4'],
   ]],
   ['舎', 'XÁ', '', 'N2', [
     ['田舎', 'いなか', 'ĐIỀN XÁ', 'quê, nông thôn', 'N5'],
@@ -3906,7 +3949,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['いすが壊れます', 'いすがこわれます', 'HOẠI', 'ghế bị hỏng', 'N4'],
   ]],
   ['割', 'CÁT', '', 'N2', [
-    ['割ります', 'わります', '', 'đập vỡ/ chia ra', 'N4'],
+    ['割ります', 'わります', 'CÁT', 'bẻ ra/ chia nhỏ ra', 'N4'],
     ['割れます', 'われます', '', 'vỡ/ nứt', 'N4'],
     ['コップが割れます', 'コップがわれます', 'CÁT', 'cốc bị vỡ', 'N4'],
   ]],
@@ -4387,6 +4430,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['士', 'SĨ', '', 'N2', [
     ['博士', 'はかせ', 'BÁC SĨ', 'tiến sĩ', 'N4'],
+    ['弁護士', 'べんごし', 'BIỆN HỘ SĨ', 'luật sư', 'N4'],
   ]],
   ['脳', 'NÃO', '', 'N2', [
     ['脳', 'のう', 'NÃO', 'não', 'N4'],
@@ -4586,8 +4630,8 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['焦ります', 'あせります', '', 'sốt ruột/ cuống', 'N2'],
   ]],
   ['混', 'HỖN', '', 'N2', [
+    ['混ぜます', 'まぜます', 'HỖN', 'trộn', 'N4'],
     ['混ぜる', 'まぜる', '', 'trộn', 'N3'],
-    ['混ぜます', 'まぜます', '', 'trộn/ khuấy', 'N3'],
     ['混ざります', 'まざります', '', 'bị trộn lẫn', 'N3'],
     ['混じります', 'まじります', '', 'lẫn vào', 'N2'],
   ]],
@@ -4641,12 +4685,13 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['検討します', 'けんとうします', '', 'xem xét/ cân nhắc', 'N2'],
   ]],
   ['沸', 'PHÍ', '', 'N2', [
+    ['沸かします', 'わかします', 'PHÍ', 'đun sôi', 'N4'],
     ['沸きます', 'わきます', '', '(nước) sôi', 'N3'],
-    ['沸かします', 'わかします', '', 'đun sôi', 'N3'],
     ['（お）湯が沸く', 'ゆがわく', '', 'nước sôi', 'N3'],
     ['（お）湯を沸かす', 'ゆをわかす', '', 'đun sôi nước', 'N3'],
   ]],
   ['抜', 'BẠT', '', 'N2', [
+    ['栓抜き', 'せんぬき', 'THUYÊN BẠT', 'cái bật nắp chai', 'N4'],
     ['抜きます', 'ぬきます', '', 'rút ra/ nhổ', 'N3'],
     ['抜けます', 'ぬけます', '', 'tuột ra/ rụng', 'N3'],
   ]],
@@ -5923,6 +5968,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['請', 'THỈNH', '', 'N1', [
   ]],
   ['論', 'LUẬN', '', 'N1', [
+    ['論文', 'ろんぶん', 'LUẬN VĂN', 'luận văn', 'N4'],
   ]],
   ['諸', 'CHƯ', '', 'N1', [
   ]],
@@ -5937,6 +5983,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['譜', 'PHỔ', '', 'N1', [
   ]],
   ['護', 'HỘ', '', 'N1', [
+    ['弁護士', 'べんごし', 'BIỆN HỘ SĨ', 'luật sư', 'N4'],
   ]],
   ['譲', 'NHƯỢNG', '', 'N1', [
   ]],
@@ -6288,6 +6335,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['架', 'GIÁ', '', 'N1', [
   ]],
   ['栓', 'THUYÊN', '', 'N1', [
+    ['栓抜き', 'せんぬき', 'THUYÊN BẠT', 'cái bật nắp chai', 'N4'],
   ]],
   ['桟', 'SẠN', '', 'N1', [
   ]],
@@ -6570,6 +6618,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['託', 'THÁC', '', 'N1', [
   ]],
   ['詰', 'CẬT', '', 'N1', [
+    ['缶詰', 'かんづめ', 'PHỮU CẬT', 'đồ hộp/ thực phẩm đóng hộp', 'N4'],
   ]],
   ['覇', 'BÁ', '', 'N1', [
   ]],
@@ -6842,6 +6891,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['薫', 'HUÂN', '', 'N1', [
   ]],
   ['藤', 'ĐẰNG', '', 'N1', [
+    ['安藤百福', 'あんどうももふく', 'AN ĐẰNG BÁCH PHÚC', 'Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)', 'N4'],
   ]],
   ['裕', 'DỤ', '', 'N1', [
   ]],

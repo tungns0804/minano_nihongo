@@ -8,24 +8,60 @@
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
 #
-# LƯU Ý VỀ NGUỒN: trong "TỪ VỰNG N5.pdf", khối từ vựng gán nhãn bài 42 trùng
-# hoàn toàn với khối gán nhãn bài 43 (cùng 18 từ, cùng thứ tự). File này chép
-# đúng theo PDF; nếu có danh sách bài 42 khác thì thay nội dung bên dưới.
-THÂU XUẤT TĂNG,輸出が増えます (ゆしゅつがふえます),xuất khẩu tăng lên|車の輸出が増えています。
-THÂU XUẤT GIẢM,輸出が減ります (ゆしゅつがへります),xuất khẩu giảm xuống|今年は輸出が減りました。
-TRỊ ĐOẠN THƯỢNG,値段が上がります (ねだんがあがります),giá tăng lên|野菜の値段が上がりました。
-TRỊ ĐOẠN HẠ,値段が下がります (ねだんがさがります),giá giảm xuống|パソコンの値段が下がりました。
-THIẾT,ひもが切れます (ひもがきれます),sợi dây bị đứt|荷物のひもが切れました。
-THỦ,ボタンがとれます,cái cúc bị tuột|シャツのボタンがとれました。
-HÀ VẬT LẠC,荷物が落ちます (にもつがおちます),hành lý bị rơi|棚から荷物が落ちました。
-TRƯỢNG PHU,丈夫 (じょうぶ),chắc/ bền|丈夫なかばんを買いました。
-BIẾN,変 (へん),lạ/ kỳ quặc|変な人に会いました。
-HẠNH,幸せ (しあわせ),hạnh phúc|家族と一緒にいると幸せです。
-HỎA,火 (ひ),lửa|火を消してください。
-NOÃN PHÒNG,暖房 (だんぼう),lò sưởi/ thiết bị làm ấm|暖房のために電気をたくさん使います。
-LÃNH PHÒNG,冷房 (れいぼう),máy lạnh/ thiết bị làm mát|夏は冷房が必要です。
-KIM,今にも (いまにも),sắp/ chỉ chực|今にも雨が降りそうな空です。
-HỘI VIÊN,会員 (かいいん),hội viên/ thành viên|会員になるために申し込みます。
-THÍCH ĐƯƠNG,適当 (てきとう),thích hợp/ vừa phải|適当な大きさに切ってください。
-NIÊN LINH,年齢 (ねんれい),tuổi|申し込みに年齢を書きます。
-THÂU NHẬP,収入 (しゅうにゅう),thu nhập|生活のために収入が必要です。
+# NGUỒN: 皆の日本語 II bản tiếng Việt, bài 42 — mục I. Từ vựng (tr. 104-105),
+# gồm cả phần 〈会話〉 và 〈読み物〉. Danh sách cũ ở đây chép nhầm sang bài 43
+# (輸出が増えます…収入) nên đã thay toàn bộ.
+BAO,包みます (つつみます),gói|プレゼントをきれいな紙で包みます。
+PHÍ,沸かします (わかします),đun sôi|お茶を飲むために、お湯を沸かします。
+HỖN,混ぜます (まぜます),trộn|材料をよく混ぜてください。
+KẾ TOÁN,計算します (けいさんします),tính/ tính toán|そろばんは計算するのに使います。
+TỊNH,並びます (ならびます),xếp hàng|切符を買うために並んでいます。
+TRƯỢNG PHU,丈夫 (じょうぶ),chắc chắn|この袋は丈夫で、荷物を入れるのに便利です。
+,アパート,phòng trọ|大学の近くのアパートに住んでいます。
+BIỆN HỘ SĨ,弁護士 (べんごし),luật sư|弁護士になるために、法律を勉強しています。
+ÂM NHẠC GIA,音楽家 (おんがくか),nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc|ベートーベンは有名な音楽家です。
+TỬ,子どもたち (こどもたち),những đứa trẻ/ bọn trẻ|子どもたちのために公園を作りました。
+TỰ NHIÊN,自然 (しぜん),tự nhiên|自然を守るために、何ができますか。
+GIÁO DỤC,教育 (きょういく),giáo dục|子どもの教育のためにお金をためています。
+VĂN HÓA,文化 (ぶんか),văn hóa|日本の文化を知るために、お茶を習っています。
+XÃ HỘI,社会 (しゃかい),xã hội|大学を出て、社会に出ます。
+CHÍNH TRỊ,政治 (せいじ),chính trị|新聞で政治のニュースを読みます。
+PHÁP LUẬT,法律 (ほうりつ),pháp luật|法律を守らなければなりません。
+CHIẾN TRANH,戦争 (せんそう),chiến tranh|戦争のない世界にしたいです。
+BÌNH HÒA,平和 (へいわ),hòa bình|平和のために働いています。
+MỤC ĐÍCH,目的 (もくてき),mục đích|旅行の目的は何ですか。
+LUẬN VĂN,論文 (ろんぶん),luận văn|論文を書くために、資料を集めています。
+LẠC,楽しみ (たのしみ),niềm vui|旅行は私の楽しみです。
+,ミキサー,máy xay|ミキサーはジュースを作るのに使います。
+,やかん,ấm đun nước|やかんでお湯を沸かします。
+,ふた,nắp|なべのふたを取ってください。
+THUYÊN BẠT,栓抜き (せんぬき),cái bật nắp chai|栓抜きはびんを開けるのに使います。
+PHỮU THIẾT,缶切り (かんきり),cái mở nắp hộp|缶切りで缶詰を開けます。
+PHỮU CẬT,缶詰 (かんづめ),đồ hộp/ thực phẩm đóng hộp|旅行に缶詰を持って行きます。
+ĐẠI,のし袋 (のしぶくろ),phong bì dùng để bỏ tiền mừng|結婚のお祝いはのし袋に入れます。
+,ふろしき,khăn vuông để gói đồ kiểu Nhật|ふろしきは物を包むのに使います。
+,そろばん,bàn tính|そろばんで計算します。
+THỂ ÔN KẾ,体温計 (たいおんけい),nhiệt kế|熱があるので、体温計を借りました。
+TÀI LIỆU,材料 (ざいりょう),nguyên liệu|カレーの材料を買いに行きます。
+,ある～,một ～ nọ|ある日、山で犬を見つけました。
+NHẤT SINH HUYỀN MỆNH,一生懸命 (いっしょうけんめい),chăm chỉ/ gắng hết sức|将来のために一生懸命働いています。
+,なぜ,tại sao|なぜ日本語を勉強しているんですか。
+,どのくらい,bao nhiêu|駅までどのくらいかかりますか。
+QUỐC LIÊN,国連 (こくれん),Liên Hợp Quốc|国連で働くために、英語を勉強しています。
+,エリーゼのために,Dành cho Elise/ tên một bản nhạc|「エリーゼのために」はベートーベンの曲です。
+,ベートーベン,Beethoven/ nhà soạn nhạc người Đức (1770-1827)|ベートーベンはドイツの音楽家です。
+,こどもニュース,Bản tin thiếu nhi/ chương trình tin tức giả định|こどもニュースは子どもたちのための番組です。
+XUẤT,ボーナスが出ます (ボーナスがでます),có thưởng/ được thưởng|今年もボーナスが出ました。
+BÁN PHÂN,半分 (はんぶん),một nửa|ボーナスの半分を貯金します。
+,ローン,khoản vay ngân hàng|ローンで車を買いました。
+,カップめん,mì ly/ mì ăn liền để trong ly dùng một lần|お湯を沸かして、カップめんを作ります。
+THẾ GIỚI SƠ,世界初 (せかいはつ),đầu tiên trên thế giới|これは世界初のカップめんです。
+,～によって,bởi ～|カップめんは安藤百福によって作られました。
+,どんぶり,bát tô lớn|どんぶりにご飯を入れます。
+,めん,mì sợi|どんぶりのめんにお湯を注ぎます。
+QUẢNG,広めます (ひろめます),phổ cập/ nhân rộng/ mở rộng|日本の文化を世界に広めたいです。
+THỊ TRƯỜNG ĐIỀU TRA,市場調査 (しじょうちょうさ),điều tra thị trường|新しい商品のために市場調査をします。
+CÁT,割ります (わります),bẻ ra/ chia nhỏ ra|めんを半分に割って、どんぶりに入れます。
+CHÚ,注ぎます (そそぎます),đổ vào|カップにお湯を注ぎます。
+,チキンラーメン,Chikin Ramen/ tên của một loại mì ăn liền|チキンラーメンは世界初のインスタントラーメンです。
+AN ĐẰNG BÁCH PHÚC,安藤百福 (あんどうももふく),Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)|安藤百福はカップめんを発明しました。

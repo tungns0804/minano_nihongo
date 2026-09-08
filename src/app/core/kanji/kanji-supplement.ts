@@ -54,7 +54,7 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   区: 'KHU',
   衣: 'Y',
 
-  // ── N3: 115 chữ không có trong kho từ ─────────────────────────────────
+  // ── N3: 108 chữ không có trong kho từ ─────────────────────────────────
   匹: 'THẤT',
   面: 'DIỆN',
   厚: 'HẬU',
@@ -71,7 +71,6 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   側: 'TRẮC',
   等: 'ĐẲNG',
   副: 'PHÓ',
-  福: 'PHÚC',
   富: 'PHÚ',
   想: 'TƯỞNG',
   血: 'HUYẾT',
@@ -85,9 +84,7 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   良: 'LƯƠNG',
   根: 'CĂN',
   効: 'HIỆU',
-  算: 'TOÁN',
   仏: 'PHẬT',
-  争: 'TRANH',
   軍: 'QUÂN',
   求: 'CẦU',
   種: 'CHỦNG',
@@ -96,7 +93,6 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   板: 'BẢN',
   痛: 'THỐNG',
   告: 'CÁO',
-  律: 'LUẬT',
   税: 'THUẾ',
   童: 'ĐỒNG',
   個: 'CÁ',
@@ -117,11 +113,9 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   職: 'CHỨC',
   列: 'LIỆT',
   観: 'QUAN',
-  戦: 'CHIẾN',
   任: 'NHIỆM',
   浅: 'THIỂN',
   兆: 'TRIỆU',
-  包: 'BAO',
   補: 'BỔ',
   他: 'THA',
   構: 'CẤU',
@@ -139,7 +133,6 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   豊: 'PHONG',
   期: 'KỲ',
   欠: 'KHIẾM',
-  査: 'TRA',
   商: 'THƯƠNG',
   欧: 'ÂU',
   労: 'LAO',
@@ -181,7 +174,6 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   移: 'DI',
   光: 'QUANG',
   断: 'ĐOẠN',
-  的: 'ĐÍCH',
   進: 'TIẾN',
 };
 

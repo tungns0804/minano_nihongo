@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-05T11:19:05.606Z",
+  "generatedAt": "2026-09-08T06:58:37.984Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -805,9 +805,9 @@
     {
       "id": "minano-nihongo-42",
       "name": "皆の日本語 — Bài 42 · Từ vựng",
-      "description": "Từ vựng bài 42 (PDF nguồn ghi trùng danh sách với bài 43)",
+      "description": "Từ vựng bài 42",
       "kind": "vocabulary",
-      "itemCount": 18,
+      "itemCount": 54,
       "lessonNumber": 42,
       "file": "minano-nihongo-42.json"
     },
