@@ -54,7 +54,7 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   区: 'KHU',
   衣: 'Y',
 
-  // ── N3: 108 chữ không có trong kho từ ─────────────────────────────────
+  // ── N3: 112 chữ không có trong kho từ ─────────────────────────────────
   匹: 'THẤT',
   面: 'DIỆN',
   厚: 'HẬU',
@@ -64,7 +64,6 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   伸: 'THÂN',
   氷: 'BĂNG',
   永: 'VĨNH',
-  位: 'VỊ',
   昨: 'TẠC',
   級: 'CẤP',
   容: 'DUNG',
@@ -74,7 +73,6 @@ export const HAN_VIET_SUPPLEMENT: Readonly<Record<string, string>> = {
   富: 'PHÚ',
   想: 'TƯỞNG',
   血: 'HUYẾT',
-  判: 'PHÁN',
   検: 'KIỂM',
   皮: 'BÌ',
   仕: 'SĨ',

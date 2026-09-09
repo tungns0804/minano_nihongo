@@ -36,7 +36,7 @@
       "japanese": "計算します",
       "reading": "けいさんします",
       "vietnamese": "tính/ tính toán",
-      "example": "そろばんは計算するのに使います。"
+      "example": "算盤は計算するのに使います。"
     },
     {
       "id": "1lye11x",
@@ -79,12 +79,12 @@
       "example": "ベートーベンは有名な音楽家です。"
     },
     {
-      "id": "0dea0zc",
-      "hanViet": "TỬ",
-      "japanese": "子どもたち",
+      "id": "1kay4rb",
+      "hanViet": "TỬ CUNG",
+      "japanese": "子供たち",
       "reading": "こどもたち",
       "vietnamese": "những đứa trẻ/ bọn trẻ",
-      "example": "子どもたちのために公園を作りました。"
+      "example": "子供たちのために公園を作りました。"
     },
     {
       "id": "0953jr6",
@@ -183,20 +183,20 @@
       "example": "ミキサーはジュースを作るのに使います。"
     },
     {
-      "id": "1tmjqx3",
-      "hanViet": "",
-      "japanese": "やかん",
-      "reading": "",
+      "id": "0q8m484",
+      "hanViet": "DƯỢC PHỮU",
+      "japanese": "薬缶",
+      "reading": "やかん",
       "vietnamese": "ấm đun nước",
-      "example": "やかんでお湯を沸かします。"
+      "example": "薬缶でお湯を沸かします。"
     },
     {
-      "id": "10ltbeb",
-      "hanViet": "",
-      "japanese": "ふた",
-      "reading": "",
+      "id": "1l9x825",
+      "hanViet": "CÁI",
+      "japanese": "蓋",
+      "reading": "ふた",
       "vietnamese": "nắp",
-      "example": "なべのふたを取ってください。"
+      "example": "鍋の蓋を取ってください。"
     },
     {
       "id": "0rq5zgf",
@@ -231,20 +231,20 @@
       "example": "結婚のお祝いはのし袋に入れます。"
     },
     {
-      "id": "075w341",
-      "hanViet": "",
-      "japanese": "ふろしき",
-      "reading": "",
+      "id": "0vbb7o3",
+      "hanViet": "PHONG LỮ PHU",
+      "japanese": "風呂敷",
+      "reading": "ふろしき",
       "vietnamese": "khăn vuông để gói đồ kiểu Nhật",
-      "example": "ふろしきは物を包むのに使います。"
+      "example": "風呂敷は物を包むのに使います。"
     },
     {
-      "id": "1onpllu",
-      "hanViet": "",
-      "japanese": "そろばん",
-      "reading": "",
+      "id": "15p8sfw",
+      "hanViet": "TOÁN BÀN",
+      "japanese": "算盤",
+      "reading": "そろばん",
       "vietnamese": "bàn tính",
-      "example": "そろばんで計算します。"
+      "example": "算盤で計算します。"
     },
     {
       "id": "0e0qj0q",
@@ -279,20 +279,20 @@
       "example": "将来のために一生懸命働いています。"
     },
     {
-      "id": "072zl7h",
-      "hanViet": "",
-      "japanese": "なぜ",
-      "reading": "",
+      "id": "0eb6eu0",
+      "hanViet": "HÀ CỐ",
+      "japanese": "何故",
+      "reading": "なぜ",
       "vietnamese": "tại sao",
-      "example": "なぜ日本語を勉強しているんですか。"
+      "example": "何故日本語を勉強しているんですか。"
     },
     {
-      "id": "1ofxq46",
-      "hanViet": "",
-      "japanese": "どのくらい",
-      "reading": "",
+      "id": "0jkm7cz",
+      "hanViet": "VỊ",
+      "japanese": "どの位",
+      "reading": "どのくらい",
       "vietnamese": "bao nhiêu",
-      "example": "駅までどのくらいかかりますか。"
+      "example": "駅までどの位かかりますか。"
     },
     {
       "id": "0onjtt3",
@@ -324,7 +324,7 @@
       "japanese": "こどもニュース",
       "reading": "",
       "vietnamese": "Bản tin thiếu nhi/ chương trình tin tức giả định",
-      "example": "こどもニュースは子どもたちのための番組です。"
+      "example": "こどもニュースは子供たちのための番組です。"
     },
     {
       "id": "16cwkom",
@@ -351,12 +351,12 @@
       "example": "ローンで車を買いました。"
     },
     {
-      "id": "0fxyyew",
-      "hanViet": "",
-      "japanese": "カップめん",
-      "reading": "",
+      "id": "056og2g",
+      "hanViet": "MIẾN",
+      "japanese": "カップ麺",
+      "reading": "カップめん",
       "vietnamese": "mì ly/ mì ăn liền để trong ly dùng một lần",
-      "example": "お湯を沸かして、カップめんを作ります。"
+      "example": "お湯を沸かして、カップ麺を作ります。"
     },
     {
       "id": "00yfox0",
@@ -364,7 +364,7 @@
       "japanese": "世界初",
       "reading": "せかいはつ",
       "vietnamese": "đầu tiên trên thế giới",
-      "example": "これは世界初のカップめんです。"
+      "example": "これは世界初のカップ麺です。"
     },
     {
       "id": "08lwrop",
@@ -372,23 +372,23 @@
       "japanese": "～によって",
       "reading": "",
       "vietnamese": "bởi ～",
-      "example": "カップめんは安藤百福によって作られました。"
+      "example": "カップ麺は安藤百福によって作られました。"
     },
     {
-      "id": "1dzbawf",
-      "hanViet": "",
-      "japanese": "どんぶり",
-      "reading": "",
+      "id": "0l0m7x9",
+      "hanViet": "ĐÔN",
+      "japanese": "丼",
+      "reading": "どんぶり",
       "vietnamese": "bát tô lớn",
-      "example": "どんぶりにご飯を入れます。"
+      "example": "丼にご飯を入れます。"
     },
     {
-      "id": "0dvmvqb",
-      "hanViet": "",
-      "japanese": "めん",
-      "reading": "",
+      "id": "0cddx01",
+      "hanViet": "MIẾN",
+      "japanese": "麺",
+      "reading": "めん",
       "vietnamese": "mì sợi",
-      "example": "どんぶりのめんにお湯を注ぎます。"
+      "example": "丼の麺にお湯を注ぎます。"
     },
     {
       "id": "1qvm1nj",
@@ -412,7 +412,7 @@
       "japanese": "割ります",
       "reading": "わります",
       "vietnamese": "bẻ ra/ chia nhỏ ra",
-      "example": "めんを半分に割って、どんぶりに入れます。"
+      "example": "麺を半分に割って、丼に入れます。"
     },
     {
       "id": "14jntuh",
@@ -436,7 +436,7 @@
       "japanese": "安藤百福",
       "reading": "あんどうももふく",
       "vietnamese": "Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)",
-      "example": "安藤百福はカップめんを発明しました。"
+      "example": "安藤百福はカップ麺を発明しました。"
     }
   ],
   "verbs": [],

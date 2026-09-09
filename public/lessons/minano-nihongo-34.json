@@ -39,12 +39,12 @@
       "example": "電車を降りてから忘れ物に気がつきました。"
     },
     {
-      "id": "02k99pp",
-      "hanViet": "KIẾN",
-      "japanese": "かぎが見つかります",
+      "id": "0u5fe0z",
+      "hanViet": "KIỆN KIẾN",
+      "japanese": "鍵が見つかります",
       "reading": "かぎがみつかります",
       "vietnamese": "tìm thấy chìa khóa",
-      "example": "なくしたかぎが見つかりました。"
+      "example": "なくした鍵が見つかりました。"
     },
     {
       "id": "02qrn4d",
@@ -231,8 +231,8 @@
       "example": "料理の材料を買いに行きます。"
     },
     {
-      "id": "0omvl4f",
-      "hanViet": "ĐIỂU",
+      "id": "1kd20hu",
+      "hanViet": "ĐIỂU NHỤC",
       "japanese": "鳥肉",
       "reading": "とりにく",
       "vietnamese": "thịt gà",

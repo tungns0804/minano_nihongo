@@ -29,7 +29,7 @@ THÔNG TÍN PHIÊN MẠI,通信販売 (つうしんはんばい),bán hàng qua 
 BỔN BẰNG,本棚 (ほんだな),giá sách/ kệ sách|本棚に本を並べます。
 MỘNG,夢 (ゆめ),giấc mơ/ ước mơ|昨日の夜、変な夢を見ました。
 GIA,家 (いえ),nhà|新しい家を建てます。
-TỬ/TÝ,子どもたち (こどもたち),trẻ em/ trẻ con/ con cái|公園で子どもたちが遊んでいます。
+TỬ CUNG,子供たち (こどもたち),trẻ em/ trẻ con/ con cái|公園で子供たちが遊んでいます。
 ĐẠI HẢO,大好き (だいすき),rất thích/ thích lắm|私は猫が大好きです。
 MẠN HỌA,漫画 (まんが),truyện tranh/ manga|休みの日に漫画を読みます。
 CHỦ NHÂN CÔNG,主人公 (しゅじんこう),nhân vật chính|この映画の主人公はかっこいいです。

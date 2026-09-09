@@ -3,7 +3,7 @@
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
 TỬ CUNG,子供がいます (こどもがいます),có con
 NHẬT BẢN,日本にいます (にほんにいます),ở Nhật
-HỘI XÃ,会社を休みます (かいしゃをやすみます),nghỉ làm việc
+HỘI XÃ HƯU,会社を休みます (かいしゃをやすみます),nghỉ làm việc
 NHÂN,１人 (ひとり),một người
 NHÂN,２人 (ふたり),hai người
 NHÂN,～人 (～にん),～ người

@@ -63,12 +63,12 @@
       "example": "帰るとき、電源を切ってください。"
     },
     {
-      "id": "0bdk0ym",
-      "hanViet": "QUẢI",
-      "japanese": "かぎを掛けます",
+      "id": "1b6hk0c",
+      "hanViet": "KIỆN QUẢI",
+      "japanese": "鍵を掛けます",
       "reading": "かぎをかけます",
       "vietnamese": "khóa/ khóa bằng chìa",
-      "example": "出かけるとき、かぎを掛けるのを忘れないでください。"
+      "example": "出かけるとき、鍵を掛けるのを忘れないでください。"
     },
     {
       "id": "08q1r0s",
@@ -167,12 +167,12 @@
       "example": "先生は研究室にいらっしゃいます。"
     },
     {
-      "id": "0qdw9u7",
-      "hanViet": "ÁP",
-      "japanese": "はんこを押します",
+      "id": "1fbw2j9",
+      "hanViet": "PHÁN TỬ ÁP",
+      "japanese": "判子を押します",
       "reading": "はんこをおします",
       "vietnamese": "đóng dấu",
-      "example": "ここにはんこを押してください。"
+      "example": "ここに判子を押してください。"
     },
     {
       "id": "111hyka",

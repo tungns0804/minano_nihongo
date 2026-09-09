@@ -14,7 +14,7 @@ TÂM PHỐI,心配します (しんぱいします),Lo lắng
 TÀN NGHIỆP,残業します (ざんぎょうします),Làm thêm, làm quá giờ
 XUẤT TRƯƠNG,出張します (しゅっちょうします),Đi công tác
 DƯỢC ẨM,薬を飲みます (くすりをのみます),Uống thuốc
-NHẬP,おふろに入ります (おふろにはいります),Tắm bồn, vào bồn tắm
+PHONG LỮ NHẬP,お風呂に入ります (おふろにはいります),Tắm bồn, vào bồn tắm
 ĐẠI THIẾT,大切 (たいせつ),Quan trọng, quý giá
 ĐẠI TRƯỢNG PHU,大丈夫 (だいじょうぶ),Không sao, không có vấn đề gì
 NGUY,危ない (あぶない),Nguy hiểm

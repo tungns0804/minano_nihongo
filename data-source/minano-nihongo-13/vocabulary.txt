@@ -6,7 +6,7 @@ VỊNH,泳ぎます (およぎます),bơi
 NGHINH,迎えます (むかえます),đón
 BÌ,疲れます (つかれます),mệt
 THỦ CHỈ XUẤT,手紙を出します (てがみをだします),gửi thư
-NHẬP,喫茶店に入ります (きっさてんにはいります),vào quán giải khát
+KHIẾT TRÀ ĐIẾM NHẬP,喫茶店に入ります (きっさてんにはいります),vào quán giải khát
 KHIẾT TRÀ ĐIẾM XUẤT,喫茶店を出ます (きっさてんをでます),ra khỏi quán giải khát
 KẾT HÔN,結婚します (けっこんします),kết hôn, lập gia đình, cưới
 MÃI VẬT,買い物します (かいものします),mua hàng

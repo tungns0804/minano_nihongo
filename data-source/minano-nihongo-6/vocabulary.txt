@@ -32,4 +32,4 @@ TẢ CHÂN,写真 (しゃしん),ảnh
 TÚC ĐỀ,宿題 (しゅくだい),bài tập về nhà
 HOA KIẾN,お花見 (おはなみ),việc ngắm hoa anh đào
 HÀ,何 (なに),cái gì, gì
-THÌ KÉP,時々 (ときどき),thỉnh thoảng
+THỜI THỜI,時々 (ときどき),thỉnh thoảng

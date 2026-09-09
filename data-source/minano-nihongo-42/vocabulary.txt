@@ -12,22 +12,28 @@
 # gồm cả phần 〈会話〉 và 〈読み物〉. Danh sách cũ ở đây chép nhầm sang bài 43
 # (輸出が増えます…収入) nên đã thay toàn bộ.
 #
-# 18 dòng bỏ trống ô âm Hán Việt là CỐ Ý, không phải gõ sót: sách viết chúng
-# bằng kana (アパート, ミキサー, ローン, なぜ, どのくらい, ふた, めん, どんぶり,
-# やかん, ふろしき, そろばん…), mà kana thì không có âm Hán Việt. Đây là bài
-# 皆の日本語 đầu tiên trộn từ có âm và từ không có — 49 bài kia chỉ chép các từ
-# có chữ Hán. Hai chiều luyện Nhật→Hán Việt và Hán Việt→Nhật vì vậy hỏi 36 từ
-# chứ không phải 54; `filterWords` trong lesson-detail.ts lo phần đó.
+# Sách viết một số từ bằng kana cho dễ đọc; ở đây chép về DẠNG ĐẦY ĐỦ — có chữ
+# Hán thì viết chữ Hán, có âm Hán Việt thì ghi âm — cách đọc kana giữ trong ngoặc
+# nên vẫn học được như sách: めん→麺, やかん→薬缶, ふた→蓋, ふろしき→風呂敷,
+# そろばん→算盤, どんぶり→丼, なぜ→何故, どのくらい→どの位, カップめん→カップ麺,
+# 子ども→子供.
+#
+# 7 dòng vẫn trống ô âm Hán Việt vì không có dạng chữ Hán nào để lấy âm: 4 mục
+# katakana (アパート, ミキサー, ローン, ベートーベン), 3 tên riêng
+# (チキンラーメン, エリーゼのために, こどもニュース), ある～ (或る là 表外),
+# ～によって (mẫu ngữ pháp, không viết bằng chữ Hán) và のし袋 (熨斗 là 表外).
+# Hai chiều luyện Nhật→Hán Việt và Hán Việt→Nhật bỏ qua đúng mấy dòng đó;
+# `filterWords` trong lesson-detail.ts lo phần này.
 BAO,包みます (つつみます),gói|プレゼントをきれいな紙で包みます。
 PHÍ,沸かします (わかします),đun sôi|お茶を飲むために、お湯を沸かします。
 HỖN,混ぜます (まぜます),trộn|材料をよく混ぜてください。
-KẾ TOÁN,計算します (けいさんします),tính/ tính toán|そろばんは計算するのに使います。
+KẾ TOÁN,計算します (けいさんします),tính/ tính toán|算盤は計算するのに使います。
 TỊNH,並びます (ならびます),xếp hàng|切符を買うために並んでいます。
 TRƯỢNG PHU,丈夫 (じょうぶ),chắc chắn|この袋は丈夫で、荷物を入れるのに便利です。
 ,アパート,phòng trọ|大学の近くのアパートに住んでいます。
 BIỆN HỘ SĨ,弁護士 (べんごし),luật sư|弁護士になるために、法律を勉強しています。
 ÂM NHẠC GIA,音楽家 (おんがくか),nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc|ベートーベンは有名な音楽家です。
-TỬ,子どもたち (こどもたち),những đứa trẻ/ bọn trẻ|子どもたちのために公園を作りました。
+TỬ CUNG,子供たち (こどもたち),những đứa trẻ/ bọn trẻ|子供たちのために公園を作りました。
 TỰ NHIÊN,自然 (しぜん),tự nhiên|自然を守るために、何ができますか。
 GIÁO DỤC,教育 (きょういく),giáo dục|子どもの教育のためにお金をためています。
 VĂN HÓA,文化 (ぶんか),văn hóa|日本の文化を知るために、お茶を習っています。
@@ -40,35 +46,35 @@ MỤC ĐÍCH,目的 (もくてき),mục đích|旅行の目的は何ですか�
 LUẬN VĂN,論文 (ろんぶん),luận văn|論文を書くために、資料を集めています。
 LẠC,楽しみ (たのしみ),niềm vui|旅行は私の楽しみです。
 ,ミキサー,máy xay|ミキサーはジュースを作るのに使います。
-,やかん,ấm đun nước|やかんでお湯を沸かします。
-,ふた,nắp|なべのふたを取ってください。
+DƯỢC PHỮU,薬缶 (やかん),ấm đun nước|薬缶でお湯を沸かします。
+CÁI,蓋 (ふた),nắp|鍋の蓋を取ってください。
 THUYÊN BẠT,栓抜き (せんぬき),cái bật nắp chai|栓抜きはびんを開けるのに使います。
 PHỮU THIẾT,缶切り (かんきり),cái mở nắp hộp|缶切りで缶詰を開けます。
 PHỮU CẬT,缶詰 (かんづめ),đồ hộp/ thực phẩm đóng hộp|旅行に缶詰を持って行きます。
 ĐẠI,のし袋 (のしぶくろ),phong bì dùng để bỏ tiền mừng|結婚のお祝いはのし袋に入れます。
-,ふろしき,khăn vuông để gói đồ kiểu Nhật|ふろしきは物を包むのに使います。
-,そろばん,bàn tính|そろばんで計算します。
+PHONG LỮ PHU,風呂敷 (ふろしき),khăn vuông để gói đồ kiểu Nhật|風呂敷は物を包むのに使います。
+TOÁN BÀN,算盤 (そろばん),bàn tính|算盤で計算します。
 THỂ ÔN KẾ,体温計 (たいおんけい),nhiệt kế|熱があるので、体温計を借りました。
 TÀI LIỆU,材料 (ざいりょう),nguyên liệu|カレーの材料を買いに行きます。
 ,ある～,một ～ nọ|ある日、山で犬を見つけました。
 NHẤT SINH HUYỀN MỆNH,一生懸命 (いっしょうけんめい),chăm chỉ/ gắng hết sức|将来のために一生懸命働いています。
-,なぜ,tại sao|なぜ日本語を勉強しているんですか。
-,どのくらい,bao nhiêu|駅までどのくらいかかりますか。
+HÀ CỐ,何故 (なぜ),tại sao|何故日本語を勉強しているんですか。
+VỊ,どの位 (どのくらい),bao nhiêu|駅までどの位かかりますか。
 QUỐC LIÊN,国連 (こくれん),Liên Hợp Quốc|国連で働くために、英語を勉強しています。
 ,エリーゼのために,Dành cho Elise/ tên một bản nhạc|「エリーゼのために」はベートーベンの曲です。
 ,ベートーベン,Beethoven/ nhà soạn nhạc người Đức (1770-1827)|ベートーベンはドイツの音楽家です。
-,こどもニュース,Bản tin thiếu nhi/ chương trình tin tức giả định|こどもニュースは子どもたちのための番組です。
+,こどもニュース,Bản tin thiếu nhi/ chương trình tin tức giả định|こどもニュースは子供たちのための番組です。
 XUẤT,ボーナスが出ます (ボーナスがでます),có thưởng/ được thưởng|今年もボーナスが出ました。
 BÁN PHÂN,半分 (はんぶん),một nửa|ボーナスの半分を貯金します。
 ,ローン,khoản vay ngân hàng|ローンで車を買いました。
-,カップめん,mì ly/ mì ăn liền để trong ly dùng một lần|お湯を沸かして、カップめんを作ります。
-THẾ GIỚI SƠ,世界初 (せかいはつ),đầu tiên trên thế giới|これは世界初のカップめんです。
-,～によって,bởi ～|カップめんは安藤百福によって作られました。
-,どんぶり,bát tô lớn|どんぶりにご飯を入れます。
-,めん,mì sợi|どんぶりのめんにお湯を注ぎます。
+MIẾN,カップ麺 (カップめん),mì ly/ mì ăn liền để trong ly dùng một lần|お湯を沸かして、カップ麺を作ります。
+THẾ GIỚI SƠ,世界初 (せかいはつ),đầu tiên trên thế giới|これは世界初のカップ麺です。
+,～によって,bởi ～|カップ麺は安藤百福によって作られました。
+ĐÔN,丼 (どんぶり),bát tô lớn|丼にご飯を入れます。
+MIẾN,麺 (めん),mì sợi|丼の麺にお湯を注ぎます。
 QUẢNG,広めます (ひろめます),phổ cập/ nhân rộng/ mở rộng|日本の文化を世界に広めたいです。
 THỊ TRƯỜNG ĐIỀU TRA,市場調査 (しじょうちょうさ),điều tra thị trường|新しい商品のために市場調査をします。
-CÁT,割ります (わります),bẻ ra/ chia nhỏ ra|めんを半分に割って、どんぶりに入れます。
+CÁT,割ります (わります),bẻ ra/ chia nhỏ ra|麺を半分に割って、丼に入れます。
 CHÚ,注ぎます (そそぎます),đổ vào|カップにお湯を注ぎます。
 ,チキンラーメン,Chikin Ramen/ tên của một loại mì ăn liền|チキンラーメンは世界初のインスタントラーメンです。
-AN ĐẰNG BÁCH PHÚC,安藤百福 (あんどうももふく),Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)|安藤百福はカップめんを発明しました。
+AN ĐẰNG BÁCH PHÚC,安藤百福 (あんどうももふく),Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)|安藤百福はカップ麺を発明しました。

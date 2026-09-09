@@ -14,7 +14,7 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     vietnamese: 'Gia đình & quan hệ',
     description: 'Xưng hô trong nhà, họ hàng, bạn bè, cưới xin — nhóm từ có mặt ở hầu hết bài đọc N3.',
     icon: '👨‍👩‍👧',
-    wordCount: 63,
+    wordCount: 62,
     sourceCount: 22,
   },
   {

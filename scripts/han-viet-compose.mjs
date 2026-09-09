@@ -12,7 +12,7 @@
  *
  * ── Ghép theo đúng quy ước sẵn có của kho từ ──────────────────────────────
  * Kho từ ghi âm Hán Việt cho phần CHỮ HÁN và bỏ qua kana: "時間に遅れます" ghi
- * "THỜI GIAN TRÌ", "会社を休みます" ghi "HỘI XÃ". Hàm dưới đây làm đúng vậy —
+ * "THỜI GIAN TRÌ", "会社を休みます" ghi "HỘI XÃ HƯU". Hàm dưới đây làm đúng vậy —
  * nối âm của các chữ Hán theo thứ tự, cách nhau một dấu cách.
  *
  * Thiếu âm của DÙ CHỈ MỘT chữ thì trả về chuỗi rỗng chứ không ghép nửa vời:

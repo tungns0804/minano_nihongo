@@ -18,7 +18,7 @@ HỮU ĐẠT,友達 (ともだち),bạn, bạn bè
 BỈ,彼 (かれ),anh ấy, bạn trai
 BỈ NỮ,彼女 (かのじょ),chị ấy, bạn gái
 GIA TỘC,家族 (かぞく),gia đình
-NHẤT NHÂN,～人で (ひとりで),một mình
+NHẤT NHÂN,一人で (ひとりで),một mình
 TIÊN CHU,先週 (せんしゅう),tuần trước
 KIM CHU,今週 (こんしゅう),tuần này
 LAI CHU,来週 (らいしゅう),tuần sau

@@ -8,7 +8,7 @@
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
 ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy/ trốn thoát|犯人は窓から逃げました。
-TAO,騒ぎます (さわぎます),làm ồn/ ồn ào/ làm huyên náo|子どもたちが教室で騒いでいます。
+TAO,騒ぎます (さわぎます),làm ồn/ ồn ào/ làm huyên náo|子供たちが教室で騒いでいます。
 ĐẦU,投げます (なげます),ném/ quăng|ボールを投げないでください。
 THỦ,守ります (まもります),bảo vệ/ tuân thủ/ giữ|規則を守ってください。
 THƯỢNG,上げます (あげます),nâng lên/ giơ lên/ tăng lên|わかる人は手を上げてください。

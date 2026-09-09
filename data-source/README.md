@@ -123,14 +123,30 @@ TỊCH,席,chỗ ngồi/ ghế
 
 Chỉ tách ở **hai dấu phẩy đầu tiên**, nên nghĩa chứa dấu phẩy vẫn đúng.
 
+#### Viết dạng đầy đủ: có chữ Hán thì viết chữ Hán, có âm thì ghi âm
+
+Giáo trình hay viết một số từ bằng kana cho dễ đọc (めん, やかん, ふた, かぎ, いす,
+はんこ, ひも, 子ども…). Ở đây **chép về dạng đầy đủ**: viết chữ Hán và ghi đủ âm Hán
+Việt của TỪNG chữ, còn cách đọc kana đặt trong ngoặc nên vẫn học được như sách.
+
+```
+MIẾN,麺 (めん),mì sợi
+Ỷ TỬ HOẠI,椅子が壊れます (いすがこわれます),ghế bị hỏng
+HỘI XÃ HƯU,会社を休みます (かいしゃをやすみます),nghỉ làm việc
+```
+
+Giới hạn: chỉ đổi khi chữ Hán đó là **常用漢字** và cách viết ấy có thật trong từ điển.
+Dạng cổ / 表外 thì giữ nguyên kana — のし袋 không viết 熨斗袋, ごみ箱 không viết 塵箱,
+すき焼き không viết 鋤焼き, ある～ không viết 或る～.
+
 #### Cột âm Hán Việt được phép để trống
 
-Từ katakana và trạng từ thuần kana không có âm Hán Việt — bỏ trống ô đầu, **giữ nguyên
-dấu phẩy**:
+Chỉ để trống khi từ **không có dạng chữ Hán nào** để lấy âm: từ katakana, tên riêng,
+mẫu ngữ pháp — bỏ trống ô đầu, **giữ nguyên dấu phẩy**:
 
 ```
 ,アイデア,ý tưởng
-,うっかり,lơ đãng/ vô ý
+,～によって,bởi ～
 ```
 
 Bài nào không có từ nào mang âm Hán Việt thì cột đó tự ẩn khỏi bảng, và hai chiều luyện
