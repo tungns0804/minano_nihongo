@@ -57,12 +57,39 @@ main:focus-visible {
   }
 }
 
+/* Hai hàng: thương hiệu + hai nút ở trên, thanh menu chiếm trọn hàng dưới.
+
+   Vì sao không phải một hàng như trước. Menu có 7 mục, nhãn tiếng Việt dài ("Từ
+   vựng minano", "Ngữ pháp minano"), đo ra 796px. Cộng thương hiệu 244px, hai nút
+   232px và hai khoảng cách thì cần 1304px, trong khi container rộng nhất 1240px
+   trừ lề còn đúng 1200px — và con số 1200px đó KHÔNG lớn lên theo màn hình, vì
+   container đã chạm trần từ 1280px. Nghĩa là một hàng thiếu 104px trên mọi cỡ
+   màn hình, kể cả 4K. Bật lại mục "Nạp bài mới" thì thiếu 216px.
+
+   Bản trước vẫn cố xếp một hàng, và trả giá đúng như vậy: thương hiệu bị nén tới
+   mức mất chữ (rồi mất sạch, còn 0px, từ 1080px trở xuống) và cả trang mọc thanh
+   cuộn ngang suốt dải 521–1024px.
+
+   Cho menu một hàng riêng thì bề rộng cần chỉ còn bằng hàng dài hơn trong hai
+   hàng chứ không phải tổng ba khối — thừa chỗ ở mọi khổ, không phải cắt chữ của
+   ai, và thêm hay bớt mục menu cũng không phải đo lại gì. */
 .app-header-inner {
-  display: flex;
+  /* Lưới chứ không phải flex-wrap, vì flexbox xuống hàng TRƯỚC rồi mới co: khi
+     thương hiệu và hai nút vừa đủ chật, flexbox đẩy hai nút xuống thành hàng thứ
+     ba thay vì cắt bớt tên — đo được header cao 195px ở khổ 480px và 390px. Lưới
+     thì ngược lại, cột đầu tự co trong khoảng minmax cho tới khi chạm sàn.
+
+     Cột đầu là minmax(36px, 1fr): nở tối đa để đẩy hai nút sang lề phải, và co
+     tối thiểu bằng ô 語 — hết chỗ thì cắt tên chứ không bao giờ nuốt mất logo
+     lẫn lối bấm về trang chủ (bản trước nén khối này về đúng 0px). */
+  display: grid;
+  grid-template-columns: minmax(36px, 1fr) auto;
+  grid-template-areas:
+    'brand actions'
+    'nav nav';
   align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  min-height: var(--header-h);
+  gap: 4px var(--sp-3);
+  padding-block: 6px;
 }
 
 .brand {
@@ -70,9 +97,30 @@ main:focus-visible {
   align-items: center;
   gap: 11px;
   color: var(--text);
-  /* Được phép co lại; phần điều hướng bên phải mới là thứ giữ nguyên kích thước. */
+  grid-area: brand;
+  /* Được phép co lại, nhưng sàn nằm ở cột lưới (minmax(36px, …), xem
+     .app-header-inner) chứ không ở đây — hết chỗ thì cắt tên bằng dấu ..., chứ
+     không bao giờ nuốt mất ô 語 lẫn lối bấm về trang chủ. Bản trước không có sàn
+     nào cả và nén khối này về đúng 0px từ khổ 1080px trở xuống.
+
+     Ba dòng dưới đây phải đi CÙNG NHAU, bỏ dòng nào cũng hỏng:
+
+     - `justify-self: start` để thẻ <a> chỉ rộng bằng nội dung. Mặc định lưới kéo
+       item đầy cột, mà kéo đầy nghĩa là bấm vào khoảng trống mênh mông bên phải
+       logo cũng nhảy về trang chủ — đo được vùng bấm rộng 956px ở màn hình 1440px.
+
+     - `max-width: 100%` vì justify-self khác stretch thì bề rộng tính theo
+       fit-content, mà fit-content KHÔNG BAO GIỜ xuống dưới min-content — ở đây là
+       244px, cả dòng tên đầy đủ. Thiếu dòng này thì ở khổ 390px tên ứng dụng chạy
+       xuống dưới nút ngôn ngữ. `max-width` kẹp sau fit-content, và 100% ở đây là
+       bề rộng ô lưới.
+
+     - `min-width: 0` để gỡ kích thước tối thiểu tự động của một lưới item, vốn
+       cũng là min-content 244px. */
+  justify-self: start;
+  max-width: 100%;
   min-width: 0;
-  flex: 0 1 auto;
+  /* Cắt phần thò ra khi đã chạm sàn 36px; mỗi dòng chữ thì tự cắt bằng dấu ... */
   overflow: hidden;
 }
 
@@ -117,26 +165,44 @@ main:focus-visible {
   letter-spacing: 0.01em;
 }
 
+/* Cắt bằng dấu ... y như .brand-title, và vì đúng một lý do — chỉ khác là ở đây
+   hậu quả rơi vào CHIỀU CAO chứ không phải bề ngang. Bản trước để dòng này xuống
+   hàng tự do: khi thương hiệu bị bóp hẹp, "Kanji · Âm Hán Việt · Nghĩa tiếng Việt"
+   rơi xuống cả chục dòng một chữ, và header cao 141px thay vì 62px trong suốt dải
+   701–1160px — overflow: hidden của khối cha chỉ cắt được bề ngang, còn chiều cao
+   thì vẫn nở nguyên. */
 .brand-sub {
   font-size: var(--fs-2xs);
   color: var(--text-faint);
   line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .app-actions {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+  grid-area: actions;
 }
 
 .app-nav {
+  /* Trọn hàng dưới của header, vắt qua cả hai cột. */
+  grid-area: nav;
+  /* Không để menu ép ô lưới rộng ra: hết chỗ thì tự xuống hàng.
+
+     Đây mới là thứ giữ cho trang không cuộn ngang, chứ không phải mấy ngưỡng
+     @media ở cuối tệp. Bản trước menu là `flex-shrink: 0`, giữ nguyên 796px dù
+     còn bao nhiêu chỗ, nên phần thừa lòi ra ngoài khung nhìn và CẢ TRANG mọc
+     thanh cuộn ngang — tràn tới 445px ở khổ 540px. Nay trường hợp xấu nhất chỉ
+     là menu cao thêm một hàng, bất kể menu có mấy mục hay đang ở ngôn ngữ nào. */
+  min-width: 0;
+
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--sp-1);
-  flex-shrink: 0;
-  /* Đẩy menu sang sát khối nút bên phải, để thương hiệu một mình giữ lề trái —
-     nếu không thì justify-content: space-between của header sẽ dồn menu vào giữa. */
-  margin-left: auto;
 }
 
 .app-nav a {
@@ -232,8 +298,10 @@ main:focus-visible {
 
 .route-progress {
   position: sticky;
-  /* Bám ngay dưới header dính. Cùng biến chiều cao mà header đang dùng. */
-  top: calc(var(--header-h) + env(safe-area-inset-top));
+  /* Bám ngay dưới header dính. --header-h là chiều cao THẬT của header, đo lúc
+     chạy (app.ts) nên đã gồm cả phần chừa cho tai thỏ — không cộng thêm env()
+     nữa, cộng hai lần thì vệt sáng rơi xuống dưới đáy header một khoảng. */
+  top: var(--header-h);
   z-index: 19;
   height: 3px;
   margin-bottom: -3px;
@@ -328,82 +396,56 @@ main:focus-visible {
   color: var(--accent);
 }
 
-/* Header có 2 nút + các mục menu, nên phải nhường chỗ theo từng bậc khi hẹp dần.
+/* --- Header thu hẹp dần ----------------------------------------------------
 
-   Các số đo dưới đây đo hồi menu còn ĐỦ BA mục (mục "Nạp bài mới" nay đang tắt, xem
-   core/feature-flags.ts). Giữ nguyên chứ không đo lại theo hai mục: bật lại cờ đó là
-   mục thứ ba quay về, mà một bộ ngưỡng vừa khít hai mục thì lúc ấy sẽ tràn. */
+   Header đã luôn hai hàng (xem .app-header-inner), nên các bậc dưới đây chỉ còn
+   lo cho HÀNG TRÊN — thương hiệu và hai nút. Cặp đó cần 488px lúc đủ chữ, nên
+   bậc đầu tiên mãi tới 430px mới phải cắt gì.
 
-/* Bậc 1: bỏ chữ của nút sáng/tối, giữ chữ của nút ngôn ngữ vì biểu tượng 🌐
-   một mình không cho biết đang ở ngôn ngữ nào. */
-@media (max-width: 860px) {
-  .theme-btn .icon-btn-label {
-    display: none;
-  }
+   Thang cũ ở đây bắt đầu cắt từ 860px, vì hồi đó menu còn nằm chung hàng với hai
+   nút. Nó cũng được đo hồi menu có BA mục nên đã lạc hậu hai lần liền — menu lên
+   5 rồi 7 mục mà các ngưỡng vẫn nằm nguyên.
 
-  .theme-btn {
-    padding: 6px 9px;
-  }
-}
+   Lần này thứ giữ cho trang không cuộn ngang KHÔNG phải mấy con số dưới đây, mà
+   là hai thứ ở trên: ô lưới của .app-header-inner (cột thương hiệu tự co) và
+   `flex-wrap: wrap` của .app-nav (menu tự xuống hàng). Các bậc dưới đây chỉ chọn
+   cách xếp gọn nhất cho từng khổ; khổ nào lọt lưới thì header tự cao thêm một
+   hàng chứ trang không rộng ra. */
 
-/* Bậc 2: bỏ dòng mô tả dưới tên ứng dụng. */
+/* Bậc 1: bỏ dòng mô tả dưới tên ứng dụng.
+
+   Không phải để lấy chỗ ngang — dòng này đã tự cắt bằng dấu ... rồi. Là để lấy
+   chỗ DỌC: header giờ hai hàng và vẫn dính trên đỉnh, mà bỏ dòng thứ hai của
+   thương hiệu thì hàng trên thấp đi 14px. */
 @media (max-width: 700px) {
   .brand-sub {
     display: none;
   }
 }
 
-/* Bậc 3: bỏ phần "Ôn tập từ vựng", chỉ giữ tên giáo trình. */
-@media (max-width: 620px) {
-  .brand-prefix {
-    display: none;
-  }
-}
+/* Bậc 2 — ĐIỆN THOẠI: mỗi mục menu dãn ra thành một ô bấm.
 
-/* Bậc 4 — ĐIỆN THOẠI: header xuống hai hàng.
-
-   Vì sao không thu nhỏ tiếp theo từng bậc như ba bậc trên: ba mục menu cộng hai nút
-   cần khoảng 368px (khi đã bỏ chữ của nút ngôn ngữ) đến 433px (khi còn chữ). Đo thực
-   tế thì máy 360px tràn 8px, và iPhone Pro Max 430px tràn 3px — đúng hai khổ máy phổ
-   biến. Bề rộng cần luôn chạy trước bề rộng máy, nên cách nào còn dựa vào việc đoán
-   đúng khổ máy cũng sẽ hụt ở đâu đó.
-
-   Cho menu chiếm trọn một hàng riêng thì tổng bề rộng cần chỉ còn bằng hàng dài hơn
-   trong hai hàng, và mỗi mục menu cũng rộng ra thành vùng bấm dễ trúng hơn. Cách này
-   cũng không phụ thuộc menu có mấy mục: còn hai mục thì hai mục chia đôi hàng dưới. */
+   Ở các khổ trên, mục menu để nguyên bề rộng chữ và nằm giữa hàng. Từ đây thì
+   chia đều mỗi hàng ba ô: vùng bấm to lên đáng kể, và mép các ô thẳng nhau nên
+   nhìn ra ngay đây là một khối chứ không phải mấy chữ rời rạc. */
 @media (max-width: 520px) {
-  .app-header-inner {
-    flex-wrap: wrap;
-    gap: 4px 10px;
-    padding-block: 6px;
-    /* min-height của một hàng không còn đúng khi có hai hàng. */
-    min-height: 0;
-  }
-
-  .app-actions {
-    gap: 6px;
-  }
-
   .app-nav {
-    /* order 3 để menu luôn nằm dưới, kể cả khi thương hiệu bị cắt ngắn. */
-    order: 3;
-    flex: 1 0 100%;
     gap: 2px;
-    margin-left: 0;
-    /* Menu đã có 5 mục: nhồi hết vào một hàng thì "Ngữ pháp minano" xuống ba dòng
-       và hàng menu cao gấp ba. Cho xuống hàng thì mỗi mục vẫn đọc được. */
-    flex-wrap: wrap;
   }
 
   /* Mỗi hàng ba mục (30% + gap), mục thừa tự dãn ra chiếm nốt hàng dưới. Chữ nhỏ
-     lại một bậc vì tên tab là cụm hai từ ("Ngữ pháp minano"): để nguyên cỡ chữ thì
-     mỗi mục xuống hai dòng. */
+     lại một bậc vì tên mục là cụm hai từ ("Ngữ pháp minano"): để nguyên cỡ chữ
+     thì mỗi mục xuống hai dòng. */
   .app-nav a {
     flex: 1 1 30%;
     padding: 8px 4px;
     text-align: center;
     font-size: 0.82rem;
     line-height: 1.25;
+  }
+
+  .app-actions {
+    gap: 6px;
   }
 
   /* Nút lên đầu trang lùi vào sát góc hơn, nhường chỗ cho nội dung. */
@@ -415,8 +457,33 @@ main:focus-visible {
   }
 }
 
-/* Bậc 5: máy rất hẹp — bỏ chữ của nút ngôn ngữ, chỉ còn biểu tượng 🌐. */
-@media (max-width: 360px) {
+/* Bậc 3: bỏ chữ của nút sáng/tối, giữ chữ của nút ngôn ngữ vì biểu tượng 🌐 một
+   mình không cho biết đang ở ngôn ngữ nào.
+
+   Ngưỡng này trước đây là 860px, đo hồi menu còn nằm CÙNG hàng với hai nút. Nay
+   menu đã có hàng riêng nên hàng trên chỉ còn thương hiệu + hai nút, và cặp đó
+   vừa thoải mái tới tận 430px — bỏ chữ sớm hơn thế chỉ là mất chữ không công. */
+@media (max-width: 430px) {
+  .theme-btn .icon-btn-label {
+    display: none;
+  }
+
+  .theme-btn {
+    padding: 6px 9px;
+  }
+}
+
+/* Bậc 4 — máy rất hẹp: bỏ phần "Ôn tập từ vựng" của tên, bỏ nốt chữ của nút
+   ngôn ngữ, và bóp lề trong của mục menu.
+
+   Bóp lề chứ KHÔNG đổi cỡ chữ. Bản trước ở bậc này lại nâng cỡ chữ menu từ
+   0.82rem lên 0.86rem — màn hình hẹp hơn mà chữ to hơn — nên 6 trong 7 mục
+   xuống hai dòng và riêng thanh menu đã cao 130px. */
+@media (max-width: 380px) {
+  .brand-prefix {
+    display: none;
+  }
+
   .lang-btn .icon-btn-label {
     display: none;
   }
@@ -426,7 +493,6 @@ main:focus-visible {
   }
 
   .app-nav a {
-    padding: 8px 4px;
-    font-size: 0.86rem;
+    padding: 8px 2px;
   }
 }

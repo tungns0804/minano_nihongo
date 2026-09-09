@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { IMPORT_LESSON_ENABLED } from './core/feature-flags';
@@ -41,7 +49,14 @@ export class App {
    */
   protected readonly scrolledDown = signal(false);
 
+  /** Chính thẻ <header>, để đo chiều cao thật của nó. Xem `trackHeaderHeight`. */
+  private readonly headerRef = viewChild.required<ElementRef<HTMLElement>>('appHeader');
+
   constructor() {
+    // Chạy sau lần vẽ đầu tiên vì lúc này <header> chưa tồn tại. Trên máy chủ thì
+    // không chạy, nên không cần tự kiểm tra `window`.
+    afterNextRender(() => this.trackHeaderHeight());
+
     if (typeof window === 'undefined') return;
 
     const update = () => this.scrolledDown.set(window.scrollY > BACK_TO_TOP_AT);
@@ -49,6 +64,38 @@ export class App {
     // passive: trình duyệt khỏi phải chờ xem hàm này có gọi preventDefault không,
     // nên cuộn không bị khựng. Không cần gỡ bỏ: component gốc sống hết vòng đời trang.
     window.addEventListener('scroll', update, { passive: true });
+  }
+
+  /**
+   * Đo chiều cao thật của header rồi ghi vào biến CSS `--header-h`.
+   *
+   * Bốn chỗ cần đúng con số này để không bị header dính che mất: scroll-padding
+   * của cả trang, mục lục dính trong bài ngữ pháp, thanh tiến độ lúc luyện tập,
+   * và vệt báo đang chuyển trang.
+   *
+   * Vì sao phải ĐO thay vì viết sẵn một con số cho mỗi breakpoint: header cao bao
+   * nhiêu còn tuỳ menu có mấy mục, nhãn dài ngắn ra sao và đang ở tiếng Việt hay
+   * tiếng Nhật — không có công thức nào từ riêng bề rộng màn hình mà ra. Cách viết
+   * sẵn đã sai hai lần: con số 92px cho khổ điện thoại được đo hồi menu có 3 mục,
+   * tới khi menu lên 7 mục thì header cao 155px, và vệt báo chuyển trang nằm lọt
+   * hẳn sau header — bấm menu xong không thấy gì phản hồi.
+   *
+   * ResizeObserver chứ không phải sự kiện `resize` của cửa sổ: header còn cao thấp
+   * theo cả những thứ không liên quan tới cửa sổ — đổi ngôn ngữ làm nhãn menu dài
+   * ra và xuống thêm hàng, bật cờ "Nạp bài mới" thì thêm một mục.
+   *
+   * Không cần ngắt theo dõi: component gốc sống hết vòng đời trang.
+   */
+  private trackHeaderHeight(): void {
+    const header = this.headerRef().nativeElement;
+
+    const apply = () => {
+      const height = Math.round(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-h', `${height}px`);
+    };
+
+    apply();
+    new ResizeObserver(apply).observe(header);
   }
 
   /**

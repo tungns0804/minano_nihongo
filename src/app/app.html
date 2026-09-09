@@ -9,7 +9,7 @@
   <app-t key="app.skipToContent" />
 </button>
 
-<header class="app-header">
+<header class="app-header" #appHeader>
   <div class="container app-header-inner">
     <a routerLink="/" class="brand">
       <span class="brand-mark jp" aria-hidden="true">語</span>
@@ -24,9 +24,9 @@
       </span>
     </a>
 
-    <!-- Menu là em ruột của .app-actions, không nằm trong đó: ở khổ điện thoại nó phải
-         xuống được một hàng riêng chiếm trọn bề ngang, mà một flex item chỉ xuống hàng
-         được so với các em ruột của chính nó. -->
+    <!-- Menu là em ruột của .app-actions, không nằm trong đó: header là một lưới hai
+         hàng và menu chiếm trọn hàng dưới (xem .app-header-inner), nên nó phải là ô
+         lưới riêng chứ không nằm lồng trong ô của hai nút. -->
     <nav class="app-nav" [attr.aria-label]="t('app.nav')">
       <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
         <app-t key="app.nav.lessons" />

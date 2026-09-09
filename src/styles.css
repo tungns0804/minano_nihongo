@@ -128,11 +128,20 @@
      học thì mép thẻ sẽ thò ra ngoài mép logo và thanh điều hướng. */
   --max-width: 1240px;
 
-  /* Chiều cao header dính. Khai báo thành biến vì ba chỗ cần đúng con số này:
-     scroll-padding-top của cả trang, mục lục dính trong bài ngữ pháp, và thanh
-     tiến độ dính lúc luyện tập. Header cao lên ở khổ điện thoại (xuống hai hàng)
-     nên biến cũng đổi theo, ở cuối file. */
-  --header-h: 62px;
+  /* Chiều cao THẬT của header dính, tính cả phần chừa cho tai thỏ. Bốn chỗ cần
+     đúng con số này: scroll-padding-top của cả trang, mục lục dính trong bài ngữ
+     pháp, thanh tiến độ dính lúc luyện tập, và vệt báo đang chuyển trang.
+
+     Giá trị dưới đây chỉ là ước lượng cho lần vẽ đầu tiên (và cho trường hợp
+     không có JavaScript). Ngay khi chạy, app.ts đo header thật rồi ghi đè —
+     xem `App.trackHeaderHeight`.
+
+     Vì sao phải đo thay vì viết sẵn từng con số theo breakpoint: header cao bao
+     nhiêu phụ thuộc menu có mấy mục, nhãn dài bao nhiêu và đang ở ngôn ngữ nào.
+     Cách viết sẵn đã sai hai lần rồi — con số 92px cho khổ điện thoại được đo
+     hồi menu có 3 mục, tới lúc menu lên 7 mục thì header cao 155px mà biến vẫn
+     là 92px, nên thanh tiến trình chui tọt ra sau header. */
+  --header-h: calc(62px + env(safe-area-inset-top));
 }
 
 :root[data-theme='light'] {
@@ -1549,14 +1558,6 @@ kbd {
   .textarea,
   .select {
     font-size: 16px;
-  }
-}
-
-/* Dưới 520px header xuống hai hàng (xem app.css) nên chỗ chừa cho nó phải cao lên
-   theo, nếu không khối vừa cuộn tới sẽ bị header che mất dòng đầu. */
-@media (max-width: 520px) {
-  :root {
-    --header-h: 92px;
   }
 }
 
