@@ -1,0 +1,1427 @@
+{
+  "id": "dich-cau-va-doan-van",
+  "lessonNumber": null,
+  "name": "Dịch câu & đoạn văn — N4 → N3",
+  "description": "192 câu và 10 đoạn văn để dịch hai chiều Nhật ↔ Việt, theo từ vựng và ngữ pháp N4 lên N3",
+  "kind": "conversation",
+  "itemCount": 202,
+  "words": [],
+  "verbs": [],
+  "lines": [
+    {
+      "id": "1djznev",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本の文化を勉強しています。",
+      "vietnamese": "Tôi đang học văn hóa Nhật Bản."
+    },
+    {
+      "id": "0gq4ik2",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "来週、東京へ出張します。",
+      "vietnamese": "Tuần sau tôi sẽ đi công tác ở Tokyo."
+    },
+    {
+      "id": "1mh2tby",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "明日の予定を確認してください。",
+      "vietnamese": "Hãy xác nhận lịch trình ngày mai."
+    },
+    {
+      "id": "11y6hep",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "先生に質問しました。",
+      "vietnamese": "Tôi đã hỏi thầy giáo một câu hỏi."
+    },
+    {
+      "id": "1jkkkhc",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎日、漢字を練習しています。",
+      "vietnamese": "Hằng ngày tôi luyện chữ Hán."
+    },
+    {
+      "id": "0cpept7",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "駅まで友達を迎えに行きます。",
+      "vietnamese": "Tôi ra ga đón bạn."
+    },
+    {
+      "id": "17gc505",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "何かあったら連絡してください。",
+      "vietnamese": "Nếu có chuyện gì thì hãy liên lạc cho tôi."
+    },
+    {
+      "id": "1hczbpf",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この町はとても有名です。",
+      "vietnamese": "Thị trấn này rất nổi tiếng."
+    },
+    {
+      "id": "1fh6lyy",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "駅の近くに銀行があります。",
+      "vietnamese": "Gần ga có ngân hàng."
+    },
+    {
+      "id": "00fldvl",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この問題は簡単です。",
+      "vietnamese": "Vấn đề này đơn giản."
+    },
+    {
+      "id": "1k4lynj",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "田中さんは英語が上手です。",
+      "vietnamese": "Anh Tanaka giỏi tiếng Anh."
+    },
+    {
+      "id": "16wnvp4",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "新しい仕事を始めました。",
+      "vietnamese": "Tôi đã bắt đầu công việc mới."
+    },
+    {
+      "id": "0ndhq0d",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "父は会社で働いています。",
+      "vietnamese": "Bố tôi đang làm việc ở công ty."
+    },
+    {
+      "id": "0h5k2o7",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "荷物を送ります。",
+      "vietnamese": "Tôi gửi hành lý."
+    },
+    {
+      "id": "1fq1e8r",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "荷物がまだ届いていません。",
+      "vietnamese": "Hành lý vẫn chưa đến nơi."
+    },
+    {
+      "id": "0gbp3qu",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "銀行でお金を下ろしました。",
+      "vietnamese": "Tôi đã rút tiền ở ngân hàng."
+    },
+    {
+      "id": "0jym8l1",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "道で財布を落としました。",
+      "vietnamese": "Tôi đã đánh rơi ví trên đường."
+    },
+    {
+      "id": "0igp7xq",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "分からない言葉を辞書で調べます。",
+      "vietnamese": "Tôi tra từ không hiểu trong từ điển."
+    },
+    {
+      "id": "1b1vn4s",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "先生の説明を理解しました。",
+      "vietnamese": "Tôi đã hiểu lời thầy giáo giải thích."
+    },
+    {
+      "id": "1d2ui80",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "仕事の内容を説明してください。",
+      "vietnamese": "Hãy giải thích nội dung công việc."
+    },
+    {
+      "id": "0tvkc3r",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この仕事には経験が必要です。",
+      "vietnamese": "Công việc này cần kinh nghiệm."
+    },
+    {
+      "id": "1k27y8h",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本で働いた経験があります。",
+      "vietnamese": "Tôi có kinh nghiệm làm việc ở Nhật."
+    },
+    {
+      "id": "17uoupw",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本語の能力を高めたいです。",
+      "vietnamese": "Tôi muốn nâng cao năng lực tiếng Nhật."
+    },
+    {
+      "id": "0ebk3sk",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "会社の規則を守ってください。",
+      "vietnamese": "Hãy tuân thủ quy định của công ty."
+    },
+    {
+      "id": "1ilw157",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎月、給料をもらいます。",
+      "vietnamese": "Hằng tháng tôi nhận lương."
+    },
+    {
+      "id": "1dyi3a0",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "新しい製品を作っています。",
+      "vietnamese": "Chúng tôi đang làm sản phẩm mới."
+    },
+    {
+      "id": "0q6cw5p",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この機械は日本で作られました。",
+      "vietnamese": "Chiếc máy này được sản xuất ở Nhật."
+    },
+    {
+      "id": "0wbhdf0",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "ドアが開いています。",
+      "vietnamese": "Cửa đang mở."
+    },
+    {
+      "id": "02a336c",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "窓を閉めてください。",
+      "vietnamese": "Hãy đóng cửa sổ lại."
+    },
+    {
+      "id": "07tozwc",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "電気を消してください。",
+      "vietnamese": "Hãy tắt đèn."
+    },
+    {
+      "id": "045ai2z",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "電気が消えました。",
+      "vietnamese": "Đèn đã tắt."
+    },
+    {
+      "id": "1j8r615",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "かばんに本を入れました。",
+      "vietnamese": "Tôi đã cho sách vào cặp."
+    },
+    {
+      "id": "1d3nbdu",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "電車に人がたくさん乗っています。",
+      "vietnamese": "Trên tàu có rất nhiều người."
+    },
+    {
+      "id": "0hbss2h",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "次の駅で電車を降ります。",
+      "vietnamese": "Tôi xuống tàu ở ga tiếp theo."
+    },
+    {
+      "id": "16ibjxy",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "会議は9時に始まります。",
+      "vietnamese": "Cuộc họp bắt đầu lúc 9 giờ."
+    },
+    {
+      "id": "1lijt40",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "仕事が終わったら帰ります。",
+      "vietnamese": "Xong việc thì tôi về."
+    },
+    {
+      "id": "04dm53e",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎朝6時に起きます。",
+      "vietnamese": "Sáng nào tôi cũng dậy lúc 6 giờ."
+    },
+    {
+      "id": "11lkc41",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎晩11時に寝ます。",
+      "vietnamese": "Tối nào tôi cũng đi ngủ lúc 11 giờ."
+    },
+    {
+      "id": "1k6r5bi",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "明日は学校が休みです。",
+      "vietnamese": "Ngày mai trường nghỉ."
+    },
+    {
+      "id": "1szred1",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "今日はとても忙しいです。",
+      "vietnamese": "Hôm nay tôi rất bận."
+    },
+    {
+      "id": "1b7hq7y",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この荷物は重いです。",
+      "vietnamese": "Kiện hành lý này nặng."
+    },
+    {
+      "id": "16pcbne",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "このかばんは軽いです。",
+      "vietnamese": "Chiếc cặp này nhẹ."
+    },
+    {
+      "id": "0y8k6tx",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "駅からホテルまで遠いです。",
+      "vietnamese": "Từ ga đến khách sạn thì xa."
+    },
+    {
+      "id": "1bdaako",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この漢字は難しいです。",
+      "vietnamese": "Chữ Hán này khó."
+    },
+    {
+      "id": "0fkgeap",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "今日の天気は悪いです。",
+      "vietnamese": "Thời tiết hôm nay xấu."
+    },
+    {
+      "id": "1ogzg3o",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "駅まで歩いて行きます。",
+      "vietnamese": "Tôi đi bộ ra ga."
+    },
+    {
+      "id": "0kw744t",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎日電車で会社へ通います。",
+      "vietnamese": "Hằng ngày tôi đi làm bằng tàu điện."
+    },
+    {
+      "id": "0qda9sj",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "来年、日本へ留学します。",
+      "vietnamese": "Năm sau tôi sẽ đi du học Nhật Bản."
+    },
+    {
+      "id": "07k2d2d",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "大学で経済を勉強しています。",
+      "vietnamese": "Tôi đang học kinh tế ở đại học."
+    },
+    {
+      "id": "010zj9y",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本の歴史を勉強しています。",
+      "vietnamese": "Tôi đang học lịch sử Nhật Bản."
+    },
+    {
+      "id": "1fokfr8",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "会社に相談してから決めます。",
+      "vietnamese": "Tôi sẽ bàn với công ty rồi mới quyết định."
+    },
+    {
+      "id": "0ip2him",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "最近、体の調子がよくありません。",
+      "vietnamese": "Gần đây tình trạng sức khỏe của tôi không tốt."
+    },
+    {
+      "id": "0i0s4gj",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "健康のために毎日運動しています。",
+      "vietnamese": "Vì sức khỏe, hằng ngày tôi tập thể dục."
+    },
+    {
+      "id": "0f25rp8",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "事故がないように注意してください。",
+      "vietnamese": "Hãy chú ý để không xảy ra tai nạn."
+    },
+    {
+      "id": "1volu43",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "将来のために貯金しています。",
+      "vietnamese": "Tôi đang tiết kiệm tiền cho tương lai."
+    },
+    {
+      "id": "04oscu0",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "今日は特別な日です。",
+      "vietnamese": "Hôm nay là một ngày đặc biệt."
+    },
+    {
+      "id": "17fk7sv",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "これは必要な書類です。",
+      "vietnamese": "Đây là giấy tờ cần thiết."
+    },
+    {
+      "id": "1becvm7",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本語を勉強する目的は何ですか。",
+      "vietnamese": "Mục đích học tiếng Nhật của bạn là gì?"
+    },
+    {
+      "id": "09rsfrv",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本へ行きたい理由を話しました。",
+      "vietnamese": "Tôi đã nói lý do muốn đi Nhật."
+    },
+    {
+      "id": "12iol1g",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "将来の希望について話してください。",
+      "vietnamese": "Hãy nói về nguyện vọng tương lai của bạn."
+    },
+    {
+      "id": "1nqgfr8",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "子どものころの夢を覚えていますか。",
+      "vietnamese": "Bạn có nhớ ước mơ hồi nhỏ không?"
+    },
+    {
+      "id": "02wvw2z",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "大学を卒業したら働きます。",
+      "vietnamese": "Tốt nghiệp đại học xong tôi sẽ đi làm."
+    },
+    {
+      "id": "0r9cl4y",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "来年、大学に入学します。",
+      "vietnamese": "Năm sau tôi sẽ nhập học đại học."
+    },
+    {
+      "id": "1tcjwba",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本の会社に就職しました。",
+      "vietnamese": "Tôi đã xin được việc ở một công ty Nhật."
+    },
+    {
+      "id": "1cqvm7j",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "大学で専門を勉強しています。",
+      "vietnamese": "Tôi đang học chuyên ngành ở đại học."
+    },
+    {
+      "id": "18o2hyz",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "これは日本の伝統的な料理です。",
+      "vietnamese": "Đây là món ăn truyền thống của Nhật Bản."
+    },
+    {
+      "id": "1tf22wr",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この町は外国人に人気があります。",
+      "vietnamese": "Thị trấn này được người nước ngoài ưa thích."
+    },
+    {
+      "id": "11lmy0r",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本の習慣を知っていますか。",
+      "vietnamese": "Bạn có biết tập quán của Nhật Bản không?"
+    },
+    {
+      "id": "1uop9o4",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎日の生活に慣れました。",
+      "vietnamese": "Tôi đã quen với cuộc sống hằng ngày."
+    },
+    {
+      "id": "0dbjk99",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本の社会について勉強します。",
+      "vietnamese": "Tôi sẽ học về xã hội Nhật Bản."
+    },
+    {
+      "id": "07i59x8",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "会社の社員が集まりました。",
+      "vietnamese": "Nhân viên công ty đã tập trung lại."
+    },
+    {
+      "id": "1afvpgh",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この会社の社長は親切です。",
+      "vietnamese": "Giám đốc công ty này tốt bụng."
+    },
+    {
+      "id": "0jhg8yc",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎月の給料を貯金しています。",
+      "vietnamese": "Tôi gửi tiết kiệm lương hằng tháng."
+    },
+    {
+      "id": "0rai75j",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "会社の規則を守りましょう。",
+      "vietnamese": "Chúng ta hãy tuân thủ quy định của công ty."
+    },
+    {
+      "id": "0542421",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "新しい経験ができました。",
+      "vietnamese": "Tôi đã có được một kinh nghiệm mới."
+    },
+    {
+      "id": "0j5s4dh",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "仕事の能力を高めたいです。",
+      "vietnamese": "Tôi muốn nâng cao năng lực làm việc."
+    },
+    {
+      "id": "03l3orp",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "仕事の内容を確認してください。",
+      "vietnamese": "Hãy xác nhận nội dung công việc."
+    },
+    {
+      "id": "07yq7xg",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この仕事は簡単ではありません。",
+      "vietnamese": "Công việc này không đơn giản."
+    },
+    {
+      "id": "161hill",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本語が上手になりましたね。",
+      "vietnamese": "Tiếng Nhật của bạn khá lên rồi nhỉ."
+    },
+    {
+      "id": "0jvcx7v",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "彼は日本語を理解できます。",
+      "vietnamese": "Anh ấy có thể hiểu tiếng Nhật."
+    },
+    {
+      "id": "10vjjzx",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "先生の説明を聞きました。",
+      "vietnamese": "Tôi đã nghe thầy giáo giải thích."
+    },
+    {
+      "id": "0vouup3",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この問題について説明してください。",
+      "vietnamese": "Hãy giải thích về vấn đề này."
+    },
+    {
+      "id": "0lmhmsm",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "先生に日本語を習っています。",
+      "vietnamese": "Tôi đang học tiếng Nhật với thầy giáo."
+    },
+    {
+      "id": "08l3jzg",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "新しい単語を覚えました。",
+      "vietnamese": "Tôi đã nhớ được từ mới."
+    },
+    {
+      "id": "07qcqgv",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "大切なことを忘れないでください。",
+      "vietnamese": "Xin đừng quên điều quan trọng."
+    },
+    {
+      "id": "0tveysh",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "先生の話をよく考えました。",
+      "vietnamese": "Tôi đã suy nghĩ kỹ về lời thầy giáo nói."
+    },
+    {
+      "id": "1ftewg8",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "友達と将来について話し合いました。",
+      "vietnamese": "Tôi đã bàn bạc với bạn về tương lai."
+    },
+    {
+      "id": "19u0aic",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "みんなで問題を決めました。",
+      "vietnamese": "Mọi người đã cùng quyết định vấn đề."
+    },
+    {
+      "id": "0iudjcf",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "来月、日本へ行くことに決まりました。",
+      "vietnamese": "Đã quyết định là tháng sau tôi sẽ đi Nhật."
+    },
+    {
+      "id": "09q91lj",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "仕事を続けたいです。",
+      "vietnamese": "Tôi muốn tiếp tục công việc."
+    },
+    {
+      "id": "0go8xg2",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本語の勉強を続けています。",
+      "vietnamese": "Tôi vẫn đang tiếp tục học tiếng Nhật."
+    },
+    {
+      "id": "1w79ury",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "先生が漢字の意味を説明しました。",
+      "vietnamese": "Thầy giáo đã giải thích nghĩa của chữ Hán."
+    },
+    {
+      "id": "0wzwmg7",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "駅で友達に会いました。",
+      "vietnamese": "Tôi đã gặp bạn ở ga."
+    },
+    {
+      "id": "0jbvume",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "毎日、日本語を使います。",
+      "vietnamese": "Hằng ngày tôi dùng tiếng Nhật."
+    },
+    {
+      "id": "1q15kc4",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本語が少し話せるようになりました。",
+      "vietnamese": "Tôi đã nói được một chút tiếng Nhật."
+    },
+    {
+      "id": "1ot34oy",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "一人で料理が作れます。",
+      "vietnamese": "Tôi có thể tự nấu ăn một mình."
+    },
+    {
+      "id": "0iwhehk",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "漢字がだいぶ読めるようになりました。",
+      "vietnamese": "Tôi đã đọc được kha khá chữ Hán."
+    },
+    {
+      "id": "1i5h39x",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "日本語の新聞が読めます。",
+      "vietnamese": "Tôi đọc được báo tiếng Nhật."
+    },
+    {
+      "id": "15k2z33",
+      "section": "Câu ngắn — từ vựng Hán tự",
+      "speaker": "",
+      "japanese": "この店ではカードが使えます。",
+      "vietnamese": "Ở cửa hàng này dùng được thẻ."
+    },
+    {
+      "id": "0dv1k7b",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この漢字の意味がよくわかります。",
+      "vietnamese": "Tôi hiểu rõ nghĩa của chữ Hán này."
+    },
+    {
+      "id": "02wxymq",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "駅へ行くなら、この道をまっすぐ行ってください。",
+      "vietnamese": "Nếu bạn đi ra ga thì hãy đi thẳng con đường này."
+    },
+    {
+      "id": "0tymqhc",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本語が上手に話せるようになりました。",
+      "vietnamese": "Tôi đã nói được tiếng Nhật một cách thành thạo."
+    },
+    {
+      "id": "096c39e",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "健康のために、毎朝ジョギングしています。",
+      "vietnamese": "Vì sức khỏe, sáng nào tôi cũng chạy bộ."
+    },
+    {
+      "id": "04h7ctp",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "忘れないように、メモしてください。",
+      "vietnamese": "Hãy ghi chép lại để khỏi quên."
+    },
+    {
+      "id": "0x4s2us",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "明日は雨が降るそうです。",
+      "vietnamese": "Nghe nói ngày mai trời sẽ mưa."
+    },
+    {
+      "id": "1gquh34",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この料理は辛そうです。",
+      "vietnamese": "Món ăn này trông có vẻ cay."
+    },
+    {
+      "id": "1yiduqj",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "田中さんは来月日本へ行くそうです。",
+      "vietnamese": "Nghe nói tháng sau anh Tanaka sẽ đi Nhật."
+    },
+    {
+      "id": "0bxamb0",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この町は静かそうなところです。",
+      "vietnamese": "Thị trấn này có vẻ là một nơi yên tĩnh."
+    },
+    {
+      "id": "022al3n",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本人らしい考え方をしていますね。",
+      "vietnamese": "Bạn có cách suy nghĩ rất Nhật Bản nhỉ."
+    },
+    {
+      "id": "1thyd50",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この時計は子どもっぽいです。",
+      "vietnamese": "Chiếc đồng hồ này trông trẻ con."
+    },
+    {
+      "id": "1rzj3pk",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "最近、忘れっぽくなりました。",
+      "vietnamese": "Gần đây tôi đâm ra hay quên."
+    },
+    {
+      "id": "06fndcn",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "旅行の前にホテルを予約しておきます。",
+      "vietnamese": "Trước chuyến du lịch tôi sẽ đặt sẵn khách sạn."
+    },
+    {
+      "id": "0qn8px8",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "もう宿題をしてしまったので、遊びに行けます。",
+      "vietnamese": "Vì đã làm xong bài tập rồi nên tôi có thể đi chơi."
+    },
+    {
+      "id": "0hiqauf",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "電気を消すのを忘れてしまいました。",
+      "vietnamese": "Tôi đã lỡ quên tắt đèn."
+    },
+    {
+      "id": "09jb9al",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この本を読んでみたいと思います。",
+      "vietnamese": "Tôi muốn thử đọc quyển sách này."
+    },
+    {
+      "id": "0srz2mz",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "先生にもう一度説明していただけませんか。",
+      "vietnamese": "Thầy giáo có thể giải thích lại một lần nữa được không ạ?"
+    },
+    {
+      "id": "0kj0z6m",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この漢字はどうやって読んだらいいですか。",
+      "vietnamese": "Chữ Hán này phải đọc thế nào ạ?"
+    },
+    {
+      "id": "0tvib0p",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "駅までどうやって行ったらいいですか。",
+      "vietnamese": "Đến ga thì phải đi thế nào ạ?"
+    },
+    {
+      "id": "1rpauhn",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "わからないとき、先生に聞けばいいです。",
+      "vietnamese": "Lúc không hiểu thì cứ hỏi thầy giáo là được."
+    },
+    {
+      "id": "1yrg5wu",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "時間があったら、一緒に映画を見ませんか。",
+      "vietnamese": "Nếu có thời gian thì cùng đi xem phim nhé?"
+    },
+    {
+      "id": "1dpin1i",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "雨が降ったら、試合は中止です。",
+      "vietnamese": "Nếu trời mưa thì trận đấu sẽ bị hủy."
+    },
+    {
+      "id": "02auk2v",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本へ行ったら、京都を見たいです。",
+      "vietnamese": "Nếu đi Nhật thì tôi muốn thăm Kyoto."
+    },
+    {
+      "id": "152mgvw",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "もっと日本語を勉強すれば、上手になります。",
+      "vietnamese": "Nếu học tiếng Nhật nhiều hơn thì bạn sẽ giỏi lên."
+    },
+    {
+      "id": "0473geu",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この薬を飲めば、元気になると思います。",
+      "vietnamese": "Tôi nghĩ nếu uống thuốc này thì sẽ khỏe lại."
+    },
+    {
+      "id": "08z24a4",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "明日、学校へ行かなければなりません。",
+      "vietnamese": "Ngày mai tôi phải đến trường."
+    },
+    {
+      "id": "06795m4",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この仕事は今日中に終わらせなければなりません。",
+      "vietnamese": "Công việc này phải làm xong trong hôm nay."
+    },
+    {
+      "id": "1ozeztz",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "ここで写真を撮ってはいけません。",
+      "vietnamese": "Không được chụp ảnh ở đây."
+    },
+    {
+      "id": "17vegjc",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "明日は早く起きなくてはいけません。",
+      "vietnamese": "Ngày mai tôi phải dậy sớm."
+    },
+    {
+      "id": "0mkn3ff",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この部屋では靴を脱がなければなりません。",
+      "vietnamese": "Trong phòng này phải cởi giày."
+    },
+    {
+      "id": "11n60q8",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本へ行くために、日本語を勉強しています。",
+      "vietnamese": "Tôi học tiếng Nhật để đi Nhật."
+    },
+    {
+      "id": "1fgfyit",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "大学を卒業したら、日本で働くつもりです。",
+      "vietnamese": "Tốt nghiệp đại học xong, tôi định làm việc ở Nhật."
+    },
+    {
+      "id": "1y4u4fe",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "来年、日本へ留学する予定があります。",
+      "vietnamese": "Năm sau tôi có kế hoạch đi du học Nhật Bản."
+    },
+    {
+      "id": "1fxomvg",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "田中さんはもう帰ったはずです。",
+      "vietnamese": "Chắc hẳn anh Tanaka đã về rồi."
+    },
+    {
+      "id": "0k5ckjm",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "まだ9時だから、店は開いているはずです。",
+      "vietnamese": "Vì mới 9 giờ nên chắc cửa hàng vẫn đang mở."
+    },
+    {
+      "id": "1upyv6m",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "今、昼ご飯を食べているところです。",
+      "vietnamese": "Bây giờ tôi đang ăn cơm trưa."
+    },
+    {
+      "id": "0bxahtw",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "ちょうど今、駅に着いたところです。",
+      "vietnamese": "Vừa đúng lúc này tôi vừa tới ga."
+    },
+    {
+      "id": "1sijbyb",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本語を勉強し始めたばかりです。",
+      "vietnamese": "Tôi mới bắt đầu học tiếng Nhật."
+    },
+    {
+      "id": "1gqqrnw",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "宿題はもう終わったところです。",
+      "vietnamese": "Bài tập thì tôi vừa làm xong."
+    },
+    {
+      "id": "0k1uaxh",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "先生が来ることを知っていますか。",
+      "vietnamese": "Bạn có biết là thầy giáo sẽ đến không?"
+    },
+    {
+      "id": "14nktj4",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "私は日本へ行ったことがあります。",
+      "vietnamese": "Tôi đã từng đi Nhật."
+    },
+    {
+      "id": "1d7n9cs",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "富士山に登ったことがありますか。",
+      "vietnamese": "Bạn đã từng leo núi Phú Sĩ chưa?"
+    },
+    {
+      "id": "03ghze9",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "毎日日本語を話すことにしています。",
+      "vietnamese": "Tôi cố gắng ngày nào cũng nói tiếng Nhật."
+    },
+    {
+      "id": "1wpadn8",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "健康のために、毎朝歩くことにしています。",
+      "vietnamese": "Vì sức khỏe, tôi cố gắng sáng nào cũng đi bộ."
+    },
+    {
+      "id": "0vcysbb",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "先生は学生に宿題をするように言いました。",
+      "vietnamese": "Thầy giáo đã bảo học sinh làm bài tập."
+    },
+    {
+      "id": "05jz10k",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "忘れ物をしないように気をつけてください。",
+      "vietnamese": "Hãy chú ý để không bỏ quên đồ."
+    },
+    {
+      "id": "15c9r4p",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "母は私に野菜を食べるように言いました。",
+      "vietnamese": "Mẹ bảo tôi ăn rau."
+    },
+    {
+      "id": "1yrhabp",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "先生は遅れないように学生に注意しました。",
+      "vietnamese": "Thầy giáo đã nhắc học sinh đừng đến muộn."
+    },
+    {
+      "id": "1nkd7oj",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この問題は私でもできます。",
+      "vietnamese": "Bài này đến tôi cũng làm được."
+    },
+    {
+      "id": "0v8q38k",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "子どもでもわかる簡単な問題です。",
+      "vietnamese": "Đây là bài đơn giản đến trẻ con cũng hiểu."
+    },
+    {
+      "id": "1g8hgs3",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本語が話せる人を探しています。",
+      "vietnamese": "Tôi đang tìm người nói được tiếng Nhật."
+    },
+    {
+      "id": "0wk7x8c",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "私は英語が話せません。",
+      "vietnamese": "Tôi không nói được tiếng Anh."
+    },
+    {
+      "id": "01g1974",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この店ではカードしか使えません。",
+      "vietnamese": "Ở cửa hàng này chỉ dùng được thẻ."
+    },
+    {
+      "id": "069y6tu",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "100円しかありません。",
+      "vietnamese": "Tôi chỉ có 100 yên."
+    },
+    {
+      "id": "0fabstb",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この仕事は一人でもできます。",
+      "vietnamese": "Công việc này một mình cũng làm được."
+    },
+    {
+      "id": "1glmu7c",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "私は日本語を話すことができます。",
+      "vietnamese": "Tôi có thể nói tiếng Nhật."
+    },
+    {
+      "id": "11r7ara",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "ここで写真を撮ることができますか。",
+      "vietnamese": "Ở đây có chụp ảnh được không?"
+    },
+    {
+      "id": "0j9fq86",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この漢字は簡単ですから、すぐ覚えることができます。",
+      "vietnamese": "Chữ Hán này đơn giản nên có thể nhớ được ngay."
+    },
+    {
+      "id": "0py3dk5",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この本は日本語で書かれています。",
+      "vietnamese": "Quyển sách này được viết bằng tiếng Nhật."
+    },
+    {
+      "id": "1y66v0s",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この建物は100年前に建てられました。",
+      "vietnamese": "Tòa nhà này được xây cách đây 100 năm."
+    },
+    {
+      "id": "0lo30y6",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この歌は世界中で知られています。",
+      "vietnamese": "Bài hát này được biết đến khắp thế giới."
+    },
+    {
+      "id": "00bdg2m",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この車は日本で作られました。",
+      "vietnamese": "Chiếc xe này được sản xuất ở Nhật."
+    },
+    {
+      "id": "06gh7x2",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この料理は何で作りますか。",
+      "vietnamese": "Món này làm bằng gì?"
+    },
+    {
+      "id": "0q20z1u",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "米で作ります。",
+      "vietnamese": "Làm bằng gạo."
+    },
+    {
+      "id": "1rq1y1q",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本では車は左側を走ります。",
+      "vietnamese": "Ở Nhật xe chạy bên trái."
+    },
+    {
+      "id": "00kd9gu",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この薬は食事のあとに飲んでください。",
+      "vietnamese": "Thuốc này hãy uống sau bữa ăn."
+    },
+    {
+      "id": "19n3b99",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "駅へ行くために、この道を使ってください。",
+      "vietnamese": "Để ra ga, hãy đi theo con đường này."
+    },
+    {
+      "id": "1rkftus",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本語を勉強するために、日本へ来ました。",
+      "vietnamese": "Tôi đến Nhật để học tiếng Nhật."
+    },
+    {
+      "id": "1cnoq81",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "家族に会うために、国へ帰ります。",
+      "vietnamese": "Tôi về nước để gặp gia đình."
+    },
+    {
+      "id": "0hqxojh",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "忘れ物をしないように名前を書きました。",
+      "vietnamese": "Tôi đã viết tên lên để không bỏ quên đồ."
+    },
+    {
+      "id": "1leqw97",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "先生が説明したようにやってみてください。",
+      "vietnamese": "Hãy thử làm như thầy giáo đã giải thích."
+    },
+    {
+      "id": "0obmsoh",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "彼は何でも知っているように話します。",
+      "vietnamese": "Anh ta nói như thể cái gì cũng biết."
+    },
+    {
+      "id": "1s8pb37",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この料理はおいしそうですね。",
+      "vietnamese": "Món này trông ngon nhỉ."
+    },
+    {
+      "id": "0fh6gd9",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "あの人は先生らしいです。",
+      "vietnamese": "Nghe nói người kia là giáo viên."
+    },
+    {
+      "id": "0mo0qfi",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "彼女は学生らしい服を着ています。",
+      "vietnamese": "Cô ấy mặc bộ đồ ra dáng học sinh."
+    },
+    {
+      "id": "1dhs7sy",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この犬はぬいぐるみみたいですね。",
+      "vietnamese": "Con chó này trông như thú nhồi bông nhỉ."
+    },
+    {
+      "id": "1iwyn52",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "このケーキは甘そうです。",
+      "vietnamese": "Chiếc bánh này trông có vẻ ngọt."
+    },
+    {
+      "id": "1x7nsxs",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "田中さんは病気そうな顔をしています。",
+      "vietnamese": "Anh Tanaka có vẻ mặt như đang ốm."
+    },
+    {
+      "id": "036a8pd",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "雨が降りそうですから、傘を持って行きましょう。",
+      "vietnamese": "Trời có vẻ sắp mưa nên mang ô đi thôi."
+    },
+    {
+      "id": "034rdcp",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この問題は難しそうです。",
+      "vietnamese": "Bài này trông có vẻ khó."
+    },
+    {
+      "id": "1skf7e2",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "この服は学生っぽいですね。",
+      "vietnamese": "Bộ đồ này trông học sinh nhỉ."
+    },
+    {
+      "id": "00y8e92",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "彼は子どもっぽいところがあります。",
+      "vietnamese": "Anh ấy có nét trẻ con."
+    },
+    {
+      "id": "0g7uwbl",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "最近、風邪っぽいです。",
+      "vietnamese": "Gần đây tôi thấy hơi cảm."
+    },
+    {
+      "id": "0vg5fi1",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "忘れないようにしてください。",
+      "vietnamese": "Hãy cố gắng đừng quên."
+    },
+    {
+      "id": "1u93oco",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "もっと漢字が読めるようになりたいです。",
+      "vietnamese": "Tôi muốn đọc được nhiều chữ Hán hơn nữa."
+    },
+    {
+      "id": "020i0t2",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "明日の試験のために、今から勉強しておきます。",
+      "vietnamese": "Vì kỳ thi ngày mai, từ giờ tôi sẽ học trước."
+    },
+    {
+      "id": "1btwwff",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "旅行の前に、必要なものを買っておいたほうがいいです。",
+      "vietnamese": "Trước chuyến đi, nên mua sẵn những thứ cần thiết."
+    },
+    {
+      "id": "0aq3t9p",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "財布を家に忘れてしまいました。",
+      "vietnamese": "Tôi đã lỡ để quên ví ở nhà."
+    },
+    {
+      "id": "1m9816t",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "先生にこの問題を教えていただきたいです。",
+      "vietnamese": "Tôi muốn nhờ thầy giáo chỉ cho tôi bài này."
+    },
+    {
+      "id": "0ljbudh",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "日本語を上手に話すために、毎日練習しています。",
+      "vietnamese": "Để nói tiếng Nhật giỏi, hằng ngày tôi luyện tập."
+    },
+    {
+      "id": "15ey0cx",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "病気にならないように、健康に気をつけています。",
+      "vietnamese": "Để không bị ốm, tôi chú ý giữ sức khỏe."
+    },
+    {
+      "id": "0pabxlt",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "来年、日本へ行くつもりです。",
+      "vietnamese": "Năm sau tôi định đi Nhật."
+    },
+    {
+      "id": "14ugdux",
+      "section": "Câu ngữ pháp — mẫu câu N4 → N3",
+      "speaker": "",
+      "japanese": "今、宿題をしているところです。",
+      "vietnamese": "Bây giờ tôi đang làm bài tập."
+    },
+    {
+      "id": "1rkruix",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "私は日本の文化を勉強しています。毎日、漢字を練習していますが、この漢字は難しいです。分からない言葉は辞書で調べます。最近、漢字がだいぶ読めるようになりました。",
+      "vietnamese": "Tôi đang học văn hóa Nhật Bản. Hằng ngày tôi luyện chữ Hán, nhưng chữ Hán thì khó. Từ nào không hiểu thì tôi tra từ điển. Gần đây tôi đã đọc được kha khá chữ Hán."
+    },
+    {
+      "id": "1rhvomu",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "父は会社で働いています。毎朝6時に起きて、電車で会社へ通います。仕事の内容は簡単ではありませんが、毎月給料をもらって、将来のために貯金しています。",
+      "vietnamese": "Bố tôi làm việc ở công ty. Sáng nào bố cũng dậy lúc 6 giờ rồi đi làm bằng tàu điện. Nội dung công việc không đơn giản, nhưng hằng tháng bố nhận lương và tiết kiệm cho tương lai."
+    },
+    {
+      "id": "1fz6h0b",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "来年、日本へ留学する予定があります。大学で経済を勉強していますが、日本の社会についても勉強したいです。日本語が少し話せるようになりましたから、卒業したら日本の会社に就職したいです。",
+      "vietnamese": "Năm sau tôi có kế hoạch đi du học Nhật Bản. Tôi đang học kinh tế ở đại học, nhưng tôi cũng muốn học về xã hội Nhật Bản. Vì đã nói được một chút tiếng Nhật nên tốt nghiệp xong tôi muốn xin việc ở công ty Nhật."
+    },
+    {
+      "id": "12z877t",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "最近、体の調子がよくありません。病気にならないように、健康に気をつけています。健康のために、毎朝歩くことにしました。この薬を飲めば、元気になると思います。",
+      "vietnamese": "Gần đây tình trạng sức khỏe của tôi không tốt. Để không bị ốm, tôi chú ý giữ sức khỏe. Vì sức khỏe, tôi đã quyết định sáng nào cũng đi bộ. Tôi nghĩ nếu uống thuốc này thì sẽ khỏe lại."
+    },
+    {
+      "id": "03v4top",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "駅まで友達を迎えに行きました。友達の荷物はとても重かったです。次の駅で電車を降りて、歩いてホテルまで行きましたが、駅からホテルまで遠かったです。",
+      "vietnamese": "Tôi đã ra ga đón bạn. Hành lý của bạn tôi rất nặng. Chúng tôi xuống tàu ở ga tiếp theo rồi đi bộ đến khách sạn, nhưng từ ga đến khách sạn thì xa."
+    },
+    {
+      "id": "0iemith",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "会社の規則を守ってください。事故がないように注意してください。この部屋では靴を脱がなければなりません。それから、ここで写真を撮ってはいけません。",
+      "vietnamese": "Hãy tuân thủ quy định của công ty. Hãy chú ý để không xảy ra tai nạn. Trong phòng này phải cởi giày. Ngoài ra, không được chụp ảnh ở đây."
+    },
+    {
+      "id": "1x5jy4g",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "来週、東京へ出張します。旅行の前にホテルを予約しておきました。明日の予定を確認してから、必要なものを買っておきます。雨が降りそうですから、傘も持って行きます。",
+      "vietnamese": "Tuần sau tôi đi công tác Tokyo. Trước chuyến đi tôi đã đặt sẵn khách sạn. Sau khi xác nhận lịch trình ngày mai, tôi sẽ mua sẵn những thứ cần thiết. Trời có vẻ sắp mưa nên tôi mang cả ô đi."
+    },
+    {
+      "id": "0t4yz2o",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "先生に日本語を習っています。分からないとき、先生に聞けばいいです。先生の説明を理解しましたが、新しい単語を覚えるのは難しいです。大切なことを忘れないように、メモしています。",
+      "vietnamese": "Tôi đang học tiếng Nhật với thầy giáo. Lúc không hiểu thì cứ hỏi thầy là được. Tôi đã hiểu lời thầy giải thích, nhưng nhớ từ mới thì khó. Để không quên điều quan trọng, tôi ghi chép lại."
+    },
+    {
+      "id": "09rdai6",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "大学を卒業したら、日本で働くつもりです。友達と将来について話し合いました。日本へ行きたい理由を話して、来月日本へ行くことに決まりました。日本語の能力をもっと高めたいです。",
+      "vietnamese": "Tốt nghiệp đại học xong tôi định làm việc ở Nhật. Tôi đã bàn bạc với bạn về tương lai. Tôi đã nói lý do muốn đi Nhật, và đã quyết định là tháng sau sẽ đi Nhật. Tôi muốn nâng cao năng lực tiếng Nhật hơn nữa."
+    },
+    {
+      "id": "14r3g89",
+      "section": "Đoạn văn — dịch trọn đoạn",
+      "speaker": "",
+      "japanese": "毎日の生活に慣れました。この町はとても有名で、外国人に人気があります。駅の近くに銀行がありますから、そこでお金を下ろします。この店ではカードも使えますから、便利です。",
+      "vietnamese": "Tôi đã quen với cuộc sống hằng ngày. Thị trấn này rất nổi tiếng và được người nước ngoài ưa thích. Vì gần ga có ngân hàng nên tôi rút tiền ở đó. Ở cửa hàng này cũng dùng được thẻ nên tiện lợi."
+    }
+  ],
+  "grammarPoints": []
+}

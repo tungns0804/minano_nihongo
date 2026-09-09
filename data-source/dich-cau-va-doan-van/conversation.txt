@@ -1,0 +1,225 @@
+# Dịch câu & đoạn văn — N4 → N3
+#
+# Nguồn: file "bài tập.docx" (300 câu trắc nghiệm N4→N3). Khối "chọn kanji" của file
+# chỉ có từ đơn nên không dùng được ở đây; hai khối còn lại thì dùng hết:
+#   - Khối đọc kanji  → câu giữ nguyên.
+#   - Khối ngữ pháp   → câu vốn có chỗ trống （　　　）, ở đây đã điền đáp án đúng
+#                       thành câu hoàn chỉnh, vì bài này luyện DỊCH chứ không phải
+#                       chọn đáp án.
+# Đã bỏ 8 câu trùng nghĩa với câu khác (chỉ khác một trạng từ hoặc chủ ngữ), vì dịch
+# đi dịch lại cùng một câu không luyện thêm được gì.
+#
+# Đoạn văn ở nhóm cuối do nối các câu cùng chủ đề trong chính file trên, thêm từ nối
+# cho liền mạch — file gốc không có đoạn văn nào.
+#
+# Định dạng mỗi dòng, ngăn cách bằng dấu | :
+#   TIẾNG NHẬT|TIẾNG VIỆT
+# Dòng bắt đầu bằng ## là tiêu đề nhóm, bằng # là ghi chú.
+
+## Câu ngắn — từ vựng Hán tự
+日本の文化を勉強しています。|Tôi đang học văn hóa Nhật Bản.
+来週、東京へ出張します。|Tuần sau tôi sẽ đi công tác ở Tokyo.
+明日の予定を確認してください。|Hãy xác nhận lịch trình ngày mai.
+先生に質問しました。|Tôi đã hỏi thầy giáo một câu hỏi.
+毎日、漢字を練習しています。|Hằng ngày tôi luyện chữ Hán.
+駅まで友達を迎えに行きます。|Tôi ra ga đón bạn.
+何かあったら連絡してください。|Nếu có chuyện gì thì hãy liên lạc cho tôi.
+この町はとても有名です。|Thị trấn này rất nổi tiếng.
+駅の近くに銀行があります。|Gần ga có ngân hàng.
+この問題は簡単です。|Vấn đề này đơn giản.
+田中さんは英語が上手です。|Anh Tanaka giỏi tiếng Anh.
+新しい仕事を始めました。|Tôi đã bắt đầu công việc mới.
+父は会社で働いています。|Bố tôi đang làm việc ở công ty.
+荷物を送ります。|Tôi gửi hành lý.
+荷物がまだ届いていません。|Hành lý vẫn chưa đến nơi.
+銀行でお金を下ろしました。|Tôi đã rút tiền ở ngân hàng.
+道で財布を落としました。|Tôi đã đánh rơi ví trên đường.
+分からない言葉を辞書で調べます。|Tôi tra từ không hiểu trong từ điển.
+先生の説明を理解しました。|Tôi đã hiểu lời thầy giáo giải thích.
+仕事の内容を説明してください。|Hãy giải thích nội dung công việc.
+この仕事には経験が必要です。|Công việc này cần kinh nghiệm.
+日本で働いた経験があります。|Tôi có kinh nghiệm làm việc ở Nhật.
+日本語の能力を高めたいです。|Tôi muốn nâng cao năng lực tiếng Nhật.
+会社の規則を守ってください。|Hãy tuân thủ quy định của công ty.
+毎月、給料をもらいます。|Hằng tháng tôi nhận lương.
+新しい製品を作っています。|Chúng tôi đang làm sản phẩm mới.
+この機械は日本で作られました。|Chiếc máy này được sản xuất ở Nhật.
+ドアが開いています。|Cửa đang mở.
+窓を閉めてください。|Hãy đóng cửa sổ lại.
+電気を消してください。|Hãy tắt đèn.
+電気が消えました。|Đèn đã tắt.
+かばんに本を入れました。|Tôi đã cho sách vào cặp.
+電車に人がたくさん乗っています。|Trên tàu có rất nhiều người.
+次の駅で電車を降ります。|Tôi xuống tàu ở ga tiếp theo.
+会議は9時に始まります。|Cuộc họp bắt đầu lúc 9 giờ.
+仕事が終わったら帰ります。|Xong việc thì tôi về.
+毎朝6時に起きます。|Sáng nào tôi cũng dậy lúc 6 giờ.
+毎晩11時に寝ます。|Tối nào tôi cũng đi ngủ lúc 11 giờ.
+明日は学校が休みです。|Ngày mai trường nghỉ.
+今日はとても忙しいです。|Hôm nay tôi rất bận.
+この荷物は重いです。|Kiện hành lý này nặng.
+このかばんは軽いです。|Chiếc cặp này nhẹ.
+駅からホテルまで遠いです。|Từ ga đến khách sạn thì xa.
+この漢字は難しいです。|Chữ Hán này khó.
+今日の天気は悪いです。|Thời tiết hôm nay xấu.
+駅まで歩いて行きます。|Tôi đi bộ ra ga.
+毎日電車で会社へ通います。|Hằng ngày tôi đi làm bằng tàu điện.
+来年、日本へ留学します。|Năm sau tôi sẽ đi du học Nhật Bản.
+大学で経済を勉強しています。|Tôi đang học kinh tế ở đại học.
+日本の歴史を勉強しています。|Tôi đang học lịch sử Nhật Bản.
+会社に相談してから決めます。|Tôi sẽ bàn với công ty rồi mới quyết định.
+最近、体の調子がよくありません。|Gần đây tình trạng sức khỏe của tôi không tốt.
+健康のために毎日運動しています。|Vì sức khỏe, hằng ngày tôi tập thể dục.
+事故がないように注意してください。|Hãy chú ý để không xảy ra tai nạn.
+将来のために貯金しています。|Tôi đang tiết kiệm tiền cho tương lai.
+今日は特別な日です。|Hôm nay là một ngày đặc biệt.
+これは必要な書類です。|Đây là giấy tờ cần thiết.
+日本語を勉強する目的は何ですか。|Mục đích học tiếng Nhật của bạn là gì?
+日本へ行きたい理由を話しました。|Tôi đã nói lý do muốn đi Nhật.
+将来の希望について話してください。|Hãy nói về nguyện vọng tương lai của bạn.
+子どものころの夢を覚えていますか。|Bạn có nhớ ước mơ hồi nhỏ không?
+大学を卒業したら働きます。|Tốt nghiệp đại học xong tôi sẽ đi làm.
+来年、大学に入学します。|Năm sau tôi sẽ nhập học đại học.
+日本の会社に就職しました。|Tôi đã xin được việc ở một công ty Nhật.
+大学で専門を勉強しています。|Tôi đang học chuyên ngành ở đại học.
+これは日本の伝統的な料理です。|Đây là món ăn truyền thống của Nhật Bản.
+この町は外国人に人気があります。|Thị trấn này được người nước ngoài ưa thích.
+日本の習慣を知っていますか。|Bạn có biết tập quán của Nhật Bản không?
+毎日の生活に慣れました。|Tôi đã quen với cuộc sống hằng ngày.
+日本の社会について勉強します。|Tôi sẽ học về xã hội Nhật Bản.
+会社の社員が集まりました。|Nhân viên công ty đã tập trung lại.
+この会社の社長は親切です。|Giám đốc công ty này tốt bụng.
+毎月の給料を貯金しています。|Tôi gửi tiết kiệm lương hằng tháng.
+会社の規則を守りましょう。|Chúng ta hãy tuân thủ quy định của công ty.
+新しい経験ができました。|Tôi đã có được một kinh nghiệm mới.
+仕事の能力を高めたいです。|Tôi muốn nâng cao năng lực làm việc.
+仕事の内容を確認してください。|Hãy xác nhận nội dung công việc.
+この仕事は簡単ではありません。|Công việc này không đơn giản.
+日本語が上手になりましたね。|Tiếng Nhật của bạn khá lên rồi nhỉ.
+彼は日本語を理解できます。|Anh ấy có thể hiểu tiếng Nhật.
+先生の説明を聞きました。|Tôi đã nghe thầy giáo giải thích.
+この問題について説明してください。|Hãy giải thích về vấn đề này.
+先生に日本語を習っています。|Tôi đang học tiếng Nhật với thầy giáo.
+新しい単語を覚えました。|Tôi đã nhớ được từ mới.
+大切なことを忘れないでください。|Xin đừng quên điều quan trọng.
+先生の話をよく考えました。|Tôi đã suy nghĩ kỹ về lời thầy giáo nói.
+友達と将来について話し合いました。|Tôi đã bàn bạc với bạn về tương lai.
+みんなで問題を決めました。|Mọi người đã cùng quyết định vấn đề.
+来月、日本へ行くことに決まりました。|Đã quyết định là tháng sau tôi sẽ đi Nhật.
+仕事を続けたいです。|Tôi muốn tiếp tục công việc.
+日本語の勉強を続けています。|Tôi vẫn đang tiếp tục học tiếng Nhật.
+先生が漢字の意味を説明しました。|Thầy giáo đã giải thích nghĩa của chữ Hán.
+駅で友達に会いました。|Tôi đã gặp bạn ở ga.
+毎日、日本語を使います。|Hằng ngày tôi dùng tiếng Nhật.
+日本語が少し話せるようになりました。|Tôi đã nói được một chút tiếng Nhật.
+一人で料理が作れます。|Tôi có thể tự nấu ăn một mình.
+漢字がだいぶ読めるようになりました。|Tôi đã đọc được kha khá chữ Hán.
+日本語の新聞が読めます。|Tôi đọc được báo tiếng Nhật.
+この店ではカードが使えます。|Ở cửa hàng này dùng được thẻ.
+
+## Câu ngữ pháp — mẫu câu N4 → N3
+この漢字の意味がよくわかります。|Tôi hiểu rõ nghĩa của chữ Hán này.
+駅へ行くなら、この道をまっすぐ行ってください。|Nếu bạn đi ra ga thì hãy đi thẳng con đường này.
+日本語が上手に話せるようになりました。|Tôi đã nói được tiếng Nhật một cách thành thạo.
+健康のために、毎朝ジョギングしています。|Vì sức khỏe, sáng nào tôi cũng chạy bộ.
+忘れないように、メモしてください。|Hãy ghi chép lại để khỏi quên.
+明日は雨が降るそうです。|Nghe nói ngày mai trời sẽ mưa.
+この料理は辛そうです。|Món ăn này trông có vẻ cay.
+田中さんは来月日本へ行くそうです。|Nghe nói tháng sau anh Tanaka sẽ đi Nhật.
+この町は静かそうなところです。|Thị trấn này có vẻ là một nơi yên tĩnh.
+日本人らしい考え方をしていますね。|Bạn có cách suy nghĩ rất Nhật Bản nhỉ.
+この時計は子どもっぽいです。|Chiếc đồng hồ này trông trẻ con.
+最近、忘れっぽくなりました。|Gần đây tôi đâm ra hay quên.
+旅行の前にホテルを予約しておきます。|Trước chuyến du lịch tôi sẽ đặt sẵn khách sạn.
+もう宿題をしてしまったので、遊びに行けます。|Vì đã làm xong bài tập rồi nên tôi có thể đi chơi.
+電気を消すのを忘れてしまいました。|Tôi đã lỡ quên tắt đèn.
+この本を読んでみたいと思います。|Tôi muốn thử đọc quyển sách này.
+先生にもう一度説明していただけませんか。|Thầy giáo có thể giải thích lại một lần nữa được không ạ?
+この漢字はどうやって読んだらいいですか。|Chữ Hán này phải đọc thế nào ạ?
+駅までどうやって行ったらいいですか。|Đến ga thì phải đi thế nào ạ?
+わからないとき、先生に聞けばいいです。|Lúc không hiểu thì cứ hỏi thầy giáo là được.
+時間があったら、一緒に映画を見ませんか。|Nếu có thời gian thì cùng đi xem phim nhé?
+雨が降ったら、試合は中止です。|Nếu trời mưa thì trận đấu sẽ bị hủy.
+日本へ行ったら、京都を見たいです。|Nếu đi Nhật thì tôi muốn thăm Kyoto.
+もっと日本語を勉強すれば、上手になります。|Nếu học tiếng Nhật nhiều hơn thì bạn sẽ giỏi lên.
+この薬を飲めば、元気になると思います。|Tôi nghĩ nếu uống thuốc này thì sẽ khỏe lại.
+明日、学校へ行かなければなりません。|Ngày mai tôi phải đến trường.
+この仕事は今日中に終わらせなければなりません。|Công việc này phải làm xong trong hôm nay.
+ここで写真を撮ってはいけません。|Không được chụp ảnh ở đây.
+明日は早く起きなくてはいけません。|Ngày mai tôi phải dậy sớm.
+この部屋では靴を脱がなければなりません。|Trong phòng này phải cởi giày.
+日本へ行くために、日本語を勉強しています。|Tôi học tiếng Nhật để đi Nhật.
+大学を卒業したら、日本で働くつもりです。|Tốt nghiệp đại học xong, tôi định làm việc ở Nhật.
+来年、日本へ留学する予定があります。|Năm sau tôi có kế hoạch đi du học Nhật Bản.
+田中さんはもう帰ったはずです。|Chắc hẳn anh Tanaka đã về rồi.
+まだ9時だから、店は開いているはずです。|Vì mới 9 giờ nên chắc cửa hàng vẫn đang mở.
+今、昼ご飯を食べているところです。|Bây giờ tôi đang ăn cơm trưa.
+ちょうど今、駅に着いたところです。|Vừa đúng lúc này tôi vừa tới ga.
+日本語を勉強し始めたばかりです。|Tôi mới bắt đầu học tiếng Nhật.
+宿題はもう終わったところです。|Bài tập thì tôi vừa làm xong.
+先生が来ることを知っていますか。|Bạn có biết là thầy giáo sẽ đến không?
+私は日本へ行ったことがあります。|Tôi đã từng đi Nhật.
+富士山に登ったことがありますか。|Bạn đã từng leo núi Phú Sĩ chưa?
+毎日日本語を話すことにしています。|Tôi cố gắng ngày nào cũng nói tiếng Nhật.
+健康のために、毎朝歩くことにしています。|Vì sức khỏe, tôi cố gắng sáng nào cũng đi bộ.
+先生は学生に宿題をするように言いました。|Thầy giáo đã bảo học sinh làm bài tập.
+忘れ物をしないように気をつけてください。|Hãy chú ý để không bỏ quên đồ.
+母は私に野菜を食べるように言いました。|Mẹ bảo tôi ăn rau.
+先生は遅れないように学生に注意しました。|Thầy giáo đã nhắc học sinh đừng đến muộn.
+この問題は私でもできます。|Bài này đến tôi cũng làm được.
+子どもでもわかる簡単な問題です。|Đây là bài đơn giản đến trẻ con cũng hiểu.
+日本語が話せる人を探しています。|Tôi đang tìm người nói được tiếng Nhật.
+私は英語が話せません。|Tôi không nói được tiếng Anh.
+この店ではカードしか使えません。|Ở cửa hàng này chỉ dùng được thẻ.
+100円しかありません。|Tôi chỉ có 100 yên.
+この仕事は一人でもできます。|Công việc này một mình cũng làm được.
+私は日本語を話すことができます。|Tôi có thể nói tiếng Nhật.
+ここで写真を撮ることができますか。|Ở đây có chụp ảnh được không?
+この漢字は簡単ですから、すぐ覚えることができます。|Chữ Hán này đơn giản nên có thể nhớ được ngay.
+この本は日本語で書かれています。|Quyển sách này được viết bằng tiếng Nhật.
+この建物は100年前に建てられました。|Tòa nhà này được xây cách đây 100 năm.
+この歌は世界中で知られています。|Bài hát này được biết đến khắp thế giới.
+この車は日本で作られました。|Chiếc xe này được sản xuất ở Nhật.
+この料理は何で作りますか。|Món này làm bằng gì?
+米で作ります。|Làm bằng gạo.
+日本では車は左側を走ります。|Ở Nhật xe chạy bên trái.
+この薬は食事のあとに飲んでください。|Thuốc này hãy uống sau bữa ăn.
+駅へ行くために、この道を使ってください。|Để ra ga, hãy đi theo con đường này.
+日本語を勉強するために、日本へ来ました。|Tôi đến Nhật để học tiếng Nhật.
+家族に会うために、国へ帰ります。|Tôi về nước để gặp gia đình.
+忘れ物をしないように名前を書きました。|Tôi đã viết tên lên để không bỏ quên đồ.
+先生が説明したようにやってみてください。|Hãy thử làm như thầy giáo đã giải thích.
+彼は何でも知っているように話します。|Anh ta nói như thể cái gì cũng biết.
+この料理はおいしそうですね。|Món này trông ngon nhỉ.
+あの人は先生らしいです。|Nghe nói người kia là giáo viên.
+彼女は学生らしい服を着ています。|Cô ấy mặc bộ đồ ra dáng học sinh.
+この犬はぬいぐるみみたいですね。|Con chó này trông như thú nhồi bông nhỉ.
+このケーキは甘そうです。|Chiếc bánh này trông có vẻ ngọt.
+田中さんは病気そうな顔をしています。|Anh Tanaka có vẻ mặt như đang ốm.
+雨が降りそうですから、傘を持って行きましょう。|Trời có vẻ sắp mưa nên mang ô đi thôi.
+この問題は難しそうです。|Bài này trông có vẻ khó.
+この服は学生っぽいですね。|Bộ đồ này trông học sinh nhỉ.
+彼は子どもっぽいところがあります。|Anh ấy có nét trẻ con.
+最近、風邪っぽいです。|Gần đây tôi thấy hơi cảm.
+忘れないようにしてください。|Hãy cố gắng đừng quên.
+もっと漢字が読めるようになりたいです。|Tôi muốn đọc được nhiều chữ Hán hơn nữa.
+明日の試験のために、今から勉強しておきます。|Vì kỳ thi ngày mai, từ giờ tôi sẽ học trước.
+旅行の前に、必要なものを買っておいたほうがいいです。|Trước chuyến đi, nên mua sẵn những thứ cần thiết.
+財布を家に忘れてしまいました。|Tôi đã lỡ để quên ví ở nhà.
+先生にこの問題を教えていただきたいです。|Tôi muốn nhờ thầy giáo chỉ cho tôi bài này.
+日本語を上手に話すために、毎日練習しています。|Để nói tiếng Nhật giỏi, hằng ngày tôi luyện tập.
+病気にならないように、健康に気をつけています。|Để không bị ốm, tôi chú ý giữ sức khỏe.
+来年、日本へ行くつもりです。|Năm sau tôi định đi Nhật.
+今、宿題をしているところです。|Bây giờ tôi đang làm bài tập.
+
+## Đoạn văn — dịch trọn đoạn
+私は日本の文化を勉強しています。毎日、漢字を練習していますが、この漢字は難しいです。分からない言葉は辞書で調べます。最近、漢字がだいぶ読めるようになりました。|Tôi đang học văn hóa Nhật Bản. Hằng ngày tôi luyện chữ Hán, nhưng chữ Hán thì khó. Từ nào không hiểu thì tôi tra từ điển. Gần đây tôi đã đọc được kha khá chữ Hán.
+父は会社で働いています。毎朝6時に起きて、電車で会社へ通います。仕事の内容は簡単ではありませんが、毎月給料をもらって、将来のために貯金しています。|Bố tôi làm việc ở công ty. Sáng nào bố cũng dậy lúc 6 giờ rồi đi làm bằng tàu điện. Nội dung công việc không đơn giản, nhưng hằng tháng bố nhận lương và tiết kiệm cho tương lai.
+来年、日本へ留学する予定があります。大学で経済を勉強していますが、日本の社会についても勉強したいです。日本語が少し話せるようになりましたから、卒業したら日本の会社に就職したいです。|Năm sau tôi có kế hoạch đi du học Nhật Bản. Tôi đang học kinh tế ở đại học, nhưng tôi cũng muốn học về xã hội Nhật Bản. Vì đã nói được một chút tiếng Nhật nên tốt nghiệp xong tôi muốn xin việc ở công ty Nhật.
+最近、体の調子がよくありません。病気にならないように、健康に気をつけています。健康のために、毎朝歩くことにしました。この薬を飲めば、元気になると思います。|Gần đây tình trạng sức khỏe của tôi không tốt. Để không bị ốm, tôi chú ý giữ sức khỏe. Vì sức khỏe, tôi đã quyết định sáng nào cũng đi bộ. Tôi nghĩ nếu uống thuốc này thì sẽ khỏe lại.
+駅まで友達を迎えに行きました。友達の荷物はとても重かったです。次の駅で電車を降りて、歩いてホテルまで行きましたが、駅からホテルまで遠かったです。|Tôi đã ra ga đón bạn. Hành lý của bạn tôi rất nặng. Chúng tôi xuống tàu ở ga tiếp theo rồi đi bộ đến khách sạn, nhưng từ ga đến khách sạn thì xa.
+会社の規則を守ってください。事故がないように注意してください。この部屋では靴を脱がなければなりません。それから、ここで写真を撮ってはいけません。|Hãy tuân thủ quy định của công ty. Hãy chú ý để không xảy ra tai nạn. Trong phòng này phải cởi giày. Ngoài ra, không được chụp ảnh ở đây.
+来週、東京へ出張します。旅行の前にホテルを予約しておきました。明日の予定を確認してから、必要なものを買っておきます。雨が降りそうですから、傘も持って行きます。|Tuần sau tôi đi công tác Tokyo. Trước chuyến đi tôi đã đặt sẵn khách sạn. Sau khi xác nhận lịch trình ngày mai, tôi sẽ mua sẵn những thứ cần thiết. Trời có vẻ sắp mưa nên tôi mang cả ô đi.
+先生に日本語を習っています。分からないとき、先生に聞けばいいです。先生の説明を理解しましたが、新しい単語を覚えるのは難しいです。大切なことを忘れないように、メモしています。|Tôi đang học tiếng Nhật với thầy giáo. Lúc không hiểu thì cứ hỏi thầy là được. Tôi đã hiểu lời thầy giải thích, nhưng nhớ từ mới thì khó. Để không quên điều quan trọng, tôi ghi chép lại.
+大学を卒業したら、日本で働くつもりです。友達と将来について話し合いました。日本へ行きたい理由を話して、来月日本へ行くことに決まりました。日本語の能力をもっと高めたいです。|Tốt nghiệp đại học xong tôi định làm việc ở Nhật. Tôi đã bàn bạc với bạn về tương lai. Tôi đã nói lý do muốn đi Nhật, và đã quyết định là tháng sau sẽ đi Nhật. Tôi muốn nâng cao năng lực tiếng Nhật hơn nữa.
+毎日の生活に慣れました。この町はとても有名で、外国人に人気があります。駅の近くに銀行がありますから、そこでお金を下ろします。この店ではカードも使えますから、便利です。|Tôi đã quen với cuộc sống hằng ngày. Thị trấn này rất nổi tiếng và được người nước ngoài ưa thích. Vì gần ga có ngân hàng nên tôi rút tiền ở đó. Ở cửa hàng này cũng dùng được thẻ nên tiện lợi.

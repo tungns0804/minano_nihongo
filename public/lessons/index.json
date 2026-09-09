@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T07:40:28.467Z",
+  "generatedAt": "2026-09-09T16:09:07.363Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -971,6 +971,14 @@
       "kind": "verb",
       "itemCount": 23,
       "file": "dong-tu-dac-biet.json"
+    },
+    {
+      "id": "dich-cau-va-doan-van",
+      "name": "Dịch câu & đoạn văn — N4 → N3",
+      "description": "192 câu và 10 đoạn văn để dịch hai chiều Nhật ↔ Việt, theo từ vựng và ngữ pháp N4 lên N3",
+      "kind": "conversation",
+      "itemCount": 202,
+      "file": "dich-cau-va-doan-van.json"
     },
     {
       "id": "soumatome-n3-1",

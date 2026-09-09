@@ -312,6 +312,11 @@ file đó đã sinh xong, và thiếu mp3 nghĩa là nút loa chết trên trang
 Vào tab **Bài tập bổ trợ** → nhóm **Dịch hội thoại** → chọn một bài. Trang bài liệt kê
 文型 / 例文 / 会話 của bài đó, mỗi câu một dòng gồm người nói, câu tiếng Nhật và bản dịch tiếng Việt.
 
+Nhóm này còn một bài **không** đi theo bài nào trong giáo trình: *Dịch câu & đoạn văn — N4 → N3*
+(`dich-cau-va-doan-van`), gom 192 câu rời và 10 đoạn văn nhiều câu. Đoạn văn nằm chung một loại bài
+với câu rời chứ không thành loại riêng: chúng đi qua đúng bộ chấm ấy, và ô gõ đáp án của câu dài đã
+là `<textarea>` tự xuống dòng nên đoạn bốn câu vẫn soát lại được.
+
 **Luyện cả bài** — bấm **Bắt đầu** như mọi loại bài khác, chọn chiều Nhật → Việt hoặc Việt → Nhật.
 
 **Luyện riêng một câu** — mỗi dòng có sẵn hai nút **→ Tiếng Nhật** và **→ Tiếng Việt**. Bấm là vào
@@ -681,7 +686,7 @@ Tab **Bài tập bổ trợ** gom mọi cách luyện không phải là nhớ ng
 | --- | --- | --- |
 | **Bài tập** | Hai bài chuyên đề cài sẵn trong mã nguồn | `/exercise/<id>` |
 | **Chia động từ** | Bài động từ theo giáo trình, từ `data-source/` | `/lesson/<id>` |
-| **Dịch hội thoại** | Bài hội thoại theo giáo trình, từ `data-source/` | `/lesson/<id>` |
+| **Dịch hội thoại** | Bài hội thoại theo giáo trình và bài dịch chuyên đề, từ `data-source/` | `/lesson/<id>` |
 
 Đầu trang có **ô tìm kiếm** lọc cả ba nhóm cùng lúc; nhóm không còn thẻ nào khớp thì mất luôn
 cả tiêu đề nhóm chứ không để lại một tiêu đề trống. Số liệu ở góc phải đếm theo đúng phần đang
