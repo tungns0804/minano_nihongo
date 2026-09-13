@@ -1174,8 +1174,9 @@ khác nhau, làm mọi thứ bên dưới nhảy chỗ. Cách xử lý:
   Chỉ cần dùng ở chỗ kích thước ảnh hưởng tới vị trí phần khác; chữ nằm một mình thì `{{ t('key') }}`
   là đủ.
 - Bảng dùng `table-layout: fixed` + bề rộng cột khai báo sẵn, nên cột không co giãn theo độ dài chữ.
-- `.icon-btn-glyph` có bề rộng cố định: cùng ký tự `◐`/`☀`/`🕯`/`🌐` nhưng khi `<html lang>` đổi thì
-  trình duyệt chọn font khác và ký tự render rộng hẹp khác nhau (đo được 13px ↔ 16px).
+- Biểu tượng trên thanh bên và hai nút header là SVG ([`shared/icon.ts`](src/app/shared/icon.ts))
+  chứ không phải ký tự `◐`/`☀`/`🕯`: ký tự thì khi `<html lang>` đổi, trình duyệt chọn font khác và
+  vẽ rộng hẹp khác nhau (đo được 13px ↔ 16px), còn `🕯` là ô vuông rỗng trên nhiều máy Windows.
 
 **Bảng màu chỉ khai báo một lần.** `src/styles.css` dùng `light-dark(giá trị sáng, giá trị tối)`
 cho từng biến màu, nên không có chuyện bảng màu tối bị lệch khỏi bảng màu sáng khi sửa. Đổi tông

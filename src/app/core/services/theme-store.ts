@@ -1,5 +1,6 @@
 import { Injectable, computed, effect, signal } from '@angular/core';
 
+import type { IconName } from '../../shared/icon';
 import type { MessageKey } from '../i18n/messages';
 import { readJson, writeJson } from './local-storage';
 
@@ -21,23 +22,26 @@ const LABEL_KEY: Record<ThemePreference, MessageKey> = {
   night: 'theme.night',
 };
 
-const ICON: Record<ThemePreference, string> = {
-  system: '◐',
-  light: '☀',
-  dark: '☾',
-  // Ngọn nến chứ không phải một mặt trời thứ hai: ☀ và ☼ khác nhau đúng một nét
-  // ở cỡ chữ 14px, mà đây lại là dấu hiệu duy nhất trên nút khi thu gọn nhãn.
-  night: '🕯',
+const ICON: Record<ThemePreference, IconName> = {
+  system: 'contrast',
+  light: 'sun',
+  dark: 'moon',
+  // Ngọn nến chứ không phải một mặt trời thứ hai: đây là dấu hiệu duy nhất trên
+  // nút khi thu gọn nhãn, hai hình mặt trời thì liếc qua không phân biệt nổi.
+  night: 'candle',
 };
 
 /** Tông thật sự đang vẽ ra màn hình — 'system' đã được quy đổi xong. */
 type ResolvedTheme = 'light' | 'dark' | 'night';
 
-/** Màu thanh trình duyệt trên di động, khớp với nền của từng tông. */
+/**
+ * Màu thanh trình duyệt trên di động = màu nền thanh trên cùng (--bg-elevated)
+ * của từng tông, để hai dải liền nhau thành một khối.
+ */
 const THEME_COLOR: Record<ResolvedTheme, string> = {
-  light: '#4f46e5',
-  dark: '#12141c',
-  night: '#9a4c15',
+  light: '#ffffff',
+  dark: '#181d24',
+  night: '#fbf3e3',
 };
 
 /**

@@ -178,7 +178,7 @@ async function main() {
 <title>Ôn tập từ vựng 皆の日本語</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Ôn tập từ vựng 皆の日本語: luyện Kanji, âm Hán Việt và nghĩa tiếng Việt. Bản chạy ngoại tuyến, mở trực tiếp không cần cài đặt.">
-<meta name="theme-color" content="#4f46e5">
+<meta name="theme-color" content="#ffffff">
 <script>
 try {
   var saved = JSON.parse(localStorage.getItem('jp-practice:theme') || '""');

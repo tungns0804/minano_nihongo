@@ -43,11 +43,8 @@ export const MESSAGES = {
   // ── Vỏ ứng dụng ────────────────────────────────────────────────────────
   'app.namePrefix': { vi: 'Ôn tập từ vựng', ja: '単語練習' },
   'app.title': { vi: 'Ôn tập từ vựng 皆の日本語', ja: '皆の日本語 単語練習' },
-  'app.tagline': {
-    vi: 'Kanji · Âm Hán Việt · Nghĩa tiếng Việt',
-    ja: '漢字・漢越音・ベトナム語訳',
-  },
   'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
+  'app.breadcrumb': { vi: 'Bạn đang ở', ja: '現在の場所' },
   // Tên ba tab nói rõ tab nào bám theo giáo trình và tab nào không: hai tab đầu là
   // nội dung của 皆の日本語, còn "bổ trợ" là bài tập chuyên đề tự soạn thêm.
   'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
