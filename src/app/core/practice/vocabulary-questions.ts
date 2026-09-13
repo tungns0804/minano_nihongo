@@ -68,7 +68,15 @@ export function buildVocabularyQuestions(
       // về chuỗi rỗng thì khung gợi ý hiện ra rỗng không.
       hint: (info.supportsHanVietHint && config.showHanViet ? word.hanViet : '') || null,
       correctAnswer,
-      acceptedAnswers: acceptedAnswersOf(correctAnswer),
+      // Chiều hỏi ra chữ Nhật (vi-jp, han-jp, kana-jp) đòi gõ đúng dạng đầy đủ có
+      // kanji, nhưng nhiều chữ Hán hiếm (như 濡) không phải bộ gõ nào cũng gõ ra
+      // được. Còn cách đọc kana thì gõ bằng bàn phím thường lúc nào cũng được, nên
+      // chấp nhận luôn cách đọc làm đáp án đúng — như bài "Bài tập" đã làm với cặp
+      // tự động từ/tha động từ (xem `uniqueAnswers` trong exercise-questions.ts).
+      acceptedAnswers:
+        info.answer === 'japanese' && word.reading
+          ? [...new Set([...acceptedAnswersOf(correctAnswer), word.reading])]
+          : acceptedAnswersOf(correctAnswer),
       // Kana cũng là chữ Nhật: dùng font tiếng Nhật, bỏ hết khoảng trắng khi so
       // khớp, và hiện nhắc bật IME ở chế độ gõ.
       answerIsJapanese: fieldIsJapanese(info.answer),
