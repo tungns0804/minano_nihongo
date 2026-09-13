@@ -905,18 +905,146 @@ a:hover {
    component luôn thắng `.star-btn` ở đây. Nhờ vậy màn hình nào cần khác một
    chút thì chỉ khai đúng phần khác, không phải khai lại cả khối. */
 
-/* --- Khung thiết lập luyện tập -------------------------------------------
-   Bảy màn hình có khung này (bài học, ngữ pháp, bài tập, kanji ×2, bộ thủ ×2)
-   và cả bảy đều bày các lựa chọn theo cùng một lưới. */
-
-/* Lưới lựa chọn hai cột co giãn: chiều hỏi, dạng câu hỏi, phạm vi… */
+/* Lưới nút lựa chọn hai cột co giãn — dùng ngoài khung thiết lập (trang nạp bài). */
 .options-2 {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-/* Lưới các mốc số câu — ô nhỏ hơn nhiều vì nội dung chỉ là một con số. */
-.options-limit {
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+/* --- Khung thiết lập luyện tập -------------------------------------------
+   Bảy màn hình có khung này (bài học, ngữ pháp, bài tập, kanji ×2, bộ thủ ×2),
+   cả bảy gắn `.setup` lên thân thẻ nên dùng chung đúng một bố cục.
+
+   Trước đây mỗi nhóm là nhãn nằm trên + lưới nút căng hết bề ngang: sáu nhóm xếp
+   dọc thành một khối rất cao, mà phần lớn chỉ là khoảng trống trong những nút rộng
+   300px chứa hai chữ "10 câu". Giờ nhãn nằm cột trái, nút co theo nội dung. */
+
+.setup {
+  gap: var(--sp-4);
+}
+
+@media (min-width: 720px) {
+  .setup > .field {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    /* Nhãn trải dọc suốt nhóm (xem .label bên dưới) nên cần sẵn đủ hàng: một nhóm có
+       nhiều nhất hai phần bên phải — nút + ghi chú. */
+    grid-template-rows: auto auto auto;
+    /* row-gap 0 phải ghi rõ: `.field` dùng chung đặt `gap: 6px` cho cả hai chiều. */
+    gap: 0 var(--sp-4);
+    /* Không căn `baseline`: nhãn trải qua nhiều hàng mà căn baseline thì trình duyệt
+       chèn thêm khoảng đệm vào các hàng, nhóm nào cũng cao ra thêm cả chục pixel. */
+    align-items: start;
+  }
+
+  /* Nhãn dài bẻ hai dòng ("Cấp độ (chọn nhiều được)") mà chỉ nằm ở hàng đầu thì kéo
+     hàng đó cao lên, đẩy dòng ghi chú bên phải tụt xuống cách xa hàng nút.
+
+     padding-top đưa dòng nhãn xuống ngang chữ trong nút (viền 1px + đệm 6px + nửa
+     phần chênh cỡ chữ). Nhóm chỉ có một đoạn chữ bên phải thì bỏ khoảng đó đi. */
+  .setup > .field > .label {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    padding-top: 8px;
+  }
+
+  .setup > .field:not(:has(> .options)) > .label {
+    padding-top: 1px;
+  }
+
+  .setup > .field > :not(.label) {
+    grid-column: 2;
+  }
+
+  /* Khoảng cách giữa hàng nút và ghi chú làm bằng margin chứ không bằng row-gap:
+     hàng trống vẫn ăn row-gap, nhóm chỉ có một phần sẽ thừa khoảng trống ở đáy. */
+  .setup > .field > .label ~ * ~ * {
+    margin-top: 6px;
+  }
+}
+
+.setup > .field > .hint {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.setup .options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.setup .option {
+  width: auto;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--fs-sm);
+}
+
+/* Nút nhỏ xếp sát nhau thì nền nhạt + viền màu là đủ nổi; vòng sáng 3px của nút to
+   cũ ở đây dính chùm sang nút bên cạnh. */
+.setup .option.is-active {
+  box-shadow: none;
+}
+
+/* Nhóm có dòng ví dụ dưới tên (dạng câu hỏi, chiều hỏi của Kanji…) vẫn phải là
+   thẻ: xếp thành hàng chip thì các thẻ cao thấp lộn xộn. */
+.setup .options:has(> .option-stacked) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.setup .option-stacked {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+}
+
+/* Tuỳ chọn bật/tắt: công tắc, không khung viền. Khung viền tô nền đặt ngay dưới các
+   nút lựa chọn thì trông y hệt nút — không phân biệt nổi đâu là chọn một, đâu là
+   bật tắt. */
+.setup .options:has(> .checkbox) {
+  display: grid;
+  /* 300px: hẹp hơn thì tên tuỳ chọn dài nhất ("Bỏ qua dấu tiếng Việt khi chấm")
+     bị bẻ xuống dòng. */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.setup .checkbox,
+.setup .checkbox:has(input:checked),
+.setup .checkbox.is-disabled:has(input:checked) {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+}
+
+.setup .checkbox strong {
+  font-size: var(--fs-sm);
+}
+
+.setup .checkbox .hint {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* Núm tròn vẽ bằng radial-gradient chứ không bằng ::before — Firefox không vẽ
+   pseudo-element trên thẻ input. */
+.setup .checkbox input {
+  appearance: none;
+  width: 30px;
+  height: 18px;
+  margin-top: 2px;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle, #fff 0 6px, transparent 6.5px) 0 0 / 18px 18px no-repeat,
+    var(--border-strong);
+  cursor: inherit;
+  transition: background-position var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.setup .checkbox input:checked {
+  background-color: var(--accent);
+  background-position: 12px 0;
 }
 
 .checkbox strong {

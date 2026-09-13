@@ -28,12 +28,12 @@
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
       <section class="card">
-        <div class="card-body stack stack-lg">
+        <div class="card-body stack setup">
           <h2>{{ t('lesson.setup') }}</h2>
 
           <div class="field">
             <span class="label">{{ t('exercise.levels') }}</span>
-            <div class="options options-limit">
+            <div class="options">
               @for (level of availableLevels(); track level) {
                 <button
                   type="button"
@@ -50,7 +50,7 @@
 
           <div class="field">
             <span class="label">{{ t('exercise.mode') }}</span>
-            <div class="options options-2">
+            <div class="options">
               @for (item of modes(); track item.id) {
                 <button
                   type="button"
@@ -68,7 +68,7 @@
           @if (needsForms()) {
             <div class="field">
               <span class="label">{{ t('lesson.forms') }}</span>
-              <div class="options options-limit">
+              <div class="options">
                 @for (form of availableForms; track form) {
                   <button
                     type="button"
@@ -86,7 +86,7 @@
 
           <div class="field">
             <span class="label">{{ t('lesson.scope') }}</span>
-            <div class="options options-2">
+            <div class="options">
               <button
                 type="button"
                 class="option"
@@ -129,7 +129,7 @@
 
           <div class="field">
             <span class="label">{{ t('lesson.questionCount') }}</span>
-            <div class="options options-limit">
+            <div class="options">
               <button
                 type="button"
                 class="option"
@@ -153,7 +153,7 @@
 
           <div class="field">
             <span class="label">{{ t('lesson.options') }}</span>
-            <div class="options options-2">
+            <div class="options">
               <label class="checkbox">
                 <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
                 <span>

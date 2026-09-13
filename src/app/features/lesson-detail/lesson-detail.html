@@ -63,12 +63,12 @@
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
       <section class="card">
-        <div class="card-body stack stack-lg">
+        <div class="card-body stack setup">
           <h2>{{ t('lesson.setup') }}</h2>
 
           <div class="field">
             <span class="label">{{ t('lesson.scope') }}</span>
-            <div class="options options-2">
+            <div class="options">
               <button
                 type="button"
                 class="option"
@@ -109,7 +109,7 @@
             <!-- ── Thiết lập riêng bài động từ ──────────────────────────── -->
             <div class="field">
               <span class="label">{{ t('lesson.questionType') }}</span>
-              <div class="options options-2">
+              <div class="options">
                 @for (mode of verbModes; track mode.id) {
                   <button
                     type="button"
@@ -127,7 +127,7 @@
             @if (currentVerbMode().needsForms) {
               <div class="field">
                 <span class="label">{{ t('lesson.forms') }}</span>
-                <div class="options options-limit">
+                <div class="options">
                   @for (form of availableForms(); track form) {
                     <button
                       type="button"
@@ -148,15 +148,16 @@
             <!-- ── Thiết lập riêng bài từ vựng ──────────────────────────── -->
             <div class="field">
               <span class="label">{{ t('lesson.direction') }}</span>
-              <div class="options options-2">
+              <div class="options">
                 @for (item of availableDirections(); track item.id) {
                   <button
                     type="button"
                     class="option"
                     [class.is-active]="direction() === item.id"
+                    [title]="t(item.labelKey)"
                     (click)="setDirection(item.id)"
                   >
-                    <app-t [key]="item.labelKey" block />
+                    <app-t [key]="item.shortKey" />
                   </button>
                 }
               </div>
@@ -174,7 +175,7 @@
           } @else {
             <div class="field">
               <span class="label">{{ t('lesson.answerMode') }}</span>
-              <div class="options options-2">
+              <div class="options">
                 <button
                   type="button"
                   class="option"
@@ -197,7 +198,7 @@
 
           <div class="field">
             <span class="label">{{ t('lesson.questionCount') }}</span>
-            <div class="options options-limit">
+            <div class="options">
               <button
                 type="button"
                 class="option"
@@ -223,7 +224,7 @@
           @if (batchTotal() > 1) {
             <div class="field">
               <span class="label">{{ t('lesson.batch') }}</span>
-              <div class="options options-limit">
+              <div class="options">
                 <button
                   type="button"
                   class="option"
@@ -251,7 +252,7 @@
 
           <div class="field">
             <span class="label">{{ t('lesson.options') }}</span>
-            <div class="options options-2">
+            <div class="options">
               @if (isVerbLesson()) {
                 <label class="checkbox">
                   <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />

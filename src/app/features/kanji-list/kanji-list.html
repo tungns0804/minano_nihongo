@@ -105,7 +105,7 @@
 
     <!-- ── Luyện trên chữ: đọc âm Hán Việt, hoặc viết chữ ─────────────── -->
     <section class="card practice-card">
-      <div class="card-body stack stack-lg">
+      <div class="card-body stack setup">
         <div class="stack stack-sm">
           <h2>{{ t(isDrawing() ? 'kanji.practiceDraw' : 'kanji.practiceHanViet') }}</h2>
           <p class="muted small"><app-t key="kanji.practiceHanViet.hint" block /></p>
@@ -113,7 +113,7 @@
 
         <div class="field">
           <span class="label">{{ t('kanji.mode') }}</span>
-          <div class="options options-2">
+          <div class="options">
             @for (item of modes; track item.id) {
               <button
                 type="button"
@@ -130,7 +130,7 @@
 
         <div class="field">
           <span class="label">{{ t('lesson.scope') }}</span>
-          <div class="options options-2">
+          <div class="options">
             <button
               type="button"
               class="option"
@@ -171,7 +171,7 @@
 
         <div class="field">
           <span class="label">{{ t('lesson.questionCount') }}</span>
-          <div class="options options-limit">
+          <div class="options">
             <button
               type="button"
               class="option"
@@ -195,7 +195,7 @@
 
         <div class="field">
           <span class="label">{{ t('lesson.options') }}</span>
-          <div class="options options-2">
+          <div class="options">
             <label class="checkbox">
               <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
               <span>
