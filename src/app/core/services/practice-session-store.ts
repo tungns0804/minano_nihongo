@@ -1,4 +1,4 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, inject, signal } from '@angular/core';
 
 import {
   PracticeConfig,
@@ -10,8 +10,10 @@ import {
 } from '../models/practice.model';
 import { batchCount, sliceBatch } from '../practice/batch';
 import type { PracticePlan } from '../practice/build-questions';
+import { gradeOf, reviewRefOf } from '../review/review.model';
 import { isAnswerCorrect } from '../utils/answer-check';
 import { shuffle } from '../utils/random';
+import { ReviewStore } from './review-store';
 
 export type NextOutcome = 'moved' | 'finished' | 'blocked';
 
@@ -28,11 +30,15 @@ export interface SessionLesson {
  * nhờ vậy bài từ vựng và bài động từ dùng chung được toàn bộ màn hình luyện tập
  * và màn hình kết quả.
  *
- * Toàn bộ nằm trong bộ nhớ: tải lại trang là mất phiên, đúng với yêu cầu
- * "mỗi lần luyện tập là một lần mới duy nhất, không lưu lịch sử".
+ * Phiên đang chạy nằm trong bộ nhớ: tải lại trang là mất phiên. Nhưng kết quả từng
+ * câu thì không mất theo — câu nào chấm xong được ghi ngay sang `ReviewStore` để lên
+ * lịch ôn. Trước đây app cố ý không lưu gì ("mỗi lần luyện tập là một lần mới");
+ * quyết định đó đổi khi có trang Ôn tập.
  */
 @Injectable({ providedIn: 'root' })
 export class PracticeSessionStore {
+  private readonly reviews = inject(ReviewStore);
+
   private readonly lessonRef = signal<SessionLesson | null>(null);
   private readonly configRef = signal<PracticeConfig | null>(null);
   private readonly questionList = signal<PracticeQuestion[]>([]);
@@ -94,13 +100,19 @@ export class PracticeSessionStore {
    * @returns false nếu không dựng được câu hỏi nào.
    */
   start(lesson: SessionLesson, config: PracticeConfig, plan: PracticePlan): boolean {
-    const questions = plan.questions;
-    if (questions.length === 0) return false;
+    if (plan.questions.length === 0) return false;
+
+    // Gắn khoá lịch ôn cho từng câu ngay tại cửa vào, để lúc chấm không phải đoán lại
+    // câu thuộc bài nào. Câu của phiên Ôn tập đã tự mang khoá (chúng gom từ nhiều bài
+    // nên thiết lập của phiên không nói được) — chỉ gắn cho câu nào chưa có.
+    const tag = (question: PracticeQuestion): PracticeQuestion =>
+      question.review ? question : { ...question, review: reviewRefOf(config, question.subject.id) };
+    const questions = plan.questions.map(tag);
 
     this.lessonRef.set(lesson);
     this.configRef.set(config);
-    this.questionList.set([...questions]);
-    this.planList.set(plan.all);
+    this.questionList.set(questions);
+    this.planList.set(plan.all.map(tag));
     this.stateList.set(questions.map(() => ({ status: 'pending', wrongAttempts: 0, attempts: [] })));
     this.indexRef.set(0);
     this.finishedRef.set(false);
@@ -126,8 +138,10 @@ export class PracticeSessionStore {
     const answer = rawAnswer.trim();
     if (!answer) return 'pending';
 
+    // Trắc nghiệm hay gõ xét theo TỪNG CÂU chứ không theo cả phiên: phiên Ôn tập trộn
+    // câu từ vựng (có lựa chọn) với câu kanji, ngữ pháp (chỉ gõ).
     const correct =
-      config.answerMode === 'choice'
+      question.choices.length > 0
         ? answer === question.correctAnswer
         : isAnswerCorrect(answer, question.acceptedAnswers, {
             ignoreDiacritics: config.ignoreDiacritics,
@@ -165,6 +179,7 @@ export class PracticeSessionStore {
   ): QuestionStatus {
     if (correct) {
       this.patchCurrentState({ status: 'correct', attempts });
+      this.remember(question, 'correct', state.wrongAttempts);
       return 'correct';
     }
 
@@ -172,16 +187,26 @@ export class PracticeSessionStore {
     const status: QuestionStatus =
       wrongAttempts >= question.maxWrongAttempts ? 'revealed' : 'pending';
     this.patchCurrentState({ status, attempts, wrongAttempts });
+    this.remember(question, status, wrongAttempts);
     return status;
   }
 
   /** Chủ động xem đáp án khi bí. Câu đó bị tính là sai. */
   giveUp(): QuestionStatus {
+    const question = this.current();
     const state = this.currentState();
-    if (!state || state.status !== 'pending') return state?.status ?? 'pending';
+    if (!question || !state || state.status !== 'pending') return state?.status ?? 'pending';
 
-    this.patchCurrentState({ status: 'revealed', wrongAttempts: Math.max(1, state.wrongAttempts) });
+    const wrongAttempts = Math.max(1, state.wrongAttempts);
+    this.patchCurrentState({ status: 'revealed', wrongAttempts });
+    this.remember(question, 'revealed', wrongAttempts);
     return 'revealed';
+  }
+
+  /** Ghi kết quả một câu vào lịch ôn. Câu còn đang mở (còn lượt trả lời) thì chưa ghi gì. */
+  private remember(question: PracticeQuestion, status: QuestionStatus, wrongAttempts: number): void {
+    const grade = gradeOf(status, wrongAttempts);
+    if (grade && question.review) this.reviews.record(question.review, grade);
   }
 
   /** Sang câu tiếp theo. Chỉ có tác dụng khi câu hiện tại đã được chấm xong. */

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { IMPORT_LESSON_ENABLED } from '../../core/feature-flags';
@@ -11,6 +11,7 @@ import {
   lessonKindsOfTab,
 } from '../../core/models/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
+import { ReviewStore } from '../../core/services/review-store';
 import { SearchBox } from '../../shared/search-box';
 
 /**
@@ -39,6 +40,14 @@ export class LessonList extends LeveledLessonBrowser {
   readonly importEnabled = IMPORT_LESSON_ENABLED;
 
   readonly favoriteCounts = this.favoriteStore.counts;
+
+  /**
+   * Số mục đến hạn ôn hôm nay.
+   *
+   * Lời nhắc nằm ở trang chủ chứ không chỉ ở tab Ôn tập: đây là trang mở ra mỗi lần
+   * vào app, còn tab Ôn tập thì phải tự nhớ ra mà bấm vào.
+   */
+  readonly reviewDue = inject(ReviewStore).dueTotal;
 
   protected levelStorageKey(): string {
     return 'jp-practice:level-filter';

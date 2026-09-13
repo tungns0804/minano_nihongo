@@ -1,6 +1,57 @@
 /* Trang chủ. Thanh công cụ, thẻ bài học và khung chờ dùng chung với tab Ngữ pháp
-   và tab Bài tập bổ trợ nên khai ở `src/styles.css`; đây chỉ còn khung "chưa có
-   bài học nào". */
+   và tab Bài tập bổ trợ nên khai ở `src/styles.css`; đây chỉ còn lời nhắc ôn tập
+   và khung "chưa có bài học nào". */
+
+/* --- Lời nhắc ôn tập --- */
+
+.review-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: var(--accent-soft);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .review-banner:hover {
+    border-color: var(--accent);
+  }
+}
+
+.review-banner-count {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  min-width: 48px;
+  height: 48px;
+  padding: 0 10px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.review-banner-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.review-banner-go {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: var(--fs-lg);
+}
+
+/* --- Chưa có bài học nào --- */
 
 .empty-steps {
   padding-left: 20px;

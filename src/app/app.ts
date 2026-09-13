@@ -44,6 +44,8 @@ const IMPORT_ITEM: NavItem = {
 
 const NAV_ITEMS: readonly NavItem[] = [
   { section: '', path: '/', labelKey: 'app.nav.lessons', icon: 'book' },
+  // Đứng thứ hai chứ không xếp cuối: đây là chỗ ghé vào mỗi ngày, trước khi học bài mới.
+  { section: 'review', path: '/review', labelKey: 'app.nav.review', icon: 'repeat' },
   { section: 'topic', path: '/topic', labelKey: 'app.nav.topic', icon: 'layers' },
   { section: 'n3', path: '/n3', labelKey: 'app.nav.n3', icon: 'target', goal: true },
   { section: 'kanji', path: '/kanji', labelKey: 'app.nav.kanji', icon: 'pencil' },

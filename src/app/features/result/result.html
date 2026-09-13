@@ -65,7 +65,7 @@
               <button
                 type="button"
                 class="btn"
-                [disabled]="unmarkedWrongIds().length === 0"
+                [disabled]="unmarkedWrong().length === 0"
                 (click)="markWrongAsFavorite()"
               >
                 <app-t key="result.markWrong" />
@@ -74,7 +74,7 @@
             <button type="button" class="btn" (click)="retryAll()"><app-t key="result.retryAll" /></button>
             <span class="spacer"></span>
             <button type="button" class="btn btn-ghost" (click)="backToLesson()">
-              <app-t key="result.backToLesson" />
+              <app-t [key]="backLabelKey()" />
             </button>
             <button type="button" class="btn btn-ghost" (click)="backHome()">
               <app-t key="result.home" />
@@ -85,7 +85,7 @@
             <div class="notice notice-success">
               {{ t('result.markedNotice', { count: favoritesJustAdded() }) }}
             </div>
-          } @else if (wrongResults().length > 0 && unmarkedWrongIds().length === 0) {
+          } @else if (wrongResults().length > 0 && unmarkedWrong().length === 0) {
             <div class="notice notice-success">{{ t('result.allMarked') }}</div>
           }
 
@@ -197,9 +197,9 @@
                   </div>
 
                   <button app-star
-                    [on]="isFavorite(item.question.subject.id)"
+                    [on]="isFavorite(item)"
                     [name]="item.question.subject.title"
-                    (click)="toggleFavorite(item.question.subject.id)"
+                    (click)="toggleFavorite(item)"
                   ></button>
                 </li>
               }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { KANJI_SESSION_ID } from '../../core/kanji/kanji.model';
 import { RADICAL_SESSION_ID } from '../../core/radical/radical.model';
 import { LanguageStore } from '../../core/i18n/language-store';
+import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
 import { QuestionResult, describeConfigKeys } from '../../core/models/practice.model';
 import { LessonKind } from '../../core/models/vocabulary.model';
@@ -54,6 +55,11 @@ export class Result {
   readonly summary = this.session.summary;
   readonly filter = signal<ResultFilter>('all');
   readonly favoritesJustAdded = signal(0);
+
+  /** Phiên Ôn tập không có "bài vừa luyện" — nút quay lại về trang Ôn tập. */
+  readonly backLabelKey = computed<MessageKey>(() =>
+    this.summary()?.config.review ? 'result.backToReview' : 'result.backToLesson',
+  );
 
   // --- Học theo cụm ---
 
@@ -164,45 +170,57 @@ export class Result {
   });
 
   /**
-   * Số mục sai chưa được đánh dấu ★.
+   * Câu sai mà mục của nó chưa được đánh dấu ★, mỗi mục chỉ một lần.
+   *
    * Đếm theo mục chứ không theo câu, vì một động từ có thể bị hỏi ở nhiều thể.
    */
-  readonly unmarkedWrongIds = computed(() => {
+  readonly unmarkedWrong = computed<QuestionResult[]>(() => {
     void this.favoriteStore.counts();
-    const summary = this.summary();
-    if (!summary) return [];
-
-    const ids = new Set(this.wrongResults().map((r) => r.question.subject.id));
-    return [...ids].filter((id) => !this.favoriteStore.isFavorite(summary.lessonId, id));
+    const seen = new Set<string>();
+    return this.wrongResults().filter((item) => {
+      const lessonId = this.favoriteLessonOf(item);
+      const id = item.question.subject.id;
+      const key = `${lessonId}|${id}`;
+      if (!lessonId || seen.has(key) || this.favoriteStore.isFavorite(lessonId, id)) return false;
+      seen.add(key);
+      return true;
+    });
   });
 
   setFilter(value: ResultFilter): void {
     this.filter.set(value);
   }
 
-  isFavorite(subjectId: string): boolean {
+  isFavorite(item: QuestionResult): boolean {
     void this.favoriteStore.counts();
-    const lessonId = this.summary()?.lessonId;
-    return !!lessonId && this.favoriteStore.isFavorite(lessonId, subjectId);
+    const lessonId = this.favoriteLessonOf(item);
+    return !!lessonId && this.favoriteStore.isFavorite(lessonId, item.question.subject.id);
   }
 
-  toggleFavorite(subjectId: string): void {
-    const lessonId = this.summary()?.lessonId;
-    if (!lessonId) return;
-    this.favoriteStore.toggle(lessonId, subjectId);
+  toggleFavorite(item: QuestionResult): void {
+    const lessonId = this.favoriteLessonOf(item);
+    if (lessonId) this.favoriteStore.toggle(lessonId, item.question.subject.id);
   }
 
   /** Đánh dấu ★ toàn bộ mục bị sai để lần sau luyện riêng nhóm này. */
   markWrongAsFavorite(): void {
-    const summary = this.summary();
-    if (!summary) return;
+    const items = this.unmarkedWrong();
+    for (const item of items) {
+      const lessonId = this.favoriteLessonOf(item);
+      if (lessonId) this.favoriteStore.add(lessonId, [item.question.subject.id]);
+    }
+    this.favoritesJustAdded.set(items.length);
+  }
 
-    const added = this.unmarkedWrongIds().length;
-    this.favoriteStore.add(
-      summary.lessonId,
-      this.wrongResults().map((r) => r.question.subject.id),
-    );
-    this.favoritesJustAdded.set(added);
+  /**
+   * Khoá ★ của một câu: bài chứa mục đó.
+   *
+   * Lấy theo TỪNG CÂU chứ không theo phiên: phiên Ôn tập gom câu từ nhiều bài, và ★
+   * của một từ bài 44 phải nằm ở bài 44 chứ không ở một "bài ôn tập" không tồn tại.
+   * Phiên thường thì nguồn của mọi câu chính là bài đang luyện, nên kết quả như cũ.
+   */
+  private favoriteLessonOf(item: QuestionResult): string | null {
+    return item.question.review?.source ?? this.summary()?.lessonId ?? null;
   }
 
   /** Luyện lại chỉ những câu vừa sai, giữ nguyên thiết lập cũ. */
@@ -249,6 +267,12 @@ export class Result {
     this.session.clearSummary();
     if (!summary) {
       void this.router.navigate(['/']);
+      return;
+    }
+
+    // Phiên ôn gom câu từ nhiều bài nên không có bài nào để quay về.
+    if (summary.config.review) {
+      void this.router.navigate(['/review']);
       return;
     }
 

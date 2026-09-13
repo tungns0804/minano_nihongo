@@ -48,6 +48,7 @@ export const MESSAGES = {
   // Tên ba tab nói rõ tab nào bám theo giáo trình và tab nào không: hai tab đầu là
   // nội dung của 皆の日本語, còn "bổ trợ" là bài tập chuyên đề tự soạn thêm.
   'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
+  'app.nav.review': { vi: 'Ôn tập', ja: '復習' },
   'app.nav.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
   'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
@@ -125,8 +126,8 @@ export const MESSAGES = {
   // ── Trang chủ ──────────────────────────────────────────────────────────
   'home.title': { vi: 'Chọn bài học để luyện tập', ja: '練習するレッスンを選ぶ' },
   'home.subtitle': {
-    vi: 'Kết quả hiện ngay sau khi làm xong và không được lưu lại — mỗi lần luyện là một lần mới.',
-    ja: '結果は終了後すぐに表示され、保存されません。毎回が新しい練習です。',
+    vi: 'Chọn một bài để luyện. Mỗi câu bạn trả lời đều được ghi vào lịch ôn, để trang Ôn tập nhắc lại đúng lúc sắp quên.',
+    ja: 'レッスンを選んで練習しましょう。解答した問題は復習スケジュールに記録され、忘れかけた頃に「復習」ページで出題されます。',
   },
   'home.loading': { vi: 'Đang tải danh sách bài học…', ja: 'レッスン一覧を読み込み中…' },
   'home.loadError': { vi: 'Không tải được bài học có sẵn', ja: '既存レッスンを読み込めません' },
@@ -1338,6 +1339,87 @@ export const MESSAGES = {
   'n3.source.none': { vi: 'Chưa có nguồn', ja: '教材なし' },
   'n3.source.deferred': { vi: 'Hoãn lần này', ja: '今回は対象外' },
 
+  // ── Ôn tập ─────────────────────────────────────────────────────────────
+  'review.title': { vi: 'Ôn tập', ja: '復習' },
+  'review.subtitle': {
+    vi: 'Mọi từ, chữ Hán, câu ngữ pháp và động từ bạn đã luyện đều tự vào lịch ôn: trả lời đúng thì lần ôn sau giãn xa ra, sai thì được nhắc lại sớm.',
+    ja: '練習した単語・漢字・文法の例文・動詞は自動で復習スケジュールに入ります。正解すると次の復習までの間隔が延び、間違えると早めに出題されます。',
+  },
+  'review.short': { vi: 'Ôn tập', ja: '復習' },
+  'review.sessionName': { vi: 'Ôn tập hôm nay', ja: '今日の復習' },
+  'review.persistFailed.title': { vi: 'Không lưu được lịch ôn', ja: '復習データを保存できません' },
+  'review.persistFailed.text': {
+    vi: 'Trình duyệt đang chặn bộ lưu trữ cục bộ (chế độ ẩn danh, hết dung lượng, hoặc cookie bị tắt). Kết quả vẫn được tính trong phiên này nhưng sẽ mất khi tải lại trang.',
+    ja: 'ブラウザがローカルストレージを拒否しています（プライベートモード、容量不足、Cookie 無効など）。結果はこのセッション中だけ反映され、再読み込みで失われます。',
+  },
+  'review.stat.due': { vi: 'Đến hạn hôm nay', ja: '今日の復習' },
+  'review.stat.tracked': { vi: 'Mục đang theo dõi', ja: '記録中の項目' },
+  'review.stat.mastered': { vi: 'Đã nhớ lâu', ja: '定着済み' },
+  'review.stat.masteredTitle': {
+    vi: 'Mục có khoảng ôn từ 14 ngày trở lên',
+    ja: '復習間隔が14日以上の項目',
+  },
+  'review.stat.mistakes': { vi: 'Trong sổ lỗi sai', ja: '間違いノート' },
+  'review.area.vocab': { vi: 'Từ vựng', ja: '単語' },
+  'review.area.kanji': { vi: 'Kanji', ja: '漢字' },
+  'review.area.grammar': { vi: 'Ngữ pháp', ja: '文法' },
+  'review.area.verb': { vi: 'Động từ', ja: '動詞' },
+  'review.setup': { vi: 'Ôn hôm nay', ja: '今日の復習' },
+  'review.areas': { vi: 'Khu', ja: '分野' },
+  'review.limit': { vi: 'Số mục', ja: '項目数' },
+  'review.limit.n': { vi: '{count} mục', ja: '{count}件' },
+  'review.answerNote': {
+    vi: 'Kanji, ngữ pháp và bài chuyển thể luôn gõ đáp án.',
+    ja: '漢字・文法・活用練習は常に入力して解答します。',
+  },
+  'review.plan': {
+    vi: 'Sẽ ôn {count} mục · mục quá hạn lâu nhất được ưu tiên.',
+    ja: '{count}件を復習します · 期限切れが古い項目を優先します。',
+  },
+  'review.nothingDue': {
+    vi: 'Không còn mục nào đến hạn ở các khu đang chọn.',
+    ja: '選択した分野に期限の来た項目はありません。',
+  },
+  'review.start': { vi: 'Bắt đầu ôn', ja: '復習を始める' },
+  'review.buildFailed': {
+    vi: 'Không dựng được câu hỏi nào — có thể bài học chưa tải được. Kiểm tra mạng rồi thử lại.',
+    ja: '問題を作成できませんでした。レッスンを読み込めていない可能性があります。接続を確認して再試行してください。',
+  },
+  'review.empty.title': { vi: 'Chưa có gì để ôn', ja: 'まだ復習する項目がありません' },
+  'review.empty.text': {
+    vi: 'Luyện một bài bất kỳ (từ vựng, kanji, ngữ pháp hay động từ) — các mục bạn trả lời sẽ tự vào lịch ôn.',
+    ja: '単語・漢字・文法・動詞のどれかを練習すると、解答した項目が自動で復習スケジュールに入ります。',
+  },
+  'review.empty.go': { vi: 'Tới danh sách bài học', ja: 'レッスン一覧へ' },
+  'review.mistakes.title': { vi: 'Sổ lỗi sai', ja: '間違いノート' },
+  'review.mistakes.hint': {
+    vi: 'Mục từng bị lộ đáp án. Trả lời đúng ngay 2 lần liên tiếp ở hai ngày khác nhau thì mục tự ra khỏi sổ.',
+    ja: '答えを表示したことがある項目です。別々の日に2回続けて一発で正解すると自動で外れます。',
+  },
+  'review.mistakes.filter': { vi: 'Lọc theo khu', ja: '分野で絞り込み' },
+  'review.mistakes.practice': { vi: 'Luyện {count} mục này', ja: 'この{count}件を練習' },
+  'review.mistakes.lapses': { vi: 'Sai {count} lần', ja: '{count}回ミス' },
+  'review.mistakes.dismiss': { vi: 'Bỏ khỏi sổ', ja: 'ノートから外す' },
+  'review.mistakes.dismissTitle': {
+    vi: 'Đánh dấu là đã nhớ. Nếu sau này sai lại, mục sẽ tự vào sổ.',
+    ja: '覚えたことにします。再び間違えると自動でノートに戻ります。',
+  },
+  'review.mistakes.loading': { vi: 'Đang tải sổ lỗi sai…', ja: '間違いノートを読み込み中…' },
+  'review.mistakes.empty': { vi: 'Không có mục nào trong sổ.', ja: 'ノートに項目はありません。' },
+  'review.mistakes.unavailable': {
+    vi: '{count} mục chưa hiện được nội dung (bài học chưa tải được hoặc đã bị xoá).',
+    ja: '{count}件の内容を表示できません（レッスンを読み込めないか、削除されています）。',
+  },
+  'review.mistakes.sessionName': { vi: 'Sổ lỗi sai', ja: '間違いノート' },
+  // Lời nhắc ở trang chủ và nút quay về ở màn hình kết quả — hai chỗ duy nhất ngoài
+  // trang Ôn tập nhắc tới lịch ôn.
+  'home.review.title': { vi: 'Hôm nay có {count} mục cần ôn', ja: '今日の復習：{count}件' },
+  'home.review.text': {
+    vi: 'Ôn đúng hạn để nhớ lâu — mỗi ngày vài phút.',
+    ja: '期限どおりに復習すると長く覚えられます。毎日数分でOK。',
+  },
+  'result.backToReview': { vi: 'Về trang ôn tập', ja: '復習ページへ' },
+
   // ── Tiêu đề tab theo trang ─────────────────────────────────────────────
   'route.n3': { vi: 'Tiến độ thi N3', ja: 'N3 合格までの進捗' },
   'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
@@ -1356,6 +1438,7 @@ export const MESSAGES = {
   'route.radicalDetail': { vi: 'Bộ thủ', ja: '部首' },
   'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
   'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
+  'route.review': { vi: 'Ôn tập', ja: '復習' },
 } as const satisfies Record<string, Entry>;
 
 export type MessageKey = keyof typeof MESSAGES;

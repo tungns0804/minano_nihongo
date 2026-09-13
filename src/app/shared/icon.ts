@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 export type IconName =
   | 'book'
+  | 'repeat'
   | 'layers'
   | 'target'
   | 'pencil'
@@ -43,6 +44,12 @@ export type IconName =
         @case ('book') {
           <path d="M2.5 5.5H9a3 3 0 0 1 3 3V20a2.5 2.5 0 0 0-2.5-2.5h-7z" />
           <path d="M21.5 5.5H15a3 3 0 0 0-3 3V20a2.5 2.5 0 0 1 2.5-2.5h7z" />
+        }
+        @case ('repeat') {
+          <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8.5" />
+          <path d="M20 3.5v5h-5" />
+          <path d="M20 12a8 8 0 0 1-13.7 5.6L4 15.5" />
+          <path d="M4 20.5v-5h5" />
         }
         @case ('layers') {
           <path d="M12 2.5 2.5 7.5l9.5 5 9.5-5z" />

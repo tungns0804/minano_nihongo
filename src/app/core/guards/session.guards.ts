@@ -5,7 +5,8 @@ import { PracticeSessionStore } from '../services/practice-session-store';
 
 /**
  * Màn hình luyện tập chỉ vào được khi có phiên đang chạy. Tải lại trang giữa chừng
- * là mất phiên (cố ý — không lưu lịch sử), lúc đó đưa người dùng về trang chủ.
+ * là mất phiên — phiên chỉ nằm trong bộ nhớ, còn kết quả những câu đã chấm thì đã
+ * được ghi vào lịch ôn (`ReviewStore`) — lúc đó đưa người dùng về trang chủ.
  */
 export const practiceGuard: CanActivateFn = () => {
   const session = inject(PracticeSessionStore);

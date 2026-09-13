@@ -58,6 +58,13 @@ export const routes: Routes = [
     title: 'route.n3',
     loadComponent: () => import('./features/n3-progress/n3-progress').then((m) => m.N3Progress),
   },
+  // Trang "Ôn tập": lịch ôn ngắt quãng và sổ lỗi sai, gom từ mọi khu đã luyện. Không
+  // thuộc khu nội dung nào nên đứng riêng — xem `core/review/review.model.ts`.
+  {
+    path: 'review',
+    title: 'route.review',
+    loadComponent: () => import('./features/review/review').then((m) => m.Review),
+  },
   // Bài ngữ pháp có nhánh riêng chứ không đi chung `lesson/:id`: nội dung của nó là
   // một trang lý thuyết có phân cấp, không phải bảng dữ liệu như ba loại bài kia.
   {

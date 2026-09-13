@@ -5,6 +5,19 @@
       <p><app-t key="home.subtitle" block /></p>
     </section>
 
+    <!-- Lời nhắc ôn đứng trên danh sách bài: ôn đúng hạn những gì đã học quan trọng
+         hơn học thêm bài mới, và không có dòng này thì phải nhớ ra mà mở tab Ôn tập. -->
+    @if (reviewDue() > 0) {
+      <a class="card review-banner" routerLink="/review">
+        <span class="review-banner-count">{{ reviewDue() }}</span>
+        <span class="review-banner-text">
+          <strong>{{ t('home.review.title', { count: reviewDue() }) }}</strong>
+          <span class="muted small">{{ t('home.review.text') }}</span>
+        </span>
+        <span class="review-banner-go" aria-hidden="true">→</span>
+      </a>
+    }
+
     @if (status() === 'loading' && allLessons().length === 0) {
       <!-- Khung chờ dựng đúng hình dạng lưới thẻ sắp hiện: trang không nhảy một
            nhịp khi dữ liệu về, và người dùng thấy ngay "sắp có một danh sách" chứ

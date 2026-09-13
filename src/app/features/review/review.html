@@ -1,0 +1,257 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <section class="page-head">
+      <h1>{{ t('review.title') }}</h1>
+      <p><app-t key="review.subtitle" block /></p>
+    </section>
+
+    @if (persistFailed()) {
+      <div class="notice notice-error">
+        <div class="stack stack-sm">
+          <strong>{{ t('review.persistFailed.title') }}</strong>
+          <span>{{ t('review.persistFailed.text') }}</span>
+        </div>
+      </div>
+    }
+
+    @if (trackedTotal() === 0) {
+      <!-- Lịch ôn chỉ đầy lên từ các phiên luyện ở khu khác — trang trống thì chỉ đường
+           tới đó thay vì bày ra một khung thiết lập không bấm được gì. -->
+      <div class="empty-state">
+        <span class="empty-state-icon" aria-hidden="true">🗓️</span>
+        <p class="empty-state-title">{{ t('review.empty.title') }}</p>
+        <p class="empty-state-text"><app-t key="review.empty.text" block /></p>
+        <a class="btn btn-sm" routerLink="/">{{ t('review.empty.go') }}</a>
+      </div>
+    } @else {
+      <div class="review-stats">
+        <div class="card review-stat is-due">
+          <span class="review-stat-value">{{ dueTotal() }}</span>
+          <span class="review-stat-label">{{ t('review.stat.due') }}</span>
+        </div>
+        <div class="card review-stat">
+          <span class="review-stat-value">{{ trackedTotal() }}</span>
+          <span class="review-stat-label">{{ t('review.stat.tracked') }}</span>
+        </div>
+        <div class="card review-stat" [title]="t('review.stat.masteredTitle')">
+          <span class="review-stat-value">{{ masteredTotal() }}</span>
+          <span class="review-stat-label">{{ t('review.stat.mastered') }}</span>
+        </div>
+        <div class="card review-stat is-mistake">
+          <span class="review-stat-value">{{ mistakeTotal() }}</span>
+          <span class="review-stat-label">{{ t('review.stat.mistakes') }}</span>
+        </div>
+      </div>
+
+      <!-- ── Ôn hôm nay ─────────────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack setup">
+          <h2>{{ t('review.setup') }}</h2>
+
+          <div class="field">
+            <span class="label">{{ t('review.areas') }}</span>
+            <div class="options">
+              @for (area of areas; track area) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="isAreaSelected(area)"
+                  [attr.aria-pressed]="isAreaSelected(area)"
+                  (click)="toggleArea(area)"
+                >
+                  <app-t [key]="areaLabelKey[area]" />
+                  <span class="filter-count">{{ summary()[area].due }}</span>
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('review.limit') }}</span>
+            <div class="options">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="settings().limit === null"
+                (click)="setLimit(null)"
+              >
+                {{ t('common.all') }}
+              </button>
+              @for (limit of limits; track limit) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="settings().limit === limit"
+                  (click)="setLimit(limit)"
+                >
+                  {{ t('review.limit.n', { count: limit }) }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.answerMode') }}</span>
+            <div class="options">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="settings().answerMode === 'choice'"
+                (click)="setAnswerMode('choice')"
+              >
+                {{ t('lesson.answerMode.choice') }}
+              </button>
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="settings().answerMode === 'typing'"
+                (click)="setAnswerMode('typing')"
+              >
+                {{ t('lesson.answerMode.typing') }}
+              </button>
+            </div>
+            <span class="hint">{{ t('review.answerNote') }}</span>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.direction') }}</span>
+            <div class="options">
+              @for (item of directions; track item.id) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="settings().direction === item.id"
+                  (click)="setDirection(item.id)"
+                >
+                  <app-t [key]="item.labelKey" />
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="start-bar">
+            <div class="small muted">
+              @if (plannedCount() > 0) {
+                {{ t('review.plan', { count: plannedCount() }) }}
+              } @else {
+                {{ t('review.nothingDue') }}
+              }
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              [disabled]="plannedCount() === 0 || starting()"
+              (click)="start()"
+            >
+              {{ t('review.start') }}
+            </button>
+          </div>
+
+          @if (buildFailed()) {
+            <div class="notice notice-warning">{{ t('review.buildFailed') }}</div>
+          }
+        </div>
+      </section>
+
+      <!-- ── Sổ lỗi sai ─────────────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack setup">
+          <div class="row">
+            <h2>{{ t('review.mistakes.title') }}</h2>
+            <span class="spacer"></span>
+            @if (visibleMistakes().length > 0) {
+              <button
+                type="button"
+                class="btn btn-sm btn-primary"
+                [disabled]="starting()"
+                (click)="practiceMistakes()"
+              >
+                {{ t('review.mistakes.practice', { count: visibleMistakes().length }) }}
+              </button>
+            }
+          </div>
+          <p class="muted small"><app-t key="review.mistakes.hint" block /></p>
+
+          @if (mistakeTotal() > 0) {
+            <div class="field">
+              <span class="label">{{ t('review.mistakes.filter') }}</span>
+              <div class="options">
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="mistakeFilter() === 'all'"
+                  [attr.aria-pressed]="mistakeFilter() === 'all'"
+                  (click)="setMistakeFilter('all')"
+                >
+                  {{ t('common.all') }}
+                  <span class="filter-count">{{ mistakeTotal() }}</span>
+                </button>
+                @for (area of areas; track area) {
+                  <button
+                    type="button"
+                    class="option"
+                    [class.is-active]="mistakeFilter() === area"
+                    [attr.aria-pressed]="mistakeFilter() === area"
+                    [disabled]="summary()[area].mistakes === 0"
+                    (click)="setMistakeFilter(area)"
+                  >
+                    <app-t [key]="areaLabelKey[area]" />
+                    <span class="filter-count">{{ summary()[area].mistakes }}</span>
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          @if (mistakeTotal() === 0) {
+            <p class="muted">{{ t('review.mistakes.empty') }}</p>
+          } @else if (mistakesLoading()) {
+            <p class="muted small" role="status">{{ t('review.mistakes.loading') }}</p>
+          } @else {
+            @if (visibleMistakes().length === 0) {
+              <p class="muted">{{ t('review.mistakes.empty') }}</p>
+            } @else {
+              <ul class="mistake-list">
+                @for (item of visibleMistakes(); track item.key) {
+                  <li class="mistake-item">
+                    <div class="mistake-body">
+                      <div class="mistake-word">
+                        <span
+                          class="mistake-title"
+                          [class.jp]="item.question.subject.titleIsJapanese"
+                        >{{ item.question.subject.title }}</span>
+                        @if (item.question.subject.subtitle) {
+                          <span class="mistake-sub">{{ item.question.subject.subtitle }}</span>
+                        }
+                      </div>
+                      <div class="muted small">{{ item.question.subject.detail }}</div>
+                    </div>
+                    <div class="mistake-meta">
+                      <span class="badge"><app-t [key]="areaLabelKey[item.area]" /></span>
+                      <span class="badge badge-danger">
+                        {{ t('review.mistakes.lapses', { count: item.lapses }) }}
+                      </span>
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-ghost"
+                        [title]="t('review.mistakes.dismissTitle')"
+                        (click)="dismiss(item.key)"
+                      >
+                        {{ t('review.mistakes.dismiss') }}
+                      </button>
+                    </div>
+                  </li>
+                }
+              </ul>
+            }
+            @if (unavailableMistakes() > 0) {
+              <p class="small faint">
+                {{ t('review.mistakes.unavailable', { count: unavailableMistakes() }) }}
+              </p>
+            }
+          }
+        </div>
+      </section>
+    }
+  </div>
+</div>

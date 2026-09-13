@@ -8,10 +8,11 @@ const STORAGE_KEY = 'jp-practice:favorites';
 type FavoriteMap = Record<string, string[]>;
 
 /**
- * Danh sách "từ chưa nhớ" của từng bài học.
+ * Danh sách "từ chưa nhớ" của từng bài học — dấu ★ người học tự bấm.
  *
- * Đây là thứ DUY NHẤT được lưu lại giữa các phiên — kết quả luyện tập thì không
- * lưu, đúng như yêu cầu "mỗi lần luyện tập là một lần mới".
+ * Tách hẳn khỏi lịch ôn (`ReviewStore`): ★ là lựa chọn thủ công để luyện riêng một
+ * nhóm, còn lịch ôn tự chạy theo kết quả trả lời. Gộp hai thứ thì bấm ★ một từ đang
+ * thuộc sẽ làm xáo trộn lịch ôn của nó, và ngược lại.
  */
 @Injectable({ providedIn: 'root' })
 export class FavoriteStore {

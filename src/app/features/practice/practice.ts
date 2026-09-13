@@ -74,7 +74,12 @@ export class Practice {
     });
   });
 
-  readonly isChoiceMode = computed(() => this.config()?.answerMode === 'choice');
+  /**
+   * Trắc nghiệm hay gõ xét theo TỪNG CÂU: phiên Ôn tập trộn câu từ vựng (có lựa
+   * chọn) với câu kanji, ngữ pháp (chỉ gõ). Câu trắc nghiệm luôn có lựa chọn, câu gõ
+   * thì không bao giờ có, nên nhìn vào `choices` là đủ.
+   */
+  readonly isChoiceMode = computed(() => (this.question()?.choices.length ?? 0) > 0);
   readonly isDrawMode = computed(() => this.config()?.answerMode === 'draw');
   readonly modeLabel = computed(() => {
     const config = this.config();
@@ -130,9 +135,20 @@ export class Practice {
     // Đọc signal counts để computed này chạy lại mỗi khi Favorite đổi.
     void this.favoriteStore.counts();
     const subjectId = this.question()?.subject.id;
-    const lessonId = this.lesson()?.id;
+    const lessonId = this.favoriteLessonId();
     return !!subjectId && !!lessonId && this.favoriteStore.isFavorite(lessonId, subjectId);
   });
+
+  /**
+   * Khoá ★ của câu đang hỏi: bài chứa mục đó.
+   *
+   * Lấy theo từng câu chứ không theo phiên — phiên Ôn tập gom câu từ nhiều bài, và ★
+   * của một từ bài 44 phải nằm ở bài 44. Phiên thường thì nguồn của mọi câu chính là
+   * bài đang luyện, nên kết quả như cũ.
+   */
+  private favoriteLessonId(): string | null {
+    return this.question()?.review?.source ?? this.lesson()?.id ?? null;
+  }
 
   // --- Trắc nghiệm ---
 
@@ -309,7 +325,7 @@ export class Practice {
 
   toggleFavorite(): void {
     const subjectId = this.question()?.subject.id;
-    const lessonId = this.lesson()?.id;
+    const lessonId = this.favoriteLessonId();
     if (!subjectId || !lessonId) return;
     this.favoriteStore.toggle(lessonId, subjectId);
   }

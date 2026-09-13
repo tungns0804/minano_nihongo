@@ -4,6 +4,7 @@ import type { KanjiMode } from '../kanji/kanji.model';
 import { kanjiModeInfo } from '../kanji/kanji.model';
 import type { RadicalMode } from '../radical/radical.model';
 import { radicalModeInfo } from '../radical/radical.model';
+import type { ReviewRef } from '../review/review.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from './vocabulary.model';
@@ -262,6 +263,13 @@ export interface PracticeConfig {
    * sách), ba chiều còn lại hỏi trên CHỮ ghép (mở từ màn hình một bộ).
    */
   radicalMode: RadicalMode;
+
+  // --- Riêng trang Ôn tập (/review) ---
+  /**
+   * Phiên ôn tập: câu hỏi gom từ nhiều khu nên `lessonKind` không nói được phiên
+   * thuộc về đâu. Màn hình kết quả và nhãn phiên phải xét cờ này trước.
+   */
+  review: boolean;
 }
 
 /**
@@ -300,6 +308,7 @@ export function practiceConfig(
     exerciseMode: 'masu-to-form',
     kanjiMode: 'word-meaning',
     radicalMode: 'radical-hanviet',
+    review: false,
     ...overrides,
   };
 }
@@ -407,6 +416,14 @@ export interface PracticeQuestion {
    * mang theo dữ liệu nét dù màn hình kết quả không bao giờ vẽ lại chúng.
    */
   drawChar: string | null;
+  /**
+   * Khoá lịch ôn của câu này (xem `core/review/review.model.ts`); null với câu không
+   * vào lịch (hội thoại, bộ thủ, viết chữ).
+   *
+   * Đi theo từng câu chứ không suy từ thiết lập của phiên: phiên Ôn tập gom câu từ
+   * nhiều bài, và nguồn trong khoá cũng chính là khoá ★ của mục đó.
+   */
+  review: ReviewRef | null;
 }
 
 /**
@@ -452,6 +469,9 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     ignorePunctuation: false,
     isSentence: false,
     drawChar: null,
+    // Khoá lịch ôn do `PracticeSessionStore.start` gắn theo thiết lập của phiên; chỉ
+    // phiên Ôn tập mới tự điền sẵn (xem `review-questions.ts`).
+    review: null,
     ...draft,
   };
 }
@@ -487,6 +507,8 @@ export interface SessionSummary {
 
 /** Khoá nhãn ngắn của kiểu luyện tập, hiện trên thanh tiến độ khi đang làm bài. */
 export function sessionShortKey(config: PracticeConfig): MessageKey {
+  // Xét trước `lessonKind`: phiên ôn gom nhiều khu nên loại bài của nó không nói gì.
+  if (config.review) return 'review.short';
   if (config.lessonKind === 'radical') return radicalModeInfo(config.radicalMode).shortKey;
   if (config.lessonKind === 'kanji') return kanjiModeInfo(config.kanjiMode).shortKey;
   if (config.lessonKind === 'exercise') return exerciseModeInfo(config.exerciseMode).shortKey;
@@ -497,6 +519,16 @@ export function sessionShortKey(config: PracticeConfig): MessageKey {
 
 /** Các khoá mô tả thiết lập của một phiên, dùng cho badge ở màn hình kết quả. */
 export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
+  // Phiên ôn không có phạm vi hay chiều hỏi riêng của khu nào — chỉ còn cách trả lời
+  // và chiều hỏi chung mà người học đã chọn ở trang Ôn tập.
+  if (config.review) {
+    return [
+      'review.short',
+      ANSWER_MODE_LABEL_KEY[config.answerMode],
+      directionInfo(config.direction).shortKey,
+    ];
+  }
+
   const keys: MessageKey[] = [
     ANSWER_MODE_LABEL_KEY[config.answerMode],
     SCOPE_LABEL_KEY[config.scope],
