@@ -50,6 +50,22 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/lesson-detail/lesson-detail').then((m) => m.LessonDetail),
   },
+  // Khu "BTVN N3 cơ bản": bài tập về nhà của khoá N3 cơ bản. Mỗi bài là một bài từ
+  // vựng thật (tới từ `data-source/`), chỉ mang `kind: 'homework'` — nên chi tiết
+  // cũng dùng lại `LessonDetail`. Có đường dẫn riêng cùng lý do với `/topic/:id`:
+  // menu sáng đúng mục, và địa chỉ khớp với nút quay lại.
+  {
+    path: 'homework',
+    title: 'route.homework',
+    loadComponent: () =>
+      import('./features/homework-list/homework-list').then((m) => m.HomeworkList),
+  },
+  {
+    path: 'homework/:id',
+    title: 'route.homeworkDetail',
+    loadComponent: () =>
+      import('./features/lesson-detail/lesson-detail').then((m) => m.LessonDetail),
+  },
   // Tab "Tiến độ N3" đứng riêng vì nó không phải một khu nội dung mà là một khu
   // ĐO ĐẠC: nó nói về toàn bộ các khu kia, cộng thêm ba quyển 総まとめ chưa nạp vào
   // app mà vẫn phải học trên sách. Không có bài học nào tới từ route này.

@@ -29,6 +29,7 @@ const BACK_ROUTE: Record<LessonKind, string> = {
   // /lesson/<id> thì nút "quay lại" ở màn hình đó sẽ chỉ về tab chủ đề trong khi
   // địa chỉ nói là bài học — hai thứ nói ngược nhau.
   topic: '/topic',
+  homework: '/homework',
   verb: '/lesson',
   conversation: '/lesson',
   grammar: '/grammar',

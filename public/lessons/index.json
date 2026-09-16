@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T16:09:07.363Z",
+  "generatedAt": "2026-09-15T14:14:26.111Z",
   "lessons": [
     {
       "id": "minano-nihongo-1",
@@ -1039,6 +1039,36 @@
       "lessonNumber": 6,
       "level": "N3",
       "file": "soumatome-n3-6.json"
+    },
+    {
+      "id": "btvn-n3-co-ban-1",
+      "name": "BTVN N3 cơ bản — Từ vựng 1-10",
+      "description": "Giới tính, tuổi tác và vai vế: 男性, 高齢, 先輩, 上司, 知り合い…",
+      "kind": "homework",
+      "itemCount": 10,
+      "lessonNumber": 1,
+      "level": "N3",
+      "file": "btvn-n3-co-ban-1.json"
+    },
+    {
+      "id": "btvn-n3-co-ban-2",
+      "name": "BTVN N3 cơ bản — Từ vựng 11-20",
+      "description": "Bạn bè, xuất thân và trưởng thành: 友人, 出身, 故郷, 成長, 合格…",
+      "kind": "homework",
+      "itemCount": 10,
+      "lessonNumber": 2,
+      "level": "N3",
+      "file": "btvn-n3-co-ban-2.json"
+    },
+    {
+      "id": "btvn-n3-co-ban-3",
+      "name": "BTVN N3 cơ bản — Từ vựng 21-30",
+      "description": "Học hành, việc làm và cuộc sống: 進学, 就職, 退職, 残業, 給料…",
+      "kind": "homework",
+      "itemCount": 10,
+      "lessonNumber": 3,
+      "level": "N3",
+      "file": "btvn-n3-co-ban-3.json"
     }
   ]
 }

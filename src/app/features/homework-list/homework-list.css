@@ -1,0 +1,21 @@
+/* --- Khối tổng quan --- */
+
+.overview-title {
+  margin: 0;
+}
+
+h3.overview-title {
+  font-size: 1rem;
+}
+
+.overview-text {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.overview-steps {
+  display: grid;
+  gap: var(--sp-2);
+  margin: 0;
+  padding-left: 1.4em;
+}

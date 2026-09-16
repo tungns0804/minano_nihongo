@@ -103,6 +103,7 @@ function itemTypeOf(
   switch (config.lessonKind) {
     case 'vocabulary':
     case 'topic':
+    case 'homework':
       return 'w';
     case 'grammar':
       return 'g';

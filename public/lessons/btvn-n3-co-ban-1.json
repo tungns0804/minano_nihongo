@@ -1,0 +1,94 @@
+{
+  "id": "btvn-n3-co-ban-1",
+  "lessonNumber": 1,
+  "level": "N3",
+  "name": "BTVN N3 cơ bản — Từ vựng 1-10",
+  "description": "Giới tính, tuổi tác và vai vế: 男性, 高齢, 先輩, 上司, 知り合い…",
+  "kind": "homework",
+  "itemCount": 10,
+  "words": [
+    {
+      "id": "1ndkdxg",
+      "hanViet": "NAM TÍNH",
+      "japanese": "男性",
+      "reading": "だんせい",
+      "vietnamese": "nam giới",
+      "example": "理想の男性と結婚する。"
+    },
+    {
+      "id": "1rb8g7y",
+      "hanViet": "NỮ TÍNH",
+      "japanese": "女性",
+      "reading": "じょせい",
+      "vietnamese": "nữ giới",
+      "example": "あの女性/女の人は誰ですか？"
+    },
+    {
+      "id": "1c9dknb",
+      "hanViet": "CAO LINH",
+      "japanese": "高齢",
+      "reading": "こうれい",
+      "vietnamese": "già/ cao tuổi",
+      "example": "祖母は高齢だがまだとても元気だ。"
+    },
+    {
+      "id": "1xhs12e",
+      "hanViet": "NIÊN THƯỢNG",
+      "japanese": "年上",
+      "reading": "としうえ",
+      "vietnamese": "hơn tuổi",
+      "example": "彼女は彼より１０年上だ。"
+    },
+    {
+      "id": "0kvt28v",
+      "hanViet": "MỤC THƯỢNG",
+      "japanese": "目上",
+      "reading": "めうえ",
+      "vietnamese": "người trên",
+      "example": "目上の人ひとには敬語で話した方がいい。"
+    },
+    {
+      "id": "0pmu26k",
+      "hanViet": "TIÊN BỐI",
+      "japanese": "先輩",
+      "reading": "せんぱい",
+      "vietnamese": "tiền bối",
+      "example": "モンさんとアインさんは同じ年だが、職場ではアインさんの方が先輩だ。"
+    },
+    {
+      "id": "0nwmp30",
+      "hanViet": "HẬU BỐI",
+      "japanese": "後輩",
+      "reading": "こうはい",
+      "vietnamese": "hậu bối",
+      "example": "モンさんとアインさんは同じ年だが、職場ではアインさんの方が後輩だ"
+    },
+    {
+      "id": "1vuf8uw",
+      "hanViet": "THƯỢNG TƯ",
+      "japanese": "上司",
+      "reading": "じょうし",
+      "vietnamese": "sếp/ cấp trên",
+      "example": "上司に相談してから決定する。"
+    },
+    {
+      "id": "0q1m4i6",
+      "hanViet": "TƯƠNG THỦ",
+      "japanese": "相手",
+      "reading": "あいて",
+      "vietnamese": "đối phương/ đối thủ",
+      "example": "今度の試合の相手は強そうだ。"
+    },
+    {
+      "id": "1h2gv4p",
+      "hanViet": "TRI HỢP",
+      "japanese": "知り合い",
+      "reading": "しりあい",
+      "vietnamese": "người quen",
+      "example": "知り合いに息子の就職を頼む。"
+    }
+  ],
+  "verbs": [],
+  "lines": [],
+  "grammarPoints": []
+}

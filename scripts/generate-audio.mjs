@@ -70,7 +70,8 @@ function collectWords() {
   let silentCount = 0;
 
   for (const entry of index.lessons) {
-    if (entry.kind !== 'vocabulary') continue;
+    // Bài BTVN mở bằng đúng bảng từ của bài từ vựng, nên cũng cần nút loa.
+    if (entry.kind !== 'vocabulary' && entry.kind !== 'homework') continue;
     const lesson = JSON.parse(readFileSync(join(LESSONS_DIR, entry.file), 'utf8'));
 
     for (const word of lesson.words) {
