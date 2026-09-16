@@ -15,7 +15,9 @@ export type IconName =
   | 'contrast'
   | 'sun'
   | 'moon'
-  | 'candle';
+  | 'candle'
+  | 'volume'
+  | 'volume-off';
 
 /**
  * Biểu tượng nét mảnh, vẽ bằng SVG nội tuyến.
@@ -113,6 +115,16 @@ export type IconName =
         @case ('candle') {
           <path d="M12 2.5c2 2.4 3 4.1 3 5.6a3 3 0 0 1-6 0c0-1.5 1-3.2 3-5.6z" />
           <rect x="8.5" y="13" width="7" height="8.5" rx="1" />
+        }
+        @case ('volume') {
+          <path d="M3.5 9.5h3.2L11.5 5.5v13L6.7 14.5H3.5z" />
+          <path d="M15 9.4a4 4 0 0 1 0 5.2" />
+          <path d="M17.8 7a7.5 7.5 0 0 1 0 10" />
+        }
+        @case ('volume-off') {
+          <path d="M3.5 9.5h3.2L11.5 5.5v13L6.7 14.5H3.5z" />
+          <path d="m15.5 10 5 4" />
+          <path d="m20.5 10-5 4" />
         }
       }
     </svg>

@@ -15,6 +15,7 @@ import { T } from '../../core/i18n/t';
 import type { MessageKey } from '../../core/i18n/messages';
 import { QuestionStatus, sessionShortKey } from '../../core/models/practice.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
+import { FeedbackSound } from '../../core/services/feedback-sound';
 import { PracticeSessionStore } from '../../core/services/practice-session-store';
 import { DrawingVerdict, STROKE_ISSUE_KEY, checkDrawing } from '../../core/strokes/stroke-score';
 import { StrokePoint } from '../../core/strokes/stroke.model';
@@ -33,6 +34,7 @@ import { StrokeCanvas } from '../../shared/stroke-canvas';
 export class Practice {
   private readonly session = inject(PracticeSessionStore);
   private readonly favoriteStore = inject(FavoriteStore);
+  private readonly sound = inject(FeedbackSound);
   private readonly strokeStore = inject(StrokeStore);
   private readonly lang = inject(LanguageStore);
   private readonly router = inject(Router);
@@ -281,11 +283,15 @@ export class Practice {
 
   private handleResult(result: QuestionStatus, answer: string): void {
     if (result === 'correct') {
+      this.sound.correct();
       this.lastWrongAnswer.set(null);
       this.focusFeedback();
       return;
     }
 
+    // Hết lượt (`revealed`) cũng là trả lời sai — chỉ khác ở chỗ sau đó đáp án hiện
+    // ra, nên vẫn là tiếng sai chứ không phải một tiếng thứ ba.
+    this.sound.wrong();
     this.lastWrongAnswer.set(answer);
     this.shakeAnswerArea();
 

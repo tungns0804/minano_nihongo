@@ -18,6 +18,7 @@ import { IMPORT_LESSON_ENABLED } from './core/feature-flags';
 import { LanguageStore } from './core/i18n/language-store';
 import type { MessageKey } from './core/i18n/messages';
 import { T } from './core/i18n/t';
+import { FeedbackSound } from './core/services/feedback-sound';
 import { NavigationProgress } from './core/services/navigation-progress';
 import { ThemeStore } from './core/services/theme-store';
 import { Icon, type IconName } from './shared/icon';
@@ -80,6 +81,7 @@ function sectionOf(url: string): string {
 })
 export class App {
   protected readonly theme = inject(ThemeStore);
+  protected readonly sound = inject(FeedbackSound);
   protected readonly lang = inject(LanguageStore);
   private readonly router = inject(Router);
 

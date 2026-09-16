@@ -74,6 +74,10 @@ export const MESSAGES = {
     ja: 'テーマ: {current} — クリックで{next}に切り替え',
   },
 
+  // ── Tiếng báo đúng/sai ─────────────────────────────────────────────────
+  'sound.turnOff': { vi: 'Tắt tiếng báo đúng/sai', ja: '正誤音をオフにする' },
+  'sound.turnOn': { vi: 'Bật tiếng báo đúng/sai', ja: '正誤音をオンにする' },
+
   // ── Loại bài học ───────────────────────────────────────────────────────
   'kind.vocabulary': { vi: 'Từ vựng', ja: '単語' },
   'kind.verb': { vi: 'Chia động từ', ja: '動詞の活用' },
