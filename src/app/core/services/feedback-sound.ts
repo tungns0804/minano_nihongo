@@ -19,16 +19,28 @@ interface Tone {
 /**
  * Đỉnh âm lượng của mỗi nốt, trên thang 0..1 của Web Audio.
  *
- * 0.06 là mức nghe rõ khi loa để tầm nửa vạch nhưng không giật mình lúc đêm — đây
- * là tiếng vang lên vài trăm lần một buổi ôn, nên nó phải ở mức "biết là mình vừa
- * gõ đúng hay sai" chứ không phải mức thông báo.
+ * Mốc so sánh là giọng đọc từ vựng (`public/audio/vocab/`): người học chỉnh loa cho
+ * giọng đó vừa tai, nên tiếng báo phải đứng theo nó chứ không theo một con số tuyệt
+ * đối. Đo bằng OfflineAudioContext: giọng đọc có RMS khoảng −13.6 dBFS, còn 0.2 cho
+ * tiếng báo RMS khoảng −21 dBFS — thấp hơn giọng đọc chừng 7–8 dB. Nghe rõ, nhưng
+ * rõ ràng là nhỏ hơn tiếng người, đủ êm để ôn bài ban đêm.
+ *
+ * Bản đầu để 0.06: thấp hơn giọng đọc tới 22 dB, và với loa vặn nhỏ ban đêm thì
+ * không nghe thấy gì.
  */
-const PEAK_GAIN = 0.06;
+const PEAK_GAIN = 0.2;
+
+/**
+ * Giữ ở đỉnh một lúc rồi mới tắt dần. Không có quãng giữ này thì hàm mũ tụt nửa
+ * biên độ sau mỗi hơn chục mili giây, nốt nhạc chỉ còn là một tiếng "tích" — tai
+ * chưa kịp nghe ra cao độ, cũng chưa kịp nghe ra là đúng hay sai.
+ */
+const HOLD = 0.04;
 
 /** Quãng năm đi lên, nhẹ và sáng: E5 → B5. */
 const CORRECT: readonly Tone[] = [
-  { freq: 659.25, at: 0, duration: 0.12 },
-  { freq: 987.77, at: 0.085, duration: 0.2 },
+  { freq: 659.25, at: 0, duration: 0.18 },
+  { freq: 987.77, at: 0.11, duration: 0.34 },
 ];
 
 /**
@@ -39,8 +51,8 @@ const CORRECT: readonly Tone[] = [
  * không phát nổi dưới ~250 Hz, âm báo sẽ biến mất đúng trên máy hay dùng nhất.
  */
 const WRONG: readonly Tone[] = [
-  { freq: 392.0, at: 0, duration: 0.11 },
-  { freq: 311.13, at: 0.1, duration: 0.24 },
+  { freq: 392.0, at: 0, duration: 0.16 },
+  { freq: 311.13, at: 0.12, duration: 0.34 },
 ];
 
 /** Thời gian lên tới đỉnh âm lượng; có dốc lên thì loa không "tạch" một cái. */
@@ -116,13 +128,14 @@ export class FeedbackSound {
     oscillator.type = 'sine';
     oscillator.frequency.value = tone.freq;
 
-    // Đường bao âm lượng: dốc lên rất nhanh rồi tắt dần. Cắt phụt một cái thì loa
-    // kêu "tạch", mà đó mới là tiếng khó chịu nhất chứ không phải nốt nhạc.
-    // Tắt dần theo hàm mũ nghe tự nhiên như gõ chuông, nhưng hàm mũ không bao giờ
-    // chạm 0 nên phải hạ xuống một giá trị rất nhỏ rồi mới dừng hẳn.
+    // Đường bao âm lượng: dốc lên rất nhanh, giữ một chút, rồi tắt dần. Cắt phụt
+    // một cái thì loa kêu "tạch", mà đó mới là tiếng khó chịu nhất chứ không phải
+    // nốt nhạc. Tắt dần theo hàm mũ nghe tự nhiên như gõ chuông, nhưng hàm mũ không
+    // bao giờ chạm 0 nên phải hạ xuống một giá trị rất nhỏ rồi mới dừng hẳn.
     const gain = context.createGain();
     gain.gain.setValueAtTime(0.0001, at);
     gain.gain.linearRampToValueAtTime(PEAK_GAIN, at + ATTACK);
+    gain.gain.setValueAtTime(PEAK_GAIN, at + ATTACK + HOLD);
     gain.gain.exponentialRampToValueAtTime(0.0001, end);
 
     oscillator.connect(gain).connect(context.destination);
