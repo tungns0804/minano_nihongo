@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-import { PracticeSessionStore } from '../services/practice-session-store';
+import { PracticeSessionStore } from '../practice/practice-session-store';
 
 /**
  * Màn hình luyện tập chỉ vào được khi có phiên đang chạy. Tải lại trang giữa chừng

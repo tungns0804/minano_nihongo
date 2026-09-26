@@ -3,8 +3,8 @@ import { RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
 import { LessonBrowser } from '../../core/screens/lesson-browser';
-import { TOPIC_CATALOG } from '../../core/topics/topic-catalog';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { TOPIC_CATALOG } from '../../core/topics/topic-catalog.generated';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 
 /** Một thẻ chủ đề, đã trộn sẵn phần khai tay với phần dữ liệu sinh. */

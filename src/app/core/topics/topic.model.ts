@@ -10,7 +10,7 @@
  * KHÔNG có từ nào chép tay ở đây. Mỗi chủ đề chỉ khai một DANH SÁCH TỪ TIẾNG
  * NHẬT (xem `topic-list.ts`); `npm run generate:topics` tra từng từ đó trong
  * chính kho từ của ứng dụng (`data-source/<bài>/vocabulary.txt`) rồi sinh ra
- * `topic-words.ts` với đủ âm Hán Việt, cách đọc, nghĩa và câu ví dụ.
+ * `topic-words.generated.ts` với đủ âm Hán Việt, cách đọc, nghĩa và câu ví dụ.
  *
  * Ba hệ quả của cách làm đó, đều là lý do chọn nó:
  *  - Không đẻ ra dữ liệu mới: nghĩa của một từ ở chủ đề và ở bài học luôn khớp
@@ -31,9 +31,9 @@
  *  - `topic.model.ts`   kiểu + hàm dựng. Không chứa dữ liệu.
  *  - `topic-list.ts`    KHAI TAY: tên, mô tả, biểu tượng, danh sách từ. Chỉ
  *                       script đọc file này, mã ứng dụng KHÔNG nhập nó.
- *  - `topic-catalog.ts` SINH TỰ ĐỘNG, nhẹ (~2 KB): id + tên + số từ của 20 chủ
+ *  - `topic-catalog.generated.ts` SINH TỰ ĐỘNG, nhẹ (~2 KB): id + tên + số từ của 20 chủ
  *                       đề. Lưới chủ đề và `LessonStore` chỉ cần bấy nhiêu.
- *  - `topic-words.ts`   SINH TỰ ĐỘNG, nặng (~130 KB): toàn bộ từ.
+ *  - `topic-words.generated.ts`   SINH TỰ ĐỘNG, nặng (~130 KB): toàn bộ từ.
  *  - `topic-entries.ts` dựng `Lesson` từ hai file sinh; NẠP ĐỘNG, chỉ khi người
  *                       dùng thật sự mở một chủ đề.
  *
@@ -42,7 +42,7 @@
  * không hiện chủ đề nào cả.
  */
 
-import type { Lesson, LessonSummary, VocabularyWord } from '../models/vocabulary.model';
+import type { Lesson, LessonSummary, VocabularyWord } from '../lessons/vocabulary.model';
 
 /**
  * Một chủ đề, phần khai bằng tay.
@@ -82,7 +82,7 @@ export interface TopicDef {
  *
  * [tiếng Nhật, cách đọc, âm Hán Việt, nghĩa, câu ví dụ, id bài gốc]
  *
- * Mảng chứ không phải object: `topic-words.ts` là file sinh tự động dài hơn một
+ * Mảng chứ không phải object: `topic-words.generated.ts` là file sinh tự động dài hơn một
  * nghìn dòng, viết bằng object thì tên trường lặp lại ở mỗi dòng và file phình
  * lên gấp ba mà không nói thêm điều gì.
  */

@@ -8,8 +8,8 @@ import {
   PracticeQuestion,
   VerbPracticeMode,
   practiceConfig,
-} from '../models/practice.model';
-import { Lesson, flattenGrammarExamples } from '../models/vocabulary.model';
+} from './practice.model';
+import { Lesson, flattenGrammarExamples } from '../lessons/vocabulary.model';
 import {
   ReviewAnswerMode,
   ReviewDirection,

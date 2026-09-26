@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Sinh `src/app/core/topics/topic-words.ts` cho khu "Từ vựng theo chủ đề".
+ * Sinh `src/app/core/topics/topic-words.generated.ts` cho khu "Từ vựng theo chủ đề".
  *
  * Mỗi chủ đề trong `src/app/core/topics/topic-list.ts` chỉ khai một DANH SÁCH TỪ
  * TIẾNG NHẬT. Script này tra từng từ đó trong kho từ có sẵn của ứng dụng —
@@ -30,9 +30,9 @@
  * script bắt được, chứ không lặng lẽ rơi về nghĩa mặc định.
  *
  * ── Hai file sinh ra ──────────────────────────────────────────────────────
- *  - `topic-catalog.ts` nhẹ: id + tên + số từ. `LessonStore` và lưới chủ đề chỉ
+ *  - `topic-catalog.generated.ts` nhẹ: id + tên + số từ. `LessonStore` và lưới chủ đề chỉ
  *    cần bấy nhiêu, nên phần này được nhập thẳng.
- *  - `topic-words.ts`   nặng: toàn bộ từ. Chỉ được nạp động khi người dùng mở
+ *  - `topic-words.generated.ts`   nặng: toàn bộ từ. Chỉ được nạp động khi người dùng mở
  *    một chủ đề — xem ghi chú "Năm file" trong `topic.model.ts`.
  *
  * Chạy: npm run generate:topics
@@ -50,8 +50,8 @@ import { c, emitGenerated, log, toFileUrl } from './script-utils.mjs';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const SOURCE_DIR = join(ROOT, 'data-source');
-const WORDS_FILE = join(ROOT, 'src', 'app', 'core', 'topics', 'topic-words.ts');
-const CATALOG_FILE = join(ROOT, 'src', 'app', 'core', 'topics', 'topic-catalog.ts');
+const WORDS_FILE = join(ROOT, 'src', 'app', 'core', 'topics', 'topic-words.generated.ts');
+const CATALOG_FILE = join(ROOT, 'src', 'app', 'core', 'topics', 'topic-catalog.generated.ts');
 
 /** Tên file được coi là dữ liệu từ vựng — giữ khớp với `generate-lessons.mjs`. */
 const VOCAB_STEMS = new Set(['vocabulary', 'vocab', 'tu-vung', 'tuvung']);

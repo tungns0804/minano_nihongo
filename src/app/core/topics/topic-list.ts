@@ -15,7 +15,7 @@ import type { TopicDef } from './topic.model';
  * Chỉ tên, mô tả, biểu tượng, và DANH SÁCH TỪ TIẾNG NHẬT. Âm Hán Việt, cách đọc,
  * nghĩa tiếng Việt và câu ví dụ đều KHÔNG khai ở đây: `npm run generate:topics`
  * tra chúng trong kho từ có sẵn (`data-source/<bài>/vocabulary.txt`) rồi sinh ra
- * `topic-words.ts`. Xem ghi chú đầu `topic.model.ts` về lý do.
+ * `topic-words.generated.ts`. Xem ghi chú đầu `topic.model.ts` về lý do.
  *
  * ── Sửa danh sách từ ──────────────────────────────────────────────────────
  * Viết từ ĐÚNG NHƯ trong kho — kể cả những chỗ trông lạ mắt như "（お）湯を沸かす"

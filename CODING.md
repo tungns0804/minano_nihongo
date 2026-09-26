@@ -25,6 +25,23 @@ việc quên.
 
 ---
 
+## Đặt file ở đâu trong `core/`
+
+`core/` chia theo **mảng nghiệp vụ**: `lessons/`, `practice/`, `review/`, `n3/`,
+`kanji/`, `radical/`, `strokes/`, `topics/`, `audio/`… Model, store và hàm xử lý
+của một mảng nằm chung thư mục của mảng đó — `review.model.ts` và
+`review-store.ts` ở cạnh nhau trong `review/`, không phải một bên `models/` một
+bên `services/`.
+
+- `services/` chỉ giữ thứ dùng chung, không thuộc mảng nào (giao diện sáng/tối,
+  tiếng chuông, localStorage, favorite, thanh tiến trình).
+- `utils/` chỉ giữ hàm thuần không biết gì về nghiệp vụ. Hàm nào import kiểu của
+  một mảng thì nó thuộc mảng đó.
+- File do script sinh ra mang đuôi `.generated.ts` — đừng sửa tay, sửa nguồn rồi
+  chạy lại `npm run generate:*`.
+
+---
+
 ## Thêm một màn hình có khung "thiết lập luyện tập"
 
 Kế thừa `core/screens/practice-screen.ts`:
@@ -155,15 +172,15 @@ nó là hình các nét, không phải chuỗi ký tự. Đường đi của m�
 | `stroke.model.ts` | kiểu `Stroke`, mã hoá/giải mã, lấy mẫu lại nét vẽ tay |
 | `stroke-score.ts` | `checkDrawing()` — so nét vẽ với nét mẫu, trả về sai ở đâu |
 | `stroke-store.ts` | nạp dữ liệu nét (`import()` động) + `canDraw(char)` |
-| `stroke-data.ts` `stroke-coverage.ts` | do `npm run generate:strokes` sinh từ KanjiVG |
+| `stroke-data.generated.ts` `stroke-coverage.generated.ts` | do `npm run generate:strokes` sinh từ KanjiVG |
 | `shared/stroke-canvas.ts` | khung vẽ bằng chuột |
 | `core/practice/draw-questions.ts` | dựng câu hỏi cho cả khu Kanji lẫn khu Bộ thủ |
 
 Ba chỗ dễ sai:
 
-- **Đừng import `stroke-data.ts` thẳng.** Nó nặng gần 500 kB và cố ý nằm ở một gói
+- **Đừng import `stroke-data.generated.ts` thẳng.** Nó nặng gần 500 kB và cố ý nằm ở một gói
   tải riêng; import thẳng là ném ngần ấy vào gói của màn hình. Cần biết chữ nào viết
-  được thì hỏi `canDraw()` — nó đọc `stroke-coverage.ts`, chỉ vài kB.
+  được thì hỏi `canDraw()` — nó đọc `stroke-coverage.generated.ts`, chỉ vài kB.
 - **Lọc pool bằng `drawableKanji()` / `drawableRadicals()`.** KanjiVG thiếu nét của
   14 chữ; để lọt vào phiên thì tới câu đó khung vẽ trống trơn, không có gì để chấm.
 - **Đổi `STROKE_SAMPLES` là phải sinh lại dữ liệu.** Chuỗi cũ giải mã ra sai độ dài

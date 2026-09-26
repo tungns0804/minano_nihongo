@@ -15,7 +15,7 @@ import {
   recap,
   recapJp,
   recapKey,
-} from '../models/practice.model';
+} from './practice.model';
 import { limitAttempts } from './vocabulary-questions';
 
 /**

@@ -6,12 +6,12 @@ import { RADICAL_SESSION_ID } from '../../core/radical/radical.model';
 import { LanguageStore } from '../../core/i18n/language-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
-import { QuestionResult, describeConfigKeys } from '../../core/models/practice.model';
-import { LessonKind } from '../../core/models/vocabulary.model';
+import { QuestionResult, describeConfigKeys } from '../../core/practice/practice.model';
+import { LessonKind } from '../../core/lessons/vocabulary.model';
 import { batchRange } from '../../core/practice/batch';
 import { reshuffleChoices } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
+import { PracticeSessionStore } from '../../core/practice/practice-session-store';
 import { StarButton } from '../../shared/star-button';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';

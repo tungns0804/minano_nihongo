@@ -1,4 +1,4 @@
-import type { VocabularyWord } from '../models/vocabulary.model';
+import type { VocabularyWord } from '../lessons/vocabulary.model';
 
 /**
  * Quy tắc đặt tên file phát âm của từ vựng — NGUỒN SỰ THẬT DUY NHẤT.

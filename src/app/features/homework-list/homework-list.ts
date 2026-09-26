@@ -3,10 +3,10 @@ import { RouterLink } from '@angular/router';
 
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
-import { LessonSummary, lessonKindsOfTab } from '../../core/models/vocabulary.model';
+import { LessonSummary, lessonKindsOfTab } from '../../core/lessons/vocabulary.model';
 import { LessonBrowser } from '../../core/screens/lesson-browser';
-import { LessonStore } from '../../core/services/lesson-store';
-import { lessonMatches } from '../../core/utils/lesson-search';
+import { LessonStore } from '../../core/lessons/lesson-store';
+import { lessonMatches } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 
 /**

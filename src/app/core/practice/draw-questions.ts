@@ -1,5 +1,5 @@
 import type { KanjiEntry } from '../kanji/kanji.model';
-import { PracticeConfig, PracticeQuestion, makeQuestion } from '../models/practice.model';
+import { PracticeConfig, PracticeQuestion, makeQuestion } from './practice.model';
 import type { RadicalEntry } from '../radical/radical.model';
 import { canDraw } from '../strokes/stroke-store';
 import { kanjiSubject } from './kanji-questions';

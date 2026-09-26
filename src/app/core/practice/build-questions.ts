@@ -1,11 +1,11 @@
-import { PracticeConfig, PracticeQuestion } from '../models/practice.model';
+import { PracticeConfig, PracticeQuestion } from './practice.model';
 import {
   ConversationLine,
   GrammarExampleRef,
   Lesson,
   VerbEntry,
   VocabularyWord,
-} from '../models/vocabulary.model';
+} from '../lessons/vocabulary.model';
 import { shuffle } from '../utils/random';
 import { sliceBatch } from './batch';
 import { buildConversationQuestions } from './conversation-questions';

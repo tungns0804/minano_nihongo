@@ -2,7 +2,7 @@
  * Lõi phân tích từ vựng dùng cho script sinh JSON (Node.js).
  *
  * QUAN TRỌNG: file này được "soi gương" 1:1 trong ứng dụng Angular tại
- *   src/app/core/utils/vocabulary-parser.ts
+ *   src/app/core/lessons/vocabulary-parser.ts
  * Hai bản phải dùng CÙNG thuật toán (nhất là hashId + normalizeField), vì id của
  * từ vựng được sinh từ nội dung. Nếu lệch nhau, một bài học nạp qua giao diện sẽ
  * có id khác với chính bài đó sinh bằng script, và danh sách Favorite sẽ không khớp.

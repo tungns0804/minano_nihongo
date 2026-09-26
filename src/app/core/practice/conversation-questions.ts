@@ -1,6 +1,6 @@
 import type { MessageKey } from '../i18n/messages';
-import { PracticeConfig, PracticeQuestion, makeQuestion, recap, recapJp } from '../models/practice.model';
-import { ConversationLine } from '../models/vocabulary.model';
+import { PracticeConfig, PracticeQuestion, makeQuestion, recap, recapJp } from './practice.model';
+import { ConversationLine } from '../lessons/vocabulary.model';
 
 /**
  * Dựng câu hỏi cho bài HỘI THOẠI: hiện câu ở một thứ tiếng, người học gõ lại câu

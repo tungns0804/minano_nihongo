@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Sinh `src/app/core/radical/radical-kanji.ts` cho khu "Bộ thủ".
+ * Sinh `src/app/core/radical/radical-kanji.generated.ts` cho khu "Bộ thủ".
  *
  * Ghép hai nguồn viết tay của khu này với dữ liệu SẴN CÓ của khu Kanji:
  *   - `radical-list.ts`  — 214 bộ thủ (chữ, biến thể, âm Hán Việt, nghĩa, tên Nhật)
  *   - `radical-parts.ts` — chiết tự từng chữ Hán thành các bộ thủ
- *   - `kanji-words.ts`   — âm Hán Việt, cấp độ và từ ví dụ của từng chữ (do
+ *   - `kanji-words.generated.ts`   — âm Hán Việt, cấp độ và từ ví dụ của từng chữ (do
  *                          `npm run generate:kanji` sinh ra từ kho từ)
  *
  * Không chép tay lại bất cứ âm Hán Việt hay nghĩa nào của CHỮ: tất cả lấy từ khu
@@ -28,7 +28,7 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
-const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'radical', 'radical-kanji.ts');
+const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'radical', 'radical-kanji.generated.ts');
 
 /** Số tầng khai triển tối đa của một thành phần. */
 const MAX_DEPTH = 4;
@@ -47,7 +47,7 @@ const { RADICAL_ROWS } = await import(toFileUrl(join(ROOT, 'src/app/core/radical
 const { KANJI_PARTS, PART_HAN_VIET } = await import(
   toFileUrl(join(ROOT, 'src/app/core/radical/radical-parts.ts'))
 );
-const { KANJI_SEEDS } = await import(toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-words.ts')));
+const { KANJI_SEEDS } = await import(toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-words.generated.ts')));
 const { KANJI_BY_LEVEL, ADVANCED_PARTS } = await import(
   toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-levels.ts')),
 );
@@ -184,7 +184,7 @@ const kanjiTable = [];
 let pairCount = 0;
 
 /**
- * Chữ có trong danh sách JLPT nhưng chưa có trong `kanji-words.ts`.
+ * Chữ có trong danh sách JLPT nhưng chưa có trong `kanji-words.generated.ts`.
  *
  * Gần như luôn là do chạy sai thứ tự: thêm chữ vào `kanji-levels.ts` rồi chạy
  * thẳng script này mà quên `npm run generate:kanji` trước. Bảng của bộ sẽ thiếu
@@ -263,7 +263,7 @@ const output = `/* eslint-disable */
  * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:radicals\` để sinh lại.
  *
  * Nguồn: \`radical-list.ts\` (214 bộ thủ) + \`radical-parts.ts\` (chiết tự) + dữ liệu
- * chữ Hán của khu Kanji (\`kanji-words.ts\`). Xem \`scripts/generate-radicals.mjs\`.
+ * chữ Hán của khu Kanji (\`kanji-words.generated.ts\`). Xem \`scripts/generate-radicals.mjs\`.
  *
  * Thống kê lần sinh gần nhất: ${radicals.length} bộ thủ (${withKanji} bộ có chữ ghép),
  * ${kanjiTable.length} chữ ghép, ${pairCount} lượt chữ.
@@ -290,7 +290,7 @@ if (missing.length > 0) {
   process.exitCode = 1;
 }
 if (notGenerated.length > 0) {
-  log(`[LOI] ${notGenerated.length} chu chua co trong kanji-words.ts: ${notGenerated.join('')}`);
+  log(`[LOI] ${notGenerated.length} chu chua co trong kanji-words.generated.ts: ${notGenerated.join('')}`);
   log('      Chay "npm run generate:kanji" truoc roi chay lai script nay.');
   process.exitCode = 1;
 }

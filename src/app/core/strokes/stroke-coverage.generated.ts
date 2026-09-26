@@ -2,7 +2,7 @@
 /**
  * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy `npm run generate:strokes` để sinh lại.
  *
- * Danh sách chữ có dữ liệu nét trong `stroke-data.ts`, gộp thành MỘT chuỗi.
+ * Danh sách chữ có dữ liệu nét trong `stroke-data.generated.ts`, gộp thành MỘT chuỗi.
  *
  * Tách khỏi file dữ liệu vì màn hình danh sách phải biết trước chữ nào viết được
  * để đếm số câu, mà nạp cả file dữ liệu chỉ để đếm thì phí — xem

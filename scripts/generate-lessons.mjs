@@ -264,7 +264,7 @@ function issueLocation(issue) {
 
 /**
  * Các cấp độ hợp lệ và khoảng bài của chúng — phải khớp với `JLPT_LEVELS` /
- * `JLPT_RANGE` trong src/app/core/models/vocabulary.model.ts.
+ * `JLPT_RANGE` trong src/app/core/lessons/vocabulary.model.ts.
  *
  * N3 không có khoảng bài: nó học theo 日本語総まとめ (6 tuần × 7 ngày, đánh số lại
  * từ đầu) chứ không theo số bài 皆の日本語.

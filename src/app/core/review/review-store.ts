@@ -16,8 +16,8 @@ import {
   schedule,
   summarize,
   unpackCards,
-} from '../review/review.model';
-import { readJson, writeJson } from './local-storage';
+} from './review.model';
+import { readJson, writeJson } from '../services/local-storage';
 
 const STORAGE_KEY = 'jp-practice:review';
 const SETTINGS_KEY = 'jp-practice:review-settings';

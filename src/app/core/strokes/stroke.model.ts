@@ -4,7 +4,7 @@
  * Dữ liệu gốc là KanjiVG (bản quyền CC BY-SA 3.0): mỗi chữ một file SVG, mỗi nét
  * một thẻ `<path>` xếp ĐÚNG thứ tự viết. `scripts/generate-strokes.mjs` rút các
  * nét đó ra, lấy mẫu đều theo chiều dài rồi nén thành chuỗi ký tự — xem
- * `stroke-data.ts`.
+ * `stroke-data.generated.ts`.
  *
  * Vì sao lấy mẫu chứ không giữ nguyên đường cong Bézier: phần chấm điểm chỉ cần
  * biết nét đi qua những đâu theo thứ tự nào, mà so hai chuỗi điểm thì làm được

@@ -72,7 +72,7 @@ thao tác chứ không phải học thuộc một danh sách.
 
 Vì trang chủ chỉ còn đúng một loại nên **bộ lọc "Loại bài học" đã bỏ**; một bộ lọc có duy nhất
 một lựa chọn thì không lọc được gì. Loại bài nào thuộc tab nào khai ở bảng `LESSON_KIND_TAB`
-trong [`vocabulary.model.ts`](src/app/core/models/vocabulary.model.ts) — một chỗ duy nhất, cả
+trong [`vocabulary.model.ts`](src/app/core/lessons/vocabulary.model.ts) — một chỗ duy nhất, cả
 hai màn hình danh sách lẫn nút "quay lại" ở trang chi tiết bài đều tra vào đó.
 
 **Đổi tab không đổi URL.** Bài chia động từ và bài dịch hội thoại vẫn mở ở `/lesson/<id>` như
@@ -100,7 +100,7 @@ Cấp độ KHÔNG lưu trong từng bài mà suy ra từ **số bài**. Số b�
 [`scripts/generate-lessons.mjs`](scripts/generate-lessons.mjs) tính lúc sinh dữ liệu (hàm
 `lessonNumberOf`: lấy cụm số cuối trong tên thư mục, hoặc `meta.lesson` nếu khai báo) rồi ghi
 vào `index.json` và từng file bài học dưới khoá `lessonNumber`. Quy đổi số bài → cấp nằm ở
-`levelOfLesson` trong [`vocabulary.model.ts`](src/app/core/models/vocabulary.model.ts).
+`levelOfLesson` trong [`vocabulary.model.ts`](src/app/core/lessons/vocabulary.model.ts).
 
 Vì sao tính ở bước sinh dữ liệu chứ không để giao diện tự tách chuỗi id: bài người dùng tự nạp
 không đi qua bước đó nên không bao giờ bị gán nhầm cấp — một bài đặt tên “bai-5-cua-toi” mà bị
@@ -113,7 +113,7 @@ thẳng file bài học vào trang và dựng danh sách từ đó, không hề 
 **Ngữ pháp có tab riêng.** Mỗi bài ngữ pháp là một trang lý thuyết dài, và khu này nay phủ
 trọn 50 bài; gom 50 thẻ đó vào cùng lưới với từ vựng và động từ thì trang chủ chỉ còn là
 một danh sách dài không đọc nổi. Tab Ngữ pháp có bộ lọc **Cấp độ** riêng, dùng chung helper
-`core/models/level-filter.ts` với trang chủ (khoá lưu riêng, để cấp đang chọn ở hai tab không
+`core/lessons/level-filter.ts` với trang chủ (khoá lưu riêng, để cấp đang chọn ở hai tab không
 đè lên nhau).
 
 ## Từ vựng theo chủ đề
@@ -205,7 +205,7 @@ Hai điều đáng nhớ về cách làm này:
 ### Sinh lại sau khi sửa danh sách
 
 ```bash
-npm run generate:topics    # sinh lại topic-catalog.ts + topic-words.ts
+npm run generate:topics    # sinh lại topic-catalog.generated.ts + topic-words.generated.ts
 npm run verify:topics      # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify:ci)
 ```
 
@@ -218,8 +218,8 @@ npm run verify:topics      # kiểm tra file sinh có khớp nguồn không (n�
 | --- | --- |
 | [`topic.model.ts`](src/app/core/topics/topic.model.ts) | Kiểu + hàm dựng. Không chứa dữ liệu. |
 | [`topic-list.ts`](src/app/core/topics/topic-list.ts) | **Khai tay**: tên, mô tả, biểu tượng, danh sách từ. Chỉ script đọc file này. |
-| `topic-catalog.ts` | **Sinh tự động, nhẹ (~7 KB)**: id + tên + số từ của 20 chủ đề. |
-| `topic-words.ts` | **Sinh tự động, nặng (~130 KB)**: toàn bộ từ. |
+| `topic-catalog.generated.ts` | **Sinh tự động, nhẹ (~7 KB)**: id + tên + số từ của 20 chủ đề. |
+| `topic-words.generated.ts` | **Sinh tự động, nặng (~130 KB)**: toàn bộ từ. |
 | [`topic-entries.ts`](src/app/core/topics/topic-entries.ts) | Dựng `Lesson` từ hai file sinh. **Nạp động**, chỉ khi mở một chủ đề. |
 
 Tách nhẹ/nặng là có chủ ý: `LessonStore` là service gốc, nên nhập thẳng phần nặng vào đó sẽ kéo
@@ -291,7 +291,7 @@ cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `lo
 | --- | --- |
 | [`n3-syllabus.ts`](src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 241 buổi học chép từ mục lục bốn quyển, bốn giai đoạn, mốc ngày |
 | [`n3.model.ts`](src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
-| [`n3-progress-store.ts`](src/app/core/services/n3-progress-store.ts) | Dấu tích trong `localStorage` |
+| [`n3-progress-store.ts`](src/app/core/n3/n3-progress-store.ts) | Dấu tích trong `localStorage` |
 
 `npm run verify:n3` soát dữ liệu và lịch: id không trùng, tiêu đề không rỗng, trọng số > 0, số
 mục khớp mục lục sách (42/42/42/23), mỗi tuần đúng 7 ngày với ngày cuối là bài kiểm tra, mọi
@@ -448,7 +448,7 @@ Tuỳ chọn **"Bỏ qua dấu tiếng Việt khi chấm"** giúp gõ `HAI` cũn
 src/app/core/kanji/
   kanji-levels.ts       ← DANH SÁCH JLPT: chữ nào thuộc cấp nào, và thứ tự hiển thị
   kanji-supplement.ts   ← âm Hán Việt viết tay cho chữ kho từ không suy được
-  kanji-words.ts        ← DO MÁY SINH: 2.123 chữ + âm Hán Việt + các từ dùng chữ đó
+  kanji-words.generated.ts  ← DO MÁY SINH: 2.123 chữ + âm Hán Việt + các từ dùng chữ đó
 ```
 
 `kanji-levels.ts` là **nguồn duy nhất** quyết định chữ nào có mặt và thuộc cấp nào. Chữ có trong
@@ -506,7 +506,7 @@ nguồn gốc**:
   cùng một kết quả. Chỗ khai `HAN_VIET_FIX` vẫn giữ (rỗng) vì cơ chế còn cần cho lần sau.
 
 ```bash
-npm run generate:kanji     # sinh lại kanji-words.ts
+npm run generate:kanji     # sinh lại kanji-words.generated.ts
 npm run verify:kanji       # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
 ```
 
@@ -567,16 +567,16 @@ nhóm nét đang xem), còn hai chiều hỏi trên **chữ ghép** nằm ở m�
 src/app/core/radical/
   radical-list.ts       ← 214 BỘ THỦ: chữ, biến thể, âm Hán Việt, nghĩa, tên tiếng Nhật
   radical-parts.ts      ← CHIẾT TỰ N5→N3: mỗi chữ Hán gồm những bộ nào (642 dòng)
-  radical-kanji.ts      ← DO MÁY SINH: 214 bộ + 2.123 chữ + 5.604 lượt chữ ghép
+  radical-kanji.generated.ts  ← DO MÁY SINH: 214 bộ + 2.123 chữ + 5.604 lượt chữ ghép
 ```
 
 Khu này **không chép tay lại bất cứ âm Hán Việt hay nghĩa nào của CHỮ**: âm Hán Việt, cấp độ và
-từ ví dụ của từng chữ ghép đều lấy thẳng từ `kanji-words.ts` của khu Kanji, nên hai khu không
+từ ví dụ của từng chữ ghép đều lấy thẳng từ `kanji-words.generated.ts` của khu Kanji, nên hai khu không
 bao giờ nói khác nhau về cùng một chữ. Chạy `npm run generate:kanji` xong thì chạy tiếp
 `npm run generate:radicals`.
 
 ```bash
-npm run generate:radicals   # sinh lại radical-kanji.ts
+npm run generate:radicals   # sinh lại radical-kanji.generated.ts
 npm run verify:radicals     # kiểm tra file sinh có khớp nguồn không (nằm trong npm run verify)
 ```
 
@@ -658,13 +658,13 @@ src/app/core/strokes/
   stroke.model.ts       ← kiểu dữ liệu nét, mã hoá/giải mã, lấy mẫu lại nét vẽ tay
   stroke-score.ts       ← cách chấm: so nét vẽ với nét mẫu
   stroke-store.ts       ← nạp dữ liệu nét theo yêu cầu
-  stroke-data.ts        ← DO MÁY SINH: nét của 2.231 chữ (473 kB)
-  stroke-coverage.ts    ← DO MÁY SINH: danh sách chữ có dữ liệu nét
+  stroke-data.generated.ts  ← DO MÁY SINH: nét của 2.231 chữ (473 kB)
+  stroke-coverage.generated.ts  ← DO MÁY SINH: danh sách chữ có dữ liệu nét
 ```
 
-`stroke-data.ts` **không đi vào gói chính**: nó chỉ được nạp bằng `import()` động lúc người học
+`stroke-data.generated.ts` **không đi vào gói chính**: nó chỉ được nạp bằng `import()` động lúc người học
 mở phần luyện viết, nên ai không dùng tính năng này thì không phải tải 473 kB đó. Danh sách chữ
-viết được tách riêng ra `stroke-coverage.ts` (vài kB) để màn hình danh sách đếm được số câu mà
+viết được tách riêng ra `stroke-coverage.generated.ts` (vài kB) để màn hình danh sách đếm được số câu mà
 không phải nạp cả kho.
 
 Sinh lại sau khi đổi danh sách chữ hoặc đổi số điểm lấy mẫu:
@@ -1005,11 +1005,11 @@ scripts/
   verify-parser-parity.mjs       Kiểm tra hai bản parser cho kết quả giống nhau
   verify-answer-check.mjs        Kiểm tra bộ chấm câu dài bỏ qua dấu câu / khoảng trắng
   verify-conjugation.mjs         Kiểm tra engine chia động từ + dữ liệu thật
-  generate-kanji.mjs             Sinh core/kanji/kanji-words.ts từ chính kho từ
-  generate-topics.mjs            Sinh core/topics/topic-{catalog,words}.ts từ chính kho từ
+  generate-kanji.mjs             Sinh core/kanji/kanji-words.generated.ts từ chính kho từ
+  generate-topics.mjs            Sinh core/topics/topic-{catalog,words}.generated.ts từ chính kho từ
   han-viet-compose.mjs           Ghép âm Hán Việt của cả từ từ âm của từng chữ
-  generate-radicals.mjs          Sinh core/radical/radical-kanji.ts từ bảng bộ thủ + chiết tự
-  generate-strokes.mjs           Sinh core/strokes/stroke-{data,coverage}.ts từ KanjiVG
+  generate-radicals.mjs          Sinh core/radical/radical-kanji.generated.ts từ bảng bộ thủ + chiết tự
+  generate-strokes.mjs           Sinh core/strokes/stroke-{data,coverage}.generated.ts từ KanjiVG
   verify-drawing.mjs             Kiểm tra dữ liệu nét + cách chấm chữ viết tay
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
@@ -1024,6 +1024,7 @@ src/app/
   core/
     audio/
       vocab-audio.ts             Quy tắc đặt tên file phát âm — DÙNG CHUNG với script
+      vocab-audio-player.ts      Phát file mp3 phát âm, mỗi lúc chỉ một từ
     japanese/
       conjugation.ts             Luật chia động từ — bản cài đặt DUY NHẤT
     exercises/
@@ -1034,31 +1035,40 @@ src/app/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
       kanji-levels.ts            Danh sách JLPT N5→N1 — quyết định chữ nào, cấp nào
       kanji-supplement.ts        Âm Hán Việt viết tay cho chữ kho từ không suy được
-      kanji-words.ts             2.123 chữ + 2.406 lượt từ — DO MÁY SINH
+      kanji-words.generated.ts   2.123 chữ + 2.406 lượt từ — DO MÁY SINH
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
     topics/
       topic.model.ts             Kiểu dữ liệu + hàm dựng bài học của khu Chủ đề
       topic-list.ts              20 chủ đề: tên + danh sách từ — KHAI TAY, chỉ script đọc
-      topic-catalog.ts           Danh mục nhẹ (id, tên, số từ) — DO MÁY SINH
-      topic-words.ts             1.097 lượt từ đã tra từ kho — DO MÁY SINH
+      topic-catalog.generated.ts  Danh mục nhẹ (id, tên, số từ) — DO MÁY SINH
+      topic-words.generated.ts   1.097 lượt từ đã tra từ kho — DO MÁY SINH
       topic-entries.ts           Dựng bài học từ hai file trên — NẠP ĐỘNG
     radical/
       radical.model.ts           Kiểu dữ liệu + chiều hỏi của khu Bộ thủ
       radical-list.ts            214 bộ thủ Khang Hy — chữ, biến thể, âm, nghĩa, tên Nhật
       radical-parts.ts           Chiết tự 642 chữ N5→N3 thành các bộ (N2/N1 khai ở kanji-levels)
-      radical-kanji.ts           214 bộ + 5.604 lượt chữ ghép — DO MÁY SINH
+      radical-kanji.generated.ts  214 bộ + 5.604 lượt chữ ghép — DO MÁY SINH
       radical-entries.ts         Dựng danh sách bộ + tra theo id
     strokes/
       stroke.model.ts            Kiểu dữ liệu nét, mã hoá/giải mã, lấy mẫu lại nét vẽ tay
       stroke-score.ts            Chấm chữ viết tay: so nét vẽ với nét mẫu, chỉ ra nét sai
       stroke-store.ts            Nạp dữ liệu nét theo yêu cầu + tra chữ nào viết được
-      stroke-data.ts             Nét của 2.231 chữ từ KanjiVG — DO MÁY SINH, NẠP ĐỘNG
-      stroke-coverage.ts         Danh sách chữ có dữ liệu nét — DO MÁY SINH
-    models/                      Kiểu dữ liệu bài học và phiên luyện tập
+      stroke-data.generated.ts   Nét của 2.231 chữ từ KanjiVG — DO MÁY SINH, NẠP ĐỘNG
+      stroke-coverage.generated.ts  Danh sách chữ có dữ liệu nét — DO MÁY SINH
+    lessons/
+      vocabulary.model.ts        Kiểu dữ liệu bài học (từ vựng, động từ, hội thoại, ngữ pháp) + cấp JLPT
+      lesson-store.ts            Nạp bài học từ JSON + localStorage
+      vocabulary-parser.ts       Bản TypeScript của vocab-core.mjs
+      level-filter.ts            Bộ lọc cấp độ dùng chung cho trang chủ và tab Ngữ pháp
+      lesson-search.ts           Tìm bài / mục theo từ khoá, bỏ dấu tiếng Việt
     n3/
       n3.model.ts                Kiểu + toán thuần: rải mục vào lịch, tính phần trăm và nhịp
       n3-syllabus.ts             241 buổi học chép từ mục lục bốn quyển 総まとめ + bốn giai đoạn
+      n3-progress-store.ts       Dấu "đã học xong" của từng buổi trong lộ trình N3
     practice/
+      practice.model.ts          Kiểu dữ liệu phiên luyện tập và câu hỏi
+      practice-session-store.ts  Chạy phiên và chấm điểm
+      answer-check.ts            So khớp đáp án gõ tay
       batch.ts                   Chia phạm vi thành từng cụm liền nhau (học theo cụm)
       build-questions.ts         Điều phối: dựng câu hỏi, trộn, cắt theo số câu
       vocabulary-questions.ts    Câu hỏi cho bài từ vựng
@@ -1069,16 +1079,20 @@ src/app/
       kanji-questions.ts         Câu hỏi cho khu Kanji
       radical-questions.ts       Câu hỏi cho khu Bộ thủ
       draw-questions.ts          Câu hỏi viết tay, dùng chung cho khu Kanji và Bộ thủ
-    services/
-      lesson-store.ts            Nạp bài học từ JSON + localStorage
+      review-questions.ts        Câu hỏi cho phiên ôn tập ngắt quãng
+    review/
+      review.model.ts            Lịch ôn tập ngắt quãng — toán thuần
+      review-store.ts            Lịch ôn + sổ lỗi sai trong localStorage
+    screens/                     Lớp cha của các màn hình có khung thiết lập luyện tập (xem CODING.md)
+    services/                    Chỉ những thứ dùng chung, không thuộc mảng nào
       favorite-store.ts          Danh sách mục chưa nhớ
-      practice-session-store.ts  Chạy phiên và chấm điểm
       theme-store.ts             Lựa chọn giao diện sáng/tối/đèn đêm
-      vocab-audio-player.ts      Phát file mp3 phát âm, mỗi lúc chỉ một từ
-      n3-progress-store.ts       Dấu "đã học xong" của từng buổi trong lộ trình N3
-    utils/
-      vocabulary-parser.ts       Bản TypeScript của vocab-core.mjs
-      answer-check.ts            So khớp đáp án gõ tay
+      feedback-sound.ts          Tiếng chuông khi chấm câu
+      local-storage.ts           Đọc/ghi localStorage an toàn
+      navigation-progress.ts     Thanh tiến trình khi chuyển trang
+    utils/                       Hàm thuần không biết gì về nghiệp vụ
+      dom-events.ts              Đọc giá trị từ sự kiện DOM
+      random.ts                  Trộn, bốc ngẫu nhiên
     guards/                      Chặn vào /practice và /result khi không có phiên
   features/
     lesson-list/                 Trang chủ — chỉ bài từ vựng
@@ -1101,7 +1115,7 @@ src/app/
 ## Lưu ý kỹ thuật
 
 **Hai bản parser phải giống nhau.** `scripts/vocab-core.mjs` (dùng bởi script) và
-`src/app/core/utils/vocabulary-parser.ts` (dùng bởi màn hình nạp bài) cài cùng một thuật toán.
+`src/app/core/lessons/vocabulary-parser.ts` (dùng bởi màn hình nạp bài) cài cùng một thuật toán.
 Id của từ vựng được băm từ nội dung (`FNV-1a`) và danh sách Favorite lưu theo id đó, nên nếu hai
 bản lệch nhau thì cùng một bài học nạp bằng hai đường sẽ có id khác nhau và Favorite mất tác
 dụng. **Sửa một bên thì phải sửa bên kia**, rồi chạy:
@@ -1118,7 +1132,7 @@ npm run verify:audio     # mọi từ vựng đều có file phát âm
 `verify:parser` so sánh kết quả của hai bản trên cùng bộ dữ liệu mẫu và đối chiếu id trong file
 JSON đã sinh. Cần Node 22+ (dùng `--experimental-strip-types` để nạp thẳng file `.ts`).
 
-`verify:answer` nạp thẳng [`answer-check.ts`](src/app/core/utils/answer-check.ts) rồi gõ lại **mọi**
+`verify:answer` nạp thẳng [`answer-check.ts`](src/app/core/practice/answer-check.ts) rồi gõ lại **mọi**
 câu hội thoại và ví dụ ngữ pháp trong `public/lessons` theo các kiểu người học hay gõ — bỏ dấu lửng,
 gõ `...` thay `……`, tiếng Nhật gõ liền không dấu cách — và bắt tất cả phải được chấm đúng. Nó cũng
 giữ chiều ngược lại: dịch thiếu nửa câu hay sai dấu thanh vẫn phải bị chấm sai. Bài mới thêm vào

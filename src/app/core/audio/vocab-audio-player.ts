@@ -4,8 +4,8 @@ import {
   VOCAB_AUDIO_PATH,
   audioFileOfWord,
   speechTextOf,
-} from '../audio/vocab-audio';
-import type { VocabularyWord } from '../models/vocabulary.model';
+} from './vocab-audio';
+import type { VocabularyWord } from '../lessons/vocabulary.model';
 
 /** Tên file cuối đường dẫn, ví dụ ".../audio/vocab/abc.mp3" -> "abc.mp3". */
 function fileNameOf(url: string): string {

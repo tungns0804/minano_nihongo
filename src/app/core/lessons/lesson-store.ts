@@ -16,10 +16,10 @@ import {
   VerbEntry,
   VocabularyWord,
   isJlptLevel,
-} from '../models/vocabulary.model';
-import { TOPIC_CATALOG } from '../topics/topic-catalog';
+} from './vocabulary.model';
+import { TOPIC_CATALOG } from '../topics/topic-catalog.generated';
 import { topicSummary } from '../topics/topic.model';
-import { readJson, writeJson } from './local-storage';
+import { readJson, writeJson } from '../services/local-storage';
 
 const CUSTOM_LESSONS_KEY = 'jp-practice:custom-lessons';
 
@@ -90,7 +90,7 @@ export class LessonStore {
     // Chủ đề đứng giữa: sau bài giáo trình vì nó là cách gom thêm chứ không phải
     // nội dung mới, và trước bài tự nạp để phần "của app" nằm liền một khối.
     //
-    // Dựng từ DANH MỤC nhẹ (`topic-catalog.ts`) chứ không từ bài học đầy đủ: danh
+    // Dựng từ DANH MỤC nhẹ (`topic-catalog.generated.ts`) chứ không từ bài học đầy đủ: danh
     // sách này chỉ cần tên và số từ, mà bài đầy đủ thì kéo theo 130 KB từ vựng.
     ...TOPIC_CATALOG.map(topicSummary),
     ...this.customLessons().map((lesson) => ({

@@ -1,4 +1,4 @@
-import { ALTERNATIVE_SEPARATOR, stripDiacritics } from './vocabulary-parser';
+import { ALTERNATIVE_SEPARATOR, stripDiacritics } from '../lessons/vocabulary-parser';
 
 /** Khoảng trắng full-width hay gặp khi copy văn bản tiếng Nhật. */
 const FULLWIDTH_SPACE = String.fromCharCode(0x3000);

@@ -10,7 +10,7 @@
  *  - `radical-list.ts`  — 214 bộ thủ viết tay (chữ, biến thể, âm Hán Việt, nghĩa,
  *                         tên tiếng Nhật), xếp theo số nét.
  *  - `radical-parts.ts` — chiết tự viết tay: mỗi chữ Hán gồm những bộ nào.
- *  - `radical-kanji.ts` — do `npm run generate:radicals` sinh ra: ghép hai file
+ *  - `radical-kanji.generated.ts` — do `npm run generate:radicals` sinh ra: ghép hai file
  *                         trên với âm Hán Việt / cấp độ / từ ví dụ của khu Kanji.
  *
  * Hai màn hình dùng dữ liệu này:

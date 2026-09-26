@@ -12,7 +12,7 @@ import { Router, RouterLink } from '@angular/router';
 import { LanguageStore } from '../../core/i18n/language-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
-import { PracticeQuestion, practiceConfig } from '../../core/models/practice.model';
+import { PracticeQuestion, practiceConfig } from '../../core/practice/practice.model';
 import { buildReviewQuestions } from '../../core/practice/review-questions';
 import {
   AreaSummary,
@@ -25,9 +25,9 @@ import {
   ReviewRef,
   areaOfKey,
 } from '../../core/review/review.model';
-import { LessonStore } from '../../core/services/lesson-store';
-import { PracticeSessionStore } from '../../core/services/practice-session-store';
-import { ReviewStore } from '../../core/services/review-store';
+import { LessonStore } from '../../core/lessons/lesson-store';
+import { PracticeSessionStore } from '../../core/practice/practice-session-store';
+import { ReviewStore } from '../../core/review/review-store';
 import { shuffle } from '../../core/utils/random';
 
 const AREA_LABEL_KEY: Record<ReviewArea, MessageKey> = {

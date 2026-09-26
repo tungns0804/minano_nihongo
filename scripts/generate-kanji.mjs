@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Sinh `src/app/core/kanji/kanji-words.ts` cho khu "Kanji".
+ * Sinh `src/app/core/kanji/kanji-words.generated.ts` cho khu "Kanji".
  *
  * Rút DANH SÁCH CHỮ HÁN + âm Hán Việt của từng chữ + các từ dùng chữ đó, tất cả
  * từ kho từ có sẵn của ứng dụng:
@@ -34,7 +34,7 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
-const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'kanji', 'kanji-words.ts');
+const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'kanji', 'kanji-words.generated.ts');
 
 /** Cấp độ trong phạm vi khu Kanji — nay đủ N5 → N1. */
 const LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];

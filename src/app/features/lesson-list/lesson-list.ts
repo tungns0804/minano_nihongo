@@ -9,9 +9,9 @@ import {
   LessonKind,
   LessonSummary,
   lessonKindsOfTab,
-} from '../../core/models/vocabulary.model';
+} from '../../core/lessons/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
-import { ReviewStore } from '../../core/services/review-store';
+import { ReviewStore } from '../../core/review/review-store';
 import { SearchBox } from '../../shared/search-box';
 
 /**

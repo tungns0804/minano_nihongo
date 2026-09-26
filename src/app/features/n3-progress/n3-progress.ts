@@ -35,7 +35,7 @@ import {
   scoreBlockCards,
   unitSections,
 } from '../../core/n3/n3-view';
-import { N3ProgressStore } from '../../core/services/n3-progress-store';
+import { N3ProgressStore } from '../../core/n3/n3-progress-store';
 import { checkedOf } from '../../core/utils/dom-events';
 
 /**

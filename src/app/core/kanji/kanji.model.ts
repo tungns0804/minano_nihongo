@@ -8,7 +8,7 @@
  * Dữ liệu đi qua hai file:
  *  - `kanji-supplement.ts` — bảng âm Hán Việt viết tay, CHỈ cho vài chữ mà kho từ
  *                            không suy ra được (xem ghi chú trong chính file đó).
- *  - `kanji-words.ts`      — do `npm run generate:kanji` sinh ra: chữ + âm Hán Việt
+ *  - `kanji-words.generated.ts`      — do `npm run generate:kanji` sinh ra: chữ + âm Hán Việt
  *                            + từ minh hoạ, rút thẳng từ kho từ của ứng dụng.
  *
  * Hai màn hình dùng dữ liệu này:
@@ -22,7 +22,7 @@ import type { MessageKey } from '../i18n/messages';
  * Cấp độ JLPT của một chữ / một từ trong khu Kanji.
  *
  * Mốc chia lấy ĐÚNG quy ước có sẵn của ứng dụng (`JLPT_RANGE` ở
- * `models/vocabulary.model.ts`): N5 = từ vựng bài 1-25, N4 = bài 26-50, còn N3 lấy
+ * `lessons/vocabulary.model.ts`): N5 = từ vựng bài 1-25, N4 = bài 26-50, còn N3 lấy
  * từ bộ động từ của khu Bài tập. N2 và N1 nằm ngoài kho từ của ứng dụng — chúng
  * chỉ có mặt ở danh sách chữ (`kanji-levels.ts`), nên phần lớn chữ hai cấp này
  * chưa có từ minh hoạ. Không tự dựng danh sách kanji theo cấp JLPT ở đâu khác —

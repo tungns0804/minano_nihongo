@@ -1,5 +1,5 @@
 import type { VerbGroup } from '../japanese/conjugation';
-import type { ConversationLine, VerbEntry, VocabularyWord } from '../models/vocabulary.model';
+import type { ConversationLine, VerbEntry, VocabularyWord } from './vocabulary.model';
 
 /**
  * Bản TypeScript của `scripts/vocab-core.mjs`.

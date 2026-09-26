@@ -3,7 +3,7 @@
  * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy `npm run generate:radicals` để sinh lại.
  *
  * Nguồn: `radical-list.ts` (214 bộ thủ) + `radical-parts.ts` (chiết tự) + dữ liệu
- * chữ Hán của khu Kanji (`kanji-words.ts`). Xem `scripts/generate-radicals.mjs`.
+ * chữ Hán của khu Kanji (`kanji-words.generated.ts`). Xem `scripts/generate-radicals.mjs`.
  *
  * Thống kê lần sinh gần nhất: 214 bộ thủ (195 bộ có chữ ghép),
  * 1974 chữ ghép, 5604 lượt chữ.

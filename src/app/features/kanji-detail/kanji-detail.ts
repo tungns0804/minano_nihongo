@@ -15,14 +15,14 @@ import {
   kanjiQuestionsPerItem,
 } from '../../core/kanji/kanji.model';
 import { kanjiById } from '../../core/kanji/kanji-entries';
-import { LIMIT_CHOICES, practiceConfig } from '../../core/models/practice.model';
+import { LIMIT_CHOICES, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
 import { canDraw } from '../../core/strokes/stroke-store';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { checkedOf } from '../../core/utils/dom-events';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 

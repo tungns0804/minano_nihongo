@@ -139,7 +139,7 @@ Ba lỗi lặng lẽ phát hiện khi kiểm kê, nên sửa nhưng **không thu
    nên lần sau thiếu file là deploy đỏ ngay.
 2. `scripts/generate-kanji.mjs` chỉ quét thư mục khớp `minano-nihongo-<số>`, nên
    **từ vựng N3 không bao giờ chảy vào tab Kanji**. 63 từ gắn nhãn N3 trong
-   `kanji-words.ts` đều đến từ danh sách động từ của khu Bài tập, không phải từ
+   `kanji-words.generated.ts` đều đến từ danh sách động từ của khu Bài tập, không phải từ
    総まとめ.
 3. Bài ngữ pháp 皆の日本語 **第39課 thiếu** trong `data-source` — đúng bài mà slide
    `第39課.pptx` cũng thiếu.

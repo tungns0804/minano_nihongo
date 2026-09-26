@@ -1,12 +1,12 @@
 /**
  * Danh sách chữ Hán đã dựng xong, sẵn sàng cho màn hình dùng.
  *
- * Tách khỏi `kanji-words.ts` (file do máy sinh) để phần logic dựng dữ liệu không
+ * Tách khỏi `kanji-words.generated.ts` (file do máy sinh) để phần logic dựng dữ liệu không
  * bị ghi đè mỗi lần chạy lại script sinh.
  */
 
 import { KanjiEntry, buildKanjiEntries } from './kanji.model';
-import { KANJI_SEEDS } from './kanji-words';
+import { KANJI_SEEDS } from './kanji-words.generated';
 
 export const KANJI_ENTRIES: readonly KanjiEntry[] = buildKanjiEntries(KANJI_SEEDS);
 

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
 import { KANJI_LEVELS, KanjiLevel, emptyLevelCounts } from '../../core/kanji/kanji.model';
-import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
+import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildRadicalDrawQuestions } from '../../core/practice/draw-questions';
 import { buildRadicalKanjiQuestions } from '../../core/practice/radical-questions';
@@ -21,7 +21,7 @@ import {
 import { radicalById } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { checkedOf } from '../../core/utils/dom-events';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 

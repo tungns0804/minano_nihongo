@@ -7,8 +7,8 @@ import {
   makeQuestion,
   recap,
   recapJp,
-} from '../models/practice.model';
-import { acceptedAnswersOf } from '../utils/answer-check';
+} from './practice.model';
+import { acceptedAnswersOf } from './answer-check';
 import { limitAttempts } from './vocabulary-questions';
 
 /**

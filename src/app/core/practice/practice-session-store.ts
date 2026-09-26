@@ -7,13 +7,13 @@ import {
   QuestionState,
   QuestionStatus,
   SessionSummary,
-} from '../models/practice.model';
-import { batchCount, sliceBatch } from '../practice/batch';
-import type { PracticePlan } from '../practice/build-questions';
+} from './practice.model';
+import { batchCount, sliceBatch } from './batch';
+import type { PracticePlan } from './build-questions';
 import { gradeOf, reviewRefOf } from '../review/review.model';
-import { isAnswerCorrect } from '../utils/answer-check';
+import { isAnswerCorrect } from './answer-check';
 import { shuffle } from '../utils/random';
-import { ReviewStore } from './review-store';
+import { ReviewStore } from '../review/review-store';
 
 export type NextOutcome = 'moved' | 'finished' | 'blocked';
 

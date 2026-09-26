@@ -10,7 +10,7 @@
  * chữ bằng chuột không vào lịch: người dùng chỉ chọn bốn khu kia.
  */
 
-import type { PracticeConfig, QuestionStatus } from '../models/practice.model';
+import type { PracticeConfig, QuestionStatus } from '../practice/practice.model';
 import type { DayNumber } from '../n3/n3.model';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 

@@ -10,9 +10,9 @@ import {
   LessonKind,
   VerbEntry,
   VocabularyWord,
-} from '../../core/models/vocabulary.model';
+} from '../../core/lessons/vocabulary.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
-import { LessonStore } from '../../core/services/lesson-store';
+import { LessonStore } from '../../core/lessons/lesson-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { valueOf } from '../../core/utils/dom-events';
 import {
@@ -21,7 +21,7 @@ import {
   parseVerbList,
   parseVocabulary,
   slugify,
-} from '../../core/utils/vocabulary-parser';
+} from '../../core/lessons/vocabulary-parser';
 
 const PREVIEW_LIMIT = 8;
 

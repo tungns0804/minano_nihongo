@@ -6,7 +6,7 @@
  * cột trống ở những dòng đó là một khoảng thiếu, không phải một sự thật.
  *
  * ── Âm của từng chữ lấy ở đâu ─────────────────────────────────────────────
- * Từ `src/app/core/kanji/kanji-words.ts`, tức bảng mà `npm run generate:kanji`
+ * Từ `src/app/core/kanji/kanji-words.generated.ts`, tức bảng mà `npm run generate:kanji`
  * đã suy ra TỪ CHÍNH kho từ 皆の日本語 (mỗi từ có đủ số âm tiết bằng số chữ Hán
  * thì bỏ một phiếu cho từng chữ). Không tra ở đâu khác, không chép tay chữ nào.
  *
@@ -56,7 +56,7 @@ const toFileUrl = (path) =>
  * bình thường, chỉ là thiếu sạch âm Hán Việt ghép được, mà chẳng có dòng nào báo.
  */
 export async function loadCharHanViet(root) {
-  const file = join(root, 'src/app/core/kanji/kanji-words.ts');
+  const file = join(root, 'src/app/core/kanji/kanji-words.generated.ts');
   if (!existsSync(file)) return new Map();
 
   let seeds;
@@ -64,7 +64,7 @@ export async function loadCharHanViet(root) {
     ({ KANJI_SEEDS: seeds } = await import(toFileUrl(file)));
   } catch (error) {
     throw new Error(
-      `Khong nap duoc kanji-words.ts de ghep am Han Viet: ${error.message}
+      `Khong nap duoc kanji-words.generated.ts de ghep am Han Viet: ${error.message}
 ` +
         'Script nap thang file .ts nen phai chay bang: ' +
         'node --experimental-strip-types --no-warnings <script>',

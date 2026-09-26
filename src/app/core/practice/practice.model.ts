@@ -7,7 +7,7 @@ import { radicalModeInfo } from '../radical/radical.model';
 import type { ReviewRef } from '../review/review.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
-import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from './vocabulary.model';
+import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from '../lessons/vocabulary.model';
 
 /**
  * Các chiều luyện tập của bài TỪ VỰNG.

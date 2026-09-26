@@ -6,10 +6,10 @@ import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
   PracticeConfig,
   PracticeScope,
-} from '../models/practice.model';
+} from '../practice/practice.model';
 import { PracticePlan } from '../practice/build-questions';
 import { FavoriteStore } from '../services/favorite-store';
-import { PracticeSessionStore } from '../services/practice-session-store';
+import { PracticeSessionStore } from '../practice/practice-session-store';
 import { checkedOf, valueOf } from '../utils/dom-events';
 
 /**

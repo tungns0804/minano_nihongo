@@ -13,10 +13,10 @@ import {
   LessonKind,
   LessonSummary,
   lessonKindsOfTab,
-} from '../../core/models/vocabulary.model';
+} from '../../core/lessons/vocabulary.model';
 import { LessonBrowser } from '../../core/screens/lesson-browser';
-import { LessonStore } from '../../core/services/lesson-store';
-import { lessonMatches, normalizeSearch } from '../../core/utils/lesson-search';
+import { LessonStore } from '../../core/lessons/lesson-store';
+import { lessonMatches, normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 
 interface ExerciseCard extends ExerciseInfo {

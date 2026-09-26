@@ -5,7 +5,7 @@
  * Bốn thứ script này canh:
  *
  *  1. Dữ liệu giải mã được: độ dài chuỗi phải chia hết cho một nét, và danh sách
- *     chữ ở `stroke-coverage.ts` phải khớp đúng khoá của `stroke-data.ts`.
+ *     chữ ở `stroke-coverage.generated.ts` phải khớp đúng khoá của `stroke-data.generated.ts`.
  *  2. Chữ tự khớp chính nó — nếu không thì cách mã hoá đang làm hỏng dữ liệu.
  *  3. Chữ vẫn khớp khi thêm nhiễu cỡ bàn tay run: vẽ bằng chuột không bao giờ
  *     trúng từng điểm, ngưỡng chấm mà quá chặt thì viết đúng vẫn bị báo sai.
@@ -38,8 +38,8 @@ const { STROKE_CODE_LENGTH, decodeStrokes } = await import(
   toFileUrl(join(STROKES, 'stroke.model.ts'))
 );
 const { STROKE_TOLERANCE, checkDrawing } = await import(toFileUrl(join(STROKES, 'stroke-score.ts')));
-const { STROKE_DATA } = await import(toFileUrl(join(STROKES, 'stroke-data.ts')));
-const { STROKE_CHARS } = await import(toFileUrl(join(STROKES, 'stroke-coverage.ts')));
+const { STROKE_DATA } = await import(toFileUrl(join(STROKES, 'stroke-data.generated.ts')));
+const { STROKE_CHARS } = await import(toFileUrl(join(STROKES, 'stroke-coverage.generated.ts')));
 
 let problems = 0;
 function fail(message) {
@@ -64,7 +64,7 @@ for (const char of chars) {
 const listed = [...STROKE_CHARS];
 if (listed.length !== chars.length || listed.some((char, i) => char !== chars[i])) {
   fail(
-    `stroke-coverage.ts (${listed.length} chữ) không khớp stroke-data.ts (${chars.length} chữ). ` +
+    `stroke-coverage.generated.ts (${listed.length} chữ) không khớp stroke-data.generated.ts (${chars.length} chữ). ` +
       'Chạy: npm run generate:strokes',
   );
 }

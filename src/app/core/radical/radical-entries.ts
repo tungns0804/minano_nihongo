@@ -1,12 +1,12 @@
 /**
  * Danh sách bộ thủ đã dựng xong, sẵn sàng cho màn hình dùng.
  *
- * Tách khỏi `radical-kanji.ts` (file do máy sinh) để phần logic dựng dữ liệu
+ * Tách khỏi `radical-kanji.generated.ts` (file do máy sinh) để phần logic dựng dữ liệu
  * không bị ghi đè mỗi lần chạy lại script sinh.
  */
 
 import { RadicalEntry, buildRadicalEntries } from './radical.model';
-import { RADICAL_KANJI, RADICAL_SEEDS } from './radical-kanji';
+import { RADICAL_KANJI, RADICAL_SEEDS } from './radical-kanji.generated';
 
 export const RADICAL_ENTRIES: readonly RadicalEntry[] = buildRadicalEntries(RADICAL_SEEDS, RADICAL_KANJI);
 

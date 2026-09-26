@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
  * Sinh dữ liệu nét viết cho khu "luyện viết":
- *   - `src/app/core/strokes/stroke-data.ts`     — nét của từng chữ, đã nén
- *   - `src/app/core/strokes/stroke-coverage.ts` — danh sách chữ có dữ liệu
+ *   - `src/app/core/strokes/stroke-data.generated.ts`     — nét của từng chữ, đã nén
+ *   - `src/app/core/strokes/stroke-coverage.generated.ts` — danh sách chữ có dữ liệu
  *
  * Nguồn: KanjiVG (CC BY-SA 3.0), lấy qua gói devDependency `@madcat/kanjivg`.
  * Mỗi chữ là một file SVG, mỗi nét một thẻ `<path>` xếp đúng thứ tự viết.
@@ -12,10 +12,10 @@
  * này chỉ nằm ở devDependencies nên không đi vào bản build.
  *
  * ── Hai file, vì sao tách ────────────────────────────────────────────────────
- * `stroke-data.ts` nặng vài trăm kB và CHỈ được nạp bằng `import()` động lúc
+ * `stroke-data.generated.ts` nặng vài trăm kB và CHỈ được nạp bằng `import()` động lúc
  * người học mở phần luyện viết (xem `stroke-store.ts`). Nhưng màn hình danh sách
  * phải biết TRƯỚC chữ nào viết được để đếm số câu, nên danh sách chữ tách ra
- * `stroke-coverage.ts` — vài kB, nạp thẳng cùng màn hình.
+ * `stroke-coverage.generated.ts` — vài kB, nạp thẳng cùng màn hình.
  *
  * Chạy: npm run generate:strokes
  *       npm run generate:strokes -- --check   (chỉ kiểm tra, không ghi đè)
@@ -29,8 +29,8 @@ import { c, emitGenerated, log, quote, toFileUrl } from './script-utils.mjs';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const OUT_DIR = join(ROOT, 'src', 'app', 'core', 'strokes');
-const DATA_FILE = join(OUT_DIR, 'stroke-data.ts');
-const COVERAGE_FILE = join(OUT_DIR, 'stroke-coverage.ts');
+const DATA_FILE = join(OUT_DIR, 'stroke-data.generated.ts');
+const COVERAGE_FILE = join(OUT_DIR, 'stroke-coverage.generated.ts');
 const KANJIVG_DIR = join(ROOT, 'node_modules', '@madcat', 'kanjivg', 'dist', 'main');
 
 /** Khung của KanjiVG: mọi file đều là viewBox "0 0 109 109". */
@@ -234,7 +234,7 @@ const coverageText = `/* eslint-disable */
 /**
  * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:strokes\` để sinh lại.
  *
- * Danh sách chữ có dữ liệu nét trong \`stroke-data.ts\`, gộp thành MỘT chuỗi.
+ * Danh sách chữ có dữ liệu nét trong \`stroke-data.generated.ts\`, gộp thành MỘT chuỗi.
  *
  * Tách khỏi file dữ liệu vì màn hình danh sách phải biết trước chữ nào viết được
  * để đếm số câu, mà nạp cả file dữ liệu chỉ để đếm thì phí — xem

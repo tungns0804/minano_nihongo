@@ -6,9 +6,9 @@ import {
   makeQuestion,
   recap,
   recapJp,
-} from '../models/practice.model';
+} from './practice.model';
 import type { RadicalEntry, RadicalKanji } from '../radical/radical.model';
-import { acceptedAnswersOf } from '../utils/answer-check';
+import { acceptedAnswersOf } from './answer-check';
 import { limitAttempts } from './vocabulary-questions';
 
 /**

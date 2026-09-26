@@ -1,17 +1,17 @@
 import { Injectable, signal } from '@angular/core';
 
-import { STROKE_CHARS } from './stroke-coverage';
+import { STROKE_CHARS } from './stroke-coverage.generated';
 import { Stroke, decodeStrokes } from './stroke.model';
 
 /**
  * Kho nét viết của chữ Hán, nạp theo yêu cầu.
  *
- * `stroke-data.ts` nặng gần nửa MB nên KHÔNG được import thẳng: nó chỉ đi vào một
+ * `stroke-data.generated.ts` nặng gần nửa MB nên KHÔNG được import thẳng: nó chỉ đi vào một
  * gói riêng, tải lúc người học thật sự mở phần luyện viết. Mọi màn hình khác của
  * ứng dụng không phải trả cân nặng đó.
  *
  * Còn câu hỏi "chữ này có viết được không" thì trả lời được ngay mà không cần tải
- * gì: danh sách chữ nằm ở `stroke-coverage.ts` — vài kB, đủ để màn hình danh sách
+ * gì: danh sách chữ nằm ở `stroke-coverage.generated.ts` — vài kB, đủ để màn hình danh sách
  * đếm số câu trước khi bắt đầu phiên.
  */
 @Injectable({ providedIn: 'root' })
@@ -31,7 +31,7 @@ export class StrokeStore {
   load(): Promise<void> {
     if (this.request) return this.request;
 
-    this.request = import('./stroke-data').then(({ STROKE_DATA }) => {
+    this.request = import('./stroke-data.generated').then(({ STROKE_DATA }) => {
       this.data = STROKE_DATA;
       this.ready.set(true);
     });

@@ -28,7 +28,7 @@ import {
   conjugate,
   isIrregularVerb,
 } from '../../core/japanese/conjugation';
-import { LIMIT_CHOICES, practiceConfig } from '../../core/models/practice.model';
+import { LIMIT_CHOICES, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import {
   EXERCISE_FORMS,
@@ -36,7 +36,7 @@ import {
   buildVerbFormQuestions,
 } from '../../core/practice/exercise-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 

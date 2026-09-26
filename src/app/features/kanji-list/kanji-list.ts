@@ -13,12 +13,12 @@ import {
   kanjiModeInfo,
 } from '../../core/kanji/kanji.model';
 import { KANJI_ENTRIES } from '../../core/kanji/kanji-entries';
-import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
+import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions, drawableKanji } from '../../core/practice/draw-questions';
 import { buildKanjiHanVietQuestions } from '../../core/practice/kanji-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 

@@ -1,4 +1,4 @@
-import type { LessonSummary } from '../models/vocabulary.model';
+import type { LessonSummary } from './vocabulary.model';
 import { stripDiacritics } from './vocabulary-parser';
 
 /**

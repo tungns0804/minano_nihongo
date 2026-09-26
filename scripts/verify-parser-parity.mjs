@@ -2,7 +2,7 @@
 /**
  * Kiểm tra hai bản parser sinh ra KẾT QUẢ GIỐNG HỆT NHAU:
  *   - scripts/vocab-core.mjs                       (dùng bởi npm run generate)
- *   - src/app/core/utils/vocabulary-parser.ts      (dùng bởi màn hình "Nạp bài mới")
+ *   - src/app/core/lessons/vocabulary-parser.ts      (dùng bởi màn hình "Nạp bài mới")
  *
  * Id của từ vựng được băm từ nội dung, và Favorite lưu theo id đó. Nếu hai bản lệch
  * nhau thì cùng một bài học nạp bằng hai đường sẽ có id khác nhau và Favorite mất tác dụng.
@@ -20,7 +20,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 
 const tsParser = await import(
-  pathToFileUrl(join(ROOT, 'src', 'app', 'core', 'utils', 'vocabulary-parser.ts'))
+  pathToFileUrl(join(ROOT, 'src', 'app', 'core', 'lessons', 'vocabulary-parser.ts'))
 );
 
 function pathToFileUrl(path) {

@@ -19,8 +19,8 @@ import {
   recap,
   recapJp,
   recapKey,
-} from '../models/practice.model';
-import { VerbEntry } from '../models/vocabulary.model';
+} from './practice.model';
+import { VerbEntry } from '../lessons/vocabulary.model';
 import { shuffle } from '../utils/random';
 import { limitAttempts } from './vocabulary-questions';
 

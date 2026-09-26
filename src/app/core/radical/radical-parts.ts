@@ -4,7 +4,7 @@
  * Mỗi dòng là `chữ:thành phần+thành phần+…`. Đây là phần viết tay duy nhất của
  * khu "Bộ thủ": từ bảng này `npm run generate:radicals` gom ngược lại thành "bộ
  * thủ X có mặt trong những chữ nào", còn âm Hán Việt, cấp độ và từ ví dụ của
- * từng chữ thì lấy thẳng từ dữ liệu khu Kanji (`kanji-words.ts`).
+ * từng chữ thì lấy thẳng từ dữ liệu khu Kanji (`kanji-words.generated.ts`).
  *
  * Quy ước:
  *  - Chữ ĐỘC THỂ (bản thân nó là bộ thủ, hoặc không tách được thành bộ nào) viết

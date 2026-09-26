@@ -6,9 +6,9 @@ import {
   makeQuestion,
   recap,
   recapJp,
-} from '../models/practice.model';
-import { GrammarExampleRef } from '../models/vocabulary.model';
-import { acceptedAnswersOf } from '../utils/answer-check';
+} from './practice.model';
+import { GrammarExampleRef } from '../lessons/vocabulary.model';
+import { acceptedAnswersOf } from './answer-check';
 
 /**
  * Dựng câu hỏi cho bài NGỮ PHÁP: hiện một câu ở thứ tiếng này, người học viết lại

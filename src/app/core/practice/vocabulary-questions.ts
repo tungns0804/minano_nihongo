@@ -8,9 +8,9 @@ import {
   makeQuestion,
   recap,
   recapJp,
-} from '../models/practice.model';
-import { VocabularyWord, WordField, fieldIsJapanese, fieldValue } from '../models/vocabulary.model';
-import { acceptedAnswersOf } from '../utils/answer-check';
+} from './practice.model';
+import { VocabularyWord, WordField, fieldIsJapanese, fieldValue } from '../lessons/vocabulary.model';
+import { acceptedAnswersOf } from './answer-check';
 import { shuffle } from '../utils/random';
 
 const ANSWER_PROMPT_KEY: Record<WordField, MessageKey> = {

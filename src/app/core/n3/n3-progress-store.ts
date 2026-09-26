@@ -1,8 +1,8 @@
 import { Injectable, computed, signal } from '@angular/core';
 
-import { N3_SECTIONS } from '../n3/n3-syllabus';
-import { canTick, dayToIso, todayDay, unitsOf } from '../n3/n3.model';
-import { readJson, writeJson } from './local-storage';
+import { N3_SECTIONS } from './n3-syllabus';
+import { canTick, dayToIso, todayDay, unitsOf } from './n3.model';
+import { readJson, writeJson } from '../services/local-storage';
 
 const STORAGE_KEY = 'jp-practice:n3-progress';
 const SCOPE_KEY = 'jp-practice:n3-scope-choukai';

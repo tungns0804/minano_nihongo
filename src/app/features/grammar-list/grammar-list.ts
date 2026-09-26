@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
-import { LessonSummary } from '../../core/models/vocabulary.model';
+import { LessonSummary } from '../../core/lessons/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
 import { SearchBox } from '../../shared/search-box';
 

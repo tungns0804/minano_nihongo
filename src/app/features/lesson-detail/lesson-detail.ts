@@ -23,7 +23,7 @@ import {
   VERB_MODES,
   verbModeInfo,
   VerbPracticeMode,
-} from '../../core/models/practice.model';
+} from '../../core/practice/practice.model';
 import {
   ConversationLine,
   LESSON_KIND_SEARCH_KEY,
@@ -38,14 +38,14 @@ import {
   WordField,
   fieldValue,
   hasWordField,
-} from '../../core/models/vocabulary.model';
+} from '../../core/lessons/vocabulary.model';
 import { batchCount, batchRange } from '../../core/practice/batch';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
 import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
-import { LessonStore } from '../../core/services/lesson-store';
-import { VocabAudioPlayer } from '../../core/services/vocab-audio-player';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { LessonStore } from '../../core/lessons/lesson-store';
+import { VocabAudioPlayer } from '../../core/audio/vocab-audio-player';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { VerbRow, buildVerbRows, formsText } from './verb-rows';
@@ -125,7 +125,7 @@ export class LessonDetail extends PracticeScreen {
 
   /**
    * Ba khoá nhãn của bảng tra, theo loại bài đang mở. Bảng tra cứu nằm ở
-   * `core/models/vocabulary.model.ts` cạnh những bảng cùng loại — thêm một loại
+   * `core/lessons/vocabulary.model.ts` cạnh những bảng cùng loại — thêm một loại
    * bài mà quên khai thì TypeScript báo lỗi ngay tại đó.
    */
   readonly kindLabelKeys = computed(() => {

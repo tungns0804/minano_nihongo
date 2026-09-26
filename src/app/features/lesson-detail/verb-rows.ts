@@ -1,5 +1,5 @@
 import { VerbForms, conjugate, isIrregularVerb } from '../../core/japanese/conjugation';
-import { VerbEntry } from '../../core/models/vocabulary.model';
+import { VerbEntry } from '../../core/lessons/vocabulary.model';
 
 /**
  * Bảng chia động từ của màn hình chi tiết bài.

@@ -22,11 +22,11 @@ import { resolveTsImports } from './script-utils.mjs';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 
-// answer-check.ts import "./vocabulary-parser" không kèm đuôi file — xem `resolveTsImports`.
+// answer-check.ts import "../lessons/vocabulary-parser" không kèm đuôi file — xem `resolveTsImports`.
 resolveTsImports();
 
 const { isAnswerCorrect } = await import(
-  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'utils', 'answer-check.ts'))
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'practice', 'answer-check.ts'))
 );
 
 // Hai bộ tuỳ chọn y hệt practice-session-store dựng cho câu hội thoại / ngữ pháp.

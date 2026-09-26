@@ -1,14 +1,14 @@
 import { Signal, computed, inject, signal } from '@angular/core';
 
 import { LanguageStore } from '../i18n/language-store';
-import type { LevelFilter } from '../models/level-filter';
-import { countByLevel, levelFilterOptions } from '../models/level-filter';
-import { LessonSummary, isJlptLevel, levelOf } from '../models/vocabulary.model';
+import type { LevelFilter } from '../lessons/level-filter';
+import { countByLevel, levelFilterOptions } from '../lessons/level-filter';
+import { LessonSummary, isJlptLevel, levelOf } from '../lessons/vocabulary.model';
 import { FavoriteStore } from '../services/favorite-store';
-import { LessonStore } from '../services/lesson-store';
+import { LessonStore } from '../lessons/lesson-store';
 import { readJson, writeJson } from '../services/local-storage';
 import { valueOf } from '../utils/dom-events';
-import { lessonMatches, normalizeSearch } from '../utils/lesson-search';
+import { lessonMatches, normalizeSearch } from '../lessons/lesson-search';
 
 /**
  * Phần chung của bốn trang danh sách: trang chủ, tab Ngữ pháp, tab Bài tập bổ

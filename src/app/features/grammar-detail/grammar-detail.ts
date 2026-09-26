@@ -9,16 +9,16 @@ import {
   LIMIT_CHOICES,
   practiceConfig,
   PracticeDirection,
-} from '../../core/models/practice.model';
+} from '../../core/practice/practice.model';
 import {
   GrammarExampleRef,
   GrammarPoint,
   Lesson,
   flattenGrammarExamples,
-} from '../../core/models/vocabulary.model';
+} from '../../core/lessons/vocabulary.model';
 import { buildQuestions } from '../../core/practice/build-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
-import { LessonStore } from '../../core/services/lesson-store';
+import { LessonStore } from '../../core/lessons/lesson-store';
 import { StarButton } from '../../shared/star-button';
 
 /**

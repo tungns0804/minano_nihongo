@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/c
 import { RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
-import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/models/practice.model';
+import { LIMIT_CHOICES_LONG, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildRadicalDrawQuestions, drawableRadicals } from '../../core/practice/draw-questions';
 import { buildRadicalHanVietQuestions } from '../../core/practice/radical-questions';
@@ -18,7 +18,7 @@ import {
 } from '../../core/radical/radical.model';
 import { RADICAL_ENTRIES } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
-import { normalizeSearch } from '../../core/utils/lesson-search';
+import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 
