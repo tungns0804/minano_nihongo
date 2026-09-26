@@ -953,6 +953,8 @@ Tóm tắt:
 
    Script sinh `public/lessons/<id>.json` cho từng thư mục và cập nhật
    `public/lessons/index.json`. Ứng dụng đọc `index.json` để biết có những bài nào.
+   Thư mục `public/lessons/` không commit: `npm start`, `npm run build`, `npm run verify` và
+   workflow deploy đều tự chạy bước này trước, nên nguồn duy nhất là `data-source/`.
 
 Các lệnh khác của script:
 
@@ -980,8 +982,8 @@ Vào menu **“Nạp bài mới”**, dán danh sách từ vựng hoặc chọn 
 từ hợp lệ, các dòng lỗi và bảng xem trước. Sau đó chọn:
 
 - **Lưu và mở bài học** — lưu vào `localStorage` của trình duyệt, dùng được ngay.
-- **Tải file JSON** — tải file `<id>.json` về để đặt vào `public/lessons/` nếu muốn bài học đi
-  kèm mã nguồn (nhớ thêm bài đó vào `index.json`, hoặc tốt hơn là dùng Cách 1).
+- **Tải file JSON** — tải file `<id>.json` về máy. Muốn bài học đi kèm mã nguồn thì dùng Cách 1:
+  `public/lessons/` không commit và được sinh lại hoàn toàn từ `data-source/`.
 
 Bài tự nạp có nhãn **“Tự nạp”** và xoá được bất cứ lúc nào.
 
@@ -1012,7 +1014,7 @@ scripts/
   generate-audio.mjs             Sinh public/audio/vocab/*.mp3 bằng edge-tts
   edge-tts-batch.py              Bộ đọc chạy nền của generate-audio.mjs (Python)
   verify-n3.mjs                  Kiểm lộ trình N3: khớp mục lục sách, lịch phủ kín, nhịp học
-public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay)
+public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay, không commit)
   index.json
   minano-nihongo-33.json
 public/audio/vocab/              File phát âm do script sinh ra (không sửa tay)
@@ -1105,7 +1107,7 @@ bản lệch nhau thì cùng một bài học nạp bằng hai đường sẽ c�
 dụng. **Sửa một bên thì phải sửa bên kia**, rồi chạy:
 
 ```bash
-npm run verify           # chạy tất cả các lệnh kiểm tra bên dưới
+npm run verify           # sinh lại public/lessons rồi chạy tất cả các lệnh kiểm tra bên dưới
 npm run verify:parser    # hai bản parser cho kết quả giống nhau
 npm run verify:answer    # dấu câu / khoảng trắng không làm sai kết quả chấm
 npm run verify:conjugation  # engine chia động từ + dữ liệu động từ thật

@@ -2,6 +2,9 @@
 
 # Compiled output
 /dist
+# Bài học JSON do `npm run generate` sinh từ data-source/; start/build/verify và CI
+# đều tự sinh lại nên không commit.
+/public/lessons/
 /tmp
 /out-tsc
 /bazel-out
@@ -32,7 +35,6 @@ yarn-error.log
 /.angular/cache
 .sass-cache/
 /connect.lock
-/coverage
 /libpeerconnection.log
 testem.log
 /typings
