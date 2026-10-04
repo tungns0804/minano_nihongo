@@ -7,7 +7,7 @@
       "explanation": [
         "Tha động từ: có người ra tay tác động lên đối tượng — ドアを あけます (ai đó mở cửa).",
         "Tự động từ: việc tự xảy ra, không nói ai làm — ドアが あきます (cửa mở ra).",
-        "Trợ từ を còn một cách dùng thứ hai không liên quan tới tha động từ: rời khỏi một nơi — かいしゃを やすみます, だいがくを でます, バスを おります, はしを わたります."
+        "Trợ từ を còn những cách dùng không liên quan tới tha động từ: nơi rời khỏi (だいがくを でます, バスを おります — bài 16) và nơi đi qua (はしを わたります — bài 23). 「かいしゃを やすみます」 cũng là を chỉ nơi mình vắng mặt."
       ],
       "tables": [
         {
@@ -35,7 +35,7 @@
         }
       ],
       "notes": [
-        "Mẹo nhớ: động từ đuôi します thì 100% là tha động từ. Từ đó suy ra cặp còn lại — だします là tha nên でます phải là tự."
+        "Mẹo nhớ: trong một CẶP tự/tha động từ, vế có đuôi ～します (だします, けします, こわします, おとします…) luôn là tha động từ, từ đó suy ra vế còn lại. Mẹo chỉ đúng trong một cặp: 「さんぽします」, 「けっこんします」 vẫn là tự động từ."
       ],
       "usages": [
         {
@@ -171,6 +171,106 @@
             {
               "japanese": "すてて しまった。",
               "vietnamese": "Tôi lỡ vứt mất rồi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（nơi chốn）に いきます／きます／かえります",
+      "summary": "に thay được cho へ để chỉ điểm đến.",
+      "structures": ["N（nơi chốn）に いきます／きます／かえります"],
+      "explanation": [
+        "Từ bài 5 ta dùng へ chỉ hướng di chuyển. に cũng dùng được với các động từ này để chỉ ĐIỂM ĐẾN, và trong hội thoại rất hay gặp."
+      ],
+      "usages": [
+        {
+          "title": "Đi tới đâu",
+          "examples": [
+            {
+              "japanese": "どこかで さいふを おとして しまったんです。",
+              "vietnamese": "Tôi đã đánh rơi ví ở đâu đó rồi."
+            },
+            {
+              "japanese": "それは たいへんですね。すぐ こうばんに いかないと。",
+              "vietnamese": "Thế thì gay nhỉ. Anh phải đến đồn cảnh sát báo ngay thôi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "それ／その／そう — chỉ điều vừa được nói",
+      "summary": "Dùng nhóm そ để nhắc lại nội dung người kia vừa nói hoặc câu văn vừa nêu.",
+      "structures": ["それは ～ですね", "その N は ～", "ええ、そう します"],
+      "explanation": [
+        "Ở bài 2, これ／それ／あれ chỉ đồ vật trước mắt. Trong hội thoại và văn viết, それ, その, そう còn chỉ NỘI DUNG mà đối phương vừa nói hoặc câu văn vừa xuất hiện trước đó."
+      ],
+      "usages": [
+        {
+          "title": "Đáp lại điều vừa nghe",
+          "examples": [
+            {
+              "japanese": "らいげつから おおさかの ほんしゃに てんきんなんです。",
+              "vietnamese": "Từ tháng sau tôi chuyển về làm ở trụ sở chính tại Osaka."
+            },
+            {
+              "japanese": "それは おめでとう ございます。",
+              "vietnamese": "Chúc mừng anh nhé."
+            },
+            {
+              "japanese": "きょうは はやく かえって、やすんで ください。",
+              "vietnamese": "Hôm nay anh về sớm nghỉ ngơi đi."
+            },
+            {
+              "japanese": "ええ、そう します。",
+              "vietnamese": "Vâng, tôi sẽ làm vậy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ありました — tìm thấy rồi",
+      "summary": "ありました ở đây không phải 'đã có' trong quá khứ mà là 'đây rồi!' khi vừa tìm thấy.",
+      "structures": ["［N が］ ありました。"],
+      "explanation": [
+        "Khi đang tìm một thứ và vừa phát hiện ra nó, người Nhật nói 「ありました」 — thể quá khứ diễn tả khoảnh khắc phát hiện chứ không kể chuyện quá khứ."
+      ],
+      "usages": [
+        {
+          "title": "Vừa tìm thấy",
+          "examples": [
+            {
+              "japanese": "あ、かばんが ありましたよ。",
+              "vietnamese": "A, tìm thấy cái cặp rồi đây này."
+            },
+            {
+              "japanese": "かぎが ありました。いすの したに おちて いました。",
+              "vietnamese": "Tìm thấy chìa khóa rồi. Nó rơi dưới ghế."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "どこかで ／ どこかに",
+      "summary": "Sau どこか, なにか thì へ và を lược được, nhưng で và に phải giữ.",
+      "structures": ["どこかで ～", "どこかに ～"],
+      "explanation": [
+        "Bài 13 đã học lược へ, を sau どこか, なにか. Còn で và に thì KHÔNG lược được, vì bỏ đi sẽ mất nghĩa nơi chốn."
+      ],
+      "usages": [
+        {
+          "title": "Ở đâu đó",
+          "examples": [
+            {
+              "japanese": "どこかで さいふを なくして しまいました。",
+              "vietnamese": "Tôi đã đánh mất ví ở đâu đó rồi."
+            },
+            {
+              "japanese": "どこかに でんわが ありますか。",
+              "vietnamese": "Có chỗ nào có điện thoại không?"
             }
           ]
         }

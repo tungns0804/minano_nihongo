@@ -127,6 +127,35 @@
       ]
     },
     {
+      "title": "V て います — việc làm thường xuyên, nghề nghiệp",
+      "summary": "Nói về việc lặp đi lặp lại lâu dài: công ty sản xuất gì, cửa hàng bán gì, ai làm việc hay học ở đâu.",
+      "structures": ["N は N を V て います", "N で V て います"],
+      "explanation": [
+        "Không phải hành động đang diễn ra lúc nói (bài 14), cũng không phải trạng thái còn lại sau hành động, mà là việc diễn ra đều đặn trong một thời gian dài.",
+        "Hay dùng để nói công việc, nghề nghiệp, hoạt động kinh doanh."
+      ],
+      "usages": [
+        {
+          "title": "Công việc, kinh doanh",
+          "detail": "Việc diễn ra đều đặn, lâu dài.",
+          "examples": [
+            {
+              "japanese": "IMCは コンピューターソフトを つくって います。",
+              "vietnamese": "Công ty IMC sản xuất phần mềm máy tính."
+            },
+            {
+              "japanese": "スーパーで ナンプラーを うって います。",
+              "vietnamese": "Siêu thị có bán nước mắm."
+            },
+            {
+              "japanese": "いもうとは だいがくで べんきょうして います。",
+              "vietnamese": "Em gái tôi đang học đại học."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "しって います ／ しりません",
       "summary": "Cặp động từ bất đối xứng: khẳng định thì có て います, phủ định thì không.",
       "structures": ["しって います（biết）", "しりません（không biết）"],
@@ -188,6 +217,48 @@
             {
               "japanese": "あには いしゃを して います。",
               "vietnamese": "Anh trai tôi làm bác sĩ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（nơi chốn）に V ／ N1 に N2 を V",
+      "summary": "に chỉ chỗ mà người hoặc vật CÓ MẶT sau khi hành động kết thúc.",
+      "structures": ["N（nơi chốn）に はいります／すわります／のります", "N1（nơi chốn）に N2 を とめます／かきます"],
+      "explanation": [
+        "Với はいります, すわります, のります (bài 16), のぼります, つきます, に đánh dấu nơi chủ thể ở lại sau khi làm xong: vào phòng thì ở trong phòng, ngồi ghế thì ở trên ghế.",
+        "Với とめます, かきます, おきます…, に đánh dấu nơi đồ vật nằm lại sau hành động: 「ここに くるまを とめて ください」 — xe sẽ đỗ ở đây."
+      ],
+      "notes": [
+        "Đừng nhầm với で (bài 6): で là nơi hành động DIỄN RA, に là nơi kết quả của hành động Ở LẠI. 「こうえんで しゃしんを とります」 nhưng 「ここに なまえを かきます」."
+      ],
+      "usages": [
+        {
+          "title": "Chủ thể ở lại đâu",
+          "detail": "はいります, すわります…",
+          "examples": [
+            {
+              "japanese": "ここに はいっては いけません。",
+              "vietnamese": "Không được vào đây."
+            },
+            {
+              "japanese": "この いすに すわっても いいですか。",
+              "vietnamese": "Tôi ngồi ghế này được không ạ?"
+            }
+          ]
+        },
+        {
+          "title": "Đồ vật nằm lại đâu",
+          "detail": "とめます, かきます…",
+          "examples": [
+            {
+              "japanese": "ここに くるまを とめて ください。",
+              "vietnamese": "Anh hãy đỗ xe ở đây."
+            },
+            {
+              "japanese": "ここに じゅうしょを かいて ください。",
+              "vietnamese": "Anh hãy ghi địa chỉ vào đây."
             }
           ]
         }

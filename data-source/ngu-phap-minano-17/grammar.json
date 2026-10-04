@@ -6,7 +6,7 @@
       "structures": ["Nhóm I — âm hàng い đổi sang hàng あ ＋ ない", "Nhóm II — bỏ ます thêm ない", "Nhóm III — こない, しない"],
       "explanation": [
         "Nhóm I: âm ngay trước ます chuyển từ hàng い sang hàng あ rồi thêm ない — かきます → かかない.",
-        "Ngoại lệ nhóm I: động từ có âm い trước ます thì chuyển thành わ chứ không phải あ — かいます → かわない. Lý do là tiếng Nhật cổ không có âm 「わ」 ở giữa từ theo lối đó.",
+        "Ngoại lệ nhóm I: động từ có âm い đứng ngay trước ます thì đổi thành わ chứ không phải あ — かいます → かわない, すいます → すわない. Không có dạng 「かあない」.",
         "Nhóm II bỏ ます thêm ない. Nhóm III học thuộc: きます → こない, します → しない."
       ],
       "tables": [
@@ -102,8 +102,8 @@
               "reading": "あした しちじに こなければ なりません。"
             },
             {
-              "japanese": "レポートを だすまえに なまえを かかなければ なりません。",
-              "vietnamese": "Trước khi nộp báo cáo phải viết tên vào."
+              "japanese": "どようびまでに ほんを かえさなければ なりません。",
+              "vietnamese": "Phải trả sách trước thứ Bảy."
             }
           ]
         }

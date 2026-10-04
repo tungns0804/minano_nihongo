@@ -21,12 +21,13 @@ import { DrawingVerdict, STROKE_ISSUE_KEY, checkDrawing } from '../../core/strok
 import { StrokePoint } from '../../core/strokes/stroke.model';
 import { StrokeStore } from '../../core/strokes/stroke-store';
 import { valueOf } from '../../core/utils/dom-events';
+import { RubyText } from '../../shared/ruby-text';
 import { StarButton } from '../../shared/star-button';
 import { StrokeCanvas } from '../../shared/stroke-canvas';
 
 @Component({
   selector: 'app-practice',
-  imports: [StarButton, StrokeCanvas, T],
+  imports: [RubyText, StarButton, StrokeCanvas, T],
   templateUrl: './practice.html',
   styleUrl: './practice.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -126,6 +127,30 @@ export class Practice {
     if (!question) return 0;
     return Math.max(0, question.maxWrongAttempts - this.wrongAttempts());
   });
+
+  // --- Câu luyện dịch ---
+
+  /**
+   * Furigana trên câu hỏi tiếng Nhật, theo tuỳ chọn của khung thiết lập. Đáp án thì
+   * luôn có furigana: lúc ấy nó là thứ để đọc lại cho đúng, không còn là đề bài.
+   */
+  readonly showFurigana = computed(() => this.config()?.showFurigana ?? true);
+
+  /** Câu vừa bị chấm sai mà người học có thể tự xác nhận là đúng. */
+  readonly canAcceptOwnAnswer = computed(
+    () =>
+      this.isRevealed() &&
+      (this.question()?.selfGradable ?? false) &&
+      (this.state()?.attempts.length ?? 0) > 0,
+  );
+
+  readonly selfGraded = computed(() => this.state()?.selfGraded ?? false);
+
+  acceptOwnAnswer(): void {
+    if (!this.session.acceptOwnAnswer()) return;
+    this.sound.correct();
+    this.focusFeedback();
+  }
 
   constructor() {
     // Dữ liệu nét nằm ở một gói tải riêng, nên phiên viết tay phải gọi lấy ngay từ

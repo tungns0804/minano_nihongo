@@ -1,0 +1,284 @@
+{
+  "sets": [
+    {
+      "title": "Đi ăn trưa",
+      "description": "Anh Yamada rủ anh Miller đi ăn trưa ở quán Tsuruya rồi vào quán cà phê.",
+      "lines": [
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "もう {12|じゅうに}{時|じ}ですよ。{昼|ひる}ご{飯|はん}を {食|た}べに {行|い}きませんか。",
+          "vi": "[Đã /]12 giờ rồi [đấy/đó/]. [Mình/Chúng ta] [cùng /]đi ăn trưa [nhé/không/được không]?",
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "食べに 行きます: V bỏ ます + に + 行きます = đi để làm gì." },
+            { "lesson": 6, "point": "V ませんか", "note": "～ませんか: rủ cùng đi." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "ええ、{行|い}きましょう。{今日|きょう}は {何|なに}が {食|た}べたいですか。",
+          "vi": "[Vâng/Ừ/Được], đi [thôi/nào/]. Hôm nay [anh /]muốn ăn gì?",
+          "grammar": [
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "食べたいですか: hỏi ý muốn của người nghe; tân ngữ có thể đi với が (何が)." },
+            { "lesson": 6, "point": "V ましょう", "note": "行きましょう: nhận lời và chốt." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですね。{今日|きょう}は {日本料理|にほんりょうり}が {食|た}べたいですね。",
+          "vi": "[Ừm/Để xem nào/À], hôm nay tôi muốn ăn món Nhật[ quá/ nhỉ/].",
+          "grammar": [
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "日本料理が 食べたい: を đổi thành が được." },
+            { "lesson": 8, "point": "そうですね — ngập ngừng suy nghĩ", "note": "そうですね: nghĩ một nhịp rồi mới nói." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "じゃ、「つるや」へ {天|てん}ぷらを {食|た}べに {行|い}きましょう。",
+          "vi": "Vậy[ thì/] [mình /chúng ta /]đi [quán /]Tsuruya ăn tempura [đi/nhé/thôi/].",
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "「つるや」へ 天ぷらを 食べに: nơi đến へ, mục đích に — trật tự cố định." },
+            { "lesson": 6, "point": "V ましょう", "note": "行きましょう: đề nghị cùng đi." }
+          ]
+        },
+        {
+          "speaker": "{店|みせ}の{人|ひと}",
+          "ja": "いらっしゃいませ。ご{注文|ちゅうもん}は。",
+          "vi": "[Kính chào/Xin chào] quý khách. Quý khách gọi [món /]gì [ạ/]?",
+          "grammar": [
+            { "lesson": 13, "point": "ご注文は。", "note": "ご注文は。: nói tắt của ご注文は 何ですか — bỏ lửng cho lịch sự." },
+            { "lesson": 3, "point": "お～ — tiếp đầu ngữ lịch sự", "note": "ご注文: ご là tiếp đầu ngữ lịch sự gắn vào danh từ gốc Hán." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{天|てん}ぷら{定食|ていしょく}を {一|ひと}つ お{願|ねが}いします。",
+          "vi": "Cho tôi một [suất/phần] [cơm tempura/tempura].",
+          "grammar": [
+            { "lesson": 13, "point": "ご注文は。", "note": "～を お願いします: cách gọi món lịch sự." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "一つ お願いします: số lượng đứng ngay trước động từ." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{私|わたし}は {牛|ぎゅう}どんと お{茶|ちゃ}を お{願|ねが}いします。",
+          "vi": "[Còn /]tôi [thì /]cho [một /][bát /suất /]cơm bò và [một /][cốc /ly /]trà.",
+          "grammar": [
+            { "lesson": 13, "point": "ご注文は。", "note": "～を お願いします: gọi món." },
+            { "lesson": 4, "point": "N1 と N2", "note": "牛どんと お茶: と nối hai món." }
+          ]
+        },
+        {
+          "speaker": "{店|みせ}の{人|ひと}",
+          "ja": "{天|てん}ぷら{定食|ていしょく}と {牛|ぎゅう}どんと お{茶|ちゃ}ですね。{少々|しょうしょう} お{待|ま}ち ください。",
+          "vi": "[Cơm /]tempura, cơm bò và trà[ phải không/ đúng không/][ ạ/]. Xin [quý khách /]đợi một chút[ ạ/].",
+          "grammar": [
+            { "lesson": 13, "point": "ご注文は。", "note": "Nhắc lại món khách gọi để xác nhận — bước tiếp theo của mẫu ご注文は." },
+            { "lesson": 4, "point": "～ね", "note": "～ですね: xác nhận." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{喫茶店|きっさてん}に {入|はい}りませんか。コーヒーが {飲|の}みたいです。",
+          "vi": "[Mình /Chúng ta /][vào/ghé] quán cà phê [nhé/không/được không]? Tôi muốn uống cà phê.",
+          "grammar": [
+            { "lesson": 13, "point": "N に はいります ／ N を でます", "note": "喫茶店に 入ります: đi VÀO một nơi thì dùng に." },
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "コーヒーが 飲みたい: が thay cho を." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "いいですね。あの {喫茶店|きっさてん}に {入|はい}りましょう。",
+          "vi": "Hay [đấy/quá/]. [Mình /Chúng ta /]vào quán cà phê kia [đi/nhé/thôi/].",
+          "grammar": [
+            { "lesson": 13, "point": "N に はいります ／ N を でます", "note": "～に 入ります." },
+            { "lesson": 6, "point": "V ましょう", "note": "入りましょう: chốt lại." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cuối tuần và mong muốn",
+      "description": "Chị Kimura và chị Karina kể chuyện cuối tuần và những điều mình muốn.",
+      "lines": [
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{週末|しゅうまつ} どこか {行|い}きましたか。",
+          "vi": "Cuối tuần [bạn /em /chị /]có đi đâu không?",
+          "grammar": [
+            { "lesson": 13, "point": "どこか ／ なにか", "note": "どこか: 'nơi nào đó' — chỉ hỏi có đi hay không; へ sau どこか thường lược." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きましたか: hỏi việc đã qua." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "はい、{京都|きょうと}へ {紅葉|もみじ}を {見|み}に {行|い}きました。",
+          "vi": "Có, [tôi /mình /em /][đã /]đi Kyoto [để /]ngắm lá đỏ.",
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "紅葉を 見に 行きました: đi để ngắm lá đỏ." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きました: quá khứ." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "いいですね。{私|わたし}も {京都|きょうと}へ {行|い}きたいです。",
+          "vi": "Thích [quá/thế/nhỉ]. [Tôi/Mình] cũng muốn đi Kyoto.",
+          "grammar": [
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "行きたい: muốn tự mình đi; các trợ từ khác (へ) giữ nguyên." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "京都へ: nơi đến." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{私|わたし}は デパートへ {買|か}い{物|もの}に {行|い}きました。でも、{人|ひと}が {多|おお}かったです。",
+          "vi": "[Tôi/Mình] [thì /][đã /]đi mua sắm ở [bách hóa/bách hoá/trung tâm thương mại]. Nhưng [đông người/người đông] [lắm/quá/].",
+          "viAlt": ["[Tôi/Mình] [thì /][đã /]đi [bách hóa/bách hoá/trung tâm thương mại] [để /]mua sắm. Nhưng [đông người/người đông] [lắm/quá/]."],
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "買い物に 行きました: danh từ chỉ hoạt động + に." },
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "多かったです: quá khứ." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{何|なに}か {買|か}いましたか。",
+          "vi": "[Chị /Bạn /]có mua [gì/cái gì] không?",
+          "grammar": [
+            { "lesson": 13, "point": "どこか ／ なにか", "note": "何か: 'thứ gì đó' — hỏi có mua hay không; を sau 何か thường lược." },
+            { "lesson": 6, "point": "N を V", "note": "（何かを） 買います." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "いいえ。{新|あたら}しい コートが ほしかったですが、{高|たか}かったです。",
+          "vi": "Không. [Tôi /Mình /][đã /]muốn [mua /có /][một /][cái /chiếc /]áo khoác mới nhưng [đắt quá/nó đắt/đắt].",
+          "grammar": [
+            { "lesson": 13, "point": "N が ほしいです", "note": "ほしかったです: ほしい là tính từ い nên quá khứ là ほしかった." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、～: muốn NHƯNG đắt." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{私|わたし}は {何|なに}も ほしくないです。{旅行|りょこう}が したいです。",
+          "vi": "[Tôi/Mình] [thì /]không muốn [có /mua /]gì cả. [Tôi /Mình /]muốn đi du lịch.",
+          "grammar": [
+            { "lesson": 13, "point": "N が ほしいです", "note": "何も ほしくないです: phủ định của ほしい — い đổi thành くない." },
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "旅行が したい: ほしい chỉ đi với danh từ; muốn LÀM gì thì dùng ～たい." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "どこへ {行|い}きたいですか。",
+          "vi": "[Bạn /Em /]muốn đi đâu?",
+          "grammar": [
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "行きたいですか: hỏi ý muốn của người nghe (không phải lời rủ)." },
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "どこ: hỏi nơi chốn." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{北海道|ほっかいどう}へ スキーに {行|い}きたいです。",
+          "vi": "[Tôi /Mình /Em /]muốn đi Hokkaido [để /]trượt tuyết.",
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "スキーに 行きます: mục đích là danh từ chỉ hoạt động." },
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "行きたいです." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{私|わたし}も スキーが したいです。",
+          "vi": "[Tôi/Mình] cũng muốn [đi /]trượt tuyết.",
+          "grammar": [
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "スキーが したい: を đổi thành が." },
+            { "lesson": 1, "point": "N も", "note": "私も: 'tôi cũng'." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Muốn gì, vào đâu, ra lúc nào",
+      "description": "ほしい, ～たい, đi đâu để làm gì, vào và ra khỏi một nơi, なにか・どこか.",
+      "lines": [
+        {
+          "ja": "{新|あたら}しい パソコンが ほしいです。",
+          "vi": "Tôi muốn [có /mua /][một /][cái /chiếc /]máy tính mới.",
+          "grammar": [
+            { "lesson": 13, "point": "N が ほしいです", "note": "パソコンが ほしい: thứ muốn có đi với が, không dùng を." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "新しい パソコン." }
+          ]
+        },
+        {
+          "ja": "{何|なに}が いちばん ほしいですか。",
+          "vi": "[Anh/Chị/Bạn] muốn [có /]gì nhất?",
+          "grammar": [
+            { "lesson": 13, "point": "N が ほしいです", "note": "ほしいですか: hỏi ngôi thứ hai (không dùng để mời người trên)." },
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "何が いちばん: 'cái gì nhất'." }
+          ]
+        },
+        {
+          "ja": "{広|ひろ}い {部屋|へや}が ほしいです。{今|いま}の {部屋|へや}は {狭|せま}いですから。",
+          "vi": "Tôi muốn [có /][một /]căn phòng rộng. [Vì /]phòng [bây giờ/hiện tại/hiện nay] [chật/hẹp] [quá/lắm/].",
+          "grammar": [
+            { "lesson": 13, "point": "N が ほしいです", "note": "広い 部屋が ほしい." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から。: lý do đặt sau." }
+          ]
+        },
+        {
+          "ja": "{毎朝|まいあさ} [{7|しち}/{7|なな}]{時|じ}に うちを {出|で}ます。",
+          "vi": "[Sáng nào tôi cũng/Mỗi sáng tôi/Hằng sáng tôi] [ra khỏi/rời] nhà lúc [7/bảy] giờ.",
+          "grammar": [
+            { "lesson": 13, "point": "N に はいります ／ N を でます", "note": "うちを 出ます: rời khỏi một nơi thì dùng を (を chỉ điểm rời đi)." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "7時に: giờ + に." }
+          ]
+        },
+        {
+          "ja": "{駅|えき}の {近|ちか}くの {喫茶店|きっさてん}に {入|はい}りました。",
+          "vi": "Tôi [đã /]vào [một /]quán cà phê gần ga.",
+          "grammar": [
+            { "lesson": 13, "point": "N に はいります ／ N を でます", "note": "喫茶店に 入りました: nơi đi vào + に." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "駅の 近く: gần ga." }
+          ]
+        },
+        {
+          "ja": "{来月|らいげつ} {国|くに}へ {友達|ともだち}の {結婚式|けっこんしき}に {帰|かえ}ります。",
+          "vi": "Tháng sau tôi [sẽ /]về nước [để /][dự /đi /]đám cưới [của /]bạn.",
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "結婚式に 帰ります: mục đích của việc về nước." },
+            { "lesson": 1, "point": "N1 の N2", "note": "友達の 結婚式: đám cưới của bạn." }
+          ]
+        },
+        {
+          "ja": "{日曜日|にちようび}に {公園|こうえん}へ {散歩|さんぽ}に {行|い}きます。",
+          "vi": "Chủ nhật tôi [sẽ /]đi [dạo/tản bộ] [ở /trong /]công viên.",
+          "viAlt": ["Chủ nhật tôi [sẽ /]đi công viên [để /]đi [dạo/tản bộ]."],
+          "grammar": [
+            { "lesson": 13, "point": "N（địa điểm）へ ～に いきます／きます／かえります", "note": "散歩に 行きます: danh từ chỉ hoạt động + に." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "日曜日に: thứ trong tuần có hay không có に đều được." }
+          ]
+        },
+        {
+          "ja": "{喉|のど}が {渇|かわ}きましたね。{何|なに}か {飲|の}みませんか。",
+          "vi": "Khát [nước /]quá [nhỉ/]. [Mình /Chúng ta /]uống [cái /chút /]gì [đó /]không?",
+          "grammar": [
+            { "lesson": 13, "point": "どこか ／ なにか", "note": "何か 飲みませんか: rủ uống 'thứ gì đó', chưa nói cụ thể." },
+            { "lesson": 6, "point": "V ませんか", "note": "～ませんか: lời rủ." }
+          ]
+        },
+        {
+          "ja": "{何|なに}か {冷|つめ}たい {物|もの}が {飲|の}みたいです。",
+          "vi": "Tôi muốn uống [cái /chút /thứ /]gì [đó /]lạnh.",
+          "grammar": [
+            { "lesson": 13, "point": "V thể ます ＋ たいです", "note": "飲みたい: が thay cho を." },
+            { "lesson": 13, "point": "どこか ／ なにか", "note": "何か 冷たい 物: 'thứ gì đó lạnh'." }
+          ]
+        },
+        {
+          "ja": "{6|ろく}{時|じ}に {会社|かいしゃ}を {出|で}ますから、[{7|しち}/{7|なな}]{時|じ}ごろ うちへ {帰|かえ}ります。",
+          "vi": "[Tôi /][ra khỏi/rời] công ty lúc [6/sáu] giờ[ nên/,] [tôi /][sẽ /]về nhà [vào /]khoảng [7/bảy] giờ.",
+          "grammar": [
+            { "lesson": 13, "point": "N に はいります ／ N を でます", "note": "会社を 出ます: rời công ty." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から、～: lý do trước, kết quả sau." }
+          ]
+        }
+      ]
+    }
+  ]
+}

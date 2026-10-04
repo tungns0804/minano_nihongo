@@ -39,8 +39,30 @@
           ></button>
         </div>
 
+        <!-- Câu luyện dịch thuộc một đoạn hội thoại thì hiện câu ngay trước nó: dịch
+             「はい、そうです」 mà không biết người kia vừa hỏi gì thì không dịch được. -->
+        @if (q.sentence?.context; as context) {
+          <div class="sentence-context">
+            <span class="sentence-context-label">{{ t('translate.context') }}</span>
+            <p class="jp">
+              @if (context.speaker) {
+                <span class="speaker"><app-ruby [text]="context.speaker" [furigana]="showFurigana()" />：</span>
+              }
+              <app-ruby [text]="context.japanese" [furigana]="showFurigana()" />
+            </p>
+            <p class="muted small">{{ context.vietnamese }}</p>
+          </div>
+        }
+
         <p class="prompt" [class.jp]="q.promptIsJapanese" [class.is-sentence]="q.isSentence">
-          {{ q.prompt }}
+          @if (q.sentence?.speaker; as speaker) {
+            <span class="speaker"><app-ruby [text]="speaker" [furigana]="showFurigana()" />：</span>
+          }
+          @if (q.sentence && q.promptIsJapanese) {
+            <app-ruby [text]="q.sentence.japanese" [furigana]="showFurigana()" />
+          } @else {
+            {{ q.prompt }}
+          }
         </p>
 
         @if (q.hint) {
@@ -184,10 +206,14 @@
                   {{ t('practice.correctAfter', { count: wrongAttempts() }) }}
                 </span>
               }
+              @if (selfGraded()) {
+                <span class="feedback-note">{{ t('translate.selfGraded') }}</span>
+              }
             </p>
           } @else {
             <p class="feedback-title">
-              <span aria-hidden="true">✕</span> {{ t('practice.wrong') }}
+              <span aria-hidden="true">✕</span>
+              {{ q.selfGradable ? t('translate.wrong') : t('practice.wrong') }}
             </p>
             @if (lastWrongAnswer(); as wrong) {
               <p class="feedback-line">
@@ -199,23 +225,79 @@
 
           <p class="feedback-line">
             {{ t('practice.answer') }}
-            <strong class="right-answer" [class.jp]="q.answerIsJapanese">{{ correctAnswerText() }}</strong>
+            <strong class="right-answer" [class.jp]="q.answerIsJapanese">
+              @if (q.sentence && q.answerIsJapanese) {
+                <app-ruby [text]="q.sentence.japanese" />
+              } @else {
+                {{ correctAnswerText() }}
+              }
+            </strong>
           </p>
 
-          <dl class="word-recap">
-            @for (item of q.subject.recap; track item.labelKey) {
-              <div class="recap-item">
-                <dt><app-t [key]="item.labelKey" /></dt>
-                <dd [class.jp]="item.japanese">
-                  @if (item.valueKey; as valueKey) {
-                    <app-t [key]="valueKey" />
-                  } @else {
-                    {{ item.value }}
+          @if (q.sentence?.alternatives; as alternatives) {
+            @if (alternatives.length > 0) {
+              <div class="feedback-line alternatives">
+                <span>{{ t('translate.alsoAccepted') }}</span>
+                <ul>
+                  @for (alternative of alternatives; track $index) {
+                    <li [class.jp]="q.answerIsJapanese">{{ alternative }}</li>
                   }
-                </dd>
+                </ul>
               </div>
             }
-          </dl>
+          }
+
+          <!-- Tự chấm chỉ có ở câu luyện dịch: dịch đúng nghĩa mà khác câu mẫu ở cách
+               chọn từ thì máy không biết, người học thì biết — vì đã thấy câu mẫu. -->
+          @if (canAcceptOwnAnswer()) {
+            <div class="self-grade">
+              <button type="button" class="btn btn-sm" (click)="acceptOwnAnswer()">
+                {{ t('translate.acceptOwn') }}
+              </button>
+              <span class="small muted">{{ t('translate.acceptOwnHint') }}</span>
+            </div>
+          }
+
+          @if (q.subject.recap.length > 0) {
+            <dl class="word-recap">
+              @for (item of q.subject.recap; track item.labelKey) {
+                <div class="recap-item">
+                  <dt><app-t [key]="item.labelKey" /></dt>
+                  <dd [class.jp]="item.japanese">
+                    @if (item.valueKey; as valueKey) {
+                      <app-t [key]="valueKey" />
+                    } @else {
+                      {{ item.value }}
+                    }
+                  </dd>
+                </div>
+              }
+            </dl>
+          }
+
+          <!-- Giải thích từng mẫu ngữ pháp có trong câu — hiện dù đúng hay sai, vì đúng
+               mà không biết vì sao đúng thì lần sau vẫn có thể sai. -->
+          @if (q.sentence?.grammar; as grammar) {
+            <section class="sentence-grammar" [attr.aria-label]="t('translate.grammarInSentence')">
+              <h3 class="sentence-grammar-title">{{ t('translate.grammarInSentence') }}</h3>
+              <ul>
+                @for (item of grammar; track $index) {
+                  <li class="grammar-note" [class.is-current]="item.current">
+                    <div class="grammar-note-head">
+                      <span class="badge" [class.badge-accent]="item.current">
+                        {{ t('translate.lessonBadge', { lesson: item.lesson }) }}
+                      </span>
+                      <strong class="jp">{{ item.title }}</strong>
+                    </div>
+                    @if (item.structure) {
+                      <p class="grammar-note-structure jp">{{ item.structure }}</p>
+                    }
+                    <p class="grammar-note-text">{{ item.note }}</p>
+                  </li>
+                }
+              </ul>
+            </section>
+          }
 
           <div class="feedback-actions">
             <button type="button" class="btn btn-primary btn-lg" (click)="goNext()">

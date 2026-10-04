@@ -58,7 +58,7 @@
       "structures": ["N（môn thể thao, trò chơi, công việc）を します"],
       "explanation": [
         "します là động từ vạn năng: ghép với danh từ chỉ hoạt động là ra ngay một hành động cụ thể.",
-        "Với danh từ gốc Hán như べんきょう, かいもの, しごと thì thường viết liền: 「べんきょうします」, không cần を."
+        "Một số danh từ gốc Hán ghép thẳng với します thành một động từ: 「べんきょうします」, 「けんきゅうします」. Còn しごと, しゅくだい, かいもの thì dùng đủ を: 「しごとを します」, 「しゅくだいを します」."
       ],
       "tables": [
         {
@@ -229,6 +229,31 @@
               "japanese": "１２じですね。ひるごはんを たべましょう。",
               "vietnamese": "12 giờ rồi nhỉ. Chúng ta ăn trưa thôi.",
               "reading": "じゅうにじですね。ひるごはんを たべましょう。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～か — đáp lại tin vừa nghe",
+      "summary": "Nhắc lại từ khoá vừa nghe kèm ですか để cho biết mình đã tiếp nhận thông tin.",
+      "structures": ["N ですか。（xuống giọng）"],
+      "explanation": [
+        "Giống そうですか ở bài 2: か ở đây KHÔNG phải câu hỏi mà là lời đáp 'thế à', '... à'. Đọc xuống giọng.",
+        "Người nghe nhắc lại đúng từ khoá vừa nghe rồi thêm ですか, thường nói tiếp một câu nhận xét."
+      ],
+      "usages": [
+        {
+          "title": "Nhắc lại tin vừa nghe",
+          "detail": "Hay đi kèm một câu nhận xét ngắn.",
+          "examples": [
+            {
+              "japanese": "にちようび きょうとへ いきました。",
+              "vietnamese": "Chủ nhật tôi đã đi Kyoto."
+            },
+            {
+              "japanese": "きょうとですか。いいですね。",
+              "vietnamese": "Kyoto à? Hay quá nhỉ."
             }
           ]
         }

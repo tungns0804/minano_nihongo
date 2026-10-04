@@ -34,7 +34,8 @@
         }
       ],
       "notes": [
-        "Khi việc người khác làm cho mình là điều TỐT thì không dùng bị động mà dùng ～てもらいます: ははに ふくを せんたくして もらいます."
+        "Khi việc người khác làm cho mình là điều TỐT thì không dùng bị động mà dùng ～てもらいます: ははに ふくを せんたくして もらいます.",
+        "Ở dạng 2, chủ đề là NGƯỜI chịu phiền (chủ sở hữu), không phải đồ vật: nói 「わたしは おとうとに パソコンを こわされました」, không nói 「わたしの パソコンは おとうとに こわされました」."
       ],
       "usages": [
         {
@@ -86,34 +87,12 @@
       ]
     },
     {
-      "title": "N によって",
-      "summary": "Bởi N — nêu người tạo ra, phát minh ra, sáng tác ra.",
-      "structures": ["N は ＋ N によって ＋ V bị động"],
-      "explanation": [
-        "Dùng khi muốn nêu rõ tác giả của một tác phẩm, một phát minh. Nếu chỉ dùng に thì nghe như bị hại."
-      ],
-      "notes": [],
-      "usages": [
-        {
-          "title": "Tác giả, người phát minh",
-          "detail": "によって thay cho に.",
-          "examples": [
-            {
-              "japanese": "この えは ピカソに よって かかれました。",
-              "vietnamese": "Bức tranh này được vẽ bởi Picasso."
-            },
-            {
-              "japanese": "でんわは ベルに よって はつめいされました。",
-              "vietnamese": "Điện thoại được phát minh bởi Bell."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "title": "N から / N で つくられます",
       "summary": "Được làm từ nguyên liệu gì — から khi nhìn không ra, で khi nhìn là biết.",
-      "structures": ["N から つくられます — nguyên liệu đã biến đổi, nhìn không nhận ra", "N で つくられます — nhìn sản phẩm là biết nguyên liệu"],
+      "structures": [
+        "N から つくられます — nguyên liệu đã biến đổi, nhìn không nhận ra",
+        "N で つくられます — nhìn sản phẩm là biết nguyên liệu"
+      ],
       "explanation": [
         "から: nguyên liệu đã qua chế biến, nhìn thành phẩm không đoán ra được nó làm từ gì.",
         "で: nguyên liệu còn giữ nguyên hình, nhìn là biết."
@@ -139,8 +118,31 @@
           "detail": "Nhìn là biết làm bằng gì.",
           "examples": [
             {
-              "japanese": "この つくえは きで つくられます。",
+              "japanese": "この つくえは きで つくられて います。",
               "vietnamese": "Cái bàn này được làm bằng gỗ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "この／その／あの ＋ từ chỉ vị trí",
+      "summary": "あの なか = bên trong cái (tòa nhà) kia.",
+      "structures": ["あの なか", "その となり"],
+      "explanation": [
+        "この, その, あの đi thẳng với từ chỉ vị trí như うえ, した, なか, となり, ちかく để chỉ vị trí so với vật đang được nói tới: 「あの なか」 nghĩa là 「あの たてものの なか」."
+      ],
+      "usages": [
+        {
+          "title": "Chỉ vị trí so với vật đang nói",
+          "examples": [
+            {
+              "japanese": "あの なかに はいれますか。",
+              "vietnamese": "Vào trong đó được không?"
+            },
+            {
+              "japanese": "その となりは ぎんこうです。",
+              "vietnamese": "Bên cạnh đó là ngân hàng."
             }
           ]
         }

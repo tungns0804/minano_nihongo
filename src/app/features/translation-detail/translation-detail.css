@@ -1,0 +1,196 @@
+/* Trang một bài luyện dịch. Khung thiết lập, nút ★, nhãn và khung chờ dùng chung
+   định nghĩa ở `src/styles.css`; file này chỉ còn phần riêng của trang. */
+
+/* --- Tổng hợp ngữ pháp của bài --- */
+
+.grammar-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* Mỗi mẫu là một đường dẫn sang bài ngữ pháp dạy nó: đọc tới mẫu nào chưa nhớ thì
+   bấm sang ôn lại ngay. */
+.grammar-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-subtle);
+  color: var(--text);
+  font-size: 0.93rem;
+  font-weight: 550;
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.grammar-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.grammar-chip.is-current {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--accent-soft);
+}
+
+.grammar-chip-lesson {
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--text-muted);
+}
+
+/* Số câu của bài có dùng mẫu này. */
+.grammar-chip-count {
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-inset);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- Các bài nhỏ --- */
+
+.sets-toolbar {
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.set-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.set-title {
+  font-size: 1.15rem;
+}
+
+.sentence-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sentence {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+/* Câu đã đánh dấu ★ nổi lên hẳn, như ở trang ngữ pháp. */
+.sentence:has(.star-btn.is-on) {
+  border-color: var(--warning-border);
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.sentence-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+/* Cao dòng đủ chỗ cho furigana, nếu không nó đè lên dòng trên. */
+.sentence-jp {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 2;
+}
+
+.sentence-vi {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.speaker {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.sentence-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Nhãn mẫu ngữ pháp dưới câu. Rê chuột vào để đọc giải thích của câu đó. */
+.sentence-tag {
+  padding: 2px 9px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 550;
+  cursor: help;
+}
+
+.sentence-tag.is-current {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  color: var(--accent);
+}
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+@media (hover: none) {
+  .star-btn {
+    padding: 7px 9px;
+    font-size: 1.3rem;
+  }
+}
+
+/* --- Khung chờ --- */
+
+.sk-back {
+  width: 190px;
+  height: 15px;
+}
+
+.sk-title {
+  width: min(360px, 80%);
+  height: 30px;
+}
+
+.sk-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Cao xấp xỉ một khối tổng hợp ngữ pháp / một bài nhỏ. */
+.sk-block {
+  height: 220px;
+  border-radius: var(--radius-lg);
+}
+
+@media (max-width: 640px) {
+  .set-head .btn,
+  .start-bar .btn {
+    width: 100%;
+  }
+}

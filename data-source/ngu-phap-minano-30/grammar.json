@@ -117,11 +117,87 @@
           "examples": [
             {
               "japanese": "あついですから、そのままに して おいて ください。",
-              "vietnamese": "Vì nóng nên cứ để mở như vậy đi."
+              "vietnamese": "Vì trời nóng nên cứ để nguyên như thế nhé."
             },
             {
               "japanese": "ちちは まだ たべて いませんから、そのままに して おいて ください。",
               "vietnamese": "Bố vẫn chưa ăn nên cứ để nguyên vậy đi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "まだ ＋ thể khẳng định — vẫn còn",
+      "summary": "まだ đi với câu khẳng định nghĩa là 'vẫn còn': việc hay trạng thái vẫn đang tiếp diễn.",
+      "structures": ["まだ ＋ V て います", "まだ ＋ A です"],
+      "explanation": [
+        "まだ ở đây có nghĩa 'vẫn', 'vẫn còn' — nói một hành động hay trạng thái còn đang tiếp diễn.",
+        "Bài 31 học まだ đi với phủ định: 'vẫn chưa'."
+      ],
+      "usages": [
+        {
+          "title": "Vẫn còn",
+          "detail": "Việc bắt đầu rồi và chưa dứt.",
+          "examples": [
+            {
+              "japanese": "まだ あめが ふって います。",
+              "vietnamese": "Trời vẫn còn đang mưa."
+            },
+            {
+              "japanese": "どうぐを かたづけましょうか。",
+              "vietnamese": "Để tôi dọn dụng cụ nhé?"
+            },
+            {
+              "japanese": "まだ つかって いますから、そのままに して おいて ください。",
+              "vietnamese": "Tôi vẫn đang dùng nên cứ để nguyên như thế nhé."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1 とか N2 とか",
+      "summary": "Liệt kê vài ví dụ giống や, nhưng mang màu văn nói.",
+      "structures": ["N1 とか N2［とか］"],
+      "explanation": [
+        "とか giống や (bài 10): chỉ nêu vài thứ tiêu biểu. Khác ở chỗ とか thân mật hơn và còn đứng được cả sau danh từ cuối cùng."
+      ],
+      "usages": [
+        {
+          "title": "Kể vài ví dụ",
+          "examples": [
+            {
+              "japanese": "どんな スポーツを して いますか。",
+              "vietnamese": "Anh đang chơi môn thể thao nào?"
+            },
+            {
+              "japanese": "そうですね。テニスとか すいえいとか……。",
+              "vietnamese": "À vâng, mấy môn như tennis, bơi lội…"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Trợ từ ＋ も — にも、でも、からも",
+      "summary": "も thay cho が, を nhưng đứng SAU các trợ từ khác.",
+      "structures": ["N に も／で も／から も ～"],
+      "explanation": [
+        "も thay hẳn chỗ của が và を.",
+        "Với các trợ từ khác như に, で, から, まで, と thì も đứng ngay sau chúng: 「にも」, 「でも」, 「からも」. Riêng へ thì giữ hay bỏ đều được: 「どこ［へ］も いきません」."
+      ],
+      "usages": [
+        {
+          "title": "'Cũng …' sau một trợ từ khác",
+          "examples": [
+            {
+              "japanese": "ほかにも いろいろ あります。",
+              "vietnamese": "Ngoài ra còn có nhiều thứ khác nữa."
+            },
+            {
+              "japanese": "ともだちからも メールが きました。",
+              "vietnamese": "Bạn tôi cũng gửi email tới."
             }
           ]
         }

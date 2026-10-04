@@ -1,0 +1,302 @@
+{
+  "sets": [
+    {
+      "title": "Cuộc sống ở Nhật thế nào?",
+      "description": "Anh Yamada hỏi vợ chồng anh Santos về cuộc sống, công việc và quê nhà.",
+      "lines": [
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "マリアさん、{日本|にほん}の {生活|せいかつ}は どうですか。",
+          "vi": "Chị Maria[ ơi/], cuộc sống [ở /tại /]Nhật[ Bản/] [thế nào/ra sao/như thế nào][ ạ/]?",
+          "grammar": [
+            { "lesson": 8, "point": "N は どうですか", "note": "～は どうですか: hỏi cảm nhận của người đã trải nghiệm (Maria đang sống ở Nhật)." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本の 生活: cuộc sống ở Nhật." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "{毎日|まいにち} とても {楽|たの}しいです。",
+          "vi": "[Ngày nào cũng/Mỗi ngày đều/Hằng ngày đều] rất vui[ ạ/].",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "楽しいです: tính từ い đứng ngay trước です." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても: 'rất', dùng trong câu khẳng định." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですか。サントスさん、お{仕事|しごと}は どうですか。",
+          "vi": "[Thế à/Vậy à]. Anh Santos, công việc [của anh /][thế nào/ra sao/như thế nào][ ạ/]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận câu trả lời rồi chuyển sang người khác." },
+            { "lesson": 8, "point": "N は どうですか", "note": "お仕事は どうですか: hỏi cảm nhận về công việc; お cho lịch sự vì là việc của người nghe." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "そうですね。{忙|いそが}しいですが、{面白|おもしろ}いです。",
+          "vi": "[Ừm/Để xem nào/À], bận nhưng [thú vị/vui/hay].",
+          "grammar": [
+            { "lesson": 8, "point": "そうですね — ngập ngừng suy nghĩ", "note": "そうですね: đệm 'ừm…' trong lúc nghĩ câu trả lời, không phải đồng tình." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～ですが、～: が nối hai vế ngược chiều — 'bận NHƯNG thú vị'." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{会社|かいしゃ}の {人|ひと}は どんな {人|ひと}ですか。",
+          "vi": "[Người/Mọi người] [trong/ở] công ty là người [thế nào/như thế nào/ra sao]?",
+          "viAlt": ["Đồng nghiệp[ ở công ty/ trong công ty/] là người [thế nào/như thế nào/ra sao]?"],
+          "grammar": [
+            { "lesson": 8, "point": "N1 は どんな N2 ですか", "note": "どんな 人ですか: hỏi đặc điểm; どんな luôn đi kèm một danh từ ngay sau." },
+            { "lesson": 1, "point": "N1 の N2", "note": "会社の 人: người trong công ty." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "とても {親切|しんせつ}です。そして、{元気|げんき}です。",
+          "vi": "[Họ /Mọi người /]rất [tốt bụng/thân thiện/tử tế]. [Và /Lại /][còn /cũng /][năng nổ/vui vẻ/hoạt bát/khỏe khoắn/khoẻ khoắn][ nữa/].",
+          "grammar": [
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 親切です: 'rất tốt bụng'." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "そして: nối hai ý cùng chiều (cùng là lời khen)." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "親切です ／ 元気です: tính từ な đứng trước です thì KHÔNG có な." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "サンパウロは どんな {町|まち}ですか。{大|おお}きい {町|まち}ですか。",
+          "vi": "[São Paulo/Sao Paulo] là thành phố [thế nào/như thế nào/ra sao]? [Là /Có phải là /]thành phố lớn [à/không/phải không]?",
+          "grammar": [
+            { "lesson": 8, "point": "N1 は どんな N2 ですか", "note": "どんな 町ですか: hỏi đặc điểm của thành phố." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "大きい 町: tính từ い giữ nguyên đuôi, đứng TRƯỚC danh từ ('thành phố lớn')." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "大きい 町ですか: đoán thử bằng câu hỏi có/không." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "ええ、とても {大|おお}きい {町|まち}です。そして、にぎやかです。",
+          "vi": "[Vâng/Ừ/Đúng vậy], [là /][một /]thành phố rất lớn. [Và /Lại /][còn /cũng /][nhộn nhịp/náo nhiệt/sôi động][ nữa/].",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "大きい 町: tính từ い + danh từ." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 大きい: とても đứng ngay trước tính từ." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "そして: thêm một ý cùng chiều." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "{日本|にほん}の {食|た}べ{物|もの}は おいしいですが、{高|たか}いです。",
+          "vi": "[Đồ ăn/Món ăn/Thức ăn] [ở /của /]Nhật [thì /]ngon nhưng đắt.",
+          "grammar": [
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "おいしいですが、高いです: hai vế ngược chiều — khen rồi chê." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "おいしい ／ 高い: tính từ い + です." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本の 食べ物: đồ ăn Nhật." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "この コーヒー[、/は ]とても おいしいですね。",
+          "vi": "[Cà phê/Ly cà phê/Tách cà phê] này [rất ngon/ngon quá/ngon thật/ngon lắm] [nhỉ/].",
+          "grammar": [
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても おいしい: 'rất ngon'." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "この コーヒー、: lược は trong văn nói." },
+            { "lesson": 4, "point": "～ね", "note": "～ですね: khen và chờ chủ nhà đồng tình." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hà Nội là thành phố thế nào?",
+      "description": "Chị Kimura hỏi chị Lan về Hà Nội, rồi hai người so với Tokyo.",
+      "lines": [
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ランさん、ハノイは どんな {町|まち}ですか。",
+          "vi": "[Chị/Bạn] Lan[ ơi/], Hà Nội là thành phố [thế nào/như thế nào/ra sao][ vậy/]?",
+          "grammar": [
+            { "lesson": 8, "point": "N1 は どんな N2 ですか", "note": "どんな 町ですか: hỏi đặc điểm của thành phố." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ハノイは ～ですか: vẫn là khung N1 は N2 ですか, どんな 町 đứng vào chỗ N2." }
+          ]
+        },
+        {
+          "speaker": "ラン",
+          "ja": "{古|ふる}い {町|まち}です。そして、きれいな {町|まち}です。",
+          "vi": "[Là /Đó là /]thành phố cổ[ kính/]. [Và /]cũng là [một /]thành phố đẹp[ nữa/].",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "古い 町 ／ きれいな 町: tính từ い ghép thẳng; tính từ な thêm な (きれい tận cùng bằng い nhưng là tính từ な)." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "そして: hai ý cùng chiều." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ハノイの {人|ひと}は {親切|しんせつ}ですか。",
+          "vi": "Người Hà Nội [có /][tốt bụng/thân thiện/tử tế] không[ vậy/]?",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "親切ですか: tính từ な + です." },
+            { "lesson": 1, "point": "N1 の N2", "note": "ハノイの 人: người Hà Nội." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "～ですか: câu hỏi có/không." }
+          ]
+        },
+        {
+          "speaker": "ラン",
+          "ja": "ええ、とても {親切|しんせつ}ですよ。",
+          "vi": "[Có/Vâng/Ừ], rất [tốt bụng/thân thiện/tử tế] [đấy/đó/].",
+          "grammar": [
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 親切です: 'rất'." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "親切です: tính từ な trước です không có な." },
+            { "lesson": 5, "point": "～よ", "note": "よ: khẳng định cho người nghe yên tâm." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{今|いま} ハノイは {暑|あつ}いですか。",
+          "vi": "Bây giờ Hà Nội [có /]nóng không?",
+          "viAlt": ["Hà Nội bây giờ [có /]nóng không?"],
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "暑いですか: tính từ い + です + か." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "～ですか: câu hỏi có/không." }
+          ]
+        },
+        {
+          "speaker": "ラン",
+          "ja": "いいえ、あまり {暑|あつ}くないです。{東京|とうきょう}は どうですか。",
+          "vi": "[Không/Không ạ], không nóng lắm. [Còn /]Tokyo [thì /][thế nào/ra sao][ ạ/]?",
+          "grammar": [
+            { "lesson": 8, "point": "とても ／ あまり", "note": "あまり + phủ định: 'không ... lắm'." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "暑くないです: phủ định tính từ い — đổi い thành くない." },
+            { "lesson": 8, "point": "N は どうですか", "note": "東京は どうですか: hỏi lại tình hình bên người kia." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "そうですね。{東京|とうきょう}は {暑|あつ}いですが、{便利|べんり}な {町|まち}です。",
+          "vi": "[Ừm/Để xem nào/À], Tokyo [thì /]nóng nhưng là [một /]thành phố tiện lợi.",
+          "grammar": [
+            { "lesson": 8, "point": "そうですね — ngập ngừng suy nghĩ", "note": "そうですね: nghĩ một nhịp trước khi trả lời." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "暑いですが、～: が nối hai vế ngược chiều." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "便利な 町: tính từ な + な + danh từ." }
+          ]
+        },
+        {
+          "speaker": "ラン",
+          "ja": "ハノイの {食|た}べ{物|もの}は {安|やす}いですよ。そして、おいしいです。",
+          "vi": "[Đồ ăn/Món ăn/Thức ăn] [ở /]Hà Nội rẻ [đấy/lắm/]. [Và /Lại /][còn /cũng /]ngon[ nữa/].",
+          "grammar": [
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "そして: rẻ, VÀ ngon — hai ý cùng chiều." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "安いです ／ おいしいです: tính từ い + です." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo cho người nghe một điều họ chưa biết." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "いいですね。ベトナムの コーヒーは どうですか。",
+          "vi": "[Thích/Hay/Tuyệt] quá[ nhỉ/]. Cà phê Việt Nam [thì /][thế nào/ra sao][ ạ/]?",
+          "grammar": [
+            { "lesson": 8, "point": "N は どうですか", "note": "～は どうですか: hỏi cảm nhận của người đã quen thứ đó." },
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "ベトナムの コーヒー: cà phê sản xuất ở Việt Nam." }
+          ]
+        },
+        {
+          "speaker": "ラン",
+          "ja": "そうですね。おいしいですが、あまり {有名|ゆうめい}[じゃ/では] ありません。",
+          "vi": "[Ừm/Để xem nào/À], ngon nhưng [không nổi tiếng lắm/chưa nổi tiếng lắm/không được biết đến nhiều].",
+          "grammar": [
+            { "lesson": 8, "point": "そうですね — ngập ngừng suy nghĩ", "note": "そうですね: đệm khi đang nghĩ." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "あまり 有名じゃ ありません: 有名 là tính từ な (dù tận cùng bằng い) nên phủ định bằng じゃ ありません." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "おいしいですが、～: hai vế ngược chiều." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Khen, chê và hỏi cảm nghĩ",
+      "description": "Tính từ い và な trong câu: đứng trước danh từ, đứng trước です, ở thể phủ định.",
+      "lines": [
+        {
+          "ja": "{富士山|ふじさん}は {高|たか}い {山|やま}です。",
+          "vi": "[Núi /]Phú Sĩ là [một /][ngọn /]núi cao.",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "高い 山: tính từ đứng trước danh từ — tiếng Việt nói ngược lại 'núi cao'." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "富士山は ～ 山です: câu khẳng định với danh từ." }
+          ]
+        },
+        {
+          "ja": "この {辞書|じしょ}は {新|あたら}しくないですが、{便利|べんり}です。",
+          "vi": "[Cuốn/Quyển] từ điển này [tuy /]không mới nhưng tiện[ lợi/].",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "新しくないです: い → くない; 便利です: tính từ な + です." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、～: không mới NHƯNG tiện." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 辞書: cuốn ở gần người nói." }
+          ]
+        },
+        {
+          "ja": "あの {方|かた}は {親切|しんせつ}な {先生|せんせい}です。",
+          "vi": "[Người/Vị] kia là [một /][giáo viên/thầy giáo/cô giáo] [tốt bụng/thân thiện/tử tế].",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "親切な 先生: tính từ な phải thêm な trước danh từ." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの 方: người ở xa; 方 là cách nói lịch sự của 人." }
+          ]
+        },
+        {
+          "ja": "{今週|こんしゅう}は あまり {忙|いそが}しくないです。{一緒|いっしょ}に {京都|きょうと}へ {行|い}きませんか。",
+          "vi": "Tuần này tôi không bận lắm. [Mình/Chúng ta] cùng đi Kyoto [nhé/không/được không]?",
+          "grammar": [
+            { "lesson": 8, "point": "とても ／ あまり", "note": "あまり 忙しくないです: あまり bắt buộc đi với phủ định." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "忙しくないです: い → くない." },
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 行きませんか: rủ đi cùng." }
+          ]
+        },
+        {
+          "ja": "{新|あたら}しい {先生|せんせい}[、/は ]どんな {人|ひと}ですか。",
+          "vi": "[Thầy/Cô/Giáo viên] mới là người [thế nào/như thế nào/ra sao][ vậy/]?",
+          "grammar": [
+            { "lesson": 8, "point": "N1 は どんな N2 ですか", "note": "どんな 人ですか: hỏi đặc điểm, tính cách." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "新しい 先生、: lược は trong văn nói." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "新しい 先生: tính từ い + danh từ." }
+          ]
+        },
+        {
+          "ja": "{親切|しんせつ}な {人|ひと}ですよ。そして、ハンサムです。",
+          "vi": "[Là /]người [tốt bụng/thân thiện/tử tế] [đấy/đó/]. [Và /Lại /][còn /cũng /]đẹp trai[ nữa/].",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "親切な 人: tính từ な + な + danh từ." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "そして: thêm một lời khen cùng chiều." },
+            { "lesson": 5, "point": "～よ", "note": "よ: cho người hỏi biết." }
+          ]
+        },
+        {
+          "ja": "{昨日|きのう} {新|あたら}しい {車|くるま}を {買|か}いました。",
+          "vi": "Hôm qua tôi [đã /]mua [một /][chiếc /cái /]xe [ô tô /hơi /]mới.",
+          "grammar": [
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "新しい 車: tính từ い + danh từ." },
+            { "lesson": 6, "point": "N を V", "note": "車を 買いました: tân ngữ + を." }
+          ]
+        },
+        {
+          "ja": "この ケーキ[、/は ]どうですか。",
+          "vi": "[Cái /Chiếc /Miếng /]bánh [ngọt /kem /]này [thế nào/ra sao/có ngon không][ ạ/]?",
+          "grammar": [
+            { "lesson": 8, "point": "N は どうですか", "note": "どうですか: hỏi cảm nhận sau khi người kia ăn thử." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "この ケーキ、: lược は." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この ケーキ: cái bánh ở ngay trước mặt." }
+          ]
+        },
+        {
+          "ja": "{日本語|にほんご}の {勉強|べんきょう}[、/は ]どうですか。",
+          "vi": "[/Việc ]học tiếng Nhật [thế nào/ra sao][ rồi/][ ạ/]?",
+          "grammar": [
+            { "lesson": 8, "point": "N は どうですか", "note": "勉強は どうですか: hỏi cảm nhận về việc người nghe đang làm." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "日本語の 勉強、: lược は." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本語の 勉強: việc học tiếng Nhật." }
+          ]
+        },
+        {
+          "ja": "そうですね。とても {難|むずか}しいです。",
+          "vi": "[Ừm/Để xem nào/À], [rất khó/khó lắm/khó quá].",
+          "grammar": [
+            { "lesson": 8, "point": "そうですね — ngập ngừng suy nghĩ", "note": "そうですね: đệm trong lúc nghĩ câu trả lời." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 難しい: 'rất khó'." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "難しいです: tính từ い + です." }
+          ]
+        }
+      ]
+    }
+  ]
+}

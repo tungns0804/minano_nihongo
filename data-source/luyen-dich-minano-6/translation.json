@@ -1,0 +1,311 @@
+{
+  "sets": [
+    {
+      "title": "Rủ đi ngắm hoa",
+      "description": "Chị Sato rủ anh Miller đi ngắm hoa anh đào ở thành Osaka.",
+      "lines": [
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "ミラーさん、{日曜日|にちようび} {何|なに}を しますか。",
+          "vi": "Anh Miller[ ơi/], Chủ nhật [này /]anh [sẽ /]làm gì[ vậy/]?",
+          "grammar": [
+            { "lesson": 6, "point": "なん ／ なに", "note": "何を: đứng trước を thì 何 đọc là なに." },
+            { "lesson": 6, "point": "N を します", "note": "何を しますか: hỏi người kia sẽ làm gì — câu trả lời thường là 'N を します'." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{何|なに}も しません。うちで テレビを {見|み}ます。",
+          "vi": "[Tôi /]không làm gì cả. [Tôi /][sẽ /]xem [ti vi/tivi/TV] ở nhà.",
+          "viAlt": ["[Tôi /]không làm gì cả. [Tôi /][sẽ /]ở nhà xem [ti vi/tivi/TV]."],
+          "grammar": [
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "何も しません: từ nghi vấn + も + phủ định = 'không làm gì cả', cùng kiểu với どこも 行きません." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "うちで: で chỉ nơi diễn ra hành động (xem ti vi)." },
+            { "lesson": 6, "point": "N を V", "note": "テレビを 見ます: を đánh dấu thứ được xem." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "じゃ、{一緒|いっしょ}に お{花見|はなみ}を しませんか。",
+          "vi": "Vậy[ thì/] anh [đi /]ngắm hoa [anh đào /]cùng [tôi/chúng tôi] [nhé/không/được không]?",
+          "viAlt": ["Vậy[ thì/] [anh /]cùng [tôi /chúng tôi /][đi /]ngắm hoa [anh đào /][nhé/không/được không]?"],
+          "grammar": [
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に ～ませんか: lời rủ nhẹ nhàng, chừa chỗ cho người nghe từ chối." },
+            { "lesson": 6, "point": "N を します", "note": "お花見を します: danh từ chỉ hoạt động + を します." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "お{花見|はなみ}ですか。いいですね。どこで しますか。",
+          "vi": "Ngắm hoa [à/ư]? Hay [quá/đấy] [nhỉ/]. [Ngắm/Làm/Tổ chức] ở đâu[ vậy/]?",
+          "grammar": [
+            { "lesson": 6, "point": "～か — đáp lại tin vừa nghe", "note": "お花見ですか (xuống giọng): nhắc lại từ khoá để cho biết mình đã nghe, không phải hỏi lại." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "どこで しますか: hỏi nơi diễn ra hoạt động bằng どこで." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "{大阪城|おおさかじょう}で します。{会社|かいしゃ}の {人|ひと}も {来|き}ますよ。",
+          "vi": "[Ngắm /Làm /Tổ chức /]ở thành Osaka. Người [trong công ty/của công ty/ở công ty/công ty] cũng [sẽ /]đến [đấy/đó/nữa/].",
+          "grammar": [
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "大阪城で します: で chỉ nơi tổ chức." },
+            { "lesson": 1, "point": "N も", "note": "会社の 人も: 'người trong công ty cũng'." },
+            { "lesson": 5, "point": "～よ", "note": "来ますよ: よ báo tin người nghe chưa biết." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "そうですか。{何時|なんじ}に {会|あ}いますか。",
+          "vi": "[Thế à/Vậy à]. [Mình /Chúng ta /]gặp nhau lúc mấy giờ[ vậy/]?",
+          "viAlt": ["[Thế à/Vậy à]. Mấy giờ [mình /chúng ta /]gặp [nhau/][ vậy/]?"],
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin vừa nghe." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "何時に: giờ + に." },
+            { "lesson": 6, "point": "なん ／ なに", "note": "何時: đứng trước trợ số từ (時) thì 何 đọc là なん." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "{10|じゅう}{時|じ}に {大阪城公園駅|おおさかじょうこうえんえき}で {会|あ}いましょう。",
+          "vi": "[Mình /Chúng ta /]gặp nhau ở [ga Osakajo Koen/ga công viên thành Osaka] lúc [10/mười] giờ [nhé/đi/].",
+          "viAlt": ["[10/Mười] giờ [mình /chúng ta /]gặp nhau ở [ga Osakajo Koen/ga công viên thành Osaka] [nhé/đi/]."],
+          "grammar": [
+            { "lesson": 6, "point": "V ましょう", "note": "会いましょう: chốt hẹn sau khi người kia đã đồng ý." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "駅で: nơi diễn ra việc gặp nhau." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "10時に: giờ có con số đi với に." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{分|わ}かりました。{何|なに}を {買|か}いますか。お{酒|さけ}ですか。",
+          "vi": "[Tôi hiểu rồi/Được rồi/Rõ rồi]. [Mình /Chúng ta /][sẽ /]mua gì[ vậy/]? Rượu [à/hả/phải không]?",
+          "grammar": [
+            { "lesson": 6, "point": "なん ／ なに", "note": "何を: trước を đọc là なに." },
+            { "lesson": 6, "point": "N を V", "note": "何を 買いますか: hỏi tân ngữ thì thay nó bằng 何." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "お酒ですか: đoán thử bằng câu hỏi có/không (chủ đề đã rõ nên lược)." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "ええ。お{酒|さけ}と ジュースを {買|か}いましょう。",
+          "vi": "[Ừ/Vâng/Ừm]. [Mình /Chúng ta /]mua rượu và [nước hoa quả/nước trái cây/nước ép/nước ngọt] [đi/nhé/].",
+          "grammar": [
+            { "lesson": 6, "point": "V ましょう", "note": "買いましょう: đề nghị cùng làm." },
+            { "lesson": 4, "point": "N1 と N2", "note": "お酒と ジュース: と nối hai danh từ." },
+            { "lesson": 6, "point": "N を V", "note": "～を 買います: hai danh từ nối bằng と cùng làm tân ngữ." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "じゃ、{一緒|いっしょ}に {大阪|おおさか}デパートで {買|か}いませんか。",
+          "vi": "Vậy[ thì/] [mình/chúng ta] cùng [đi /]mua ở [bách hóa/bách hoá/cửa hàng bách hóa/cửa hàng bách hoá/trung tâm thương mại] Osaka [nhé/không/được không]?",
+          "grammar": [
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 買いませんか: rủ cùng đi mua." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "大阪デパートで: nơi mua." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bữa trưa ở công ty",
+      "description": "Anh Yamada và anh Santos nói chuyện ăn uống hằng ngày.",
+      "lines": [
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{今朝|けさ} {何|なに}を {食|た}べましたか。",
+          "vi": "Sáng nay [anh /][đã /]ăn gì[ vậy/]?",
+          "grammar": [
+            { "lesson": 6, "point": "なん ／ なに", "note": "何を: なに vì đứng trước を." },
+            { "lesson": 6, "point": "N を V", "note": "何を 食べましたか: hỏi đã ăn món gì." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "食べましたか: hỏi việc đã xảy ra (今朝)." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "{何|なに}も {食|た}べませんでした。{牛乳|ぎゅうにゅう}を {飲|の}みました。",
+          "vi": "[Tôi /][đã /]không ăn gì cả. [Tôi /][đã /]uống sữa.",
+          "grammar": [
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "何も 食べませんでした: từ nghi vấn + も + phủ định = 'không ăn gì cả'." },
+            { "lesson": 6, "point": "N を V", "note": "牛乳を 飲みました: を đánh dấu thứ được uống." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "食べませんでした ／ 飲みました: phủ định và khẳng định quá khứ." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですか。{私|わたし}は いつも パンと {卵|たまご}を {食|た}べます。",
+          "vi": "[Thế à/Vậy à]. Tôi [thì /][lúc nào/bao giờ] cũng ăn bánh mì và trứng.",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin." },
+            { "lesson": 4, "point": "N1 と N2", "note": "パンと 卵: と nối hai danh từ." },
+            { "lesson": 6, "point": "N を V", "note": "～を 食べます: thói quen hằng ngày (いつも)." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "{山田|やまだ}さんは どこで {昼|ひる}ご{飯|はん}を {食|た}べますか。",
+          "vi": "Anh Yamada [thường /]ăn trưa ở đâu[ vậy/]?",
+          "viAlt": ["Anh Yamada [thường /]ăn cơm trưa ở đâu[ vậy/]?"],
+          "grammar": [
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "どこで: hỏi nơi diễn ra hành động." },
+            { "lesson": 6, "point": "N を V", "note": "昼ご飯を 食べます: ăn trưa." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{会社|かいしゃ}の {食堂|しょくどう}で {食|た}べます。",
+          "vi": "[Tôi /]ăn ở [nhà ăn/căng tin/canteen] [của /]công ty.",
+          "grammar": [
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "食堂で 食べます: で chỉ nơi ăn." },
+            { "lesson": 1, "point": "N1 の N2", "note": "会社の 食堂: nhà ăn thuộc công ty." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "{食堂|しょくどう}ですか。{昼|ひる}ご{飯|はん}は いくらですか。",
+          "vi": "[Nhà ăn/Căng tin/Canteen] [à/ư]? Bữa trưa [giá /]bao nhiêu [tiền /][vậy/]?",
+          "grammar": [
+            { "lesson": 6, "point": "～か — đáp lại tin vừa nghe", "note": "食堂ですか (xuống giọng): nhắc lại từ khoá vừa nghe rồi nói tiếp." },
+            { "lesson": 3, "point": "N は いくらですか", "note": "昼ご飯は いくらですか: hỏi giá." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{500|ごひゃく}{円|えん}です。{明日|あした} {一緒|いっしょ}に {食|た}べませんか。",
+          "vi": "[500/Năm trăm] yên. Ngày mai [anh /]ăn cùng [tôi /][nhé/không/được không]?",
+          "viAlt": ["[500/Năm trăm] yên. Ngày mai [anh /]cùng [tôi /]ăn [nhé/không/được không]?"],
+          "grammar": [
+            { "lesson": 3, "point": "N は いくらですか", "note": "500円です: trả lời câu hỏi giá." },
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 食べませんか: rủ ăn cùng." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "ええ、いいですね。{12|じゅうに}{時|じ}に {行|い}きましょう。",
+          "vi": "[Ừ/Vâng/Được], hay [đấy/quá/]. [12/Mười hai] giờ [mình /chúng ta /]đi [nhé/thôi/].",
+          "viAlt": ["[Ừ/Vâng/Được], hay [đấy/quá/]. [Mình /Chúng ta /]đi lúc [12/mười hai] giờ [nhé/thôi/]."],
+          "grammar": [
+            { "lesson": 6, "point": "V ましょう", "note": "ええ、いいですね → 行きましょう: nhận lời rồi chốt bằng ましょう." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "12時に: giờ + に." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{何|なに}を {飲|の}みますか。お{茶|ちゃ}ですか、コーヒーですか。",
+          "vi": "[Anh /][sẽ /]uống gì? Trà hay cà phê?",
+          "viAlt": ["[Anh /][sẽ /]uống gì? [Anh uống /]trà hay [uống /]cà phê?"],
+          "grammar": [
+            { "lesson": 6, "point": "なん ／ なに", "note": "何を: なに vì đứng trước を." },
+            { "lesson": 6, "point": "N を V", "note": "何を 飲みますか: hỏi thứ được uống." },
+            { "lesson": 2, "point": "～か、～か", "note": "お茶ですか、コーヒーですか: câu hỏi lựa chọn." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "お{茶|ちゃ}を {飲|の}みます。{時々|ときどき} {紅茶|こうちゃ}も {飲|の}みます。",
+          "vi": "Tôi uống trà. Thỉnh thoảng [tôi /]cũng uống [hồng trà/trà đen].",
+          "grammar": [
+            { "lesson": 6, "point": "N を V", "note": "お茶を 飲みます: tân ngữ + を." },
+            { "lesson": 1, "point": "N も", "note": "紅茶も: も đứng thay chỗ を — 'cũng uống hồng trà'." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cuối tuần làm gì",
+      "description": "Làm gì, ở đâu, với ai — và rủ nhau cùng làm.",
+      "lines": [
+        {
+          "ja": "{日曜日|にちようび}は {友達|ともだち}と テニスを します。",
+          "vi": "Chủ nhật tôi [sẽ /]chơi [quần vợt/tennis] [cùng/với] bạn[ bè/].",
+          "viAlt": ["Chủ nhật tôi [sẽ /]cùng bạn[ bè/] chơi [quần vợt/tennis]."],
+          "grammar": [
+            { "lesson": 6, "point": "N を します", "note": "テニスを します: môn thể thao + を します = chơi." },
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "友達と: cùng với bạn." }
+          ]
+        },
+        {
+          "ja": "{土曜日|どようび}の {晩|ばん} うちで {宿題|しゅくだい}を しました。",
+          "vi": "Tối thứ Bảy tôi [đã /]làm bài tập [về nhà /]ở nhà.",
+          "viAlt": ["Tối thứ Bảy tôi [đã /]ở nhà làm bài tập[ về nhà/]."],
+          "grammar": [
+            { "lesson": 6, "point": "N を します", "note": "宿題を します: làm bài tập." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "うちで: nơi làm bài tập." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "しました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "{毎朝|まいあさ} {日本語|にほんご}の CDを {聞|き}きます。",
+          "vi": "[Sáng nào tôi cũng/Mỗi sáng tôi/Hằng sáng tôi] nghe [đĩa /]CD tiếng Nhật.",
+          "grammar": [
+            { "lesson": 6, "point": "N を V", "note": "CDを 聞きます: を đánh dấu thứ được nghe." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本語の CD: CD (học) tiếng Nhật." }
+          ]
+        },
+        {
+          "ja": "{先週|せんしゅう} {京都|きょうと}で {写真|しゃしん}を {撮|と}りました。",
+          "vi": "Tuần trước tôi [đã /]chụp ảnh ở Kyoto.",
+          "viAlt": ["Tuần trước tôi [đã /]chụp hình ở Kyoto."],
+          "grammar": [
+            { "lesson": 6, "point": "N を V", "note": "写真を 撮ります: chụp ảnh." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "京都で: nơi chụp; khác 京都へ (nơi đi đến)." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "撮りました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "{土曜日|どようび} {一緒|いっしょ}に {京都|きょうと}へ {行|い}きませんか。",
+          "vi": "Thứ Bảy [anh/chị/bạn] [đi /]Kyoto cùng [tôi/mình] [nhé/không/được không]?",
+          "viAlt": ["Thứ Bảy [anh /chị /bạn /]cùng [tôi /mình /]đi Kyoto [nhé/không/được không]?"],
+          "grammar": [
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 行きませんか: rủ đi cùng." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "京都へ: nơi đến." }
+          ]
+        },
+        {
+          "ja": "ええ、いいですね。{電車|でんしゃ}で {行|い}きましょう。",
+          "vi": "[Ừ/Vâng/Được], hay [đấy/quá/]. [Mình /Chúng ta /]đi bằng tàu điện [nhé/đi/].",
+          "grammar": [
+            { "lesson": 6, "point": "V ましょう", "note": "行きましょう: đồng ý rồi chốt lại." },
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "電車で: phương tiện + で." }
+          ]
+        },
+        {
+          "ja": "あの {店|みせ}で {何|なに}を {買|か}いましたか。",
+          "vi": "[Anh /Chị /Bạn /][đã /]mua gì ở cửa hàng [kia/đó/ấy][ vậy/]?",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの 店: cửa hàng ở xa cả hai người." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "店で: nơi mua." },
+            { "lesson": 6, "point": "なん ／ なに", "note": "何を: なに vì đứng trước を." }
+          ]
+        },
+        {
+          "ja": "{庭|にわ}で {一緒|いっしょ}に {昼|ひる}ご{飯|はん}を {食|た}べませんか。",
+          "vi": "[Mình /Chúng ta /]cùng ăn trưa [ngoài/ở ngoài/trong/ở] vườn [nhé/không/được không]?",
+          "viAlt": ["[Mình /Chúng ta /]ra vườn ăn trưa cùng [nhau /][nhé/không/được không]?"],
+          "grammar": [
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 食べませんか: rủ cùng ăn." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "庭で: nơi ăn." },
+            { "lesson": 6, "point": "N を V", "note": "昼ご飯を 食べます." }
+          ]
+        },
+        {
+          "ja": "それは {何|なん}の {写真|しゃしん}ですか。",
+          "vi": "Đó là ảnh [gì/về cái gì/chụp gì][ vậy/]?",
+          "viAlt": ["Cái đó là ảnh [gì/về cái gì/chụp gì][ vậy/]?"],
+          "grammar": [
+            { "lesson": 6, "point": "なん ／ なに", "note": "何の: đứng trước の thì đọc là なん." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それ: vật ở gần người nghe." }
+          ]
+        },
+        {
+          "ja": "{大阪|おおさか}デパートですか。{私|わたし}も {時々|ときどき} {行|い}きます。",
+          "vi": "[Bách hóa/Bách hoá] Osaka [à/ư]? Tôi cũng thỉnh thoảng [đi/đến/ghé] [đấy/đó/].",
+          "viAlt": ["[Bách hóa/Bách hoá] Osaka [à/ư]? Thỉnh thoảng tôi cũng [đi/đến/ghé] [đấy/đó/]."],
+          "grammar": [
+            { "lesson": 6, "point": "～か — đáp lại tin vừa nghe", "note": "大阪デパートですか (xuống giọng): nhắc lại tên vừa nghe để đáp lời." },
+            { "lesson": 1, "point": "N も", "note": "私も: 'tôi cũng'." }
+          ]
+        }
+      ]
+    }
+  ]
+}

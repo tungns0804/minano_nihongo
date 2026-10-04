@@ -111,16 +111,13 @@
       ]
     },
     {
-      "title": "そうです ／ そうじゃ ありません",
-      "summary": "Trả lời ngắn gọn cho câu hỏi có vị ngữ là danh từ.",
-      "structures": [
-        "はい、そうです。",
-        "いいえ、そうじゃ ありません。",
-        "いいえ、ちがいます。"
-      ],
+      "title": "そうです ／ ちがいます",
+      "summary": "Trả lời ngắn cho câu hỏi có vị ngữ là danh từ: đúng thì そうです, sai thì ちがいます.",
+      "structures": ["はい、そうです。", "いいえ、ちがいます。", "いいえ、N です。（nói luôn điều đúng）"],
       "explanation": [
         "そう thay cho toàn bộ phần vị ngữ vừa được hỏi, nhờ vậy không phải nhắc lại cả câu dài.",
-        "ちがいます nghe dứt khoát hơn そうじゃ ありません, thường dùng khi phải đính chính một điều sai."
+        "Trả lời phủ định thì người Nhật hầu như KHÔNG dùng そう mà nói 「いいえ、ちがいます」, hoặc nói luôn điều đúng: 「いいえ、ボールペンです」.",
+        "「いいえ、そうじゃ ありません」 đúng ngữ pháp nhưng ít dùng, nghe cứng."
       ],
       "notes": [
         "そうです CHỈ dùng được khi vị ngữ là danh từ. Câu hỏi có động từ hay tính từ thì phải trả lời bằng chính động từ, tính từ đó."
@@ -146,11 +143,20 @@
           "examples": [
             {
               "japanese": "いいえ、そうじゃ ありません。",
-              "vietnamese": "Không, không phải vậy."
+              "vietnamese": "Không, không phải vậy.",
+              "note": "Đúng ngữ pháp nhưng ít dùng; thường nói いいえ、ちがいます。"
             },
             {
               "japanese": "いいえ、ちがいます。ボールペンです。",
               "vietnamese": "Không, nhầm rồi. Đây là bút bi."
+            },
+            {
+              "japanese": "それは ミラーさんのですか。",
+              "vietnamese": "Cái đó có phải là của anh Miller không?"
+            },
+            {
+              "japanese": "いいえ、ちがいます。",
+              "vietnamese": "Không, không phải."
             }
           ]
         }
@@ -222,6 +228,10 @@
             {
               "japanese": "にほんごの ほんです。",
               "vietnamese": "Là sách tiếng Nhật."
+            },
+            {
+              "japanese": "わたしは コンピューターの けんきゅうしゃです。",
+              "vietnamese": "Tôi là nhà nghiên cứu máy tính."
             }
           ]
         },
@@ -266,6 +276,35 @@
             {
               "japanese": "そうですか。",
               "vietnamese": "Thế à."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "お～ — nói cho lịch sự",
+      "summary": "Thêm お vào trước một số danh từ để câu nói nhẹ nhàng, lịch sự hơn.",
+      "structures": ["お ＋ N"],
+      "explanation": [
+        "Ở bài 2, お làm cho lời nói mềm mại, lịch sự: 「おみやげ」, 「おさけ」. Bỏ お đi thì nghĩa không đổi, chỉ nghe kém lịch sự hơn.",
+        "Bài 3 học thêm cách dùng お để tỏ lòng kính trọng với người nghe: 「おくに」, 「おなまえ」."
+      ],
+      "usages": [
+        {
+          "title": "Tặng quà, nói về đồ uống",
+          "detail": "Hai tình huống お hay xuất hiện nhất ở bài 2.",
+          "examples": [
+            {
+              "japanese": "これは にほんの おみやげです。",
+              "vietnamese": "Đây là quà từ Nhật Bản."
+            },
+            {
+              "japanese": "それは おさけですか。",
+              "vietnamese": "Cái đó là rượu à?"
+            },
+            {
+              "japanese": "はい、にほんの おさけです。",
+              "vietnamese": "Vâng, là rượu Nhật."
             }
           ]
         }

@@ -1,0 +1,298 @@
+{
+  "sets": [
+    {
+      "title": "Rủ đi nghe hòa nhạc",
+      "description": "Chị Kimura rủ anh Miller đi nghe hòa nhạc; hai người nói về sở thích âm nhạc.",
+      "lines": [
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ミラーさんは {音楽|おんがく}が {好|す}きですか。",
+          "vi": "Anh Miller có thích [âm nhạc/nhạc] không?",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "音楽が 好きですか: đối tượng của 好き đi với が, không dùng を." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ミラーさんは: gọi người nghe bằng tên + さん thay cho 'anh'." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "ええ、とても {好|す}きです。",
+          "vi": "[Có/Vâng/Ừ], [tôi /][rất thích/thích lắm].",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "好きです: 好き là tính từ な." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 好きです: 'rất thích'." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{明日|あした} クラシックの コンサートが ありますから、{一緒|いっしょ}に {行|い}きませんか。",
+          "vi": "Ngày mai có [buổi /][hòa nhạc/hoà nhạc] [/nhạc ]cổ điển[ nên/,] [mình/chúng ta] cùng đi [nhé/không/được không]?",
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "コンサートが あります: あります ở đây là 'có (sự kiện)', đối tượng đi với が." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～ありますから、～: から đứng cuối vế lý do — lý do trước, lời rủ sau." },
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 行きませんか: lời rủ." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "すみません、{明日|あした}は {友達|ともだち}と {約束|やくそく}が ありますから……。",
+          "vi": "Xin lỗi, ngày mai tôi [có /đã có ]hẹn với bạn [rồi /][nên/]…",
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "約束が あります: 'có hẹn'." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から……: chỉ nói lý do rồi bỏ lửng — cách từ chối khéo." },
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "友達と: hẹn cùng với bạn." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "そうですか。ミラーさんは どんな {音楽|おんがく}が {好|す}きですか。",
+          "vi": "[Thế à/Vậy à]. Anh Miller thích [loại /thể loại /dòng /]nhạc [gì/nào][ vậy/]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận lời từ chối." },
+            { "lesson": 8, "point": "N1 は どんな N2 ですか", "note": "どんな 音楽: どんな + danh từ — hỏi loại nhạc." },
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "～が 好きですか: đối tượng + が." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "ジャズが {好|す}きです。クラシックも {少|すこ}し {聞|き}きます。",
+          "vi": "Tôi thích [nhạc /]jazz. [Tôi /]cũng nghe [nhạc /]cổ điển [một chút/một ít/chút ít].",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "ジャズが 好きです." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "少し: 'một chút', đi với câu khẳng định." },
+            { "lesson": 1, "point": "N も", "note": "クラシックも: も đứng thay chỗ を." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "どうして ジャズが {好|す}きですか。",
+          "vi": "[Tại sao/Vì sao/Sao] [anh /]thích [nhạc /]jazz[ vậy/]?",
+          "grammar": [
+            { "lesson": 9, "point": "どうして ／ ～から", "note": "どうして: hỏi lý do, đứng đầu câu." },
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "ジャズが 好きです: が đánh dấu thứ được thích." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{楽|たの}しいですから。",
+          "vi": "[Vì/Bởi vì] [nó /nghe /][vui/thú vị][ lắm/].",
+          "grammar": [
+            { "lesson": 9, "point": "どうして ／ ～から", "note": "～から。: trả lời どうして thì câu kết thúc ở から, không cần nhắc lại vế kết quả." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "楽しいです: tính từ い + です, đứng trước から." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{土曜日|どようび} ジャズの コンサートが あります。{一緒|いっしょ}に {行|い}きませんか。",
+          "vi": "Thứ Bảy có [buổi /][hòa nhạc/hoà nhạc] jazz. [Mình/Chúng ta] cùng đi [nhé/không/được không]?",
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "コンサートが あります: có sự kiện." },
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 行きませんか: rủ lần nữa." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "ええ、{土曜日|どようび}は {暇|ひま}ですから、{行|い}きましょう。",
+          "vi": "[Vâng/Ừ/Được], thứ Bảy tôi rảnh[ nên/,] [mình /chúng ta /]đi [nhé/thôi/đi/].",
+          "grammar": [
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "暇ですから、～: lý do trước, quyết định sau." },
+            { "lesson": 6, "point": "V ましょう", "note": "行きましょう: nhận lời rồi chốt lại." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "暇です: tính từ な + です." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bữa tối ở nhà anh Yamada",
+      "description": "Anh Yamada mời bác sĩ Wang; hai người nói về món ăn, đồ uống và lý do.",
+      "lines": [
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ワンさんは {日本|にほん}の {料理|りょうり}が {好|す}きですか。",
+          "vi": "Anh Wang có thích [món ăn/đồ ăn/món] Nhật không?",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "料理が 好きですか: が đánh dấu đối tượng của 好き." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本の 料理: món Nhật." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "ええ、{好|す}きです。よく {食|た}べますよ。",
+          "vi": "[Có/Vâng/Ừ], [tôi /]thích. [Tôi /][hay/thường] ăn [lắm/đấy/].",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "好きです: trả lời ngắn, lược đối tượng đã rõ." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "よく 食べます: よく = thường xuyên, đi với khẳng định." },
+            { "lesson": 5, "point": "～よ", "note": "よ: cho người hỏi biết thêm." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ビールが ありますよ。{飲|の}みませんか。",
+          "vi": "[Có/Nhà có/Ở đây có] bia [đấy/đó/]. [Anh /]uống [không/nhé/chứ][ ạ/]?",
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "ビールが あります: 'có bia' — sở hữu dùng あります + が." },
+            { "lesson": 6, "point": "V ませんか", "note": "飲みませんか: mời một cách nhẹ nhàng." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo cho khách biết." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "すみません。{今日|きょう}は {車|くるま}で {来|き}ましたから……。",
+          "vi": "Xin lỗi, hôm nay tôi [lái xe/đi xe ô tô/đi ô tô/đi xe hơi] [đến/tới][ nên/]…",
+          "grammar": [
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から……: chỉ nói lý do rồi bỏ lửng để từ chối." },
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "車で 来ました: phương tiện + で." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですか。じゃ、ジュースが ありますから、どうぞ。",
+          "vi": "[Thế à/Vậy à]. Vậy[ thì/] có [nước hoa quả/nước trái cây/nước ép/nước ngọt][ đây/ nên/], mời anh[ dùng/].",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: hiểu lý do của khách." },
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "ジュースが あります." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～ありますから、どうぞ: lý do trước, lời mời sau." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{奥|おく}さんは {料理|りょうり}が {上手|じょうず}ですね。",
+          "vi": "[Vợ anh/Chị nhà] nấu ăn giỏi [quá/thật] [nhỉ/].",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "料理が 上手です: dùng để khen người khác; 奥さん là vợ của người khác." },
+            { "lesson": 4, "point": "～ね", "note": "～ですね: khen và chờ người nghe đồng tình." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ありがとう ございます。{私|わたし}は {料理|りょうり}が {下手|へた}ですが、{妻|つま}は {料理|りょうり}が {好|す}きです。",
+          "vi": "[Cảm ơn/Cám ơn] anh. Tôi [thì /]nấu ăn [dở/kém/vụng] nhưng vợ tôi [thì /]thích nấu ăn.",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "下手です: nói về mình thì dùng 下手 (khiêm tốn); vợ mình gọi là 妻, không khen 'giỏi' trước người ngoài." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～ですが、～: hai vế ngược chiều." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ワンさんは よく {日本|にほん}の {映画|えいが}を {見|み}ますか。",
+          "vi": "Anh Wang có hay xem phim Nhật không?",
+          "grammar": [
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "よく 見ますか: hỏi tần suất — 'có hay … không'." },
+            { "lesson": 6, "point": "N を V", "note": "映画を 見ます: tân ngữ + を." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "いいえ、あまり {見|み}ません。{時間|じかん}が ありませんから。",
+          "vi": "[Không/Không ạ], [tôi /]không [hay /thường /]xem [lắm/mấy]. [Vì/Bởi vì] [tôi /]không có thời gian.",
+          "grammar": [
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "あまり 見ません: あまり + phủ định = 'không … lắm'." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から。: bổ sung lý do ở câu sau." },
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "時間が ありません: 'không có thời gian'." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですね。お{医者|いしゃ}さんは {忙|いそが}しいですからね。",
+          "vi": "[Đúng vậy/Phải rồi/Ừ nhỉ/Đúng thế]. [Làm /]bác sĩ [thì /]bận [lắm mà/mà/lắm/nhỉ].",
+          "grammar": [
+            { "lesson": 5, "point": "そうですね", "note": "そうですね: đồng tình — khác そうですね ngập ngừng ở bài 8." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～からね: nêu lý do như một điều ai cũng hiểu." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "忙しいです: tính từ い + です." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Thích, giỏi, hiểu — và lý do",
+      "description": "が đi với 好き・上手・分かります・あります, phó từ mức độ, hỏi và nêu lý do.",
+      "lines": [
+        {
+          "ja": "ミラーさんは {字|じ}が {下手|へた}ですが、{絵|え}が とても {上手|じょうず}です。",
+          "vi": "Anh Miller [viết /]chữ [xấu/dở/kém] nhưng vẽ [tranh /]rất [giỏi/đẹp].",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "字が 下手 ／ 絵が 上手: đối tượng của 上手・下手 đi với が." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、～: một chê, một khen — hai vế ngược chiều." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 上手: 'rất giỏi'." }
+          ]
+        },
+        {
+          "ja": "{子供|こども}は {野菜|やさい}が あまり {好|す}き[じゃ/では] ありません。",
+          "vi": "[Con tôi/Bọn trẻ/Trẻ con] không thích rau lắm.",
+          "viAlt": ["[Con tôi/Bọn trẻ/Trẻ con] không thích ăn rau lắm."],
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "野菜が 好きじゃ ありません: 好き là tính từ な nên phủ định bằng じゃ ありません." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "あまり + phủ định: 'không … lắm'." }
+          ]
+        },
+        {
+          "ja": "{英語|えいご}が {大体|だいたい} {分|わ}かります。",
+          "vi": "Tôi hiểu [được /][đại khái/phần lớn/hầu hết/gần hết] tiếng Anh.",
+          "viAlt": ["Tiếng Anh [thì /]tôi hiểu [được /][đại khái/phần lớn/hầu hết/gần hết]."],
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "英語が 分かります: 分かります tả trạng thái nên đối tượng đi với が — lỗi hay gặp là dùng を." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "大体: đại khái, gần hết — đi với khẳng định." }
+          ]
+        },
+        {
+          "ja": "どうして {漢字|かんじ}が {分|わ}かりますか。",
+          "vi": "[Tại sao/Vì sao/Sao] [anh/chị/bạn] [lại /]hiểu [được /]chữ Hán[ vậy/]?",
+          "grammar": [
+            { "lesson": 9, "point": "どうして ／ ～から", "note": "どうして: hỏi lý do." },
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "漢字が 分かります: が, không dùng を." }
+          ]
+        },
+        {
+          "ja": "{中国人|ちゅうごくじん}ですから。",
+          "vi": "[Vì/Bởi vì] tôi là người Trung Quốc.",
+          "grammar": [
+            { "lesson": 9, "point": "どうして ／ ～から", "note": "～から。: câu trả lời cho どうして kết thúc bằng から." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "中国人です: câu danh từ, lược 私は vì đã rõ." }
+          ]
+        },
+        {
+          "ja": "{今日|きょう}は {用事|ようじ}が ありますから、{早|はや}く {帰|かえ}ります。",
+          "vi": "Hôm nay tôi có việc[ bận/ riêng/][ nên/,] [tôi /][sẽ /]về sớm.",
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "用事が あります: 'có việc'." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "lý do + から、kết quả: đúng trật tự chuẩn của tiếng Nhật." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "帰ります: về nhà." }
+          ]
+        },
+        {
+          "ja": "どうして {昨日|きのう} {来|き}ませんでしたか。",
+          "vi": "[Tại sao/Vì sao/Sao] hôm qua [anh/chị/bạn] [đã /]không đến[ vậy/]?",
+          "grammar": [
+            { "lesson": 9, "point": "どうして ／ ～から", "note": "どうして ～か: hỏi lý do." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "来ませんでした: phủ định quá khứ." }
+          ]
+        },
+        {
+          "ja": "{子供|こども}と {約束|やくそく}が ありましたから。",
+          "vi": "[Vì/Bởi vì] tôi [đã /]có hẹn với [con/con tôi/con cái].",
+          "grammar": [
+            { "lesson": 9, "point": "どうして ／ ～から", "note": "～から。: trả lời câu hỏi どうして." },
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "約束が ありました: quá khứ của あります." },
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "子供と: hẹn với con." }
+          ]
+        },
+        {
+          "ja": "{細|こま}かい お{金|かね}が ありますか。",
+          "vi": "[Anh/Chị/Bạn] có tiền lẻ không?",
+          "grammar": [
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "お金が あります: sở hữu dùng あります + が." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "細かい お金: tính từ い + danh từ = 'tiền lẻ'." }
+          ]
+        },
+        {
+          "ja": "{妻|つま}は スポーツが {好|す}きですが、{私|わたし}は {全然|ぜんぜん} {好|す}き[じゃ/では] ありません。",
+          "vi": "Vợ tôi [thì /]thích thể thao nhưng tôi [thì /][hoàn toàn không thích/chẳng thích/không thích][ chút nào/ gì cả/].",
+          "grammar": [
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "スポーツが 好きです: が." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "全然 + phủ định = 'hoàn toàn không', mạnh hơn あまり." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、～: hai vế ngược nhau." }
+          ]
+        }
+      ]
+    }
+  ]
+}

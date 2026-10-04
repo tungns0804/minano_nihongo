@@ -1,0 +1,292 @@
+{
+  "sets": [
+    {
+      "title": "Gặp đồng nghiệp ở công ty IMC",
+      "description": "Ngày đầu đi làm, anh Miller được chị Sato giới thiệu với anh Yamada.",
+      "lines": [
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "こちらは ミラーさんです。",
+          "vi": "[Đây/Vị này/Người này] là anh Miller.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "Giới thiệu một người theo mẫu N1 は N2 です; こちら là cách nói lịch sự của 'người này'." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "Nói về người khác thì thêm さん sau tên: ミラーさん — tương đương 'anh Miller'." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "はじめまして。マイク・ミラーです。どうぞ よろしく。",
+          "vi": "[Rất hân hạnh được gặp/Hân hạnh được gặp/Rất vui được gặp][ anh/ chị/ mọi người/]. Tôi là Mike Miller. [Rất mong được giúp đỡ/Rất mong được anh giúp đỡ/Rất mong được chị giúp đỡ/Mong được giúp đỡ].",
+          "grammar": [
+            { "lesson": 1, "point": "はじめまして ／ どうぞ よろしく", "note": "Bộ câu chào lần đầu gặp: mở bằng はじめまして, nói tên, rồi khép lại bằng どうぞ よろしく." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "マイク・ミラーです: tự giới thiệu chỉ cần 'tên + です', lược わたしは. Không thêm さん vào tên mình." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ミラーさんは IMCの {社員|しゃいん}ですか。",
+          "vi": "Anh Miller [có phải là /là ]nhân viên [công ty /]IMC [không/phải không/à/]?",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Thêm か vào cuối câu là thành câu hỏi có/không; trật tự từ giữ nguyên." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員: の nối nơi trực thuộc với 社員, phần bổ nghĩa đứng trước — 'nhân viên (của) IMC'." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "Hỏi thẳng người nghe bằng tên + さん (ミラーさん) chứ không dùng あなた." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "はい、IMCの {社員|しゃいん}です。",
+          "vi": "[Vâng/Dạ/Đúng vậy], [tôi /]là nhân viên [công ty /]IMC.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Trả lời câu hỏi có/không: đồng ý thì nói はい rồi nhắc lại vị ngữ." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "IMCの 社員です: câu khẳng định N です; わたしは được lược vì ai cũng hiểu là nói về mình." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員 — の chỉ nơi trực thuộc." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "{山田|やまだ}です。{私|わたし}も IMCの {社員|しゃいん}です。",
+          "vi": "Tôi là Yamada. Tôi cũng là nhân viên [công ty /]IMC.",
+          "grammar": [
+            { "lesson": 1, "point": "N も", "note": "わたしも: も thay chỗ của は, nghĩa 'tôi cũng…' vì vị ngữ giống hệt điều vừa nói về anh Miller." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "山田です: tự giới thiệu bằng 'tên + です'." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員: nhân viên của công ty IMC." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{山田|やまだ}さんは {研究者|けんきゅうしゃ}ですか。",
+          "vi": "Anh Yamada [có phải là /là ]nhà nghiên cứu [không/phải không/à/]?",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "研究者ですか: câu hỏi có/không, chỉ cần thêm か sau です." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "山田さん: gọi người đối diện bằng họ + さん." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "いいえ、{研究者|けんきゅうしゃ}[じゃ/では] ありません。エンジニアです。",
+          "vi": "[Không/Dạ không], [tôi /]không phải [là /]nhà nghiên cứu. [Tôi /]là kỹ sư.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Câu hỏi có/không mà sai thì đáp いいえ." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "研究者じゃ ありません: phủ định của です — 'không phải là'." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "エンジニアです: nói luôn thông tin đúng bằng N です." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "あの {人|ひと}も IMCの {社員|しゃいん}ですか。",
+          "vi": "[Người kia/Người đó/Người ấy] cũng là nhân viên [công ty /]IMC [phải không/à/]?",
+          "grammar": [
+            { "lesson": 1, "point": "N も", "note": "あの 人も: 'người kia cũng…' — も đứng đúng chỗ của は." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員: nhân viên của IMC." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Thêm か cuối câu để hỏi." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "いいえ、パワー{電気|でんき}の シュミットさんです。",
+          "vi": "[Không/Dạ không], [đó là /là /][anh/ông] Schmidt [của /ở /bên /][công ty /][Power Electric/Power Denki/điện Power/điện lực Power].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "いいえ trả lời câu hỏi có/không vừa rồi." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "シュミットさんです: câu khẳng định, chủ đề あの 人は được lược." },
+            { "lesson": 1, "point": "N1 の N2", "note": "パワー電気の シュミットさん: の cho biết anh Schmidt thuộc công ty nào." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "Người thứ ba cũng gọi bằng tên + さん: シュミットさん." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "シュミットさんも エンジニアですか。",
+          "vi": "[Anh/Ông] Schmidt cũng là kỹ sư [phải không/à/]?",
+          "grammar": [
+            { "lesson": 1, "point": "N も", "note": "シュミットさんも: hỏi xem anh Schmidt có CŨNG là kỹ sư như anh Yamada không." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi có/không." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "シュミットさん: tên + さん." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Làm quen và hỏi han",
+      "description": "Câu chào, câu hỏi và câu giới thiệu hay dùng khi mới quen một người.",
+      "lines": [
+        {
+          "ja": "はじめまして。{富士|ふじ}{大学|だいがく}の カリナです。どうぞ よろしく。",
+          "vi": "[Rất hân hạnh được gặp/Hân hạnh được gặp/Rất vui được gặp][ anh/ chị/ mọi người/]. Tôi là Karina [của /ở /][trường /]Đại học Fuji. [Rất mong được giúp đỡ/Rất mong được anh giúp đỡ/Rất mong được chị giúp đỡ/Mong được giúp đỡ].",
+          "grammar": [
+            { "lesson": 1, "point": "はじめまして ／ どうぞ よろしく", "note": "はじめまして … どうぞ よろしく: khung chào hỏi lần đầu gặp." },
+            { "lesson": 1, "point": "N1 の N2", "note": "富士大学の カリナ: の nêu nơi mình thuộc về trước tên — 'Karina của Đại học Fuji'." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "カリナです: tự giới thiệu, lược わたしは." }
+          ]
+        },
+        {
+          "ja": "{失礼|しつれい}ですが、ワットさんですか。",
+          "vi": "Xin lỗi, [có phải là /có phải /][anh/ông/thầy] Watt [không/phải không/][ ạ/]?",
+          "grammar": [
+            { "lesson": 1, "point": "はじめまして ／ どうぞ よろしく", "note": "失礼ですが: câu rào đón 'xin lỗi cho hỏi' trước khi hỏi chuyện riêng như tên, tuổi." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ワットさんですか: hỏi xác nhận bằng か." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "Đã biết tên người nghe thì gọi tên + さん, không dùng あなた." }
+          ]
+        },
+        {
+          "ja": "はい、ワットです。どうぞ よろしく。",
+          "vi": "[Vâng/Dạ/Đúng vậy], [tôi là /tôi là thầy /]Watt. [Rất mong được giúp đỡ/Rất mong được chị giúp đỡ/Rất mong được anh giúp đỡ/Mong được giúp đỡ/Rất vui được làm quen].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "はい: xác nhận câu hỏi có/không là đúng." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "ワットです: nói tên mình — không bao giờ thêm さん." },
+            { "lesson": 1, "point": "はじめまして ／ どうぞ よろしく", "note": "どうぞ よろしく: lời chào khép lại khi làm quen." }
+          ]
+        },
+        {
+          "ja": "{失礼|しつれい}ですが、あの {方|かた}は どなたですか。",
+          "vi": "Xin lỗi, [vị kia/người kia/vị đó/người đó] là ai [vậy /][ạ/]?",
+          "grammar": [
+            { "lesson": 1, "point": "はじめまして ／ どうぞ よろしく", "note": "失礼ですが: rào đón trước khi hỏi về một người." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "どなたですか: hỏi bằng từ nghi vấn thì thay chỗ chưa biết bằng どなた (lịch sự hơn 誰), trật tự giữ nguyên." }
+          ]
+        },
+        {
+          "ja": "あの {方|かた}は {富士|ふじ}{大学|だいがく}の {先生|せんせい}ですか。",
+          "vi": "[Vị kia/Người kia/Vị đó] [có phải là /là ][giáo viên/giảng viên/thầy giáo/cô giáo] [của /ở /][trường /]Đại học Fuji [không/phải không/à/]?",
+          "grammar": [
+            { "lesson": 1, "point": "N1 の N2", "note": "富士大学の 先生: giảng viên của Đại học Fuji." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi có/không." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は IMCの {社員|しゃいん}です。",
+          "vi": "Tôi là nhân viên [công ty /]IMC.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "わたしは … です: mẫu câu khẳng định cơ bản; は đọc là 'wa'." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員: tiếng Việt nói 'nhân viên IMC', tiếng Nhật để IMC lên trước の." }
+          ]
+        },
+        {
+          "ja": "ワンさんは {神戸|こうべ}{病院|びょういん}の {医者|いしゃ}です。",
+          "vi": "[Anh/Ông] Wang là bác sĩ [của /ở /][bệnh viện Kobe/Bệnh viện Kobe].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "ワンさんは … です: nói nghề nghiệp của một người." },
+            { "lesson": 1, "point": "N1 の N2", "note": "神戸病院の 医者: bác sĩ của Bệnh viện Kobe — nơi làm việc đứng trước の." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ワンさん: gọi người thứ ba bằng tên + さん." }
+          ]
+        },
+        {
+          "ja": "イーさんは IMCの {社員|しゃいん}[じゃ/では] ありません。",
+          "vi": "[Chị/Cô] Lee không phải [là /]nhân viên [công ty /]IMC.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません phủ định cả cụm 'nhân viên IMC'; viết では ありません thì trang trọng hơn." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員: nơi trực thuộc + の + nghề." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "イーさん: さん dùng cho cả nam lẫn nữ." }
+          ]
+        },
+        {
+          "ja": "ワットさんは {医者|いしゃ}[じゃ/では] ありません。{先生|せんせい}です。",
+          "vi": "[Anh/Ông/Thầy] Watt không phải [là /]bác sĩ. [Anh ấy /Ông ấy /Thầy ấy /]là [giáo viên/giảng viên/thầy giáo].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "医者じゃ ありません: phủ định điều sai…" },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "…rồi 先生です nói luôn điều đúng. Câu sau lược ワットさんは vì chủ đề đã rõ." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ワットさん: tên + さん." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は {学生|がくせい}[じゃ/では] ありません。{会社員|かいしゃいん}です。",
+          "vi": "Tôi không phải [là /][sinh viên/học sinh]. [Tôi /]là nhân viên công ty.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "学生じゃ ありません: 'không phải là sinh viên'." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "会社員です: câu sau lược わたしは vì vẫn nói về mình." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nói về bạn bè quanh mình",
+      "description": "Khẳng định, phủ định và も khi kể về những người mình quen.",
+      "lines": [
+        {
+          "ja": "サントスさんは ブラジル{人|じん}です。マリアさんも ブラジル{人|じん}です。",
+          "vi": "[Anh/Ông] Santos là người [Brazil/Braxin/Brasil]. [Chị/Bà] Maria cũng là người [Brazil/Braxin/Brasil].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "Câu đầu nêu quốc tịch bằng N1 は N2 です; tên nước + 人 (じん) = người nước đó." },
+            { "lesson": 1, "point": "N も", "note": "マリアさんも: vị ngữ giống hệt câu trước nên は đổi thành も — 'cũng'." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "サントスさん, マリアさん: tên + さん." }
+          ]
+        },
+        {
+          "ja": "シュミットさんも アメリカ{人|じん}[じゃ/では] ありません。",
+          "vi": "[Anh/Ông] Schmidt cũng không phải [là /]người Mỹ.",
+          "grammar": [
+            { "lesson": 1, "point": "N も", "note": "も đi được cả với câu phủ định: 'cũng không phải'." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "アメリカ人じゃ ありません: phủ định của アメリカ人です." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "シュミットさん: tên + さん." }
+          ]
+        },
+        {
+          "ja": "サントスさんは {先生|せんせい}[じゃ/では] ありません。",
+          "vi": "[Anh/Ông] Santos không phải [là /][giáo viên/giảng viên/thầy giáo].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "N1 は N2 じゃ ありません: nói một điều không đúng về N1." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "サントスさん: tên + さん." }
+          ]
+        },
+        {
+          "ja": "あの {人|ひと}も {学生|がくせい}[じゃ/では] ありません。",
+          "vi": "[Người kia/Người đó/Người ấy] cũng không phải [là /][sinh viên/học sinh].",
+          "grammar": [
+            { "lesson": 1, "point": "N も", "note": "あの 人も: も thay cho は, nghĩa 'cũng'." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "学生じゃ ありません: 'không phải là sinh viên'." }
+          ]
+        },
+        {
+          "ja": "あの {方|かた}は さくら{大学|だいがく}の {先生|せんせい}[じゃ/では] ありません。",
+          "vi": "[Vị kia/Người kia/Vị đó] không phải [là /][giáo viên/giảng viên/thầy giáo/cô giáo] [của /ở /][trường /]Đại học Sakura.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "Phủ định cả cụm さくら大学の 先生." },
+            { "lesson": 1, "point": "N1 の N2", "note": "さくら大学の 先生: giảng viên của Đại học Sakura; あの 方 là cách nói lịch sự của あの 人." }
+          ]
+        },
+        {
+          "ja": "あの {人|ひと}も IMCの {社員|しゃいん}[じゃ/では] ありません。",
+          "vi": "[Người kia/Người đó/Người ấy] cũng không phải [là /]nhân viên [công ty /]IMC.",
+          "grammar": [
+            { "lesson": 1, "point": "N も", "note": "あの 人も: 'người kia cũng'." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません: 'không phải là'." },
+            { "lesson": 1, "point": "N1 の N2", "note": "IMCの 社員: nhân viên của IMC." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は さくら{大学|だいがく}の {学生|がくせい}[じゃ/では] ありません。{富士|ふじ}{大学|だいがく}の {学生|がくせい}です。",
+          "vi": "Tôi không phải [là /][sinh viên/học sinh] [của /][trường /]Đại học Sakura. [Tôi /]là [sinh viên/học sinh] [của /][trường /]Đại học Fuji.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "Câu đầu phủ định: không phải sinh viên Đại học Sakura." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "Câu sau đính chính bằng N です, lược わたしは." },
+            { "lesson": 1, "point": "N1 の N2", "note": "Tên trường + の + 学生: sinh viên của trường đó." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は {会社員|かいしゃいん}です。あの {人|ひと}も {会社員|かいしゃいん}です。",
+          "vi": "Tôi là nhân viên công ty. [Người kia/Người đó/Người ấy] cũng là nhân viên công ty.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "わたしは 会社員です: câu khẳng định về mình." },
+            { "lesson": 1, "point": "N も", "note": "あの 人も: cùng vị ngữ 会社員です nên dùng も — 'cũng là'." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は {先生|せんせい}[じゃ/では] ありません。{学生|がくせい}です。あの {人|ひと}も {学生|がくせい}です。",
+          "vi": "Tôi không phải [là /][giáo viên/giảng viên]. [Tôi /]là [sinh viên/học sinh]. [Người kia/Người đó/Người ấy] cũng là [sinh viên/học sinh].",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "先生じゃ ありません: phủ định trước…" },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "…学生です: rồi nói điều đúng." },
+            { "lesson": 1, "point": "N も", "note": "あの 人も 学生です: người kia cũng giống mình." }
+          ]
+        },
+        {
+          "ja": "ミラーさんは {会社員|かいしゃいん}です。カリナさんは {学生|がくせい}ですか。",
+          "vi": "Anh Miller là nhân viên công ty. Chị Karina [có phải là /là ][sinh viên/học sinh] [không/phải không/à/]?",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "Câu đầu khẳng định nghề của anh Miller." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Câu sau hỏi về chị Karina: thêm か cuối câu." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ミラーさん, カリナさん: tên + さん." }
+          ]
+        }
+      ]
+    }
+  ]
+}

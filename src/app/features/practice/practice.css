@@ -130,6 +130,43 @@
   color: var(--text-muted);
 }
 
+/* --- Câu luyện dịch: ngữ cảnh và người nói --- */
+
+/* Câu đứng trước trong cùng đoạn hội thoại. Nhỏ và nhạt hơn câu hỏi: nó chỉ để hiểu
+   câu hỏi, không phải thứ phải dịch. */
+.sentence-context {
+  margin: 0 auto 16px;
+  max-width: 560px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  text-align: left;
+}
+
+.sentence-context p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.sentence-context-label {
+  font-size: var(--fs-2xs);
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.speaker {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* Furigana cần thêm chỗ phía trên dòng, nếu không nó đè lên dòng trước. */
+.prompt.is-sentence app-ruby {
+  line-height: 2.1;
+}
+
 /* --- Trắc nghiệm --- */
 
 .choices {
@@ -417,6 +454,81 @@
 
 .right-answer.jp {
   font-size: 1.3rem;
+  line-height: 2;
+}
+
+/* Các cách dịch khác cũng được chấm đúng. */
+.alternatives ul {
+  margin: 2px 0 0;
+  padding-left: 1.2em;
+  color: var(--text-muted);
+}
+
+.self-grade {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* --- Ngữ pháp trong câu (luyện dịch) --- */
+
+.sentence-grammar {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.sentence-grammar-title {
+  margin: 0 0 10px;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.sentence-grammar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Mẫu của chính bài đang luyện có viền màu nhấn; mẫu ôn lại của bài trước để viền
+   thường — nhìn là biết câu này đang kéo ngữ pháp cũ nào vào. */
+.grammar-note {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+}
+
+.grammar-note.is-current {
+  border-left-color: var(--accent);
+}
+
+.grammar-note-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.grammar-note-structure {
+  margin: 4px 0 0;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.grammar-note-text {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .word-recap {

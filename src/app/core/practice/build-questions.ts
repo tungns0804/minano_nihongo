@@ -7,21 +7,24 @@ import {
   VocabularyWord,
 } from '../lessons/vocabulary.model';
 import { shuffle } from '../utils/random';
+import type { TranslationLineRef } from '../translation/translation.model';
 import { sliceBatch } from './batch';
 import { buildConversationQuestions } from './conversation-questions';
 import { buildGrammarQuestions } from './grammar-questions';
+import { buildTranslationQuestions } from './translation-questions';
 import { buildVerbQuestions } from './verb-questions';
 import { buildVocabularyQuestions } from './vocabulary-questions';
 
 /**
- * Tập mục được đem ra hỏi, tuỳ loại bài mà là từ vựng, động từ, câu hội thoại hay
- * câu ví dụ ngữ pháp.
+ * Tập mục được đem ra hỏi, tuỳ loại bài mà là từ vựng, động từ, câu hội thoại, câu
+ * ví dụ ngữ pháp hay câu luyện dịch.
  */
 export type PracticePool =
   | { kind: 'vocabulary'; words: readonly VocabularyWord[] }
   | { kind: 'verb'; verbs: readonly VerbEntry[] }
   | { kind: 'conversation'; lines: readonly ConversationLine[] }
-  | { kind: 'grammar'; examples: readonly GrammarExampleRef[] };
+  | { kind: 'grammar'; examples: readonly GrammarExampleRef[] }
+  | { kind: 'translation'; sentences: readonly TranslationLineRef[] };
 
 /**
  * Một phiên đã dựng xong.
@@ -60,6 +63,14 @@ export function buildQuestions(
       break;
     case 'grammar':
       questions = buildGrammarQuestions(pool.examples, config);
+      break;
+    case 'translation':
+      questions = buildTranslationQuestions(
+        pool.sentences,
+        lesson.grammarRefs,
+        lesson.lessonNumber,
+        config,
+      );
       break;
     case 'vocabulary':
       questions = buildVocabularyQuestions(pool.words, lesson.words, config);

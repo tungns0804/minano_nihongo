@@ -27,7 +27,9 @@
           ]
         }
       ],
-      "notes": [],
+      "notes": [
+        "なります dùng được với cả hai: 「べんごしに なる ために」 (mục đích có ý chí) và 「にほんごが じょうずに なる ように」 (điều mong đạt được)."
+      ],
       "usages": [
         {
           "title": "Để làm việc gì",
@@ -94,7 +96,9 @@
       "title": "N に / V る ＋ のに ＋ đánh giá",
       "summary": "Đánh giá một việc là tiện, bất tiện, tốt, cần thiết cho mục đích nào đó.",
       "structures": ["N に ＋ べんり／ふべん／いい／ひつよう です", "V る ＋ のに ＋ べんり／ふべん／いい／ひつよう です"],
-      "explanation": ["Tính từ hay dùng: べんり, ふべん, いい, ちょうどいい, ひつよう."],
+      "explanation": [
+        "Tính từ hay dùng: べんり, ふべん, いい, ちょうどいい, ひつよう."
+      ],
       "notes": [],
       "usages": [
         {
@@ -112,6 +116,14 @@
             {
               "japanese": "デパートは かいものに べんりです。",
               "vietnamese": "Cửa hàng bách hoá thì tiện cho việc mua sắm."
+            },
+            {
+              "japanese": "この じしょは にほんごの べんきょうに やくに たちます。",
+              "vietnamese": "Cuốn từ điển này có ích cho việc học tiếng Nhật."
+            },
+            {
+              "japanese": "でんわばんごうを しらべるのに じかんが かかりました。",
+              "vietnamese": "Tôi đã mất thời gian để tìm số điện thoại."
             }
           ]
         }
@@ -139,8 +151,34 @@
           "detail": "Nhấn số lượng nhiều bất ngờ.",
           "examples": [
             {
-              "japanese": "この たてものは まどが よっつも あります。",
-              "vietnamese": "Toà nhà này có tận bốn cái cửa sổ."
+              "japanese": "かれは ビールを １０ぽんも のみました。",
+              "vietnamese": "Anh ấy uống tận 10 chai bia.",
+              "reading": "かれは ビールを じゅっぽんも のみました。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N によって",
+      "summary": "Bởi N — nêu người tạo ra, phát minh ra, sáng tác ra.",
+      "structures": ["N は ＋ N によって ＋ V bị động"],
+      "explanation": [
+        "Với động từ sáng tạo, phát minh, phát hiện (かきます, つくります, はつめいします, はっけんします…) ở thể bị động, người làm ra đi với によって chứ không đi với に."
+      ],
+      "notes": [],
+      "usages": [
+        {
+          "title": "Tác giả, người phát minh",
+          "detail": "によって thay cho に.",
+          "examples": [
+            {
+              "japanese": "この えは ピカソに よって かかれました。",
+              "vietnamese": "Bức tranh này được vẽ bởi Picasso."
+            },
+            {
+              "japanese": "でんわは ベルに よって はつめいされました。",
+              "vietnamese": "Điện thoại được phát minh bởi Bell."
             }
           ]
         }

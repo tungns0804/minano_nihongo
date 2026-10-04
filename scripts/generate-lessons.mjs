@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 
 import { fillMissingHanViet, loadCharHanViet } from './han-viet-compose.mjs';
 import { c, log } from './script-utils.mjs';
+import { parseTranslation } from './translation-core.mjs';
 import {
   parseConversation,
   parseGrammar,
@@ -101,6 +102,19 @@ function readMeta(folderPath, folderName) {
 const GRAMMAR_PATTERN = /^(?:grammar|ngu-?phap)(?:[-_].+)?\.json$/i;
 const GRAMMAR_ACCEPTED = 'grammar.json, ngu-phap.json, nguphap.json';
 
+/**
+ * Bài LUYỆN DỊCH cũng là JSON, cùng lý do với bài ngữ pháp: mỗi câu mang theo danh
+ * sách mẫu ngữ pháp kèm giải thích, không phải một dòng phẳng. Xem `translation-core.mjs`.
+ */
+const TRANSLATION_PATTERN = /^(?:translation|luyen-?dich)(?:[-_].+)?\.json$/i;
+const TRANSLATION_ACCEPTED = 'translation.json, luyen-dich.json';
+
+/** Hai loại bài viết bằng JSON — mỗi thư mục chỉ được một file, không nối nhiều file như .txt. */
+const JSON_KINDS = [
+  { kind: 'grammar', pattern: GRAMMAR_PATTERN, unit: 'mẫu', field: '"points"' },
+  { kind: 'translation', pattern: TRANSLATION_PATTERN, unit: 'bài nhỏ', field: '"sets"' },
+];
+
 const FILE_KINDS = [
   {
     kind: 'vocabulary',
@@ -126,9 +140,11 @@ const FILE_KINDS = [
   },
 ];
 
-const ACCEPTED_NAMES = [...FILE_KINDS.map((entry) => entry.accepted), GRAMMAR_ACCEPTED].join(
-  '\n              ',
-);
+const ACCEPTED_NAMES = [
+  ...FILE_KINDS.map((entry) => entry.accepted),
+  GRAMMAR_ACCEPTED,
+  TRANSLATION_ACCEPTED,
+].join('\n              ');
 
 /**
  * Bảng tra parser theo loại bài. Mỗi hàm trả về { items, issues } đã chuẩn hoá,
@@ -176,30 +192,34 @@ function readSourceFiles(folderPath, folderName) {
     .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
 
   const files = allFiles.filter((name) => VOCAB_EXTENSIONS.has(extname(name).toLowerCase()));
-  const grammarFiles = allFiles.filter((name) => GRAMMAR_PATTERN.test(name));
+  const jsonFiles = JSON_KINDS.flatMap((entry) =>
+    allFiles.filter((name) => entry.pattern.test(name)).map((name) => ({ name, entry })),
+  );
 
-  if (grammarFiles.length > 0) {
-    if (files.length > 0) {
+  if (jsonFiles.length > 0) {
+    const kinds = [...new Set(jsonFiles.map((file) => file.entry.kind))];
+    if (files.length > 0 || kinds.length > 1) {
       fail(
         `[${folderName}] trộn lẫn hai loại dữ liệu trong cùng một thư mục:\n` +
-          `              grammar: ${grammarFiles.join(', ')}\n` +
-          `              text: ${files.join(', ')}\n` +
+          `              json: ${jsonFiles.map((file) => file.name).join(', ')}\n` +
+          (files.length > 0 ? `              text: ${files.join(', ')}\n` : '') +
           `              Mỗi thư mục là một bài học và chỉ chứa một loại. Hãy tách ra hai thư mục.`,
       );
       return null;
     }
-    // Nội dung ngữ pháp là JSON nên không nối nhiều file lại được như .txt.
-    if (grammarFiles.length > 1) {
+    // Nội dung là JSON nên không nối nhiều file lại được như .txt.
+    const { entry } = jsonFiles[0];
+    if (jsonFiles.length > 1) {
       fail(
-        `[${folderName}] có ${grammarFiles.length} file ngữ pháp (${grammarFiles.join(', ')}).\n` +
-          `              Bài ngữ pháp chỉ được có MỘT file JSON — gộp các mẫu vào cùng mảng "points".`,
+        `[${folderName}] có ${jsonFiles.length} file ${entry.kind} (${jsonFiles.map((file) => file.name).join(', ')}).\n` +
+          `              Loại bài này chỉ được có MỘT file JSON — gộp các ${entry.unit} vào cùng mảng ${entry.field}.`,
       );
       return null;
     }
     return {
-      files: grammarFiles,
-      kind: 'grammar',
-      content: readFileSync(join(folderPath, grammarFiles[0]), 'utf8'),
+      files: [jsonFiles[0].name],
+      kind: entry.kind,
+      content: readFileSync(join(folderPath, jsonFiles[0].name), 'utf8'),
     };
   }
 
@@ -332,7 +352,45 @@ function lessonNumberOf(folderName, meta) {
   return matches ? Number(matches[matches.length - 1]) : null;
 }
 
-function buildLesson(folderName) {
+/**
+ * Mẫu ngữ pháp của từng bài, để bài luyện dịch tra tên mẫu mà nó khai.
+ *
+ * Đọc riêng một lượt TRƯỚC khi dựng bài: thư mục xếp theo tên nên `luyen-dich-*` đứng
+ * trước `ngu-phap-*`, chờ tới lượt bài ngữ pháp thì bài luyện dịch đã dựng xong rồi.
+ * Lỗi của chính bài ngữ pháp không báo ở đây — lượt dựng bài sẽ báo, một lần.
+ *
+ * @returns {Map<number, {lessonId: string, points: Map<string, {id: string, title: string, structure: string}>}>}
+ */
+function indexGrammar(folders) {
+  const index = new Map();
+  for (const folderName of folders) {
+    const folderPath = join(SOURCE_DIR, folderName);
+    const file = readdirSync(folderPath).find((name) => GRAMMAR_PATTERN.test(name));
+    if (!file) continue;
+
+    const meta = readMeta(folderPath, folderName);
+    const lessonNumber = lessonNumberOf(folderName, meta);
+    if (lessonNumber === null) continue;
+    if (index.has(lessonNumber)) {
+      fail(`[${folderName}] trùng số bài ${lessonNumber} với một bài ngữ pháp khác — bài luyện dịch không biết tra mẫu ở đâu`);
+      continue;
+    }
+
+    const { points } = parseGrammar(readFileSync(join(folderPath, file), 'utf8'));
+    index.set(lessonNumber, {
+      lessonId: slugify(meta.id || folderName),
+      points: new Map(
+        points.map((point) => [
+          point.title,
+          { id: point.id, title: point.title, structure: point.structures[0] ?? '' },
+        ]),
+      ),
+    });
+  }
+  return index;
+}
+
+function buildLesson(folderName, grammarIndex) {
   const folderPath = join(SOURCE_DIR, folderName);
   const meta = readMeta(folderPath, folderName);
 
@@ -348,9 +406,22 @@ function buildLesson(folderName) {
   const kind = source.kind;
   if (!checkMetaKind(meta, kind, folderName)) return null;
 
-  const parsed = PARSE_BY_KIND[kind](source.content);
+  const lessonNumber = lessonNumberOf(folderName, meta);
+
+  // Bài luyện dịch là loại duy nhất cần biết số bài và mẫu ngữ pháp của các bài khác.
+  const translation =
+    kind === 'translation'
+      ? parseTranslation(source.content, { lessonNumber, grammarIndex })
+      : null;
+  const parsed = translation
+    ? { items: translation.sets, issues: translation.issues }
+    : PARSE_BY_KIND[kind](source.content);
   const items = parsed.items;
   const issues = parsed.issues;
+  // Bài luyện dịch đếm theo CÂU, không theo bài nhỏ: "30 câu" mới là thứ người học nhìn.
+  const itemCount = translation
+    ? items.reduce((sum, set) => sum + set.lines.length, 0)
+    : items.length;
 
   const errors = issues.filter((i) => i.level === 'error');
   const warnings = issues.filter((i) => i.level === 'warning');
@@ -368,8 +439,17 @@ function buildLesson(folderName) {
   log(`${c.bold}${folderName}${c.reset} ${c.dim}(${source.files.join(', ')})${c.reset}`);
   log(
     `  id: ${c.cyan}${id}${c.reset}   loai: ${c.cyan}${kind}${c.reset}   ` +
-      `so muc: ${c.green}${items.length}${c.reset}`,
+      `so muc: ${c.green}${itemCount}${c.reset}`,
   );
+
+  // Con số đáng xem nhất của bài luyện dịch: bao nhiêu câu kéo ngữ pháp bài cũ vào.
+  if (translation) {
+    const older = [...translation.stats.olderLessons].sort((a, b) => a - b);
+    log(
+      `  ${c.dim}${items.length} bai nho; ${translation.stats.mixed}/${translation.stats.lines} cau ` +
+        `ket hop ngu phap bai truoc${older.length > 0 ? ` (bai ${older.join(', ')})` : ''}${c.reset}`,
+    );
+  }
 
   // Cột âm Hán Việt được phép rỗng (xem vocab-core.mjs), nên thiếu nó không còn là
   // lỗi từng dòng nữa. Nhưng "trống" có ba nghĩa rất khác nhau, nên in ra ba dòng
@@ -400,7 +480,7 @@ function buildLesson(folderName) {
     if (issue.text) log(`    ${c.dim}${issue.text}${c.reset}`);
   }
 
-  if (items.length === 0) {
+  if (itemCount === 0) {
     fail(`[${folderName}] không có mục hợp lệ nào`);
     return null;
   }
@@ -412,7 +492,6 @@ function buildLesson(folderName) {
     );
   }
 
-  const lessonNumber = lessonNumberOf(folderName, meta);
   const levelResult = readMetaLevel(meta, folderName, lessonNumber);
   if (!levelResult.ok) return null;
 
@@ -428,12 +507,16 @@ function buildLesson(folderName) {
       name: String(meta.name || titleFromFolder(folderName)).trim(),
       description: meta.description ? String(meta.description).trim() : '',
       kind,
-      itemCount: items.length,
+      itemCount,
       // Chỉ trường ứng với loại bài mới có dữ liệu, các trường kia là mảng rỗng.
       words: WORD_KINDS.has(kind) ? items : [],
       verbs: kind === 'verb' ? items : [],
       lines: kind === 'conversation' ? items : [],
       grammarPoints: kind === 'grammar' ? items : [],
+      // Bài luyện dịch mang theo tên và công thức của các mẫu nó dùng, chép sẵn từ bài
+      // ngữ pháp: mở một bài luyện dịch không phải tải thêm năm bài ngữ pháp chỉ để
+      // hiện tên mẫu. Chỉ khai ở bài luyện dịch, bài khác không cần hai khoá này.
+      ...(translation ? { translationSets: items, grammarRefs: translation.grammarRefs } : {}),
     },
     fileName: `${id}.json`,
   };
@@ -460,9 +543,10 @@ function main() {
 
   const built = [];
   const usedIds = new Map();
+  const grammarIndex = indexGrammar(folders);
 
   for (const folderName of folders) {
-    const result = buildLesson(folderName);
+    const result = buildLesson(folderName, grammarIndex);
     log();
     if (!result) continue;
 

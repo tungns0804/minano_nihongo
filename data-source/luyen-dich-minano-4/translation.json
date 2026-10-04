@@ -1,0 +1,297 @@
+{
+  "sets": [
+    {
+      "title": "Gọi điện hỏi giờ mở cửa",
+      "description": "Anh Miller gọi tới bảo tàng mỹ thuật hỏi giờ mở cửa và ngày nghỉ.",
+      "lines": [
+        {
+          "speaker": "ミラー",
+          "ja": "すみません。そちらは {何時|なんじ}から {何時|なんじ}までですか。",
+          "vi": "Xin lỗi, [bên đó/chỗ anh/chỗ chị/bảo tàng] [mở cửa /làm việc /]từ mấy giờ đến mấy giờ[ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "何時から 何時まで: から là điểm bắt đầu, まで là điểm kết thúc; cả cụm đứng trước です làm vị ngữ." },
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "そちら: 'phía anh/chị' — gọi điện thì chỗ của người nghe là そちら." }
+          ]
+        },
+        {
+          "speaker": "{美術館|びじゅつかん}の{人|ひと}",
+          "ja": "{9|く}{時|じ}から {4|よ}{時|じ}までです。",
+          "vi": "Từ [9/chín] giờ đến [4/bốn] giờ[ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "9時 đọc くじ, 4時 đọc よじ — hai cách đọc giờ bất quy tắc." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "から～まで: khoảng thời gian mở cửa." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{休|やす}みは {土曜日|どようび}と {日曜日|にちようび}ですか。",
+          "vi": "Ngày nghỉ [là /]thứ Bảy và Chủ nhật [phải không/à/][ ạ/]?",
+          "grammar": [
+            { "lesson": 4, "point": "N1 と N2", "note": "土曜日と 日曜日: と nối hai danh từ, liệt kê đủ." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: hỏi xác nhận." }
+          ]
+        },
+        {
+          "speaker": "{美術館|びじゅつかん}の{人|ひと}",
+          "ja": "いいえ、{月曜日|げつようび}です。{土曜日|どようび}と {日曜日|にちようび}は {9|く}{時|じ}から {6|ろく}{時|じ}までです。",
+          "vi": "[Không/Dạ không], [là /]thứ Hai[ ạ/]. Thứ Bảy và Chủ nhật [thì /][mở cửa /]từ [9/chín] giờ đến [6/sáu] giờ[ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "N1 と N2", "note": "土曜日と 日曜日は: hai ngày làm chung một chủ đề." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "9時から 6時まで: giờ mở cửa cuối tuần." },
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "6時 đọc ろくじ." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{土曜日|どようび}と {日曜日|にちようび}は {6|ろく}{時|じ}までですね。",
+          "vi": "Thứ Bảy và Chủ nhật [thì /][mở cửa /]đến [6/sáu] giờ nhỉ.",
+          "grammar": [
+            { "lesson": 4, "point": "～ね", "note": "ね: nhắc lại thông tin vừa nghe để xác nhận." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "まで đứng một mình cũng được: chỉ nêu điểm kết thúc." },
+            { "lesson": 4, "point": "N1 と N2", "note": "と: liệt kê hai ngày." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "そちらは {明日|あした} {何時|なんじ}に {終|お}わりますか。",
+          "vi": "Ngày mai bên đó mấy giờ [thì /][đóng cửa/kết thúc][ ạ/]?",
+          "viAlt": ["Bên đó ngày mai mấy giờ [thì /][đóng cửa/kết thúc][ ạ/]?"],
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "終わりますか: động từ thể ます ở thì không quá khứ, chỉ việc sắp xảy ra." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "何時に: giờ có con số (kể cả hỏi 何時) đi với に; 明日 thì không có に." },
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "そちら: chỗ của người nghe máy." }
+          ]
+        },
+        {
+          "speaker": "{美術館|びじゅつかん}の{人|ひと}",
+          "ja": "{明日|あした}は {水曜日|すいようび}ですね。{4|よ}{時|じ}に {終|お}わります。",
+          "vi": "Ngày mai là thứ Tư nhỉ. [Bảo tàng /]đóng cửa lúc [4/bốn] giờ[ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "～ね", "note": "水曜日ですね: tự xác nhận lại hôm đó là thứ mấy." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "4時に 終わります: giờ có con số + に." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "終わります: việc sẽ xảy ra vẫn dùng đuôi ます." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "そうですか。{午前|ごぜん}は {何時|なんじ}からですか。",
+          "vi": "[Thế à/Vậy à]. Buổi sáng [thì /][mở cửa /]từ mấy giờ[ ạ/]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin vừa nghe." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "何時からですか: chỉ hỏi điểm bắt đầu." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "speaker": "{美術館|びじゅつかん}の{人|ひと}",
+          "ja": "{9|く}{時|じ}からです。{月曜日|げつようび}は {休|やす}みます。",
+          "vi": "Từ [9/chín] giờ[ ạ/]. Thứ Hai [thì /][chúng tôi /]nghỉ[ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "9時からです: から đứng một mình." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "休みます: việc lặp lại đều đặn (thói quen) dùng đuôi ます." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{月曜日|げつようび}は {休|やす}みですね。どうも ありがとう ございました。",
+          "vi": "Thứ Hai [là /]ngày nghỉ nhỉ. Cảm ơn [anh/chị/] rất nhiều[ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "～ね", "note": "ね: xác nhận lại thông tin trước khi gác máy." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "月曜日は 休みです: câu danh từ khẳng định." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Giờ giấc hằng ngày",
+      "description": "Chị Sato hỏi anh Miller về giờ dậy, giờ ngủ và giờ làm việc.",
+      "lines": [
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "ミラーさんは {毎朝|まいあさ} {何時|なんじ}に {起|お}きますか。",
+          "vi": "Anh Miller [mỗi sáng/sáng nào cũng] dậy lúc mấy giờ[ vậy/]?",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "起きますか: hỏi thói quen bằng đuôi ます + か." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "何時に: giờ đi với に; 毎朝 thì không có に." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ミラーさん: gọi người nghe bằng tên + さん." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{6|ろく}{時|じ}に {起|お}きます。{毎晩|まいばん} {11|じゅういち}{時|じ}に {寝|ね}ます。",
+          "vi": "Tôi dậy lúc [6/sáu] giờ. [Tối nào tôi cũng/Mỗi tối tôi] ngủ lúc [11/mười một] giờ.",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "起きます / 寝ます: thói quen hằng ngày dùng đuôi ます." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "6時に, 11時に: giờ có con số + に." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "{大変|たいへん}ですね。{昼休|ひるやす}みは {何時|なんじ}から {何時|なんじ}までですか。",
+          "vi": "Vất vả nhỉ. Giờ nghỉ trưa [là /]từ mấy giờ đến mấy giờ[ vậy/]?",
+          "grammar": [
+            { "lesson": 4, "point": "～ね", "note": "大変ですね: chia sẻ cảm nhận, mong người nghe đồng tình." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "何時から 何時まで: hỏi khoảng thời gian." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{12|じゅうに}{時|じ}から {1|いち}{時|じ}までです。{佐藤|さとう}さんも {12|じゅうに}{時|じ}からですか。",
+          "vi": "Từ [12/mười hai] giờ đến [1/một] giờ. Chị Sato cũng [nghỉ /]từ [12/mười hai] giờ à?",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "から～まで làm vị ngữ; câu sau chỉ dùng から." },
+            { "lesson": 1, "point": "N も", "note": "佐藤さんも: 'chị Sato cũng'." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: hỏi lại người kia." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "佐藤さん: họ + さん." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "いいえ、{違|ちが}います。{12|じゅうに}{時|じ}{半|はん}から {1|いち}{時|じ}{半|はん}までです。",
+          "vi": "[Không/Dạ không], [không phải/không đúng]. [Tôi nghỉ /]từ [12/mười hai] giờ rưỡi đến [1/một] giờ rưỡi.",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "いいえ、違います: đính chính." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "12時半から 1時半まで: 半 = rưỡi." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "そうですか。{佐藤|さとう}さんは {土曜日|どようび}も {働|はたら}きますか。",
+          "vi": "[Thế à/Vậy à]. Chị Sato thứ Bảy cũng đi làm à?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "働きますか: hỏi thói quen." },
+            { "lesson": 1, "point": "N も", "note": "土曜日も: 'thứ Bảy cũng'." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "佐藤さん: họ + さん." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "いいえ、{土曜日|どようび}と {日曜日|にちようび}は {働|はたら}きません。",
+          "vi": "[Không/Dạ không], thứ Bảy và Chủ nhật [thì /]tôi không [đi /]làm.",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "働きません: phủ định không quá khứ của 働きます." },
+            { "lesson": 4, "point": "N1 と N2", "note": "土曜日と 日曜日: liệt kê đủ hai ngày." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{昨日|きのう}も {9|く}{時|じ}まで {働|はたら}きましたか。",
+          "vi": "Hôm qua [chị /]cũng làm việc đến [9/chín] giờ à?",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "働きましたか: hỏi việc đã qua bằng đuôi ました + か." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "9時まで: điểm kết thúc của việc kéo dài." },
+            { "lesson": 1, "point": "N も", "note": "昨日も: 'hôm qua cũng'." }
+          ]
+        },
+        {
+          "speaker": "{佐藤|さとう}",
+          "ja": "いいえ、{昨日|きのう}は {働|はたら}きませんでした。{一昨日|おととい}も {働|はたら}きませんでした。",
+          "vi": "[Không/Dạ không], hôm qua tôi [đã /]không [đi /]làm. Hôm kia [tôi /]cũng [đã /]không [đi /]làm.",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "働きませんでした: phủ định quá khứ — việc đã không xảy ra." },
+            { "lesson": 1, "point": "N も", "note": "一昨日も: も đi được với từ chỉ thời gian." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "そうですか。{私|わたし}は {毎日|まいにち} {9|く}{時|じ}から {7|しち}{時|じ}まで {働|はたら}きます。",
+          "vi": "[Thế à/Vậy à]. Tôi [ngày nào cũng/mỗi ngày đều/hằng ngày] làm việc từ [9/chín] giờ đến [7/bảy] giờ.",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: đáp lại." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "9時から 7時まで: khoảng thời gian làm việc." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "働きます: thói quen mỗi ngày; 7時 đọc しちじ." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lịch trong tuần",
+      "description": "Nói giờ hiện tại, giờ mở cửa và lịch học, lịch làm trong tuần.",
+      "lines": [
+        {
+          "ja": "すみません、{今|いま} {何時|なんじ}ですか。",
+          "vi": "Xin lỗi, bây giờ [là /]mấy giờ[ rồi/][ ạ/]?",
+          "grammar": [
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "今 何時ですか: câu hỏi giờ; 何 đọc なん trước 時." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "ja": "{今|いま} {12|じゅうに}{時|じ}ですね。",
+          "vi": "Bây giờ [là /][12/mười hai] giờ [rồi /]nhỉ.",
+          "grammar": [
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "今 12時です: nói giờ hiện tại." },
+            { "lesson": 4, "point": "～ね", "note": "ね: chia sẻ điều cả hai cùng thấy." }
+          ]
+        },
+        {
+          "ja": "{銀行|ぎんこう}は {月曜日|げつようび}から {金曜日|きんようび}までです。{土曜日|どようび}と {日曜日|にちようび}は {休|やす}みです。",
+          "vi": "Ngân hàng [làm việc /mở cửa /]từ thứ Hai đến thứ Sáu. Thứ Bảy và Chủ nhật [thì /][là ngày /]nghỉ.",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "月曜日から 金曜日まで: から～まで dùng cho cả ngày trong tuần." },
+            { "lesson": 4, "point": "N1 と N2", "note": "土曜日と 日曜日: liệt kê đủ." }
+          ]
+        },
+        {
+          "ja": "この {図書館|としょかん}は {何時|なんじ}までですか。",
+          "vi": "Thư viện này [mở cửa /]đến mấy giờ[ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "何時までですか: hỏi giờ đóng cửa." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 図書館: thư viện này." }
+          ]
+        },
+        {
+          "ja": "{会議|かいぎ}は {火曜日|かようび}と {木曜日|もくようび}ですね。",
+          "vi": "Cuộc họp [là /vào /]thứ Ba và thứ Năm nhỉ.",
+          "grammar": [
+            { "lesson": 4, "point": "N1 と N2", "note": "火曜日と 木曜日: hai ngày có họp." },
+            { "lesson": 4, "point": "～ね", "note": "ね: xác nhận lại lịch." }
+          ]
+        },
+        {
+          "ja": "{試験|しけん}は {9|く}{時|じ}から {12|じゅうに}{時|じ}までですね。",
+          "vi": "Bài thi [là /kéo dài /]từ [9/chín] giờ đến [12/mười hai] giờ nhỉ.",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "から～まで + です làm vị ngữ." },
+            { "lesson": 4, "point": "～ね", "note": "ね: xác nhận." }
+          ]
+        },
+        {
+          "ja": "{毎晩|まいばん} {7|しち}{時|じ}から {9|く}{時|じ}まで {勉強|べんきょう}します。{11|じゅういち}{時|じ}に {寝|ね}ます。",
+          "vi": "[Tối nào tôi cũng/Mỗi tối tôi] học từ [7/bảy] giờ đến [9/chín] giờ. [Tôi /]ngủ lúc [11/mười một] giờ.",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "7時から 9時まで: việc kéo dài trong khoảng đó." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "11時に 寝ます: việc xảy ra tại một thời điểm có con số." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "勉強します / 寝ます: thói quen." }
+          ]
+        },
+        {
+          "ja": "{今|いま} {10|じゅう}{時|じ}です。{会議|かいぎ}は {終|お}わりました。",
+          "vi": "Bây giờ [là /][10/mười] giờ. Cuộc họp [đã /]kết thúc [rồi/].",
+          "grammar": [
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "今 10時です: nói giờ." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "終わりました: việc đã xong dùng đuôi ました." }
+          ]
+        },
+        {
+          "ja": "ロンドンは {今|いま} {午前|ごぜん} {9|く}{時|じ}ですか、{午後|ごご} {9|く}{時|じ}ですか。",
+          "vi": "Ở London bây giờ là [9/chín] giờ sáng hay [9/chín] giờ tối?",
+          "grammar": [
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "午前 / 午後 đứng TRƯỚC giờ, ngược với tiếng Việt." },
+            { "lesson": 2, "point": "～か、～か", "note": "Hỏi lựa chọn giữa sáng và tối." }
+          ]
+        },
+        {
+          "ja": "{明日|あした} {働|はたら}きますか、{休|やす}みますか。",
+          "vi": "Ngày mai [anh/chị/bạn] [đi làm/làm việc] hay [là /]nghỉ?",
+          "grammar": [
+            { "lesson": 2, "point": "～か、～か", "note": "～か、～か dùng được với động từ: hai lựa chọn, mỗi vế một か." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "働きます / 休みます: việc sẽ làm ngày mai." }
+          ]
+        }
+      ]
+    }
+  ]
+}

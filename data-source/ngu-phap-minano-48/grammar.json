@@ -8,8 +8,8 @@
         "A は B に N を ＋ V sai khiến (động từ đã có tân ngữ)"
       ],
       "explanation": [
-        "Câu chỉ có một tân ngữ thì người bị sai khiến đi với を.",
-        "Câu đã có tân ngữ rồi (N を) thì người bị sai khiến chuyển sang に — không thể có hai を trong một câu.",
+        "Động từ gốc là tự động từ (không có tân ngữ): người bị sai khiến đi với を — 「こどもを あそばせます」.",
+        "Động từ gốc là tha động từ (đã có N を): người bị sai khiến chuyển sang に — không để hai を trong một câu.",
         "Nghĩa \"bắt\" hay \"cho phép\" tuỳ ngữ cảnh chứ không nằm ở cấu trúc.",
         "Động từ sai khiến luôn chia như nhóm 2."
       ],
@@ -40,7 +40,10 @@
           ]
         }
       ],
-      "notes": [],
+      "notes": [
+        "Tự động từ đã đi với một nơi chốn を (あるきます, わたります…) thì người bị sai khiến dùng に: 「こどもに みちの みぎがわを あるかせます」.",
+        "Thể sai khiến là người trên nói về người dưới (bố mẹ – con, cấp trên – cấp dưới). Muốn nhờ người trên làm gì thì dùng ～て いただきます／～て もらいます chứ không dùng sai khiến."
+      ],
       "usages": [
         {
           "title": "Một tân ngữ — người bị sai khiến đi với を",

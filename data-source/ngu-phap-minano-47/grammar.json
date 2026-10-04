@@ -57,7 +57,9 @@
         "Người nói tự cảm thấy, tự suy ra từ những gì mình nghe, ngửi, nhìn, sờ thấy.",
         "Hay đi kèm どうも với nghĩa \"không rõ có đúng không nhưng tôi thấy hình như là\"."
       ],
-      "notes": ["Aな nối bằng な, N nối bằng の: ○きらいなようです, ×きらいようです."],
+      "notes": [
+        "Aな nối bằng な, N nối bằng の: ○きらいなようです, ×きらいようです."
+      ],
       "usages": [
         {
           "title": "Suy đoán từ cảm nhận bản thân",
@@ -77,7 +79,7 @@
             },
             {
               "japanese": "かれの おくさんは タバコの においが きらいなようです。",
-              "vietnamese": "Hình như vợ anh ấy rất ghét mùi thuốc lá."
+              "vietnamese": "Hình như vợ anh ấy ghét mùi thuốc lá."
             }
           ]
         }
@@ -101,7 +103,7 @@
               "vietnamese": "Bông hoa này có mùi thơm nhỉ."
             },
             {
-              "japanese": "どこか あかちゃんの なく こえが します。",
+              "japanese": "どこかで あかちゃんの なく こえが します。",
               "vietnamese": "Có tiếng em bé khóc ở đâu đó."
             },
             {

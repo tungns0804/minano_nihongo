@@ -1,0 +1,284 @@
+{
+  "sets": [
+    {
+      "title": "Mua rượu vang ở cửa hàng bách hoá",
+      "description": "Chị Maria hỏi đường tới quầy rượu, hỏi xuất xứ và giá rồi mua một chai.",
+      "lines": [
+        {
+          "speaker": "マリア",
+          "ja": "すみません。ワイン{売|う}り{場|ば}は どこですか。この {階|かい}ですか。",
+          "vi": "Xin lỗi, [quầy/khu] rượu vang ở đâu[ vậy/][ ạ/]? [Có phải ở tầng này không/Ở tầng này à/Ở tầng này phải không][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "ワイン売り場は どこですか: hỏi một chỗ ở đâu bằng N は どこですか." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 階: 'tầng này' — この đi kèm danh từ." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "いいえ、{違|ちが}います。{地下|ちか}{1|いっ}{階|かい}です。",
+          "vi": "[Không/Dạ không], [không phải/không đúng][ ạ/]. [Ở /]tầng hầm [1/một][ ạ/].",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "いいえ、違います: đính chính điều khách đoán sai." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "地下1階です: N（nơi chốn）です nghĩa là 'ở' chỗ đó, không phải 'là' chỗ đó." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "エレベーターは どちらですか。",
+          "vi": "Thang máy ở [đâu/phía nào/hướng nào][ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "どちら: bản lịch sự của どこ, cũng dùng để hỏi hướng." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "エレベーターは どちらですか: hỏi vị trí theo mẫu N は (nơi chốn) ですか." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "エレベーターは あちらです。トイレも あちらです。",
+          "vi": "Thang máy ở [phía/đằng/bên] kia[ ạ/]. Nhà vệ sinh cũng ở [phía/đằng/bên] kia[ ạ/].",
+          "grammar": [
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "あちら: 'phía kia' — nhân viên nói với khách nên dùng bộ こちら・あちら lịch sự." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "N は あちらです: nói vật ở đâu." },
+            { "lesson": 1, "point": "N も", "note": "トイレも: cũng ở chỗ đó, も thay は." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "すみません。それは フランスの ワインですか。",
+          "vi": "Xin lỗi, [đó/cái đó/chai đó] [có phải là /là ]rượu vang [của /]Pháp [không/phải không/à/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "フランスの ワイン: tên nước + の + sản phẩm = sản phẩm của nước đó." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それ: chai rượu ở gần nhân viên." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: hỏi xác nhận." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "いいえ、イタリアのです。",
+          "vi": "[Không/Dạ không], [là /đó là /][rượu /rượu của /của /][Ý/Italia/Italy][ ạ/].",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "イタリアの: nói nước sản xuất…" },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "…và lược ワイン vì đã rõ đang nói về rượu." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "その ワインは いくらですか。",
+          "vi": "[Chai/Bình] rượu vang đó [giá /]bao nhiêu [tiền /][vậy /][ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N は いくらですか", "note": "いくらですか: hỏi giá tiền." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "その ワイン: chai rượu ở gần người nghe." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "この ワインは {2500|にせんごひゃく}{円|えん}です。フランスの ワインは {3000|さんぜん}{円|えん}です。",
+          "vi": "[Chai/Bình] rượu vang này [giá /][là /]2.500 yên. Rượu vang [của /]Pháp [thì /][giá /][là /]3.000 yên.",
+          "grammar": [
+            { "lesson": 3, "point": "N は いくらですか", "note": "～円です: trả lời giá; 3000 đọc là さんぜん (biến âm)." },
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "フランスの ワイン: rượu vang của Pháp." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この ワイン: chai đang cầm trên tay." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "じゃ、これを ください。",
+          "vi": "[Vậy thì/Thế thì/Vậy], cho tôi [cái/chai] này[ ạ/].",
+          "grammar": [
+            { "lesson": 3, "point": "N は いくらですか", "note": "～を ください: câu cửa miệng khi chọn mua, học như một cụm ở bài 3." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これ: thứ ở ngay chỗ mình." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "あの ワインは どこの ワインですか。",
+          "vi": "[Chai/Bình] rượu vang kia là rượu vang [của nước nào/nước nào/của hãng nào][ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "どこの ワイン: hỏi nơi sản xuất dùng どこの, không dùng なんの." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの ワイン: chai ở xa cả hai người." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Trong toà nhà công ty",
+      "description": "Chỉ chỗ và hỏi chỗ bằng ここ・そこ・あそこ và N は (nơi chốn) です.",
+      "lines": [
+        {
+          "ja": "ここは {食堂|しょくどう}です。{事務所|じむしょ}は あそこです。",
+          "vi": "[Đây/Chỗ này/Ở đây] là nhà ăn. Văn phòng [ở /là /][đằng/chỗ/phía] kia.",
+          "grammar": [
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "ここ: chỗ người nói đang đứng; あそこ: chỗ xa cả hai." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "事務所は あそこです: 'văn phòng ở đằng kia'." }
+          ]
+        },
+        {
+          "ja": "お{手洗|てあら}いは そこです。{会議室|かいぎしつ}も そこです。",
+          "vi": "Nhà vệ sinh [ở /là /][chỗ/đằng/phía] đó. Phòng họp cũng [ở /là /][chỗ/đằng/phía] đó.",
+          "grammar": [
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "そこ: chỗ gần người nghe." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "N は そこです: nói vị trí." },
+            { "lesson": 1, "point": "N も", "note": "会議室も: cũng ở chỗ đó." }
+          ]
+        },
+        {
+          "ja": "{山田|やまだ}さんは どこですか。",
+          "vi": "Anh Yamada [đang /]ở đâu[ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "Người cũng dùng mẫu N は どこですか để hỏi đang ở đâu." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "山田さん: họ + さん." }
+          ]
+        },
+        {
+          "ja": "{山田|やまだ}さんは {会議室|かいぎしつ}です。{事務所|じむしょ}[じゃ/では] ありません。",
+          "vi": "Anh Yamada [đang /]ở phòng họp. [Anh ấy /]không [phải /][ở /]văn phòng.",
+          "grammar": [
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "山田さんは 会議室です: KHÔNG dịch là 'anh Yamada là phòng họp' mà là 'đang ở phòng họp'." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "事務所じゃ ありません: phủ định nơi chốn." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "山田さん: họ + さん." }
+          ]
+        },
+        {
+          "ja": "こちらは {会議室|かいぎしつ}です。",
+          "vi": "[Đây/Chỗ này/Phía này] là phòng họp[ ạ/].",
+          "grammar": [
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "こちら: cách nói lịch sự của ここ, hay dùng khi dẫn khách." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "N1 は N2 です: giới thiệu căn phòng." }
+          ]
+        },
+        {
+          "ja": "{教室|きょうしつ}は {3|さん}{階|がい}ですか、{4|よん}{階|かい}ですか。",
+          "vi": "[Phòng học/Lớp học] ở tầng [3/ba] hay [ở /]tầng [4/bốn]?",
+          "grammar": [
+            { "lesson": 2, "point": "～か、～か", "note": "Hỏi lựa chọn giữa hai tầng." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "教室は 3階です: nơi chốn làm vị ngữ; 3階 đọc là さんがい." }
+          ]
+        },
+        {
+          "ja": "ここは {私|わたし}の {部屋|へや}[じゃ/では] ありません。",
+          "vi": "[Đây/Chỗ này] không phải [là /]phòng của tôi.",
+          "grammar": [
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "ここは: chỗ đang đứng làm chủ đề." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしの 部屋: phòng của tôi." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません: phủ định." }
+          ]
+        },
+        {
+          "ja": "あそこは {事務所|じむしょ}ですか、{会議室|かいぎしつ}ですか。",
+          "vi": "[Chỗ kia/Đằng kia/Kia] là văn phòng hay [là /]phòng họp?",
+          "grammar": [
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "あそこ: chỗ ở xa." },
+            { "lesson": 2, "point": "～か、～か", "note": "Hỏi lựa chọn." }
+          ]
+        },
+        {
+          "ja": "{自動販売機|じどうはんばいき}は {2|に}{階|かい}です。{電話|でんわ}も {2|に}{階|かい}です。",
+          "vi": "Máy bán hàng tự động [ở /]tầng [2/hai]. Điện thoại cũng [ở /]tầng [2/hai].",
+          "grammar": [
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "N は 2階です: nói vật nằm ở tầng mấy." },
+            { "lesson": 1, "point": "N も", "note": "電話も: cũng ở tầng 2." }
+          ]
+        },
+        {
+          "ja": "ここは さくら{大学|だいがく}の {食堂|しょくどう}です。",
+          "vi": "[Đây/Chỗ này] là nhà ăn [của /][trường /]Đại học Sakura.",
+          "grammar": [
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "ここは: giới thiệu nơi mình đang đứng." },
+            { "lesson": 1, "point": "N1 の N2", "note": "さくら大学の 食堂: nhà ăn thuộc trường Sakura." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hỏi han và mua sắm",
+      "description": "Hỏi nước, công ty, trường một cách lịch sự; hỏi xuất xứ và giá của món hàng.",
+      "lines": [
+        {
+          "ja": "お{国|くに}は どちらですか。",
+          "vi": "[Anh/Chị/Bạn] [là người nước nào/đến từ nước nào/từ nước nào đến][ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "お～ — tiếp đầu ngữ lịch sự", "note": "おくに: thêm お vào đồ của người nghe để tỏ kính trọng." },
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "どちら: hỏi tên nước lịch sự hơn どこ." }
+          ]
+        },
+        {
+          "ja": "{失礼|しつれい}ですが、{会社|かいしゃ}は どちらですか。",
+          "vi": "Xin lỗi, [anh/chị/bạn] làm [ở /cho /]công ty nào[ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "Hỏi tên công ty dùng どちら (hoặc どこ), không dùng なん." },
+            { "lesson": 1, "point": "はじめまして ／ どうぞ よろしく", "note": "失礼ですが: rào đón trước câu hỏi về chuyện riêng." }
+          ]
+        },
+        {
+          "ja": "IMCです。{会社|かいしゃ}は {東京|とうきょう}です。",
+          "vi": "[Là /Công ty /Tôi làm ở /]IMC. Công ty [ở /nằm ở /]Tokyo.",
+          "grammar": [
+            { "lesson": 1, "point": "N1 は N2 です", "note": "IMCです: trả lời tên công ty." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "会社は 東京です: công ty ở Tokyo." }
+          ]
+        },
+        {
+          "ja": "これは どこの {時計|とけい}ですか。",
+          "vi": "[Đây/Cái này/Chiếc này] là đồng hồ [của nước nào/nước nào/của hãng nào/hãng nào][ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "どこの 時計: hỏi nước hoặc hãng làm ra chiếc đồng hồ." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これ: chiếc đồng hồ trước mặt." }
+          ]
+        },
+        {
+          "ja": "スイスの {時計|とけい}です。{3|さん}{万|まん}{円|えん}です。",
+          "vi": "[Là /Đó là /]đồng hồ [của /]Thụy Sĩ. [Giá /][30.000/3 vạn] yên.",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "スイスの 時計: đồng hồ Thụy Sĩ." },
+            { "lesson": 3, "point": "N は いくらですか", "note": "3万円です: nói giá; 万 = mười nghìn." }
+          ]
+        },
+        {
+          "ja": "この ネクタイも イタリアの ネクタイですか。",
+          "vi": "[Cái/Chiếc] cà vạt này cũng là cà vạt [của /][Ý/Italia/Italy] [phải không/à/]?",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "イタリアの ネクタイ: cà vạt sản xuất ở Ý." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この ネクタイ: chiếc ở gần người nói." },
+            { "lesson": 1, "point": "N も", "note": "この ネクタイも: chiếc này cũng…" }
+          ]
+        },
+        {
+          "ja": "この {靴|くつ}は {日本|にほん}のです。{1|いち}{万|まん}{円|えん}です。",
+          "vi": "Đôi giày này là [giày /hàng /][của /]Nhật[ Bản/]. [Giá /][10.000/1 vạn] yên.",
+          "grammar": [
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "日本の: hàng sản xuất ở Nhật…" },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "…lược 靴 vì đã rõ." },
+            { "lesson": 3, "point": "N は いくらですか", "note": "1万円です: nói giá." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 靴: đôi giày này." }
+          ]
+        },
+        {
+          "ja": "{山田|やまだ}さんの おうちは どこですか。",
+          "vi": "Nhà [của /]anh Yamada ở đâu[ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 3, "point": "お～ — tiếp đầu ngữ lịch sự", "note": "おうち: nói về nhà người khác thì thêm お cho lịch sự." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "N は どこですか: hỏi chỗ." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "山田さんの おうち: nhà của anh Yamada." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "山田さん: họ + さん." }
+          ]
+        },
+        {
+          "ja": "{大学|だいがく}は どちらですか。さくら{大学|だいがく}ですか。",
+          "vi": "[Anh/Chị/Bạn] học trường [đại học /]nào[ vậy/][ ạ/]? [Có phải /Là /]Đại học Sakura [không/phải không/à/]?",
+          "grammar": [
+            { "lesson": 3, "point": "こちら ／ そちら ／ あちら ／ どちら", "note": "大学は どちらですか: hỏi tên trường lịch sự." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "さくら大学ですか: câu hỏi có/không để đoán thử." }
+          ]
+        },
+        {
+          "ja": "そうですか。じゃ、この かばんは いくらですか。",
+          "vi": "[Thế à/Vậy à]. [Vậy thì/Thế thì/Vậy], [cái/chiếc] [cặp/túi] này [giá /]bao nhiêu [tiền /][vậy /][ạ/]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: đáp lại giá của món trước." },
+            { "lesson": 3, "point": "N は いくらですか", "note": "いくらですか: hỏi giá món tiếp theo." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この かばん: chiếc cặp này." }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+<div class="container page">
+  @if (loading()) {
+    <div class="detail-skeleton" role="status" [attr.aria-label]="t('lesson.loading')">
+      <div class="skeleton sk-back"></div>
+      <div class="skeleton sk-title"></div>
+      <div class="sk-row" aria-hidden="true">
+        <div class="skeleton sk-pill"></div>
+        <div class="skeleton sk-pill"></div>
+        <div class="skeleton sk-pill"></div>
+      </div>
+      <div class="skeleton sk-block"></div>
+      <div class="skeleton sk-block"></div>
+    </div>
+  } @else if (notFound()) {
+    <div class="stack">
+      <div class="notice notice-error">
+        {{ t('lesson.notFound', { id: lessonId() }) }}
+      </div>
+      <div><a class="btn" routerLink="/translate">{{ t('translate.back') }}</a></div>
+    </div>
+  } @else if (lesson(); as data) {
+    <div class="stack stack-xl">
+      <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
+      <header class="stack stack-sm">
+        <a class="back-link" routerLink="/translate">{{ t('translate.back') }}</a>
+        <h1>{{ data.name }}</h1>
+        @if (data.description) {
+          <p class="muted">{{ data.description }}</p>
+        }
+        <div class="row">
+          <span class="badge">
+            <app-t key="kind.translation.unit" [params]="{ count: sentenceCount() }" />
+          </span>
+          <span class="badge">
+            <app-t key="translate.setCount" [params]="{ count: sets().length }" />
+          </span>
+          <span class="badge badge-warning">
+            {{ t('home.favoriteCount', { count: favoriteCount() }) }}
+          </span>
+        </div>
+      </header>
+
+      <!-- ── Ngữ pháp của cả bài ─────────────────────────────────────────── -->
+      <section class="card">
+        <div class="card-body stack">
+          <h2>{{ t('translate.grammarOverview') }}</h2>
+          <p class="muted small"><app-t key="translate.grammarOverview.hint" block /></p>
+
+          <div class="field">
+            <span class="label">{{ t('translate.grammarOverview.current') }}</span>
+            <div class="grammar-chips">
+              @for (use of grammarUses().current; track use.id) {
+                <a class="grammar-chip is-current" [routerLink]="['/grammar', use.ref.lessonId]">
+                  <span class="jp">{{ use.ref.title }}</span>
+                  <span class="grammar-chip-count">{{ use.count }}</span>
+                </a>
+              }
+            </div>
+          </div>
+
+          @if (grammarUses().older.length > 0) {
+            <div class="field">
+              <span class="label">{{ t('translate.grammarOverview.older') }}</span>
+              <div class="grammar-chips">
+                @for (use of grammarUses().older; track use.id) {
+                  <a class="grammar-chip" [routerLink]="['/grammar', use.ref.lessonId]">
+                    <span class="grammar-chip-lesson">
+                      {{ t('translate.lessonBadge', { lesson: use.ref.lesson }) }}
+                    </span>
+                    <span class="jp">{{ use.ref.title }}</span>
+                    <span class="grammar-chip-count">{{ use.count }}</span>
+                  </a>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- ── Các bài nhỏ ─────────────────────────────────────────────────── -->
+      <div class="row sets-toolbar">
+        <h2>{{ t('translate.sets') }}</h2>
+        <span class="spacer"></span>
+        <label class="checkbox">
+          <input type="checkbox" [checked]="showFurigana()" (change)="toggleFurigana($event)" />
+          <span><strong>{{ t('translate.option.furigana') }}</strong></span>
+        </label>
+      </div>
+
+      @for (set of sets(); track set.id; let index = $index) {
+        <section class="card set-card">
+          <div class="card-body stack">
+            <div class="set-head">
+              <div class="stack" style="gap: 4px">
+                <h3 class="set-title">
+                  <app-t key="translate.setTitle" [params]="{ index: index + 1, title: set.title }" />
+                </h3>
+                @if (set.description) {
+                  <p class="muted small">{{ set.description }}</p>
+                }
+              </div>
+              <button type="button" class="btn btn-sm" (click)="practiceSet(set.id)">
+                {{ t('translate.practiceSet', { count: set.lines.length }) }}
+              </button>
+            </div>
+
+            <ol class="sentence-list">
+              @for (line of set.lines; track line.id) {
+                <li class="sentence">
+                  <button app-star
+                    [on]="isFavorite(line.id)"
+                    [label]="t('translate.star')"
+                    [title]="t('translate.star')"
+                    (click)="toggleFavorite(line.id)"
+                  ></button>
+                  <div class="sentence-body">
+                    <p class="sentence-jp jp">
+                      @if (line.speaker) {
+                        <span class="speaker"><app-ruby [text]="line.speaker" [furigana]="showFurigana()" />：</span>
+                      }
+                      <app-ruby [text]="line.ja" [furigana]="showFurigana()" />
+                    </p>
+                    <p class="sentence-vi muted"><app-ruby [text]="line.vi" [furigana]="false" /></p>
+                    <div class="sentence-tags">
+                      @for (item of line.grammar; track item.point) {
+                        @if (refOf(item.point); as ref) {
+                          <span
+                            class="sentence-tag"
+                            [class.is-current]="isCurrentLesson(ref)"
+                            [title]="item.note"
+                          >
+                            {{ t('translate.lessonBadge', { lesson: ref.lesson }) }} ·
+                            <span class="jp">{{ ref.title }}</span>
+                          </span>
+                        }
+                      }
+                    </div>
+                  </div>
+                </li>
+              }
+            </ol>
+          </div>
+        </section>
+      }
+
+      <!-- ── Thiết lập luyện tập ─────────────────────────────────────────── -->
+      <section class="card practice-card">
+        <div class="card-body stack setup">
+          <h2>{{ t('translate.practice') }}</h2>
+
+          @if (sets().length > 1) {
+            <div class="field">
+              <span class="label">{{ t('translate.pickSets') }}</span>
+              <div class="options">
+                @for (set of sets(); track set.id; let index = $index) {
+                  <button
+                    type="button"
+                    class="option option-stacked"
+                    [class.is-active]="isSetSelected(set.id)"
+                    [attr.aria-pressed]="isSetSelected(set.id)"
+                    (click)="toggleSet(set.id)"
+                  >
+                    <strong>{{ t('translate.setShort', { index: index + 1 }) }}</strong>
+                    <span class="option-example">{{ set.title }}</span>
+                  </button>
+                }
+              </div>
+            </div>
+          }
+
+          <div class="field">
+            <span class="label">{{ t('lesson.scope') }}</span>
+            <div class="options">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'all'"
+                (click)="setScope('all')"
+              >
+                {{ t('lesson.scope.all', { count: sentenceCount() }) }}
+              </button>
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="scope() === 'favorite'"
+                [disabled]="favoriteCount() === 0"
+                (click)="setScope('favorite')"
+              >
+                {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+              </button>
+            </div>
+            @if (favoriteCount() > 0) {
+              <div>
+                <button type="button" class="btn btn-sm btn-ghost" (click)="clearFavorites()">
+                  {{ t('lesson.clearFavorites') }}
+                </button>
+              </div>
+            }
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.direction') }}</span>
+            <div class="options">
+              @for (item of directions; track item.id) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="direction() === item.id"
+                  [title]="t(item.labelKey)"
+                  (click)="setDirection(item.id)"
+                >
+                  <app-t [key]="item.shortKey" />
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.questionCount') }}</span>
+            <div class="options">
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === null"
+                (click)="setQuestionLimit(null)"
+              >
+                {{ t('common.all') }}
+              </button>
+              @for (limit of limitChoices(); track limit) {
+                <button
+                  type="button"
+                  class="option"
+                  [class.is-active]="questionLimit() === limit"
+                  (click)="setQuestionLimit(limit)"
+                >
+                  {{ t('lesson.questionCount.n', { count: limit }) }}
+                </button>
+              }
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="label">{{ t('lesson.options') }}</span>
+            <div class="options">
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showFurigana()" (change)="toggleFurigana($event)" />
+                <span>
+                  <strong>{{ t('translate.option.furigana') }}</strong>
+                  <span class="hint"><app-t key="translate.option.furiganaHint" block /></span>
+                </span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+                <span>
+                  <strong>{{ t('translate.option.grammarHint') }}</strong>
+                  <span class="hint"><app-t key="translate.option.grammarHintHint" block /></span>
+                </span>
+              </label>
+
+              <label class="checkbox">
+                <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+                <span>
+                  <strong><app-t key="lesson.option.shuffle" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                </span>
+              </label>
+
+              <!-- Bỏ dấu tiếng Việt chỉ có nghĩa khi đáp án là tiếng Việt. -->
+              <label
+                class="checkbox"
+                [class.is-disabled]="currentDirection().id !== 'jp-vi'"
+                [title]="
+                  currentDirection().id === 'jp-vi' ? '' : t('grammar.option.diacriticsDisabled')
+                "
+              >
+                <input
+                  type="checkbox"
+                  [checked]="ignoreDiacritics() && currentDirection().id === 'jp-vi'"
+                  [disabled]="currentDirection().id !== 'jp-vi'"
+                  (change)="toggleIgnoreDiacritics($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="start-bar">
+            <div class="small muted">
+              <app-t
+                key="translate.plan"
+                block
+                [params]="{ count: plannedQuestionCount(), mode: modeShort() }"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              [disabled]="!canStart()"
+              (click)="start()"
+            >
+              {{ t('lesson.start') }}
+            </button>
+          </div>
+
+          @if (!canStart()) {
+            <p class="hint">{{ t('lesson.emptyScope') }}</p>
+          }
+        </div>
+      </section>
+    </div>
+  }
+</div>

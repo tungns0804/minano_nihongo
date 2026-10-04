@@ -158,8 +158,8 @@
           "detail": "Lịch trình đã sắp xếp.",
           "examples": [
             {
-              "japanese": "ベトナムで にほんの かいしゃで はたらく よていです。",
-              "vietnamese": "Tôi dự định làm cho công ty Nhật ở Việt Nam."
+              "japanese": "ベトナムに ある にほんの かいしゃで はたらく よていです。",
+              "vietnamese": "Tôi dự định làm việc cho một công ty Nhật ở Việt Nam."
             },
             {
               "japanese": "かいしゃの りょこうは しゅうまつの よていです。",
@@ -170,24 +170,15 @@
       ]
     },
     {
-      "title": "まだ ～",
-      "summary": "Vẫn còn đang ~ (khẳng định), hoặc vẫn chưa ~ (phủ định).",
-      "structures": ["まだ ＋ Vて います (vẫn còn đang)", "まだ ＋ Vて いません (vẫn chưa)"],
+      "title": "まだ V て いません",
+      "summary": "Vẫn chưa ~: việc chưa xảy ra hoặc chưa xong tại thời điểm nói.",
+      "structures": ["まだ ＋ V て いません"],
       "explanation": [
-        "Chú ý phủ định là ～ていません chứ không phải ～ませんでした: việc chưa xảy ra nhưng vẫn có thể sẽ xảy ra."
+        "Phủ định là ～ていません chứ không phải ～ませんでした: việc chưa xảy ra nhưng vẫn có thể sẽ xảy ra.",
+        "Bài 30 đã học まだ với câu khẳng định: \"vẫn còn\"."
       ],
       "notes": [],
       "usages": [
-        {
-          "title": "Vẫn còn đang",
-          "detail": "Việc bắt đầu rồi và chưa dứt.",
-          "examples": [
-            {
-              "japanese": "まだ あめが ふって います。",
-              "vietnamese": "Trời vẫn còn đang mưa."
-            }
-          ]
-        },
         {
           "title": "Vẫn chưa",
           "detail": "Việc chưa xảy ra.",
@@ -195,6 +186,37 @@
             {
               "japanese": "ぎんこうは まだ あいて いません。",
               "vietnamese": "Ngân hàng vẫn chưa mở cửa."
+            },
+            {
+              "japanese": "レポートは もう かきましたか。",
+              "vietnamese": "Anh đã viết xong báo cáo chưa?"
+            },
+            {
+              "japanese": "いいえ、まだ かいて いません。",
+              "vietnamese": "Chưa, tôi vẫn chưa viết xong."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ます（bỏ ます）làm danh từ — かえり、やすみ",
+      "summary": "Bỏ ます đi, phần còn lại của một số động từ dùng được như danh từ.",
+      "structures": ["かえります → かえり", "やすみます → やすみ"],
+      "explanation": [
+        "Một số động từ bỏ ます thì thành danh từ cùng nghĩa: かえり (lúc về), やすみ (ngày nghỉ), あそび (cuộc chơi), こたえ (câu trả lời), もうしこみ (việc đăng ký), たのしみ (niềm vui, sự mong chờ)."
+      ],
+      "usages": [
+        {
+          "title": "Dùng như danh từ",
+          "examples": [
+            {
+              "japanese": "かえりの しんかんせんは どこから のりますか。",
+              "vietnamese": "Tàu Shinkansen chiều về thì lên ở đâu?"
+            },
+            {
+              "japanese": "やすみは なんようびですか。",
+              "vietnamese": "Ngày nghỉ là thứ mấy?"
             }
           ]
         }

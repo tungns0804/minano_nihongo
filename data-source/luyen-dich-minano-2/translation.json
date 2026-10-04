@@ -1,0 +1,304 @@
+{
+  "sets": [
+    {
+      "title": "Cái ô này của ai?",
+      "description": "Ở văn phòng có đồ để quên, anh Yamada hỏi từng người.",
+      "lines": [
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "この {傘|かさ}は {誰|だれ}のですか。",
+          "vi": "[Cái/Chiếc] [ô/dù] này [là /]của ai[ vậy/]?",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 傘: この phải đi kèm danh từ ngay sau — 'cái ô này'." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "誰の: hỏi chủ sở hữu, lược luôn 傘 vì đã rõ đang nói về cái ô." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Câu hỏi có từ nghi vấn (誰) vẫn kết thúc bằng か, trật tự giữ nguyên." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{私|わたし}のじゃ ありません。",
+          "vi": "[Không phải/Nó không phải] [là /]của tôi[ đâu/][ ạ/].",
+          "grammar": [
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしの: 'của tôi' — 傘 được lược vì ai cũng biết đang nói về cái ô." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません phủ định: 'không phải (là) của tôi'." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "じゃ、あの {傘|かさ}は カリナさんのですか。",
+          "vi": "[Vậy thì/Thế thì/Vậy], [cái/chiếc] [ô/dù] kia [có phải là của chị Karina không/là của chị Karina phải không/là của chị Karina à]?",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの 傘: cái ô ở xa cả hai người." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "カリナさんの: 'của chị Karina', lược 傘." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "Thêm か để hỏi xác nhận." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "Hỏi thẳng người nghe bằng tên + さん." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "はい、そうです。{私|わたし}の {傘|かさ}です。",
+          "vi": "[Vâng/Dạ], [đúng vậy/đúng rồi/phải]. [Đó là /Là /][cái /chiếc /][ô/dù] của tôi.",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "そうです: trả lời đúng cho câu hỏi có vị ngữ danh từ, khỏi nhắc lại cả câu." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしの 傘: の chỉ sở hữu — 'ô của tôi'." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "これは {何|なん}の {本|ほん}ですか。",
+          "vi": "[Cái này/Đây/Quyển này] là sách [về cái gì/về gì/gì][ vậy/]?",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これ: vật ở gần người nói, đứng một mình làm chủ đề được." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "何の 本: hỏi NỘI DUNG của quyển sách — 'sách về cái gì'." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "コンピューターの {本|ほん}です。",
+          "vi": "[Đó là /Là /][sách/quyển sách] về máy tính.",
+          "grammar": [
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "コンピューターの 本: N1 nói N2 viết về cái gì." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "Trả lời bằng N です, lược それは." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "それは {英語|えいご}の {本|ほん}ですか、{日本語|にほんご}の {本|ほん}ですか。",
+          "vi": "[Đó/Cái đó/Quyển đó] là sách tiếng Anh hay [là /]sách tiếng Nhật?",
+          "grammar": [
+            { "lesson": 2, "point": "～か、～か", "note": "Hai câu hỏi đặt cạnh nhau, mỗi vế một か: hỏi lựa chọn 'A hay B'." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それ: vật ở gần người nghe (quyển sách chị Karina đang cầm)." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "英語の 本: sách (viết bằng) tiếng Anh — の nói nội dung." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{日本語|にほんご}の {本|ほん}です。{私|わたし}のじゃ ありません。",
+          "vi": "[Đó là /Là /]sách tiếng Nhật. [Nó /]không phải [là /]của tôi.",
+          "grammar": [
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "Câu hỏi lựa chọn thì trả lời thẳng bằng lựa chọn đó; わたしの lược 本." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "日本語の 本です: chọn vế thứ hai của câu hỏi." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "わたしのじゃ ありません: 'không phải của tôi'." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですか。じゃ、ミラーさんのですか。",
+          "vi": "[Thế à/Vậy à]. [Vậy thì/Thế thì/Vậy] [có phải là của anh Miller không/là của anh Miller phải không/là của anh Miller à]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか (xuống giọng): 'thế à' — tiếp nhận thông tin vừa nghe." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "ミラーさんの: lược 本." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: hỏi xác nhận." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ミラーさん: tên + さん." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "いいえ、{違|ちが}います。ワンさんの {本|ほん}です。",
+          "vi": "[Không/Dạ không], [không phải/không đúng]. [Đó là /Là /]sách của anh Wang.",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "Phủ định thì nói いいえ、違います chứ hầu như không dùng そうじゃ ありません." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "ワンさんの 本: の chỉ người sở hữu." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ワンさん: tên + さん." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Đồ vật quanh ta",
+      "description": "Chỉ đồ vật gần xa bằng これ・それ・あれ và この・その・あの, hỏi lựa chọn bằng ～か、～か.",
+      "lines": [
+        {
+          "ja": "これは {私|わたし}の {名刺|めいし}です。どうぞ。",
+          "vi": "[Đây/Cái này] là danh thiếp của tôi. [Xin mời/Mời anh/Mời chị/Mời bạn/Anh cầm lấy/Chị cầm lấy][ ạ/].",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これは … です: vật đang cầm trên tay mình." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしの 名刺: の chỉ sở hữu." }
+          ]
+        },
+        {
+          "ja": "それは {辞書|じしょ}ですか、{雑誌|ざっし}ですか。",
+          "vi": "[Đó/Cái đó] là từ điển hay [là /]tạp chí?",
+          "grammar": [
+            { "lesson": 2, "point": "～か、～か", "note": "Câu hỏi lựa chọn: mỗi vế một ですか." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それ: vật ở gần người nghe." }
+          ]
+        },
+        {
+          "ja": "この {鉛筆|えんぴつ}は {私|わたし}のです。その ボールペンも {私|わたし}のです。",
+          "vi": "[Cái/Cây/Chiếc] bút chì này là của tôi. [Cái/Cây/Chiếc] bút bi đó cũng là của tôi.",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 鉛筆 / その ボールペン: hai vật ở gần người nói và gần người nghe." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしのです: 'là của tôi', danh từ được lược." },
+            { "lesson": 1, "point": "N も", "note": "その ボールペンも: も thay は vì vị ngữ giống câu trước." }
+          ]
+        },
+        {
+          "ja": "この {方|かた}は ミラーさんです。",
+          "vi": "[Vị này/Người này] là anh Miller.",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 方: 'vị này' — この đứng trước 方, lịch sự hơn この 人." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "Giới thiệu người: N1 は N2 です." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ミラーさん: tên + さん." }
+          ]
+        },
+        {
+          "ja": "それは {新聞|しんぶん}[じゃ/では] ありません。{雑誌|ざっし}です。",
+          "vi": "[Đó/Cái đó] không phải [là /]báo. [Đó /Nó /]là tạp chí.",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それは: chủ đề là vật gần người nghe." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "新聞じゃ ありません: phủ định." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "雑誌です: nói luôn điều đúng." }
+          ]
+        },
+        {
+          "ja": "いいえ、{違|ちが}います。それは シャープペンシルです。",
+          "vi": "[Không/Dạ không], [không phải/không đúng]. [Cái đó/Đó] là bút chì kim.",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "いいえ、違います: đính chính khi người kia đoán sai." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それは シャープペンシルです: nói tên đúng của vật gần người nghe." }
+          ]
+        },
+        {
+          "ja": "これは {日本|にほん}の お{土産|みやげ}です。",
+          "vi": "[Đây/Cái này] là quà [từ /của /]Nhật Bản.",
+          "grammar": [
+            { "lesson": 2, "point": "お～ — nói cho lịch sự", "note": "おみやげ: お làm từ nghe lịch sự, nhẹ nhàng hơn." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これは: món quà đang cầm trên tay." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "日本の おみやげ: の nói rõ đó là quà gì." }
+          ]
+        },
+        {
+          "ja": "この お{酒|さけ}は {誰|だれ}のですか。",
+          "vi": "[Chai/Bình/Cái] rượu này [là /]của ai[ vậy/]?",
+          "grammar": [
+            { "lesson": 2, "point": "お～ — nói cho lịch sự", "note": "おさけ: お cho lời nói lịch sự hơn さけ." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この お酒: この đi kèm danh từ." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "誰の: hỏi chủ sở hữu, lược danh từ." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "ja": "その かばんは {私|わたし}のじゃ ありません。",
+          "vi": "[Cái/Chiếc] [cặp/túi/cặp sách] đó không phải [là /]của tôi.",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "その かばん: cái cặp ở gần người nghe." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしの: lược かばん." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません: phủ định." }
+          ]
+        },
+        {
+          "ja": "この {手帳|てちょう}は カリナさんのですか、ワンさんのですか。",
+          "vi": "[Cuốn/Quyển/Cái] sổ tay này là của chị Karina hay [là /]của anh Wang?",
+          "grammar": [
+            { "lesson": 2, "point": "～か、～か", "note": "Hỏi lựa chọn giữa hai người sở hữu." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 手帳: cuốn sổ ở gần người nói." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "カリナさんの / ワンさんの: lược 手帳." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "Tên + さん." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hỏi và xác nhận",
+      "description": "Đáp lời bằng そうです・ちがいます・そうですか, kết hợp も và じゃ ありません của bài 1.",
+      "lines": [
+        {
+          "ja": "そうですか。これは {日本語|にほんご}の CDです。",
+          "vi": "[Thế à/Vậy à]. [Đây/Cái này] là [đĩa /]CD tiếng Nhật.",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: đáp lại thông tin vừa nghe, không phải câu hỏi." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これは: vật ở gần người nói." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "日本語の CD: CD (bằng) tiếng Nhật." }
+          ]
+        },
+        {
+          "ja": "はい、そうです。{私|わたし}も {学生|がくせい}です。",
+          "vi": "[Vâng/Dạ], [đúng vậy/đúng rồi/phải]. Tôi cũng là [sinh viên/học sinh].",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "はい、そうです: xác nhận điều người kia hỏi." },
+            { "lesson": 1, "point": "N も", "note": "わたしも: 'tôi cũng'." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "学生です: câu khẳng định." }
+          ]
+        },
+        {
+          "ja": "いいえ、{違|ちが}います。{私|わたし}は {先生|せんせい}[じゃ/では] ありません。",
+          "vi": "[Không/Dạ không], [không phải/không đúng]. Tôi không phải [là /][giáo viên/giảng viên].",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "いいえ、違います: phủ nhận ngay đầu câu…" },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "…rồi nói rõ điều sai bằng じゃ ありません." }
+          ]
+        },
+        {
+          "ja": "この {辞書|じしょ}は {英語|えいご}の {辞書|じしょ}です。",
+          "vi": "[Cuốn/Quyển] từ điển này là từ điển tiếng Anh.",
+          "grammar": [
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 辞書: cuốn từ điển ở gần người nói." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "英語の 辞書: từ điển tiếng Anh — の nói nội dung." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "N1 は N2 です: câu khẳng định." }
+          ]
+        },
+        {
+          "ja": "それは コーヒーですか、お{茶|ちゃ}ですか。",
+          "vi": "[Đó/Cái đó] là cà phê hay [là /]trà?",
+          "grammar": [
+            { "lesson": 2, "point": "～か、～か", "note": "Hỏi lựa chọn: không trả lời はい/いいえ mà nói thẳng cái đúng." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それ: thứ ở gần người nghe." },
+            { "lesson": 2, "point": "お～ — nói cho lịch sự", "note": "おちゃ: お làm lời nói lịch sự hơn." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}の {傘|かさ}は あれです。その {傘|かさ}[じゃ/では] ありません。",
+          "vi": "[Cái/Chiếc] [ô/dù] của tôi là cái kia. Không phải [là /][cái/chiếc] [ô/dù] đó.",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "あれです: cái ở xa cả hai người." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "その 傘: cái ô ở gần người nghe." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "わたしの 傘: ô của tôi." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません: phủ định." }
+          ]
+        },
+        {
+          "ja": "これも {日本語|にほんご}の {本|ほん}ですか。",
+          "vi": "[Cái này/Quyển này] cũng là sách tiếng Nhật [phải không/à/]?",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これも: これ đứng một mình, も thay は." },
+            { "lesson": 1, "point": "N も", "note": "も: 'cũng'." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "日本語の 本: sách tiếng Nhật." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "ja": "ワットさんの {車|くるま}は これですか。",
+          "vi": "[Xe/Xe ô tô/Ô tô] của [anh/thầy/ông] Watt [là cái này/là chiếc này] [phải không/à/]?",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これ đứng ở vị trí vị ngữ cũng được: 'là cái này'." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "ワットさんの 車: xe của thầy Watt." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ワットさん: tên + さん." }
+          ]
+        },
+        {
+          "ja": "そうですか。その {人|ひと}も {先生|せんせい}ですか。",
+          "vi": "[Thế à/Vậy à]. [Người đó/Người ấy] cũng là [giáo viên/giảng viên] [phải không/à/]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận điều vừa nghe." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "その 人: người vừa được nhắc tới." },
+            { "lesson": 1, "point": "N も", "note": "その 人も: 'người đó cũng'." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "ですか: câu hỏi." }
+          ]
+        },
+        {
+          "ja": "あれは {佐藤|さとう}さんの {机|つくえ}[じゃ/では] ありません。",
+          "vi": "[Cái kia/Kia] không phải [là /]bàn của chị Sato.",
+          "grammar": [
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "あれ: vật ở xa." },
+            { "lesson": 2, "point": "N1 の N2 ／ N1 の（lược N2）", "note": "佐藤さんの 机: bàn của chị Sato." },
+            { "lesson": 1, "point": "N1 は N2 じゃ ありません", "note": "じゃ ありません: phủ định." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "佐藤さん: họ + さん." }
+          ]
+        }
+      ]
+    }
+  ]
+}

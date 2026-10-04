@@ -10,7 +10,8 @@
       ],
       "notes": [
         "Chỉ dùng để đoán về vật hoặc về người khác. KHÔNG dùng cho chính mình: ×わたしは さびしそうです.",
-        "Hai ngoại lệ: いい → よさそう, ない → なさそう."
+        "Hai ngoại lệ: いい → よさそう, ない → なさそう.",
+        "Nói về cảm xúc của NGƯỜI KHÁC (うれしい, かなしい, さびしい…) thì không nói thẳng mà phải thêm そうです: 「うれしそうですね」."
       ],
       "usages": [
         {
@@ -44,8 +45,8 @@
               "vietnamese": "Trông bạn có vẻ lạnh nhỉ. Tôi đóng cửa sổ nhé?"
             },
             {
-              "japanese": "あなたの おとうさんは しんせつそうです。",
-              "vietnamese": "Bố bạn trông có vẻ thân thiện."
+              "japanese": "となりの ひとは しんせつそうです。",
+              "vietnamese": "Người bên cạnh trông có vẻ tử tế."
             }
           ]
         }
@@ -55,7 +56,10 @@
       "title": "～て きます",
       "summary": "Đi đến chỗ nào đó làm việc gì rồi quay lại.",
       "structures": ["V て ＋ きます"],
-      "explanation": ["Nhấn rằng người nói sẽ quay lại chỗ cũ, không đi luôn."],
+      "explanation": [
+        "Nhấn rằng người nói sẽ quay lại chỗ cũ, không đi luôn.",
+        "Nơi làm việc đó đi với で (スーパーで ぎゅうにゅうを かって きます); nơi lấy đồ ra đi với から (だいどころから コップを とって きます)."
+      ],
       "notes": [],
       "usages": [
         {
@@ -75,6 +79,20 @@
               "vietnamese": "Vì tờ hướng dẫn chỉ còn một tờ nên tôi đi photo rồi quay lại."
             }
           ]
+        },
+        {
+          "title": "Đi đâu đó rồi về — いって きます／でかけて きます",
+          "detail": "Không cần nói ra việc làm ở nơi đó.",
+          "examples": [
+            {
+              "japanese": "ゆうびんきょくへ いって きます。",
+              "vietnamese": "Tôi đi bưu điện rồi về."
+            },
+            {
+              "japanese": "ちょっと でかけて きます。",
+              "vietnamese": "Tôi đi ra ngoài một chút rồi về."
+            }
+          ]
         }
       ]
     },
@@ -82,19 +100,17 @@
       "title": "～て くれませんか",
       "summary": "Nhờ vả — lịch sự hơn Vてください nhưng thân mật hơn các mẫu ở bài 26 và 41.",
       "structures": ["V て ＋ くれませんか"],
-      "explanation": ["Hợp với người ngang hàng hoặc người dưới mình."],
+      "explanation": [
+        "Hợp với người ngang hàng hoặc người dưới mình."
+      ],
       "tables": [
         {
           "caption": "Thang lịch sự của cách nhờ vả, từ cao xuống thấp",
           "headers": ["Cách nói"],
           "rows": [
-            ["V ていただけないでしょうか"],
             ["V ていただけませんか"],
             ["V てくださいませんか"],
-            ["V てもらえませんか"],
             ["V てくれませんか"],
-            ["V てもらえますか"],
-            ["V てくれますか"],
             ["V てください"]
           ]
         }

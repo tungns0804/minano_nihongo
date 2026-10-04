@@ -64,7 +64,10 @@
           ]
         }
       ],
-      "notes": ["Danh từ nối bằng な chứ không phải の: ○にちようびなのに, ×にちようびののに."],
+      "notes": [
+        "Danh từ nối bằng な chứ không phải の: ○にちようびなのに, ×にちようびののに.",
+        "のに chỉ nói về việc ĐÃ xảy ra hoặc chắc chắn đúng. Giả định chưa xảy ra thì dùng ても: 「あした あめが ふっても、サッカーを します」, không nói 「あした あめが ふるのに、…」."
+      ],
       "usages": [
         {
           "title": "Kết quả trái ngược, thấy bất ngờ",
@@ -75,8 +78,8 @@
               "vietnamese": "Tôi đang ăn kiêng thế mà lại tăng cân."
             },
             {
-              "japanese": "ねこなのに、ねずみが こわいです。",
-              "vietnamese": "Là mèo mà lại sợ chuột."
+              "japanese": "くすりを のんだのに、ねつが さがりません。",
+              "vietnamese": "Đã uống thuốc thế mà vẫn không hạ sốt."
             }
           ]
         },

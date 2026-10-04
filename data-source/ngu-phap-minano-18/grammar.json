@@ -180,8 +180,9 @@
           "detail": "Vị ngữ bắt buộc phủ định.",
           "examples": [
             {
-              "japanese": "にほんごは なかなか じょうずに なりません。",
-              "vietnamese": "Tiếng Nhật của tôi mãi mà không giỏi lên được."
+              "japanese": "にほんでは なかなか うまを みる ことが できません。",
+              "vietnamese": "Ở Nhật khó mà có dịp nhìn thấy ngựa.",
+              "note": "にほんでは: muốn đưa cụm có で lên làm chủ đề thì giữ で rồi thêm は."
             },
             {
               "japanese": "バスが なかなか きません。",

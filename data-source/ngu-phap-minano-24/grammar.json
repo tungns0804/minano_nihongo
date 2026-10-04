@@ -84,7 +84,7 @@
       "structures": ["わたしは N（người）に V て もらいます"],
       "explanation": [
         "Chủ ngữ là NGƯỜI ĐƯỢC NHẬN ơn, người làm giúp đi với に.",
-        "Mẫu này hàm ý chính người nhận đã nhờ vả hoặc mong muốn việc đó, và biết ơn vì được giúp.",
+        "Mẫu này cho thấy người nhận coi việc đó là ơn huệ và biết ơn; thường gặp khi chính người nhận đã nhờ hoặc mong muốn việc đó.",
         "Đây là mẫu an toàn nhất để kể lại việc mình được người khác giúp."
       ],
       "usages": [
@@ -114,7 +114,7 @@
       "structures": ["N（người khác）が わたしに V て くれます"],
       "explanation": [
         "Chủ ngữ là NGƯỜI LÀM GIÚP, và người được giúp là tôi.",
-        "Khác với ～て もらいます ở chỗ: もらいます hàm ý tôi đã nhờ, còn くれます hàm ý người kia TỰ NGUYỆN làm mà tôi không nhờ.",
+        "Khác với ～て もらいます ở góc nhìn: もらいます lấy người nhận làm chủ ngữ (thường là mình đã nhờ), còn くれます lấy người làm giúp làm chủ ngữ và hay dùng khi người kia tự ý giúp mình.",
         "Vì vậy くれます mang sắc thái cảm động, biết ơn rõ hơn."
       ],
       "tables": [
@@ -174,6 +174,30 @@
             {
               "japanese": "だれが この ケーキを つくりましたか。",
               "vietnamese": "Ai đã làm cái bánh này vậy?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N1（tân ngữ）は N2 が V",
+      "summary": "Đưa tân ngữ lên làm chủ đề, còn người làm thì đi với が.",
+      "structures": ["N1（vật）は N2（người）が くれました"],
+      "explanation": [
+        "Câu gốc là 「さとうさんが この ワインを くれました」. Khi cả hai người đang nói về chai rượu, nó được đưa lên làm chủ đề với は (như bài 17), còn người tặng giữ が.",
+        "Chủ đề đã rõ thì có thể lược luôn, chỉ còn 「さとうさんが くれました」."
+      ],
+      "usages": [
+        {
+          "title": "Trả lời 'cái này ai tặng, ai làm'",
+          "examples": [
+            {
+              "japanese": "おいしい ワインですね。",
+              "vietnamese": "Rượu vang ngon nhỉ."
+            },
+            {
+              "japanese": "ええ、この ワインは さとうさんが くれました。",
+              "vietnamese": "Vâng, chai này là chị Sato tặng tôi đấy."
             }
           ]
         }

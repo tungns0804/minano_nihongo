@@ -71,7 +71,10 @@
       "title": "～て みます",
       "summary": "Thử làm một việc gì đó xem sao.",
       "structures": ["V て ＋ みます"],
-      "explanation": ["みます ở đây chia như động từ nhóm 2: みたい, みて ください, みた ほうが いい…"],
+      "explanation": [
+        "みます ở đây chia như động từ nhóm 2: みたい, みて ください, みた ほうが いい…",
+        "～て みたいです nói mong muốn một cách nhẹ nhàng hơn ～たいです."
+      ],
       "notes": [],
       "usages": [
         {
@@ -89,6 +92,10 @@
             {
               "japanese": "この ほんを よんで みた ほうが いいと おもいます。",
               "vietnamese": "Tôi nghĩ bạn nên thử đọc cuốn sách này."
+            },
+            {
+              "japanese": "ほっかいどうへ いって みたいです。",
+              "vietnamese": "Tôi muốn thử đi Hokkaido."
             }
           ]
         }
@@ -125,6 +132,29 @@
             {
               "japanese": "ふじさんの たかさは 3776メートルです。",
               "vietnamese": "Chiều cao của núi Phú Sĩ là 3776 mét."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～でしょうか",
+      "summary": "Hỏi nhẹ nhàng, không ép người nghe phải trả lời chắc chắn.",
+      "structures": ["Thể thông thường（Aな／N bỏ だ）＋ でしょうか"],
+      "explanation": [
+        "でしょう (bài 32) đặt trong câu hỏi thành でしょうか: người hỏi không đòi một câu trả lời khẳng định chắc chắn, nên câu hỏi mềm và lịch sự hơn ～ですか."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi mềm mỏng",
+          "examples": [
+            {
+              "japanese": "ハンスは がっこうで どうでしょうか。",
+              "vietnamese": "Ở trường thì Hans thế nào ạ?"
+            },
+            {
+              "japanese": "この バスは さくらだいがくへ いくでしょうか。",
+              "vietnamese": "Xe buýt này có đi đến Đại học Sakura không ạ?"
             }
           ]
         }

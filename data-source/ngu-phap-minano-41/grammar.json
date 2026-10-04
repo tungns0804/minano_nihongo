@@ -89,6 +89,20 @@
               "vietnamese": "Nhân sinh nhật, người trong công ty đã tặng hoa cho tôi."
             }
           ]
+        },
+        {
+          "title": "Người trên làm cho mình — Vて くださいます",
+          "detail": "Ghép với thể て để nói người trên đã làm giúp mình việc gì.",
+          "examples": [
+            {
+              "japanese": "ぶちょうが えきまで おくって くださいました。",
+              "vietnamese": "Trưởng phòng đã tiễn tôi ra tận ga."
+            },
+            {
+              "japanese": "ぶちょうの おくさんが おちゃを おしえて くださいました。",
+              "vietnamese": "Vợ trưởng phòng đã dạy tôi trà đạo."
+            }
+          ]
         }
       ]
     },
@@ -158,7 +172,9 @@
       "title": "N に — mục đích của hành động",
       "summary": "Trợ từ に mang nghĩa \"để làm ~\": để làm quà, để làm kỷ niệm, để chúc mừng.",
       "structures": ["N に ＋ V"],
-      "explanation": ["Danh từ đứng trước に là mục đích, không phải nơi chốn hay đối tượng."],
+      "explanation": [
+        "Danh từ đứng trước に là mục đích, không phải nơi chốn hay đối tượng."
+      ],
       "notes": [],
       "usages": [
         {
@@ -166,8 +182,12 @@
           "detail": "Nêu mục đích của việc làm.",
           "examples": [
             {
-              "japanese": "きねんに にんぎょうの しゃしんを とりました。",
-              "vietnamese": "Tôi chụp ảnh con búp bê để làm kỷ niệm."
+              "japanese": "ほっかいどうりょこうの おみやげに にんぎょうを かいました。",
+              "vietnamese": "Tôi đã mua búp bê làm quà của chuyến du lịch Hokkaido."
+            },
+            {
+              "japanese": "たなかさんが けっこんいわいに この おさらを くださいました。",
+              "vietnamese": "Anh Tanaka đã tặng tôi cái đĩa này làm quà cưới."
             }
           ]
         }

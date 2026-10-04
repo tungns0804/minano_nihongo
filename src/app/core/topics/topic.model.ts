@@ -174,6 +174,8 @@ export function buildTopicLessons(
         verbs: [],
         lines: [],
         grammarPoints: [],
+        translationSets: [],
+        grammarRefs: {},
         origin: 'builtin',
       },
     ];

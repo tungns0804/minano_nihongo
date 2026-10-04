@@ -42,7 +42,8 @@
       ],
       "explanation": [
         "Trường hợp 1 và 2 dùng động từ khả năng: わかる, できる, みえる, きこえる, たべられる…",
-        "Trường hợp 3 nói về thói quen thì KHÔNG dùng động từ khả năng."
+        "Trường hợp 3 nói về thói quen thì KHÔNG dùng động từ khả năng.",
+        "Trả lời phủ định cho câu hỏi ～ように なりましたか thì nói 「いいえ、まだ ～ません」."
       ],
       "tables": [
         {
@@ -94,6 +95,19 @@
               "vietnamese": "Trước đây tôi hay hút thuốc nhưng gần đây thì không hút nữa."
             }
           ]
+        },
+        {
+          "title": "Hỏi và trả lời đã làm được chưa",
+          "examples": [
+            {
+              "japanese": "ショパンの きょくが ひけるように なりましたか。",
+              "vietnamese": "Anh đã đánh được bản nhạc của Chopin chưa?"
+            },
+            {
+              "japanese": "いいえ、まだ ひけません。",
+              "vietnamese": "Chưa, tôi vẫn chưa đánh được."
+            }
+          ]
         }
       ]
     },
@@ -109,7 +123,9 @@
         "ように して います nhấn rằng đây là việc mình đang duy trì đều đặn chứ không phải quyết tâm nhất thời.",
         "ように して ください nhẹ nhàng hơn Vてください và Vないでください: là nhờ người ta lưu ý chứ không phải ra lệnh."
       ],
-      "notes": [],
+      "notes": [
+        "Không dùng ～ように して ください để nhờ làm một việc ngay tại chỗ: muốn nhờ lấy lọ muối thì nói 「しおを とって ください」, không nói 「しおを とる ように して ください」."
+      ],
       "usages": [
         {
           "title": "Cố gắng duy trì",
@@ -136,6 +152,29 @@
             {
               "japanese": "もっと やさいを たべる ように して ください。",
               "vietnamese": "Hãy cố ăn nhiều rau hơn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Aい → Aく ／ Aな → Aに — bổ nghĩa cho động từ",
+      "summary": "Tính từ đứng trước động từ thì đổi đuôi: はやい → はやく, じょうず → じょうずに.",
+      "structures": ["Aい（bỏ い）＋ く ＋ V", "Aな ＋ に ＋ V"],
+      "explanation": [
+        "Khi tính từ bổ nghĩa cho một động từ, tính từ い đổi い thành く, tính từ な thêm に — giống cách nối với なります (bài 19)."
+      ],
+      "usages": [
+        {
+          "title": "Làm việc gì đó như thế nào",
+          "examples": [
+            {
+              "japanese": "はやく じょうずに おちゃが たてられる ように なりたいです。",
+              "vietnamese": "Tôi muốn sớm pha được trà đạo thật giỏi."
+            },
+            {
+              "japanese": "じを きれいに かいて ください。",
+              "vietnamese": "Hãy viết chữ cho đẹp."
             }
           ]
         }

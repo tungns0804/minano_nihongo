@@ -33,6 +33,7 @@ const BACK_ROUTE: Record<LessonKind, string> = {
   verb: '/lesson',
   conversation: '/lesson',
   grammar: '/grammar',
+  translation: '/translate',
   exercise: '/exercise',
   kanji: '/kanji',
   radical: '/radical',

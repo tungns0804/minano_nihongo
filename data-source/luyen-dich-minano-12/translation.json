@@ -1,0 +1,285 @@
+{
+  "sets": [
+    {
+      "title": "Lễ hội Gion thế nào?",
+      "description": "Anh Miller đi Kyoto về, kể với bác quản lý chung cư về lễ hội.",
+      "lines": [
+        {
+          "speaker": "{管理人|かんりにん}",
+          "ja": "{祇園祭|ぎおんまつり}は どうでしたか。",
+          "vi": "[Lễ hội/Hội] Gion [thế nào/ra sao/như thế nào][ rồi/]?",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của danh từ và tính từ な", "note": "どうでしたか: quá khứ của どうですか — です đổi thành でした." },
+            { "lesson": 8, "point": "N は どうですか", "note": "～は どう: hỏi cảm nhận về việc người kia vừa trải qua." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{面白|おもしろ}かったです。とても にぎやかでした。",
+          "vi": "[Thú vị/Vui/Hay] lắm[ ạ/]. [Rất /Lại rất /]nhộn nhịp[ nữa/].",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "面白かったです: bỏ い thêm かったです — です giữ nguyên, không thành でした." },
+            { "lesson": 12, "point": "Thì quá khứ của danh từ và tính từ な", "note": "にぎやかでした: tính từ な chia như danh từ." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても: 'rất'." }
+          ]
+        },
+        {
+          "speaker": "{管理人|かんりにん}",
+          "ja": "{祇園祭|ぎおんまつり}は {京都|きょうと}の お{祭|まつ}りで いちばん {有名|ゆうめい}ですからね。",
+          "vi": "Lễ hội Gion [/là lễ hội ]nổi tiếng nhất [trong các lễ hội /][ở /của /]Kyoto [mà/đấy/].",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "京都の お祭りで いちばん 有名: phạm vi + で + いちばん = 'nhất'." },
+            { "lesson": 4, "point": "～ね", "note": "～からね: nêu lý do như điều ai cũng biết, kèm ね." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{天気|てんき}も よかったです。",
+          "vi": "[Thời tiết/Trời] cũng [đẹp/tốt][ lắm/][ ạ/].",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "よかったです: いい chia bất quy tắc — gốc chia là よい." },
+            { "lesson": 1, "point": "N も", "note": "天気も: 'thời tiết cũng'." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{人|ひと}が とても {多|おお}かったです。ちょっと {疲|つか}れました。",
+          "vi": "[Rất đông người/Người rất đông/Đông người lắm]. [Tôi /][hơi/có hơi] mệt[ một chút/ chút/].",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "多かったです: quá khứ của 多い." },
+            { "lesson": 8, "point": "とても ／ あまり", "note": "とても 多かった: 'rất đông'." }
+          ]
+        },
+        {
+          "speaker": "{管理人|かんりにん}",
+          "ja": "{天神祭|てんじんまつり}と {祇園祭|ぎおんまつり}と どちらが {好|す}きですか。",
+          "vi": "Lễ hội Tenjin và lễ hội Gion, [anh /cháu /]thích [lễ hội /cái /]nào hơn?",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "AとBと どちらが: so sánh đúng hai thứ thì luôn dùng どちら." },
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "どちらが 好き: đối tượng của 好き đi với が." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{祇園祭|ぎおんまつり}の ほうが {好|す}きです。{天神祭|てんじんまつり}より きれいですから。",
+          "vi": "Tôi thích lễ hội Gion hơn. [Vì /Bởi vì ][nó /]đẹp hơn lễ hội Tenjin.",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "～の ほうが: trả lời câu どちら — 'phía bên ~ hơn'." },
+            { "lesson": 12, "point": "N1 は N2 より Aです", "note": "天神祭より きれい: より đứng sau thứ bị đem ra so." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から。: bổ sung lý do." }
+          ]
+        },
+        {
+          "speaker": "{管理人|かんりにん}",
+          "ja": "{日本|にほん}の {季節|きせつ}で いつが いちばん {好|す}きですか。",
+          "vi": "[Trong các mùa ở Nhật/Trong bốn mùa ở Nhật/Ở Nhật], [anh /cháu /]thích mùa nào nhất?",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "季節で いつが いちばん: hỏi về thời gian thì từ hỏi là いつ." },
+            { "lesson": 9, "point": "N が すき ／ きらい ／ じょうず ／ へた です", "note": "いつが 好き: が." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{秋|あき}が いちばん {好|す}きです。{紅葉|もみじ}が きれいですから。",
+          "vi": "Tôi thích mùa thu nhất. [Vì /Bởi vì ][lá đỏ/lá phong/lá mùa thu] đẹp[ lắm/].",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "秋が いちばん: câu trả lời dùng が (thông tin mới), không dùng は." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から。: lý do đặt sau." }
+          ]
+        },
+        {
+          "speaker": "{管理人|かんりにん}",
+          "ja": "そうですね。{秋|あき}は {夏|なつ}より {涼|すず}しいですからね。",
+          "vi": "[Đúng vậy/Ừ nhỉ/Phải rồi]. Mùa thu [thì /]mát hơn mùa hè[ mà/ nhỉ/].",
+          "grammar": [
+            { "lesson": 12, "point": "N1 は N2 より Aです", "note": "夏より 涼しい: 'mát hơn mùa hè'." },
+            { "lesson": 5, "point": "そうですね", "note": "そうですね: đồng tình." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Món ăn ngon nhất",
+      "description": "Anh Yamada hỏi anh Tawapon về món Nhật, món Thái và thời tiết ở Thái Lan.",
+      "lines": [
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "タワポンさん、{日本|にほん}の {料理|りょうり}で {何|なに}が いちばん おいしいですか。",
+          "vi": "Anh Tawapon[ ơi/], [trong các món/trong các món ăn/trong món ăn] Nhật, [món gì/món nào/gì] ngon nhất?",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "日本の 料理で 何が いちばん: phạm vi + で, hỏi vật dùng 何が." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本の 料理: món Nhật." }
+          ]
+        },
+        {
+          "speaker": "タワポン",
+          "ja": "そうですね。すき{焼|や}きが いちばん おいしいです。",
+          "vi": "[Ừm/Để xem nào/À], [món /]sukiyaki [là /]ngon nhất.",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "すき焼きが いちばん: trả lời bằng が." },
+            { "lesson": 8, "point": "そうですね — ngập ngừng suy nghĩ", "note": "そうですね: nghĩ một nhịp trước khi chọn." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "すき{焼|や}きと {天|てん}ぷらと どちらが おいしいですか。",
+          "vi": "Sukiyaki và tempura, [món /]nào ngon hơn?",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "どちらが おいしい: so sánh hai món." },
+            { "lesson": 4, "point": "N1 と N2", "note": "AとBと: と đứng sau cả hai thứ đem ra so." }
+          ]
+        },
+        {
+          "speaker": "タワポン",
+          "ja": "すき{焼|や}きの ほうが おいしいです。",
+          "vi": "[Món /]sukiyaki ngon hơn.",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "～の ほうが: phía bên sukiyaki ngon hơn." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "おいしいです: tính từ い + です." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "タイ{料理|りょうり}は {日本|にほん}の {料理|りょうり}より {辛|から}いですか。",
+          "vi": "[Món/Đồ ăn/Món ăn] Thái có cay hơn [món/đồ ăn/món ăn] Nhật không?",
+          "grammar": [
+            { "lesson": 12, "point": "N1 は N2 より Aです", "note": "日本の 料理より 辛い: より đứng sau thứ bị so." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "～ですか: câu hỏi có/không." }
+          ]
+        },
+        {
+          "speaker": "タワポン",
+          "ja": "ええ、タイ{料理|りょうり}の ほうが ずっと {辛|から}いです。",
+          "vi": "[Vâng/Có/Ừ], [món /đồ ăn /]Thái cay hơn nhiều.",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "～の ほうが: bên này hơn." },
+            { "lesson": 12, "point": "N1 は N2 より Aです", "note": "ずっと: 'hơn nhiều' — より 日本の 料理 đã rõ nên lược." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "タイで いちばん {有名|ゆうめい}な {料理|りょうり}は {何|なん}ですか。",
+          "vi": "Món [ăn /]nổi tiếng nhất [ở /của /]Thái Lan là [món /]gì[ vậy/]?",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "タイで いちばん: phạm vi là nơi chốn thì chỉ cần で." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "有名な 料理: tính từ な + な + danh từ." }
+          ]
+        },
+        {
+          "speaker": "タワポン",
+          "ja": "トムヤムクンです。{去年|きょねん} {日本|にほん}で {食|た}べましたが、あまり {辛|から}くなかったです。",
+          "vi": "[Là /Món /][Tom Yum Kung/Tom Yum Goong/Tom Yum/canh chua Thái]. Năm ngoái tôi [đã /]ăn [món đó /]ở Nhật nhưng không cay lắm.",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "辛くなかったです: phủ định quá khứ — bỏ い thêm くなかったです." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～ましたが、～: hai vế ngược chiều." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "タイは {1|いち}{年|ねん}で いつが いちばん {暑|あつ}いですか。",
+          "vi": "[Ở /]Thái Lan[,/ thì] [trong /]một năm [thì /][lúc nào/khi nào/tháng nào/mùa nào] nóng nhất[ vậy/]?",
+          "viAlt": ["[Ở /]Thái Lan[,/ thì] [lúc nào/khi nào/tháng nào/mùa nào] nóng nhất trong năm[ vậy/]?"],
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "1年で いつが いちばん: phạm vi thời gian + で, hỏi thời điểm dùng いつ." },
+            { "lesson": 5, "point": "いつ", "note": "いつ: hỏi thời điểm." }
+          ]
+        },
+        {
+          "speaker": "タワポン",
+          "ja": "{4|し}{月|がつ}が いちばん {暑|あつ}いです。{去年|きょねん}の {4|し}{月|がつ}は {40|よんじゅう}{度|ど}でした。",
+          "vi": "Tháng [4/tư/Tư] nóng nhất. Tháng [4/tư/Tư] năm ngoái [nóng /lên /][tới /đến /]40 độ.",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "4月が いちばん 暑いです: câu trả lời dùng が." },
+            { "lesson": 12, "point": "Thì quá khứ của danh từ và tính từ な", "note": "40度でした: danh từ + でした." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Hôm qua, năm ngoái và so sánh",
+      "description": "Quá khứ của tính từ và danh từ, so sánh hơn – nhất, và 'cái + tính từ'.",
+      "lines": [
+        {
+          "ja": "{大|おお}きいのと {小|ちい}さいのと どちらが いいですか。",
+          "vi": "Cái [to/lớn] và cái nhỏ, [anh /chị /bạn /][lấy /thích /chọn /]cái nào[ hơn/][ ạ/]?",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "どちらが いいですか: hỏi chọn giữa hai thứ." },
+            { "lesson": 12, "point": "Tính từ ＋ の — thay cho danh từ", "note": "大きいの: tính từ い + の thay cho danh từ đã rõ — 'cái to'." }
+          ]
+        },
+        {
+          "ja": "{試験|しけん}は {難|むずか}しかったですか。",
+          "vi": "[Bài thi/Kỳ thi/Bài kiểm tra] có khó không[ vậy/]?",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "難しかったですか: かった + です + か." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "～ですか: câu hỏi có/không." }
+          ]
+        },
+        {
+          "ja": "いいえ、あまり {難|むずか}しくなかったです。",
+          "vi": "[Không/Không ạ], không khó lắm.",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "難しくなかったです: bỏ い thêm くなかったです." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "あまり + phủ định: 'không … lắm'." }
+          ]
+        },
+        {
+          "ja": "{旅行|りょこう}は {楽|たの}しかったです。でも、ホテルは きれい[じゃ/では] ありませんでした。",
+          "vi": "Chuyến du lịch [rất /]vui. [Nhưng/Có điều] khách sạn không [sạch/đẹp/sạch sẽ][ lắm/].",
+          "grammar": [
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "楽しかったです." },
+            { "lesson": 12, "point": "Thì quá khứ của danh từ và tính từ な", "note": "きれいじゃ ありませんでした: thêm でした vào sau じゃ ありません." }
+          ]
+        },
+        {
+          "ja": "{新幹線|しんかんせん}は {飛行機|ひこうき}より {遅|おそ}いですが、{便利|べんり}です。",
+          "vi": "[Tàu /]Shinkansen chậm hơn máy bay nhưng tiện[ lợi/][ hơn/].",
+          "grammar": [
+            { "lesson": 12, "point": "N1 は N2 より Aです", "note": "飛行機より 遅い: 'chậm hơn máy bay'." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、～: một chê, một khen." }
+          ]
+        },
+        {
+          "ja": "{日本|にほん}で どこが いちばん きれいですか。",
+          "vi": "[Ở /Trên /]Nhật[ Bản/], [nơi nào/chỗ nào/đâu] đẹp nhất[ vậy/]?",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "日本で どこが いちばん: hỏi nơi chốn thì dùng どこ + が." },
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "どこ: từ nghi vấn chỉ nơi chốn." }
+          ]
+        },
+        {
+          "ja": "{家族|かぞく}の {中|なか}で {母|はは}が いちばん {忙|いそが}しいです。",
+          "vi": "Trong gia đình[ tôi/], mẹ [tôi /]bận nhất.",
+          "grammar": [
+            { "lesson": 12, "point": "N［の なか］で なにが いちばん Aですか", "note": "家族の 中で: phạm vi + の 中で; người được chọn đi với が." },
+            { "lesson": 8, "point": "Tính từ đuôi い và tính từ đuôi な", "note": "忙しいです: tính từ い." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}の {傘|かさ}は {黒|くろ}いのです。",
+          "vi": "[Cái /Chiếc /][ô/dù] của tôi là [cái /chiếc /][màu /]đen.",
+          "grammar": [
+            { "lesson": 12, "point": "Tính từ ＋ の — thay cho danh từ", "note": "黒いの: 'cái màu đen' — の đứng thay cho 傘." },
+            { "lesson": 1, "point": "N1 の N2", "note": "私の 傘: ô của tôi." }
+          ]
+        },
+        {
+          "ja": "{肉|にく}と {魚|さかな}と どちらを よく {食|た}べますか。",
+          "vi": "Thịt và cá, [anh /chị /bạn /]hay ăn [món /cái /]nào hơn?",
+          "grammar": [
+            { "lesson": 12, "point": "N1 と N2 と どちらが Aですか", "note": "どちらを よく 食べますか: so sánh hai thứ với động từ thì どちら đi với trợ từ của động từ (を)." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "よく: thường xuyên." }
+          ]
+        },
+        {
+          "ja": "{去年|きょねん}の {夏|なつ}は {今年|ことし}より {暑|あつ}かったです。",
+          "vi": "Mùa hè năm ngoái nóng hơn năm nay.",
+          "grammar": [
+            { "lesson": 12, "point": "N1 は N2 より Aです", "note": "今年より: so với năm nay." },
+            { "lesson": 12, "point": "Thì quá khứ của tính từ い", "note": "暑かったです: quá khứ." }
+          ]
+        }
+      ]
+    }
+  ]
+}

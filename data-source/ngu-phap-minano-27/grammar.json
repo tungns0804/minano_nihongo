@@ -165,7 +165,8 @@
       "structures": ["N は … (thay cho を, が)"],
       "explanation": [
         "Khi đưa N lên đầu làm chủ đề, は thay chỗ của を hoặc が.",
-        "Dùng は ở CẢ HAI vế thì câu mang nghĩa so sánh: vế này thế này, còn vế kia thì khác."
+        "Dùng は ở CẢ HAI vế thì câu mang nghĩa so sánh: vế này thế này, còn vế kia thì khác.",
+        "Trợ từ khác như で, に, から thì giữ nguyên và thêm は vào sau: 「にほんでは」, 「ここからは」."
       ],
       "notes": [],
       "usages": [
@@ -190,6 +191,20 @@
             {
               "japanese": "こどもは ミルクは のみますが、ジュースは のみません。",
               "vietnamese": "Con tôi sữa thì uống còn nước ép thì không."
+            }
+          ]
+        },
+        {
+          "title": "は đứng sau trợ từ khác — では, には, からは",
+          "detail": "が và を bị thay hẳn, còn các trợ từ khác thì giữ lại và thêm は.",
+          "examples": [
+            {
+              "japanese": "てんきの いい ひには うみが みえるんです。",
+              "vietnamese": "Vào ngày trời đẹp thì có thể nhìn thấy biển."
+            },
+            {
+              "japanese": "ここからは とうきょうスカイツリーが みえません。",
+              "vietnamese": "Từ đây thì không nhìn thấy Tokyo Skytree."
             }
           ]
         }

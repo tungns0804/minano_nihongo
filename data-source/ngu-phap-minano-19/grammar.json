@@ -96,6 +96,9 @@
           ]
         }
       ],
+      "notes": [
+        "Không dùng たり để kể những việc ngày nào ai cũng làm như ngủ dậy, ăn cơm, đi ngủ — たり là để nêu vài việc TIÊU BIỂU."
+      ],
       "usages": [
         {
           "title": "Kể việc làm trong ngày nghỉ",
@@ -110,8 +113,8 @@
               "vietnamese": "Hôm qua tôi đọc sách, nghe nhạc và làm mấy việc khác nữa."
             },
             {
-              "japanese": "やすみの ひは なにを したり しますか。",
-              "vietnamese": "Ngày nghỉ anh thường làm những việc gì?"
+              "japanese": "やすみの ひは さんぽしたり、かいものに いったり します。",
+              "vietnamese": "Ngày nghỉ tôi đi dạo, đi mua sắm, v.v."
             }
           ]
         }
@@ -139,7 +142,7 @@
         }
       ],
       "notes": [
-        "なります nói về sự thay đổi TỰ NHIÊN, không do ai tác động. Thay đổi do người làm ra thì dùng します, học ở bài 21."
+        "なります nói về sự thay đổi TỰ NHIÊN, không do ai tác động. Thay đổi do người làm ra thì dùng します, học ở bài 44."
       ],
       "usages": [
         {

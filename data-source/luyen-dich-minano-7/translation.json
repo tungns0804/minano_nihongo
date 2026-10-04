@@ -1,0 +1,291 @@
+{
+  "sets": [
+    {
+      "title": "Đến chơi nhà chị Yamada",
+      "description": "Vợ chồng anh Santos đến chơi, khen đồ đẹp và tặng quà.",
+      "lines": [
+        {
+          "speaker": "マリア",
+          "ja": "この スプーン[、/は ]{素敵|すてき}ですね。",
+          "vi": "[Cái/Chiếc] [thìa/muỗng] này [đẹp/xinh] [quá/thật] [nhỉ/].",
+          "grammar": [
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "この スプーン、: văn nói lược は, chỗ lược ngắt hơi (viết 、). Gõ đủ 「この スプーンは」 cũng đúng." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この スプーン: vật ở gần người nói." },
+            { "lesson": 4, "point": "～ね", "note": "素敵ですね: khen và chờ người nghe đồng tình." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ええ。{会社|かいしゃ}の {人|ひと}に もらいました。ヨーロッパの お{土産|みやげ}です。",
+          "vi": "[Vâng/Dạ/Ừ]. [Tôi /][được /]người [trong/ở/của] công ty [tặng/cho]. [Đó là /Là /]quà [từ /của /ở /]châu Âu[ đấy/ đó/].",
+          "viAlt": ["[Vâng/Dạ/Ừ]. [Tôi /]nhận [được /]từ người [trong/ở/của] công ty. [Đó là /Là /]quà [từ /của /ở /]châu Âu[ đấy/ đó/]."],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に もらいます ／ かります ／ ならいます", "note": "会社の 人に もらいました: với もらいます, に đánh dấu NGƯỜI CHO." },
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "ヨーロッパの お土産: の chỉ nơi món quà đến từ." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "これ[、/は ]ブラジルの コーヒーです。どうぞ。",
+          "vi": "[Đây là/Cái này là] cà phê [/của /từ ]Brazil[ ạ/]. [Biếu chị/Tặng chị/Xin mời/Mời chị][ ạ/].",
+          "grammar": [
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "これ、: lược は khi đưa quà — nói gọn, tự nhiên." },
+            { "lesson": 3, "point": "N1 の N2 — nước sản xuất, nơi xuất xứ", "note": "ブラジルの コーヒー: cà phê sản xuất ở Brazil." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "ありがとう ございます。「ありがとう」は ポルトガル{語|ご}で {何|なん}ですか。",
+          "vi": "[Cảm ơn/Cám ơn/Xin cảm ơn] [anh chị/anh/][ ạ/]. '[Arigatou/Arigato/ありがとう/Cảm ơn]' [trong /]tiếng Bồ Đào Nha [là/nói là/gọi là] gì[ vậy/]?",
+          "grammar": [
+            { "lesson": 7, "point": "「～」は ～ごで なんですか", "note": "「～」は ～語で 何ですか: hỏi một từ trong ngôn ngữ khác nói thế nào." },
+            { "lesson": 6, "point": "なん ／ なに", "note": "何ですか: đứng trước です thì đọc là なん." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "「オブリガード」ですよ。",
+          "vi": "[Là /]'[Obrigado/Ô-bri-ga-đô/オブリガード]' [đấy/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 7, "point": "「～」は ～ごで なんですか", "note": "「～」です: trả lời bằng chính từ đó đặt trong 「」." },
+            { "lesson": 5, "point": "～よ", "note": "よ: cho người hỏi biết điều họ chưa biết." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "もう {昼|ひる}ご{飯|はん}を {食|た}べましたか。",
+          "vi": "[Anh chị/Hai anh chị/Mọi người/Anh/Chị] [đã /]ăn trưa chưa[ ạ/]?",
+          "viAlt": ["[Anh chị/Hai anh chị/Mọi người/Anh/Chị] [đã /]ăn cơm trưa chưa[ ạ/]?"],
+          "grammar": [
+            { "lesson": 7, "point": "もう V ました", "note": "もう 食べましたか: hỏi việc đã xong chưa — 'đã ... chưa?'." },
+            { "lesson": 6, "point": "N を V", "note": "昼ご飯を 食べます: ăn trưa." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "はい、もう {食|た}べました。{駅|えき}で パンを {買|か}いました。",
+          "vi": "[Rồi/Vâng/Dạ], [chúng tôi /][đã /]ăn rồi. [Chúng tôi /][đã /]mua bánh mì ở ga[ ạ/].",
+          "grammar": [
+            { "lesson": 7, "point": "もう V ました", "note": "はい、もう 食べました: trả lời khẳng định, giữ もう." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "駅で: nơi mua." },
+            { "lesson": 6, "point": "N を V", "note": "パンを 買いました: tân ngữ + を." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "そうですか。じゃ、ケーキ[、/を ]{食|た}べませんか。",
+          "vi": "[Vậy à/Thế à]. [Vậy thì/Thế thì/Vậy] [anh chị /][ăn/dùng] [/chút /ít ]bánh [ngọt/kem] [nhé/không][ ạ/]?",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin." },
+            { "lesson": 6, "point": "V ませんか", "note": "食べませんか: mời khách một cách nhẹ nhàng." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "ケーキ、: lược を; gõ 「ケーキを」 cũng đúng." }
+          ]
+        },
+        {
+          "speaker": "{山田|やまだ}",
+          "ja": "これ[、/を /は ]テレーザちゃんに あげます。{日本|にほん}の {本|ほん}です。",
+          "vi": "Cái này [tôi /][tặng/cho] [bé/cháu/em] Teresa[ nhé/]. [Đây là /Đó là /Là /]sách [/của ]Nhật[ Bản/].",
+          "grammar": [
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "これ、: lược trợ từ (を hoặc は) khi đưa đồ cho người khác." },
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "テレーザちゃんに あげます: に đánh dấu NGƯỜI NHẬN." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "テレーザちゃん: ちゃん gọi trẻ nhỏ một cách thân mật." }
+          ]
+        },
+        {
+          "speaker": "マリア",
+          "ja": "ありがとう ございます。テレーザは {学校|がっこう}で {先生|せんせい}に {日本語|にほんご}を {習|なら}います。",
+          "vi": "[Cảm ơn/Cám ơn/Xin cảm ơn] [chị/chị Yamada][ ạ/]. Teresa [/đang ]học tiếng Nhật [với/từ] [cô giáo/thầy giáo/thầy cô/giáo viên] ở trường[ ạ/].",
+          "viAlt": ["[Cảm ơn/Cám ơn/Xin cảm ơn] [chị/chị Yamada][ ạ/]. Teresa [/đang ]học tiếng Nhật ở trường [với/từ] [cô giáo/thầy giáo/thầy cô/giáo viên][ ạ/]."],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に もらいます ／ かります ／ ならいます", "note": "先生に 習います: に đánh dấu người dạy cho mình." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "学校で: nơi học." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Học tiếng Nhật",
+      "description": "Viết bằng gì, học với ai, hỏi từ mới bằng tiếng Nhật.",
+      "lines": [
+        {
+          "ja": "{毎晩|まいばん} パソコンで {日本語|にほんご}の メールを {書|か}きます。",
+          "vi": "[Tối nào tôi cũng/Mỗi tối tôi/Hằng tối tôi] viết [email/thư điện tử/mail/e-mail] tiếng Nhật bằng [máy tính/máy vi tính/laptop].",
+          "viAlt": ["[Tối nào tôi cũng/Mỗi tối tôi/Hằng tối tôi] dùng [máy tính/máy vi tính/laptop] [để /]viết [email/thư điện tử/mail/e-mail] tiếng Nhật."],
+          "grammar": [
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "パソコンで: で chỉ công cụ dùng để làm việc." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本語の メール: email (viết bằng) tiếng Nhật." }
+          ]
+        },
+        {
+          "ja": "{日本語|にほんご}で {手紙|てがみ}を {書|か}きましたか。",
+          "vi": "[Anh/Chị/Bạn] [đã /]viết thư bằng tiếng Nhật [à/phải không/không]?",
+          "grammar": [
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "日本語で: で chỉ ngôn ngữ được dùng." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "書きましたか: hỏi việc đã làm." }
+          ]
+        },
+        {
+          "ja": "これは {日本語|にほんご}で {何|なん}ですか。",
+          "vi": "Cái này [trong /]tiếng Nhật [gọi là/là/nói là] gì[ vậy/]?",
+          "grammar": [
+            { "lesson": 7, "point": "「～」は ～ごで なんですか", "note": "これは 日本語で 何ですか: chỉ vào đồ vật để hỏi tên tiếng Nhật của nó." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "これ: vật ở gần người nói." }
+          ]
+        },
+        {
+          "ja": "それは「{消|け}しゴム」ですよ。",
+          "vi": "[Cái đó/Cái ấy/Đó] [là/gọi là] '[keshigomu/消しゴム/けしゴム/cục tẩy/cái tẩy/tẩy]' [đấy/đó/].",
+          "grammar": [
+            { "lesson": 7, "point": "「～」は ～ごで なんですか", "note": "「消しゴム」です: trả lời bằng từ đặt trong 「」." },
+            { "lesson": 2, "point": "これ ／ それ ／ あれ", "note": "それ: vật ở gần người nghe (người hỏi đang cầm)." },
+            { "lesson": 5, "point": "～よ", "note": "よ: cho biết thông tin mới." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は {木村|きむら}{先生|せんせい}に {日本語|にほんご}を {習|なら}いました。",
+          "vi": "Tôi [đã /]học tiếng Nhật [với/từ/của] [cô/thầy] Kimura.",
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に もらいます ／ かります ／ ならいます", "note": "木村先生に 習いました: に đánh dấu người dạy cho mình." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "習いました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "ワット{先生|せんせい}は さくら{大学|だいがく}で {学生|がくせい}に {英語|えいご}を {教|おし}えます。",
+          "vi": "Thầy Watt dạy tiếng Anh cho sinh viên ở [trường /]Đại học Sakura.",
+          "viAlt": ["Thầy Watt dạy sinh viên tiếng Anh ở [trường /]Đại học Sakura.", "Ở [trường /]Đại học Sakura, thầy Watt dạy tiếng Anh cho sinh viên."],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "学生に 教えます: に đánh dấu người được dạy." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "さくら大学で: nơi dạy." }
+          ]
+        },
+        {
+          "ja": "{友達|ともだち}に {辞書|じしょ}を {借|か}りました。",
+          "vi": "Tôi [đã /]mượn [cuốn /quyển /]từ điển [của /]bạn.",
+          "viAlt": ["Tôi [đã /]mượn bạn [cuốn /quyển /]từ điển."],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に もらいます ／ かります ／ ならいます", "note": "友達に 借りました: に đánh dấu người cho mượn." },
+            { "lesson": 6, "point": "N を V", "note": "辞書を 借ります: thứ được mượn." }
+          ]
+        },
+        {
+          "ja": "レポート[、/は /を ]もう {送|おく}りましたか。",
+          "vi": "[Bản /]báo cáo [thì /][anh/chị/bạn] [đã /]gửi chưa?",
+          "viAlt": ["[Anh/Chị/Bạn] [đã /]gửi [bản /]báo cáo chưa?"],
+          "grammar": [
+            { "lesson": 7, "point": "もう V ました", "note": "もう 送りましたか: 'đã gửi chưa?'." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "レポート、: đưa tân ngữ lên đầu và lược trợ từ — kiểu hỏi rất hay gặp ở chỗ làm." }
+          ]
+        },
+        {
+          "ja": "いいえ、まだです。{今晩|こんばん} メールで {送|おく}ります。",
+          "vi": "[Chưa/Dạ chưa/Vẫn chưa]. Tối nay tôi [sẽ /]gửi [bằng /qua ][email/thư điện tử/mail].",
+          "grammar": [
+            { "lesson": 7, "point": "もう V ました", "note": "いいえ、まだです: trả lời 'chưa', không nói もう 送りませんでした." },
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "メールで: gửi bằng email." }
+          ]
+        },
+        {
+          "ja": "{日本人|にほんじん}は {箸|はし}で ご{飯|はん}を {食|た}べます。",
+          "vi": "Người Nhật ăn cơm bằng đũa.",
+          "grammar": [
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "箸で: công cụ để ăn." },
+            { "lesson": 6, "point": "N を V", "note": "ご飯を 食べます: tân ngữ + を." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Quà tặng và cho mượn",
+      "description": "Ai cho ai, ai nhận của ai — chọn đúng động từ và đúng người đứng trước に.",
+      "lines": [
+        {
+          "ja": "{誕生日|たんじょうび}に {母|はは}に {花|はな}を あげました。",
+          "vi": "[Vào /Nhân /]ngày sinh nhật[ mẹ/], tôi [đã /]tặng hoa cho mẹ.",
+          "viAlt": ["Tôi [đã /]tặng hoa cho mẹ [vào /nhân /][ngày /dịp /]sinh nhật[ mẹ/]."],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "母に あげました: に đánh dấu người nhận." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "誕生日に: ngày cụ thể đi với に — đừng nhầm với に của người nhận ngay sau." }
+          ]
+        },
+        {
+          "ja": "クリスマスに {父|ちち}に ネクタイを もらいました。",
+          "vi": "[Vào /Nhân /]dịp [Giáng sinh/Noel], tôi [đã /]được bố tặng [cà vạt/caravat].",
+          "viAlt": ["[Vào /Nhân /]dịp [Giáng sinh/Noel], tôi [đã /]nhận [được /][cà vạt/caravat] [từ/của] bố."],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に もらいます ／ かります ／ ならいます", "note": "父に もらいました: に đánh dấu người cho." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "クリスマスに: dịp lễ + に." }
+          ]
+        },
+        {
+          "ja": "{木村|きむら}さんに {傘|かさ}を {貸|か}しました。",
+          "vi": "Tôi [đã /]cho [chị/anh/bạn] Kimura mượn [cái /chiếc /][ô/dù].",
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "木村さんに 貸しました: 貸します = cho mượn; người mượn đứng trước に." },
+            { "lesson": 6, "point": "N を V", "note": "傘を 貸します: thứ cho mượn." }
+          ]
+        },
+        {
+          "ja": "{誰|だれ}に その {時計|とけい}を もらいましたか。",
+          "vi": "[Anh/Chị/Bạn] [đã /]được ai tặng [cái /chiếc /]đồng hồ [đó/ấy][ vậy/]?",
+          "viAlt": ["Ai [đã /]tặng [anh/chị/bạn] [cái /chiếc /]đồng hồ [đó/ấy][ vậy/]?"],
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に もらいます ／ かります ／ ならいます", "note": "誰に もらいましたか: hỏi người cho." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "その 時計: chiếc đồng hồ người nghe đang đeo." }
+          ]
+        },
+        {
+          "ja": "{毎月|まいつき} {国|くに}の {家族|かぞく}に お{金|かね}を {送|おく}ります。",
+          "vi": "[Tháng nào tôi cũng/Hằng tháng tôi/Mỗi tháng tôi] gửi tiền cho gia đình ở [quê/quê nhà/trong nước].",
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "家族に 送ります: 送ります cùng nhóm 'cho đi', người nhận đứng trước に." },
+            { "lesson": 1, "point": "N1 の N2", "note": "国の 家族: gia đình ở quê nhà." }
+          ]
+        },
+        {
+          "ja": "{昨日|きのう}の {晩|ばん} {友達|ともだち}に {電話|でんわ}を かけました。",
+          "vi": "Tối hôm qua tôi [đã /]gọi điện [thoại /]cho bạn[ bè/].",
+          "grammar": [
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "友達に 電話を かけます: người được gọi đứng trước に." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "かけました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "もう {母|はは}に {誕生日|たんじょうび}の プレゼントを {送|おく}りました。",
+          "vi": "Tôi [đã /]gửi quà sinh nhật cho mẹ rồi.",
+          "grammar": [
+            { "lesson": 7, "point": "もう V ました", "note": "もう 送りました: việc đã xong rồi." },
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "母に 送りました: người nhận + に." },
+            { "lesson": 1, "point": "N1 の N2", "note": "誕生日の プレゼント: quà sinh nhật." }
+          ]
+        },
+        {
+          "ja": "いいえ、まだです。{明日|あした} {一緒|いっしょ}に {買|か}いませんか。",
+          "vi": "[Chưa/Vẫn chưa]. Ngày mai [mình/chúng ta] cùng [đi /]mua [nhé/không/được không]?",
+          "grammar": [
+            { "lesson": 7, "point": "もう V ました", "note": "いいえ、まだです: 'chưa' — hàm ý sẽ làm." },
+            { "lesson": 6, "point": "V ませんか", "note": "一緒に 買いませんか: rủ cùng đi mua." }
+          ]
+        },
+        {
+          "ja": "その {荷物|にもつ}[、/は /を ]{誰|だれ}に {送|おく}りますか。",
+          "vi": "[Gói hàng/Kiện hàng/Gói đồ/Hành lý] [đó/ấy] [anh/chị/bạn] [sẽ /định /]gửi cho ai[ vậy/]?",
+          "viAlt": ["[Anh/Chị/Bạn] [sẽ /định /]gửi [gói hàng/kiện hàng/gói đồ/hành lý] [đó/ấy] cho ai[ vậy/]?"],
+          "grammar": [
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "その 荷物、: đưa vật lên đầu câu và lược trợ từ." },
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "誰に 送りますか: hỏi người nhận." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "その 荷物: gói đồ ở chỗ người nghe." }
+          ]
+        },
+        {
+          "ja": "{父|ちち}の はさみで {紙|かみ}を {切|き}りました。",
+          "vi": "Tôi [đã /]cắt giấy bằng [cái /chiếc /]kéo [của /]bố.",
+          "grammar": [
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "はさみで: công cụ để cắt." },
+            { "lesson": 1, "point": "N1 の N2", "note": "父の はさみ: cây kéo của bố." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "切りました: quá khứ." }
+          ]
+        }
+      ]
+    }
+  ]
+}

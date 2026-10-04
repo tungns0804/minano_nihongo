@@ -3,12 +3,7 @@
     {
       "title": "～んです",
       "summary": "Gắn câu nói vào tình huống trước mắt: hỏi hoặc giải thích lý do, tình hình của điều mình vừa nhìn thấy, vừa nghe được.",
-      "structures": [
-        "V thể ngắn ＋ んです",
-        "Aい thể ngắn ＋ んです",
-        "Aな [だ → な] ＋ んです",
-        "N [だ → な] ＋ んです"
-      ],
+      "structures": ["V thể ngắn ＋ んです", "Aい thể ngắn ＋ んです", "Aな [だ → な] ＋ んです", "N [だ → な] ＋ んです"],
       "explanation": [
         "んです không thêm thông tin mới vào câu, nó thêm thái độ. Người nói lấy một chuyện vừa nhìn thấy, vừa nghe được làm điểm tựa, rồi hỏi lý do của chuyện đó hoặc tự giải thích lý do cho người nghe.",
         "Phần đứng trước んです luôn ở thể ngắn. Riêng tính từ đuôi な và danh từ thì だ đổi thành な: きれいだ → きれいなんです, せんせいだ → せんせいなんです.",
@@ -57,7 +52,7 @@
         }
       ],
       "notes": [
-        "Không nói んですから. Muốn nêu lý do bằng から thì dùng thể lịch sự bình thường: ようじが ありますから。",
+        "Khi chỉ muốn nêu lý do bằng から thì dùng thể lịch sự bình thường: 「ようじが ありますから」. Ghép thành 「～んですから」 nghe như đang trách người nghe.",
         "Không dùng cho sự thật hiển nhiên, không dính gì tới tình huống trước mắt: ×わたしは ナムなんです。→ ○わたしは ナムです。",
         "んです là văn nói. Văn viết (báo cáo, luận văn) dùng のです."
       ],
@@ -142,7 +137,7 @@
             {
               "japanese": "すみません、ちょっと ようじが あるんです。",
               "vietnamese": "Xin lỗi, tôi có chút việc bận.",
-              "note": "Từ chối lời mời いっしょに みずを のみに いきませんか。"
+              "note": "Từ chối lời mời いっしょに おちゃを のみに いきませんか。"
             }
           ]
         },
@@ -227,6 +222,30 @@
             {
               "japanese": "にほんへ りゅうがくしたいんですが、なにを べんきょうしたら いいですか。",
               "vietnamese": "Tôi muốn đi du học Nhật, tôi nên học gì thì được nhỉ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（tân ngữ）は すき／きらい／じょうず／へた／あります",
+      "summary": "Đưa đối tượng đi với が lên làm chủ đề bằng は.",
+      "structures": ["N は すきです／きらいです", "N は じょうずです／へたです", "N は あります"],
+      "explanation": [
+        "Bài 17 đã học đổi を thành は khi đưa tân ngữ lên làm chủ đề. Đối tượng đi với が của すき, じょうず, あります… cũng được đưa lên như vậy: が biến thành は.",
+        "Hay gặp khi nói về một thứ vừa được nhắc tới, hoặc khi đối chiếu hai thứ."
+      ],
+      "usages": [
+        {
+          "title": "Nói về thứ vừa được nhắc tới",
+          "examples": [
+            {
+              "japanese": "よく カラオケに いきますか。",
+              "vietnamese": "Anh có hay đi karaoke không?"
+            },
+            {
+              "japanese": "いいえ、あまり いきません。カラオケは すきじゃ ないんです。",
+              "vietnamese": "Không, tôi ít đi. Tôi không thích karaoke."
             }
           ]
         }

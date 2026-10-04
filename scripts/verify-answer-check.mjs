@@ -25,8 +25,11 @@ const ROOT = join(HERE, '..');
 // answer-check.ts import "../lessons/vocabulary-parser" không kèm đuôi file — xem `resolveTsImports`.
 resolveTsImports();
 
-const { isAnswerCorrect } = await import(
+const { isAnswerCorrect, isPatternCorrect } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'practice', 'answer-check.ts'))
+);
+const { parseMarkup, plainText, kanaText } = await import(
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'translation', 'markup.ts'))
 );
 
 // Hai bộ tuỳ chọn y hệt practice-session-store dựng cho câu hội thoại / ngữ pháp.
@@ -112,7 +115,10 @@ for (const file of readdirSync(lessonsDir).filter((name) => name.endsWith('.json
   for (const line of lesson.lines ?? []) {
     pairs.push([line.japanese, JA], [line.vietnamese, VI]);
   }
-  for (const point of lesson.points ?? []) {
+  // Khoá đúng là `grammarPoints`. Bản trước đọc `points` — tên trong grammar.json chứ
+  // không phải trong file đã sinh — nên suốt một thời gian không câu ví dụ ngữ pháp
+  // nào được quét mà vẫn báo OK.
+  for (const point of lesson.grammarPoints ?? []) {
     for (const usage of point.usages ?? []) {
       for (const example of usage.examples ?? []) {
         pairs.push([example.japanese, JA], [example.vietnamese, VI]);
@@ -131,6 +137,74 @@ for (const file of readdirSync(lessonsDir).filter((name) => name.endsWith('.json
   }
 }
 
+// ── Câu luyện dịch: chấm theo câu mẫu ─────────────────────────────────────
+/**
+ * Các cách gõ một câu mẫu mà bộ chấm phải nhận: dạng chữ Hán, dạng toàn kana, dạng
+ * trộn (chữ Hán xen kana — đúng kiểu bộ gõ cho ra), và mỗi lựa chọn của mỗi [...] ít
+ * nhất một lần. Dạng trộn và từng lựa chọn được dựng từ chính câu mẫu, nên câu mới
+ * thêm vào cũng được thử mà không phải viết ca thử nào.
+ */
+function patternForms(source) {
+  const nodes = parseMarkup(source);
+  const render = (list, pick) =>
+    list
+      .map((node, index) => {
+        if (node.kind === 'text') return node.text;
+        if (node.kind === 'ruby') return pick.ruby(node, index);
+        return render(node.options[pick.choice(node, index)] ?? [], pick);
+      })
+      .join('');
+
+  const forms = [plainText(source), kanaText(source)];
+  // Chữ Hán và kana xen nhau: nhóm chẵn viết chữ Hán, nhóm lẻ viết kana.
+  let rubyIndex = 0;
+  forms.push(render(nodes, { ruby: (node) => (rubyIndex++ % 2 ? node.reading : node.base), choice: () => 0 }));
+  // Từng lựa chọn của từng [...], các chỗ khác giữ lựa chọn đầu.
+  nodes.forEach((node, target) => {
+    if (node.kind !== 'choice') return;
+    node.options.forEach((_, option) => {
+      forms.push(render(nodes, { ruby: (n) => n.base, choice: (n, index) => (index === target ? option : 0) }));
+    });
+  });
+  return [...new Set(forms)].filter((form) => form.trim());
+}
+
+/** Nửa đầu của câu — dịch thiếu nửa câu thì phải bị chấm sai. */
+function firstHalf(text) {
+  const chars = [...text.trim()];
+  return chars.slice(0, Math.floor(chars.length / 2)).join('');
+}
+
+let translationLines = 0;
+for (const file of readdirSync(lessonsDir).filter((name) => name.endsWith('.json'))) {
+  if (file === 'index.json') continue;
+  const lesson = JSON.parse(readFileSync(join(lessonsDir, file), 'utf8'));
+
+  for (const set of lesson.translationSets ?? []) {
+    for (const line of set.lines) {
+      translationLines++;
+      for (const [patterns, options] of [
+        [[line.ja, ...(line.jaAlt ?? [])], JA],
+        [[line.vi, ...(line.viAlt ?? [])], VI],
+      ]) {
+        for (const pattern of patterns) {
+          for (const typed of patternForms(pattern)) {
+            checks++;
+            if (!isPatternCorrect(typed, patterns, options)) {
+              problems.push(`[${file}] câu luyện dịch gõ đúng mà bị chấm sai\n     câu mẫu: ${pattern}\n     người học gõ: ${typed}`);
+            }
+          }
+        }
+        const half = firstHalf(plainText(patterns[0]));
+        checks++;
+        if (half && isPatternCorrect(half, patterns, options)) {
+          problems.push(`[${file}] dịch thiếu nửa câu mà vẫn được chấm đúng\n     câu mẫu: ${patterns[0]}\n     người học gõ: ${half}`);
+        }
+      }
+    }
+  }
+}
+
 if (problems.length > 0) {
   process.stdout.write(`Bo cham cau dai co ${problems.length} cho sai:\n`);
   for (const line of problems) process.stdout.write(`  - ${line}\n`);
@@ -138,6 +212,6 @@ if (problems.length > 0) {
 } else {
   process.stdout.write(
     `OK: dau cau va khoang trang khong lam sai ket qua cham ` +
-      `(${checks} luot thu tren ${sentences} cau hoi thoai + ngu phap).\n`,
+      `(${checks} luot thu tren ${sentences} cau hoi thoai + ngu phap, ${translationLines} cau luyen dich).\n`,
   );
 }

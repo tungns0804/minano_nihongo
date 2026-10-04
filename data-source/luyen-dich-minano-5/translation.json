@@ -1,0 +1,301 @@
+{
+  "sets": [
+    {
+      "title": "Kế hoạch đi Kyoto",
+      "description": "Anh Miller hỏi chị Karina về chuyến đi Kyoto cuối tuần.",
+      "lines": [
+        {
+          "speaker": "ミラー",
+          "ja": "カリナさんは {日曜日|にちようび} どこへ {行|い}きますか。",
+          "vi": "Chị Karina [Chủ nhật/Chủ nhật này/ngày Chủ nhật] [sẽ /]đi đâu[ vậy/]?",
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "どこへ 行きますか: へ đánh dấu hướng đi (đọc là 'e'); hỏi nơi đến bằng どこへ." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "カリナさん: hỏi thẳng người nghe bằng tên + さん." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{京都|きょうと}へ {行|い}きます。{友達|ともだち}と {行|い}きます。",
+          "vi": "Tôi [sẽ /]đi Kyoto. [Tôi /][sẽ /]đi [cùng/với] bạn[ bè/].",
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "京都へ 行きます: nơi đến + へ + 行きます." },
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "友達と: と chỉ người cùng làm — 'cùng với bạn'." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{何|なに}で {行|い}きますか。{新幹線|しんかんせん}ですか。",
+          "vi": "[Chị /][sẽ /]đi bằng [gì/phương tiện gì][ vậy/]? [Bằng /Đi bằng /]Shinkansen [à/phải không/]?",
+          "grammar": [
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "何で 行きますか: hỏi phương tiện; đọc なにで cho khỏi nhầm với なんで 'tại sao'." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "新幹線ですか: đoán thử bằng câu hỏi có/không." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "いいえ、{違|ちが}います。バスで {行|い}きます。",
+          "vi": "[Không/Dạ không], [không phải/không đúng]. [Tôi /][sẽ /]đi bằng xe buýt.",
+          "grammar": [
+            { "lesson": 2, "point": "そうです ／ ちがいます", "note": "いいえ、違います: đoán sai thì đính chính." },
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "バスで: で đứng sau tên phương tiện." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "いつ {帰|かえ}りますか。",
+          "vi": "[Bao giờ/Khi nào] [chị /][sẽ /]về[ vậy/]?",
+          "viAlt": ["[Chị /][sẽ /]về [khi nào/bao giờ/lúc nào][ vậy/]?"],
+          "grammar": [
+            { "lesson": 5, "point": "いつ", "note": "いつ hỏi thời điểm và KHÔNG thêm に." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "帰ります: trở về nơi mình thuộc về." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{月曜日|げつようび}に {帰|かえ}ります。",
+          "vi": "[Thứ Hai/Ngày thứ Hai] [tôi /][sẽ /]về.",
+          "viAlt": ["[Tôi /][sẽ /]về vào thứ Hai."],
+          "grammar": [
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "月曜日に: thứ trong tuần có hay không có に đều được." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "帰ります: trả lời câu hỏi いつ 帰りますか." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "そうですか。{私|わたし}は {日曜日|にちようび} どこも {行|い}きません。",
+          "vi": "[Thế à/Vậy à]. [Chủ nhật/Ngày Chủ nhật] tôi [sẽ /]không đi đâu cả.",
+          "grammar": [
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin." },
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "どこも 行きません: từ nghi vấn + も + phủ định = 'chẳng đi đâu cả'; へ thường được lược." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "ミラーさんは {去年|きょねん} {京都|きょうと}へ {行|い}きましたか。",
+          "vi": "Năm ngoái anh Miller có đi Kyoto không?",
+          "viAlt": ["Anh Miller năm ngoái [đã /]đi Kyoto [chưa/à/không]?"],
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "京都へ 行きましたか: nơi đến + へ." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きましたか: hỏi việc trong quá khứ (去年)." },
+            { "lesson": 1, "point": "～さん ／ ～ちゃん ／ ～くん", "note": "ミラーさん: tên + さん." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "はい、{行|い}きました。{会社|かいしゃ}の {人|ひと}と {行|い}きました。",
+          "vi": "[Có/Vâng/Dạ có], tôi [đã /]đi [rồi/]. Tôi [đã /]đi [cùng/với] [người trong công ty/người của công ty/đồng nghiệp].",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きました: trả lời bằng chính động từ ở quá khứ (không dùng そうです)." },
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "会社の 人と: 'cùng với người trong công ty'." },
+            { "lesson": 1, "point": "N1 の N2", "note": "会社の 人: người thuộc công ty." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{来月|らいげつ} {家族|かぞく}も {日本|にほん}へ {来|き}ますよ。",
+          "vi": "Tháng sau gia đình [tôi /]cũng [sẽ /]đến Nhật[ Bản/] [đấy/đó/].",
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "日本へ 来ます: 来ます là tiến về phía chỗ người nói đang ở (Nhật)." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo một tin mà người nghe chưa biết." },
+            { "lesson": 1, "point": "N も", "note": "家族も: 'gia đình cũng'." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ở nhà ga",
+      "description": "Anh Santos hỏi giá vé, sân ga và chuyến tàu đi Koshien.",
+      "lines": [
+        {
+          "speaker": "サントス",
+          "ja": "すみません。{甲子園|こうしえん}へ {行|い}きます。いくらですか。",
+          "vi": "Xin lỗi, tôi [muốn /]đi Koshien. [Giá /][vé /]bao nhiêu [tiền /][vậy /][ạ/]?",
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "甲子園へ 行きます: nói nơi mình định đến." },
+            { "lesson": 3, "point": "N は いくらですか", "note": "いくらですか: hỏi giá vé." }
+          ]
+        },
+        {
+          "speaker": "{駅員|えきいん}",
+          "ja": "{350|さんびゃくごじゅう}{円|えん}です。{5|ご}{番線|ばんせん}ですよ。",
+          "vi": "350 yên[ ạ/]. [Ở /][sân ga/đường ray/tuyến/ke] số [5/năm] [đấy/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 3, "point": "N は いくらですか", "note": "～円です: trả lời giá; 300 đọc さんびゃく." },
+            { "lesson": 5, "point": "～よ", "note": "5番線ですよ: よ mách thêm thông tin khách chưa hỏi mà cần biết." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "この {電車|でんしゃ}は {甲子園|こうしえん}へ {行|い}きますか。",
+          "vi": "[Tàu/Chuyến tàu] này có đi [đến /tới /]Koshien không[ ạ/]?",
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "甲子園へ 行きますか: hỏi tàu có đi tới đó không." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 電車: chuyến tàu đang đỗ trước mặt." }
+          ]
+        },
+        {
+          "speaker": "{男|おとこ}の{人|ひと}",
+          "ja": "いいえ、{行|い}きません。{次|つぎ}の {普通|ふつう}ですよ。",
+          "vi": "[Không/Dạ không], không đi[ đâu/]. Chuyến tàu thường tiếp theo [mới đi /][đấy/cơ/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きません: câu hỏi bằng động từ thì trả lời bằng động từ, không dùng 違います." },
+            { "lesson": 5, "point": "～よ", "note": "次の 普通ですよ: よ chỉ cho người hỏi điều họ chưa biết." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "{次|つぎ}の {普通|ふつう}は {何時|なんじ}に {来|き}ますか。{3|さん}{時|じ}ですか。",
+          "vi": "Chuyến [tàu /]thường tiếp theo mấy giờ [thì /]đến[ ạ/]? [3/Ba] giờ [phải không/à/][ ạ/]?",
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "来ます: tàu tiến về phía chỗ người nói đang đứng." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "何時に: giờ + に." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "3時ですか: đoán thử." }
+          ]
+        },
+        {
+          "speaker": "{男|おとこ}の{人|ひと}",
+          "ja": "{3|さん}{時|じ}{10|じゅっ}{分|ぷん}ですよ。",
+          "vi": "[3/Ba] giờ [10/mười] phút [đấy/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "いま ～じ ～ふんです", "note": "10分 đọc じゅっぷん." },
+            { "lesson": 5, "point": "～よ", "note": "よ: cho người hỏi biết thông tin mới." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "{甲子園|こうしえん}から {大阪城|おおさかじょう}まで {地下鉄|ちかてつ}で {行|い}きますか。",
+          "vi": "Từ Koshien đến thành Osaka [thì /][đi /]bằng tàu điện ngầm [à/phải không/][ ạ/]?",
+          "grammar": [
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "地下鉄で: phương tiện + で." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "から～まで dùng cho quãng đường." }
+          ]
+        },
+        {
+          "speaker": "{男|おとこ}の{人|ひと}",
+          "ja": "いいえ、{電車|でんしゃ}と バスで {行|い}きますよ。",
+          "vi": "[Không/Dạ không], [đi /]bằng tàu điện và xe buýt [đấy/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "N1 と N2", "note": "電車と バス: と nối hai danh từ." },
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "～で 行きます: hai phương tiện cùng đứng trước で." },
+            { "lesson": 5, "point": "～よ", "note": "よ: chỉ dẫn cho người chưa biết." }
+          ]
+        },
+        {
+          "speaker": "サントス",
+          "ja": "{大阪城|おおさかじょう}から {駅|えき}まで {歩|ある}いて {帰|かえ}ります。",
+          "vi": "Từ thành Osaka [tôi /][sẽ /]đi bộ về [đến /]ga.",
+          "viAlt": ["[Tôi /][sẽ /]đi bộ từ thành Osaka về [đến /]ga."],
+          "grammar": [
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "歩いて: đi bộ thì KHÔNG có で — 歩いて đã là một thể của động từ." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "大阪城から 駅まで: quãng đường đi bộ." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "帰ります: quay về." }
+          ]
+        },
+        {
+          "speaker": "{男|おとこ}の{人|ひと}",
+          "ja": "{大阪城|おおさかじょう}は {9|く}{時|じ}から {5|ご}{時|じ}までですよ。",
+          "vi": "Thành Osaka [mở cửa /]từ [9/chín] giờ đến [5/năm] giờ [đấy/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "9時から 5時まで: giờ mở cửa." },
+            { "lesson": 5, "point": "～よ", "note": "よ: nhắc một thông tin hữu ích." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Kể chuyện đi lại",
+      "description": "Đi đâu, khi nào, với ai, bằng gì — và những hôm chẳng đi đâu cả.",
+      "lines": [
+        {
+          "ja": "{先週|せんしゅう}の {日曜日|にちようび}は どこも {行|い}きませんでした。",
+          "vi": "Chủ nhật tuần trước tôi [đã /]không đi đâu cả.",
+          "grammar": [
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "どこも + phủ định: 'không đi đâu cả'." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きませんでした: phủ định quá khứ." }
+          ]
+        },
+        {
+          "ja": "{昨日|きのう}は {誰|だれ}も {来|き}ませんでしたよ。",
+          "vi": "Hôm qua không [có /]ai đến cả [đâu/đấy/].",
+          "grammar": [
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "誰も + phủ định: 'không có ai cả' — cùng kiểu với どこも." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "来ませんでした: phủ định quá khứ." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo cho người nghe biết." }
+          ]
+        },
+        {
+          "ja": "{去年|きょねん}の {9|く}{月|がつ}に {日本|にほん}へ {来|き}ました。",
+          "vi": "Tôi [đã /]đến Nhật[ Bản/] vào tháng [9/chín] năm ngoái.",
+          "viAlt": ["Tháng [9/chín] năm ngoái tôi [đã /]đến Nhật[ Bản/]."],
+          "grammar": [
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "日本へ 来ました: đến Nhật (nơi người nói đang sống)." },
+            { "lesson": 4, "point": "N（thời gian）に V", "note": "9月に: mốc có con số đi với に; 9月 đọc くがつ." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "来ました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "{毎朝|まいあさ} {自転車|じてんしゃ}で {学校|がっこう}へ {行|い}きます。",
+          "vi": "[Sáng nào tôi cũng/Mỗi sáng tôi] đi [đến trường/học] bằng xe đạp.",
+          "grammar": [
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "自転車で: phương tiện + で." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "学校へ 行きます: nơi đến + へ." }
+          ]
+        },
+        {
+          "ja": "{来年|らいねん} {一人|ひとり}で {国|くに}へ {帰|かえ}ります。{家族|かぞく}は {日本|にほん}です。",
+          "vi": "Năm sau tôi [sẽ /]về nước một mình. Gia đình [tôi /][thì /]ở Nhật[ Bản/].",
+          "grammar": [
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "一人で: làm một mình thì dùng ひとりで, không dùng と." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "国へ 帰ります: về nước mình." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "家族は 日本です: 'gia đình ở Nhật'." }
+          ]
+        },
+        {
+          "ja": "いつ {日本|にほん}へ {来|き}ましたか。",
+          "vi": "[Anh/Chị/Bạn] [đã /]đến Nhật[ Bản/] [khi nào/bao giờ/lúc nào][ vậy/]?",
+          "viAlt": ["[Khi nào/Bao giờ] [anh/chị/bạn] [đã /]đến Nhật[ Bản/][ vậy/]?"],
+          "grammar": [
+            { "lesson": 5, "point": "いつ", "note": "いつ: hỏi thời điểm, không thêm に." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "日本へ 来ました: đến Nhật." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "来ましたか: hỏi việc đã xảy ra." }
+          ]
+        },
+        {
+          "ja": "{誕生日|たんじょうび}は いつですか。",
+          "vi": "Sinh nhật [của anh /của chị /của bạn /anh /chị /bạn /]là [khi nào/ngày nào/bao giờ][ vậy/]?",
+          "grammar": [
+            { "lesson": 5, "point": "いつ", "note": "いつですか: いつ làm vị ngữ cũng được." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "N は いつですか: hỏi theo khung N1 は N2 ですか." }
+          ]
+        },
+        {
+          "ja": "{彼|かれ}と {電車|でんしゃ}で {大阪|おおさか}へ {行|い}きました。",
+          "vi": "Tôi [đã /]đi Osaka [cùng/với] [anh ấy/bạn trai] bằng tàu điện.",
+          "viAlt": ["Tôi [đã /]đi Osaka bằng tàu điện [cùng/với] [anh ấy/bạn trai]."],
+          "grammar": [
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "彼と: 'cùng với anh ấy'." },
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "電車で: bằng tàu điện." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "大阪へ: nơi đến." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "行きました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "そうですね。{明日|あした}は どこも {行|い}きません。",
+          "vi": "[Ừ nhỉ/Đúng vậy nhỉ/Ừ đúng thế]. Ngày mai tôi [sẽ /]không đi đâu cả.",
+          "grammar": [
+            { "lesson": 5, "point": "そうですね", "note": "そうですね: đồng tình với điều người kia vừa nói, khác そうですか (tin mới)." },
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "どこも 行きません: 'không đi đâu cả'." }
+          ]
+        },
+        {
+          "ja": "バスで {行|い}きますか、{電車|でんしゃ}で {行|い}きますか。",
+          "vi": "[Anh /Chị /Bạn /][sẽ /]đi bằng xe buýt hay [đi /]bằng tàu điện?",
+          "grammar": [
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "～で 行きます: hỏi phương tiện." },
+            { "lesson": 2, "point": "～か、～か", "note": "Hỏi lựa chọn giữa hai phương tiện." }
+          ]
+        }
+      ]
+    }
+  ]
+}

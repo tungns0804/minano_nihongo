@@ -208,6 +208,36 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Lược trợ từ trong hội thoại",
+      "summary": "Khi ngữ cảnh đã rõ, trợ từ は và を hay được lược bỏ trong văn nói.",
+      "structures": ["N［は］、～ですね。", "N［を］、～"],
+      "explanation": [
+        "Trong hội thoại, nếu nghe là hiểu quan hệ giữa các thành phần thì người Nhật thường bỏ trợ từ, nhất là は và を.",
+        "Chỗ trợ từ bị lược thường ngắt hơi một chút; khi viết thì đánh dấu 、."
+      ],
+      "notes": [
+        "Chỉ lược khi nghĩa vẫn rõ. Khi viết hoặc nói trang trọng thì cứ giữ đủ trợ từ."
+      ],
+      "usages": [
+        {
+          "title": "Câu nói hằng ngày",
+          "detail": "Trợ từ bị lược ghi ở phần ghi chú.",
+          "examples": [
+            {
+              "japanese": "この スプーン、すてきですね。",
+              "vietnamese": "Cái thìa này đẹp nhỉ.",
+              "note": "Đầy đủ: この スプーンは すてきですね。"
+            },
+            {
+              "japanese": "コーヒー、もう いっぱい いかがですか。",
+              "vietnamese": "Anh dùng thêm một cốc cà phê nhé?",
+              "note": "Đầy đủ: コーヒーを もう いっぱい いかがですか。"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

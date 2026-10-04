@@ -1,5 +1,6 @@
 import type { VerbGroup } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
+import type { GrammarRef, TranslationSet } from '../translation/translation.model';
 
 /** Một từ vựng. Trùng cấu trúc với phần tử trong `public/lessons/<id>.json`. */
 export interface VocabularyWord {
@@ -147,6 +148,11 @@ export type LessonOrigin = 'builtin' | 'custom';
  * cùng màn hình với bài từ vựng (tới từ `data-source/<bài>/btvn.txt`), mỗi bài một
  * cụm 10 từ kèm câu ví dụ. Tách thành loại riêng cùng lý do với `topic`: nó là một
  * khoá học khác, không được lẫn vào danh sách bài 皆の日本語 / 総まとめ ngoài trang chủ.
+ *
+ * `translation` (tab `/translate`) là bài LUYỆN DỊCH theo từng bài 皆の日本語: vài bài
+ * nhỏ khoảng 10 câu, mỗi câu kết hợp mẫu ngữ pháp của bài đó với mẫu của các bài
+ * trước. Khác bài hội thoại ở chỗ mỗi câu mang theo các mẫu ngữ pháp nó dùng để giải
+ * thích sau khi chấm — xem `core/translation/`.
  */
 export type LessonKind =
   | 'vocabulary'
@@ -155,6 +161,7 @@ export type LessonKind =
   | 'verb'
   | 'conversation'
   | 'grammar'
+  | 'translation'
   | 'exercise'
   | 'kanji'
   | 'radical';
@@ -166,6 +173,7 @@ export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   verb: 'kind.verb',
   conversation: 'kind.conversation',
   grammar: 'kind.grammar',
+  translation: 'kind.translation',
   exercise: 'kind.exercise',
   kanji: 'kind.kanji',
   radical: 'kind.radical',
@@ -178,6 +186,7 @@ export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   verb: 'kind.verb.desc',
   conversation: 'kind.conversation.desc',
   grammar: 'kind.grammar.desc',
+  translation: 'kind.translation.desc',
   exercise: 'kind.exercise.desc',
   kanji: 'kind.kanji.desc',
   radical: 'kind.radical.desc',
@@ -191,6 +200,7 @@ export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   verb: 'kind.verb.unit',
   conversation: 'kind.conversation.unit',
   grammar: 'kind.grammar.unit',
+  translation: 'kind.translation.unit',
   exercise: 'kind.exercise.unit',
   kanji: 'kind.kanji.unit',
   radical: 'kind.radical.unit',
@@ -216,6 +226,7 @@ export const LESSON_KIND_TABLE_KEY: Record<LessonKind, MessageKey> = {
   verb: 'lesson.table.verb',
   conversation: 'lesson.table.conversation',
   grammar: 'kind.grammar',
+  translation: 'kind.translation',
   exercise: 'kind.exercise',
   kanji: 'kind.kanji',
   radical: 'kind.radical',
@@ -230,6 +241,7 @@ export const LESSON_KIND_SEARCH_KEY: Record<LessonKind, MessageKey> = {
   verb: 'lesson.search.verb',
   conversation: 'lesson.search.conversation',
   grammar: 'lesson.search.vocabulary',
+  translation: 'lesson.search.conversation',
   exercise: 'lesson.search.verb',
   kanji: 'kanji.search',
   radical: 'radical.search',
@@ -242,6 +254,7 @@ export type LessonTab =
   | 'homework'
   | 'exercise'
   | 'grammar'
+  | 'translate'
   | 'kanji'
   | 'radical';
 
@@ -274,6 +287,10 @@ export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
   verb: 'exercise',
   conversation: 'exercise',
   grammar: 'grammar',
+  // Tab riêng chứ không nằm chung tab Bài tập bổ trợ với bài dịch hội thoại: bài luyện
+  // dịch đi đủ 50 bài theo giáo trình và có bộ lọc cấp độ, gom chung thì tab kia thành
+  // một lưới 57 thẻ không lọc được.
+  translation: 'translate',
   exercise: 'exercise',
   kanji: 'kanji',
   radical: 'radical',
@@ -286,6 +303,7 @@ export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
   homework: '/homework',
   exercise: '/exercise',
   grammar: '/grammar',
+  translate: '/translate',
   kanji: '/kanji',
   radical: '/radical',
 };
@@ -298,6 +316,7 @@ const LESSON_KIND_ORDER: readonly LessonKind[] = [
   'verb',
   'conversation',
   'grammar',
+  'translation',
   'exercise',
   'kanji',
   'radical',
@@ -397,13 +416,19 @@ export interface GrammarPoint {
   usages: GrammarUsage[];
 }
 
-/** Bài học đầy đủ. Tuỳ `kind` mà dùng `words`, `verbs`, `lines` hoặc `grammarPoints`. */
+/**
+ * Bài học đầy đủ. Tuỳ `kind` mà dùng `words`, `verbs`, `lines`, `grammarPoints` hoặc
+ * `translationSets`.
+ */
 export interface Lesson {
   id: string;
   name: string;
   description: string;
   kind: LessonKind;
-  /** Số mục trong bài: số từ vựng, số động từ, số câu hội thoại, hoặc số mẫu ngữ pháp. */
+  /**
+   * Số mục trong bài: số từ vựng, số động từ, số câu hội thoại, số mẫu ngữ pháp, hoặc
+   * số câu luyện dịch.
+   */
   itemCount: number;
   /**
    * Bài số mấy trong giáo trình, dùng để suy ra cấp độ JLPT (xem `levelOfLesson`).
@@ -421,6 +446,10 @@ export interface Lesson {
   verbs: VerbEntry[];
   lines: ConversationLine[];
   grammarPoints: GrammarPoint[];
+  /** Các bài nhỏ của bài luyện dịch; rỗng với mọi loại bài khác. */
+  translationSets: TranslationSet[];
+  /** Mẫu ngữ pháp mà các câu luyện dịch tham chiếu tới, theo id mẫu. */
+  grammarRefs: Record<string, GrammarRef>;
   origin: LessonOrigin;
 }
 

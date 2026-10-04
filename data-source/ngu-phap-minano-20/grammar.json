@@ -103,11 +103,15 @@
     {
       "title": "Hội thoại bằng thể thông thường",
       "summary": "Trong hội thoại thân mật, ngoài việc đổi thể còn phải lược bớt trợ từ và tiểu từ.",
-      "structures": ["Bỏ か ở câu hỏi, lên giọng cuối câu", "Lược を, は, が khi ngữ cảnh đã rõ", "Danh từ và tính từ な bỏ luôn だ ở câu hỏi"],
+      "structures": [
+        "Bỏ か ở câu hỏi, lên giọng cuối câu",
+        "Lược を, は, が khi ngữ cảnh đã rõ",
+        "Danh từ và tính từ な bỏ luôn だ ở câu hỏi"
+      ],
       "explanation": [
         "Câu hỏi thân mật KHÔNG dùng か mà chỉ lên giọng ở cuối. Thêm か vào thể thông thường nghe thô lỗ.",
         "Với danh từ và tính từ な, câu hỏi bỏ luôn だ: 「げんき？」 chứ không nói 「げんきだ？」.",
-        "Các trợ từ を, は, が hay bị lược khi ngữ cảnh đã rõ. Nhưng に, で, へ, から thì thường giữ lại vì bỏ đi sẽ mất nghĩa.",
+        "Các trợ từ を, は, が, へ hay bị lược khi ngữ cảnh đã rõ: 「あした きょうと［へ］ いかない？」. Nhưng で, に, から, まで, と thì giữ lại vì bỏ đi sẽ mất nghĩa.",
         "Trong câu trả lời khẳng định thì hay thêm よ, ね, hoặc chỉ đáp gọn một từ."
       ],
       "tables": [
@@ -123,7 +127,8 @@
         }
       ],
       "notes": [
-        "はい／いいえ trong hội thoại thân mật đổi thành うん／ううん."
+        "はい／いいえ trong hội thoại thân mật đổi thành うん／ううん.",
+        "い của ～て いる hay rụng mất khi nói: 「じしょ、もって［い］る？」 → 「もってる？」."
       ],
       "usages": [
         {
@@ -149,6 +154,45 @@
             {
               "japanese": "この ケーキ、おいしいね。",
               "vietnamese": "Cái bánh này ngon nhỉ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～けど",
+      "summary": "Bản thân mật của が: nối hai vế trái chiều, hoặc mở lời cho nhẹ nhàng.",
+      "structures": ["Thể thông thường ＋ けど、～"],
+      "explanation": [
+        "けど có chức năng như が ở bài 8 và bài 14 nhưng mang màu văn nói, hay dùng trong hội thoại thân mật.",
+        "Vế trước けど ở thể thông thường."
+      ],
+      "usages": [
+        {
+          "title": "Nối hai vế trái chiều",
+          "detail": "'... nhưng ...'",
+          "examples": [
+            {
+              "japanese": "その カレー、おいしい？",
+              "vietnamese": "Món cà ri đó có ngon không?"
+            },
+            {
+              "japanese": "うん、からいけど、おいしい。",
+              "vietnamese": "Ừ, hơi cay nhưng ngon."
+            }
+          ]
+        },
+        {
+          "title": "Mở lời nhẹ nhàng",
+          "detail": "Nêu hoàn cảnh rồi rủ rê, nhờ vả.",
+          "examples": [
+            {
+              "japanese": "すもうの チケットが あるけど、いっしょに いかない？",
+              "vietnamese": "Tớ có vé xem sumo, đi cùng không?"
+            },
+            {
+              "japanese": "いいね。",
+              "vietnamese": "Hay quá nhỉ."
             }
           ]
         }

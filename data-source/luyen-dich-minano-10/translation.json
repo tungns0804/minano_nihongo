@@ -1,0 +1,282 @@
+{
+  "sets": [
+    {
+      "title": "Tìm cửa hàng Asia Store",
+      "description": "Anh Miller hỏi đường đến cửa hàng thực phẩm châu Á rồi tìm nước mắm Thái.",
+      "lines": [
+        {
+          "speaker": "ミラー",
+          "ja": "すみません。アジアストアは どこに ありますか。",
+          "vi": "Xin lỗi, [cửa hàng /]Asia Store [ở/nằm ở] đâu[ ạ/]?",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "～は どこに ありますか: nơi đã biết tên lên làm chủ đề (は), điều cần hỏi là nó nằm ở đâu." },
+            { "lesson": 3, "point": "ここ ／ そこ ／ あそこ", "note": "どこ: từ nghi vấn của nhóm ここ・そこ・あそこ." }
+          ]
+        },
+        {
+          "speaker": "{男|おとこ}の{人|ひと}",
+          "ja": "アジアストアですか。あそこに {白|しろ}い ビルが ありますね。",
+          "vi": "Asia Store [à/hả]? [Ở /]đằng kia có [một /][tòa nhà/toà nhà/cao ốc] [màu /]trắng[ đúng không/ nhỉ/ anh thấy chứ/ anh thấy không/].",
+          "grammar": [
+            { "lesson": 6, "point": "～か — đáp lại tin vừa nghe", "note": "アジアストアですか: nhắc lại điều được hỏi rồi mới chỉ đường." },
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "あそこに ビルが あります: nơi chốn + に + vật + が あります." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "白い ビル: tính từ い + danh từ." }
+          ]
+        },
+        {
+          "speaker": "{男|おとこ}の{人|ひと}",
+          "ja": "あの ビルの {中|なか}です。",
+          "vi": "[Nó /Cửa hàng /][ở/nằm] [bên /]trong [tòa nhà/toà nhà/cao ốc] [đó/kia/ấy].",
+          "grammar": [
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "ビルの 中: vật mốc + の + từ chỉ vị trí; dùng thẳng với です." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの ビル: tòa nhà ở xa cả hai người." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "すみません、ナンプラー[、/は /が ]ありますか。",
+          "vi": "Xin lỗi, [ở đây /cửa hàng /][có /][bán /]nước mắm [Thái /]không[ ạ/]?",
+          "grammar": [
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "ナンプラーが あります: đồ vật dùng あります." },
+            { "lesson": 7, "point": "Lược trợ từ trong hội thoại", "note": "ナンプラー、: văn nói lược trợ từ khi nghĩa đã rõ." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "ええ。あそこに タイ{料理|りょうり}の コーナーが ありますね。",
+          "vi": "[Có/Vâng/Dạ có]. [Ở /]đằng kia có [quầy/khu/góc] [đồ ăn /món ăn /hàng /đồ /]Thái[ đấy/ đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "あそこに コーナーが あります: nói ở đó có gì." },
+            { "lesson": 1, "point": "N1 の N2", "note": "タイ料理の コーナー: quầy đồ ăn Thái." },
+            { "lesson": 4, "point": "～ね", "note": "ありますね: chỉ cho khách thấy và chờ khách xác nhận." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "ナンプラーは いちばん {下|した}に あります。",
+          "vi": "Nước mắm [Thái /][thì /][nằm /để /][ở /][ngăn /tầng /kệ /]dưới cùng[ ạ/].",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "ナンプラーは ～に あります: vật đã nhắc tới lên làm chủ đề, phần trả lời là vị trí." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "いちばん 下: dưới cùng." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{分|わ}かりました。この {近|ちか}くに ATMが ありますか。",
+          "vi": "[Tôi hiểu rồi/Được rồi/Vâng]. [Ở /]gần đây có [cây /máy /]ATM không[ ạ/]?",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "近くに ATMが ありますか: hỏi ở một nơi có thứ gì không." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "この 近く: gần đây." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 近く: quanh chỗ người nói." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "ええ、コンビニの {中|なか}に ありますよ。",
+          "vi": "[Có/Vâng/Dạ có], [có /][ở /nằm ở ]trong cửa hàng tiện lợi [đấy/đó/][ ạ/].",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "（ATMは） コンビニの 中に あります: chủ đề đã rõ nên lược." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "コンビニの 中: bên trong cửa hàng tiện lợi." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo thông tin mới." }
+          ]
+        },
+        {
+          "speaker": "{店員|てんいん}",
+          "ja": "コンビニは {郵便局|ゆうびんきょく}と {本屋|ほんや}の {間|あいだ}に あります。",
+          "vi": "Cửa hàng tiện lợi [thì /][nằm /ở /nằm ở /]giữa bưu điện và [hiệu sách/nhà sách/tiệm sách].",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "コンビニは ～に あります: nói vị trí của nơi đã biết." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "AとBの 間: 間 cần hai vật mốc nối bằng と." },
+            { "lesson": 4, "point": "N1 と N2", "note": "郵便局と 本屋: と nối hai danh từ." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{郵便局|ゆうびんきょく}の {隣|となり}ですね。どうも ありがとう ございました。",
+          "vi": "[Ở /Nằm /][ngay /]bên cạnh bưu điện [nhỉ/phải không/đúng không]. [Cảm ơn/Cám ơn/Xin cảm ơn] [anh /chị /][nhiều /][ạ/].",
+          "grammar": [
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "郵便局の 隣: 隣 dùng cho hai thứ cùng loại đứng liền nhau (các cửa hàng)." },
+            { "lesson": 4, "point": "～ね", "note": "～ですね: nhắc lại để xác nhận đã hiểu đúng." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Trong nhà có gì",
+      "description": "Tả đồ vật, người và con vật trong nhà, trong phòng.",
+      "lines": [
+        {
+          "ja": "{部屋|へや}に {机|つくえ}と ベッドが あります。",
+          "vi": "[Trong /Ở /]phòng có [cái /chiếc /một cái /]bàn và [cái /chiếc /một cái /]giường.",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "部屋に ～が あります: に đánh dấu nơi TỒN TẠI (khác で — nơi hành động)." },
+            { "lesson": 4, "point": "N1 と N2", "note": "机と ベッド: と liệt kê đủ hai thứ." }
+          ]
+        },
+        {
+          "ja": "{机|つくえ}の {上|うえ}に {本|ほん}や {辞書|じしょ}[など/]が あります。",
+          "vi": "[Trên/Ở trên] bàn có sách[, / và /]từ điển[ v.v./ vân vân/ các thứ/].",
+          "grammar": [
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "机の 上: vật mốc + の + vị trí — ngược với tiếng Việt 'trên bàn'." },
+            { "lesson": 10, "point": "N1 や N2［など］", "note": "本や 辞書など: や chỉ nêu vài thứ tiêu biểu, など = 'vân vân'." },
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "～に ～が あります." }
+          ]
+        },
+        {
+          "ja": "ベッドの {下|した}に {猫|ねこ}が います。",
+          "vi": "[Dưới/Ở dưới] [gầm /]giường có [một /][con /chú /]mèo.",
+          "grammar": [
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "猫が います: con vật tự di chuyển được → います." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "ベッドの 下: dưới giường." }
+          ]
+        },
+        {
+          "ja": "{窓|まど}の {近|ちか}くに {大|おお}きい {木|き}が あります。",
+          "vi": "[Ở /]gần cửa sổ có [một /]cái cây [to/lớn].",
+          "grammar": [
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "木が あります: cây có sự sống nhưng không tự di chuyển → あります." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "窓の 近く: gần cửa sổ." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "大きい 木." }
+          ]
+        },
+        {
+          "ja": "{冷蔵庫|れいぞうこ}の {中|なか}に {何|なに}が ありますか。",
+          "vi": "[Trong/Ở trong] tủ lạnh có [gì/những gì/cái gì][ vậy/]?",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "何が ありますか: từ nghi vấn trước あります luôn đi với が, không nói 何は." },
+            { "lesson": 6, "point": "なん ／ なに", "note": "何が: đọc なに vì đứng trước が." }
+          ]
+        },
+        {
+          "ja": "{卵|たまご}や {牛乳|ぎゅうにゅう}[など/]が あります。",
+          "vi": "Có trứng[, / và /]sữa[ v.v./ vân vân/ các thứ/].",
+          "grammar": [
+            { "lesson": 10, "point": "N1 や N2［など］", "note": "卵や 牛乳など: chỉ kể vài thứ, còn những thứ khác." },
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "あります: đồ vật." }
+          ]
+        },
+        {
+          "ja": "{田中|たなか}さんは {会議室|かいぎしつ}に いますよ。",
+          "vi": "[Anh/Chị] Tanaka [đang /]ở phòng họp [đấy/đó/].",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "田中さんは 会議室に います: người đã biết lên làm chủ đề, câu cho biết người đó ở đâu." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo cho người đang tìm." }
+          ]
+        },
+        {
+          "ja": "{会議室|かいぎしつ}に {誰|だれ}が いますか。",
+          "vi": "[Trong/Ở trong/Ở] phòng họp có ai[ vậy/]?",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "誰が いますか: từ nghi vấn đi với が, không nói 誰は." },
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "người → います." }
+          ]
+        },
+        {
+          "ja": "{男|おとこ}の {人|ひと}と {女|おんな}の {人|ひと}が います。",
+          "vi": "Có [một /]người đàn ông và [một /]người [phụ nữ/đàn bà].",
+          "grammar": [
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "人が います: người dùng います." },
+            { "lesson": 4, "point": "N1 と N2", "note": "AとB: kể đủ — trong phòng chỉ có hai người đó (khác や)." }
+          ]
+        },
+        {
+          "ja": "{箱|はこ}の {中|なか}に {何|なに}も ありません。",
+          "vi": "[Trong/Ở trong] hộp không có gì [cả/hết].",
+          "grammar": [
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "箱の 中: trong hộp." },
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "何も ありません: từ nghi vấn + も + phủ định = 'không có gì cả'." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ở đâu có gì",
+      "description": "Chỉ chỗ, chỉ đường: hai mẫu câu tồn tại và từ chỉ vị trí.",
+      "lines": [
+        {
+          "ja": "{駅|えき}の {前|まえ}に {喫茶店|きっさてん}が あります。",
+          "vi": "[Trước/Phía trước] [nhà /]ga có [một /]quán [cà phê/giải khát].",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "駅の 前に 喫茶店が あります: thông tin mới là quán cà phê (đi với が)." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "駅の 前: trước ga." }
+          ]
+        },
+        {
+          "ja": "{銀行|ぎんこう}は {郵便局|ゆうびんきょく}の {隣|となり}です。",
+          "vi": "Ngân hàng [ở /nằm /][ngay /]bên cạnh bưu điện.",
+          "grammar": [
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "郵便局の 隣: bên cạnh." },
+            { "lesson": 3, "point": "N1 は N2（nơi chốn）です", "note": "～は ～です: nói vị trí bằng です như bài 3 — bản gọn của ～に あります." }
+          ]
+        },
+        {
+          "ja": "{本屋|ほんや}は どこに ありますか。{駅|えき}の {中|なか}ですか。",
+          "vi": "[Hiệu sách/Nhà sách/Tiệm sách] [ở/nằm ở] đâu[ vậy/]? [Ở /]trong [nhà /]ga [à/phải không/không]?",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "本屋は どこに ありますか: hỏi vị trí của nơi đã biết." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "駅の 中: trong ga." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "駅の 中ですか: đoán thử." }
+          ]
+        },
+        {
+          "ja": "パンダは どこに いますか。",
+          "vi": "[Gấu trúc/Con gấu trúc] [ở/nằm ở] đâu[ vậy/]?",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "パンダは どこに いますか: con vật đã biết, hỏi chỗ của nó." },
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "động vật → います." }
+          ]
+        },
+        {
+          "ja": "{公園|こうえん}に {子供|こども}や {犬|いぬ}が います。",
+          "vi": "[Ở/Trong] công viên có [trẻ con/trẻ em/bọn trẻ][, / và /][chó/mấy con chó][ v.v./ các thứ/].",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "公園に ～が います: người và vật nuôi → います." },
+            { "lesson": 10, "point": "N1 や N2［など］", "note": "子供や 犬: kể vài thứ tiêu biểu — còn có những thứ khác nữa." }
+          ]
+        },
+        {
+          "ja": "{会社|かいしゃ}の {後|うし}ろに {大|おお}きい {公園|こうえん}が あります。",
+          "vi": "[Phía /Đằng /]sau công ty có [một /]công viên [lớn/rộng/to].",
+          "grammar": [
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "会社の 後ろ: phía sau công ty." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "大きい 公園." },
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "～に ～が あります." }
+          ]
+        },
+        {
+          "ja": "トイレは あの {木|き}の {後|うし}ろに あります。",
+          "vi": "[Nhà vệ sinh/Phòng vệ sinh/Toilet] [ở/nằm ở/nằm] [phía /đằng /]sau cái cây [kia/đó/ấy].",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "トイレは ～に あります: chỉ chỗ cho người đang tìm." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "木の 後ろ: sau cái cây." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの 木: cái cây ở xa." }
+          ]
+        },
+        {
+          "ja": "{山田|やまだ}さんは {事務所|じむしょ}に いません。",
+          "vi": "Anh Yamada không [có /]ở văn phòng.",
+          "grammar": [
+            { "lesson": 10, "point": "N は N（nơi chốn）に あります ／ います", "note": "～は ～に いません: phủ định của います." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "いません: thể phủ định." }
+          ]
+        },
+        {
+          "ja": "{教室|きょうしつ}に {誰|だれ}も いません。",
+          "vi": "[Trong/Ở trong/Ở] lớp [học /]không có ai [cả/hết].",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "教室に: nơi tồn tại + に." },
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "誰も いません: 'không có ai cả'." }
+          ]
+        },
+        {
+          "ja": "{冷蔵庫|れいぞうこ}に いろいろな {物|もの}が あります。",
+          "vi": "[Trong/Ở trong] tủ lạnh có [đủ thứ/nhiều thứ/đủ loại đồ/nhiều thứ khác nhau].",
+          "grammar": [
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "冷蔵庫に ～が あります." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "いろいろな 物: いろいろ là tính từ な nên có な trước danh từ." }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,9 @@
         "Bài 49 học 尊敬語 (tôn kính ngữ) — nói về hành động của NGƯỜI TRÊN.",
         "Bài 50 học 謙譲語 (khiêm nhường ngữ) — nói về hành động của CHÍNH MÌNH."
       ],
-      "notes": [],
+      "notes": [
+        "Kính ngữ dùng được cả trong câu thể thông thường khi chỉ cần kính trọng người được nói tới (người thứ ba) chứ không cần lễ độ với người nghe: 「ぶちょうは なんじに いらっしゃる？」."
+      ],
       "usages": [
         {
           "title": "Phân biệt ba loại",
@@ -84,7 +86,8 @@
       ],
       "notes": [
         "Không dùng với động từ chỉ có một âm tiết trước ます: みます, ねます, います.",
-        "Không dùng với động từ nhóm 3 (べんきょうします…)."
+        "Không dùng với động từ nhóm 3 (べんきょうします…).",
+        "Động từ đã có dạng tôn kính đặc biệt (いきます → いらっしゃいます…) thì dùng dạng đặc biệt, không dùng お～に なります."
       ],
       "usages": [
         {
@@ -164,8 +167,11 @@
     {
       "title": "お ＋ V ます ＋ ください",
       "summary": "Mời mọc, hướng dẫn một cách kính trọng — \"xin mời ~\".",
-      "structures": ["お ＋ V bỏ ます ＋ ください"],
-      "explanation": ["Lịch sự hơn hẳn Vてください, hay gặp ở nơi công cộng, cửa hàng, thông báo."],
+      "structures": ["お ＋ V bỏ ます ＋ ください", "ご ＋ N（gốc Hán）＋ ください"],
+      "explanation": [
+        "Lịch sự hơn hẳn Vてください, hay gặp ở nơi công cộng, cửa hàng, thông báo.",
+        "Động từ nhóm 3 gốc Hán dùng ご: 「ごちゅうい ください」. Động từ có dạng đặc biệt thì dùng thể て của dạng đó: 「また いらっしゃって ください」."
+      ],
       "notes": [],
       "usages": [
         {
@@ -179,6 +185,14 @@
             {
               "japanese": "この ボタンを おつかい ください。",
               "vietnamese": "Xin hãy dùng nút bấm này ạ."
+            },
+            {
+              "japanese": "わすれものに ごちゅうい ください。",
+              "vietnamese": "Xin chú ý không để quên đồ."
+            },
+            {
+              "japanese": "また いらっしゃって ください。",
+              "vietnamese": "Mời anh lại đến chơi nhé."
             }
           ]
         }
@@ -206,6 +220,29 @@
             {
               "japanese": "ごかぞくは おげんきですか。",
               "vietnamese": "Gia đình anh vẫn khoẻ chứ ạ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～まして ／ ～ますので",
+      "summary": "Dạng lịch sự của thể て (nêu nguyên nhân) và của ので.",
+      "structures": ["V ます（bỏ ます）＋ まして、～", "V ます ＋ ので、～"],
+      "explanation": [
+        "Khi muốn nói thật lịch sự, thể て nêu nguyên nhân (bài 39) đổi thành ～まして, còn ～ので (bài 39) đứng sau thể lịch sự: ～ますので, ～ですので."
+      ],
+      "usages": [
+        {
+          "title": "Nêu lý do một cách lịch sự",
+          "examples": [
+            {
+              "japanese": "ハンスが ゆうべ ねつを だしまして、けさも まだ さがらないんです。",
+              "vietnamese": "Tối qua Hans bị sốt, đến sáng nay nhiệt độ vẫn chưa hạ."
+            },
+            {
+              "japanese": "きょうは がっこうを やすませますので、せんせいに よろしく おつたえ ください。",
+              "vietnamese": "Hôm nay tôi cho cháu nghỉ học, nhờ anh nói lại với thầy giáo giúp."
             }
           ]
         }

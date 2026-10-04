@@ -65,7 +65,7 @@
         "Trong câu đầy đủ có hai phần: 「N は」 là người có tình cảm hay năng lực đó, 「N が」 là đối tượng."
       ],
       "notes": [
-        "じょうず KHÔNG dùng để khen chính mình, cũng ít dùng để khen người trên. Nói về mình thì dùng 「じょうずじゃ ありません」 hoặc 「できます」 (bài 27)."
+        "じょうず KHÔNG dùng để khen chính mình, cũng ít dùng để khen người trên. Nói về mình thì dùng 「じょうずじゃ ありません」 hoặc 「できます」 (bài 18)."
       ],
       "usages": [
         {
@@ -83,6 +83,10 @@
             {
               "japanese": "どんな スポーツが すきですか。",
               "vietnamese": "Anh thích môn thể thao nào?"
+            },
+            {
+              "japanese": "サッカーが すきです。",
+              "vietnamese": "Tôi thích bóng đá."
             }
           ]
         },
@@ -141,8 +145,8 @@
               "vietnamese": "Tôi hiểu chữ Hán một chút."
             },
             {
-              "japanese": "ともだちが たくさん います。",
-              "vietnamese": "Tôi có nhiều bạn."
+              "japanese": "おかねが たくさん あります。",
+              "vietnamese": "Tôi có nhiều tiền."
             }
           ]
         },
@@ -208,7 +212,8 @@
       "structures": ["どうして ～ですか。→ ～から。"],
       "explanation": [
         "どうして đứng đầu câu hỏi.",
-        "Câu trả lời KẾT THÚC ở から, không cần thêm vế kết quả vì người hỏi đã biết rồi."
+        "Câu trả lời KẾT THÚC ở から, không cần thêm vế kết quả vì người hỏi đã biết rồi.",
+        "Muốn hỏi lý do của câu người kia vừa nói thì không cần nhắc lại cả câu, chỉ hỏi 「どうしてですか」."
       ],
       "usages": [
         {
@@ -228,8 +233,26 @@
               "vietnamese": "Tại sao anh lại đến Nhật?"
             },
             {
-              "japanese": "にほんの ぶんかを べんきょうしたいですから。",
-              "vietnamese": "Vì tôi muốn học văn hóa Nhật Bản."
+              "japanese": "にほんの おんがくが すきですから。",
+              "vietnamese": "Vì tôi thích âm nhạc Nhật."
+            }
+          ]
+        },
+        {
+          "title": "Hỏi lại lý do — どうしてですか",
+          "detail": "Không phải nhắc lại câu vừa nghe.",
+          "examples": [
+            {
+              "japanese": "きょうは はやく かえります。",
+              "vietnamese": "Hôm nay tôi về sớm."
+            },
+            {
+              "japanese": "どうしてですか。",
+              "vietnamese": "Tại sao vậy?"
+            },
+            {
+              "japanese": "こどもの たんじょうびですから。",
+              "vietnamese": "Vì hôm nay là sinh nhật con tôi."
             }
           ]
         }

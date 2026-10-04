@@ -62,6 +62,10 @@
               "japanese": "テレサちゃんは ９さいです。",
               "vietnamese": "Bé Teresa 9 tuổi.",
               "reading": "テレサちゃんは きゅうさいです。"
+            },
+            {
+              "japanese": "せんもんは でんきです。",
+              "vietnamese": "Chuyên môn của tôi là điện."
             }
           ]
         }
@@ -200,7 +204,7 @@
       "structures": ["N1 の N2"],
       "explanation": [
         "Trật tự ngược với tiếng Việt: tiếng Việt nói 'nhân viên công ty IMC' còn tiếng Nhật nói 「IMCの しゃいん」 — phần bổ nghĩa đứng TRƯỚC.",
-        "Ở bài 1, の chủ yếu chỉ nơi trực thuộc và lĩnh vực chuyên môn. Các nghĩa khác của の học tiếp ở bài 2 và bài 3."
+        "Ở bài 1, N1 cho biết N2 THUỘC VỀ đâu: công ty, trường học, bệnh viện. Các nghĩa khác của の (nội dung, sở hữu, xuất xứ) học tiếp ở bài 2 và bài 3."
       ],
       "tables": [
         {
@@ -209,7 +213,7 @@
           "rows": [
             ["Nơi trực thuộc", "IMCの しゃいん"],
             ["Nơi công tác", "さくらだいがくの せんせい"],
-            ["Lĩnh vực chuyên môn", "コンピューターの けんきゅうしゃ"]
+            ["Bệnh viện", "こうべびょういんの いしゃ"]
           ]
         }
       ],
@@ -229,20 +233,6 @@
             {
               "japanese": "サントスさんは ブラジルエアーの しゃいんです。",
               "vietnamese": "Anh Santos là nhân viên hãng hàng không Brazil Air."
-            }
-          ]
-        },
-        {
-          "title": "Lĩnh vực chuyên môn",
-          "detail": "Nói mình nghiên cứu hay phụ trách mảng gì.",
-          "examples": [
-            {
-              "japanese": "わたしは コンピューターの けんきゅうしゃです。",
-              "vietnamese": "Tôi là nhà nghiên cứu máy tính."
-            },
-            {
-              "japanese": "せんもんは でんきです。",
-              "vietnamese": "Chuyên môn của tôi là điện."
             }
           ]
         }

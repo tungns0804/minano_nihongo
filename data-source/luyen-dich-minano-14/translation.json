@@ -1,0 +1,272 @@
+{
+  "sets": [
+    {
+      "title": "Đi taxi",
+      "description": "Chị Karina đi taxi về Midori-cho và chỉ đường cho tài xế.",
+      "lines": [
+        {
+          "speaker": "カリナ",
+          "ja": "すみませんが、みどり{町|ちょう}まで お{願|ねが}いします。",
+          "vi": "[Xin lỗi/Phiền anh], cho tôi [đến/tới/đi] [Midori-cho/Midoricho/khu Midori][ ạ/].",
+          "grammar": [
+            { "lesson": 14, "point": "すみませんが ／ しつれいですが", "note": "すみませんが、: が ở đây không mang nghĩa 'nhưng', chỉ làm lời mở đầu mềm đi." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "～まで お願いします: 'cho tôi đến ~' — câu quen thuộc khi đi taxi." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "{急|いそ}いで ください。{3|さん}{時|じ}に {約束|やくそく}が ありますから。",
+          "vi": "[Anh /]làm ơn [đi /chạy ]nhanh [lên /giúp tôi /][nhé/]. [Vì /]tôi có hẹn lúc [3/ba] giờ.",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "～て ください: nhờ người nghe làm việc gì." },
+            { "lesson": 14, "point": "Cách chia thể て", "note": "急ぎます → 急いで: nhóm I đuôi ぎ đổi thành いで." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から。: bổ sung lý do." }
+          ]
+        },
+        {
+          "speaker": "{運転手|うんてんしゅ}",
+          "ja": "{雨|あめ}が {降|ふ}って いますね。",
+          "vi": "Trời đang mưa [nhỉ/nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "N が V — thuật lại điều đang thấy, đang nghe", "note": "雨が 降って います: kể đúng điều đang thấy — chủ ngữ đi với が." },
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "降って います: đang mưa (ngay lúc nói)." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "あの {信号|しんごう}を {右|みぎ}へ {曲|ま}がって ください。",
+          "vi": "[Anh /]rẽ phải ở [chỗ /]đèn [giao thông /tín hiệu /xanh đỏ /]kia [giúp tôi /][nhé/].",
+          "viAlt": ["[Đến /Tới ]đèn [giao thông /tín hiệu /xanh đỏ /]kia [thì /]rẽ phải [giúp tôi /][nhé/]."],
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "曲がって ください: 曲がります → 曲がって (り → って)." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの 信号: cột đèn ở xa phía trước." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "それから、まっすぐ {行|い}って ください。",
+          "vi": "[Sau đó/Rồi/Tiếp theo], [anh /]đi thẳng [giúp tôi /][nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "～て ください: chỉ đường." },
+            { "lesson": 14, "point": "Cách chia thể て", "note": "行って: ngoại lệ duy nhất — いきます → いって, không phải いいて." }
+          ]
+        },
+        {
+          "speaker": "{運転手|うんてんしゅ}",
+          "ja": "{窓|まど}を {閉|し}めましょうか。",
+          "vi": "[Để /]tôi đóng cửa sổ [nhé/cho chị nhé/][ ạ/]?",
+          "grammar": [
+            { "lesson": 14, "point": "V ましょうか", "note": "閉めましょうか: ngỏ ý làm giúp — 'để tôi … nhé?'." },
+            { "lesson": 14, "point": "Ba nhóm động từ", "note": "閉めます: âm trước ます là め (hàng え) → nhóm II → 閉めて." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "ええ、お{願|ねが}いします。それから、エアコンを {消|け}して ください。",
+          "vi": "[Vâng/Dạ], [nhờ anh/phiền anh/cảm ơn anh]. [Anh /][tắt/tắt giúp tôi] [cả /][điều hòa/điều hoà/máy lạnh][ nữa/][ nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V ましょうか", "note": "ええ、お願いします: nhận lời khi được ngỏ ý giúp (từ chối thì nói いいえ、結構です)." },
+            { "lesson": 14, "point": "V て ください", "note": "消して ください: 消します → 消して (し → して)." }
+          ]
+        },
+        {
+          "speaker": "カリナ",
+          "ja": "あ、あの {花屋|はなや}の {前|まえ}で {止|と}めて ください。",
+          "vi": "À, [anh /]dừng [xe /]ở trước [tiệm hoa/cửa hàng hoa] kia [giúp tôi /][nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "止めて ください: 止めます nhóm II → 止めて." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "花屋の 前: trước tiệm hoa." }
+          ]
+        },
+        {
+          "speaker": "{運転手|うんてんしゅ}",
+          "ja": "どうぞ、この {傘|かさ}を {使|つか}って ください。",
+          "vi": "[Xin mời/Mời chị], [chị /]dùng [cái /chiếc /][ô/dù] này [đi/nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "どうぞ ～て ください: dùng để MỜI, không phải ra lệnh." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 傘: chiếc ô trong tay người nói." },
+            { "lesson": 14, "point": "Ba nhóm động từ", "note": "使います: âm trước ます là い (hàng い) → nhóm I → 使って." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ở văn phòng",
+      "description": "Đang làm gì, nhờ việc, ngỏ ý giúp — một buổi chiều bận rộn ở công ty.",
+      "lines": [
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ミラーさん、{今|いま} {何|なに}を して いますか。",
+          "vi": "Anh Miller, bây giờ anh đang làm gì [vậy/thế/]?",
+          "grammar": [
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "して います: đang làm (ngay lúc nói)." },
+            { "lesson": 6, "point": "なん ／ なに", "note": "何を: なに vì đứng trước を." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{会議|かいぎ}の レポートを {書|か}いて います。",
+          "vi": "Tôi đang viết [bản /]báo cáo [/cho /về ]cuộc họp.",
+          "grammar": [
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "書いて います: 書きます → 書いて (き → いて)." },
+            { "lesson": 1, "point": "N1 の N2", "note": "会議の レポート: báo cáo cuộc họp." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{忙|いそが}しいですね。{手伝|てつだ}いましょうか。",
+          "vi": "Bận [quá/nhỉ/thật] [nhỉ/]. [Để /]tôi giúp [anh /][một tay /][nhé/không/]?",
+          "grammar": [
+            { "lesson": 14, "point": "V ましょうか", "note": "手伝いましょうか: ngỏ ý giúp." },
+            { "lesson": 4, "point": "～ね", "note": "忙しいですね: thông cảm với người nghe." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "ありがとう ございます。じゃ、この {紙|かみ}を {10|じゅう}{枚|まい} コピーして ください。",
+          "vi": "Cảm ơn [chị/chị Kimura]. Vậy[ thì/] [chị /][photo/phô tô/copy/sao] [giúp tôi /]tờ giấy này [10/mười] [bản/tờ][ nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "コピーして ください: コピーします thuộc nhóm III → コピーして." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "10枚 コピーします: số lượng ngay trước động từ." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ミラーさん、{田中|たなか}さんが {呼|よ}んで いますよ。",
+          "vi": "Anh Miller, anh Tanaka đang gọi anh [kìa/đấy/đó].",
+          "grammar": [
+            { "lesson": 14, "point": "N が V — thuật lại điều đang thấy, đang nghe", "note": "田中さんが 呼んで います: thuật lại điều vừa thấy — が." },
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "呼んで います: 呼びます → 呼んで (び → んで)." },
+            { "lesson": 5, "point": "～よ", "note": "よ: báo tin cho người nghe." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "すみませんが、ちょっと {待|ま}って ください。",
+          "vi": "Xin lỗi, [anh /chị /]đợi [tôi /]một chút [nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "すみませんが ／ しつれいですが", "note": "すみませんが: mở lời trước khi nhờ." },
+            { "lesson": 14, "point": "V て ください", "note": "待って ください: 待ちます → 待って (ち → って)." }
+          ]
+        },
+        {
+          "speaker": "{田中|たなか}",
+          "ja": "ミラーさん、{会議|かいぎ}の {時間|じかん}を {教|おし}えて ください。",
+          "vi": "Anh Miller, [anh /]cho tôi biết [giờ/thời gian] [họp/của cuộc họp] [nhé/với/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "教えて ください: 'cho tôi biết'." },
+            { "lesson": 1, "point": "N1 の N2", "note": "会議の 時間: giờ họp." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{3|さん}{時|じ}からです。あとで レポートを {見|み}せましょうか。",
+          "vi": "Từ [3/ba] giờ[ ạ/]. Lát nữa [để /]tôi cho anh xem [bản /]báo cáo [nhé/không/]?",
+          "grammar": [
+            { "lesson": 14, "point": "V ましょうか", "note": "見せましょうか: ngỏ ý làm giúp." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "3時から: bắt đầu từ 3 giờ." }
+          ]
+        },
+        {
+          "speaker": "{田中|たなか}",
+          "ja": "それから、{会議室|かいぎしつ}の エアコンを つけて ください。{暑|あつ}いですから。",
+          "vi": "[Còn nữa/Thêm nữa/Và], [anh /]bật [điều hòa/điều hoà/máy lạnh] [ở /trong /của ]phòng họp [giúp tôi /][nhé/]. [Vì /]nóng [quá/lắm/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "つけて ください: つけます nhóm II → つけて." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "暑いですから。: lý do đặt sau." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nhờ, đang làm, kể điều đang thấy",
+      "description": "Thể て qua nhiều động từ: ～てください, ～ています, ～ましょうか.",
+      "lines": [
+        {
+          "ja": "{名前|なまえ}と {住所|じゅうしょ}を {書|か}いて ください。",
+          "vi": "[Xin /Vui lòng /Hãy /Anh /Chị /]viết tên và địa chỉ[/ vào đây][ ạ/ nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "書いて ください: 書きます → 書いて (き → いて)." },
+            { "lesson": 4, "point": "N1 と N2", "note": "名前と 住所: và." }
+          ]
+        },
+        {
+          "ja": "もう {少|すこ}し ゆっくり {話|はな}して ください。",
+          "vi": "[Làm ơn /Xin /Anh /Chị /Bạn /]nói chậm [hơn /lại /]một chút[ nữa/][ nhé/ được không/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "～て ください: nhờ." },
+            { "lesson": 14, "point": "Cách chia thể て", "note": "話します → 話して: nhóm I đuôi し → して." },
+            { "lesson": 9, "point": "よく ／ だいたい ／ たくさん ／ すこし ／ あまり ／ ぜんぜん", "note": "もう 少し: thêm một chút." }
+          ]
+        },
+        {
+          "ja": "{塩|しお}を {取|と}って ください。",
+          "vi": "[Anh /Chị /Bạn /][lấy/đưa] [giúp tôi /hộ tôi /cho tôi /][lọ /]muối[ với/ nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "取って ください: 取ります → 取って (り → って)." },
+            { "lesson": 6, "point": "N を V", "note": "塩を 取ります: tân ngữ + を." }
+          ]
+        },
+        {
+          "ja": "{子供|こども}たちが {公園|こうえん}で {遊|あそ}んで います。",
+          "vi": "[Bọn trẻ/Lũ trẻ/Các em nhỏ/Trẻ con] đang chơi ở công viên.",
+          "grammar": [
+            { "lesson": 14, "point": "N が V — thuật lại điều đang thấy, đang nghe", "note": "子供たちが: kể cảnh đang thấy — chủ ngữ đi với が." },
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "遊んで います: 遊びます → 遊んで (び → んで)." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "公園で: nơi chơi." }
+          ]
+        },
+        {
+          "ja": "{今|いま} {電話|でんわ}で {話|はな}して いますから、あとで {来|き}て ください。",
+          "vi": "[Bây giờ /]tôi đang [nói chuyện /gọi ]điện thoại[ nên/,] lát nữa [anh /chị /bạn /][hãy /][đến/quay lại] [nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "話して います: đang nói chuyện." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から、～: lý do trước." },
+            { "lesson": 14, "point": "V て ください", "note": "来て ください: 来ます nhóm III → 来て (きて)." }
+          ]
+        },
+        {
+          "ja": "{雨|あめ}が {降|ふ}って いますから、タクシーを {呼|よ}びましょうか。",
+          "vi": "Trời đang mưa[ nên/,] [để /]tôi gọi taxi [nhé/không/]?",
+          "grammar": [
+            { "lesson": 14, "point": "V ましょうか", "note": "呼びましょうか: ngỏ ý làm giúp." },
+            { "lesson": 14, "point": "N が V — thuật lại điều đang thấy, đang nghe", "note": "雨が 降って います: điều đang thấy." },
+            { "lesson": 9, "point": "～から — nêu lý do", "note": "～から、～: lý do trước, đề nghị sau." }
+          ]
+        },
+        {
+          "ja": "{誰|だれ}も いませんね。",
+          "vi": "Không có ai [cả/hết] [nhỉ/].",
+          "grammar": [
+            { "lesson": 14, "point": "N が V — thuật lại điều đang thấy, đang nghe", "note": "～ませんね: thuật lại điều vừa nhìn thấy." },
+            { "lesson": 5, "point": "どこ［へ］も いきません", "note": "誰も + phủ định: 'không có ai cả'." }
+          ]
+        },
+        {
+          "ja": "{読|よ}み{方|かた}を {教|おし}えて ください。",
+          "vi": "[Làm ơn /Xin /Anh /Chị /Bạn /]chỉ [cho tôi /giúp tôi /]cách đọc[ với/ nhé/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "教えて ください: chỉ cho tôi." },
+            { "lesson": 14, "point": "Ba nhóm động từ", "note": "教えます: âm trước ます là え → nhóm II → bỏ ます thêm て." }
+          ]
+        },
+        {
+          "ja": "{電気|でんき}を つけましょうか。",
+          "vi": "[Để /]tôi bật đèn [nhé/không/]?",
+          "grammar": [
+            { "lesson": 14, "point": "V ましょうか", "note": "つけましょうか: ngỏ ý giúp." },
+            { "lesson": 6, "point": "N を V", "note": "電気を つけます." }
+          ]
+        },
+        {
+          "ja": "{駅|えき}で {友達|ともだち}を {待|ま}って います。",
+          "vi": "Tôi đang [đợi/chờ] bạn ở [nhà /]ga.",
+          "grammar": [
+            { "lesson": 14, "point": "V て います — hành động đang diễn ra", "note": "待って います: 待ちます → 待って (ち → って)." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "駅で: nơi đợi." }
+          ]
+        }
+      ]
+    }
+  ]
+}

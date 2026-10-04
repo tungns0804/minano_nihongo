@@ -144,8 +144,8 @@
               "vietnamese": "Vui lắm ạ."
             },
             {
-              "japanese": "パーティーは どうでしたか。",
-              "vietnamese": "Bữa tiệc thế nào?"
+              "japanese": "かいしゃの しごとは どうですか。",
+              "vietnamese": "Công việc ở công ty thế nào?"
             }
           ]
         }
@@ -225,6 +225,31 @@
             {
               "japanese": "この へやは ふるいですが、きれいです。",
               "vietnamese": "Căn phòng này cũ nhưng sạch đẹp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "そうですね — ngập ngừng suy nghĩ",
+      "summary": "Đệm 'để xem nào…' trong lúc nghĩ câu trả lời.",
+      "structures": ["～は どうですか。→ そうですね。～"],
+      "explanation": [
+        "Ngoài nghĩa đồng tình ở bài 5, そうですね còn được nói ra khi người nghe cần một nhịp để nghĩ câu trả lời — giống 'ừm, để xem…' trong tiếng Việt.",
+        "Sau そうですね mới là câu trả lời thật sự."
+      ],
+      "usages": [
+        {
+          "title": "Trả lời câu hỏi cảm nghĩ",
+          "detail": "Nghĩ một nhịp rồi mới trả lời.",
+          "examples": [
+            {
+              "japanese": "おしごとは どうですか。",
+              "vietnamese": "Công việc của anh thế nào?"
+            },
+            {
+              "japanese": "そうですね。いそがしいですが、おもしろいです。",
+              "vietnamese": "Ừm, bận nhưng thú vị."
             }
           ]
         }

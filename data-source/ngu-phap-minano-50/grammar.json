@@ -55,7 +55,9 @@
       "title": "Khiêm nhường ngữ — động từ đặc biệt",
       "summary": "Một số động từ có dạng khiêm nhường riêng. Dùng chúng lịch sự hơn cách chia お～します.",
       "structures": ["Dùng thẳng động từ khiêm nhường tương ứng"],
-      "explanation": ["Đây là cách dùng phổ biến nhất trong tiếng Nhật công sở."],
+      "explanation": [
+        "Đây là cách dùng phổ biến nhất trong tiếng Nhật công sở."
+      ],
       "tables": [
         {
           "caption": "Các động từ đặc biệt",
@@ -68,7 +70,9 @@
             ["いいます", "もうします"],
             ["ききます、たずねます", "うかがいます"],
             ["しって います、しりません", "ぞんじて おります、ぞんじません"],
-            ["あいます", "おめに かかります"]
+            ["あいます", "おめに かかります"],
+            ["します", "いたします"],
+            ["～て います", "～て おります"]
           ]
         }
       ],

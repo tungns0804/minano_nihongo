@@ -1,0 +1,296 @@
+{
+  "sets": [
+    {
+      "title": "Gia đình anh Wang",
+      "description": "Chị Kimura hỏi anh Wang về anh chị em, việc học tiếng Nhật và những lần về nước.",
+      "lines": [
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ワンさんは {兄弟|きょうだい}が {何人|なんにん} いますか。",
+          "vi": "Anh Wang có [mấy/bao nhiêu] anh chị em[ vậy/]?",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "何人: hỏi số người bằng 何 + 人 (なんにん)." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "兄弟が 何人 います: từ chỉ số lượng đứng ngay trước động từ, không kèm trợ từ." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{3|さん}{人|にん} います。{姉|あね}が {二人|ふたり}と {弟|おとうと}が {一人|ひとり} います。",
+          "vi": "[Tôi /]có [3/ba] [người/anh chị em]. [Tôi có /Có /]hai [người /]chị và một [người /cậu /đứa /]em trai.",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "一人・二人 đọc ひとり・ふたり; từ 3 trở đi là số + にん." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "姉が 二人 います: số lượng đứng sát động từ." },
+            { "lesson": 4, "point": "N1 と N2", "note": "姉が 二人と 弟が 一人: と nối hai cụm 'danh từ + số lượng'." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "そうですか。{私|わたし}は {妹|いもうと}が {一人|ひとり}だけ います。",
+          "vi": "[Thế à/Vậy à]. Tôi [thì /]chỉ có một [người /đứa /cô /]em gái[ thôi/].",
+          "grammar": [
+            { "lesson": 11, "point": "Số lượng ＋ だけ", "note": "一人だけ: 'chỉ một người' — vị ngữ vẫn ở thể khẳng định." },
+            { "lesson": 2, "point": "そうですか", "note": "そうですか: tiếp nhận thông tin." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ワンさんは どのくらい {日本語|にほんご}を {勉強|べんきょう}しましたか。",
+          "vi": "Anh Wang [đã /]học tiếng Nhật [bao lâu/được bao lâu/trong bao lâu][ rồi/][ vậy/]?",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "どのくらい: hỏi thời lượng." },
+            { "lesson": 6, "point": "N を V", "note": "日本語を 勉強します: tân ngữ + を." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{国|くに}で {1|いち}{年|ねん}ぐらい {勉強|べんきょう}しました。",
+          "vi": "Tôi [đã /]học [khoảng/chừng/khoảng chừng] [1/một] năm ở [nước tôi/trong nước/quê nhà/Trung Quốc].",
+          "viAlt": ["[Ở nước tôi/Ở trong nước/Ở quê nhà/Ở Trung Quốc], tôi [đã /]học [khoảng/chừng/khoảng chừng] [1/một] năm."],
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "1年ぐらい: số + ぐらい = 'khoảng chừng'." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "国で: nơi diễn ra việc học." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{国|くに}へ {1|いち}{年|ねん}に {何回|なんかい} {帰|かえ}りますか。",
+          "vi": "[Một/Mỗi] năm anh về nước mấy lần[ vậy/]?",
+          "viAlt": ["Anh về nước [một/mỗi] năm mấy lần[ vậy/]?"],
+          "grammar": [
+            { "lesson": 11, "point": "Khoảng thời gian ＋ に ＋ số lần ＋ V", "note": "1年に 何回: khoảng thời gian + に + số lần." },
+            { "lesson": 5, "point": "N（nơi chốn）へ いきます ／ きます ／ かえります", "note": "国へ 帰ります: về nước." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{1|いち}{年|ねん}に {2|に}{回|かい}ぐらい {帰|かえ}ります。",
+          "vi": "[Một/Mỗi] năm [tôi /]về [khoảng/chừng] [2/hai] lần.",
+          "grammar": [
+            { "lesson": 11, "point": "Khoảng thời gian ＋ に ＋ số lần ＋ V", "note": "1年に 2回: tần suất." },
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "2回ぐらい: khoảng hai lần." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{国|くに}まで {飛行機|ひこうき}で どのくらい かかりますか。",
+          "vi": "Đi [bằng /]máy bay về nước [anh /]mất bao lâu[ vậy/]?",
+          "viAlt": ["Về nước [anh /]bằng máy bay mất bao lâu[ vậy/]?"],
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "どのくらい かかりますか: hỏi mất bao lâu." },
+            { "lesson": 5, "point": "N（phương tiện）で いきます", "note": "飛行機で: phương tiện + で." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{3|さん}{時間|じかん}ぐらいです。",
+          "vi": "[Khoảng/Chừng/Mất khoảng] [3/ba] [tiếng/giờ][ thôi/].",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "3時間ぐらいです: trả lời どのくらい bằng số + ぐらい." },
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "～時間: số giờ (thời lượng), khác ～時 là giờ trên đồng hồ." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{家族|かぞく}に {1|いっ}{週間|しゅうかん}に {1|いっ}{回|かい} {電話|でんわ}を かけます。",
+          "vi": "[Một/Mỗi] tuần tôi gọi điện [thoại /]cho gia đình [1/một] lần.",
+          "viAlt": ["Tôi gọi điện [thoại /]cho gia đình [một/mỗi] tuần [1/một] lần."],
+          "grammar": [
+            { "lesson": 11, "point": "Khoảng thời gian ＋ に ＋ số lần ＋ V", "note": "1週間に 1回: một tuần một lần." },
+            { "lesson": 7, "point": "N（người）に あげます ／ かします ／ おしえます", "note": "家族に 電話を かけます: người được gọi + に." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ở bưu điện",
+      "description": "Anh Wang mua tem, gửi hàng đi Úc và hỏi mất bao lâu.",
+      "lines": [
+        {
+          "speaker": "ワン",
+          "ja": "すみません。{80|はちじゅう}{円|えん}の {切手|きって}を {10|じゅう}{枚|まい} ください。",
+          "vi": "Xin lỗi, cho tôi [10/mười] [cái /con /]tem [loại /]80 yên.",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "～枚: đếm vật mỏng, phẳng (tem, giấy, áo)." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "切手を 10枚 ください: tân ngữ + を, rồi số lượng, rồi động từ." },
+            { "lesson": 1, "point": "N1 の N2", "note": "80円の 切手: tem loại 80 yên." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "それから、はがきも {5|ご}{枚|まい} ください。",
+          "vi": "[Và/Thêm nữa/Ngoài ra], cho tôi [5/năm] [tấm /cái /]bưu thiếp[ nữa/].",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "はがき: cũng đếm bằng ～枚." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "5枚 ください: số lượng ngay trước động từ." },
+            { "lesson": 1, "point": "N も", "note": "はがきも: も thay chỗ を — 'cả bưu thiếp nữa'." }
+          ]
+        },
+        {
+          "speaker": "{局員|きょくいん}",
+          "ja": "{切手|きって} {10|じゅう}{枚|まい}と はがき {5|ご}{枚|まい}ですね。",
+          "vi": "[10/Mười] [cái /con /]tem và [5/năm] [tấm /cái /]bưu thiếp[ phải không/ nhỉ/ đúng không/][ ạ/].",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "切手 10枚: nhắc lại đơn hàng theo kiểu danh từ + số lượng." },
+            { "lesson": 4, "point": "N1 と N2", "note": "AとB: kể đủ hai món." },
+            { "lesson": 4, "point": "～ね", "note": "～ですね: nhắc lại để xác nhận." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "{航空便|こうくうびん}で オーストラリアまで どのくらい かかりますか。",
+          "vi": "[Gửi /]đường hàng không [đến/sang/tới] Úc mất bao lâu[ vậy/][ ạ/]?",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "どのくらい かかりますか: hỏi thời gian cần." },
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "航空便で: で chỉ cách thức gửi." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "オーストラリアまで: đến tận Úc." }
+          ]
+        },
+        {
+          "speaker": "{局員|きょくいん}",
+          "ja": "{1|いっ}{週間|しゅうかん}ぐらい かかります。",
+          "vi": "Mất [khoảng/chừng] [1/một] tuần[ ạ/].",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "1週間ぐらい: khoảng một tuần." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "1週間 かかります: lượng thời gian đứng ngay trước động từ, không trợ từ." }
+          ]
+        },
+        {
+          "speaker": "{局員|きょくいん}",
+          "ja": "{船便|ふなびん}は {2|に}[か/ヶ/カ/ケ]{月|げつ}ぐらい かかりますが、{安|やす}いですよ。",
+          "vi": "[Gửi /]đường biển [thì /]mất [khoảng/chừng] [2/hai] tháng nhưng rẻ[ đấy/][ ạ/].",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "2か月ぐらい: ～か月 đếm số tháng (khoảng thời gian)." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、安いです: lâu NHƯNG rẻ." }
+          ]
+        },
+        {
+          "speaker": "{局員|きょくいん}",
+          "ja": "{荷物|にもつ}は {一|ひと}つだけですか。",
+          "vi": "[Anh /]chỉ [có /gửi ]một [kiện/gói] hàng thôi [à/phải không/ạ]?",
+          "grammar": [
+            { "lesson": 11, "point": "Số lượng ＋ だけ", "note": "一つだけ: 'chỉ một'." },
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "一つ・二つ: bộ đếm chung, dùng khi vật không có hậu tố riêng." },
+            { "lesson": 1, "point": "N1 は N2 ですか", "note": "～ですか: câu hỏi có/không." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "いいえ、{二|ふた}つ あります。",
+          "vi": "[Không/Không ạ], có hai [kiện/gói][ ạ/].",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "二つ: ふたつ." },
+            { "lesson": 9, "point": "N が あります ／ わかります", "note": "あります: 'có' (sở hữu) — 荷物が 二つ あります." }
+          ]
+        },
+        {
+          "speaker": "{局員|きょくいん}",
+          "ja": "{全部|ぜんぶ}で {3,000|さんぜん}{円|えん}ぐらいです。",
+          "vi": "Tổng cộng [khoảng/chừng] [3.000/3,000/3000/ba nghìn/ba ngàn] yên[ ạ/].",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "～円ぐらい: số tiền ước chừng." },
+            { "lesson": 3, "point": "N は いくらですか", "note": "～円です: trả lời về giá." }
+          ]
+        },
+        {
+          "speaker": "ワン",
+          "ja": "じゃ、{一|ひと}つは {航空便|こうくうびん}で、{一|ひと}つは {船便|ふなびん}で お{願|ねが}いします。",
+          "vi": "Vậy[ thì/] [cho tôi gửi /gửi /]một [kiện/gói] [bằng /]đường hàng không, một [kiện/gói] [bằng /]đường biển[ nhé/ ạ/].",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "一つは ～、一つは ～: chia hai kiện ra hai cách gửi." },
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "～で お願いします: chọn cách gửi." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bao nhiêu, bao lâu, mấy lần",
+      "description": "Đếm đồ vật, người, thời gian và số lần; ước chừng với ぐらい, giới hạn với だけ.",
+      "lines": [
+        {
+          "ja": "りんごを {四|よっ}つ {買|か}いました。",
+          "vi": "Tôi [đã /]mua [4/bốn] quả táo.",
+          "grammar": [
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "りんごを 四つ 買いました: số lượng đứng ngay trước động từ, không có trợ từ." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "買いました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "この クラスに {留学生|りゅうがくせい}が {何人|なんにん} いますか。",
+          "vi": "Lớp này có [bao nhiêu/mấy] [du học sinh/lưu học sinh][ vậy/]?",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "何人: hỏi số người." },
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "クラスに ～が います: nơi chốn + に." }
+          ]
+        },
+        {
+          "ja": "{20|にじゅう}{人|にん}ぐらい います。",
+          "vi": "Có [khoảng/chừng] [20/hai mươi] người.",
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "20人ぐらい: khoảng 20 người." },
+            { "lesson": 10, "point": "N が あります ／ N が います", "note": "người → います." }
+          ]
+        },
+        {
+          "ja": "{会社|かいしゃ}に {車|くるま}が {3|さん}{台|だい} あります。",
+          "vi": "[Ở /]công ty có [3/ba] [chiếc /cái /]xe [ô tô /hơi /].",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "～台: đếm máy móc, xe cộ." },
+            { "lesson": 10, "point": "N（nơi chốn）に N が あります ／ います", "note": "会社に 車が あります." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "車が 3台 あります: số lượng ngay trước động từ." }
+          ]
+        },
+        {
+          "ja": "{毎晩|まいばん} {2|に}{時間|じかん} {日本語|にほんご}を {勉強|べんきょう}します。",
+          "vi": "[Tối nào tôi cũng/Mỗi tối tôi/Hằng tối tôi] học tiếng Nhật [2/hai] [tiếng/giờ].",
+          "grammar": [
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "2時間: lượng thời gian có thể đứng trước tân ngữ mà vẫn tự nhiên." },
+            { "lesson": 6, "point": "N を V", "note": "日本語を 勉強します." }
+          ]
+        },
+        {
+          "ja": "{1|いっ}[か/ヶ/カ/ケ]{月|げつ}に {2|に}{回|かい} {映画|えいが}を {見|み}ます。",
+          "vi": "[Một/Mỗi] tháng tôi xem phim [2/hai] lần.",
+          "grammar": [
+            { "lesson": 11, "point": "Khoảng thời gian ＋ に ＋ số lần ＋ V", "note": "1か月に 2回: tháng hai lần." },
+            { "lesson": 6, "point": "N を V", "note": "映画を 見ます." }
+          ]
+        },
+        {
+          "ja": "{昨日|きのう}は {3|さん}{時間|じかん}だけ {寝|ね}ました。",
+          "vi": "Hôm qua tôi chỉ ngủ [3/ba] [tiếng/giờ][ thôi/].",
+          "grammar": [
+            { "lesson": 11, "point": "Số lượng ＋ だけ", "note": "3時間だけ: chỉ 3 tiếng." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "寝ました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "{休|やす}みは {1|いち}{日|にち}だけです。",
+          "vi": "[Tôi /]chỉ [được /]nghỉ [1/một] ngày[ thôi/].",
+          "viAlt": ["[Kỳ nghỉ/Ngày nghỉ] chỉ [có /][1/một] ngày[ thôi/]."],
+          "grammar": [
+            { "lesson": 11, "point": "Số lượng ＋ だけ", "note": "1日だけです: だけ + です." },
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "1日: いちにち = một ngày (khoảng thời gian), khác ついたち = mùng 1." }
+          ]
+        },
+        {
+          "ja": "{駅|えき}から {学校|がっこう}まで {歩|ある}いて どのくらい かかりますか。",
+          "vi": "Đi bộ từ ga đến trường mất bao lâu[ vậy/]?",
+          "viAlt": ["Từ ga đến trường đi bộ mất bao lâu[ vậy/]?"],
+          "grammar": [
+            { "lesson": 11, "point": "～ぐらい ／ どのくらい", "note": "どのくらい かかりますか: mất bao lâu." },
+            { "lesson": 4, "point": "N1 から N2 まで", "note": "駅から 学校まで: quãng đường." }
+          ]
+        },
+        {
+          "ja": "みかんを {全部|ぜんぶ}で {十|とお} {買|か}いました。",
+          "vi": "Tôi [đã /]mua tổng cộng [10/mười] quả quýt.",
+          "grammar": [
+            { "lesson": 11, "point": "Trợ số từ — 助数詞", "note": "十: đếm bằng bộ ひとつ thì 10 là とお." },
+            { "lesson": 11, "point": "Số lượng ＋ V", "note": "全部で 十 買いました: số lượng sát động từ." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "買いました." }
+          ]
+        }
+      ]
+    }
+  ]
+}

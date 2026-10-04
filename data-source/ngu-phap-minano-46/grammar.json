@@ -3,11 +3,7 @@
     {
       "title": "～ところです",
       "summary": "Chỉ THỜI ĐIỂM của một hành động: sắp bắt đầu, đang diễn ra, hay vừa mới xong.",
-      "structures": [
-        "V る ＋ ところです — chuẩn bị làm",
-        "V て いる ＋ ところです — đang làm",
-        "V た ＋ ところです — vừa mới làm xong"
-      ],
+      "structures": ["V る ＋ ところです — chuẩn bị làm", "V て いる ＋ ところです — đang làm", "V た ＋ ところです — vừa mới làm xong"],
       "explanation": [
         "ところ vốn nghĩa là \"nơi chốn\", ở bài này mang nghĩa \"thời điểm\".",
         "Ba dạng ứng với ba mốc của cùng một việc: べんきょうする ところ → べんきょうして いる ところ → べんきょうした ところ."
@@ -24,7 +20,7 @@
         }
       ],
       "notes": [
-        "Không dùng V る ところです cho hiện tượng tự nhiên — cái đó dùng ～そうです (bài 43).",
+        "Với hiện tượng tự nhiên sắp xảy ra (trời sắp mưa, hoa sắp nở) người Nhật thường dùng ～そうです (bài 43) chứ ít dùng ～ところです.",
         "V て いる ところです nhấn vào đúng thời điểm nên hay mang ẩn ý \"đang dở, đừng làm phiền\". Nó KHÔNG thay được ています khi nói về thói quen."
       ],
       "usages": [
@@ -123,7 +119,9 @@
         "Độ chắc chắn cao hơn hẳn でしょう (bài 32) vì người nói có căn cứ cụ thể.",
         "はず là danh từ nên Aな nối bằng な, N nối bằng の."
       ],
-      "notes": ["Không dùng để phán đoán về hành động của chính mình."],
+      "notes": [
+        "Không dùng はずです để nói ý định của mình: muốn nói 'tôi định đi' thì dùng つもりです (bài 31), không nói 「いく はずです」."
+      ],
       "usages": [
         {
           "title": "Chắc chắn là ~",

@@ -22,7 +22,7 @@
         }
       ],
       "notes": [
-        "Xe ô tô đang có người lái vẫn dùng あります, vì bản thân chiếc xe không tự di chuyển."
+        "Ranh giới nằm ở cách người nói nhìn sự vật: chiếc xe đỗ một chỗ là đồ vật nên 「くるまが あります」; còn taxi, xe buýt có người lái đang đợi hay đang chạy thì người Nhật hay nói 「タクシーが います」. Ở trình độ này cứ theo luật: đồ vật dùng あります."
       ],
       "usages": [
         {
@@ -67,6 +67,9 @@
           ]
         }
       ],
+      "notes": [
+        "Từ nghi vấn đứng trước あります／います luôn đi với が: 「なにが ありますか」, 「だれが いますか」. Không nói 「なには」, 「だれは」."
+      ],
       "usages": [
         {
           "title": "Miêu tả một căn phòng, một nơi chốn",
@@ -110,6 +113,9 @@
             ["つくえは へやに あります", "つくえは どこに ありますか", "Trong phòng"]
           ]
         }
+      ],
+      "notes": [
+        "Trong hội thoại, người Nhật hay nhắc lại điều được hỏi rồi mới trả lời: 「アジアストアですか。あの ビルの なかです。」"
       ],
       "usages": [
         {
@@ -166,7 +172,8 @@
       ],
       "notes": [
         "あいだ cần HAI vật mốc, nối với nhau bằng と: 「ぎんこうと ゆうびんきょくの あいだ」.",
-        "となり chỉ dùng cho hai vật cùng loại đứng kề nhau; ちかく chỉ nói chung là ở gần."
+        "となり chỉ dùng cho hai vật cùng loại đứng kề nhau; ちかく chỉ nói chung là ở gần.",
+        "Sau từ chỉ vị trí cũng thêm được で để nói nơi diễn ra hành động: 「えきの ちかくで ともだちに あいました」."
       ],
       "usages": [
         {

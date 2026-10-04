@@ -19,7 +19,7 @@
         }
       ],
       "notes": [
-        "Không dùng với người trên vì nghe như dạy đời. Với người trên thì dùng ～たら いいです cho nhẹ."
+        "～た ほうが いいです có ý so sánh hai lựa chọn và hàm ý 'không làm thì không ổn', nên có thể nghe như áp đặt. Khi chỉ muốn gợi ý nhẹ thì dùng ～たら いいです (bài 26)."
       ],
       "usages": [
         {
@@ -57,7 +57,9 @@
         "Hay đi kèm たぶん (chắc là) hoặc きっと (nhất định).",
         "Nói với giọng lên cuối câu thì thành câu hỏi xác nhận: \"đúng không nhỉ?\"."
       ],
-      "notes": ["Aな và N bỏ だ trước でしょう: げんきでしょう, あめでしょう."],
+      "notes": [
+        "Aな và N bỏ だ trước でしょう: げんきでしょう, あめでしょう."
+      ],
       "usages": [
         {
           "title": "Suy đoán có căn cứ",
@@ -72,7 +74,7 @@
               "vietnamese": "Vì trời đẹp nên chắc là nhìn thấy được núi Phú Sĩ."
             },
             {
-              "japanese": "たなかさんは びょうきなんですから、たぶん パーティーに さんかしないでしょう。",
+              "japanese": "たなかさんは びょうきですから、たぶん パーティーに さんかしないでしょう。",
               "vietnamese": "Anh Tanaka bị ốm nên chắc là sẽ không dự tiệc."
             }
           ]
@@ -133,6 +135,54 @@
             {
               "japanese": "えきまで 30ぷんで いけますか。",
               "vietnamese": "30 phút có đến được ga không?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ましょう — để tôi làm",
+      "summary": "Người nói chủ động nhận làm một việc cho người nghe.",
+      "structures": ["V ましょう。"],
+      "explanation": [
+        "Ngoài nghĩa rủ cùng làm (bài 6), ～ましょう còn là lời người nói tự nhận việc về mình: 'để tôi …'.",
+        "So với ～ましょうか (bài 14) — vốn hỏi ý người nghe — ～ましょう quả quyết, tích cực hơn."
+      ],
+      "usages": [
+        {
+          "title": "Nhận làm giúp",
+          "examples": [
+            {
+              "japanese": "エンジンの おとが おかしいんですが。",
+              "vietnamese": "Tiếng động cơ nghe lạ quá."
+            },
+            {
+              "japanese": "そうですね。こしょうかも しれません。ちょっと しらべましょう。",
+              "vietnamese": "Ừ nhỉ. Có thể bị hỏng rồi. Để tôi xem thử."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "なにか ＋ bổ ngữ ＋ こと／どこか ＋ bổ ngữ ＋ ところ",
+      "summary": "Từ bổ nghĩa đứng SAU なにか, どこか rồi mới tới danh từ.",
+      "structures": ["なにか Aな／Aい こと", "どこか Aい ところ"],
+      "explanation": [
+        "Tiếng Nhật không nói 「しんぱいな なにか」 mà nói 「なにか しんぱいな こと」: なにか đứng trước, tính từ bổ nghĩa cho một danh từ đứng sau (こと, もの, ところ…).",
+        "Tương tự: 「どこか いい ところ」, 「だれか しんせつな ひと」."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi có điều gì, chỗ nào",
+          "examples": [
+            {
+              "japanese": "なにか しんぱいな ことが あるんですか。",
+              "vietnamese": "Anh có điều gì lo lắng à?"
+            },
+            {
+              "japanese": "スキーに いきたいんですが、どこか いい ところ、ありますか。",
+              "vietnamese": "Tôi muốn đi trượt tuyết, có chỗ nào hay không?"
             }
           ]
         }

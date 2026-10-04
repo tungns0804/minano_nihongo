@@ -53,6 +53,7 @@ const NAV_ITEMS: readonly NavItem[] = [
   { section: 'kanji', path: '/kanji', labelKey: 'app.nav.kanji', icon: 'pencil' },
   { section: 'radical', path: '/radical', labelKey: 'app.nav.radical', icon: 'blocks' },
   { section: 'grammar', path: '/grammar', labelKey: 'app.nav.grammar', icon: 'cap' },
+  { section: 'translate', path: '/translate', labelKey: 'app.nav.translate', icon: 'languages' },
   { section: 'exercise', path: '/exercise', labelKey: 'app.nav.exercise', icon: 'clipboard' },
   ...(IMPORT_LESSON_ENABLED ? [IMPORT_ITEM] : []),
 ];

@@ -1,0 +1,276 @@
+{
+  "sets": [
+    {
+      "title": "Gia đình ở xa",
+      "description": "Chị Kimura và anh Miller kể về gia đình: sống ở đâu, làm nghề gì.",
+      "lines": [
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "ミラーさんの ご{両親|りょうしん}は どこに {住|す}んで いますか。",
+          "vi": "Bố mẹ [của /]anh Miller [đang /]sống ở đâu[ vậy/][ ạ/]?",
+          "viAlt": ["Anh Miller[ ơi/], bố mẹ anh [đang /]sống ở đâu[ vậy/][ ạ/]?"],
+          "grammar": [
+            { "lesson": 15, "point": "V て います — trạng thái sau hành động", "note": "住んで います: 住みます là động từ đổi trạng thái — đã đến ở và hiện vẫn sống ở đó." },
+            { "lesson": 1, "point": "N1 の N2", "note": "ミラーさんの ご両親: dùng tên thay cho 'anh'; ご là kính ngữ cho gia đình người khác." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{両親|りょうしん}は ニューヨークの {近|ちか}くに {住|す}んで います。",
+          "vi": "Bố mẹ tôi [đang /]sống ở gần New York.",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — trạng thái sau hành động", "note": "住んで います: trạng thái đang sống ở đó." },
+            { "lesson": 10, "point": "Từ chỉ vị trí — うえ・した・まえ・うしろ…", "note": "ニューヨークの 近く: gần New York." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "{姉|あね}は ロンドンで {働|はたら}いて います。",
+          "vi": "Chị gái tôi [đang /]làm việc ở [London/Luân Đôn].",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — việc làm thường xuyên, nghề nghiệp", "note": "働いて います: công việc lâu dài, không phải 'đang làm ngay lúc này'." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "ロンドンで: nơi làm việc — 働きます đi với で." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "お{姉|ねえ}さんは {結婚|けっこん}して いますか。",
+          "vi": "Chị [gái /]anh [đã /][kết hôn/lập gia đình/có gia đình] chưa[ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — trạng thái sau hành động", "note": "結婚して います: đã kết hôn và hiện vẫn có gia đình — không phải 'đang làm đám cưới'." },
+            { "lesson": 2, "point": "お～ — nói cho lịch sự", "note": "お姉さん: gọi chị của người khác một cách lịch sự (chị mình thì gọi 姉)." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "いいえ、{独身|どくしん}です。{銀行|ぎんこう}で コンピューターの {仕事|しごと}を して います。",
+          "vi": "[Chưa/Không], [chị ấy /][vẫn /còn ]độc thân. [Chị ấy /]làm công việc [về /liên quan đến ]máy tính ở ngân hàng.",
+          "grammar": [
+            { "lesson": 15, "point": "N（nghề nghiệp）を して います", "note": "仕事を して います: nói công việc, nghề nghiệp." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "銀行で: nơi làm việc." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{私|わたし}の {父|ちち}は {銀行員|ぎんこういん}です。{母|はは}は {高校|こうこう}で {英語|えいご}を {教|おし}えて います。",
+          "vi": "Bố tôi là nhân viên ngân hàng. Mẹ tôi dạy tiếng Anh ở [trường /][cấp ba/cấp 3/trung học phổ thông].",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — việc làm thường xuyên, nghề nghiệp", "note": "教えて います: công việc hằng ngày (nghề dạy học)." },
+            { "lesson": 1, "point": "N1 は N2 です", "note": "父は 銀行員です: câu danh từ." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "{弟|おとうと}は {大学|だいがく}で {経済|けいざい}を {研究|けんきゅう}して います。",
+          "vi": "Em trai tôi [đang /]nghiên cứu kinh tế ở [trường /]đại học.",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — việc làm thường xuyên, nghề nghiệp", "note": "研究して います: hoạt động kéo dài." },
+            { "lesson": 6, "point": "N を V", "note": "経済を 研究します." }
+          ]
+        },
+        {
+          "speaker": "ミラー",
+          "ja": "ご{家族|かぞく}は {皆|みな}さん {大阪|おおさか}に {住|す}んで いますか。",
+          "vi": "[Gia đình chị/Cả nhà chị/Mọi người trong gia đình chị] [đều /ai cũng ]sống ở Osaka [à/phải không/hết à][ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — trạng thái sau hành động", "note": "住んで いますか." },
+            { "lesson": 15, "point": "N（nơi chốn）に V ／ N1 に N2 を V", "note": "大阪に 住みます: に chỉ nơi người ta ở lại." }
+          ]
+        },
+        {
+          "speaker": "{木村|きむら}",
+          "ja": "いいえ、{弟|おとうと}は {一人|ひとり}で {東京|とうきょう}に {住|す}んで います。",
+          "vi": "[Không/Không ạ], em trai tôi sống một mình ở Tokyo.",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — trạng thái sau hành động", "note": "住んで います." },
+            { "lesson": 15, "point": "N（nơi chốn）に V ／ N1 に N2 を V", "note": "東京に 住んで います: に, không dùng で." },
+            { "lesson": 5, "point": "N（người, động vật）と V", "note": "一人で: làm một mình thì dùng ひとりで." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ở thư viện",
+      "description": "Xin phép và cấm đoán: được làm gì, không được làm gì.",
+      "lines": [
+        {
+          "speaker": "{学生|がくせい}",
+          "ja": "すみません、ここで {写真|しゃしん}を {撮|と}っても いいですか。",
+          "vi": "Xin lỗi, [tôi /em /][có thể /]chụp ảnh ở đây [được không/có được không][ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て も いいです", "note": "撮っても いいですか: xin phép — cách chuẩn nhất ở sơ cấp." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "ここで: nơi làm việc đó." }
+          ]
+        },
+        {
+          "speaker": "{図書館|としょかん}の{人|ひと}",
+          "ja": "いいえ、{写真|しゃしん}を {撮|と}っては いけません。",
+          "vi": "Không, [em /anh /bạn /]không được chụp ảnh[ đâu/][ ạ/].",
+          "grammar": [
+            { "lesson": 15, "point": "V て は いけません", "note": "撮っては いけません: cấm theo nội quy — người có quyền mới nói vậy." },
+            { "lesson": 6, "point": "N を V", "note": "写真を 撮ります." }
+          ]
+        },
+        {
+          "speaker": "{学生|がくせい}",
+          "ja": "この {本|ほん}を {借|か}りても いいですか。",
+          "vi": "[Tôi /Em /][có thể /]mượn [cuốn /quyển /]sách này [được không/có được không][ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て も いいです", "note": "借りても いいですか: 借ります nhóm II → 借りて." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 本." }
+          ]
+        },
+        {
+          "speaker": "{図書館|としょかん}の{人|ひと}",
+          "ja": "ええ、いいですよ。でも、{1|いっ}{週間|しゅうかん}だけですよ。",
+          "vi": "[Vâng/Được], được [chứ/thôi/]. Nhưng chỉ [được /][mượn /]một tuần thôi [đấy/nhé/].",
+          "grammar": [
+            { "lesson": 15, "point": "V て も いいです", "note": "ええ、いいですよ: cách cho phép." },
+            { "lesson": 11, "point": "Số lượng ＋ だけ", "note": "1週間だけ: chỉ một tuần." }
+          ]
+        },
+        {
+          "speaker": "{学生|がくせい}",
+          "ja": "ここに かばんを {置|お}いても いいですか。",
+          "vi": "[Tôi /Em /][có thể /]để [cái /]cặp ở đây [được không/có được không][ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て も いいです", "note": "置いても いいですか: 置きます → 置いて." },
+            { "lesson": 15, "point": "N（nơi chốn）に V ／ N1 に N2 を V", "note": "ここに 置きます: に chỉ chỗ đồ vật nằm lại sau khi đặt." }
+          ]
+        },
+        {
+          "speaker": "{図書館|としょかん}の{人|ひと}",
+          "ja": "すみません、かばんは あそこに {置|お}いて ください。",
+          "vi": "Xin lỗi, [em /anh /bạn /]để cặp ở đằng kia [nhé/giúp tôi/].",
+          "grammar": [
+            { "lesson": 14, "point": "V て ください", "note": "置いて ください: chỉ dẫn." },
+            { "lesson": 15, "point": "N（nơi chốn）に V ／ N1 に N2 を V", "note": "あそこに 置きます: chỗ cái cặp sẽ nằm." }
+          ]
+        },
+        {
+          "speaker": "{学生|がくせい}",
+          "ja": "{中|なか}で {飲|の}み{物|もの}を {飲|の}んでも いいですか。",
+          "vi": "Trong [này /đây /thư viện /][có /]được uống [nước/đồ uống] không[ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て も いいです", "note": "飲んでも いいですか: 飲みます → 飲んで." },
+            { "lesson": 6, "point": "N を V", "note": "飲み物を 飲みます." }
+          ]
+        },
+        {
+          "speaker": "{図書館|としょかん}の{人|ひと}",
+          "ja": "いいえ、だめです。{図書館|としょかん}で {飲|の}んでは いけません。",
+          "vi": "Không, không được. [Ở /Trong ]thư viện [thì /]không được uống [nước /][đâu/].",
+          "grammar": [
+            { "lesson": 15, "point": "V て は いけません", "note": "飲んでは いけません: cấm." },
+            { "lesson": 6, "point": "N（nơi chốn）で V", "note": "図書館で: nơi bị cấm." }
+          ]
+        },
+        {
+          "speaker": "{学生|がくせい}",
+          "ja": "{佐藤|さとう}{先生|せんせい}の {電話番号|でんわばんごう}を {知|し}って いますか。",
+          "vi": "[Chị /Cô /Anh /][có /]biết số điện thoại [của /]cô Sato không[ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "しって います ／ しりません", "note": "知って いますか: hỏi 'có biết không' — khẳng định luôn là 知って います." },
+            { "lesson": 1, "point": "N1 の N2", "note": "佐藤先生の 電話番号." }
+          ]
+        },
+        {
+          "speaker": "{図書館|としょかん}の{人|ひと}",
+          "ja": "いいえ、{知|し}りません。{事務所|じむしょ}で {聞|き}いて ください。",
+          "vi": "Không, tôi không biết. [Em /Anh /Bạn /]hỏi ở văn phòng [nhé/xem/].",
+          "grammar": [
+            { "lesson": 15, "point": "しって います ／ しりません", "note": "知りません: phủ định KHÔNG nói 知って いません." },
+            { "lesson": 14, "point": "V て ください", "note": "聞いて ください: 聞きます → 聞いて." }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Nghề nghiệp và trạng thái",
+      "description": "～ています chỉ công việc lâu dài và trạng thái còn lại; xin phép và cấm đoán.",
+      "lines": [
+        {
+          "ja": "{父|ちち}は {車|くるま}の {会社|かいしゃ}で {働|はたら}いて います。",
+          "vi": "Bố tôi làm việc ở [một /]công ty [ô tô/xe hơi].",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — việc làm thường xuyên, nghề nghiệp", "note": "働いて います: công việc lâu dài." },
+            { "lesson": 1, "point": "N1 の N2", "note": "車の 会社: công ty ô tô." }
+          ]
+        },
+        {
+          "ja": "この {会社|かいしゃ}は {電子辞書|でんしじしょ}を {作|つく}って います。",
+          "vi": "Công ty này [sản xuất/làm ra/làm] từ điển điện tử.",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — việc làm thường xuyên, nghề nghiệp", "note": "作って います: hoạt động sản xuất thường xuyên của công ty." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 会社." }
+          ]
+        },
+        {
+          "ja": "あの {店|みせ}は {安|やす}い {服|ふく}を {売|う}って います。",
+          "vi": "Cửa hàng kia bán quần áo rẻ.",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — việc làm thường xuyên, nghề nghiệp", "note": "売って います: việc bán hàng thường xuyên." },
+            { "lesson": 8, "point": "Tính từ bổ nghĩa cho danh từ", "note": "安い 服." }
+          ]
+        },
+        {
+          "ja": "{私|わたし}は {日本語|にほんご}の {先生|せんせい}を して います。",
+          "vi": "Tôi [đang /]làm giáo viên tiếng Nhật.",
+          "grammar": [
+            { "lesson": 15, "point": "N（nghề nghiệp）を して います", "note": "先生を して います: nói nghề nghiệp — đời thường hơn 「先生です」." },
+            { "lesson": 1, "point": "N1 の N2", "note": "日本語の 先生." }
+          ]
+        },
+        {
+          "ja": "{山田|やまだ}さんは {結婚|けっこん}して いますが、{木村|きむら}さんは {独身|どくしん}です。",
+          "vi": "Anh Yamada [đã /][kết hôn/có gia đình/lập gia đình] [rồi /]nhưng chị Kimura [thì /][vẫn /còn ]độc thân.",
+          "grammar": [
+            { "lesson": 15, "point": "V て います — trạng thái sau hành động", "note": "結婚して います: trạng thái đã có gia đình." },
+            { "lesson": 8, "point": "そして ／ ～が、～", "note": "～が、～: hai người, hai tình trạng ngược nhau." }
+          ]
+        },
+        {
+          "ja": "この {歌|うた}を {知|し}って いますか。",
+          "vi": "[Anh/Chị/Bạn] có biết bài hát này không?",
+          "grammar": [
+            { "lesson": 15, "point": "しって います ／ しりません", "note": "知って いますか: không nói 知りますか." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "この 歌." }
+          ]
+        },
+        {
+          "ja": "いいえ、{知|し}りません。{初|はじ}めて {聞|き}きました。",
+          "vi": "Không, [tôi /]không biết. [Đây là lần đầu /Lần đầu ]tôi nghe[ đấy/].",
+          "grammar": [
+            { "lesson": 15, "point": "しって います ／ しりません", "note": "知りません: phủ định không có て います." },
+            { "lesson": 4, "point": "Vます ／ Vません ／ Vました ／ Vませんでした", "note": "聞きました: quá khứ." }
+          ]
+        },
+        {
+          "ja": "ここに {車|くるま}を {止|と}めては いけません。",
+          "vi": "Không được [đỗ/đậu] xe ở đây.",
+          "grammar": [
+            { "lesson": 15, "point": "V て は いけません", "note": "止めては いけません: lệnh cấm (biển báo, nội quy)." },
+            { "lesson": 15, "point": "N（nơi chốn）に V ／ N1 に N2 を V", "note": "ここに 止めます: に chỉ chỗ chiếc xe nằm lại (không dùng で)." }
+          ]
+        },
+        {
+          "ja": "あの {椅子|いす}に {座|すわ}っても いいですか。",
+          "vi": "[Tôi /][có thể /]ngồi [vào /lên ]cái ghế kia [được không/có được không][ ạ/]?",
+          "grammar": [
+            { "lesson": 15, "point": "V て も いいです", "note": "座っても いいですか: xin phép." },
+            { "lesson": 15, "point": "N（nơi chốn）に V ／ N1 に N2 を V", "note": "椅子に 座ります: に chỉ chỗ người ở lại sau khi ngồi." },
+            { "lesson": 2, "point": "この N ／ その N ／ あの N", "note": "あの 椅子." }
+          ]
+        },
+        {
+          "ja": "{教室|きょうしつ}で {日本語|にほんご}だけ {話|はな}して ください。{英語|えいご}で {話|はな}しては いけません。",
+          "vi": "Ở lớp [hãy /]chỉ nói tiếng Nhật[ thôi/]. Không được nói [bằng /]tiếng Anh.",
+          "grammar": [
+            { "lesson": 15, "point": "V て は いけません", "note": "話しては いけません: quy định trong lớp." },
+            { "lesson": 7, "point": "N（công cụ, phương tiện）で V", "note": "英語で: で chỉ ngôn ngữ được dùng." }
+          ]
+        }
+      ]
+    }
+  ]
+}

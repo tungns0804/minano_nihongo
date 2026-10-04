@@ -7,7 +7,8 @@
       "explanation": [
         "Vる とおりに: làm theo cái đang được chỉ ngay lúc đó.",
         "Vた とおりに: làm theo cái đã thấy, đã nghe, đã được dạy trước đó.",
-        "Nの とおりに: làm theo một hình mẫu có sẵn (đường kẻ, bản vẽ, hướng dẫn)."
+        "Nの とおりに: làm theo một hình mẫu có sẵn (đường kẻ, bản vẽ, hướng dẫn).",
+        "とおり là danh từ nên đi được ngay sau この／その／あの: 「この とおりに」."
       ],
       "notes": [],
       "usages": [
@@ -32,6 +33,10 @@
             {
               "japanese": "この せんの とおりに、きって ください。",
               "vietnamese": "Hãy cắt theo đường kẻ này."
+            },
+            {
+              "japanese": "この とおりに かいて ください。",
+              "vietnamese": "Hãy viết đúng như thế này."
             }
           ]
         }
@@ -45,7 +50,9 @@
         "Trước あとで luôn là thể た, kể cả khi cả câu nói về tương lai.",
         "Nhấn vào thứ tự trước sau: việc 1 xong hẳn rồi mới tới việc 2."
       ],
-      "notes": [],
+      "notes": [
+        "So với ～てから (bài 16): あとで chỉ nói rõ thứ tự trước sau; てから còn hàm ý việc trước là bước chuẩn bị cho việc sau."
+      ],
       "usages": [
         {
           "title": "Sau khi ~ thì ~",
@@ -65,21 +72,26 @@
     },
     {
       "title": "Vて、V2 / Vないで、V2",
-      "summary": "Làm V1 rồi làm V2, hoặc làm V2 mà không làm V1.",
-      "structures": ["V て、V2 — làm V1 rồi làm V2", "V ないで、V2 — không làm V1 mà làm V2"],
+      "summary": "V1 cho biết V2 được làm trong trạng thái, cách thức nào; hoặc chọn làm V2 thay cho V1.",
+      "structures": ["V1 て V2 — làm V2 trong trạng thái V1", "V1 ないで V2 — làm V2 mà không V1"],
       "explanation": [
+        "Khác với thể て nối hành động ở bài 16 (xong việc này rồi mới tới việc kia): ở đây V1 tả TRẠNG THÁI, CÁCH THỨC đi kèm khi làm V2 — chấm xì dầu rồi ăn, mang ô theo mà đi.",
         "Hai vế cùng một chủ ngữ.",
-        "Vないで nhấn rằng người nói CHỦ Ý bỏ qua việc 1 — thường vì không thể làm cả hai."
+        "V1ないで V2 còn dùng khi không thể làm cả hai việc nên chọn V2 thay cho V1: 「どこも いかないで、うちで やすみます」."
       ],
       "notes": [],
       "usages": [
         {
-          "title": "Làm V1 rồi làm V2",
-          "detail": "Thứ tự bình thường.",
+          "title": "Làm V2 kèm trạng thái V1",
+          "detail": "V1 là cách thức đi kèm, không phải một bước làm trước.",
           "examples": [
             {
-              "japanese": "あさごはんを たべて、かいしゃへ いきます。",
-              "vietnamese": "Tôi ăn sáng rồi đi làm."
+              "japanese": "しょうゆを つけて たべます。",
+              "vietnamese": "Chấm xì dầu rồi ăn."
+            },
+            {
+              "japanese": "かさを もって でかけます。",
+              "vietnamese": "Tôi mang ô theo khi ra ngoài."
             }
           ]
         },
@@ -87,6 +99,10 @@
           "title": "Không làm V1 mà làm V2",
           "detail": "Chủ ý bỏ qua việc thứ nhất.",
           "examples": [
+            {
+              "japanese": "しょうゆを つけないで たべます。",
+              "vietnamese": "Ăn mà không chấm xì dầu."
+            },
             {
               "japanese": "あさごはんを たべないで、かいしゃへ いきます。",
               "vietnamese": "Tôi không ăn sáng mà đi làm luôn."

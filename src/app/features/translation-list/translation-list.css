@@ -1,0 +1,8 @@
+/* Thanh công cụ, thẻ bài học và khung chờ dùng chung định nghĩa ở `src/styles.css`.
+   File này chỉ còn phần riêng của tab Luyện dịch. */
+
+/* Mô tả là danh sách tên các bài nhỏ, hai dòng là đủ thấy tình huống của bài. */
+.lesson-desc {
+  flex: 1;
+  line-height: 1.55;
+}

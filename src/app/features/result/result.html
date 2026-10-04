@@ -193,6 +193,13 @@
                           [params]="{ count: item.wrongAttempts }"
                         />
                       </div>
+                    } @else if (item.selfGraded) {
+                      <div class="small result-detail muted">
+                        <app-t key="result.selfGraded" block />
+                        @if (item.attempts.length > 0) {
+                          <span [class.jp]="item.question.answerIsJapanese">{{ attemptsText(item) }}</span>
+                        }
+                      </div>
                     }
                   </div>
 

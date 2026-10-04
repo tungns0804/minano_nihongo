@@ -167,6 +167,57 @@
           ]
         }
       ]
+    },
+    {
+      "title": "N が ＋ tính từ — tả điều cảm nhận được",
+      "summary": "Thuật lại một trạng thái mình vừa cảm nhận bằng giác quan, chủ ngữ đi với が.",
+      "structures": ["N が Aい です", "N が Aな です"],
+      "explanation": [
+        "Bài 14 đã dùng が để thuật lại hiện tượng bằng động từ (あめが ふって います). Cách nói này dùng được cả với tính từ.",
+        "Hay gặp khi vừa làm gì đó xong và thấy ngay kết quả: âm thanh nhỏ, gió mạnh…"
+      ],
+      "usages": [
+        {
+          "title": "Cảm nhận tức thì",
+          "examples": [
+            {
+              "japanese": "おとが ちいさいです。",
+              "vietnamese": "Âm thanh nhỏ quá."
+            },
+            {
+              "japanese": "きょうは かぜが つよいですね。",
+              "vietnamese": "Hôm nay gió mạnh nhỉ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N を ＋ động từ di chuyển",
+      "summary": "を đánh dấu nơi người hay vật đi QUA.",
+      "structures": ["N（nơi chốn）を さんぽします／わたります／あるきます", "N（nơi chốn）を みぎへ／ひだりへ まがります"],
+      "explanation": [
+        "Với các động từ di chuyển như さんぽします, わたります, あるきます, まがります, を chỉ con đường, khu vực mình đi qua — không phải tân ngữ, cũng không phải nơi rời khỏi (bài 16)."
+      ],
+      "usages": [
+        {
+          "title": "Đi qua một nơi",
+          "examples": [
+            {
+              "japanese": "こうえんを さんぽします。",
+              "vietnamese": "Tôi đi dạo trong công viên."
+            },
+            {
+              "japanese": "みちを わたります。",
+              "vietnamese": "Tôi băng qua đường."
+            },
+            {
+              "japanese": "こうさてんを みぎへ まがります。",
+              "vietnamese": "Tôi rẽ phải ở ngã tư."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -8,6 +8,7 @@ export type IconName =
   | 'pencil'
   | 'blocks'
   | 'cap'
+  | 'languages'
   | 'clipboard'
   | 'house'
   | 'upload'
@@ -78,6 +79,15 @@ export type IconName =
           <path d="M22 9 12 4 2 9l10 5z" />
           <path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
           <path d="M22 9v6" />
+        }
+        @case ('languages') {
+          <!-- Chữ 文 bên trái, chữ A bên phải: dịch qua lại giữa hai thứ tiếng. -->
+          <path d="M3 5.5h9" />
+          <path d="M7.5 3.5v2" />
+          <path d="M10.5 5.5c-1 3.8-3.6 6.6-7 8" />
+          <path d="M5 8.5c1.4 2 3.4 3.5 5.6 4.5" />
+          <path d="m12.5 20.5 4.2-9.5 4.3 9.5" />
+          <path d="M14 17.3h5.4" />
         }
         @case ('clipboard') {
           <rect x="5" y="4" width="14" height="17" rx="2" />

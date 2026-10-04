@@ -7,7 +7,7 @@
       "explanation": [
         "Đây là một trong những điểm khác biệt lớn nhất giữa tiếng Nhật và tiếng Việt. Tiếng Việt nói 'người đi Kyoto' với phần bổ nghĩa ĐỨNG SAU; tiếng Nhật nói 「きょうとへ いく ひと」 với phần bổ nghĩa ĐỨNG TRƯỚC.",
         "Mệnh đề bổ nghĩa luôn ở THỂ THÔNG THƯỜNG, dù cả câu vẫn lịch sự.",
-        "Tính từ な đổi な giữ nguyên; danh từ thì だ đổi thành の khi bổ nghĩa: 「せんせいの ひと」."
+        "Tính từ な giữ な trước danh từ (「しんせつな ひと」); danh từ thì nối bằng の (「６５さいの ひと」)."
       ],
       "tables": [
         {
@@ -129,6 +129,39 @@
             {
               "japanese": "わたしが かった ほんは とても おもしろいです。",
               "vietnamese": "Quyển sách tôi mua rất thú vị."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ましょうか — rủ cùng làm",
+      "summary": "Rủ người nghe cùng làm một việc, nhẹ hơn ～ましょう vì để ngỏ cho người nghe quyết định.",
+      "structures": ["V ましょうか。"],
+      "explanation": [
+        "Ở bài 14, ～ましょうか là ngỏ ý làm GIÚP người nghe ('để tôi … nhé?'). Ở bài này nó rủ cả hai CÙNG làm ('chúng ta … nhé?').",
+        "Gần với ～ましょう ở bài 6, nhưng có thêm か nên nghe nhẹ nhàng, chừa chỗ cho người nghe đồng ý hay không."
+      ],
+      "usages": [
+        {
+          "title": "Rủ cùng làm",
+          "detail": "Chủ ngữ ngầm hiểu là わたしたち.",
+          "examples": [
+            {
+              "japanese": "ちょっと やすみましょうか。",
+              "vietnamese": "Chúng ta nghỉ một chút nhé?"
+            },
+            {
+              "japanese": "なんじに いきましょうか。",
+              "vietnamese": "Mấy giờ chúng ta đi nhỉ?"
+            },
+            {
+              "japanese": "この へや、きょう みる ことが できますか。",
+              "vietnamese": "Hôm nay tôi xem căn phòng này được không ạ?"
+            },
+            {
+              "japanese": "ええ。いまから いきましょうか。",
+              "vietnamese": "Vâng. Chúng ta đi ngay bây giờ nhé?"
             }
           ]
         }

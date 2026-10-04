@@ -3,16 +3,12 @@
     {
       "title": "～たら、～",
       "summary": "Điều kiện linh hoạt nhất: nếu xảy ra việc này thì làm việc kia.",
-      "structures": [
-        "V た ＋ ら、～",
-        "Aい（bỏ い）＋ かったら、～",
-        "Aな ＋ だったら、～",
-        "N ＋ だったら、～"
-      ],
+      "structures": ["V た ＋ ら、～", "Aい（bỏ い）＋ かったら、～", "Aな ＋ だったら、～", "N ＋ だったら、～"],
       "explanation": [
         "Cách lập rất dễ nhớ: lấy thể た rồi thêm ら. Với tính từ và danh từ thì lấy dạng quá khứ thể thông thường rồi thêm ら.",
         "Khác với と ở bài 23, vế sau của たら ĐƯỢC PHÉP chứa ý chí của người nói: lời nhờ vả, lời mời, mệnh lệnh, dự định. Đây là lý do たら dùng được rộng hơn hẳn.",
-        "たら có hai nghĩa: điều kiện giả định ('nếu') và thời điểm chắc chắn sẽ tới ('khi ... xong')."
+        "たら có hai nghĩa: điều kiện giả định ('nếu') và thời điểm chắc chắn sẽ tới ('khi ... xong').",
+        "Chủ ngữ của vế たら (và vế ても) đi với が chứ không đi với は: 「ともだちが こなかったら、どう しますか」."
       ],
       "tables": [
         {
@@ -135,7 +131,7 @@
       "explanation": [
         "もし đứng đầu câu たら, báo rằng đây là chuyện giả định. Nó không đổi nghĩa mà chỉ giúp người nghe chuẩn bị.",
         "いくら đứng đầu câu ても, nhấn mạnh 'dù có ... đến mấy đi nữa'.",
-        "Hai phó từ này chỉ đi đúng với mẫu của mình: không nói 「もし ～ても」 hay 「いくら ～たら」."
+        "いくら luôn đi với ～ても. もし thường đi với ～たら, nhưng cũng đứng được trước ～ても khi giả định một chuyện chưa xảy ra: 「もし あめが ふっても、いきます」."
       ],
       "usages": [
         {

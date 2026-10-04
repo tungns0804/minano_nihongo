@@ -19,6 +19,7 @@ import {
 } from './vocabulary.model';
 import { TOPIC_CATALOG } from '../topics/topic-catalog.generated';
 import { topicSummary } from '../topics/topic.model';
+import { sanitizeGrammarRefs, sanitizeTranslationSets } from '../translation/translation.model';
 import { readJson, writeJson } from '../services/local-storage';
 
 const CUSTOM_LESSONS_KEY = 'jp-practice:custom-lessons';
@@ -236,6 +237,7 @@ const KNOWN_KINDS: readonly LessonKind[] = [
   'verb',
   'conversation',
   'grammar',
+  'translation',
 ];
 
 /** Loại bài mang dữ liệu ở `words` — bài BTVN cùng định dạng với bài từ vựng. */
@@ -247,13 +249,17 @@ function sanitizeKind(raw: unknown): LessonKind {
 
 /** Số mục của một bài, tuỳ loại mà đếm mảng nào. */
 function countItems(
-  lesson: Pick<Lesson, 'kind' | 'words' | 'verbs' | 'lines' | 'grammarPoints'>,
+  lesson: Pick<Lesson, 'kind' | 'words' | 'verbs' | 'lines' | 'grammarPoints' | 'translationSets'>,
 ): number {
   if (lesson.kind === 'verb') return lesson.verbs.length;
   if (lesson.kind === 'conversation') return lesson.lines.length;
   // Bài ngữ pháp đếm theo số MẪU chứ không theo số câu ví dụ: "3 mẫu ngữ pháp" là
   // thứ người học nhìn vào để biết bài nặng hay nhẹ, còn số ví dụ chỉ là hệ quả.
   if (lesson.kind === 'grammar') return lesson.grammarPoints.length;
+  // Bài luyện dịch thì ngược lại: đếm CÂU, vì câu mới là thứ đem ra luyện.
+  if (lesson.kind === 'translation') {
+    return lesson.translationSets.reduce((sum, set) => sum + set.lines.length, 0);
+  }
   return lesson.words.length;
 }
 
@@ -488,21 +494,36 @@ function sanitizeGrammarPoints(raw: unknown): GrammarPoint[] {
 
 function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
   if (!raw || typeof raw !== 'object') return null;
-  const { id, name, description, words, verbs, lines, grammarPoints, kind, lessonNumber, level } =
-    raw as Record<string, unknown>;
+  const {
+    id,
+    name,
+    description,
+    words,
+    verbs,
+    lines,
+    grammarPoints,
+    translationSets,
+    grammarRefs,
+    kind,
+    lessonNumber,
+    level,
+  } = raw as Record<string, unknown>;
   if (typeof id !== 'string' || !id) return null;
 
   const lessonKind = sanitizeKind(kind);
+  const isTranslation = lessonKind === 'translation';
   const parsedWords = WORD_KINDS.includes(lessonKind) ? sanitizeWords(words) : [];
   const parsedVerbs = lessonKind === 'verb' ? sanitizeVerbs(verbs) : [];
   const parsedLines = lessonKind === 'conversation' ? sanitizeLines(lines) : [];
   const parsedPoints = lessonKind === 'grammar' ? sanitizeGrammarPoints(grammarPoints) : [];
+  const parsedSets = isTranslation ? sanitizeTranslationSets(translationSets) : [];
   const itemCount = countItems({
     kind: lessonKind,
     words: parsedWords,
     verbs: parsedVerbs,
     lines: parsedLines,
     grammarPoints: parsedPoints,
+    translationSets: parsedSets,
   });
   if (itemCount === 0) return null;
 
@@ -520,6 +541,8 @@ function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
     verbs: parsedVerbs,
     lines: parsedLines,
     grammarPoints: parsedPoints,
+    translationSets: parsedSets,
+    grammarRefs: isTranslation ? sanitizeGrammarRefs(grammarRefs) : {},
     origin,
   };
 }

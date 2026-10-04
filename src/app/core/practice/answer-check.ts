@@ -1,4 +1,5 @@
 import { ALTERNATIVE_SEPARATOR, stripDiacritics } from '../lessons/vocabulary-parser';
+import { matchesMarkup } from '../translation/markup';
 
 /** Khoảng trắng full-width hay gặp khi copy văn bản tiếng Nhật. */
 const FULLWIDTH_SPACE = String.fromCharCode(0x3000);
@@ -133,4 +134,23 @@ export function isAnswerCorrect(
   const normalizedInput = normalizeForCompare(input, options);
   if (!normalizedInput) return false;
   return acceptedAnswers.some((answer) => normalizeForCompare(answer, options) === normalizedInput);
+}
+
+/**
+ * Câu trả lời có khớp một trong các CÂU MẪU viết theo cú pháp của khu Luyện dịch
+ * (furigana `{漢字|かな}`, lựa chọn `[a/b]` — xem `core/translation/markup.ts`).
+ *
+ * Mỗi đoạn chữ của câu mẫu được chuẩn hoá bằng đúng `normalizeForCompare` như câu trả
+ * lời, nên mọi quy tắc nới lỏng ở trên (bỏ dấu câu, khoảng trắng, chữ số toàn chiều,
+ * dấu tiếng Việt khi bật) áp y hệt cho câu mẫu.
+ */
+export function isPatternCorrect(
+  input: string,
+  patterns: readonly string[],
+  options: CompareOptions,
+): boolean {
+  const normalizedInput = normalizeForCompare(input, options);
+  if (!normalizedInput) return false;
+  const normalize = (value: string) => normalizeForCompare(value, options);
+  return patterns.some((pattern) => matchesMarkup(normalizedInput, pattern, normalize));
 }

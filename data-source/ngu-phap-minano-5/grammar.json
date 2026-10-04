@@ -64,7 +64,7 @@
       "summary": "Phủ định hoàn toàn: không đi đâu cả.",
       "structures": ["どこ［へ］も ＋ V phủ định"],
       "explanation": [
-        "Từ nghi vấn ＋ も ＋ vị ngữ phủ định cho nghĩa 'không ... một chút nào', 'chẳng ... đâu cả'.",
+        "Từ nghi vấn ＋ も ＋ vị ngữ phủ định cho nghĩa 'chẳng ... cả': どこも (không đâu cả), だれも (không ai cả), なにも (không gì cả — gặp lại ở bài 6).",
         "Trợ từ へ ở giữa thường được lược, nói 「どこも いきませんでした」 là tự nhiên nhất.",
         "Vị ngữ BẮT BUỘC phải ở thể phủ định. Nói 「どこも いきました」 là sai."
       ],
@@ -80,6 +80,16 @@
             {
               "japanese": "せんしゅうの にちようびは どこも いきませんでした。",
               "vietnamese": "Chủ nhật tuần trước tôi chẳng đi đâu cả."
+            }
+          ]
+        },
+        {
+          "title": "Cùng kiểu với だれ",
+          "detail": "Từ nghi vấn nào cũng ghép được với も ＋ phủ định.",
+          "examples": [
+            {
+              "japanese": "きのう だれも きませんでした。",
+              "vietnamese": "Hôm qua không có ai đến cả."
             }
           ]
         }
@@ -216,6 +226,41 @@
             {
               "japanese": "きょうは やすみですよ。",
               "vietnamese": "Hôm nay là ngày nghỉ đấy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "そうですね",
+      "summary": "Đáp lại để tỏ ý đồng tình, đồng cảm với điều người kia vừa nói.",
+      "structures": ["～ですね。→ そうですね。"],
+      "explanation": [
+        "そうですね dùng khi mình CŨNG nghĩ, cũng biết như người kia — tương đương 'ừ nhỉ', 'đúng thế nhỉ'.",
+        "Khác そうですか ở bài 2: そうですか là vừa nhận được thông tin MỚI mà mình chưa biết; そうですね là đồng tình với điều cả hai cùng biết."
+      ],
+      "tables": [
+        {
+          "caption": "そうですか và そうですね",
+          "headers": ["Câu đáp", "Khi nào dùng", "Tiếng Việt"],
+          "rows": [
+            ["そうですか", "Vừa nghe tin mới", "Thế à"],
+            ["そうですね", "Đồng tình với điều cả hai cùng biết", "Ừ nhỉ / Đúng thế nhỉ"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Đồng tình với người nói",
+          "detail": "Thường đáp lại một câu kết thúc bằng ね.",
+          "examples": [
+            {
+              "japanese": "あしたは にちようびですね。",
+              "vietnamese": "Ngày mai là Chủ nhật nhỉ."
+            },
+            {
+              "japanese": "あ、そうですね。",
+              "vietnamese": "À, ừ nhỉ."
             }
           ]
         }

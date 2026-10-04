@@ -11,7 +11,7 @@ import {
 import { batchCount, sliceBatch } from './batch';
 import type { PracticePlan } from './build-questions';
 import { gradeOf, reviewRefOf } from '../review/review.model';
-import { isAnswerCorrect } from './answer-check';
+import { isAnswerCorrect, isPatternCorrect } from './answer-check';
 import { shuffle } from '../utils/random';
 import { ReviewStore } from '../review/review-store';
 
@@ -113,7 +113,9 @@ export class PracticeSessionStore {
     this.configRef.set(config);
     this.questionList.set(questions);
     this.planList.set(plan.all.map(tag));
-    this.stateList.set(questions.map(() => ({ status: 'pending', wrongAttempts: 0, attempts: [] })));
+    this.stateList.set(
+      questions.map(() => ({ status: 'pending', wrongAttempts: 0, attempts: [], selfGraded: false })),
+    );
     this.indexRef.set(0);
     this.finishedRef.set(false);
     this.summaryRef.set(null);
@@ -140,17 +142,43 @@ export class PracticeSessionStore {
 
     // Trắc nghiệm hay gõ xét theo TỪNG CÂU chứ không theo cả phiên: phiên Ôn tập trộn
     // câu từ vựng (có lựa chọn) với câu kanji, ngữ pháp (chỉ gõ).
+    const options = {
+      ignoreDiacritics: config.ignoreDiacritics,
+      // Tiếng Nhật không có dấu cách giữa các từ nên bỏ hết khoảng trắng khi so khớp.
+      ignoreAllWhitespace: question.answerIsJapanese,
+      ignorePunctuation: question.ignorePunctuation,
+    };
     const correct =
       question.choices.length > 0
         ? answer === question.correctAnswer
-        : isAnswerCorrect(answer, question.acceptedAnswers, {
-            ignoreDiacritics: config.ignoreDiacritics,
-            // Tiếng Nhật không có dấu cách giữa các từ nên bỏ hết khoảng trắng khi so khớp.
-            ignoreAllWhitespace: question.answerIsJapanese,
-            ignorePunctuation: question.ignorePunctuation,
-          });
+        : isAnswerCorrect(answer, question.acceptedAnswers, options) ||
+          isPatternCorrect(answer, question.acceptedPatterns, options);
 
     return this.record(correct, question, state, [...state.attempts, answer]);
+  }
+
+  /**
+   * Người học tự xác nhận câu trả lời vừa bị chấm sai thật ra cũng đúng.
+   *
+   * Chỉ áp cho câu cho phép tự chấm (câu luyện dịch), chỉ sau khi đã lộ câu mẫu — phải
+   * thấy câu mẫu rồi mới đánh giá được câu mình — và chỉ khi người học đã thật sự gõ
+   * một câu trả lời: bấm "Chịu, xem đáp án" thì không có gì để xác nhận.
+   *
+   * Không đụng lịch ôn: câu tự chấm được không vào lịch ôn ngay từ đầu (xem
+   * `reviewRefOf`), vì lịch ôn chỉ tin vào kết quả chấm máy.
+   *
+   * @returns false khi câu hiện tại không đủ điều kiện.
+   */
+  acceptOwnAnswer(): boolean {
+    const question = this.current();
+    const state = this.currentState();
+    if (!question?.selfGradable || !state || state.status !== 'revealed') return false;
+    if (state.attempts.length === 0) return false;
+
+    // Câu trả lời được xác nhận là chính câu gõ ở lần đầu, nên nó tính là đúng ngay lần
+    // đầu chứ không phải "đúng sau khi thử lại" — người học có thử lại lần nào đâu.
+    this.patchCurrentState({ status: 'correct', wrongAttempts: 0, selfGraded: true });
+    return true;
   }
 
   /**
@@ -282,6 +310,7 @@ export class PracticeSessionStore {
         isPerfect: state.status === 'correct' && state.wrongAttempts === 0,
         wrongAttempts: state.wrongAttempts,
         attempts: state.attempts,
+        selfGraded: state.selfGraded,
       };
     });
 

@@ -41,9 +41,20 @@
             ["げんき (Aな)", "げんきなら"],
             ["あめ (N)", "あめなら"]
           ]
+        },
+        {
+          "caption": "と・たら・ば",
+          "headers": ["Mẫu", "Vế sau mang ý chí (mời, nhờ…)", "Hay dùng khi"],
+          "rows": [
+            ["V る と（bài 23）", "Không", "Kết quả tất yếu: máy móc, quy luật, chỉ đường"],
+            ["V たら（bài 25）", "Được", "Giả định, việc chắc sẽ xảy ra; văn nói"],
+            ["V ば", "Chỉ khi vế ば là trạng thái hoặc hai vế khác chủ ngữ", "Nêu điều kiện cần cho kết quả"]
+          ]
         }
       ],
-      "notes": [],
+      "notes": [
+        "Vế sau mang ý chí (mời, nhờ, ý định) chỉ đi được với ば khi vế ば là trạng thái (tính từ, ない, ある, いる…) hoặc khi hai vế khác chủ ngữ: 「やすければ、かいます」, 「かれが いけば、わたしも いきます」. Hành động cùng chủ ngữ thì dùng ～たら: 「とうきょうへ きたら、ぜひ れんらくして ください」."
+      ],
       "usages": [
         {
           "title": "Điều kiện dẫn tới kết quả tất yếu",
@@ -149,6 +160,31 @@
             {
               "japanese": "べんきょうすれば するほど じょうずに なります。",
               "vietnamese": "Càng học càng giỏi lên."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～は ありませんか",
+      "summary": "Hỏi bằng câu phủ định để người nghe dễ trả lời 'không có'.",
+      "structures": ["N は ありませんか。→ はい、あります。／ いいえ、ありません。"],
+      "explanation": [
+        "「いい ところは ありませんか」 cùng nghĩa với 「いい ところは ありますか」, nhưng hỏi bằng phủ định giúp người nghe dễ trả lời là không có, nên nghe tế nhị và lịch sự hơn.",
+        "Trả lời vẫn như câu hỏi thường: 「はい、あります」／「いいえ、ありません」."
+      ],
+      "usages": [
+        {
+          "title": "Hỏi tế nhị",
+          "examples": [
+            {
+              "japanese": "２、３にち りょこうを しようと おもって いるんですが、どこか いい ところは ありませんか。",
+              "vietnamese": "Tôi định đi du lịch 2, 3 ngày, anh có biết chỗ nào hay không?",
+              "reading": "にさんにち りょこうを しようと おもって いるんですが、どこか いい ところは ありませんか。"
+            },
+            {
+              "japanese": "もう すこし やすい へやは ありませんか。",
+              "vietnamese": "Có phòng nào rẻ hơn một chút không ạ?"
             }
           ]
         }

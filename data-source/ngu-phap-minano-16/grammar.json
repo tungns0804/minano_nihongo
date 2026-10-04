@@ -84,7 +84,8 @@
       "explanation": [
         "から ở đây KHÔNG mang nghĩa lý do như ở bài 9, mà là 'sau khi'.",
         "Khác với cách nối bằng thể て đơn thuần ở chỗ: てから nhấn mạnh rằng việc trước phải HOÀN TẤT rồi mới sang việc sau.",
-        "Cả câu chỉ có một vế てから. Muốn kể ba việc liên tiếp thì dùng thể て nối thường."
+        "Cả câu chỉ có một vế てから. Muốn kể ba việc liên tiếp thì dùng thể て nối thường.",
+        "Chủ ngữ của vế てから đi với が chứ không đi với は: 「この しごとが おわってから、たべます」."
       ],
       "usages": [
         {
@@ -187,6 +188,42 @@
             {
               "japanese": "どの ひとが やまださんですか。",
               "vietnamese": "Người nào là anh Yamada vậy?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N を でます ／ N を おります",
+      "summary": "を đánh dấu nơi RỜI KHỎI: ra khỏi nhà, xuống tàu.",
+      "structures": ["N（nơi chốn）を でます", "N（phương tiện）を おります"],
+      "explanation": [
+        "Với でます (ra khỏi), おります (xuống xe), を chỉ điểm xuất phát — chỗ mình rời đi. Đây không phải を chỉ tân ngữ ở bài 6.",
+        "Ngược lại, lên xe là 「N に のります」, vào là 「N に はいります」 — dùng に (bài 15)."
+      ],
+      "tables": [
+        {
+          "caption": "Lên — xuống, vào — ra",
+          "headers": ["Hướng vào (に)", "Hướng ra (を)"],
+          "rows": [
+            ["でんしゃに のります", "でんしゃを おります"],
+            ["へやに はいります", "へやを でます"]
+          ]
+        }
+      ],
+      "usages": [
+        {
+          "title": "Rời khỏi một nơi",
+          "detail": "Nơi chốn hoặc phương tiện đi với を.",
+          "examples": [
+            {
+              "japanese": "まいあさ ７じはんに うちを でます。",
+              "vietnamese": "Sáng nào tôi cũng ra khỏi nhà lúc 7 rưỡi.",
+              "reading": "まいあさ しちじはんに うちを でます。"
+            },
+            {
+              "japanese": "うめだで でんしゃを おりました。",
+              "vietnamese": "Tôi đã xuống tàu ở Umeda."
             }
           ]
         }

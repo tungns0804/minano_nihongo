@@ -178,11 +178,11 @@
     },
     {
       "title": "V ましょうか",
-      "summary": "Ngỏ ý giúp đỡ, hoặc đề nghị cùng làm.",
+      "summary": "Ngỏ ý làm giúp người nghe một việc: 'để tôi ... nhé?'.",
       "structures": ["V ましょうか。"],
       "explanation": [
-        "Nghĩa thứ nhất: đề nghị làm giúp người nghe một việc — 'để tôi ... nhé'.",
-        "Nghĩa thứ hai: rủ cùng làm, gần với ましょう ở bài 6 nhưng có thêm か nên nhẹ nhàng hơn, để ngỏ cho người nghe quyết định.",
+        "Người nói đề nghị làm giúp người nghe một việc — 'để tôi ... nhé'.",
+        "Ở bài 22, mẫu này còn dùng để rủ người nghe CÙNG làm một việc.",
         "Nhận lời thì đáp 「ええ、おねがいします」; từ chối thì đáp 「いいえ、けっこうです」."
       ],
       "usages": [
@@ -207,18 +207,54 @@
               "vietnamese": "Để tôi bật điều hòa nhé?"
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "title": "N が V — thuật lại điều đang thấy, đang nghe",
+      "summary": "Thuật lại nguyên si một hiện tượng mình vừa cảm nhận được, chủ ngữ đi với が.",
+      "structures": ["N が V て います", "N が V ません（ね）"],
+      "explanation": [
+        "Khi kể lại đúng cái mắt thấy tai nghe — trời mưa, có người, không có ai — thì chủ ngữ đi với が chứ không đi với は.",
+        "Lý do: đây là thông tin mới vừa quan sát được, chưa phải chủ đề đã biết."
+      ],
+      "usages": [
         {
-          "title": "Rủ cùng làm",
-          "detail": "Chủ ngữ ngầm hiểu là わたしたち.",
+          "title": "Thuật lại hiện tượng",
+          "detail": "Thời tiết, sự có mặt của ai đó.",
           "examples": [
             {
-              "japanese": "ちょっと やすみましょうか。",
-              "vietnamese": "Chúng ta nghỉ một chút nhé?"
+              "japanese": "あ、あめが ふって いますね。",
+              "vietnamese": "Ồ, trời đang mưa nhỉ."
             },
             {
-              "japanese": "なんじに いきましょうか。",
-              "vietnamese": "Mấy giờ chúng ta đi nhỉ?"
+              "japanese": "ミラーさんが いませんね。",
+              "vietnamese": "Anh Miller không có ở đây nhỉ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "すみませんが ／ しつれいですが",
+      "summary": "が ở đây không mang nghĩa 'nhưng', chỉ làm lời mở đầu nhẹ nhàng trước khi nhờ hay hỏi.",
+      "structures": ["すみませんが、～て ください。", "しつれいですが、～"],
+      "explanation": [
+        "Ở bài 8, が nối hai vế trái ngược ('nhưng'). Trong các câu mở đầu như すみませんが, しつれいですが thì が không còn nghĩa đối lập — nó chỉ làm câu nói mềm đi.",
+        "Dùng trước một lời nhờ vả hoặc một câu hỏi có thể làm phiền người nghe."
+      ],
+      "usages": [
+        {
+          "title": "Mở lời trước khi nhờ, khi hỏi",
+          "detail": "Bỏ đi thì nghe kém lịch sự hẳn.",
+          "examples": [
+            {
+              "japanese": "すみませんが、ちょっと まって ください。",
+              "vietnamese": "Xin lỗi, anh đợi một chút nhé."
+            },
+            {
+              "japanese": "しつれいですが、おくには どちらですか。",
+              "vietnamese": "Xin lỗi, anh là người nước nào ạ?"
             }
           ]
         }

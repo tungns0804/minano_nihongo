@@ -94,6 +94,21 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/grammar-detail/grammar-detail').then((m) => m.GrammarDetail),
   },
+  // Khu "Luyện dịch" đi song song 50 bài ngữ pháp: mỗi bài vài bài nhỏ, mỗi câu kết
+  // hợp ngữ pháp bài đó với ngữ pháp các bài trước. Nhánh riêng vì nội dung là các bài
+  // nhỏ kèm ngữ pháp từng câu, không phải bảng phẳng của `lesson/:id`.
+  {
+    path: 'translate',
+    title: 'route.translate',
+    loadComponent: () =>
+      import('./features/translation-list/translation-list').then((m) => m.TranslationList),
+  },
+  {
+    path: 'translate/:id',
+    title: 'route.translateLesson',
+    loadComponent: () =>
+      import('./features/translation-detail/translation-detail').then((m) => m.TranslationDetail),
+  },
   // Khu "Bài tập" cũng có nhánh riêng, cùng lý do với ngữ pháp: nội dung của nó
   // không tới từ file bài học nào mà cài sẵn trong mã nguồn (core/exercises/), và
   // nó gom động từ của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp.

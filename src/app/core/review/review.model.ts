@@ -6,8 +6,8 @@
  * thẳng bằng Node và kiểm được từng quy tắc bên dưới.
  *
  * Mọi mục người học đã luyện ở bốn khu (từ vựng, kanji, ngữ pháp, động từ) đều tự
- * vào lịch — không có nút "thêm vào ôn tập". Bài hội thoại, bộ thủ và phiên viết
- * chữ bằng chuột không vào lịch: người dùng chỉ chọn bốn khu kia.
+ * vào lịch — không có nút "thêm vào ôn tập". Bài hội thoại, bài luyện dịch, bộ thủ
+ * và phiên viết chữ bằng chuột không vào lịch: người dùng chỉ chọn bốn khu kia.
  */
 
 import type { PracticeConfig, QuestionStatus } from '../practice/practice.model';
@@ -115,7 +115,10 @@ function itemTypeOf(
       // Phiên luyện âm Hán Việt hỏi trên CHỮ (mở từ danh sách), phiên còn lại hỏi
       // trên TỪ của một chữ.
       return config.lessonId === KANJI_SESSION_ID ? 'kc' : 'kw';
+    // Câu luyện dịch là dịch tự do, chấm có cả phần người học tự xác nhận — không hợp
+    // với lịch ôn vốn chỉ tin vào kết quả chấm máy. Nó cũng là một khu độc lập.
     case 'conversation':
+    case 'translation':
     case 'radical':
       return null;
   }

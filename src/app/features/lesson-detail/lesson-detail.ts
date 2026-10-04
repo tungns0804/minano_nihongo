@@ -231,6 +231,8 @@ export class LessonDetail extends PracticeScreen {
         return pool.words.length;
       case 'grammar':
         return pool.examples.length;
+      case 'translation':
+        return pool.sentences.length;
     }
   });
 
@@ -351,11 +353,12 @@ export class LessonDetail extends PracticeScreen {
     this.notFound.set(false);
     const lesson = await this.lessonStore.getLesson(id);
 
-    // Bài ngữ pháp có màn hình riêng. Đường dẫn cũ hoặc link chép tay vẫn có thể trỏ
-    // vào đây, nên đưa sang đúng chỗ thay vì vẽ ra một trang trống (bài ngữ pháp
-    // không có words/verbs/lines nên mọi bảng ở màn hình này đều rỗng).
-    if (lesson?.kind === 'grammar') {
-      void this.router.navigate(['/grammar', id], { replaceUrl: true });
+    // Bài ngữ pháp và bài luyện dịch có màn hình riêng. Đường dẫn cũ hoặc link chép tay
+    // vẫn có thể trỏ vào đây, nên đưa sang đúng chỗ thay vì vẽ ra một trang trống (hai
+    // loại bài đó không có words/verbs/lines nên mọi bảng ở màn hình này đều rỗng).
+    if (lesson?.kind === 'grammar' || lesson?.kind === 'translation') {
+      const base = lesson.kind === 'grammar' ? '/grammar' : '/translate';
+      void this.router.navigate([base, id], { replaceUrl: true });
       return;
     }
 

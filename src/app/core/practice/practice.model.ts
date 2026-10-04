@@ -232,9 +232,13 @@ export interface PracticeConfig {
   direction: PracticeDirection;
   showHanViet: boolean;
 
-  // --- Riêng bài ngữ pháp ---
-  /** Hiện tên mẫu ngữ pháp + công thức làm gợi ý dưới câu hỏi. */
+  // --- Riêng bài ngữ pháp (và bài luyện dịch) ---
+  /** Hiện tên mẫu ngữ pháp (kèm công thức với bài ngữ pháp) làm gợi ý dưới câu hỏi. */
   showGrammarHint: boolean;
+
+  // --- Riêng bài luyện dịch ---
+  /** Hiện furigana trên chữ Hán của câu hỏi tiếng Nhật. */
+  showFurigana: boolean;
 
   // --- Riêng bài động từ ---
   verbMode: VerbPracticeMode;
@@ -302,6 +306,7 @@ export function practiceConfig(
     direction: 'jp-vi',
     showHanViet: false,
     showGrammarHint: false,
+    showFurigana: false,
     verbMode: 'masu-to-form',
     verbForms: [],
     exercise: null,
@@ -343,6 +348,42 @@ export function recapJp(labelKey: MessageKey, value: string): RecapItem {
 /** Dòng phản hồi mà giá trị phải dịch, ví dụ tên nhóm động từ. */
 export function recapKey(labelKey: MessageKey, valueKey: MessageKey): RecapItem {
   return { labelKey, value: '', valueKey, japanese: false };
+}
+
+/** Một mẫu ngữ pháp có mặt trong câu luyện dịch, kèm lời giải thích cho riêng câu đó. */
+export interface SentenceGrammar {
+  /** Bài dạy mẫu này. */
+  lesson: number;
+  title: string;
+  /** Công thức đầu tiên của mẫu; rỗng nếu không có. */
+  structure: string;
+  note: string;
+  /** Mẫu của chính bài đang luyện — tô khác với mẫu ôn lại của bài trước. */
+  current: boolean;
+}
+
+/** Một câu khác của cùng đoạn hội thoại, hiện làm ngữ cảnh. */
+export interface SentenceContext {
+  speaker: string;
+  /** Câu tiếng Nhật viết theo cú pháp furigana của `core/translation/markup.ts`. */
+  japanese: string;
+  vietnamese: string;
+}
+
+/**
+ * Phần riêng của câu luyện dịch: furigana, ngữ cảnh và ngữ pháp để giải thích.
+ *
+ * Gom vào một trường thay vì rải ra `PracticeQuestion`: mọi loại câu hỏi khác đều để
+ * null, và màn hình luyện tập chỉ cần xét đúng một chỗ để biết có vẽ thêm gì không.
+ */
+export interface SentenceExtras {
+  /** Câu tiếng Nhật có furigana — dùng để vẽ câu hỏi hoặc đáp án tiếng Nhật. */
+  japanese: string;
+  speaker: string;
+  context: SentenceContext | null;
+  grammar: SentenceGrammar[];
+  /** Các cách nói khác cũng được chấm đúng, ở thứ tiếng của đáp án (đã ở dạng thường). */
+  alternatives: string[];
 }
 
 /**
@@ -387,6 +428,20 @@ export interface PracticeQuestion {
   correctAnswerKey: MessageKey | null;
   /** Các cách viết được chấp nhận khi gõ tay (đã gồm cả hai ngôn ngữ nếu cần). */
   acceptedAnswers: string[];
+  /**
+   * Câu mẫu viết theo cú pháp furigana / lựa chọn của khu Luyện dịch (xem
+   * `core/translation/markup.ts`). Khớp một câu mẫu là đúng, như khớp `acceptedAnswers`.
+   */
+  acceptedPatterns: string[];
+  /**
+   * Cho người học tự xác nhận câu trả lời của mình là đúng sau khi máy chấm sai.
+   *
+   * Chỉ bật cho câu luyện dịch: dịch tự do thì một câu đúng nghĩa vẫn có thể lệch câu
+   * mẫu ở cách chọn từ, và chỉ người học — đã thấy câu mẫu — mới đánh giá được.
+   */
+  selfGradable: boolean;
+  /** Phần riêng của câu luyện dịch; null với mọi câu hỏi khác. */
+  sentence: SentenceExtras | null;
   answerIsJapanese: boolean;
   /** Nhãn ô nhập ở chế độ gõ đáp án. */
   answerPromptKey: MessageKey;
@@ -461,6 +516,9 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     // Mặc định chấm đúng nguyên văn. Nơi nào chấp nhận nhiều cách viết thì tự
     // truyền `acceptedAnswers` (thường là `acceptedAnswersOf(...)`).
     acceptedAnswers: [draft.correctAnswer],
+    acceptedPatterns: [],
+    selfGradable: false,
+    sentence: null,
     answerIsJapanese: false,
     answerPromptParams: {},
     // Rỗng nghĩa là chế độ gõ. Khu nào có trắc nghiệm thì tự dựng `choices`.
@@ -482,6 +540,8 @@ export interface QuestionState {
   status: QuestionStatus;
   wrongAttempts: number;
   attempts: string[];
+  /** Đúng là do người học tự xác nhận chứ không phải máy chấm (xem `selfGradable`). */
+  selfGraded: boolean;
 }
 
 export interface QuestionResult {
@@ -491,6 +551,7 @@ export interface QuestionResult {
   isPerfect: boolean;
   wrongAttempts: number;
   attempts: string[];
+  selfGraded: boolean;
 }
 
 export interface SessionSummary {
@@ -552,6 +613,10 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
   } else if (config.lessonKind === 'grammar') {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showGrammarHint) keys.push('grammar.option.showHint');
+  } else if (config.lessonKind === 'translation') {
+    keys.push(directionInfo(config.direction).shortKey);
+    if (config.showFurigana) keys.push('translate.option.furigana');
+    if (config.showGrammarHint) keys.push('translate.option.grammarHint');
   } else {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showHanViet && directionInfo(config.direction).supportsHanVietHint) {

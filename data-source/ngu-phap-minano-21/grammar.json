@@ -59,6 +59,10 @@
             {
               "japanese": "この まちは べんりだと おもいます。",
               "vietnamese": "Tôi nghĩ thành phố này tiện lợi."
+            },
+            {
+              "japanese": "わたしも そう おもいます。",
+              "vietnamese": "Tôi cũng nghĩ vậy."
             }
           ]
         }
@@ -67,14 +71,12 @@
     {
       "title": "～と いいます",
       "summary": "Thuật lại lời của người khác hoặc lời mình sắp nói.",
-      "structures": [
-        "「Câu nguyên văn」と いいました（trích trực tiếp）",
-        "Thể thông thường ＋ と いいました（trích gián tiếp）"
-      ],
+      "structures": ["「Câu nguyên văn」と いいました（trích trực tiếp）", "Thể thông thường ＋ と いいました（trích gián tiếp）"],
       "explanation": [
         "Trích trực tiếp giữ nguyên si lời nói, đặt trong ngoặc kép 「」.",
         "Trích gián tiếp đưa lời nói về thể thông thường, và phải đổi ngôi, đổi từ chỉ thời gian cho hợp với người đang thuật.",
-        "Cả hai đều dùng と trước いいます."
+        "Cả hai đều dùng と trước いいます.",
+        "Người được nói cho nghe đi với に: 「ちちに りゅうがくしたいと いいました」."
       ],
       "tables": [
         {
@@ -99,6 +101,10 @@
             {
               "japanese": "ミラーさんは あした やすむと いいました。",
               "vietnamese": "Anh Miller nói rằng ngày mai anh ấy nghỉ."
+            },
+            {
+              "japanese": "ちちに りゅうがくしたいと いいました。",
+              "vietnamese": "Tôi đã nói với bố là tôi muốn đi du học."
             }
           ]
         },
@@ -236,6 +242,54 @@
             {
               "japanese": "こんど えいがでも みませんか。",
               "vietnamese": "Lần tới mình đi xem phim hay gì đó nhé?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "N（tình huống）で",
+      "summary": "で nêu hoàn cảnh, dịp mà một việc xảy ra: trong cuộc họp, trong bữa tiệc.",
+      "structures": ["N（かいぎ、パーティー…）で ～"],
+      "explanation": [
+        "Ngoài nơi chốn (bài 6), で còn đứng sau danh từ chỉ một sự kiện, một dịp để nói việc đó xảy ra trong khuôn khổ sự kiện ấy."
+      ],
+      "usages": [
+        {
+          "title": "Trong cuộc họp, trong buổi tiệc",
+          "examples": [
+            {
+              "japanese": "かいぎで なにか いけんを いいましたか。",
+              "vietnamese": "Trong cuộc họp anh có phát biểu ý kiến gì không?"
+            },
+            {
+              "japanese": "パーティーで おもしろい ひとに あいました。",
+              "vietnamese": "Ở bữa tiệc tôi đã gặp một người thú vị."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "V ないと……",
+      "summary": "Lược phần いけません: 'phải … thôi'.",
+      "structures": ["V ない ＋ と……"],
+      "explanation": [
+        "Đây là dạng rút gọn của 「Vないと いけません」, nghĩa gần như 「Vなければ なりません」 ở bài 17.",
+        "Phần いけません bị bỏ lửng, nghe tự nhiên trong hội thoại."
+      ],
+      "usages": [
+        {
+          "title": "Phải làm gì đó ngay",
+          "detail": "Hay nói khi xin phép ra về.",
+          "examples": [
+            {
+              "japanese": "もう かえらないと……。",
+              "vietnamese": "Tôi phải về rồi…"
+            },
+            {
+              "japanese": "あしたは はやく おきないと……。",
+              "vietnamese": "Mai tôi phải dậy sớm…"
             }
           ]
         }

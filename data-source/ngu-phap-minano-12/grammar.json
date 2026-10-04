@@ -209,6 +209,38 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Tính từ ＋ の — thay cho danh từ",
+      "summary": "Khi danh từ đã rõ, nói 「おおきいの」 'cái to' thay vì lặp lại danh từ.",
+      "structures": ["Aい ＋ の", "Aな ＋ な ＋ の"],
+      "explanation": [
+        "Giống 「N1 の」 ở bài 2: の đứng thay cho danh từ đã nhắc tới, nghĩa là 'cái ...'.",
+        "Tính từ い thêm thẳng の: 「あかいの」; tính từ な giữ な: 「きれいなの」."
+      ],
+      "notes": [
+        "の chỉ thay cho đồ vật, không dùng để chỉ người."
+      ],
+      "usages": [
+        {
+          "title": "Chỉ ra một món trong nhiều món",
+          "detail": "Danh từ đã rõ nên không nhắc lại.",
+          "examples": [
+            {
+              "japanese": "わたしの かさは あの あおいのです。",
+              "vietnamese": "Cái ô của tôi là cái màu xanh kia."
+            },
+            {
+              "japanese": "カリナさんの かばんは あの おおきいのです。",
+              "vietnamese": "Cặp của chị Karina là cái to kia."
+            },
+            {
+              "japanese": "あかいのを ください。",
+              "vietnamese": "Cho tôi cái màu đỏ."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

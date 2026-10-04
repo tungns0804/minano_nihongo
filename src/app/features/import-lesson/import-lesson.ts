@@ -282,10 +282,12 @@ export class ImportLesson {
       itemCount: kind === 'verb' ? verbs.length : words.length,
       words,
       verbs,
-      // Màn hình này mới chỉ nạp được từ vựng và động từ. Bài hội thoại và bài ngữ
-      // pháp thêm qua thư mục data-source/ rồi chạy npm run generate.
+      // Màn hình này mới chỉ nạp được từ vựng và động từ. Bài hội thoại, bài ngữ pháp
+      // và bài luyện dịch thêm qua thư mục data-source/ rồi chạy npm run generate.
       lines: [],
       grammarPoints: [],
+      translationSets: [],
+      grammarRefs: {},
       origin: 'custom',
     };
   }

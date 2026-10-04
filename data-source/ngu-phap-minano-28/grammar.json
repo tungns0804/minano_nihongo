@@ -66,15 +66,10 @@
     {
       "title": "～し、～し",
       "summary": "Liệt kê nhiều lý do hoặc nhiều tính chất cùng chiều: vừa ~ lại vừa ~.",
-      "structures": [
-        "V thể ngắn ＋ し",
-        "Aい thể ngắn ＋ し",
-        "Aな だ ＋ し",
-        "N だ ＋ し"
-      ],
+      "structures": ["V thể ngắn ＋ し", "Aい thể ngắn ＋ し", "Aな だ ＋ し", "N だ ＋ し"],
       "explanation": [
         "Các vế nối bằng し phải cùng chiều: toàn điểm tốt hoặc toàn điểm xấu, không trộn lẫn.",
-        "Hay dùng kèm も để nhấn: はなしも すてきだし、イメージも きれいです.",
+        "Hay dùng kèm も để nhấn: 「はなしも おもしろいし、えも きれいです」.",
         "それに đặt trước vế cuối để ý tăng dần thêm một bậc."
       ],
       "tables": [
@@ -102,7 +97,7 @@
               "vietnamese": "Món ăn Việt Nam vừa ngon lại vừa rẻ."
             },
             {
-              "japanese": "この まんがは はなしも すてきだし、イメージも きれいです。",
+              "japanese": "この まんがは はなしも おもしろいし、えも きれいです。",
               "vietnamese": "Cuốn truyện tranh này câu chuyện hay mà hình vẽ cũng đẹp."
             },
             {
@@ -132,7 +127,7 @@
       "summary": "Liên từ nối hai câu: vế trước là nguyên nhân, vế sau là kết quả — \"vì thế\".",
       "structures": ["Mệnh đề 1。それで、mệnh đề 2。"],
       "explanation": [
-        "Thường đi sau một chuỗi ～し、～し để chốt lại kết quả của các lý do vừa nêu."
+        "それで đứng ĐẦU câu sau, nối với câu trước đã nêu lý do. Hay dùng sau một chuỗi ～し、～し, hoặc để người nghe chốt lại điều mình vừa hiểu ra."
       ],
       "notes": [],
       "usages": [
@@ -141,12 +136,36 @@
           "detail": "Nêu lý do trước, kết quả sau それで.",
           "examples": [
             {
-              "japanese": "ざんぎょうしなければ ならないし、ボーナスも ないし、それで かいしゃを やめたいです。",
-              "vietnamese": "Vừa phải tăng ca, thưởng lại không có, vì thế tôi muốn nghỉ việc."
+              "japanese": "ざんぎょうが おおいし、ボーナスも ないし……。それで、かいしゃを やめたいんです。",
+              "vietnamese": "Tăng ca nhiều, thưởng lại không có… Vì thế tôi muốn nghỉ việc."
             },
             {
-              "japanese": "その かしゅは うたも じょうずだし、ダンスも すてきだし、それで みんなに にんきが あります。",
-              "vietnamese": "Ca sĩ đó hát hay lại nhảy đẹp, vì thế được mọi người yêu thích."
+              "japanese": "その かしゅは うたも じょうずだし、ダンスも すてきです。それで、みんなに にんきが あります。",
+              "vietnamese": "Ca sĩ đó hát hay, nhảy cũng đẹp. Vì thế được mọi người yêu thích."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "～とき ＋ trợ từ",
+      "summary": "とき là danh từ nên thêm được trợ từ phía sau: ときは, ときや.",
+      "structures": ["～ときは、～", "～ときや ～ときは、～"],
+      "explanation": [
+        "とき (bài 23) là một danh từ, nên cũng nhận trợ từ như mọi danh từ khác.",
+        "「ときは」 đưa hoàn cảnh lên làm chủ đề, thường để nói 'riêng những lúc đó thì…'."
+      ],
+      "usages": [
+        {
+          "title": "Riêng những lúc đó thì…",
+          "examples": [
+            {
+              "japanese": "べんきょうする ときは、おんがくを ききません。",
+              "vietnamese": "Khi học bài thì tôi không nghe nhạc."
+            },
+            {
+              "japanese": "ねむい ときや つかれた ときは、コーヒーを のみます。",
+              "vietnamese": "Những lúc buồn ngủ hay mệt thì tôi uống cà phê."
             }
           ]
         }
