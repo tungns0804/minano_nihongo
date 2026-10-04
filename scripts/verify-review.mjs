@@ -193,6 +193,25 @@ expect(parseReviewKey('zz:x') === null && parseReviewKey('w:') === null, 'khoa l
   });
   expect(Object.keys(junk).join() === 'ev:ok', `du lieu hong phai bi bo qua, con lai: ${Object.keys(junk).join()}`);
   expect(same(unpackCards(null), {}) && same(unpackCards([1, 2]), {}), 'kho khong phai object thi coi nhu rong');
+
+  // Khu BTVN N3 co ban da go: tu con o bai khac thi chuyen nguon, con lai bo the.
+  const retired = unpackCards({
+    'w:1ndkdxg': [3, 9, 1, 2, 5, 'btvn-n3-co-ban-1'],
+    'w:0z81o89': [1, 9, 0, 1, 5, 'btvn-n3-co-ban-3'],
+    'w:chi-btvn': [1, 9, 0, 1, 5, 'btvn-n3-co-ban-2'],
+    'w:giu-nguyen': [1, 9, 0, 1, 5, 'minano-nihongo-47'],
+    'w:constructor': [1, 9, 0, 1, 5, 'constructor'],
+  });
+  expect(
+    retired['w:1ndkdxg']?.source === 'minano-nihongo-47' && retired['w:1ndkdxg'].stage === 3,
+    `the cua tu BTVN co o bai 47 phai chuyen nguon va giu lich: ${JSON.stringify(retired['w:1ndkdxg'])}`,
+  );
+  expect(retired['w:0z81o89']?.source === 'minano-nihongo-28', 'tu BTVN co o bai 28 phai chuyen nguon');
+  expect(!('w:chi-btvn' in retired), 'the cua tu chi co o BTVN phai bi bo');
+  expect(
+    retired['w:giu-nguyen']?.source === 'minano-nihongo-47' && retired['w:constructor']?.source === 'constructor',
+    'the cua bai con ton tai khong duoc dong toi',
+  );
 }
 
 // ── Thiết lập ─────────────────────────────────────────────────────────────

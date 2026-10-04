@@ -107,7 +107,6 @@ export class LessonDetail extends PracticeScreen {
     const tab = LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary'];
     if (tab === 'exercise') return 'exercise.back';
     if (tab === 'topic') return 'topic.back';
-    if (tab === 'homework') return 'homework.back';
     return 'common.back';
   });
   readonly words = computed(() => this.lesson()?.words ?? []);

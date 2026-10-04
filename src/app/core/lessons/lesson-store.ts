@@ -233,15 +233,11 @@ export class LessonStore {
 
 const KNOWN_KINDS: readonly LessonKind[] = [
   'vocabulary',
-  'homework',
   'verb',
   'conversation',
   'grammar',
   'translation',
 ];
-
-/** Loại bài mang dữ liệu ở `words` — bài BTVN cùng định dạng với bài từ vựng. */
-const WORD_KINDS: readonly LessonKind[] = ['vocabulary', 'homework'];
 
 function sanitizeKind(raw: unknown): LessonKind {
   return KNOWN_KINDS.includes(raw as LessonKind) ? (raw as LessonKind) : 'vocabulary';
@@ -512,7 +508,7 @@ function sanitizeLesson(raw: unknown, origin: Lesson['origin']): Lesson | null {
 
   const lessonKind = sanitizeKind(kind);
   const isTranslation = lessonKind === 'translation';
-  const parsedWords = WORD_KINDS.includes(lessonKind) ? sanitizeWords(words) : [];
+  const parsedWords = lessonKind === 'vocabulary' ? sanitizeWords(words) : [];
   const parsedVerbs = lessonKind === 'verb' ? sanitizeVerbs(verbs) : [];
   const parsedLines = lessonKind === 'conversation' ? sanitizeLines(lines) : [];
   const parsedPoints = lessonKind === 'grammar' ? sanitizeGrammarPoints(grammarPoints) : [];

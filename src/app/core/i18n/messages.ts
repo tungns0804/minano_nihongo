@@ -50,7 +50,6 @@ export const MESSAGES = {
   'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
   'app.nav.review': { vi: 'Ôn tập', ja: '復習' },
   'app.nav.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
-  'app.nav.homework': { vi: 'BTVN N3 cơ bản', ja: 'N3基礎 宿題' },
   'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'app.nav.translate': { vi: 'Luyện dịch', ja: '翻訳練習' },
   'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
@@ -97,12 +96,6 @@ export const MESSAGES = {
   'kind.topic.desc': {
     vi: 'Cùng kho từ của giáo trình nhưng gom theo chủ đề, luyện đủ 4 chiều như bài từ vựng.',
     ja: '同じ単語をテーマ別にまとめたもの。単語レッスンと同じ4方向で練習できます。',
-  },
-  'kind.homework': { vi: 'BTVN N3 cơ bản', ja: 'N3基礎 宿題' },
-  'kind.homework.unit': { vi: '{count} từ', ja: '{count}語' },
-  'kind.homework.desc': {
-    vi: 'Bài tập về nhà khoá N3 cơ bản: mỗi bài 10 từ kèm cách đọc và câu ví dụ, luyện như bài từ vựng.',
-    ja: 'N3基礎コースの宿題。1回10語を読み方・例文つきで学び、単語レッスンと同じように練習します。',
   },
   'kind.conversation': { vi: 'Dịch hội thoại', ja: '会話の翻訳' },
   'kind.conversation.unit': { vi: '{count} câu', ja: '{count}文' },
@@ -289,7 +282,6 @@ export const MESSAGES = {
   'lesson.table.verb': { vi: 'Bảng chia động từ', ja: '動詞活用表' },
   'lesson.table.vocabulary': { vi: 'Từ vựng', ja: '単語' },
   'lesson.table.topic': { vi: 'Từ vựng của chủ đề', ja: 'このテーマの単語' },
-  'lesson.table.homework': { vi: 'Từ vựng của bài', ja: 'この回の単語' },
   'lesson.table.conversation': { vi: 'Các câu trong bài', ja: 'この課の文' },
   'lesson.search.conversation': {
     vi: 'Tìm theo câu tiếng Nhật, câu tiếng Việt hoặc người nói...',
@@ -616,40 +608,6 @@ export const MESSAGES = {
   'topic.sourceNote': {
     vi: 'Mọi từ ở đây đều lấy từ chính kho từ của ứng dụng, không có từ nào soạn thêm — nghĩa và cách đọc luôn khớp với bài học gốc.',
     ja: 'ここの単語はすべてアプリ内の既存の単語から取っており、新たに書き足したものはありません。意味と読み方は元のレッスンと常に一致します。',
-  },
-
-  // ── BTVN N3 cơ bản ─────────────────────────────────────────────────────
-  'homework.title': { vi: 'BTVN N3 cơ bản', ja: 'N3基礎 宿題' },
-  'homework.subtitle': {
-    vi: 'Bài tập về nhà của khoá N3 cơ bản — mỗi bài là một cụm 10 từ vựng kèm cách đọc và câu ví dụ.',
-    ja: 'N3基礎コースの宿題。1回ごとに10語の単語を、読み方と例文つきで学びます。',
-  },
-  'homework.overview.title': { vi: 'Tổng quan', ja: '概要' },
-  'homework.overview.intro': {
-    vi: 'Khu này chép lại các thẻ từ vựng được giao làm bài tập về nhà. Bài đánh số theo thứ tự từ trên thẻ (1-10, 11-20, 21-30…), nên học lần lượt từ bài đầu. Nghĩa, cách đọc và câu ví dụ giữ như thẻ gốc; âm Hán Việt được ghi thêm cho từng từ.',
-    ja: '宿題として出された単語カードをそのまま収めたコーナーです。回はカードの番号順（1-10、11-20、21-30…）なので、最初の回から順に進めてください。意味・読み方・例文は元のカードどおりで、漢越音を各単語に書き足しています。',
-  },
-  'homework.overview.stepsTitle': { vi: 'Cách học một bài', ja: '1回分の進め方' },
-  'homework.overview.step1': {
-    vi: 'Đọc bảng từ: chữ Hán, cách đọc, âm Hán Việt, nghĩa và câu ví dụ. Bấm nút loa để nghe phát âm.',
-    ja: '単語表を読む：漢字・読み方・漢越音・意味・例文。スピーカーのボタンで発音を聞けます。',
-  },
-  'homework.overview.step2': {
-    vi: 'Luyện 6 chiều — Nhật ↔ Việt, Nhật ↔ Hán Việt, Nhật ↔ cách đọc — bằng trắc nghiệm hoặc gõ đáp án.',
-    ja: '6方向で練習：日↔越、日↔漢越音、日↔読み方。選択式でも入力式でも解答できます。',
-  },
-  'homework.overview.step3': {
-    vi: 'Đánh dấu ★ từ hay quên, rồi chọn phạm vi “★ Chưa nhớ” để luyện riêng những từ đó.',
-    ja: '覚えにくい単語に★を付け、範囲「★ 未習得」でその単語だけを練習します。',
-  },
-  'homework.overview.step4': {
-    vi: 'Mỗi câu đã trả lời tự vào lịch Ôn tập: đúng thì giãn ra, sai thì được hỏi lại sớm.',
-    ja: '解答した問題は自動で復習スケジュールに入ります。正解なら間隔が伸び、間違えれば早めに再出題されます。',
-  },
-  'homework.back': { vi: '← Danh sách BTVN', ja: '← 宿題一覧' },
-  'homework.sourceNote': {
-    vi: 'Thẻ gốc ngăn các nghĩa tương đương bằng dấu phẩy; ở đây đổi sang dấu “/”, nên khi gõ đáp án chỉ cần đúng một nghĩa.',
-    ja: '元のカードでは同じ意味の訳語を読点で区切っていますが、ここでは「/」に置き換えています。入力式ではどれか一つが合っていれば正解です。',
   },
 
   'kanji.title': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
@@ -1541,8 +1499,6 @@ export const MESSAGES = {
   // mở lại lịch sử duyệt web không biết đâu là màn hình nào.
   'route.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
   'route.topicDetail': { vi: 'Chủ đề từ vựng', ja: '単語のテーマ' },
-  'route.homework': { vi: 'BTVN N3 cơ bản', ja: 'N3基礎 宿題' },
-  'route.homeworkDetail': { vi: 'Bài tập về nhà', ja: '宿題の回' },
   'route.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
   'route.translate': { vi: 'Luyện dịch', ja: '翻訳練習' },

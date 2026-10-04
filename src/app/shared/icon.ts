@@ -10,7 +10,6 @@ export type IconName =
   | 'cap'
   | 'languages'
   | 'clipboard'
-  | 'house'
   | 'upload'
   | 'globe'
   | 'contrast'
@@ -93,11 +92,6 @@ export type IconName =
           <rect x="5" y="4" width="14" height="17" rx="2" />
           <rect x="9" y="2.5" width="6" height="3.5" rx="1" />
           <path d="m9 13 2 2 4-4" />
-        }
-        @case ('house') {
-          <path d="M3 10.5 12 3l9 7.5" />
-          <path d="M5 9v11.5h14V9" />
-          <path d="M10 20.5v-6h4v6" />
         }
         @case ('upload') {
           <path d="M12 15V3" />

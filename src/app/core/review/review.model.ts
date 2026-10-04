@@ -103,7 +103,6 @@ function itemTypeOf(
   switch (config.lessonKind) {
     case 'vocabulary':
     case 'topic':
-    case 'homework':
       return 'w';
     case 'grammar':
       return 'g';
@@ -352,7 +351,38 @@ export function packCards(cards: Readonly<Record<string, ReviewCard>>): Record<s
   return result;
 }
 
-/** Đọc lại kho, bỏ qua mục hỏng hoặc khoá không còn nhận ra (dữ liệu phiên bản khác ghi). */
+/**
+ * Bài đã gỡ khỏi ứng dụng mà thẻ ôn trỏ tới chúng vẫn có thể nằm trong localStorage.
+ *
+ * Khu "BTVN N3 cơ bản" gỡ đi ngày 04/10/2026. Thẻ ôn chỉ biết đúng MỘT bài để dựng lại
+ * câu hỏi (`source`), nên thẻ của từ BTVN không dựng lại được nữa — mà vẫn bị đếm là
+ * đến hạn mãi mãi, vì không ôn được thì chẳng bao giờ được hẹn lại. Từ nào cũng có ở
+ * một bài khác (khoá thẻ băm từ chính chữ, nên trùng từ là trùng khoá) thì chuyển nguồn
+ * sang bài đó để giữ lịch ôn; còn lại thì bỏ thẻ.
+ *
+ * `Map` chứ không phải object: tra một nguồn tên "constructor" trên object thường sẽ
+ * vớ phải hàm của Object, và thẻ đó bị bỏ oan.
+ */
+const RETIRED_SOURCES: ReadonlyMap<string, Readonly<Record<string, string>>> = new Map<
+  string,
+  Readonly<Record<string, string>>
+>([
+  ['btvn-n3-co-ban-1', { 'w:1ndkdxg': 'minano-nihongo-47', 'w:1rb8g7y': 'minano-nihongo-47' }],
+  ['btvn-n3-co-ban-2', {}],
+  ['btvn-n3-co-ban-3', { 'w:178j9xs': 'minano-nihongo-8', 'w:0z81o89': 'minano-nihongo-28' }],
+]);
+
+/** Nguồn của một thẻ sau khi xét `RETIRED_SOURCES`; null nghĩa là bỏ thẻ. */
+function liveSourceOf(key: string, source: string): string | null {
+  const moved = RETIRED_SOURCES.get(source);
+  if (!moved) return source;
+  return Object.hasOwn(moved, key) ? moved[key] : null;
+}
+
+/**
+ * Đọc lại kho, bỏ qua mục hỏng, khoá không còn nhận ra (dữ liệu phiên bản khác ghi),
+ * và thẻ của bài đã gỡ (xem `RETIRED_SOURCES`).
+ */
 export function unpackCards(raw: unknown): Record<string, ReviewCard> {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
 
@@ -371,7 +401,9 @@ export function unpackCards(raw: unknown): Record<string, ReviewCard> {
     ) {
       continue;
     }
-    result[key] = { stage, due, lapses, streak, last, source };
+    const live = liveSourceOf(key, source);
+    if (live === null) continue;
+    result[key] = { stage, due, lapses, streak, last, source: live };
   }
   return result;
 }

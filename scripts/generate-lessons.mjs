@@ -121,13 +121,6 @@ const FILE_KINDS = [
     pattern: /^(?:vocabulary|vocab|tu-?vung)(?:[-_].+)?$/i,
     accepted: 'vocabulary.txt, vocab.txt, tu-vung.txt, tuvung.txt',
   },
-  // Bài tập về nhà khoá N3 cơ bản: định dạng y hệt bài từ vựng (kể cả câu ví dụ),
-  // nhưng là loại riêng để đứng ở tab riêng — xem `LESSON_KIND_TAB` trong app.
-  {
-    kind: 'homework',
-    pattern: /^(?:btvn|homework)(?:[-_].+)?$/i,
-    accepted: 'btvn.txt, homework.txt',
-  },
   {
     kind: 'verb',
     pattern: /^(?:verbs?|dong-?tu)(?:[-_].+)?$/i,
@@ -151,17 +144,11 @@ const ACCEPTED_NAMES = [
  * để phần còn lại của script không cần biết loại bài nào dùng trường gì.
  * Thêm loại bài mới thì khai báo ở đây thay vì rải `kind === '...' ? ... : ...`.
  */
-/** Loại bài mang dữ liệu ở `words` và đi qua parser từ vựng. */
-const WORD_KINDS = new Set(['vocabulary', 'homework']);
-
-function parseWords(text) {
-  const parsed = parseVocabulary(text);
-  return { items: parsed.words, issues: parsed.issues };
-}
-
 const PARSE_BY_KIND = {
-  vocabulary: parseWords,
-  homework: parseWords,
+  vocabulary: (text) => {
+    const parsed = parseVocabulary(text);
+    return { items: parsed.words, issues: parsed.issues };
+  },
   verb: (text) => {
     const parsed = parseVerbList(text);
     return { items: parsed.verbs, issues: parsed.issues };
@@ -432,7 +419,7 @@ function buildLesson(folderName, grammarIndex) {
   // hàm, và hàm này sửa tại chỗ. Đặt chung vào khối in báo cáo bên dưới thì có ngày
   // ai đó dọn phần log và mang luôn việc điền dữ liệu đi mất.
   const hanViet =
-    WORD_KINDS.has(kind)
+    kind === 'vocabulary'
       ? fillMissingHanViet(items, charHanViet)
       : { filled: 0, missing: [] };
 
@@ -458,7 +445,7 @@ function buildLesson(folderName, grammarIndex) {
   //  - đã ghép được    : từ có chữ Hán, nguồn để trống, bảng âm lo được.
   //  - thuần kana      : キッチン, ほうき — không bao giờ có âm. Không phải thiếu sót.
   //  - chưa ghép được  : có chữ Hán mà bảng âm còn thiếu chữ. ĐÂY mới là chỗ đáng đọc.
-  if (WORD_KINDS.has(kind)) {
+  if (kind === 'vocabulary') {
     const kana = items.filter((word) => !word.hanViet).length - hanViet.missing.length;
 
     if (hanViet.filled > 0) log(`  ${c.dim}ghep am Han Viet cho ${hanViet.filled} tu${c.reset}`);
@@ -509,7 +496,7 @@ function buildLesson(folderName, grammarIndex) {
       kind,
       itemCount,
       // Chỉ trường ứng với loại bài mới có dữ liệu, các trường kia là mảng rỗng.
-      words: WORD_KINDS.has(kind) ? items : [],
+      words: kind === 'vocabulary' ? items : [],
       verbs: kind === 'verb' ? items : [],
       lines: kind === 'conversation' ? items : [],
       grammarPoints: kind === 'grammar' ? items : [],

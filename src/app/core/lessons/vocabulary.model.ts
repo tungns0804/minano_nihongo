@@ -144,11 +144,6 @@ export type LessonOrigin = 'builtin' | 'custom';
  * 11 lẫn chủ đề "Gia đình", nên hai nhóm này không được nằm chung một danh sách.
  * Nội dung nằm ở `core/topics/`, xem `topic.model.ts`.
  *
- * `homework` (tab `/homework`) là bài tập về nhà khoá N3 cơ bản: cùng định dạng và
- * cùng màn hình với bài từ vựng (tới từ `data-source/<bài>/btvn.txt`), mỗi bài một
- * cụm 10 từ kèm câu ví dụ. Tách thành loại riêng cùng lý do với `topic`: nó là một
- * khoá học khác, không được lẫn vào danh sách bài 皆の日本語 / 総まとめ ngoài trang chủ.
- *
  * `translation` (tab `/translate`) là bài LUYỆN DỊCH theo từng bài 皆の日本語: vài bài
  * nhỏ khoảng 10 câu, mỗi câu kết hợp mẫu ngữ pháp của bài đó với mẫu của các bài
  * trước. Khác bài hội thoại ở chỗ mỗi câu mang theo các mẫu ngữ pháp nó dùng để giải
@@ -157,7 +152,6 @@ export type LessonOrigin = 'builtin' | 'custom';
 export type LessonKind =
   | 'vocabulary'
   | 'topic'
-  | 'homework'
   | 'verb'
   | 'conversation'
   | 'grammar'
@@ -169,7 +163,6 @@ export type LessonKind =
 export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary',
   topic: 'kind.topic',
-  homework: 'kind.homework',
   verb: 'kind.verb',
   conversation: 'kind.conversation',
   grammar: 'kind.grammar',
@@ -182,7 +175,6 @@ export const LESSON_KIND_LABEL_KEY: Record<LessonKind, MessageKey> = {
 export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary.desc',
   topic: 'kind.topic.desc',
-  homework: 'kind.homework.desc',
   verb: 'kind.verb.desc',
   conversation: 'kind.conversation.desc',
   grammar: 'kind.grammar.desc',
@@ -196,7 +188,6 @@ export const LESSON_KIND_DESC_KEY: Record<LessonKind, MessageKey> = {
 export const LESSON_KIND_UNIT_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'kind.vocabulary.unit',
   topic: 'kind.topic.unit',
-  homework: 'kind.homework.unit',
   verb: 'kind.verb.unit',
   conversation: 'kind.conversation.unit',
   grammar: 'kind.grammar.unit',
@@ -222,7 +213,6 @@ export const LESSON_KIND_TABLE_KEY: Record<LessonKind, MessageKey> = {
   // khung thiết lập, cùng bảng tra. Chỉ nhãn là khác, để dòng đếm ghi "38 từ
   // trong chủ đề" thay vì "38 từ trong bài".
   topic: 'lesson.table.topic',
-  homework: 'lesson.table.homework',
   verb: 'lesson.table.verb',
   conversation: 'lesson.table.conversation',
   grammar: 'kind.grammar',
@@ -236,8 +226,6 @@ export const LESSON_KIND_TABLE_KEY: Record<LessonKind, MessageKey> = {
 export const LESSON_KIND_SEARCH_KEY: Record<LessonKind, MessageKey> = {
   vocabulary: 'lesson.search.vocabulary',
   topic: 'lesson.search.topic',
-  // Cùng ba cột để tìm (âm Hán Việt, tiếng Nhật, nghĩa) với bài từ vựng thường.
-  homework: 'lesson.search.vocabulary',
   verb: 'lesson.search.verb',
   conversation: 'lesson.search.conversation',
   grammar: 'lesson.search.vocabulary',
@@ -251,7 +239,6 @@ export const LESSON_KIND_SEARCH_KEY: Record<LessonKind, MessageKey> = {
 export type LessonTab =
   | 'home'
   | 'topic'
-  | 'homework'
   | 'exercise'
   | 'grammar'
   | 'translate'
@@ -280,7 +267,6 @@ export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
   // một tab khác chứ không thể nằm chung: gộp vào thì mỗi từ hiện hai lần trong
   // cùng một danh sách, và số "bài" ngoài trang chủ tự dưng phồng lên gấp rưỡi.
   topic: 'topic',
-  homework: 'homework',
   // Hai loại này từng ở trang chủ. Chuyển sang tab Bài tập bổ trợ vì cả hai đều là
   // cách luyện (chia thể, dịch câu) chứ không phải một kho từ để nhớ nghĩa — cùng
   // họ với hai bài tập chuyên đề hơn là với bài từ vựng.
@@ -300,7 +286,6 @@ export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
 export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
   home: '/',
   topic: '/topic',
-  homework: '/homework',
   exercise: '/exercise',
   grammar: '/grammar',
   translate: '/translate',
@@ -312,7 +297,6 @@ export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
 const LESSON_KIND_ORDER: readonly LessonKind[] = [
   'vocabulary',
   'topic',
-  'homework',
   'verb',
   'conversation',
   'grammar',
