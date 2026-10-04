@@ -205,6 +205,40 @@ for (const file of readdirSync(lessonsDir).filter((name) => name.endsWith('.json
   }
 }
 
+// ── Câu ví dụ của bài tập "Luyện tập ngữ pháp N4" ─────────────────────────
+// Cùng cú pháp câu mẫu với khu Luyện dịch, nên thử đúng các cách gõ như trên: chữ
+// Hán, kana, gõ lẫn, từng lựa chọn của mỗi [...] — và gõ thiếu nửa câu phải bị chấm sai.
+// Dữ liệu nằm trong mã nguồn chứ không ở public/lessons/, nên nạp thẳng file .ts.
+const { N4_SECTIONS } = await import(
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'n4-grammar.ts'))
+);
+const { flattenN4Examples } = await import(
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'n4-grammar.model.ts'))
+);
+
+let n4Examples = 0;
+for (const { example } of flattenN4Examples(N4_SECTIONS)) {
+  n4Examples++;
+  for (const [patterns, options] of [
+    [[example.japanese, ...example.japaneseAlt], JA],
+    [[example.vietnamese, ...example.vietnameseAlt], VI],
+  ]) {
+    for (const pattern of patterns) {
+      for (const typed of patternForms(pattern)) {
+        checks++;
+        if (!isPatternCorrect(typed, patterns, options)) {
+          problems.push(`[ngữ pháp N4] câu ví dụ gõ đúng mà bị chấm sai\n     câu mẫu: ${pattern}\n     người học gõ: ${typed}`);
+        }
+      }
+    }
+    const half = firstHalf(plainText(patterns[0]));
+    checks++;
+    if (half && isPatternCorrect(half, patterns, options)) {
+      problems.push(`[ngữ pháp N4] gõ thiếu nửa câu mà vẫn được chấm đúng\n     câu mẫu: ${patterns[0]}\n     người học gõ: ${half}`);
+    }
+  }
+}
+
 if (problems.length > 0) {
   process.stdout.write(`Bo cham cau dai co ${problems.length} cho sai:\n`);
   for (const line of problems) process.stdout.write(`  - ${line}\n`);
@@ -212,6 +246,7 @@ if (problems.length > 0) {
 } else {
   process.stdout.write(
     `OK: dau cau va khoang trang khong lam sai ket qua cham ` +
-      `(${checks} luot thu tren ${sentences} cau hoi thoai + ngu phap, ${translationLines} cau luyen dich).\n`,
+      `(${checks} luot thu tren ${sentences} cau hoi thoai + ngu phap, ${translationLines} cau luyen dich, ` +
+      `${n4Examples} cau vi du ngu phap N4).\n`,
   );
 }

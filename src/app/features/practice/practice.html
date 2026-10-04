@@ -276,27 +276,31 @@
           }
 
           <!-- Giải thích từng mẫu ngữ pháp có trong câu — hiện dù đúng hay sai, vì đúng
-               mà không biết vì sao đúng thì lần sau vẫn có thể sai. -->
+               mà không biết vì sao đúng thì lần sau vẫn có thể sai. Câu ví dụ của bài
+               ngữ pháp N4 không mang danh sách này (mẫu của nó đã nằm ở phần ôn lại),
+               nên mảng rỗng thì không vẽ cả khung lẫn tiêu đề. -->
           @if (q.sentence?.grammar; as grammar) {
-            <section class="sentence-grammar" [attr.aria-label]="t('translate.grammarInSentence')">
-              <h3 class="sentence-grammar-title">{{ t('translate.grammarInSentence') }}</h3>
-              <ul>
-                @for (item of grammar; track $index) {
-                  <li class="grammar-note" [class.is-current]="item.current">
-                    <div class="grammar-note-head">
-                      <span class="badge" [class.badge-accent]="item.current">
-                        {{ t('translate.lessonBadge', { lesson: item.lesson }) }}
-                      </span>
-                      <strong class="jp">{{ item.title }}</strong>
-                    </div>
-                    @if (item.structure) {
-                      <p class="grammar-note-structure jp">{{ item.structure }}</p>
-                    }
-                    <p class="grammar-note-text">{{ item.note }}</p>
-                  </li>
-                }
-              </ul>
-            </section>
+            @if (grammar.length > 0) {
+              <section class="sentence-grammar" [attr.aria-label]="t('translate.grammarInSentence')">
+                <h3 class="sentence-grammar-title">{{ t('translate.grammarInSentence') }}</h3>
+                <ul>
+                  @for (item of grammar; track $index) {
+                    <li class="grammar-note" [class.is-current]="item.current">
+                      <div class="grammar-note-head">
+                        <span class="badge" [class.badge-accent]="item.current">
+                          {{ t('translate.lessonBadge', { lesson: item.lesson }) }}
+                        </span>
+                        <strong class="jp">{{ item.title }}</strong>
+                      </div>
+                      @if (item.structure) {
+                        <p class="grammar-note-structure jp">{{ item.structure }}</p>
+                      }
+                      <p class="grammar-note-text">{{ item.note }}</p>
+                    </li>
+                  }
+                </ul>
+              </section>
+            }
           }
 
           <div class="feedback-actions">

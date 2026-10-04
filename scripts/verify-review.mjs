@@ -165,6 +165,22 @@ expect(
   ref({ lessonKind: 'exercise', lessonId: 'chuyen-the-dong-tu', exercise: 'chuyen-the-dong-tu' }, 'x')?.key === 'ev:x',
   'bai chuyen the -> ev',
 );
+{
+  const n4 = (exerciseMode) =>
+    ref({ lessonKind: 'exercise', lessonId: 'ngu-phap-n4', exercise: 'ngu-phap-n4', exerciseMode }, 'x');
+  expect(
+    n4('example-vi-jp')?.key === 'ne:x' && n4('example-jp-vi')?.key === 'ne:x',
+    'cau vi du ngu phap N4 -> ne',
+  );
+  expect(
+    n4('pattern-to-meaning')?.key === 'nm:x' &&
+      n4('meaning-to-pattern')?.key === 'nm:x' &&
+      n4('meaning-mixed')?.key === 'nm:x',
+    'y nghia mau ngu phap N4 -> nm',
+  );
+  expect(n4('example-vi-jp')?.source === 'ngu-phap-n4', 'nguon cua muc N4 la id bai tap (cung la khoa ★)');
+  expect(parseReviewKey('ne:abc')?.type === 'ne' && parseReviewKey('nm:nagara')?.type === 'nm', 'nhan ra khoa ne / nm');
+}
 expect(ref({ lessonKind: 'kanji', lessonId: 'nhu-6fe1', answerMode: 'draw' }, 'x') === null, 'phien viet chu khong vao lich');
 expect(ref({ lessonKind: 'radical', lessonId: 'bo-thuy' }, 'x') === null, 'bo thu khong vao lich');
 expect(ref({ lessonKind: 'conversation', lessonId: 'hoi-thoai-minano-26' }, 'x') === null, 'hoi thoai khong vao lich');

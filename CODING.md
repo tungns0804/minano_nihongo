@@ -227,8 +227,9 @@ onSearch(event: Event): void { this.search.set(valueOf(event)); }
 chung của nhiều màn hình"* đã có: khung thiết lập (`.options-2`,
 `.options-limit`, `.option-stacked`, `.start-bar`), hàng lọc (`.filter-row`,
 `.search-input`, `.filter-check`), nút ★, bảng từ (`.word-table`, `.col-star`),
-`.back-link`, thẻ bài học (`.lesson-card`, `.lesson-grid`, `.skeleton-*`), và
-tab chọn nhóm (`.level-tab*`).
+`.back-link`, thẻ bài học (`.lesson-card`, `.lesson-grid`, `.skeleton-*`), tab
+chọn nhóm (`.level-tab*`), và phần lý thuyết ngữ pháp (`.structure-list`,
+`.structure`, `.explain`, `.note-list`, `.grammar-table`).
 
 Màn hình cần khác một chút thì **chỉ khai phần khác** trong file của nó. Việc đó
 luôn thắng: Angular gắn `[_ngcontent-…]` vào selector của component nên

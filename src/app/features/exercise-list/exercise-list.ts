@@ -3,6 +3,8 @@ import { RouterLink } from '@angular/router';
 
 import { EXERCISES, ExerciseId, ExerciseInfo } from '../../core/exercises/exercise.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
+import { N4_SECTIONS } from '../../core/exercises/n4-grammar';
+import { meaningPoints } from '../../core/exercises/n4-grammar.model';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
@@ -21,7 +23,7 @@ import { SearchBox } from '../../shared/search-box';
 
 interface ExerciseCard extends ExerciseInfo {
   itemCount: number;
-  /** "N5 → N3" — mã JLPT nên không dịch, chỉ ghép lại. */
+  /** "N5 → N3", hoặc chỉ "N4" khi bài tập gói trong một cấp — mã JLPT nên không dịch. */
   levelRange: string;
   favoriteCount: number;
 }
@@ -39,8 +41,9 @@ interface LessonGroup {
  * Tab "Bài tập bổ trợ" — mọi cách luyện KHÔNG phải là học nghĩa từ vựng.
  *
  * Gồm ba nhóm:
- *  1. Bài tập chuyên đề cài sẵn trong mã nguồn (`core/exercises/`), gom động từ
- *     của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp.
+ *  1. Bài tập chuyên đề cài sẵn trong mã nguồn (`core/exercises/`): hai bài gom động
+ *     từ của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp, và bài ngữ pháp N4
+ *     theo tài liệu tổng hợp.
  *  2. Bài chia động từ — tới từ `data-source/`, mở ở `/lesson/:id`.
  *  3. Bài dịch hội thoại — cũng tới từ `data-source/`, cũng mở ở `/lesson/:id`.
  *
@@ -76,7 +79,7 @@ export class ExerciseList extends LessonBrowser {
    * Các loại bài học thuộc tab này, trừ 'exercise'.
    *
    * Loại 'exercise' cũng xếp vào tab này nhưng nó KHÔNG tới từ `LessonStore` —
-   * hai bài tập chuyên đề nằm thẳng trong mã nguồn, đã dựng thẻ riêng ở trên.
+   * các bài tập chuyên đề nằm thẳng trong mã nguồn, đã dựng thẻ riêng ở trên.
    *
    * Kiểu ghi rõ `LessonKind[]` chứ không để suy ra: TypeScript tự rút hẹp kiểu
    * theo điều kiện của `filter`, và mảng rút hẹp đó thì `.includes(lesson.kind)`
@@ -86,14 +89,17 @@ export class ExerciseList extends LessonBrowser {
     (kind) => kind !== 'exercise',
   );
 
-  /** Hai bài tập chuyên đề, chưa lọc. */
+  /** Các bài tập chuyên đề, chưa lọc. */
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
     const counts = this.favoriteStore.counts();
     return EXERCISES.map((info) => ({
       ...info,
       itemCount: itemCountOf(info.id),
-      levelRange: `${info.levels[0]} → ${info.levels[info.levels.length - 1]}`,
+      levelRange:
+        info.levels.length > 1
+          ? `${info.levels[0]} → ${info.levels[info.levels.length - 1]}`
+          : info.levels[0],
       favoriteCount: counts[info.id] ?? 0,
     }));
   });
@@ -167,7 +173,7 @@ export class ExerciseList extends LessonBrowser {
   /**
    * Đang tìm mà không ra gì.
    *
-   * Chỉ xét khi thật sự có từ khoá: hai bài tập chuyên đề luôn có mặt nên `visibleCount`
+   * Chỉ xét khi thật sự có từ khoá: các bài tập chuyên đề luôn có mặt nên `visibleCount`
    * không bao giờ bằng 0 lúc chưa gõ gì, nhưng có gõ thì nó về 0 được.
    */
   readonly noMatch = computed(() => this.needle().length > 0 && this.visibleCount() === 0);
@@ -188,5 +194,12 @@ export class ExerciseList extends LessonBrowser {
 }
 
 function itemCountOf(id: ExerciseId): number {
-  return id === 'tu-tha-dong-tu' ? TRANSITIVITY_PAIRS.length : EXERCISE_VERBS.length;
+  switch (id) {
+    case 'tu-tha-dong-tu':
+      return TRANSITIVITY_PAIRS.length;
+    case 'chuyen-the-dong-tu':
+      return EXERCISE_VERBS.length;
+    case 'ngu-phap-n4':
+      return meaningPoints(N4_SECTIONS).length;
+  }
 }

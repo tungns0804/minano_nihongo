@@ -1,0 +1,370 @@
+/* Bài tập "Luyện tập ngữ pháp N4": danh sách mục gập/mở + khung thiết lập.
+
+   Công thức, đoạn giải thích, lưu ý và bảng dùng chung lớp với trang bài ngữ pháp
+   (`.structure`, `.explain`, `.note-list`, `.grammar-table` ở src/styles.css). File
+   này chỉ còn phần riêng: mục gập/mở, câu ví dụ có furigana, câu sai, bài luyện tập
+   của tài liệu và ô chọn mục. */
+
+.theory-tools {
+  gap: var(--sp-3);
+  justify-content: flex-end;
+}
+
+/* --- Một mục của tài liệu ------------------------------------------------- */
+
+.n4-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+/* Chừa chỗ cho header dính khi trình duyệt cuộn tới mục. */
+.n4-section {
+  scroll-margin-top: calc(var(--header-h) + var(--sp-4));
+}
+
+.n4-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 12px 16px;
+  cursor: pointer;
+  list-style: none;
+  border-radius: inherit;
+  transition: background-color var(--dur) var(--ease);
+}
+
+/* Bỏ tam giác mặc định của <summary>: mũi tên riêng ở cuối dòng xoay theo trạng thái. */
+.n4-summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (hover: hover) {
+  .n4-summary:hover {
+    background: var(--bg-subtle);
+  }
+}
+
+.n4-section[open] > .n4-summary {
+  border-bottom: 1px solid var(--border);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.n4-no {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.n4-summary-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.n4-section-title {
+  font-size: 1.08rem;
+  font-weight: 650;
+}
+
+/* Một dòng tóm tắt là đủ để nhận ra mục; mở mục ra thì đọc ý nghĩa đầy đủ bên trong. */
+.n4-section-meaning {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.n4-chevron {
+  flex-shrink: 0;
+  color: var(--text-faint);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform var(--dur) var(--ease);
+}
+
+.n4-section[open] .n4-chevron {
+  transform: rotate(90deg);
+}
+
+.n4-body {
+  gap: var(--sp-5);
+}
+
+/* --- Một mẫu ngữ pháp trong mục ------------------------------------------- */
+
+/* Các mẫu trong cùng mục ngăn nhau bằng một vạch mảnh, không phải thẻ lồng thẻ. */
+.n4-point + .n4-point {
+  padding-top: var(--sp-5);
+  border-top: 1px dashed var(--border-strong);
+}
+
+.n4-point {
+  gap: 14px;
+}
+
+.n4-point-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.n4-pattern {
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+}
+
+.n4-meaning {
+  max-width: 78ch;
+}
+
+.n4-meaning-label {
+  font-weight: 650;
+  color: var(--accent);
+}
+
+/* --- Câu sai ---------------------------------------------------------------
+   Tài liệu đánh dấu （ｘ）: chỉ để đọc, viền đỏ cho khỏi lẫn với câu ví dụ đúng. */
+
+.n4-wrong {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--danger-border);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--danger-soft) 55%, transparent);
+}
+
+.n4-wrong-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.n4-wrong-list .jp {
+  line-height: 2;
+}
+
+.n4-wrong-mark {
+  margin-right: 6px;
+  color: var(--danger);
+  font-weight: 700;
+}
+
+/* --- Câu ví dụ ------------------------------------------------------------ */
+
+/* Cùng dáng với "cách dùng" ở trang bài ngữ pháp: vạch màu bên trái cho thấy các câu
+   thuộc về mẫu ngay trên. */
+.n4-usage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  padding-left: 14px;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+/* Nhóm chỉ để đối chiếu không đem ra luyện: vạch đứt cho khác nhóm luyện được. */
+.n4-usage.is-reference {
+  border-left-style: dashed;
+}
+
+.n4-usage-title {
+  font-size: var(--fs-md);
+  font-weight: 640;
+}
+
+.n4-example-list {
+  list-style: none;
+  margin: var(--sp-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.n4-example {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: 9px 13px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+}
+
+.n4-example:has(.star-btn.is-on) {
+  border-color: var(--warning-border);
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.n4-example-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* Furigana cần thêm khoảng trên dòng, không thì chữ chú âm đè lên dòng phía trên. */
+.n4-example-jp,
+.n4-example-alt {
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+.n4-example-no {
+  margin-right: 6px;
+  color: var(--text-faint);
+  font-size: 0.95rem;
+}
+
+.n4-example-alt {
+  font-size: 1rem;
+}
+
+.n4-example-vi {
+  font-size: 0.95rem;
+}
+
+.n4-example-note {
+  font-style: italic;
+}
+
+.grammar-table td {
+  line-height: 1.9;
+}
+
+/* --- Bài luyện tập của tài liệu ------------------------------------------- */
+
+.n4-quiz {
+  gap: var(--sp-2);
+  padding: 12px 16px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+}
+
+.n4-quiz-list {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.n4-quiz-list .jp {
+  line-height: 2;
+}
+
+.n4-quiz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.n4-quiz-option {
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-subtle);
+  font-size: 0.95rem;
+}
+
+.n4-quiz-answers > summary {
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.n4-quiz-answers[open] > summary {
+  margin-bottom: var(--sp-2);
+}
+
+.n4-section-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* --- Ô chọn mục trong khung thiết lập --------------------------------------
+   49 mục nên là chip nhỏ xếp tràn hàng, không phải thẻ có dòng ví dụ như các nhóm
+   lựa chọn khác — xếp thẻ thì nhóm này cao hơn cả phần còn lại của khung. */
+
+.section-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.section-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px 4px 5px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.section-chip:hover {
+  border-color: var(--accent);
+}
+
+.section-chip.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.section-chip-no {
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 4px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-subtle);
+  color: var(--text-faint);
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+}
+
+.section-chip.is-active .section-chip-no {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+@media (max-width: 640px) {
+  .n4-summary {
+    padding: 10px 12px;
+  }
+
+  .n4-pattern {
+    font-size: 1.18rem;
+  }
+
+  .n4-usage {
+    padding-left: 10px;
+  }
+
+  .start-bar .btn {
+    width: 100%;
+  }
+}

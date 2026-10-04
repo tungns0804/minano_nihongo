@@ -60,14 +60,14 @@ Bản này đọc dữ liệu từ `lessons/*.json` lúc chạy nên thêm bài 
 | **Từ vựng theo chủ đề** | 20 chủ đề hay ra trong đề N3, cắt lại từ chính kho từ trên | Danh sách từ + kho từ có sẵn | Tab **Từ vựng chủ đề** |
 | **Chia động từ** | Thể Te / Ta / Ru / Nai, nhận diện nhóm | 4 cột (thêm cột nhóm) | Tab **Bài tập bổ trợ** |
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | Tab **Bài tập bổ trợ** |
-| **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | Tab **Bài tập bổ trợ** |
+| **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2), luyện tập ngữ pháp N4 | Cài sẵn trong mã nguồn | Tab **Bài tập bổ trợ** |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | Tab **Ngữ pháp minano** |
 | **Kanji** | Danh sách 2.123 chữ Hán N5→N1 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | Tab **Kanji** |
 | **Bộ thủ** | 214 bộ thủ + các chữ Hán N5→N1 ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | Tab **Bộ thủ** |
 
 Ranh giới giữa hai tab đầu là **nhớ nghĩa** hay **luyện một kỹ năng**. Tab **Từ vựng minano**
 chỉ có bài từ vựng: mở ra là để nhớ nghĩa của một kho từ. Tab **Bài tập bổ trợ** gom mọi thứ
-còn lại — chia thể động từ, dịch câu hội thoại, và hai bài tập chuyên đề — đều là luyện một
+còn lại — chia thể động từ, dịch câu hội thoại, và ba bài tập chuyên đề — đều là luyện một
 thao tác chứ không phải học thuộc một danh sách.
 
 Vì trang chủ chỉ còn đúng một loại nên **bộ lọc "Loại bài học" đã bỏ**; một bộ lọc có duy nhất
@@ -81,7 +81,7 @@ trước, nên link cũ vẫn vào được và dấu ★ "chưa nhớ" (khoá t
 Danh sách đã hơn 50 bài nên **cả ba tab** (Từ vựng minano, Bài tập bổ trợ, Ngữ pháp minano) đều
 có ô tìm kiếm ở đầu trang. Gõ tên bài, số bài ("33"), hay chữ không dấu ("dong tu") đều ra — từ
 khoá khớp theo từng từ nên "33 dong tu" vẫn tìm đúng bài. Ở tab Bài tập bổ trợ, ô tìm kiếm lọc
-cả hai bài tập chuyên đề lẫn các bài học: tên chúng là khoá dịch nên được dịch ra rồi mới so
+cả ba bài tập chuyên đề lẫn các bài học: tên chúng là khoá dịch nên được dịch ra rồi mới so
 khớp, gõ "chuyen the" ở tiếng Việt và gõ "活用" ở tiếng Nhật đều ra đúng thẻ đó. Khác với bộ lọc
 cấp độ, từ khoá KHÔNG được nhớ cho lần mở sau: mở app lên mà danh sách đã bị cắt sẵn theo thứ gõ
 hôm trước thì trông y như mất bài học.
@@ -92,9 +92,10 @@ Trang chủ có thêm bộ lọc **Cấp độ**: **N5 = bài 1–25**, **N4 = b
 đúng theo cuốn nguồn: hết bài 25 thì sách in tiêu đề “TỪ VỰNG MINNANO N4” rồi mới sang bài 26.
 
 Bộ lọc này chỉ có ở trang chủ, tức chỉ áp cho bài từ vựng. Tab Bài tập bổ trợ không có nó: hai
-bài tập chuyên đề trải N5→N2 theo cấp gán cho TỪNG động từ chứ không theo số bài, nên xếp chúng
-vào một bộ lọc chia theo số bài thì cả hai rơi hết vào ô "Không theo bài". Ở đó tìm bằng số bài
-("28") nhanh hơn lọc, vì cả tab chỉ có bảy thẻ.
+bài tập động từ trải N5→N2 theo cấp gán cho TỪNG động từ chứ không theo số bài, còn bài ngữ pháp
+N4 đi theo một tài liệu tổng hợp chứ không theo bài nào, nên xếp chúng vào một bộ lọc chia theo
+số bài thì cả ba rơi hết vào ô "Không theo bài". Ở đó tìm bằng số bài ("28") nhanh hơn lọc, vì
+cả tab chỉ có mười hai thẻ.
 
 Cấp độ KHÔNG lưu trong từng bài mà suy ra từ **số bài**. Số bài do
 [`scripts/generate-lessons.mjs`](scripts/generate-lessons.mjs) tính lúc sinh dữ liệu (hàm
@@ -684,7 +685,7 @@ Tab **Bài tập bổ trợ** gom mọi cách luyện không phải là nhớ ng
 
 | Nhóm | Nội dung | Mở ở |
 | --- | --- | --- |
-| **Bài tập** | Hai bài chuyên đề cài sẵn trong mã nguồn | `/exercise/<id>` |
+| **Bài tập** | Ba bài chuyên đề cài sẵn trong mã nguồn | `/exercise/<id>` |
 | **Chia động từ** | Bài động từ theo giáo trình, từ `data-source/` | `/lesson/<id>` |
 | **Dịch hội thoại** | Bài hội thoại theo giáo trình và bài dịch chuyên đề, từ `data-source/` | `/lesson/<id>` |
 
@@ -692,11 +693,12 @@ Tab **Bài tập bổ trợ** gom mọi cách luyện không phải là nhớ ng
 cả tiêu đề nhóm chứ không để lại một tiêu đề trống. Số liệu ở góc phải đếm theo đúng phần đang
 hiện.
 
-Hai bài chuyên đề nằm ngoài giáo trình: chúng gom động từ của nhiều bài lẫn nhiều cấp theo một
-chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách. Cả hai **chỉ có gõ đáp án** — mục tiêu
-là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Ghi chú đó đặt
-ngay trong nhóm của chúng chứ không ở cuối trang: bài **Chia động từ** bên dưới VẪN có trắc
-nghiệm, treo câu "chỉ gõ đáp án" ở cuối trang là nói sai về nó.
+Ba bài chuyên đề nằm ngoài giáo trình. Hai bài động từ gom động từ của nhiều bài lẫn nhiều cấp
+theo một chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách; cả hai **chỉ có gõ đáp án** —
+mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài
+ngữ pháp N4 đi theo tài liệu tổng hợp: gõ khi dịch câu ví dụ, trắc nghiệm khi luyện ý nghĩa. Ghi
+chú về cách trả lời đặt ngay trong nhóm của chúng chứ không ở cuối trang: bài **Chia động từ**
+bên dưới có trắc nghiệm theo cách riêng, treo ghi chú ở cuối trang là nói sai về nó.
 
 ### 1. Tự động từ & Tha động từ (N5 → N3)
 
@@ -728,7 +730,45 @@ kể cả các trường hợp đặc biệt:
 
 Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi một câu cho từng thể đã chọn.
 
-### Điểm chung của hai bài tập
+### 3. Luyện tập ngữ pháp N4
+
+Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N4”**, giữ đúng thứ tự và cách chia mục của tài liệu:
+**49 mục**, **81 mẫu** có ý nghĩa để luyện, **335 câu ví dụ** đem ra luyện (thêm vài câu chỉ để
+đối chiếu). Màn hình riêng ở `/exercise/ngu-phap-n4` gồm hai phần:
+
+- **Ngữ pháp & câu ví dụ** — danh sách 49 mục, đóng sẵn nên cũng là mục lục. Mở một mục ra là
+  đủ phần tài liệu viết: ý nghĩa, công thức, giải thích, bảng (kể cả bảng 70 cặp tự/tha động từ,
+  bảng kính ngữ), lưu ý, câu dùng sai (✗), từng câu ví dụ kèm lời giải thích, và bài luyện tập
+  của tài liệu (đáp án gập lại). Câu tiếng Nhật có **furigana** — tài liệu ghi cách đọc trong
+  ngoặc, ở đây đổi thành chữ nhỏ trên đầu, bật tắt được. Ô tìm lọc theo tên mẫu, ý nghĩa, câu
+  ví dụ (cả chữ Hán lẫn kana) hay bản dịch, và mở sẵn các mục khớp. Mỗi mục có nút **Luyện mục
+  này**.
+- **Thiết lập luyện tập** — năm dạng:
+
+| Dạng | Câu hỏi | Trả lời |
+| --- | --- | --- |
+| Dịch câu ví dụ Việt → Nhật | Cái cốc này khó vỡ. | gõ: このコップは われにくいです。 |
+| Dịch câu ví dụ Nhật → Việt | このコップは われにくいです。 | gõ: Cái cốc này khó vỡ. |
+| Ngữ pháp → Ý nghĩa | ～ながら | chọn 1 trong 4 ý nghĩa |
+| Ý nghĩa → Ngữ pháp | Vừa … vừa … | chọn 1 trong 4 mẫu |
+| Ý nghĩa: trộn cả hai chiều | mỗi mẫu được hỏi cả xuôi lẫn ngược | |
+
+Câu ví dụ viết theo cú pháp câu mẫu của khu Luyện dịch (`{漢字|かな}`, `[a/b]`), nên khi dịch
+sang tiếng Nhật thì gõ chữ Hán, gõ kana hay gõ lẫn đều đúng, và chỗ tài liệu ghi hai cách nói
+(いつ/何時に) thì cách nào cũng được. Phần ý nghĩa là trắc nghiệm vì ý nghĩa là một câu mô tả
+dài; đáp án nhiễu ưu tiên lấy trong nhóm mẫu dễ nhầm (ば / たら / と / なら, よう / そう / らしい…),
+và không bao giờ lấy mẫu cùng nghĩa (thể khả năng / ～ことができる).
+
+Chọn được mục đem ra luyện, phạm vi ★ (★ đánh trên câu ví dụ khi dịch câu, trên mẫu khi luyện ý
+nghĩa), số câu, gợi ý mẫu ngữ pháp. Câu đã chấm tự vào lịch **Ôn tập** ở khu Ngữ pháp — khoá
+`ne:<id câu>` cho câu ví dụ, `nm:<id mẫu>` cho ý nghĩa.
+
+`npm run verify:n4` soát dữ liệu: cú pháp furigana, cách đọc phải là kana, id câu / id mẫu không
+trùng, ý nghĩa và tên mẫu không trùng (trùng là có câu trắc nghiệm hai đáp án đúng), không còn
+cách đọc viết trong ngoặc như bản gốc. `npm run verify:answer` thử chấm mọi câu ví dụ với các
+cách gõ khác nhau.
+
+### Điểm chung của hai bài tập động từ
 
 - **Lọc theo cấp độ** — bật tắt N5 / N4 / N3 / N2, bảng tra cứu và số câu đổi theo ngay.
 - **Gõ bằng kana cũng đúng** — `かえって` được tính đúng như `帰って`. Cách đọc được chia bằng
@@ -738,9 +778,9 @@ Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi mộ
 - **Bảng tra cứu** ngay dưới phần thiết lập: bảng cặp tự/tha động từ, hoặc bảng chia đủ 4 thể.
 - Dùng lại nguyên màn hình luyện tập và màn hình kết quả của các loại bài kia.
 
-Dữ liệu hai bài tập nằm thẳng trong mã nguồn (`src/app/core/exercises/`) chứ không đi qua
+Dữ liệu cả ba bài tập nằm thẳng trong mã nguồn (`src/app/core/exercises/`) chứ không đi qua
 `data-source/` + `npm run generate`: đây là chức năng cố định của ứng dụng, không phải nội dung
-người dùng tự nạp thêm. `npm run verify:conjugation` kiểm tra luôn phần dữ liệu này — mọi động
+người dùng tự nạp thêm. `npm run verify:conjugation` kiểm tra phần dữ liệu động từ — mọi động
 từ phải chia được theo nhóm đã khai, cách đọc phải là kana thuần kết thúc bằng ます và cũng
 phải chia được, không có id nào trùng.
 
@@ -1028,9 +1068,11 @@ src/app/
     japanese/
       conjugation.ts             Luật chia động từ — bản cài đặt DUY NHẤT
     exercises/
-      exercise.model.ts          Kiểu dữ liệu + danh sách hai bài tập
+      exercise.model.ts          Kiểu dữ liệu + danh sách ba bài tập + các dạng luyện
       transitive-pairs.ts        58 cặp tự động từ / tha động từ (N5→N3)
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
+      n4-grammar.model.ts        Kiểu dữ liệu bài ngữ pháp N4 (mục → mẫu → câu ví dụ)
+      n4-grammar.ts              49 mục chép từ tài liệu "TỔNG HỢP NGỮ PHÁP N4"
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
       kanji-levels.ts            Danh sách JLPT N5→N1 — quyết định chữ nào, cấp nào
@@ -1075,7 +1117,8 @@ src/app/
       verb-questions.ts          Câu hỏi cho bài động từ + đáp án nhiễu
       conversation-questions.ts  Câu hỏi cho bài hội thoại
       grammar-questions.ts       Câu hỏi cho bài ngữ pháp
-      exercise-questions.ts      Câu hỏi cho hai bài tập
+      exercise-questions.ts      Câu hỏi cho hai bài tập động từ
+      n4-grammar-questions.ts    Câu hỏi cho bài ngữ pháp N4: dịch câu ví dụ, ý nghĩa ↔ mẫu
       kanji-questions.ts         Câu hỏi cho khu Kanji
       radical-questions.ts       Câu hỏi cho khu Bộ thủ
       draw-questions.ts          Câu hỏi viết tay, dùng chung cho khu Kanji và Bộ thủ
@@ -1101,7 +1144,8 @@ src/app/
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập bổ trợ — bài tập chuyên đề + bài động từ + bài hội thoại
-    exercise-detail/             Một bài tập: thiết lập luyện + bảng tra cứu
+    exercise-detail/             Một bài tập động từ: thiết lập luyện + bảng tra cứu
+    n4-grammar/                  Bài ngữ pháp N4: 49 mục lý thuyết + thiết lập luyện tập
     n3-progress/                 Tab Tiến độ N3 — phần trăm, nhịp học mỗi ngày, bảng kiểm soát
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ

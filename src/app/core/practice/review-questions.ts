@@ -1,5 +1,7 @@
 import type { ExerciseMode } from '../exercises/exercise.model';
 import { EXERCISE_VERBS } from '../exercises/exercise-verbs';
+import { N4_SECTIONS } from '../exercises/n4-grammar';
+import { flattenN4Examples, meaningPoints } from '../exercises/n4-grammar.model';
 import { TRANSITIVITY_PAIRS } from '../exercises/transitive-pairs';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 import { kanjiById } from '../kanji/kanji-entries';
@@ -24,6 +26,7 @@ import {
 } from './exercise-questions';
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildKanjiHanVietQuestions, buildKanjiWordQuestions } from './kanji-questions';
+import { buildN4ExampleQuestions, buildN4MeaningQuestions } from './n4-grammar-questions';
 import { FORMS_BY_MODE, buildVerbQuestions } from './verb-questions';
 import { buildVocabularyQuestions } from './vocabulary-questions';
 
@@ -189,6 +192,41 @@ function buildOne(
         buildTransitivityQuestions(
           [pair],
           configOf({ lessonKind: 'exercise', exercise: 'tu-tha-dong-tu', exerciseMode, showHanViet: true }),
+        )[0] ?? null
+      );
+    }
+
+    case 'ne': {
+      const example = flattenN4Examples(N4_SECTIONS).find((item) => item.example.id === id);
+      if (!example) return null;
+      // Luôn hiện mẫu ngữ pháp làm gợi ý, như mặc định của chính bài tập.
+      return (
+        buildN4ExampleQuestions(
+          [example],
+          configOf({
+            lessonKind: 'exercise',
+            exercise: 'ngu-phap-n4',
+            exerciseMode: toJapanese ? 'example-vi-jp' : 'example-jp-vi',
+            showGrammarHint: true,
+          }),
+        )[0] ?? null
+      );
+    }
+
+    case 'nm': {
+      const point = meaningPoints(N4_SECTIONS).find((item) => item.point.id === id);
+      if (!point) return null;
+      // Luôn trắc nghiệm, kể cả khi người học chọn "gõ": ý nghĩa là một câu mô tả dài,
+      // gõ lại cho khớp từng chữ thì không còn là nhớ ngữ pháp.
+      return (
+        buildN4MeaningQuestions(
+          [point],
+          configOf({
+            lessonKind: 'exercise',
+            exercise: 'ngu-phap-n4',
+            exerciseMode: toJapanese ? 'meaning-to-pattern' : 'pattern-to-meaning',
+            answerMode: 'choice',
+          }),
         )[0] ?? null
       );
     }

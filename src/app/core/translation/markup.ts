@@ -187,6 +187,82 @@ export function rubySegments(source: string): RubySegment[] {
   return out;
 }
 
+/** Có chữ Nhật thì đóng ngoặc toàn chiều cho cùng nét với câu, không thì ngoặc thường. */
+const JAPANESE_CHAR = /[぀-ヿ㐀-鿿々〆]/;
+
+/**
+ * Các đoạn để vẽ câu như VĂN BẢN GỐC viết: mọi lựa chọn của [a/b] nối bằng "/", phần có
+ * thể bỏ [a/] đặt trong ngoặc.
+ *
+ * Khác `rubySegments` (chỉ lấy lựa chọn đầu): ở khu Luyện dịch, [a/b] là các cách nói
+ * được chấp nhận ngầm, còn ở bài tập ngữ pháp N4 nó là chính chữ tài liệu in ra —
+ * 「いつ/何時に会ったらいい？」, 「場合（は）」 — nên phải hiện đủ.
+ */
+export function writtenSegments(source: string): RubySegment[] {
+  const out: RubySegment[] = [];
+  const pushText = (text: string) => {
+    if (!text) return;
+    const last = out[out.length - 1];
+    if (last && last.reading === null) last.base += text;
+    else out.push({ base: text, reading: null });
+  };
+
+  const walk = (nodes: readonly MarkupNode[]) => {
+    for (const node of nodes) {
+      if (node.kind === 'text') {
+        pushText(node.text);
+      } else if (node.kind === 'ruby') {
+        out.push({ base: node.base, reading: node.reading });
+      } else {
+        const filled = node.options.filter((option) => option.length > 0);
+        const optional = filled.length < node.options.length;
+        const japanese = filled.some((option) =>
+          JAPANESE_CHAR.test(render(option, (ruby) => ruby.base)),
+        );
+        if (optional) pushText(japanese ? '（' : '(');
+        filled.forEach((option, index) => {
+          if (index > 0) pushText('/');
+          walk(option);
+        });
+        if (optional) pushText(japanese ? '）' : ')');
+      }
+    }
+  };
+
+  walk(parseMarkup(source));
+  return out;
+}
+
+/** `writtenSegments` không kèm furigana — cho chỗ chỉ hiện được chữ thường. */
+export function writtenText(source: string): string {
+  return writtenSegments(source)
+    .map((segment) => segment.base)
+    .join('');
+}
+
+/**
+ * Các câu khác đọc ra được từ câu mẫu (mỗi [...] chọn một lựa chọn), ở dạng chữ Hán và
+ * bỏ câu đầu — chính là `plainText`. Dùng cho dòng "cũng được chấp nhận" sau khi chấm.
+ *
+ * Cắt ở `limit` câu: câu có ba chỗ [a/b] đã ra tám tổ hợp, liệt kê hết thì dòng đó dài
+ * hơn chính đáp án.
+ */
+export function variantTexts(source: string, limit = 4): string[] {
+  let variants = [''];
+  for (const node of parseMarkup(source)) {
+    const pieces =
+      node.kind === 'text'
+        ? [node.text]
+        : node.kind === 'ruby'
+          ? [node.base]
+          : node.options.map((option) => render(option, (ruby) => ruby.base));
+    variants = variants.flatMap((prefix) => pieces.map((piece) => prefix + piece)).slice(0, 64);
+  }
+  const tidy = (value: string) => value.replace(/\s+/g, ' ').trim();
+  const first = tidy(plainText(source));
+  return [...new Set(variants.map(tidy))].filter((item) => item && item !== first).slice(0, limit);
+}
+
 function escapeRegex(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

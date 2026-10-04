@@ -1,0 +1,486 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <!-- ── Tiêu đề ───────────────────────────────────────────────────────── -->
+    <header class="stack stack-sm">
+      <a class="back-link" routerLink="/exercise">{{ t('exercise.back') }}</a>
+      <h1><app-t key="exercise.n4grammar.name" /></h1>
+      <p class="muted"><app-t key="exercise.n4.subtitle" block /></p>
+      <div class="row">
+        <span class="badge">{{ t('exercise.n4.sectionCount', { count: sections.length }) }}</span>
+        <span class="badge">{{ t('exercise.patternCount', { count: pointTotal }) }}</span>
+        <span class="badge">{{ t('grammar.exampleCount', { count: exampleTotal }) }}</span>
+        <span class="badge badge-warning">{{ t('home.favoriteCount', { count: favoriteTotal() }) }}</span>
+      </div>
+      <div>
+        <button type="button" class="btn btn-sm" (click)="scrollToPractice()">
+          {{ t('lesson.jumpToPractice') }}
+        </button>
+      </div>
+    </header>
+
+    <!-- ── Lý thuyết: các mục của tài liệu ───────────────────────────────── -->
+    <section class="stack" aria-labelledby="n4-theory-title">
+      <div class="stack stack-sm">
+        <h2 id="n4-theory-title">{{ t('exercise.n4.theory') }}</h2>
+        <p class="muted small"><app-t key="exercise.n4.theory.hint" block /></p>
+      </div>
+
+      <div class="toolbar">
+        <app-search-box
+          [placeholder]="t('exercise.n4.search')"
+          [label]="t('exercise.n4.search.aria')"
+          [value]="search()"
+          (changed)="onSearchChange($event)"
+        />
+        <div class="row theory-tools">
+          <label class="checkbox">
+            <input type="checkbox" [checked]="showFurigana()" (change)="toggleFurigana($event)" />
+            <span><strong>{{ t('translate.option.furigana') }}</strong></span>
+          </label>
+          <button type="button" class="btn btn-sm btn-ghost" (click)="openAll()">
+            {{ t('exercise.n4.openAll') }}
+          </button>
+          <button type="button" class="btn btn-sm btn-ghost" (click)="closeAll()">
+            {{ t('exercise.n4.closeAll') }}
+          </button>
+        </div>
+      </div>
+
+      @if (visibleSections().length === 0) {
+        <div class="empty-state">
+          <span class="empty-state-icon" aria-hidden="true">🔍</span>
+          <p class="empty-state-title">{{ t('exercise.n4.noMatch', { term: search() }) }}</p>
+          <button type="button" class="btn btn-sm" (click)="onSearchChange('')">
+            {{ t('home.noMatch.reset') }}
+          </button>
+        </div>
+      }
+
+      <div class="n4-sections">
+        @for (section of visibleSections(); track section.id) {
+          <!-- Nội dung chỉ dựng khi mục đang mở (xem ghi chú ở component). Mục đóng
+               chỉ còn dòng tiêu đề, nên danh sách lúc đó là mục lục của tài liệu. -->
+          <details
+            class="card n4-section"
+            [id]="'n4-' + section.id"
+            [open]="isOpen(section.id)"
+            (toggle)="onToggle(section.id, $event)"
+          >
+            <summary class="n4-summary">
+              <span class="n4-no" aria-hidden="true">{{ section.number }}</span>
+              <span class="n4-summary-text">
+                <span class="n4-section-title jp">{{ section.title }}</span>
+                @if (summaryOf(section); as summary) {
+                  <span class="n4-section-meaning small muted">{{ summary }}</span>
+                }
+              </span>
+              <span class="n4-chevron" aria-hidden="true">›</span>
+            </summary>
+
+            @if (isOpen(section.id)) {
+              <div class="card-body stack n4-body">
+                @for (paragraph of section.intro; track $index) {
+                  <p class="explain">{{ paragraph }}</p>
+                }
+
+                @for (point of section.points; track point.id) {
+                  <article class="n4-point stack">
+                    <div class="n4-point-head">
+                      <div class="stack" style="gap: 4px">
+                        <h3 class="n4-pattern jp">{{ point.pattern }}</h3>
+                        @if (point.meaning) {
+                          <p class="n4-meaning">
+                            <span class="n4-meaning-label">{{ t('exercise.n4.meaning') }}:</span>
+                            {{ point.meaning }}
+                          </p>
+                        }
+                      </div>
+                      @if (point.meaning) {
+                        <button app-star
+                          [on]="isFavorite(point.id)"
+                          [label]="t('exercise.n4.starPoint')"
+                          [title]="t('exercise.n4.starPoint')"
+                          (click)="toggleFavorite(point.id)"
+                        ></button>
+                      }
+                    </div>
+
+                    @if (point.structures.length > 0) {
+                      <div class="field">
+                        <span class="label">{{ t('grammar.structure') }}</span>
+                        <!-- Danh sách chuỗi theo vị trí, không có id: track $index (xem
+                             ghi chú cùng chỗ ở trang bài ngữ pháp). -->
+                        <ul class="structure-list">
+                          @for (structure of point.structures; track $index) {
+                            <li class="structure jp">{{ structure }}</li>
+                          }
+                        </ul>
+                      </div>
+                    }
+
+                    @if (point.explanation.length > 0) {
+                      <div class="stack stack-sm">
+                        @for (paragraph of point.explanation; track $index) {
+                          <p class="explain">{{ paragraph }}</p>
+                        }
+                      </div>
+                    }
+
+                    @for (table of point.tables; track $index) {
+                      <div class="stack" style="gap: 6px">
+                        @if (table.caption) {
+                          <span class="label">{{ table.caption }}</span>
+                        }
+                        <div class="scroll-x">
+                          <table class="grammar-table">
+                            @if (table.headers.length > 0) {
+                              <thead>
+                                <tr>
+                                  @for (header of table.headers; track $index) {
+                                    <th scope="col">{{ header }}</th>
+                                  }
+                                </tr>
+                              </thead>
+                            }
+                            <tbody>
+                              @for (row of table.rows; track $index) {
+                                <tr>
+                                  @for (cell of row; track $index) {
+                                    <td class="jp">
+                                      <app-ruby [text]="cell" [written]="true" [furigana]="showFurigana()" />
+                                    </td>
+                                  }
+                                </tr>
+                              }
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    }
+
+                    @if (point.notes.length > 0) {
+                      <div class="notice notice-warning">
+                        <div class="stack" style="gap: 6px; width: 100%">
+                          <strong>{{ t('grammar.notes') }}</strong>
+                          <ul class="note-list">
+                            @for (note of point.notes; track $index) {
+                              <li>{{ note }}</li>
+                            }
+                          </ul>
+                        </div>
+                      </div>
+                    }
+
+                    @if (point.wrong.length > 0) {
+                      <div class="n4-wrong">
+                        <span class="label">{{ t('exercise.n4.wrong') }}</span>
+                        <ul class="n4-wrong-list">
+                          @for (wrong of point.wrong; track $index) {
+                            <li>
+                              <p class="jp">
+                                <span class="n4-wrong-mark" aria-hidden="true">✗</span>
+                                <app-ruby [text]="wrong.japanese" [written]="true" [furigana]="showFurigana()" />
+                              </p>
+                              <p class="small muted">{{ wrong.note }}</p>
+                            </li>
+                          }
+                        </ul>
+                      </div>
+                    }
+
+                    @for (usage of point.usages; track $index) {
+                      <div class="n4-usage" [class.is-reference]="usage.reference">
+                        <h4 class="n4-usage-title">
+                          @if (usage.title) {
+                            {{ usage.title }}
+                          } @else {
+                            {{ t('exercise.n4.examples') }}
+                          }
+                        </h4>
+                        @if (usage.detail) {
+                          <p class="muted small">{{ usage.detail }}</p>
+                        }
+                        <ul class="n4-example-list">
+                          @for (example of usage.examples; track $index; let index = $index) {
+                            <li class="n4-example">
+                              <!-- Câu chỉ để đối chiếu không đem ra luyện nên không có ★. -->
+                              @if (!usage.reference) {
+                                <button app-star
+                                  [on]="isFavorite(example.id)"
+                                  [label]="t('grammar.star')"
+                                  [title]="t('grammar.star')"
+                                  (click)="toggleFavorite(example.id)"
+                                ></button>
+                              }
+                              <div class="n4-example-body">
+                                <p class="n4-example-jp jp">
+                                  <span class="n4-example-no" aria-hidden="true">{{ circled(index) }}</span>
+                                  <app-ruby [text]="example.japanese" [written]="true" [furigana]="showFurigana()" />
+                                </p>
+                                @for (alt of example.japaneseAlt; track $index) {
+                                  <p class="n4-example-alt jp">
+                                    <span class="small muted">{{ t('exercise.n4.alsoSaid') }}</span>
+                                    <app-ruby [text]="alt" [written]="true" [furigana]="showFurigana()" />
+                                  </p>
+                                }
+                                <p class="n4-example-vi muted">
+                                  <app-ruby [text]="example.vietnamese" [written]="true" [furigana]="false" />
+                                </p>
+                                @if (example.note) {
+                                  <p class="n4-example-note faint small">{{ example.note }}</p>
+                                }
+                              </div>
+                            </li>
+                          }
+                        </ul>
+                      </div>
+                    }
+                  </article>
+                }
+
+                @if (section.quiz; as quiz) {
+                  <div class="n4-quiz stack">
+                    <h4 class="n4-usage-title">{{ t('exercise.n4.quiz') }}</h4>
+                    <p class="muted small">{{ quiz.instruction }}</p>
+                    <ol class="n4-quiz-list">
+                      @for (item of quiz.items; track $index) {
+                        <li>
+                          <p class="jp">
+                            <app-ruby [text]="item.prompt" [written]="true" [furigana]="showFurigana()" />
+                          </p>
+                          <p class="n4-quiz-options jp">
+                            @for (option of item.options; track $index) {
+                              <span class="n4-quiz-option">
+                                <app-ruby [text]="option" [written]="true" [furigana]="showFurigana()" />
+                              </span>
+                            }
+                          </p>
+                          @if (item.note) {
+                            <p class="faint small">{{ item.note }}</p>
+                          }
+                        </li>
+                      }
+                    </ol>
+                    <details class="n4-quiz-answers">
+                      <summary>{{ t('exercise.n4.quizAnswers') }}</summary>
+                      <ol class="n4-quiz-list">
+                        @for (item of quiz.items; track $index) {
+                          <li class="jp">{{ item.answer }}</li>
+                        }
+                      </ol>
+                    </details>
+                  </div>
+                }
+
+                <div class="n4-section-actions">
+                  <button type="button" class="btn btn-sm" (click)="practiceSection(section.id)">
+                    {{ t('exercise.n4.practiceSection') }}
+                  </button>
+                </div>
+              </div>
+            }
+          </details>
+        }
+      </div>
+    </section>
+
+    <!-- ── Thiết lập luyện tập ───────────────────────────────────────────── -->
+    <section class="card practice-card">
+      <div class="card-body stack setup">
+        <h2>{{ t('lesson.setup') }}</h2>
+
+        <div class="field">
+          <span class="label">{{ t('exercise.n4.mode') }}</span>
+          <div class="options">
+            @for (item of modes; track item.id) {
+              <button
+                type="button"
+                class="option option-stacked"
+                [class.is-active]="mode() === item.id"
+                (click)="setMode(item.id)"
+              >
+                <strong><app-t [key]="item.labelKey" block /></strong>
+                <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">
+            {{ t('exercise.n4.sections', { selected: selectedCount(), total: sections.length }) }}
+          </span>
+          <div class="row">
+            <button type="button" class="btn btn-sm" (click)="selectAllSections()">
+              {{ t('exercise.n4.sections.all') }}
+            </button>
+            <button type="button" class="btn btn-sm btn-ghost" (click)="clearSections()">
+              {{ t('exercise.n4.sections.none') }}
+            </button>
+          </div>
+          <div class="section-picker">
+            @for (section of sections; track section.id) {
+              <button
+                type="button"
+                class="section-chip"
+                [class.is-active]="isSectionSelected(section.id)"
+                [attr.aria-pressed]="isSectionSelected(section.id)"
+                (click)="toggleSection(section.id)"
+              >
+                <span class="section-chip-no">{{ section.number }}</span>
+                <span class="jp">{{ section.title }}</span>
+              </button>
+            }
+          </div>
+          @if (selectedCount() === 0) {
+            <span class="hint">{{ t('exercise.n4.sections.empty') }}</span>
+          } @else {
+            <span class="hint"><app-t key="exercise.n4.sections.hint" block /></span>
+          }
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.scope') }}</span>
+          <div class="options">
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="scope() === 'all'"
+              (click)="setScope('all')"
+            >
+              {{
+                isMeaning()
+                  ? t('exercise.n4.scope.points', { count: scopeTotal() })
+                  : t('exercise.n4.scope.examples', { count: scopeTotal() })
+              }}
+            </button>
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="scope() === 'favorite'"
+              [disabled]="favoriteCount() === 0"
+              (click)="setScope('favorite')"
+            >
+              {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+            </button>
+          </div>
+          @if (favoriteCount() === 0) {
+            <span class="hint"><app-t key="exercise.n4.scope.hint" block /></span>
+          } @else {
+            <div>
+              <button type="button" class="btn btn-sm btn-ghost" (click)="clearFavorites()">
+                {{ t('lesson.clearFavorites') }}
+              </button>
+            </div>
+          }
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.answerMode') }}</span>
+          <p class="muted small">
+            <app-t [key]="isMeaning() ? 'exercise.n4.answer.choice' : 'exercise.n4.answer.typing'" block />
+          </p>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.questionCount') }}</span>
+          <div class="options">
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="questionLimit() === null"
+              (click)="setQuestionLimit(null)"
+            >
+              {{ t('common.all') }}
+            </button>
+            @for (limit of limitChoices(); track limit) {
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === limit"
+                (click)="setQuestionLimit(limit)"
+              >
+                {{ t('lesson.questionCount.n', { count: limit }) }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.options') }}</span>
+          <div class="options">
+            @if (!isMeaning()) {
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+                <span>
+                  <strong><app-t key="grammar.option.showHint" block /></strong>
+                  <span class="hint"><app-t key="grammar.option.showHintHint" block /></span>
+                </span>
+              </label>
+            }
+
+            @if (japanesePrompt()) {
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showFurigana()" (change)="toggleFurigana($event)" />
+                <span>
+                  <strong><app-t key="translate.option.furigana" block /></strong>
+                  <span class="hint"><app-t key="translate.option.furiganaHint" block /></span>
+                </span>
+              </label>
+            }
+
+            <label class="checkbox">
+              <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+              <span>
+                <strong><app-t key="lesson.option.shuffle" block /></strong>
+                <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+              </span>
+            </label>
+
+            <!-- Bỏ dấu tiếng Việt chỉ có nghĩa khi người học gõ tiếng Việt. -->
+            @if (japanesePrompt()) {
+              <label class="checkbox">
+                <input
+                  type="checkbox"
+                  [checked]="ignoreDiacritics()"
+                  (change)="toggleIgnoreDiacritics($event)"
+                />
+                <span>
+                  <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+                </span>
+              </label>
+            }
+          </div>
+        </div>
+
+        <div class="start-bar">
+          <div class="small muted">
+            <app-t
+              key="lesson.plan"
+              block
+              [params]="{
+                count: plannedQuestionCount(),
+                mode: modeShort(),
+                answer: isMeaning() ? t('lesson.plan.choice') : t('lesson.plan.typing'),
+                max: planMaxWrong()
+              }"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary btn-lg"
+            [disabled]="!canStart()"
+            (click)="start()"
+          >
+            {{ t('lesson.start') }}
+          </button>
+        </div>
+
+        @if (!canStart()) {
+          <p class="hint">{{ t('lesson.emptyScope') }}</p>
+        }
+      </div>
+    </section>
+  </div>
+</div>

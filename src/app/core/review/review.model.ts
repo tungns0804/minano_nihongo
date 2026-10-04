@@ -12,6 +12,7 @@
 
 import type { PracticeConfig, QuestionStatus } from '../practice/practice.model';
 import type { DayNumber } from '../n3/n3.model';
+import { isMeaningMode } from '../exercises/exercise.model';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 
 // ── Khu và loại mục ──────────────────────────────────────────────────────
@@ -32,11 +33,13 @@ export const REVIEW_AREAS: readonly ReviewArea[] = ['vocab', 'kanji', 'grammar',
  *  v   động từ của bài động từ              nguồn: id bài
  *  ev  động từ của bài "Chuyển thể"         nguồn: id bài tập
  *  tp  cặp tự / tha động từ                 nguồn: id bài tập
+ *  ne  câu ví dụ của bài ngữ pháp N4        nguồn: id bài tập
+ *  nm  ý nghĩa một mẫu của bài ngữ pháp N4  nguồn: id bài tập
  *
  * Nguồn cũng chính là khoá ★ của mục đó, nên phiên ôn gom câu từ nhiều bài vẫn
  * đánh dấu ★ đúng về bài chứa mục.
  */
-export type ReviewItemType = 'w' | 'kc' | 'kw' | 'g' | 'v' | 'ev' | 'tp';
+export type ReviewItemType = 'w' | 'kc' | 'kw' | 'g' | 'v' | 'ev' | 'tp' | 'ne' | 'nm';
 
 const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   w: 'vocab',
@@ -46,6 +49,8 @@ const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   v: 'verb',
   ev: 'verb',
   tp: 'verb',
+  ne: 'grammar',
+  nm: 'grammar',
 };
 
 /** Một mục trong lịch ôn: khoá để tra lịch, nguồn để dựng lại câu hỏi. */
@@ -87,7 +92,7 @@ export function areaOfKey(key: string): ReviewArea | null {
  * khác, và phiên ôn không trộn được câu vẽ với câu gõ), bài hội thoại, bộ thủ.
  */
 export function reviewRefOf(
-  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'answerMode' | 'exercise'>,
+  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'answerMode' | 'exercise' | 'exerciseMode'>,
   subjectId: string,
 ): ReviewRef | null {
   if (config.answerMode === 'draw') return null;
@@ -96,7 +101,7 @@ export function reviewRefOf(
 }
 
 function itemTypeOf(
-  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'exercise'>,
+  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'exercise' | 'exerciseMode'>,
 ): ReviewItemType | null {
   // switch đủ mọi loại bài: thêm loại mới mà quên quyết định nó có vào lịch ôn hay
   // không thì TypeScript báo lỗi ngay ở đây.
@@ -109,7 +114,10 @@ function itemTypeOf(
     case 'verb':
       return 'v';
     case 'exercise':
-      return config.exercise === 'tu-tha-dong-tu' ? 'tp' : 'ev';
+      if (config.exercise === 'tu-tha-dong-tu') return 'tp';
+      // Bài ngữ pháp N4 hỏi trên CÂU khi dịch ví dụ, trên MẪU khi luyện ý nghĩa.
+      if (config.exercise === 'ngu-phap-n4') return isMeaningMode(config.exerciseMode) ? 'nm' : 'ne';
+      return 'ev';
     case 'kanji':
       // Phiên luyện âm Hán Việt hỏi trên CHỮ (mở từ danh sách), phiên còn lại hỏi
       // trên TỪ của một chữ.

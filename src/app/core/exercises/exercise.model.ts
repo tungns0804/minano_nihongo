@@ -1,14 +1,19 @@
 /**
- * Khu "Bài tập" — hai bài luyện chuyên đề nằm ngoài giáo trình 皆の日本語.
+ * Khu "Bài tập" — các bài luyện chuyên đề nằm ngoài giáo trình 皆の日本語.
  *
  * Vì sao tách khỏi bài học: bài học bám theo từng bài trong sách (bài 1, bài 33…),
- * còn hai bài tập ở đây gom động từ của NHIỀU cấp (N5→N3, N5→N2) theo một chủ đề
- * ngữ pháp. Nhét chúng vào lưới bài học ngoài trang chủ thì chúng không thuộc về
- * cấp độ nào cả, mà bộ lọc cấp độ ngoài đó lại chia theo số bài.
+ * còn hai bài tập động từ ở đây gom động từ của NHIỀU cấp (N5→N3, N5→N2) theo một chủ
+ * đề ngữ pháp, và bài ngữ pháp N4 đi theo một tài liệu tổng hợp riêng. Nhét chúng vào
+ * lưới bài học ngoài trang chủ thì chúng không thuộc về bài nào cả, mà bộ lọc cấp độ
+ * ngoài đó lại chia theo số bài.
  *
- * Dữ liệu nằm thẳng trong mã nguồn (`transitive-pairs.ts`, `exercise-verbs.ts`)
- * chứ không đi qua `data-source/` + `npm run generate`: hai bài tập này là chức
- * năng cố định của ứng dụng, không phải nội dung người dùng tự nạp thêm.
+ * Dữ liệu nằm thẳng trong mã nguồn (`transitive-pairs.ts`, `exercise-verbs.ts`,
+ * `n4-grammar.ts`) chứ không đi qua `data-source/` + `npm run generate`: các bài tập
+ * này là chức năng cố định của ứng dụng, không phải nội dung người dùng tự nạp thêm.
+ *
+ * Bài ngữ pháp N4 có màn hình riêng (`features/n4-grammar`, đường dẫn đăng ký TRƯỚC
+ * `/exercise/:id`): nội dung của nó là trang lý thuyết cộng câu ví dụ, không phải bảng
+ * động từ như hai bài kia.
  */
 
 import type { MessageKey } from '../i18n/messages';
@@ -20,7 +25,7 @@ import type { VerbGroup } from '../japanese/conjugation';
  *  - khoá lưu danh sách ★ "chưa nhớ" (giống id bài học)
  * nên KHÔNG đổi tuỳ tiện: đổi là mất hết ★ của bài tập đó.
  */
-export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu';
+export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | 'ngu-phap-n4';
 
 /**
  * Cấp độ JLPT của một mục trong bài tập.
@@ -32,7 +37,7 @@ export type ExerciseLevel = 'N5' | 'N4' | 'N3' | 'N2';
 
 export const EXERCISE_LEVELS: readonly ExerciseLevel[] = ['N5', 'N4', 'N3', 'N2'];
 
-/** Các chiều hỏi của cả hai bài tập, gom vào một kiểu để `PracticeConfig` chỉ cần một trường. */
+/** Các chiều hỏi của mọi bài tập, gom vào một kiểu để `PracticeConfig` chỉ cần một trường. */
 export type ExerciseMode =
   // Bài 1 — tự động từ ↔ tha động từ
   | 'to-transitive'
@@ -41,7 +46,13 @@ export type ExerciseMode =
   // Bài 2 — thể lịch sự ↔ các thể ngắn
   | 'masu-to-form'
   | 'form-to-masu'
-  | 'form-mixed';
+  | 'form-mixed'
+  // Bài 3 — ngữ pháp N4: dịch câu ví dụ, và ngữ pháp ↔ ý nghĩa
+  | 'example-vi-jp'
+  | 'example-jp-vi'
+  | 'pattern-to-meaning'
+  | 'meaning-to-pattern'
+  | 'meaning-mixed';
 
 export interface ExerciseModeInfo {
   id: ExerciseMode;
@@ -94,7 +105,51 @@ export const FORM_MODES: readonly ExerciseModeInfo[] = [
   },
 ];
 
-const ALL_MODES: readonly ExerciseModeInfo[] = [...TRANSITIVITY_MODES, ...FORM_MODES];
+/**
+ * Dạng luyện của bài "Luyện tập ngữ pháp N4".
+ *
+ * Hai dạng đầu dịch câu ví dụ, gõ đáp án như bài ngữ pháp 皆の日本語. Ba dạng sau luyện
+ * ý nghĩa của từng mẫu và là TRẮC NGHIỆM: ý nghĩa là một câu mô tả dài, gõ lại cho khớp
+ * từng chữ thì là đánh đố chứ không còn là nhớ ngữ pháp.
+ */
+export const N4_GRAMMAR_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'example-vi-jp',
+    labelKey: 'exercise.mode.exampleViJp',
+    shortKey: 'exercise.mode.exampleViJp.short',
+    exampleKey: 'exercise.mode.exampleViJp.example',
+  },
+  {
+    id: 'example-jp-vi',
+    labelKey: 'exercise.mode.exampleJpVi',
+    shortKey: 'exercise.mode.exampleJpVi.short',
+    exampleKey: 'exercise.mode.exampleJpVi.example',
+  },
+  {
+    id: 'pattern-to-meaning',
+    labelKey: 'exercise.mode.patternToMeaning',
+    shortKey: 'exercise.mode.patternToMeaning.short',
+    exampleKey: 'exercise.mode.patternToMeaning.example',
+  },
+  {
+    id: 'meaning-to-pattern',
+    labelKey: 'exercise.mode.meaningToPattern',
+    shortKey: 'exercise.mode.meaningToPattern.short',
+    exampleKey: 'exercise.mode.meaningToPattern.example',
+  },
+  {
+    id: 'meaning-mixed',
+    labelKey: 'exercise.mode.meaningMixed',
+    shortKey: 'exercise.mode.meaningMixed.short',
+    exampleKey: 'exercise.mode.meaningMixed.example',
+  },
+];
+
+const ALL_MODES: readonly ExerciseModeInfo[] = [
+  ...TRANSITIVITY_MODES,
+  ...FORM_MODES,
+  ...N4_GRAMMAR_MODES,
+];
 
 export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
   return ALL_MODES.find((mode) => mode.id === id) ?? ALL_MODES[0];
@@ -104,7 +159,13 @@ export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
 export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
   'tu-tha-dong-tu': 'to-transitive',
   'chuyen-the-dong-tu': 'masu-to-form',
+  'ngu-phap-n4': 'example-vi-jp',
 };
+
+/** Dạng luyện ý nghĩa (trắc nghiệm) của bài ngữ pháp N4 — đơn vị hỏi là MẪU chứ không phải câu. */
+export function isMeaningMode(mode: ExerciseMode): boolean {
+  return mode === 'pattern-to-meaning' || mode === 'meaning-to-pattern' || mode === 'meaning-mixed';
+}
 
 /** Chiều này có cần chọn thể để hỏi không (chỉ bài chuyển thể mới cần). */
 export function modeNeedsForms(mode: ExerciseMode): boolean {
@@ -117,7 +178,7 @@ export function modeNeedsForms(mode: ExerciseMode): boolean {
  * khác, mà dòng "sẽ luyện N câu" ở màn thiết lập lại phải nói trước con số đó.
  */
 export function modeQuestionsPerItem(mode: ExerciseMode): number {
-  return mode === 'transitivity-mixed' || mode === 'form-mixed' ? 2 : 1;
+  return mode === 'transitivity-mixed' || mode === 'form-mixed' || mode === 'meaning-mixed' ? 2 : 1;
 }
 
 /** Mô tả một bài tập, dùng để dựng thẻ ở trang danh sách. */
@@ -125,7 +186,7 @@ export interface ExerciseInfo {
   id: ExerciseId;
   nameKey: MessageKey;
   descKey: MessageKey;
-  /** Khoá đếm số mục ("{count} cặp động từ" / "{count} động từ"). */
+  /** Khoá đếm số mục ("{count} cặp động từ" / "{count} động từ" / "{count} mẫu ngữ pháp"). */
   unitKey: MessageKey;
   /** Khoảng cấp độ bài tập phủ tới, hiện trên thẻ. */
   levels: readonly ExerciseLevel[];
@@ -145,6 +206,13 @@ export const EXERCISES: readonly ExerciseInfo[] = [
     descKey: 'exercise.forms.desc',
     unitKey: 'exercise.verbCount',
     levels: ['N5', 'N4', 'N3', 'N2'],
+  },
+  {
+    id: 'ngu-phap-n4',
+    nameKey: 'exercise.n4grammar.name',
+    descKey: 'exercise.n4grammar.desc',
+    unitKey: 'exercise.patternCount',
+    levels: ['N4'],
   },
 ];
 

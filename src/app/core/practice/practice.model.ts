@@ -604,6 +604,8 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     if (modeNeedsForms(config.exerciseMode)) {
       keys.push(...config.verbForms.map((form) => VERB_FORM_LABEL_KEY[form]));
     }
+    // Chỉ bài ngữ pháp N4 bật cờ này (khi dịch câu ví dụ).
+    if (config.showGrammarHint) keys.push('grammar.option.showHint');
   } else if (config.lessonKind === 'verb') {
     const mode = verbModeInfo(config.verbMode);
     keys.push(mode.shortKey);

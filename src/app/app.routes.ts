@@ -102,6 +102,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/exercise-list/exercise-list').then((m) => m.ExerciseList),
   },
+  // Bài "Luyện tập ngữ pháp N4" nằm cùng khu nhưng có màn hình riêng: nội dung là trang
+  // lý thuyết dài kèm câu ví dụ, không phải bảng động từ như hai bài tập kia. Khai TRƯỚC
+  // `exercise/:id` vì router lấy đường dẫn khớp đầu tiên theo thứ tự khai.
+  {
+    path: 'exercise/ngu-phap-n4',
+    title: 'route.n4grammar',
+    loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
+  },
   {
     path: 'exercise/:id',
     title: 'route.exerciseDetail',
