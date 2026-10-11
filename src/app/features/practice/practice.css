@@ -267,6 +267,14 @@
   opacity: 0.45;
 }
 
+/* --- Sắp xếp câu --- (khu bấm mảnh nằm ở shared/chunk-order.ts) */
+
+/* Câu đầy đủ ở phần phản hồi của câu điền chỗ trống. */
+.complete-sentence {
+  font-size: 1.15rem;
+  line-height: 2;
+}
+
 /* --- Gõ đáp án --- */
 
 .typing-area {

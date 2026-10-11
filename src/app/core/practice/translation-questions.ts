@@ -88,6 +88,7 @@ export function buildTranslationQuestions(
           : null,
         grammar,
         alternatives: answerAlternatives.map(plainText),
+        complete: null,
       },
     });
   });

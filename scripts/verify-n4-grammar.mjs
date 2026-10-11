@@ -8,6 +8,10 @@
  * mẫu là đáp án của câu trắc nghiệm: hai mẫu trùng ý nghĩa thì có câu hỏi hai đáp án
  * đúng mà không có gì báo.
  *
+ * Hai bậc giữa của lộ trình cũng soát ở đây: mọi câu ví dụ đem ra luyện phải có chỗ
+ * trống 《…》 trỏ về một mẫu có ý nghĩa, và các mảnh của bài "Sắp xếp câu" ghép lại
+ * phải được chấm đúng — mảnh cắt lệch câu mẫu là câu không ai xếp đúng nổi.
+ *
  * Việc chấm từng câu ví dụ (gõ chữ Hán, kana, gõ lẫn…) kiểm ở `verify:answer`.
  *
  * Chạy: npm run verify:n4
@@ -24,12 +28,20 @@ const EXERCISES = join(ROOT, 'src', 'app', 'core', 'exercises');
 // n4-grammar.ts import "../lessons/vocabulary-parser" không kèm đuôi file.
 resolveTsImports();
 
-const { N4_SECTIONS, N4_SYNONYMS } = await import(pathToFileURL(join(EXERCISES, 'n4-grammar.ts')));
-const { flattenN4Examples, meaningPoints } = await import(
+const { N4_INTERCHANGEABLE_GROUPS, N4_SAME_FORM, N4_SECTIONS, N4_SYNONYMS } = await import(
+  pathToFileURL(join(EXERCISES, 'n4-grammar.ts'))
+);
+const { BLANK_MARK, blankExamples, flattenN4Examples, meaningPoints, orderExamples } = await import(
   pathToFileURL(join(EXERCISES, 'n4-grammar.model.ts'))
 );
 const { markupProblems, parseMarkup, plainText } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'translation', 'markup.ts'))
+);
+const { MAX_CHUNKS, MIN_CHUNKS } = await import(
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'translation', 'chunks.ts'))
+);
+const { isPatternCorrect } = await import(
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'practice', 'answer-check.ts'))
 );
 
 /**
@@ -80,6 +92,7 @@ function checkVietnamese(where, source) {
 
 const sectionIds = new Set();
 const pointIds = new Set();
+const quizIds = new Set();
 const exampleTexts = new Map();
 let exampleCount = 0;
 
@@ -132,13 +145,24 @@ for (const section of N4_SECTIONS) {
       checkJapanese(`${at} bài luyện tập`, item.prompt);
       item.options.forEach((option) => checkMarkup(`${at} bài luyện tập`, option));
       if (item.options.length < 2) fail(at, `câu luyện tập có dưới 2 lựa chọn: ${item.prompt}`);
+      // Câu này được đem ra luyện như trắc nghiệm: đáp án phải là một trong các lựa chọn.
+      const answers = item.answer.split('/').map((answer) => answer.trim());
+      if (!item.options.some((option) => answers.includes(plainText(option)))) {
+        fail(at, `đáp án "${item.answer}" không khớp lựa chọn nào: ${item.prompt}`);
+      }
+      if (quizIds.has(item.id)) fail(at, `trùng id câu luyện tập: ${item.prompt}`);
+      quizIds.add(item.id);
     }
   }
 }
 
-// ★ của bài tập lưu chung một danh sách cho cả mẫu (luyện ý nghĩa) lẫn câu ví dụ.
+// ★ của bài tập lưu chung một danh sách cho mẫu, câu ví dụ và câu luyện tập.
 for (const id of pointIds) {
   if (exampleTexts.has(id)) fail(`[${id}]`, 'id mẫu trùng id một câu ví dụ — ★ của hai thứ sẽ lẫn vào nhau');
+  if (quizIds.has(id)) fail(`[${id}]`, 'id mẫu trùng id một câu luyện tập');
+}
+for (const id of quizIds) {
+  if (exampleTexts.has(id)) fail(`[${id}]`, 'id câu luyện tập trùng id một câu ví dụ');
 }
 
 // ── Phần luyện ý nghĩa ───────────────────────────────────────────────────
@@ -170,6 +194,75 @@ for (const [group, count] of groups) {
 }
 if (meanings.length < CHOICE_COUNT) fail('[ý nghĩa]', `chỉ có ${meanings.length} mẫu, không đủ ${CHOICE_COUNT} lựa chọn`);
 
+for (const group of N4_INTERCHANGEABLE_GROUPS) {
+  if (!groups.has(group)) fail('[N4_INTERCHANGEABLE_GROUPS]', `"${group}" không phải nhóm dễ nhầm nào`);
+}
+for (const group of N4_SAME_FORM) {
+  for (const id of group) {
+    if (!meaningIds.has(id)) fail('[N4_SAME_FORM]', `"${id}" không phải một mẫu có ý nghĩa để luyện`);
+  }
+}
+
+// ── Bậc 3: điền vào chỗ trống ────────────────────────────────────────────
+
+const blanks = blankExamples(N4_SECTIONS);
+const blankTargets = new Set();
+for (const { example, point } of flattenN4Examples(N4_SECTIONS)) {
+  const ex = `[${point.id}] "${plainText(example.japanese)}"`;
+  const blank = example.blank;
+  if (!blank) {
+    fail(ex, 'câu ví dụ chưa đánh dấu phần ngữ pháp bằng 《…》 — bài "Điền vào chỗ trống" sẽ thiếu câu này');
+    continue;
+  }
+  if (!meaningIds.has(blank.pointId)) {
+    fail(ex, `chỗ trống trỏ về "${blank.pointId}" — không phải mẫu có ý nghĩa (câu ở mục so sánh thì ghi 《…@id-mẫu》)`);
+  }
+  blankTargets.add(blank.pointId);
+  if (!blank.filled.trim()) fail(ex, 'chỗ trống 《》 rỗng');
+  if (!blank.prompt.includes(BLANK_MARK)) fail(ex, 'câu đục lỗ không có ô trống');
+  checkMarkup(`${ex} câu đục lỗ`, blank.prompt);
+  if (/[《》@]/.test(blank.prompt) || /[《》@]/.test(example.japanese)) {
+    fail(ex, 'dấu 《》 / @ lọt vào câu — viết sai cú pháp chỗ trống');
+  }
+}
+
+// Câu nhắc lại ở phần so sánh có cùng id với câu gốc: chỗ trống của hai bản phải giống
+// nhau, không thì câu được luyện tuỳ vào bản nào đứng trước trong tài liệu.
+const blankById = new Map();
+for (const section of N4_SECTIONS) {
+  for (const point of section.points) {
+    for (const usage of point.usages) {
+      if (usage.reference) continue;
+      for (const example of usage.examples) {
+        const key = example.blank ? `${example.blank.pointId}|${example.blank.prompt}` : '';
+        const seen = blankById.get(example.id);
+        if (seen !== undefined && seen !== key) {
+          fail(`[${point.id}] "${plainText(example.japanese)}"`, 'hai bản của cùng một câu đánh dấu chỗ trống khác nhau');
+        }
+        blankById.set(example.id, key);
+      }
+    }
+  }
+}
+
+// ── Bậc 4: sắp xếp câu ───────────────────────────────────────────────────
+
+const orders = orderExamples(N4_SECTIONS);
+// Đúng các tuỳ chọn màn luyện tập dùng khi chấm câu tiếng Nhật bỏ qua dấu câu.
+const compare = { ignoreDiacritics: false, ignoreAllWhitespace: true, ignorePunctuation: true };
+for (const { example, point } of orders) {
+  const ex = `[${point.id}] "${plainText(example.japanese)}"`;
+  const { chunks } = example;
+  if (chunks.length < MIN_CHUNKS || chunks.length > MAX_CHUNKS) {
+    fail(ex, `${chunks.length} mảnh, ngoài khoảng ${MIN_CHUNKS}–${MAX_CHUNKS}`);
+  }
+  chunks.forEach((chunk) => checkMarkup(`${ex} mảnh "${chunk}"`, chunk));
+  const joined = chunks.map(plainText).join('');
+  if (!isPatternCorrect(joined, [example.japanese, ...example.japaneseAlt], compare)) {
+    fail(ex, `các mảnh ghép lại không được chấm đúng: ${chunks.map(plainText).join(' | ')}`);
+  }
+}
+
 // ── Tổng kết ─────────────────────────────────────────────────────────────
 
 const practiced = flattenN4Examples(N4_SECTIONS).length;
@@ -178,6 +271,9 @@ log(`${c.bold}Luyen tap ngu phap N4${c.reset}`);
 log(`  muc            : ${N4_SECTIONS.length}`);
 log(`  mau            : ${pointIds.size} (${meanings.length} mau luyen y nghia, ${groups.size} nhom de nham)`);
 log(`  cau vi du      : ${exampleCount} (${practiced} cau dem ra luyen)`);
+log(`  dien cho trong : ${blanks.length} cau, tro ve ${blankTargets.size} mau`);
+log(`  sap xep cau    : ${orders.length} cau du dai de sap xep`);
+log(`  bai luyen tap  : ${quizIds.size} cau cua tai lieu`);
 log();
 
 if (problems.length > 0) {

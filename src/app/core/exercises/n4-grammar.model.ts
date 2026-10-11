@@ -15,6 +15,13 @@
  *              tài liệu, gõ cách nào cũng đúng.
  *   [a/]       phần có thể bỏ, tài liệu ghi trong ngoặc — 場合（は）.
  *
+ * Thêm một ký hiệu riêng của bài này, bóc ra ngay lúc nạp dữ liệu (`n4-grammar.ts`)
+ * nên không bao giờ tới được bộ chấm hay màn hình:
+ *
+ *   《…》       phần ngữ pháp của câu — chỗ trống của bài "Điền vào chỗ trống". Một câu
+ *              có thể có vài chỗ (～し、～し). 《…@id-mẫu》 khi câu nằm ở mục so sánh mà
+ *              chỗ trống thuộc về một mẫu khác (「～たら」 và 「～ば」 → @ba).
+ *
  * Không đi qua `data-source/` + `npm run generate`, cùng lý do với hai bài tập kia
  * (xem `exercise.model.ts`): đây là một bài tập cố định của ứng dụng.
  */
@@ -42,7 +49,27 @@ export interface N4Example {
   japaneseAlt: string[];
   /** Như `japaneseAlt`, cho bản dịch — ví dụ câu "Nguyên văn: …" tài liệu ghi kèm. */
   vietnameseAlt: string[];
+  /** Câu đục lỗ cho bài "Điền vào chỗ trống"; null nếu câu không đánh dấu 《…》. */
+  blank: N4Blank | null;
+  /**
+   * Các mảnh cho bài "Sắp xếp câu", theo đúng thứ tự trong câu (`chunksOf`). Rỗng khi
+   * câu quá ngắn — hai mảnh thì sắp xếp chỉ còn là đoán.
+   */
+  chunks: string[];
 }
+
+/** Câu ví dụ đã đục phần ngữ pháp. */
+export interface N4Blank {
+  /** Mẫu mà chỗ trống thuộc về — đáp án của câu hỏi. Luôn là một mẫu có ý nghĩa. */
+  pointId: string;
+  /** Câu hỏi: câu ví dụ, phần ngữ pháp thay bằng `BLANK_MARK`. Vẫn theo cú pháp câu mẫu. */
+  prompt: string;
+  /** Phần bị đục, dạng chữ thường; nhiều chỗ thì nối bằng " … ". */
+  filled: string;
+}
+
+/** Ô trống trong câu hỏi — cùng kiểu với phần "Bài luyện tập" của tài liệu. */
+export const BLANK_MARK = '（　　）';
 
 /** Một nhóm câu ví dụ — một "cách dùng" của mẫu, hoặc đơn giản là phần "Ví dụ". */
 export interface N4Usage {
@@ -92,6 +119,8 @@ export interface N4Point {
 
 /** Một câu trong phần "Bài luyện tập" của tài liệu. */
 export interface N4QuizItem {
+  /** Băm từ câu hỏi — khoá ★ khi câu này được đem ra luyện. */
+  id: string;
   /** Câu hỏi, viết theo cú pháp ở đầu file; chỗ trống ghi là （　）. */
   prompt: string;
   options: string[];
@@ -156,6 +185,26 @@ export function flattenN4Examples(sections: readonly N4Section[]): N4ExampleRef[
     }
   }
   return out;
+}
+
+/** Câu ví dụ đem ra luyện mà có chỗ trống để điền. */
+export function blankExamples(sections: readonly N4Section[]): N4ExampleRef[] {
+  return flattenN4Examples(sections).filter((ref) => ref.example.blank !== null);
+}
+
+/** Câu ví dụ đem ra luyện mà đủ dài để sắp xếp. */
+export function orderExamples(sections: readonly N4Section[]): N4ExampleRef[] {
+  return flattenN4Examples(sections).filter((ref) => ref.example.chunks.length > 0);
+}
+
+/** Một câu trong "Bài luyện tập" của tài liệu kèm mục chứa nó. */
+export interface N4QuizRef {
+  item: N4QuizItem;
+  section: N4Section;
+}
+
+export function quizItems(sections: readonly N4Section[]): N4QuizRef[] {
+  return sections.flatMap((section) => (section.quiz?.items ?? []).map((item) => ({ item, section })));
 }
 
 /** Các mẫu có ý nghĩa để luyện, theo thứ tự trong tài liệu. */

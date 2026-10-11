@@ -224,6 +224,8 @@ export const MESSAGES = {
   'lesson.answerMode.choice': { vi: 'Trắc nghiệm 4 đáp án', ja: '4択問題' },
   'lesson.answerMode.typing': { vi: 'Gõ đáp án', ja: '入力して解答' },
   'lesson.answerMode.draw': { vi: 'Viết bằng chuột', ja: 'マウスで書く' },
+  'lesson.answerMode.order': { vi: 'Sắp xếp mảnh câu', ja: '並べ替え' },
+  'lesson.answerMode.mixed': { vi: 'Nhiều dạng, dễ → khó', ja: '複数の形式（やさしい順）' },
   'lesson.questionCount': { vi: 'Số câu', ja: '問題数' },
   'lesson.questionCount.n': { vi: '{count} câu', ja: '{count}問' },
 
@@ -275,6 +277,8 @@ export const MESSAGES = {
   'lesson.plan.choice': { vi: 'trắc nghiệm', ja: '4択' },
   'lesson.plan.typing': { vi: 'gõ đáp án', ja: '入力解答' },
   'lesson.plan.draw': { vi: 'viết bằng chuột', ja: 'マウス書き' },
+  'lesson.plan.order': { vi: 'sắp xếp mảnh câu', ja: '並べ替え' },
+  'lesson.plan.mixed': { vi: 'đủ năm bậc từ dễ đến khó', ja: '5段階をやさしい順に' },
   'lesson.start': { vi: 'Bắt đầu luyện tập', ja: '練習を始める' },
   'lesson.jumpToPractice': { vi: '↓ Tới phần luyện tập', ja: '↓ 練習へ移動' },
   'lesson.emptyScope': { vi: 'Chưa có mục nào trong phạm vi đã chọn.', ja: '選んだ範囲に項目がありません。' },
@@ -505,8 +509,8 @@ export const MESSAGES = {
   },
   'exercise.n4grammar.name': { vi: 'Luyện tập ngữ pháp N4', ja: 'N4文法の練習' },
   'exercise.n4grammar.desc': {
-    vi: 'Tổng hợp ngữ pháp N4 theo tài liệu: mô tả từng mẫu, câu ví dụ kèm giải thích; luyện dịch câu ví dụ và luyện ngữ pháp ↔ ý nghĩa.',
-    ja: '資料に沿ったN4文法のまとめ：文型ごとの説明と解説つきの例文。例文の翻訳と、文型↔意味の練習。',
+    vi: 'Tổng hợp ngữ pháp N4 theo tài liệu: mô tả từng mẫu, câu ví dụ kèm giải thích. Luyện theo lộ trình 5 bậc từ dễ đến khó: ý nghĩa, điền chỗ trống, sắp xếp câu, tự dịch.',
+    ja: '資料に沿ったN4文法のまとめ：文型ごとの説明と解説つきの例文。意味・穴埋め・並べ替え・翻訳の5段階で、やさしい順に練習できます。',
   },
   'exercise.pairCount': { vi: '{count} cặp động từ', ja: '動詞{count}組' },
   'exercise.verbCount': { vi: '{count} động từ', ja: '動詞{count}語' },
@@ -570,6 +574,24 @@ export const MESSAGES = {
   'exercise.mode.meaningMixed': { vi: 'Ý nghĩa: trộn cả hai chiều', ja: '意味：両方向をまぜる' },
   'exercise.mode.meaningMixed.short': { vi: 'Ngữ pháp ↔ Ý nghĩa', ja: '文型 ↔ 意味' },
   'exercise.mode.meaningMixed.example': { vi: '～ながら ↔ Vừa … vừa …', ja: '～ながら ↔ Vừa … vừa …' },
+  'exercise.mode.grammarPath': { vi: 'Lộ trình: từ dễ đến khó', ja: '段階学習：やさしい順に' },
+  'exercise.mode.grammarPath.short': { vi: 'Lộ trình dễ → khó', ja: '段階学習' },
+  'exercise.mode.grammarPath.example': {
+    vi: 'Mỗi mục đi đủ 5 bậc bên dưới: hiểu nghĩa → nhớ mẫu → điền chỗ trống → sắp xếp câu → tự dịch. Xong mục này mới sang mục sau.',
+    ja: '項目ごとに下の5段階を順に：意味 → 文型 → 穴埋め → 並べ替え → 翻訳。1つの項目が終わってから次へ進みます。',
+  },
+  'exercise.mode.exampleBlank': { vi: 'Điền vào chỗ trống', ja: '穴埋め' },
+  'exercise.mode.exampleBlank.short': { vi: 'Điền chỗ trống', ja: '穴埋め' },
+  'exercise.mode.exampleBlank.example': {
+    vi: 'テレビをみ（　）、ごはんを食べます。 → ～ながら',
+    ja: 'テレビをみ（　）、ごはんを食べます。 → ～ながら',
+  },
+  'exercise.mode.exampleOrder': { vi: 'Sắp xếp câu', ja: '並べ替え' },
+  'exercise.mode.exampleOrder.short': { vi: 'Sắp xếp câu', ja: '並べ替え' },
+  'exercise.mode.exampleOrder.example': {
+    vi: '[ごはんを] [テレビをみながら、] [食べます] → xếp lại cho đúng',
+    ja: '[ごはんを] [テレビをみながら、] [食べます] → 正しい順に',
+  },
 
   'exercise.label.toTransitive': {
     vi: 'Tha động từ tương ứng là gì?',
@@ -595,6 +617,28 @@ export const MESSAGES = {
     vi: 'Mẫu ngữ pháp nào mang ý nghĩa này?',
     ja: 'この意味を表す文型は？',
   },
+  'exercise.label.blank': {
+    vi: 'Chọn mẫu ngữ pháp điền vào chỗ trống',
+    ja: '（　）に入る文型は？',
+  },
+  'exercise.label.quiz': {
+    vi: 'Bài luyện tập của tài liệu — chọn câu đúng',
+    ja: '資料の練習問題 — 正しいものを選ぶ',
+  },
+  'exercise.label.order': {
+    vi: 'Sắp xếp các mảnh thành câu tiếng Nhật',
+    ja: 'かけらを並べ替えて日本語の文に',
+  },
+  'exercise.label.step': { vi: '{step} · {label}', ja: '{step}・{label}' },
+  'exercise.step.1': { vi: 'Bậc 1', ja: '第1段階' },
+  'exercise.step.2': { vi: 'Bậc 2', ja: '第2段階' },
+  'exercise.step.3': { vi: 'Bậc 3', ja: '第3段階' },
+  'exercise.step.4': { vi: 'Bậc 4', ja: '第4段階' },
+  'exercise.step.5': { vi: 'Bậc 5', ja: '第5段階' },
+  'exercise.answerPrompt.order': {
+    vi: 'Bấm các mảnh theo đúng thứ tự',
+    ja: '正しい順にかけらを押す',
+  },
 
   'exercise.col.intransitive': { vi: 'Tự động từ 自動詞', ja: '自動詞' },
   'exercise.col.transitive': { vi: 'Tha động từ 他動詞', ja: '他動詞' },
@@ -619,14 +663,14 @@ export const MESSAGES = {
     ja: 'かなで入力しても正解です：かえって も 帰って も可。',
   },
   'exercise.answerNote': {
-    vi: 'Hai bài tập động từ chỉ có gõ đáp án: mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài ngữ pháp N4 gõ khi dịch câu ví dụ, trắc nghiệm khi luyện ý nghĩa.',
-    ja: '動詞の2つの練習は入力解答のみです。狙いは正しい形を自分で書けることで、4択にすると見比べるだけになってしまいます。N4文法は、例文の翻訳は入力、意味の練習は4択です。',
+    vi: 'Hai bài tập động từ chỉ có gõ đáp án: mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài ngữ pháp N4 đi theo lộ trình năm bậc: trắc nghiệm, sắp xếp mảnh câu, rồi mới gõ cả câu.',
+    ja: '動詞の2つの練習は入力解答のみです。狙いは正しい形を自分で書けることで、4択にすると見比べるだけになってしまいます。N4文法は5段階の学習で、4択・並べ替えから文全体の入力へ進みます。',
   },
 
   // ── Bài tập "Luyện tập ngữ pháp N4" ─────────────────────────────────────
   'exercise.n4.subtitle': {
-    vi: 'Theo tài liệu “TỔNG HỢP NGỮ PHÁP N4”: mỗi mục mô tả mẫu ngữ pháp, câu ví dụ và lời giải thích. Đọc xong mục nào thì luyện ngay mục đó — dịch câu ví dụ, hoặc luyện ngữ pháp ↔ ý nghĩa.',
-    ja: '資料「N4文法のまとめ」に沿って、項目ごとに文型の説明・例文・解説を載せています。読んだ項目はすぐに練習できます（例文の翻訳、または文型↔意味）。',
+    vi: 'Theo tài liệu “TỔNG HỢP NGỮ PHÁP N4”: mỗi mục mô tả mẫu ngữ pháp, câu ví dụ và lời giải thích. Đọc xong mục nào thì học ngay mục đó theo 5 bậc từ dễ đến khó.',
+    ja: '資料「N4文法のまとめ」に沿って、項目ごとに文型の説明・例文・解説を載せています。読んだ項目は、すぐに5段階でやさしい順に練習できます。',
   },
   'exercise.n4.sectionCount': { vi: '{count} mục', ja: '{count}項目' },
   'exercise.n4.theory': { vi: 'Ngữ pháp & câu ví dụ', ja: '文法と例文' },
@@ -649,22 +693,23 @@ export const MESSAGES = {
   'exercise.n4.wrong': { vi: 'Cách dùng sai', ja: '誤った使い方' },
   'exercise.n4.quiz': { vi: 'Bài luyện tập trong tài liệu', ja: '資料の練習問題' },
   'exercise.n4.quizAnswers': { vi: 'Xem đáp án (theo tài liệu)', ja: '解答を見る（資料どおり）' },
-  'exercise.n4.practiceSection': { vi: 'Luyện mục này', ja: 'この項目を練習' },
+  'exercise.n4.practiceSection': { vi: 'Học mục này: dễ → khó', ja: 'この項目をやさしい順に練習' },
   'exercise.n4.starPoint': { vi: 'Đánh dấu mẫu này là chưa nhớ', ja: 'この文型を未習得にする' },
   'exercise.n4.mode': { vi: 'Dạng luyện tập', ja: '練習の形式' },
   'exercise.n4.sections': { vi: 'Mục đem ra luyện ({selected}/{total})', ja: '練習する項目（{selected}/{total}）' },
   'exercise.n4.sections.all': { vi: 'Chọn tất cả', ja: 'すべて選択' },
   'exercise.n4.sections.none': { vi: 'Bỏ chọn hết', ja: '選択を解除' },
   'exercise.n4.sections.hint': {
-    vi: 'Bấm từng mục để bật/tắt. Nút “Luyện mục này” ở cuối mỗi mục phía trên chọn nhanh riêng mục đó.',
-    ja: '項目を押して切り替えます。上の各項目の最後にある「この項目を練習」で、その項目だけをすぐ選べます。',
+    vi: 'Bấm từng mục để bật/tắt. Nút “Học mục này: dễ → khó” ở cuối mỗi mục phía trên chọn nhanh riêng mục đó.',
+    ja: '項目を押して切り替えます。上の各項目の最後にある「この項目をやさしい順に練習」で、その項目だけをすぐ選べます。',
   },
   'exercise.n4.sections.empty': { vi: 'Chưa chọn mục nào.', ja: '項目が選ばれていません。' },
   'exercise.n4.scope.examples': { vi: 'Toàn bộ ({count} câu)', ja: '全体（{count}文）' },
   'exercise.n4.scope.points': { vi: 'Toàn bộ ({count} mẫu)', ja: '全体（{count}文型）' },
+  'exercise.n4.scope.questions': { vi: 'Toàn bộ ({count} câu hỏi)', ja: '全体（{count}問）' },
   'exercise.n4.scope.hint': {
-    vi: 'Bấm ngôi sao ở câu ví dụ (khi dịch câu) hoặc ở tên mẫu (khi luyện ý nghĩa) phía trên để đánh dấu.',
-    ja: '上の例文（翻訳の練習）や文型名（意味の練習）の星印を押して印を付けます。',
+    vi: 'Bấm ngôi sao ở câu ví dụ (các bậc câu) hoặc ở tên mẫu (các bậc ý nghĩa) phía trên, hay ngay khi đang luyện, để đánh dấu.',
+    ja: '上の例文（文の段階）や文型名（意味の段階）、または練習中の星印を押して印を付けます。',
   },
   'exercise.n4.answer.typing': {
     vi: 'Gõ cả câu. Gõ chữ Hán, kana hay gõ lẫn đều được; chỗ tài liệu ghi hai cách nói thì cách nào cũng đúng. Dấu câu và khoảng trắng không tính.',
@@ -673,6 +718,57 @@ export const MESSAGES = {
   'exercise.n4.answer.choice': {
     vi: 'Trắc nghiệm 4 lựa chọn. Đáp án nhiễu ưu tiên lấy các mẫu dễ nhầm với nhau (ば/たら/と/なら, よう/そう/らしい…).',
     ja: '4択です。誤答の選択肢には、まぎらわしい文型（ば/たら/と/なら、よう/そう/らしい…）を優先して使います。',
+  },
+  'exercise.n4.answer.blank': {
+    vi: 'Trắc nghiệm 4 lựa chọn: đọc câu và nghĩa tiếng Việt, chọn mẫu ngữ pháp hợp với chỗ trống. Có cả bài luyện tập của tài liệu (よう/そう/らしい).',
+    ja: '4択です。文とベトナム語の意味を読んで、（　）に合う文型を選びます。資料の練習問題（よう/そう/らしい）も含みます。',
+  },
+  'exercise.n4.answer.order': {
+    vi: 'Bấm các mảnh câu theo đúng thứ tự, hoặc nhấn phím số. Xếp đúng ý mà khác thứ tự của tài liệu thì tự xác nhận được.',
+    ja: 'かけらを正しい順に押します（数字キーでも可）。意味が正しく、資料と順番だけが違う場合は自分で正解にできます。',
+  },
+  'exercise.n4.answer.path': {
+    vi: 'Mỗi mục đi lần lượt: bậc 1–3 trắc nghiệm, bậc 4 bấm mảnh câu theo thứ tự, bậc 5 gõ cả câu. Mục này xong mới sang mục sau.',
+    ja: '項目ごとに順番に：第1〜3段階は4択、第4段階は並べ替え、第5段階は文全体を入力。1つの項目が終わってから次へ進みます。',
+  },
+  'exercise.n4.recommended': { vi: 'Nên dùng', ja: 'おすすめ' },
+  'exercise.n4.modeCount': { vi: '{count} câu hỏi', ja: '{count}問' },
+  'exercise.n4.ladder': { vi: 'Hoặc luyện riêng từng bậc', ja: 'または段階ごとに練習' },
+  'exercise.n4.extra': { vi: 'Dạng khác', ja: 'その他の形式' },
+  'exercise.n4.level.easy': { vi: 'Dễ', ja: 'やさしい' },
+  'exercise.n4.level.medium': { vi: 'Vừa', ja: 'ふつう' },
+  'exercise.n4.level.hard': { vi: 'Khó', ja: 'むずかしい' },
+  'exercise.n4.pathOrder': {
+    vi: 'Lộ trình luôn giữ thứ tự dễ → khó; trong từng bậc thì câu hỏi tự trộn.',
+    ja: '段階学習は常にやさしい順です。同じ段階の中では問題を自動でまぜます。',
+  },
+  'exercise.n4.pathTooLong': {
+    vi: 'Lộ trình này dài {count} câu hỏi. Nên chọn số câu (ví dụ 20) để học từng chặng — xong một chặng, màn kết quả mời học tiếp chặng sau.',
+    ja: 'この段階学習は{count}問あります。問題数（例：20）を選んで区切って学ぶのがおすすめです。終わると結果画面から次へ進めます。',
+  },
+  'exercise.n4.progress': { vi: 'Đã luyện {done}/{total}', ja: '練習済み {done}/{total}' },
+  'exercise.n4.progress.title': {
+    vi: 'Số mẫu (bậc 1–2) và câu ví dụ (bậc 5) của mục này đã luyện — chúng đã có lịch ở trang Ôn tập.',
+    ja: 'この項目で練習済みの文型（第1〜2段階）と例文（第5段階）の数。復習ページで予定が組まれています。',
+  },
+  'exercise.n4.filled': { vi: 'Phần điền vào', ja: '入る部分' },
+  'exercise.n4.quizAnswer': { vi: 'Đáp án của tài liệu', ja: '資料の解答' },
+  'exercise.n4.guide.title': { vi: 'Cách học hiệu quả', ja: '効果的な学び方' },
+  'exercise.n4.guide.read': {
+    vi: 'Mở một mục, đọc ý nghĩa, công thức và các câu ví dụ (bật furigana nếu cần). Mỗi ngày chỉ cần 1–2 mục mới.',
+    ja: '項目を開き、意味・形・例文を読みます（必要ならふりがなを表示）。新しい項目は1日1〜2個で十分です。',
+  },
+  'exercise.n4.guide.path': {
+    vi: 'Bấm “Học mục này: dễ → khó” ở cuối mục: đi lần lượt 5 bậc — hiểu nghĩa, nhớ mẫu, điền chỗ trống, sắp xếp câu, rồi tự dịch.',
+    ja: '項目の最後の「この項目をやさしい順に練習」を押し、意味 → 文型 → 穴埋め → 並べ替え → 翻訳の5段階を順に進みます。',
+  },
+  'exercise.n4.guide.star': {
+    vi: 'Câu nào sai hay còn lưỡng lự thì bấm ★. Chọn phạm vi ★ để luyện lại riêng những câu đó.',
+    ja: '間違えた問題や自信のない問題は★を付けます。範囲を★にすると、それだけを練習し直せます。',
+  },
+  'exercise.n4.guide.review': {
+    vi: 'Hôm sau mở tab Ôn tập trước khi học mục mới: mẫu và câu đã luyện tự lên lịch ôn đúng lúc sắp quên.',
+    ja: '翌日は新しい項目の前に「復習」タブへ。練習した文型と例文は、忘れかけたころに自動で出題されます。',
   },
 
   // ── Khu Kanji ──────────────────────────────────────────────────────────
@@ -1068,6 +1164,16 @@ export const MESSAGES = {
   'practice.wrong': { vi: 'Chưa đúng — câu này tính là sai.', ja: '不正解 — この問題は誤答になります。' },
   'practice.yourAnswer': { vi: 'Bạn trả lời:', ja: 'あなたの解答：' },
   'practice.answer': { vi: 'Đáp án:', ja: '正解：' },
+  'practice.completeSentence': { vi: 'Câu đầy đủ:', ja: '完成した文：' },
+  'practice.order.placeholder': {
+    vi: 'Bấm các mảnh bên dưới để xếp câu vào đây',
+    ja: '下のかけらを押して、ここに文を並べます',
+  },
+  'practice.order.remove': { vi: 'Bỏ mảnh này ra', ja: 'このかけらを外す' },
+  'practice.order.clear': { vi: 'Xếp lại từ đầu', ja: '最初から並べ直す' },
+  'practice.order.hint': { vi: 'Bấm các mảnh theo thứ tự hoặc nhấn phím', ja: 'かけらを順に押すか、キーを押す' },
+  'practice.order.hintUndo': { vi: 'bỏ mảnh vừa xếp', ja: 'で直前のかけらを外す' },
+  'practice.order.hintCheck': { vi: 'kiểm tra', ja: 'で確認' },
   'practice.next': { vi: 'Câu tiếp theo', ja: '次の問題' },
   'practice.seeResult': { vi: 'Xem kết quả', ja: '結果を見る' },
   'practice.spaceHintNext': { vi: 'để sang câu tiếp theo', ja: 'で次の問題へ' },

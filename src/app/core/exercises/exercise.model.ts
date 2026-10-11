@@ -47,11 +47,14 @@ export type ExerciseMode =
   | 'masu-to-form'
   | 'form-to-masu'
   | 'form-mixed'
-  // Bài 3 — ngữ pháp N4: dịch câu ví dụ, và ngữ pháp ↔ ý nghĩa
-  | 'example-vi-jp'
-  | 'example-jp-vi'
+  // Bài 3 — ngữ pháp N4: lộ trình năm bậc, từng bậc riêng, và hai dạng thêm
+  | 'grammar-path'
   | 'pattern-to-meaning'
   | 'meaning-to-pattern'
+  | 'example-blank'
+  | 'example-order'
+  | 'example-vi-jp'
+  | 'example-jp-vi'
   | 'meaning-mixed';
 
 export interface ExerciseModeInfo {
@@ -59,6 +62,8 @@ export interface ExerciseModeInfo {
   labelKey: MessageKey;
   shortKey: MessageKey;
   exampleKey: MessageKey;
+  /** Bậc trong lộ trình dễ → khó của bài ngữ pháp N4 (1–5); 0 với mọi dạng khác. */
+  step: number;
 }
 
 /** Chiều hỏi của bài "Tự động từ & Tha động từ". */
@@ -68,18 +73,21 @@ export const TRANSITIVITY_MODES: readonly ExerciseModeInfo[] = [
     labelKey: 'exercise.mode.toTransitive',
     shortKey: 'exercise.mode.toTransitive.short',
     exampleKey: 'exercise.mode.toTransitive.example',
+    step: 0,
   },
   {
     id: 'to-intransitive',
     labelKey: 'exercise.mode.toIntransitive',
     shortKey: 'exercise.mode.toIntransitive.short',
     exampleKey: 'exercise.mode.toIntransitive.example',
+    step: 0,
   },
   {
     id: 'transitivity-mixed',
     labelKey: 'exercise.mode.transitivityMixed',
     shortKey: 'exercise.mode.transitivityMixed.short',
     exampleKey: 'exercise.mode.transitivityMixed.example',
+    step: 0,
   },
 ];
 
@@ -90,60 +98,106 @@ export const FORM_MODES: readonly ExerciseModeInfo[] = [
     labelKey: 'exercise.mode.masuToForm',
     shortKey: 'exercise.mode.masuToForm.short',
     exampleKey: 'exercise.mode.masuToForm.example',
+    step: 0,
   },
   {
     id: 'form-to-masu',
     labelKey: 'exercise.mode.formToMasu',
     shortKey: 'exercise.mode.formToMasu.short',
     exampleKey: 'exercise.mode.formToMasu.example',
+    step: 0,
   },
   {
     id: 'form-mixed',
     labelKey: 'exercise.mode.formMixed',
     shortKey: 'exercise.mode.formMixed.short',
     exampleKey: 'exercise.mode.formMixed.example',
+    step: 0,
   },
 ];
 
 /**
- * Dạng luyện của bài "Luyện tập ngữ pháp N4".
+ * Dạng luyện của bài "Luyện tập ngữ pháp N4", xếp thành một lộ trình năm bậc từ dễ đến
+ * khó. Mỗi bậc đòi hỏi nhiều hơn bậc trước một chút:
  *
- * Hai dạng đầu dịch câu ví dụ, gõ đáp án như bài ngữ pháp 皆の日本語. Ba dạng sau luyện
- * ý nghĩa của từng mẫu và là TRẮC NGHIỆM: ý nghĩa là một câu mô tả dài, gõ lại cho khớp
- * từng chữ thì là đánh đố chứ không còn là nhớ ngữ pháp.
+ *   1. Ngữ pháp → Ý nghĩa   nhận ra mẫu nghĩa là gì (trắc nghiệm)
+ *   2. Ý nghĩa → Ngữ pháp   nhớ ra mẫu từ ý nghĩa (trắc nghiệm)
+ *   3. Điền vào chỗ trống   chọn mẫu hợp với một câu cụ thể (trắc nghiệm)
+ *   4. Sắp xếp câu          ghép mảnh thành câu dùng mẫu đó (bấm chọn mảnh)
+ *   5. Dịch Việt → Nhật     tự viết cả câu (gõ)
+ *
+ * Trước đây chỉ có bậc 1–2 và bậc 5: nhảy thẳng từ chọn một trong bốn ý nghĩa sang gõ
+ * cả câu tiếng Nhật là hụt hẳn hai nấc ở giữa, đúng chỗ người học thấy "không biết bắt
+ * đầu từ đâu". `grammar-path` đi lần lượt cả năm bậc cho từng mục.
+ *
+ * Phần ý nghĩa là TRẮC NGHIỆM: ý nghĩa là một câu mô tả dài, gõ lại cho khớp từng chữ
+ * thì là đánh đố chứ không còn là nhớ ngữ pháp.
  */
-export const N4_GRAMMAR_MODES: readonly ExerciseModeInfo[] = [
-  {
-    id: 'example-vi-jp',
-    labelKey: 'exercise.mode.exampleViJp',
-    shortKey: 'exercise.mode.exampleViJp.short',
-    exampleKey: 'exercise.mode.exampleViJp.example',
-  },
-  {
-    id: 'example-jp-vi',
-    labelKey: 'exercise.mode.exampleJpVi',
-    shortKey: 'exercise.mode.exampleJpVi.short',
-    exampleKey: 'exercise.mode.exampleJpVi.example',
-  },
+export const N4_PATH_MODE: ExerciseModeInfo = {
+  id: 'grammar-path',
+  labelKey: 'exercise.mode.grammarPath',
+  shortKey: 'exercise.mode.grammarPath.short',
+  exampleKey: 'exercise.mode.grammarPath.example',
+  step: 0,
+};
+
+export const N4_STEP_MODES: readonly ExerciseModeInfo[] = [
   {
     id: 'pattern-to-meaning',
     labelKey: 'exercise.mode.patternToMeaning',
     shortKey: 'exercise.mode.patternToMeaning.short',
     exampleKey: 'exercise.mode.patternToMeaning.example',
+    step: 1,
   },
   {
     id: 'meaning-to-pattern',
     labelKey: 'exercise.mode.meaningToPattern',
     shortKey: 'exercise.mode.meaningToPattern.short',
     exampleKey: 'exercise.mode.meaningToPattern.example',
+    step: 2,
+  },
+  {
+    id: 'example-blank',
+    labelKey: 'exercise.mode.exampleBlank',
+    shortKey: 'exercise.mode.exampleBlank.short',
+    exampleKey: 'exercise.mode.exampleBlank.example',
+    step: 3,
+  },
+  {
+    id: 'example-order',
+    labelKey: 'exercise.mode.exampleOrder',
+    shortKey: 'exercise.mode.exampleOrder.short',
+    exampleKey: 'exercise.mode.exampleOrder.example',
+    step: 4,
+  },
+  {
+    id: 'example-vi-jp',
+    labelKey: 'exercise.mode.exampleViJp',
+    shortKey: 'exercise.mode.exampleViJp.short',
+    exampleKey: 'exercise.mode.exampleViJp.example',
+    step: 5,
+  },
+];
+
+/** Hai dạng nằm ngoài lộ trình: dịch ngược để hiểu câu, và ôn ý nghĩa cả hai chiều. */
+export const N4_EXTRA_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'example-jp-vi',
+    labelKey: 'exercise.mode.exampleJpVi',
+    shortKey: 'exercise.mode.exampleJpVi.short',
+    exampleKey: 'exercise.mode.exampleJpVi.example',
+    step: 0,
   },
   {
     id: 'meaning-mixed',
     labelKey: 'exercise.mode.meaningMixed',
     shortKey: 'exercise.mode.meaningMixed.short',
     exampleKey: 'exercise.mode.meaningMixed.example',
+    step: 0,
   },
 ];
+
+export const N4_GRAMMAR_MODES: readonly ExerciseModeInfo[] = [N4_PATH_MODE, ...N4_STEP_MODES, ...N4_EXTRA_MODES];
 
 const ALL_MODES: readonly ExerciseModeInfo[] = [
   ...TRANSITIVITY_MODES,
@@ -159,12 +213,19 @@ export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
 export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
   'tu-tha-dong-tu': 'to-transitive',
   'chuyen-the-dong-tu': 'masu-to-form',
-  'ngu-phap-n4': 'example-vi-jp',
+  // Lộ trình chứ không phải bậc khó nhất: người mới mở bài ra mà gặp ngay dạng gõ cả
+  // câu tiếng Nhật thì chỉ thấy mình chưa biết gì.
+  'ngu-phap-n4': 'grammar-path',
 };
 
 /** Dạng luyện ý nghĩa (trắc nghiệm) của bài ngữ pháp N4 — đơn vị hỏi là MẪU chứ không phải câu. */
 export function isMeaningMode(mode: ExerciseMode): boolean {
   return mode === 'pattern-to-meaning' || mode === 'meaning-to-pattern' || mode === 'meaning-mixed';
+}
+
+/** Dạng dịch câu ví dụ (gõ cả câu) của bài ngữ pháp N4. */
+export function isTranslationMode(mode: ExerciseMode): boolean {
+  return mode === 'example-vi-jp' || mode === 'example-jp-vi';
 }
 
 /** Chiều này có cần chọn thể để hỏi không (chỉ bài chuyển thể mới cần). */

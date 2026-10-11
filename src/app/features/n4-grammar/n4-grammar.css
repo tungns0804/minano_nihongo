@@ -351,9 +351,159 @@
   color: var(--accent-text);
 }
 
+/* --- Cách học hiệu quả ---------------------------------------------------- */
+
+.n4-guide {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: color-mix(in srgb, var(--accent-soft) 45%, var(--bg-elevated));
+}
+
+.n4-guide-title {
+  font-size: var(--fs-lg);
+}
+
+.n4-guide-steps {
+  margin: 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 82ch;
+}
+
+.n4-guide-steps li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Tiến độ trên dòng tiêu đề mục: chỉ hiện khi đã luyện ít nhất một thứ. */
+.n4-progress {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* --- Chọn dạng luyện: lộ trình + năm bậc ---------------------------------- */
+
+.n4-modes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Nút lộ trình và năm bậc là hàng đủ rộng, không phải viên chip co theo chữ như các
+   lựa chọn khác của khung thiết lập: chúng là một danh sách có thứ tự để đọc từ trên
+   xuống, chip xếp tràn hàng thì mất luôn thứ tự đó. */
+.setup .n4-path-option,
+.setup .n4-step {
+  width: 100%;
+  padding: 10px 13px;
+  border-radius: var(--radius-sm);
+}
+
+.setup .n4-path-option {
+  border-width: 1.5px;
+}
+
+.n4-mode-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.n4-mode-count {
+  margin-top: 2px;
+}
+
+.n4-sublabel {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--text-muted);
+}
+
+.n4-ladder {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.setup .n4-step {
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.n4-step-no {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bg-inset);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+
+.n4-step.is-active .n4-step-no {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.n4-step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.n4-step-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+/* Nhãn độ khó: xanh — vàng — đỏ, cùng bộ màu trạng thái của cả ứng dụng. */
+.n4-level {
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.n4-level[data-level='3'],
+.n4-level[data-level='4'] {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.n4-level[data-level='5'] {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.n4-path-order {
+  margin: 0;
+}
+
 @media (max-width: 640px) {
   .n4-summary {
     padding: 10px 12px;
+  }
+
+  .setup .n4-step {
+    gap: var(--sp-2);
+    padding: 10px 11px;
   }
 
   .n4-pattern {

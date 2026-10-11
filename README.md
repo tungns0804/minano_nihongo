@@ -696,7 +696,8 @@ hiện.
 Ba bài chuyên đề nằm ngoài giáo trình. Hai bài động từ gom động từ của nhiều bài lẫn nhiều cấp
 theo một chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách; cả hai **chỉ có gõ đáp án** —
 mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài
-ngữ pháp N4 đi theo tài liệu tổng hợp: gõ khi dịch câu ví dụ, trắc nghiệm khi luyện ý nghĩa. Ghi
+ngữ pháp N4 đi theo tài liệu tổng hợp và một lộ trình năm bậc: trắc nghiệm, sắp xếp mảnh câu,
+rồi mới gõ cả câu. Ghi
 chú về cách trả lời đặt ngay trong nhóm của chúng chứ không ở cuối trang: bài **Chia động từ**
 bên dưới có trắc nghiệm theo cách riêng, treo ghi chú ở cuối trang là nói sai về nó.
 
@@ -734,24 +735,65 @@ Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi mộ
 
 Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N4”**, giữ đúng thứ tự và cách chia mục của tài liệu:
 **49 mục**, **81 mẫu** có ý nghĩa để luyện, **335 câu ví dụ** đem ra luyện (thêm vài câu chỉ để
-đối chiếu). Màn hình riêng ở `/exercise/ngu-phap-n4` gồm hai phần:
+đối chiếu). Màn hình riêng ở `/exercise/ngu-phap-n4` gồm ba phần:
 
+- **Cách học hiệu quả** — bốn bước ngắn ở đầu trang: đọc một mục, học mục đó theo lộ trình,
+  đánh ★ câu còn lưỡng lự, hôm sau vào tab Ôn tập trước khi học mục mới.
 - **Ngữ pháp & câu ví dụ** — danh sách 49 mục, đóng sẵn nên cũng là mục lục. Mở một mục ra là
   đủ phần tài liệu viết: ý nghĩa, công thức, giải thích, bảng (kể cả bảng 70 cặp tự/tha động từ,
   bảng kính ngữ), lưu ý, câu dùng sai (✗), từng câu ví dụ kèm lời giải thích, và bài luyện tập
   của tài liệu (đáp án gập lại). Câu tiếng Nhật có **furigana** — tài liệu ghi cách đọc trong
   ngoặc, ở đây đổi thành chữ nhỏ trên đầu, bật tắt được. Ô tìm lọc theo tên mẫu, ý nghĩa, câu
-  ví dụ (cả chữ Hán lẫn kana) hay bản dịch, và mở sẵn các mục khớp. Mỗi mục có nút **Luyện mục
-  này**.
-- **Thiết lập luyện tập** — năm dạng:
+  ví dụ (cả chữ Hán lẫn kana) hay bản dịch, và mở sẵn các mục khớp. Mỗi mục có nút **Học mục
+  này: dễ → khó**.
+- **Thiết lập luyện tập** — một lộ trình năm bậc từ dễ đến khó, luyện cả lộ trình hoặc từng bậc:
 
-| Dạng | Câu hỏi | Trả lời |
-| --- | --- | --- |
-| Dịch câu ví dụ Việt → Nhật | Cái cốc này khó vỡ. | gõ: このコップは われにくいです。 |
-| Dịch câu ví dụ Nhật → Việt | このコップは われにくいです。 | gõ: Cái cốc này khó vỡ. |
-| Ngữ pháp → Ý nghĩa | ～ながら | chọn 1 trong 4 ý nghĩa |
-| Ý nghĩa → Ngữ pháp | Vừa … vừa … | chọn 1 trong 4 mẫu |
-| Ý nghĩa: trộn cả hai chiều | mỗi mẫu được hỏi cả xuôi lẫn ngược | |
+| Bậc | Dạng | Câu hỏi | Trả lời |
+| --- | --- | --- | --- |
+| 1 · Dễ | Ngữ pháp → Ý nghĩa | ～ながら | chọn 1 trong 4 ý nghĩa |
+| 2 · Dễ | Ý nghĩa → Ngữ pháp | Vừa … vừa … | chọn 1 trong 4 mẫu |
+| 3 · Vừa | Điền vào chỗ trống | テレビをみ（　）、ごはんを食べます。 + nghĩa tiếng Việt | chọn 1 trong 4 mẫu |
+| 4 · Vừa | Sắp xếp câu | Tôi vừa xem ti vi vừa ăn cơm. | bấm các mảnh câu theo thứ tự |
+| 5 · Khó | Dịch Việt → Nhật | Cái cốc này khó vỡ. | gõ: このコップは われにくいです。 |
+
+Ngoài lộ trình còn hai dạng: dịch Nhật → Việt, và ý nghĩa trộn cả hai chiều.
+
+**Vì sao có hai bậc giữa.** Trước đây chỉ có bậc 1–2 (trắc nghiệm ý nghĩa) và bậc 5 (gõ cả câu
+tiếng Nhật). Từ chọn một trong bốn ý nghĩa nhảy thẳng sang tự viết câu là hụt hẳn hai nấc —
+đúng chỗ người học thấy "không biết bắt đầu từ đâu". Bậc 3 bắt đặt mẫu vào một câu cụ thể, bậc 4
+bắt dựng câu nhưng chưa bắt nhớ từ vựng và gõ bộ gõ tiếng Nhật.
+
+**Lộ trình** (dạng mặc định, cũng là nút **Học mục này: dễ → khó** ở cuối mỗi mục) đi **theo
+mục**: mục này đủ năm bậc rồi mới sang mục sau, không phải bậc 1 của cả 49 mục rồi mới tới
+bậc 2 — đi theo bậc thì tới lúc sắp xếp câu của ～ながら, người học đã qua hơn trăm câu của
+mẫu khác. Trong một bậc thì trộn thứ tự, giữa các bậc thì không bao giờ. Chọn số câu là học theo
+chặng: hết chặng, màn kết quả mời học tiếp chặng sau (cùng cơ chế "học theo cụm" của bài từ
+vựng). Cả tài liệu là 1.071 câu hỏi nên khung thiết lập nhắc chia chặng khi chưa chọn số câu.
+
+**Bậc 3 — chỗ trống.** Phần ngữ pháp của từng câu ví dụ được đánh dấu ngay trong dữ liệu bằng
+`《…》` (bóc ra lúc nạp, không bao giờ tới màn hình hay bộ chấm, nên id câu không đổi):
+
+```ts
+['テレビをみ《ながら》、ごはんを{食|た}べます。', 'Tôi vừa xem ti vi vừa ăn cơm.'],
+['{安|やす}《ければ@ba》、{買|か}います。', …],   // câu ở mục so sánh: chỗ trống thuộc mẫu ～ば
+['{広|ひろ}い《し》、{家賃|やちん}が{安|やす}い《し》、…'],      // nhiều chỗ trống trong một câu
+```
+
+Lựa chọn là **tên mẫu**, không phải chữ điền vào: chữ điền vào mỗi câu một dạng chia (あれば,
+飲んだら…), lấy chữ của câu khác làm đáp án nhiễu thì nhìn động từ là loại được. Nghĩa tiếng
+Việt luôn hiện dưới câu — thiếu nó thì 「テレビをみ（　）」 điền ～たら cũng thành câu đúng ngữ
+pháp. Để không có câu hai đáp án đúng, đáp án nhiễu **không** lấy trong cùng nhóm mẫu thay được
+cho nhau ngay trong câu (`N4_INTERCHANGEABLE_GROUPS`: ば/たら/と/なら, ようと思う/つもり/予定,
+よう/そう/らしい…) và không lấy mẫu có thể trùng hình thức (`N4_SAME_FORM`: 来られる vừa là
+thể khả năng, bị động, tôn kính ngữ). Mười câu "Bài luyện tập" của tài liệu cũng vào bậc này —
+chính phần phân biệt よう/そう/らしい mà câu tự sinh không hỏi được.
+
+**Bậc 4 — mảnh câu.** [`translation/chunks.ts`](src/app/core/translation/chunks.ts) cắt câu bằng
+vài quy tắc đủ cho câu N4 (khoảng trắng, 、, trợ từ sau chữ Hán/katakana, を, の/こと + trợ từ),
+không cần bộ tách từ. 229/335 câu ra được 3–7 mảnh; câu ngắn hơn bị bỏ khỏi bậc này vì hai mảnh
+thì sắp xếp chỉ còn là đoán. Câu ghép xong chấm như câu gõ tay, nên cách nói khác tài liệu ghi
+cũng đúng; xếp đúng ý mà khác thứ tự tài liệu thì người học tự xác nhận được. Sai một lần thì
+giữ nguyên cách xếp để sửa từng mảnh. Phím số bấm mảnh, Backspace bỏ mảnh vừa xếp, Enter chấm.
 
 Câu ví dụ viết theo cú pháp câu mẫu của khu Luyện dịch (`{漢字|かな}`, `[a/b]`), nên khi dịch
 sang tiếng Nhật thì gõ chữ Hán, gõ kana hay gõ lẫn đều đúng, và chỗ tài liệu ghi hai cách nói
@@ -759,13 +801,19 @@ sang tiếng Nhật thì gõ chữ Hán, gõ kana hay gõ lẫn đều đúng, v
 dài; đáp án nhiễu ưu tiên lấy trong nhóm mẫu dễ nhầm (ば / たら / と / なら, よう / そう / らしい…),
 và không bao giờ lấy mẫu cùng nghĩa (thể khả năng / ～ことができる).
 
-Chọn được mục đem ra luyện, phạm vi ★ (★ đánh trên câu ví dụ khi dịch câu, trên mẫu khi luyện ý
-nghĩa), số câu, gợi ý mẫu ngữ pháp. Câu đã chấm tự vào lịch **Ôn tập** ở khu Ngữ pháp — khoá
-`ne:<id câu>` cho câu ví dụ, `nm:<id mẫu>` cho ý nghĩa.
+Chọn được mục đem ra luyện, phạm vi ★ (★ đánh trên câu ví dụ ở các bậc câu, trên mẫu ở các bậc ý
+nghĩa), số câu, gợi ý mẫu ngữ pháp, furigana. Câu đã chấm ở bậc 1–2 và bậc 5 tự vào lịch **Ôn
+tập** ở khu Ngữ pháp — khoá `nm:<id mẫu>` cho ý nghĩa, `ne:<id câu>` cho câu ví dụ. Hai bậc giữa
+**không** vào lịch: chúng là nấc để leo lên bậc dịch; ghi chung vào thẻ `ne` thì xếp đúng mảnh
+một lần là đẩy thẻ dịch câu lên nấc, dù người học chưa tự viết nổi câu đó. Mỗi mục trong danh
+sách hiện **Đã luyện x/y** — số mẫu và câu của mục đã có lịch ôn — để biết mình đang ở đâu trong
+49 mục.
 
-`npm run verify:n4` soát dữ liệu: cú pháp furigana, cách đọc phải là kana, id câu / id mẫu không
-trùng, ý nghĩa và tên mẫu không trùng (trùng là có câu trắc nghiệm hai đáp án đúng), không còn
-cách đọc viết trong ngoặc như bản gốc. `npm run verify:answer` thử chấm mọi câu ví dụ với các
+`npm run verify:n4` soát dữ liệu: cú pháp furigana, cách đọc phải là kana, id câu / id mẫu / id
+câu luyện tập không trùng, ý nghĩa và tên mẫu không trùng (trùng là có câu trắc nghiệm hai đáp
+án đúng), không còn cách đọc viết trong ngoặc như bản gốc. Với hai bậc giữa: mọi câu đem ra luyện
+phải có chỗ trống `《…》` trỏ về một mẫu có ý nghĩa, câu nhắc lại ở mục so sánh phải đánh dấu y
+như bản gốc, và các mảnh của mọi câu ghép lại phải được chấm đúng. `npm run verify:answer` thử chấm mọi câu ví dụ với các
 cách gõ khác nhau.
 
 ### Điểm chung của hai bài tập động từ
@@ -1072,7 +1120,7 @@ src/app/
       transitive-pairs.ts        58 cặp tự động từ / tha động từ (N5→N3)
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
       n4-grammar.model.ts        Kiểu dữ liệu bài ngữ pháp N4 (mục → mẫu → câu ví dụ)
-      n4-grammar.ts              49 mục chép từ tài liệu "TỔNG HỢP NGỮ PHÁP N4"
+      n4-grammar.ts              49 mục chép từ tài liệu "TỔNG HỢP NGỮ PHÁP N4" + chỗ trống 《…》
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
       kanji-levels.ts            Danh sách JLPT N5→N1 — quyết định chữ nào, cấp nào
@@ -1118,7 +1166,7 @@ src/app/
       conversation-questions.ts  Câu hỏi cho bài hội thoại
       grammar-questions.ts       Câu hỏi cho bài ngữ pháp
       exercise-questions.ts      Câu hỏi cho hai bài tập động từ
-      n4-grammar-questions.ts    Câu hỏi cho bài ngữ pháp N4: dịch câu ví dụ, ý nghĩa ↔ mẫu
+      n4-grammar-questions.ts    Câu hỏi cho bài ngữ pháp N4: năm bậc + lộ trình dễ → khó
       kanji-questions.ts         Câu hỏi cho khu Kanji
       radical-questions.ts       Câu hỏi cho khu Bộ thủ
       draw-questions.ts          Câu hỏi viết tay, dùng chung cho khu Kanji và Bộ thủ
@@ -1145,7 +1193,7 @@ src/app/
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập bổ trợ — bài tập chuyên đề + bài động từ + bài hội thoại
     exercise-detail/             Một bài tập động từ: thiết lập luyện + bảng tra cứu
-    n4-grammar/                  Bài ngữ pháp N4: 49 mục lý thuyết + thiết lập luyện tập
+    n4-grammar/                  Bài ngữ pháp N4: 49 mục lý thuyết + lộ trình luyện năm bậc
     n3-progress/                 Tab Tiến độ N3 — phần trăm, nhịp học mỗi ngày, bảng kiểm soát
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ

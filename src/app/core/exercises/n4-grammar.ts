@@ -5,14 +5,18 @@
  * bản gốc chỉ là lỗi gõ hiển nhiên (chữ thừa, thiếu chữ, sai cách đọc) và vài bản dịch
  * nói ngược câu tiếng Nhật đi kèm — mỗi chỗ đều có ghi chú ngay tại dòng đó.
  *
- * Cú pháp câu ví dụ ({漢字|かな}, [a/b], [a/]) và kiểu dữ liệu: xem `n4-grammar.model.ts`.
+ * Cú pháp câu ví dụ ({漢字|かな}, [a/b], [a/], 《chỗ trống》) và kiểu dữ liệu: xem
+ * `n4-grammar.model.ts`.
  * `npm run verify:n4` kiểm toàn bộ file này: cú pháp, id trùng, ý nghĩa trùng…
  */
 
 import type { GrammarTable } from '../lessons/vocabulary.model';
 import { hashId } from '../lessons/vocabulary-parser';
+import { chunksOf } from '../translation/chunks';
 import { plainText } from '../translation/markup';
+import { BLANK_MARK } from './n4-grammar.model';
 import type {
+  N4Blank,
   N4Example,
   N4Point,
   N4Quiz,
@@ -107,12 +111,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Thể hiện sự quan tâm đến người đối diện, muốn hỏi thêm thông tin hoặc cần lời giải thích về vấn đề gì đó',
             examples: [
               [
-                'どこで かったんですか。',
+                'どこで かった《んですか》。',
                 'Cậu mua ở đâu thế?',
                 'Nhìn thấy bạn cầm đồ vật mới. Bạn trả lời: しんじゅくで かいました。(Tớ mua ở Shinjuku.)',
               ],
               [
-                'にほんごが じょうずですね。にほんに いったことがあるんですか。',
+                'にほんごが じょうずですね。にほんに いったことがある《んですか》。',
                 'Cậu giỏi tiếng Nhật thế. Cậu đến Nhật bao giờ chưa?',
                 'Bạn trả lời: いいえ、いったことが ありません。(Không, tớ chưa đến Nhật bao giờ.)',
               ],
@@ -121,11 +125,11 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: 'Đặt câu hỏi về nguyên nhân, lý do của việc gì đó & trả lời cho câu hỏi đó',
             examples: [
-              ['どうしたんですか。', 'Anh sao thế?', 'Nhìn sắc mặt bạn.'],
-              ['あたまが いたいんです。', 'Anh bị đau đầu.', 'Trả lời cho どうしたんですか。'],
-              ['どうして おくれるんですか。', 'Sao cậu đến muộn thế?', 'おくれる: đến muộn'],
+              ['どうした《んですか》。', 'Anh sao thế?', 'Nhìn sắc mặt bạn.'],
+              ['あたまが いたい《んです》。', 'Anh bị đau đầu.', 'Trả lời cho どうしたんですか。'],
+              ['どうして おくれる《んですか》。', 'Sao cậu đến muộn thế?', 'おくれる: đến muộn'],
               [
-                'バスが なかなかこなかったんです。',
+                'バスが なかなかこなかった《んです》。',
                 'Tại xe buýt mãi không đến.',
                 'Trả lời cho どうして おくれるんですか。 — なかなか～ない: mãi không …',
               ],
@@ -135,26 +139,26 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Bổ sung, giải thích thêm cho thông tin mình đưa ra',
             examples: [
               [
-                'きのう、わたしは がっこうを やすみました。ねつが あったんです。',
+                'きのう、わたしは がっこうを やすみました。ねつが あった《んです》。',
                 'Hôm qua tớ nghỉ học. [Vì/] tớ bị sốt.',
                 'ねつがある: bị sốt',
               ],
               [
-                'きもちが わるいんです。はやくかえっても いいですか。',
+                'きもちが わるい《んです》。はやくかえっても いいですか。',
                 'Tâm trạng em không tốt lắm. Em có thể về sớm được không?',
               ],
             ],
           },
           {
             title: 'Mở đầu câu chuyện, thu hút sự chú ý của người đối diện trước khi vào chủ đề chính',
-            examples: [['すみません、おねがいが あるんですが。', 'Xin lỗi, em có việc muốn nhờ ạ.']],
+            examples: [['すみません、おねがいが ある《んですが》。', 'Xin lỗi, em có việc muốn nhờ ạ.']],
           },
           {
             title: 'Cách nói ít trang trọng (カジュアル) của 「～んです」',
             examples: [
-              ['どうしたの？あたま、いたいの？', 'Em sao thế? Đau đầu à?', 'おとこ (nam) nói.'],
+              ['どうした《の》？あたま、いたい《の》？', 'Em sao thế? Đau đầu à?', 'おとこ (nam) nói.'],
               [
-                'ううん。あたまはいたくないんだけど、ちょっと{気分|きぶん}がわるいの。',
+                'ううん。あたまはいたくない《んだけど》、ちょっと{気分|きぶん}がわるい《の》。',
                 'Không, em không đau đầu, nhưng mà tâm trạng hơi khó chịu chút.',
                 'おんな (nữ) trả lời.',
               ],
@@ -182,11 +186,11 @@ const RAW_SECTIONS: readonly RawSection[] = [
           '[Động từ thể ない] ＋ ほうがいいです: Không nên làm gì',
         ],
         examples: [
-          ['かぜなら、くすりを すぐのんだほうがいいですよ。', 'Nếu bị cảm thì cậu nên uống thuốc ngay đi.'],
-          ['やさいを たくさんたべたほうがいいですね。', 'Nên ăn thật nhiều rau mới tốt nhỉ.', 'やさい: rau、たくさん: nhiều'],
-          ['おさけを たくさんのまないほうがいい。', 'Không nên uống nhiều rượu.'],
+          ['かぜなら、くすりを すぐのんだ《ほうがいいです》よ。', 'Nếu bị cảm thì cậu nên uống thuốc ngay đi.'],
+          ['やさいを たくさんたべた《ほうがいいです》ね。', 'Nên ăn thật nhiều rau mới tốt nhỉ.', 'やさい: rau、たくさん: nhiều'],
+          ['おさけを たくさんのまない《ほうがいい》。', 'Không nên uống nhiều rượu.'],
           [
-            'そとに でかけないほうがいいです。{大雨|おおあめ}なんですよ。',
+            'そとに でかけない《ほうがいいです》。{大雨|おおあめ}なんですよ。',
             'Đừng nên ra ngoài thì hơn. Mưa to đấy.',
             'そと: ngoài、でかける: ra ngoài、大雨（おおあめ）: mưa to',
           ],
@@ -213,14 +217,14 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           // Bản gốc: 「けっこうưおいしい」 — chữ "ư" lạc vào giữa câu tiếng Nhật.
-          ['このレストランは{安|やす}いのに、けっこうおいしいです。', 'Nhà hàng này tuy rẻ nhưng khá ngon.', 'けっこう: khá'],
-          ['{春|はる}なのに、まだ{寒|さむ}いです。', 'Mặc dù đã là mùa xuân rồi nhưng vẫn lạnh.'],
+          ['このレストランは{安|やす}い《のに》、けっこうおいしいです。', 'Nhà hàng này tuy rẻ nhưng khá ngon.', 'けっこう: khá'],
+          ['{春|はる}《なのに》、まだ{寒|さむ}いです。', 'Mặc dù đã là mùa xuân rồi nhưng vẫn lạnh.'],
           [
-            '{薬|くすり}を{飲|の}んだのに、まだ ねつが {下|さ}がりません。',
+            '{薬|くすり}を{飲|の}んだ《のに》、まだ ねつが {下|さ}がりません。',
             'Mặc dù đã uống thuốc rồi nhưng vẫn không hạ sốt.',
             'ねつがさがる: hạ sốt',
           ],
-          ['{家|いえ}が{近|ちか}いのに、{会社|かいしゃ}に{遅|おく}れた。', 'Mặc dù nhà thì gần nhưng vẫn đến công ty muộn.'],
+          ['{家|いえ}が{近|ちか}い《のに》、{会社|かいしゃ}に{遅|おく}れた。', 'Mặc dù nhà thì gần nhưng vẫn đến công ty muộn.'],
         ],
       },
     ],
@@ -246,14 +250,14 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Mẫu câu này diễn tả một hành động diễn ra cùng lúc với một hành động khác. Hành động được miêu tả ở vế 「～ながら」 đứng trước, hành động ở vế sau là hành động chính.',
         ],
         examples: [
-          ['テレビをみながら、ごはんを{食|た}べます。', 'Tôi vừa xem ti vi vừa ăn cơm.', 'Ăn cơm là hành động chính.'],
+          ['テレビをみ《ながら》、ごはんを{食|た}べます。', 'Tôi vừa xem ti vi vừa ăn cơm.', 'Ăn cơm là hành động chính.'],
           [
-            '{音楽|おんがく}を{聞|き}きながら、お{茶|ちゃ}を{飲|の}んでいます。',
+            '{音楽|おんがく}を{聞|き}き《ながら》、お{茶|ちゃ}を{飲|の}んでいます。',
             'Tôi vừa nghe nhạc vừa đang uống trà.',
             'Uống trà là hành động chính.',
           ],
           [
-            '{子供|こども}たちは{笑|わら}いながら、ゲームをしています。',
+            '{子供|こども}たちは{笑|わら}い《ながら》、ゲームをしています。',
             'Lũ trẻ vừa cười vừa chơi game.',
             'Chơi game là hành động chính.',
           ],
@@ -283,11 +287,11 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           // Bản gốc thiếu 「をお」: 「単語（たんご）ぼえるのは…」.
-          ['{単語|たんご}をおぼえるのはたいへんです。', 'Việc nhớ từ thật là vất vả.'],
-          ['{寝|ね}るのがすきです。', 'Tôi thích ngủ.'],
-          ['{電気|でんき}を{消|け}すのをわすれました。', 'Tôi đã quên không tắt điện rồi.'],
-          ['{彼女|かのじょ}が{仕事|しごと}をやめたのをしっています。', 'Tôi biết việc cô ấy đã nghỉ làm.'],
-          ['{死|し}ぬのがこわいです。', 'Cái chết thật là đáng sợ.'],
+          ['{単語|たんご}をおぼえる《のは》たいへんです。', 'Việc nhớ từ thật là vất vả.'],
+          ['{寝|ね}る《のが》すきです。', 'Tôi thích ngủ.'],
+          ['{電気|でんき}を{消|け}す《のを》わすれました。', 'Tôi đã quên không tắt điện rồi.'],
+          ['{彼女|かのじょ}が{仕事|しごと}をやめた《のを》しっています。', 'Tôi biết việc cô ấy đã nghỉ làm.'],
+          ['{死|し}ぬ《のが》こわいです。', 'Cái chết thật là đáng sợ.'],
         ],
       },
       {
@@ -304,15 +308,15 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Danh từ ở phía sau 「のは」 hoặc 「なのは」 chỉ người, vật, địa điểm, thời gian hoặc nguyên nhân. Trong trường hợp là đồ vật thì 「の」 có thể thay bằng 「もの」.',
         ],
         examples: [
-          ['{私|わたし}が{生|う}まれたのは {京都|きょうと}です。', '[Nơi tôi sinh ra là Kyoto/Kyoto là nơi tôi sinh ra].'],
+          ['{私|わたし}が{生|う}まれた《のは》 {京都|きょうと}です。', '[Nơi tôi sinh ra là Kyoto/Kyoto là nơi tôi sinh ra].'],
           [
-            '{独身|どくしん}なのは {田中|たなか}さんだけです。',
+            '{独身|どくしん}《なのは》 {田中|たなか}さんだけです。',
             '[Người còn độc thân chỉ có anh Tanaka/Chỉ có anh Tanaka là còn độc thân].',
           ],
-          ['ちょうどいいのは このサイズです。', '[Vừa nhất là cỡ này/Cỡ này là vừa nhất].'],
-          ['{結婚|けっこん}をきめたのは こどもができたからです。', 'Quyết định kết hôn là vì đã có con.'],
-          ['{会議|かいぎ}が{始|はじ}まるのは 10{時|じ}です。', 'Giờ họp bắt đầu là 10 giờ.'],
-          ['もっとやすい[の/もの]は これです。', 'Cái rẻ hơn là cái này.'],
+          ['ちょうどいい《のは》 このサイズです。', '[Vừa nhất là cỡ này/Cỡ này là vừa nhất].'],
+          ['{結婚|けっこん}をきめた《のは》 こどもができたからです。', 'Quyết định kết hôn là vì đã có con.'],
+          ['{会議|かいぎ}が{始|はじ}まる《のは》 10{時|じ}です。', 'Giờ họp bắt đầu là 10 giờ.'],
+          ['もっとやすい《[の/もの]は》 これです。', 'Cái rẻ hơn là cái này.'],
         ],
       },
       {
@@ -323,10 +327,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
         explanation: ['Mẫu câu 3: Chỉ dùng 「の」, không dùng 「こと」. Mẫu câu này dùng khi nói đến mục đích sử dụng.'],
         structures: ['[Động từ thể từ điển (辞書形)] のに ＋ [つかいます/ べんりです/ やくにたちます/ いいです]'],
         examples: [
-          ['{爪|つめ}{切|き}りは {爪|つめ}をきるのに {使|つか}います。', 'Cái vật cắt móng tay là dùng để cắt móng tay.'],
-          ['やかんは おゆをわかすのに つかいます。', 'Ấm nước là dùng để đun sôi nước.'],
+          ['{爪|つめ}{切|き}りは {爪|つめ}をきる《のに》 {使|つか}います。', 'Cái vật cắt móng tay là dùng để cắt móng tay.'],
+          ['やかんは おゆをわかす《のに》 つかいます。', 'Ấm nước là dùng để đun sôi nước.'],
           [
-            '{電子辞書|でんしじしょ}は {漢字|かんじ}の{意味|いみ}をしらべるのに[{役|やく}に{立|た}ちます/べんりです]。',
+            '{電子辞書|でんしじしょ}は {漢字|かんじ}の{意味|いみ}をしらべる《のに》[{役|やく}に{立|た}ちます/べんりです]。',
             'Từ điển điện tử rất [hữu ích/tiện lợi] cho việc tra nghĩa của kanji.',
           ],
         ],
@@ -364,10 +368,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Không dùng thể khả năng với 2 động từ 分かる (わかる: hiểu) và 知る (しる: biết) vì bản thân hai động từ này đã hàm nghĩa chỉ khả năng.',
         ],
         examples: [
-          ['{私|わたし}は{漢字|かんじ}が{書|か}けます。', 'Tôi có thể viết được kanji.', '漢字: kanji'],
-          ['{英語|えいご}が {話|はな}せません。', 'Tôi không nói được tiếng Anh.'],
-          ['あさ 1{時|じ}まで、{勉強|べんきょう}できます。', 'Tôi có thể học đến 1h sáng.'],
-          ['{今日|きょう}のパーティーに {来|こ}られない。', 'Tôi không thể đến buổi tiệc hôm nay.'],
+          ['{私|わたし}は{漢字|かんじ}が{書|か}《けます》。', 'Tôi có thể viết được kanji.', '漢字: kanji'],
+          ['{英語|えいご}が {話|はな}《せません》。', 'Tôi không nói được tiếng Anh.'],
+          ['あさ 1{時|じ}まで、{勉強|べんきょう}《できます》。', 'Tôi có thể học đến 1h sáng.'],
+          ['{今日|きょう}のパーティーに {来|こ}《られない》。', 'Tôi không thể đến buổi tiệc hôm nay.'],
         ],
       },
     ],
@@ -391,17 +395,17 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: 'Khẳng định',
             examples: [
-              ['{英語|えいご}を{話|はな}すことができます。', 'Tôi có thể nói tiếng Anh.'],
-              ['すしを{食|た}べることができる。', 'Tôi có thể ăn sushi.'],
-              ['{漢字|かんじ}を{書|か}くことができます。', 'Tôi có thể viết kanji.'],
+              ['{英語|えいご}を{話|はな}す《ことができます》。', 'Tôi có thể nói tiếng Anh.'],
+              ['すしを{食|た}べる《ことができる》。', 'Tôi có thể ăn sushi.'],
+              ['{漢字|かんじ}を{書|か}く《ことができます》。', 'Tôi có thể viết kanji.'],
             ],
           },
           {
             title: 'Thể phủ định',
             examples: [
-              ['{英語|えいご}を{話|はな}すことができません。', 'Tôi không thể nói tiếng Anh.'],
-              ['すしを{食|た}べることができない。', 'Tôi không thể ăn sushi.'],
-              ['{漢字|かんじ}を{書|か}くことができません。', 'Tôi không thể viết kanji.'],
+              ['{英語|えいご}を{話|はな}す《ことができません》。', 'Tôi không thể nói tiếng Anh.'],
+              ['すしを{食|た}べる《ことができない》。', 'Tôi không thể ăn sushi.'],
+              ['{漢字|かんじ}を{書|か}く《ことができません》。', 'Tôi không thể viết kanji.'],
             ],
           },
         ],
@@ -428,9 +432,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ]),
         ],
         examples: [
-          ['このりょうりの{作|つく}り{方|かた}をしっていますか。', 'Cậu biết cách làm món ăn này không?'],
-          ['このゲームのあそびかたがわかりますか。', 'Cậu biết cách chơi game này không?'],
-          ['このカメラの{使|つか}い{方|かた}をおしえてください。', 'Làm ơn dạy cho tôi cách sử dụng máy ảnh này.'],
+          ['このりょうりの{作|つく}り《{方|かた}》をしっていますか。', 'Cậu biết cách làm món ăn này không?'],
+          ['このゲームのあそび《かた》がわかりますか。', 'Cậu biết cách chơi game này không?'],
+          ['このカメラの{使|つか}い《{方|かた}》をおしえてください。', 'Làm ơn dạy cho tôi cách sử dụng máy ảnh này.'],
         ],
       },
     ],
@@ -450,9 +454,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Mẫu câu diễn tả việc làm một điều gì đó, theo như/ dựa theo một hành động, lời nói, hay một nội dung nào đó có sẵn. Mẫu này thường dùng trong những lời chỉ dẫn.',
         ],
         examples: [
-          ['{私|わたし}が{書|か}いたとおりに、{書|か}いてください。', 'Hãy viết theo đúng như tôi đã viết.'],
-          ['{彼|かれ}がやるとおりに、やってください。', 'Hãy làm theo như anh ấy làm.'],
-          ['{説明書|せつめいしょ}のとおりに、{組|く}み{立|た}てました。', 'Tôi đã lắp ráp theo sách hướng dẫn.'],
+          ['{私|わたし}が{書|か}いた《とおりに》、{書|か}いてください。', 'Hãy viết theo đúng như tôi đã viết.'],
+          ['{彼|かれ}がやる《とおりに》、やってください。', 'Hãy làm theo như anh ấy làm.'],
+          ['{説明書|せつめいしょ}の《とおりに》、{組|く}み{立|た}てました。', 'Tôi đã lắp ráp theo sách hướng dẫn.'],
         ],
       },
     ],
@@ -484,8 +488,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ]),
         ],
         examples: [
-          ['きょうから{日記|にっき}を{書|か}こう。', 'Từ hôm nay hãy viết nhật ký nào.'],
-          ['あしたもう{一度|いちど}{来|こ}よう。', 'Mai lại đến lần nữa nào.', 'もう一度（もういちど）: một lần nữa'],
+          ['きょうから{日記|にっき}を{書|か}《こう》。', 'Từ hôm nay hãy viết nhật ký nào.'],
+          ['あしたもう{一度|いちど}{来|こ}《よう》。', 'Mai lại đến lần nữa nào.', 'もう一度（もういちど）: một lần nữa'],
         ],
       },
     ],
@@ -510,7 +514,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            'あした{早|はや}く{起|お}きようと{思|おも}います。',
+            'あした{早|はや}く{起|お}き《ようと{思|おも}います》。',
             'Ngày mai tôi sẽ dậy sớm.',
             '早く（はやく）: sớm、起きる（おきる）: dậy',
           ],
@@ -535,12 +539,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '{夏休|なつやす}みに{旅行|りょこう}しようと{思|おも}っています。',
+            '{夏休|なつやす}みに{旅行|りょこう}し《ようと{思|おも}っています》。',
             'Nghỉ hè tôi sẽ đi du lịch.',
             '夏休み（なつやすみ）: nghỉ hè、旅行する（りょこうする）: đi du lịch',
           ],
           [
-            '{木村|きむら}さんは{留学|りゅうがく}しようと{思|おも}っています。',
+            '{木村|きむら}さんは{留学|りゅうがく}し《ようと{思|おも}っています》。',
             'Anh Kimura dự định sẽ đi du học.',
             '留学する（りゅうがくする）: du học',
           ],
@@ -566,9 +570,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         structures: ['[Thể khả năng/ thể thường] ＋ ようになります'],
         explanation: ['Tình trạng không thể (できない状態) ➡ tình trạng có thể (できる状態).'],
         examples: [
-          ['{話|はな}せるようになります。', 'Trở nên có thể nói được.', 'Biến chuyển.'],
+          ['{話|はな}せる《ようになります》。', 'Trở nên có thể nói được.', 'Biến chuyển.'],
           [
-            'れんしゅうしたので、[{日本語|にほんご}を{話|はな}せるようになりました/{日本語|にほんご}を{話|はな}すことができるようになりました]。',
+            'れんしゅうしたので、[{日本語|にほんご}を{話|はな}せる《ようになりました》/{日本語|にほんご}を{話|はな}すことができる《ようになりました》]。',
             'Vì luyện tập rất nhiều nên tôi đã có thể nói được tiếng Nhật.',
           ],
         ],
@@ -581,9 +585,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         structures: ['[Dạng phủ định của thể khả năng] ～ない → ～なくなります'],
         explanation: ['Tình trạng có thể (できる状態) ➡ tình trạng không thể (できない状態).'],
         examples: [
-          ['{話|はな}せなくなります。', 'Trở nên không thể nói được.', 'Biến chuyển.'],
+          ['{話|はな}せ《なくなります》。', 'Trở nên không thể nói được.', 'Biến chuyển.'],
           [
-            '{暑|あつ}くなりましたから、{夜|よる}よく{寝|ね}られなくなりました。',
+            '{暑|あつ}くなりましたから、{夜|よる}よく{寝|ね}られ《なくなりました》。',
             'Trời nóng hơn nên buổi tối không thể ngủ ngon được.',
             '暑い（あつい）: nóng',
           ],
@@ -610,10 +614,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'So sánh 「ようにする」 với 「ようになる」: 「ようになる」 diễn tả sự thay đổi đã có kết quả, đã hoàn thành và thường dùng với thể khả năng, còn 「ようにする」 mới chỉ diễn tả ý chí, ý định sẽ cố gắng, còn chưa rõ về mặt kết quả ra sao.',
         ],
         examples: [
-          ['{野菜|やさい}を{毎日|まいにち}たくさん{食|た}べるようにしています。', 'Tôi cố gắng ăn thật nhiều rau mỗi ngày.'],
-          ['{先生|せんせい}から{教|おし}えてくれたことを{忘|わす}れないようにします。', 'Tôi sẽ không quên những gì thầy cô đã dạy cho tôi.'],
+          ['{野菜|やさい}を{毎日|まいにち}たくさん{食|た}べる《ようにしています》。', 'Tôi cố gắng ăn thật nhiều rau mỗi ngày.'],
+          ['{先生|せんせい}から{教|おし}えてくれたことを{忘|わす}れない《ようにします》。', 'Tôi sẽ không quên những gì thầy cô đã dạy cho tôi.'],
           [
-            '{健康|けんこう}のため、{週|しゅう}{三|さん}{回|かい}{運動|うんどう}するようにしています。',
+            '{健康|けんこう}のため、{週|しゅう}{三|さん}{回|かい}{運動|うんどう}する《ようにしています》。',
             'Để khỏe mạnh tôi đang cố gắng vận động một tuần 3 lần.',
           ],
         ],
@@ -634,8 +638,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ],
         ],
         examples: [
-          ['{毎日|まいにち}{運動|うんどう}するようにしてください。', 'Hãy cố gắng vận động hàng ngày.'],
-          ['{甘|あま}いものをたくさん{食|た}べないようにしてください。', 'Đừng ăn nhiều đồ ngọt.'],
+          ['{毎日|まいにち}{運動|うんどう}する《ようにしてください》。', 'Hãy cố gắng vận động hàng ngày.'],
+          ['{甘|あま}いものをたくさん{食|た}べない《ようにしてください》。', 'Đừng ăn nhiều đồ ngọt.'],
         ],
       },
     ],
@@ -668,7 +672,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['かれは {日本|にほん}に りゅうがくするつもりです。', 'Anh ấy định đi Nhật du học.', 'りゅうがくする: du học'],
+              ['かれは {日本|にほん}に りゅうがくする《つもり》です。', 'Anh ấy định đi Nhật du học.', 'りゅうがくする: du học'],
             ],
           },
           {
@@ -676,16 +680,16 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail:
               'So sánh sắc thái của hai câu いくつもりはない và いかないつもりです thì câu thứ nhất nhấn mạnh ý phủ định nhiều hơn.',
             examples: [
-              ['かれは {日本|にほん}に りゅうがくするつもりは ありません。', 'Anh ấy không định đi Nhật du học.'],
-              ['いくつもりはない。', 'Không có ý định đi.'],
-              ['いかないつもりです。', 'Có ý định không đi.'],
+              ['かれは {日本|にほん}に りゅうがくする《つもり》は ありません。', 'Anh ấy không định đi Nhật du học.'],
+              ['いく《つもり》はない。', 'Không có ý định đi.'],
+              ['いかない《つもり》です。', 'Có ý định không đi.'],
             ],
           },
           {
             title: 'Dự định trong quá khứ',
             examples: [
               [
-                'かれは {日本|にほん}に りゅうがくするつもりだった。',
+                'かれは {日本|にほん}に りゅうがくする《つもり》だった。',
                 'Anh ta đã định đi Nhật du học.',
                 'Có thể bây giờ đã thay đổi.',
               ],
@@ -712,11 +716,11 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '7{月|がつ}の{終|お}わりにドイツへ{出張|しゅっちょう}する{予定|よてい}です。',
+            '7{月|がつ}の{終|お}わりにドイツへ{出張|しゅっちょう}する《{予定|よてい}》です。',
             'Tôi có kế hoạch đi công tác ở Đức vào cuối tháng 7.',
           ],
           [
-            '{来年|らいねん}{日本|にほん}に{留学|りゅうがく}する{予定|よてい}です。',
+            '{来年|らいねん}{日本|にほん}に{留学|りゅうがく}する《{予定|よてい}》です。',
             'Theo kế hoạch thì năm sau tôi sẽ sang Nhật du học.',
           ],
         ],
@@ -734,22 +738,22 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '{大阪|おおさか}に{行|い}く{予定|よてい}です。',
+            '{大阪|おおさか}に{行|い}く《{予定|よてい}@yotei》です。',
             'Tôi có kế hoạch đi Osaka.',
             'Việc đó đã được quyết định chính thức rồi.',
           ],
           [
-            '{大阪|おおさか}に{行|い}くつもりです。',
+            '{大阪|おおさか}に{行|い}く《つもり@tsumori》です。',
             'Tôi dự định sẽ đi Osaka.',
             'Tôi nghĩ về việc đi Osaka từ trước rồi và dự định sẽ đi nhưng có thể vẫn chưa quyết.',
           ],
           [
-            '{大阪|おおさか}に{行|い}こうと{思|おも}います。',
+            '{大阪|おおさか}に{行|い}《こうと{思|おも}います@you-to-omoimasu》。',
             'Tôi sẽ đi Osaka.',
             'Có thể bao hàm ý nghĩa giống với つもり ở trên, cũng có thể dùng trong trường hợp nảy ra ý định ngay trong lúc nói — ví dụ đang nói chuyện với bạn, bạn nói đến Osaka và cảm thấy thích thú, thế là nói luôn là tôi sẽ đi Osaka một ngày nào đó.',
           ],
           [
-            '{早|はや}く{寝|ね}ようと{思|おも}います。',
+            '{早|はや}く{寝|ね}《ようと{思|おも}います@you-to-omoimasu》。',
             'Tôi sẽ ngủ sớm.',
             'Việc xảy ra hàng ngày thì dùng được 「ようと思います」.',
           ],
@@ -775,28 +779,28 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['この{映画|えいが}はおもしろいと{思|おも}います。', 'Tôi nghĩ là bộ phim này hay.'],
-              ['わたしはあした{雨|あめ}がふると{思|おも}います。', 'Tôi nghĩ là mai trời sẽ mưa.'],
-              ['{日本語|にほんご}は{簡単|かんたん}だと{思|おも}った。', 'Tôi đã nghĩ rằng tiếng Nhật dễ.'],
-              ['{田中|たなか}さんは もうかえったと{思|おも}う。', 'Tôi nghĩ là anh Tanaka đã về rồi.'],
+              ['この{映画|えいが}はおもしろい《と{思|おも}います》。', 'Tôi nghĩ là bộ phim này hay.'],
+              ['わたしはあした{雨|あめ}がふる《と{思|おも}います》。', 'Tôi nghĩ là mai trời sẽ mưa.'],
+              ['{日本語|にほんご}は{簡単|かんたん}だ《と{思|おも}った》。', 'Tôi đã nghĩ rằng tiếng Nhật dễ.'],
+              ['{田中|たなか}さんは もうかえった《と{思|おも}う》。', 'Tôi nghĩ là anh Tanaka đã về rồi.'],
             ],
           },
           {
             title: 'Phủ định cách ①: chuyển phần trước 「と」 sang thể phủ định (thể ない)',
             examples: [
-              ['この{映画|えいが}はおもしろくないと{思|おも}います。', 'Tôi nghĩ là bộ phim này không hay.'],
-              ['わたしはあした{雨|あめ}がふらないと{思|おも}います。', 'Tôi nghĩ là mai trời sẽ không mưa.'],
-              ['{日本語|にほんご}は{簡単|かんたん}じゃないと{思|おも}った。', 'Tôi đã nghĩ rằng tiếng Nhật không dễ.'],
-              ['{田中|たなか}さんは まだかえらなかったと{思|おも}う。', 'Tôi nghĩ là anh Tanaka chưa về đâu.'],
+              ['この{映画|えいが}はおもしろくない《と{思|おも}います》。', 'Tôi nghĩ là bộ phim này không hay.'],
+              ['わたしはあした{雨|あめ}がふらない《と{思|おも}います》。', 'Tôi nghĩ là mai trời sẽ không mưa.'],
+              ['{日本語|にほんご}は{簡単|かんたん}じゃない《と{思|おも}った》。', 'Tôi đã nghĩ rằng tiếng Nhật không dễ.'],
+              ['{田中|たなか}さんは まだかえらなかった《と{思|おも}う》。', 'Tôi nghĩ là anh Tanaka chưa về đâu.'],
             ],
           },
           {
             title: 'Phủ định cách ②: chuyển 「と思う/ と思います」 thành 「と思わない/ と思いません」, phần đằng trước giữ nguyên',
             examples: [
-              ['この{映画|えいが}はおもしろいと{思|おも}いません。', 'Tôi không nghĩ là bộ phim này hay.'],
-              ['わたしはあした{雨|あめ}がふると{思|おも}いません。', 'Tôi không nghĩ là mai trời sẽ mưa.'],
-              ['{日本語|にほんご}は{簡単|かんたん}だと{思|おも}わなかった。', 'Tôi đã không nghĩ rằng tiếng Nhật dễ.'],
-              ['{田中|たなか}さんは もうかえったと{思|おも}わない。', 'Tôi không nghĩ là anh Tanaka đã về rồi.'],
+              ['この{映画|えいが}はおもしろい《と{思|おも}いません》。', 'Tôi không nghĩ là bộ phim này hay.'],
+              ['わたしはあした{雨|あめ}がふる《と{思|おも}いません》。', 'Tôi không nghĩ là mai trời sẽ mưa.'],
+              ['{日本語|にほんご}は{簡単|かんたん}だ《と{思|おも}わなかった》。', 'Tôi đã không nghĩ rằng tiếng Nhật dễ.'],
+              ['{田中|たなか}さんは もうかえった《と{思|おも}わない》。', 'Tôi không nghĩ là anh Tanaka đã về rồi.'],
             ],
           },
         ],
@@ -812,18 +816,18 @@ const RAW_SECTIONS: readonly RawSection[] = [
         structures: ['A ＋ は/ が ＋「Câu nói trực tiếp」/ Thể thường (ふつう形) ＋ と言いました/ と言っていました'],
         examples: [
           [
-            '{田中|たなか}さんは「{来週|らいしゅう}{東京|とうきょう}へ{出張|しゅっちょう}します」と{言|い}いました。',
+            '{田中|たなか}さんは「{来週|らいしゅう}{東京|とうきょう}へ{出張|しゅっちょう}します」《と{言|い}いました》。',
             'Anh Tanaka nói: “Tuần tới tôi sẽ đi Tokyo công tác.”',
             'Đơn thuần là diễn đạt lại nguyên văn lời anh Tanaka nói.',
           ],
           [
-            '{田中|たなか}さんは {来週|らいしゅう}{東京|とうきょう}へ{出張|しゅっちょう}する と{言|い}いました。',
+            '{田中|たなか}さんは {来週|らいしゅう}{東京|とうきょう}へ{出張|しゅっちょう}する 《と{言|い}いました》。',
             'Anh Tanaka nói là tuần tới anh ấy sẽ đi Tokyo công tác.',
             'Đơn thuần là diễn đạt lại nguyên văn lời anh Tanaka nói.',
           ],
           // Bản dịch trong bản gốc bị cụt sau chữ "đã nói".
           [
-            '{田中|たなか}さんは{来週|らいしゅう}{東京|とうきょう}へ{出張|しゅっちょう}すると{言|い}っていました。',
+            '{田中|たなか}さんは{来週|らいしゅう}{東京|とうきょう}へ{出張|しゅっちょう}する《と{言|い}っていました》。',
             'Anh Tanaka đã nói là tuần tới anh ấy sẽ đi Tokyo công tác.',
             'Câu này mang tính truyền đạt lại những gì anh Tanaka nói với một người thứ ba.',
           ],
@@ -848,8 +852,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         structures: ['[Chủ ngữ (danh từ)] ＋ が ＋ 自動詞'],
         examples: [
-          ['ドアが{開|あ}きます。', 'Cửa mở.'],
-          ['ドアが{閉|し}まります。', 'Cửa đóng.'],
+          ['ドアが《{開|あ}きます》。', 'Cửa mở.'],
+          ['ドアが《{閉|し}まります》。', 'Cửa đóng.'],
         ],
       },
       {
@@ -863,8 +867,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         structures: ['[Chủ ngữ (danh từ)] ＋ は ＋ [Tân ngữ (danh từ)] ＋ を ＋ 他動詞'],
         examples: [
-          ['[{私|わたし}は/]ドアを{開|あ}けます。', 'Tôi mở cửa.'],
-          ['[{私|わたし}は/]ドアを{閉|し}めます。', 'Tôi đóng cửa.'],
+          ['[{私|わたし}は/]ドアを《{開|あ}けます》。', 'Tôi mở cửa.'],
+          ['[{私|わたし}は/]ドアを《{閉|し}めます》。', 'Tôi đóng cửa.'],
         ],
       },
       {
@@ -878,8 +882,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         tables: [
           table('Bảng tổng hợp các cặp 自動詞 – 他動詞', ['', '自動詞 ～が…', 'Nghĩa', '他動詞 (私は)～を…', 'Nghĩa'], [
-            ['1', 'ドアが{開|あ}きます。', 'mở', 'ドアを{開|あ}けます。', 'mở'],
-            ['2', 'ドアが{閉|し}まります。', 'đóng', 'ドアを{閉|し}めます。', 'đóng'],
+            ['1', 'ドアが《{開|あ}きます》。', 'mở', 'ドアを{開|あ}けます。', 'mở'],
+            ['2', 'ドアが《{閉|し}まります》。', 'đóng', 'ドアを{閉|し}めます。', 'đóng'],
             ['3', '{犬|いぬ}が{出|で}ます。', 'chạy ra, đi ra, rời đi', '{犬|いぬ}を{出|だ}します。', 'cho ra, thả ra, đưa ra'],
             ['4', '{耳|みみ}が{動|うご}きます。', 'chuyển động', '{耳|みみ}を{動|うご}かします。', 'làm cho chuyển động'],
             ['5', '{車|くるま}が{止|と}まります。', 'dừng lại', '{車|くるま}を{止|と}めます。', 'dừng lại'],
@@ -1030,17 +1034,17 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '{毎日|まいにち}がんばれば、{日本語|にほんご}がうまく{話|はな}せるようになります。',
+            '{毎日|まいにち}がんば《れば》、{日本語|にほんご}がうまく{話|はな}せるようになります。',
             'Nếu ngày nào cũng nỗ lực thì sẽ có thể nói được giỏi tiếng Nhật thôi.',
             'うまい: giỏi',
           ],
           [
-            '{少|すこ}し{休|やす}めば、{元気|げんき}になると{思|おも}います。',
+            '{少|すこ}し{休|やす}《めば》、{元気|げんき}になると{思|おも}います。',
             'Tôi nghĩ là nếu nghỉ ngơi một chút thì sẽ khỏe lên thôi.',
             '少し（すこし）: một chút、思う（おもう）: nghĩ',
           ],
           [
-            '{時間|じかん}があれば、かぞくと{映画|えいが}を{見|み}に{行|い}きたいです。',
+            '{時間|じかん}があ《れば》、かぞくと{映画|えいが}を{見|み}に{行|い}きたいです。',
             'Nếu có thời gian thì tôi muốn đi xem phim cùng gia đình.',
             '時間: thời gian',
           ],
@@ -1085,9 +1089,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['{時間|じかん}があったら、あそびに{行|い}こう。', 'Nếu có thời gian thì cùng đi chơi nhé.'],
+              ['{時間|じかん}があ《ったら》、あそびに{行|い}こう。', 'Nếu có thời gian thì cùng đi chơi nhé.'],
               [
-                'ひまだったら、{部屋|へや}を{掃除|そうじ}して。',
+                'ひま《だったら》、{部屋|へや}を{掃除|そうじ}して。',
                 'Nếu mà rảnh rỗi thì dọn dẹp phòng đi.',
                 '部屋: phòng、掃除する: dọn dẹp, quét dọn',
               ],
@@ -1097,12 +1101,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '「～たら」 diễn đạt giả định/ điều kiện chỉ xảy ra một lần, vế kết quả quan trọng hơn vế điều kiện',
             examples: [
               [
-                'あした{雨|あめ}だったら、でかけない。',
+                'あした{雨|あめ}《だったら》、でかけない。',
                 'Nếu mai mưa thì tôi sẽ không ra ngoài.',
                 'Điều kiện này chỉ đúng với trường hợp ngày mai, còn với ngày khác thì chưa chắc. Và kết quả của “nếu mai mưa” là “tôi sẽ không ra ngoài”, kết quả này có thể khác trong những lần sau.',
               ],
               [
-                'ひまだったら、{飲|の}みに{行|い}こう。',
+                'ひま《だったら》、{飲|の}みに{行|い}こう。',
                 'Nếu cậu rảnh thì đi nhậu đi.',
                 'Điều kiện này xảy ra tại thời điểm nói, thấy bạn rảnh nên người nói rủ đi nhậu. Nếu vào ngày khác có thể sẽ là một hoạt động khác. Vế kết quả trong câu này được nhấn mạnh hơn.',
               ],
@@ -1114,21 +1118,21 @@ const RAW_SECTIONS: readonly RawSection[] = [
               'Trong trường hợp này nó không mang nghĩa là điều kiện nữa mà là hai sự việc xảy ra trước sau. Vế 「～たら」 biểu thị hành động đã hoàn thành trước, vế sau biểu thị hành động sau đó.',
             examples: [
               [
-                'お{酒|さけ}を{飲|の}んだら、きもちがわるくなりました。',
+                'お{酒|さけ}を{飲|の}ん《だら》、きもちがわるくなりました。',
                 'Uống rượu xong thì đã cảm thấy khó chịu.',
                 'きもちがわるい: tâm trạng không tốt/ cảm thấy khó chịu',
               ],
               [
-                '{洗濯|せんたく}をしたら、{白|しろ}いシャツがピンクになりました。',
+                '{洗濯|せんたく}をし《たら》、{白|しろ}いシャツがピンクになりました。',
                 'Vừa giặt xong thì cái áo sơ mi trắng chuyển thành màu hồng.',
                 '洗濯する: giặt',
               ],
               [
-                '{田中|たなか}さんに{手紙|てがみ}をだしたら、すぐに{返事|へんじ}がきました。',
+                '{田中|たなか}さんに{手紙|てがみ}をだし《たら》、すぐに{返事|へんじ}がきました。',
                 'Vừa gửi thư cho anh Tanaka xong đã nhận được ngay hồi âm.',
                 '返事（へんじ）: hồi âm、出す（だす）: gửi',
               ],
-              ['{彼|かれ}が{来|き}たら、{会議|かいぎ}をはじめます。', 'Khi anh ta đến thì sẽ bắt đầu họp.', '会議（かいぎ）: cuộc họp'],
+              ['{彼|かれ}が{来|き}《たら》、{会議|かいぎ}をはじめます。', 'Khi anh ta đến thì sẽ bắt đầu họp.', '会議（かいぎ）: cuộc họp'],
             ],
           },
         ],
@@ -1149,20 +1153,20 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '「～ば」 diễn đạt điều kiện/ giả định mang tính nhất quán, vế điều kiện quan trọng hơn',
             examples: [
               [
-                '{安|やす}ければ、{買|か}います。',
+                '{安|やす}《ければ@ba》、{買|か}います。',
                 'Nếu rẻ thì tôi sẽ mua.',
                 'Có thể không chỉ lần này mà các lần khác nếu thấy rẻ tôi cũng sẽ mua. Vế điều kiện “nếu rẻ” quan trọng vì nó quyết định có mua hay không.',
               ],
               [
-                '{日本|にほん}の{新聞|しんぶん}をよく{読|よ}めば、{漢字|かんじ}がじょうずになりますよ。',
+                '{日本|にほん}の{新聞|しんぶん}をよく{読|よ}《めば@ba》、{漢字|かんじ}がじょうずになりますよ。',
                 'Nếu mà thường xuyên đọc báo tiếng Nhật thì sẽ giỏi kanji hơn đấy.',
                 'Điều kiện này gần như là luôn đúng, không nhất thiết chỉ xảy ra một lần, và vế điều kiện “đọc báo tiếng Nhật” quan trọng vì nó quyết định kết quả là “giỏi kanji”.',
               ],
               [
-                'ひまであれば、{飲|の}みに{行|い}こう。',
+                'ひま《であれば@ba》、{飲|の}みに{行|い}こう。',
                 'Nếu cậu rảnh thì đi nhậu đi.',
                 '「～ば」 cũng dùng được với điều kiện chỉ xảy ra một lần: ta cũng có thể nói ひまだったら、飲みに行こう。',
-                { ja: ['ひまだったら、{飲|の}みに{行|い}こう。'] },
+                { ja: ['ひま《だったら》、{飲|の}みに{行|い}こう。'] },
               ],
             ],
           },
@@ -1170,7 +1174,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '「～ば」 hay dùng trong các câu thành ngữ, tục ngữ',
             examples: [
               [
-                '{備|そな}えあれば{憂|うれ}いなし',
+                '{備|そな}えあ《れば@ba》{憂|うれ}いなし',
                 'Nếu có chuẩn bị thì sẽ không lo lắng.',
                 'Tương đương câu “Cẩn tắc vô áy náy”. 備え（そなえ）: sự chuẩn bị、憂い（うれい）: ưu phiền, lo âu',
                 { vi: ['Cẩn tắc vô áy náy.'] },
@@ -1203,10 +1207,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         notes: ['Không dùng động từ thì quá khứ trước 「～と」.'],
         examples: [
-          ['このボタンを{押|お}すと、ドアが{開|あ}きます。', 'Cứ bật nút này thì cửa sẽ mở.'],
+          ['このボタンを{押|お}す《と》、ドアが{開|あ}きます。', 'Cứ bật nút này thì cửa sẽ mở.'],
           // Bản gốc dịch 銀行 là "bưu điện".
           [
-            '{最初|さいしょ}の{角|かど}を{右|みぎ}にまがると、{銀行|ぎんこう}が{見|み}えます。',
+            '{最初|さいしょ}の{角|かど}を{右|みぎ}にまがる《と》、{銀行|ぎんこう}が{見|み}えます。',
             'Rẽ phải ở góc đường đầu tiên thì sẽ nhìn thấy ngân hàng.',
             '最初（さいしょ）: đầu tiên、角: góc',
           ],
@@ -1237,33 +1241,33 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Dựa vào giả định ở vế 1 để đưa ra đánh giá, mệnh lệnh, mong muốn hay ý định',
             examples: [
               [
-                '{東京|とうきょう}へ{行|い}くなら、{新幹線|しんかんせん}が{便利|べんり}です。',
+                '{東京|とうきょう}へ{行|い}く《なら》、{新幹線|しんかんせん}が{便利|べんり}です。',
                 'Nếu mà đi Tokyo thì đi shinkansen là tiện.',
               ],
-              ['{近|ちか}いなら、{歩|ある}きましょう。', 'Nếu mà gần thì đi bộ đi.'],
+              ['{近|ちか}い《なら》、{歩|ある}きましょう。', 'Nếu mà gần thì đi bộ đi.'],
             ],
           },
           {
             title: 'Phản hồi lại thông tin nghe được từ người đối diện',
             examples: [
               [
-                'パソコンがあるなら、インターネットができますね。',
+                'パソコンがある《なら》、インターネットができますね。',
                 'Đã có laptop thì dùng được internet nhỉ.',
                 'Đáp lại câu: 家にパソコンがあります。(Tôi có laptop ở nhà đấy.)',
-                { ja: ['パソコンがあるのなら、インターネットできますね。'] },
+                { ja: ['パソコンがある《のなら》、インターネットできますね。'] },
               ],
               [
-                'パソコンがあるのなら、インターネットできますね。',
+                'パソコンがある《のなら》、インターネットできますね。',
                 'Đã có laptop thì dùng được internet nhỉ.',
                 'Thêm 「の」 trước 「なら」 cũng không làm thay đổi nghĩa của câu.',
-                { ja: ['パソコンがあるなら、インターネットができますね。'] },
+                { ja: ['パソコンがある《なら》、インターネットができますね。'] },
               ],
             ],
           },
           {
             title: 'Một câu thành ngữ Nhật dùng để nhắc nhở người lái xe',
             examples: [
-              ['{飲|の}んだら{乗|の}るな、{乗|の}るなら{飲|の}むな。', 'Đã uống thì không lái mà đã lái thì không uống.'],
+              ['{飲|の}んだら{乗|の}るな、{乗|の}る《なら》{飲|の}むな。', 'Đã uống thì không lái mà đã lái thì không uống.'],
             ],
           },
         ],
@@ -1299,15 +1303,15 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '{遅|おそ}くなる{場合|ばあい}[は/]、{必|かなら}ず{家|いえ}に{連絡|れんらく}してください。',
+            '{遅|おそ}くなる《{場合|ばあい}[は/]》、{必|かなら}ず{家|いえ}に{連絡|れんらく}してください。',
             'Nếu về muộn thì nhất định phải liên lạc với gia đình nhé.',
           ],
           [
-            '{地震|じしん}が{起|お}きた{場合|ばあい}は、まず{火|ひ}を{消|け}すことが{大切|たいせつ}です。',
+            '{地震|じしん}が{起|お}きた《{場合|ばあい}は》、まず{火|ひ}を{消|け}すことが{大切|たいせつ}です。',
             'Trong trường hợp động đất xảy ra thì đầu tiên điều quan trọng là phải [dập/tắt] lửa đi.',
           ],
           [
-            '{地震|じしん}など、{非常|ひじょう}の{場合|ばあい}[に/]は、エレベーターを{使|つか}わないでください。',
+            '{地震|じしん}など、{非常|ひじょう}の《{場合|ばあい}[に/]は》、エレベーターを{使|つか}わないでください。',
             'Trong những trường hợp khẩn cấp, như là có động đất thì đừng sử dụng thang máy.',
           ],
         ],
@@ -1338,12 +1342,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['{学生|がくせい}のとき、あまり{勉強|べんきょう}しませんでした。', 'Lúc còn là sinh viên tôi hầu như chẳng học hành gì.'],
+              ['{学生|がくせい}の《とき》、あまり{勉強|べんきょう}しませんでした。', 'Lúc còn là sinh viên tôi hầu như chẳng học hành gì.'],
               [
-                '{晩|ばん}ごはんを{食|た}べているとき、{友|とも}だちがうちへ{来|き}ました。',
+                '{晩|ばん}ごはんを{食|た}べている《とき》、{友|とも}だちがうちへ{来|き}ました。',
                 'Khi tôi đang ăn cơm tối thì bạn tôi đến [nhà tôi/].',
                 '',
-                { ja: ['{晩|ばん}ごはんを{食|た}べているときに、{友|とも}だちがうちへ{来|き}ました。'] },
+                { ja: ['{晩|ばん}ごはんを{食|た}べている《とき》に、{友|とも}だちがうちへ{来|き}ました。'] },
               ],
             ],
           },
@@ -1353,23 +1357,23 @@ const RAW_SECTIONS: readonly RawSection[] = [
               'Gọi động từ ở vế 1 là V1, động từ ở vế 2 là V2. V1 (thì quá khứ) ＋ とき、V2 → Sau khi V1 kết thúc thì mới thực hiện V2. V1 (ngoài thì quá khứ) ＋ とき、V2 → Trước khi V1 kết thúc thì thực hiện V2.',
             examples: [
               [
-                '{日本|にほん}へ{来|き}たとき、{空港|くうこう}で{写真|しゃしん}を{撮|と}りました。',
+                '{日本|にほん}へ{来|き}た《とき》、{空港|くうこう}で{写真|しゃしん}を{撮|と}りました。',
                 'Sau khi đến Nhật tôi đã chụp ảnh ở sân bay.',
                 'Vì V1 là thì quá khứ.',
               ],
               [
-                '{日本|にほん}へ{来|く}るとき、{空港|くうこう}で{写真|しゃしん}を{撮|と}りました。',
+                '{日本|にほん}へ{来|く}る《とき》、{空港|くうこう}で{写真|しゃしん}を{撮|と}りました。',
                 'Trước khi đến Nhật tôi đã chụp ảnh ở sân bay.',
                 'Vì V1 là thể từ điển, không phải quá khứ.',
               ],
               // Bản gốc dịch 部屋 là "nhà" ở hai câu này.
               [
-                '{部屋|へや}を{出|で}たとき、{携帯|けいたい}が{鳴|な}りました。',
+                '{部屋|へや}を{出|で}た《とき》、{携帯|けいたい}が{鳴|な}りました。',
                 'Sau khi tôi ra khỏi phòng thì điện thoại reo.',
                 'Vì V1 là thì quá khứ.',
               ],
               [
-                '{部屋|へや}を{出|で}るとき、{携帯|けいたい}が{鳴|な}りました。',
+                '{部屋|へや}を{出|で}る《とき》、{携帯|けいたい}が{鳴|な}りました。',
                 'Trước khi tôi ra khỏi phòng thì điện thoại reo.',
                 'Vì V1 không phải ở thì quá khứ.',
               ],
@@ -1381,7 +1385,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
               'Khi chủ ngữ là ngôi thứ nhất (“Tôi”) thì có thể lược bỏ. Khi chủ ngữ không phải là ngôi thứ nhất (không phải là “Tôi”) thì nó có thể đứng đầu hoặc giữa 2 vế câu có とき.',
             examples: [
               [
-                'お{母|かあ}さんは{若|わか}いとき、{看護師|かんごし}でした。',
+                'お{母|かあ}さんは{若|わか}い《とき》、{看護師|かんごし}でした。',
                 'Khi còn trẻ mẹ tôi làm y tá.',
                 '',
                 { ja: ['{若|わか}いとき、お{母|かあ}さんは{看護師|かんごし}でした。'] },
@@ -1392,10 +1396,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Có thể thêm trợ từ 「に」 sau 「とき」',
             examples: [
               [
-                '{晩|ばん}ごはんを{食|た}べているときに、{友|とも}だちがうちへ{来|き}ました。',
+                '{晩|ばん}ごはんを{食|た}べている《とき》に、{友|とも}だちがうちへ{来|き}ました。',
                 'Khi tôi đang ăn cơm tối thì bạn tôi đến [nhà tôi/].',
                 '',
-                { ja: ['{晩|ばん}ごはんを{食|た}べているとき、{友|とも}だちがうちへ{来|き}ました。'] },
+                { ja: ['{晩|ばん}ごはんを{食|た}べている《とき》、{友|とも}だちがうちへ{来|き}ました。'] },
               ],
             ],
           },
@@ -1403,7 +1407,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'V1 có dạng 「いる」 hay 「ある」',
             detail:
               'Khi V2 ở thì quá khứ và V1 có dạng 「いる」 hay 「ある」 thì V1 có thể giữ nguyên thì hiện tại (「いる」 hay 「ある」) hoặc chia thì quá khứ (「いた」 hay 「あった」) đều được.',
-            examples: [['{部屋|へや}に[いる/いた]とき、{電話|でんわ}しました。', 'Tôi đã gọi điện khi ở trong phòng.']],
+            examples: [['{部屋|へや}に[いる/いた]《とき》、{電話|でんわ}しました。', 'Tôi đã gọi điện khi ở trong phòng.']],
           },
           {
             title: 'V1 là tính từ hoặc danh từ ＋ の',
@@ -1411,12 +1415,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
               'Khi V2 ở thì quá khứ và V1 có dạng “tính từ ＋ とき” hay “danh từ ＋ の ＋ とき” thì V1 không cần chia thì quá khứ mà vẫn không làm ảnh hưởng đến ý nghĩa của câu.',
             examples: [
               [
-                '{母|はは}は{若|わか}いとき、きれいでした。',
+                '{母|はは}は{若|わか}い《とき》、きれいでした。',
                 'Lúc trẻ mẹ tôi rất đẹp.',
                 'Có thể nói 「母は若いとき」 hay 「母は若かったとき」 đều được.',
                 { ja: ['{母|はは}は{若|わか}かったとき、きれいでした。'] },
               ],
-              ['{鈴木|すずき}さんは{二十五|にじゅうご}{歳|さい}の とき、{結婚|けっこん}しました。', 'Anh Suzuki đã kết hôn khi 25 tuổi.'],
+              ['{鈴木|すずき}さんは{二十五|にじゅうご}{歳|さい}の 《とき》、{結婚|けっこん}しました。', 'Anh Suzuki đã kết hôn khi 25 tuổi.'],
             ],
           },
         ],
@@ -1464,10 +1468,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ]),
         ],
         examples: [
-          ['あなたは{子供|こども}みたいです。', 'Cậu cứ như trẻ con vậy.'],
-          ['あの{人|ひと}は{田中|たなか}さんのかのじょみたいだね。', 'Người kia hình như là bạn gái anh Tanaka nhỉ.'],
+          ['あなたは{子供|こども}《みたい》です。', 'Cậu cứ như trẻ con vậy.'],
+          ['あの{人|ひと}は{田中|たなか}さんのかのじょ《みたい》だね。', 'Người kia hình như là bạn gái anh Tanaka nhỉ.'],
           [
-            'N1の{試験|しけん}に{合格|ごうかく}しました。まるで{夢|ゆめ}のようです。',
+            'N1の{試験|しけん}に{合格|ごうかく}しました。まるで{夢|ゆめ}の《よう》です。',
             'Tôi đã đỗ kỳ thi N1 rồi. Cứ như là mơ vậy.',
             '合格する: đỗ、夢: giấc mơ、まるで: giống như, như thể là',
           ],
@@ -1496,8 +1500,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         notes: ['「そうです」 có thể dùng ở dạng 「そうだ」 nhưng không dùng ở thì quá khứ: 「そうでした」.'],
         examples: [
-          ['あのレストランはおいしいそうです。', 'Nghe nói là nhà hàng kia ngon lắm đấy.'],
-          ['{彼女|かのじょ}はアメリカにいったそうです。', 'Nghe nói là cô ấy đã đi Mỹ rồi.'],
+          ['あのレストランはおいしい《そう》です。', 'Nghe nói là nhà hàng kia ngon lắm đấy.'],
+          ['{彼女|かのじょ}はアメリカにいった《そう》です。', 'Nghe nói là cô ấy đã đi Mỹ rồi.'],
         ],
       },
       {
@@ -1519,9 +1523,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Phía trước 「そうです」② này không dùng thì quá khứ, nhưng có thể dùng dạng 「そうでした」 (khác biệt so với 「そうです」①). 「そうです」② dùng như một tính từ -na.',
         ],
         examples: [
-          ['このケーキはおいしそうですね。', 'Cái bánh ngọt này trông ngon nhỉ.'],
-          ['{雨|あめ}が{降|ふ}りそうです。', 'Có vẻ trời sắp mưa.'],
-          ['このりんごはおいしくなさそうです。', 'Quả táo này trông có vẻ không ngon lắm.'],
+          ['このケーキはおいし《そう》ですね。', 'Cái bánh ngọt này trông ngon nhỉ.'],
+          ['{雨|あめ}が{降|ふ}り《そう》です。', 'Có vẻ trời sắp mưa.'],
+          ['このりんごはおいしくな《さそう》です。', 'Quả táo này trông có vẻ không ngon lắm.'],
         ],
       },
     ],
@@ -1548,11 +1552,11 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Mẫu câu ～らしい này hay dùng với cụm 「よくわからないけど/ よくしらないけど」.',
         ],
         examples: [
-          ['うわさでは{彼女|かのじょ}は{会社|かいしゃ}をやめるらしいです。', 'Nghe đồn là cô ấy sẽ nghỉ việc.', 'うわさ: lời đồn'],
+          ['うわさでは{彼女|かのじょ}は{会社|かいしゃ}をやめる《らしい》です。', 'Nghe đồn là cô ấy sẽ nghỉ việc.', 'うわさ: lời đồn'],
           // Bản gốc: 「だれが来たらしいです」 — "có ai đó" là だれか.
-          ['だれか{来|き}たらしいです。', 'Hình như có ai đến.', 'Nghe tiếng động ngoài cửa.'],
+          ['だれか{来|き}た《らしい》です。', 'Hình như có ai đến.', 'Nghe tiếng động ngoài cửa.'],
           [
-            'よくわからないけど、{彼女|かのじょ}は{芸能人|げいのうじん}だったらしいです。',
+            'よくわからないけど、{彼女|かのじょ}は{芸能人|げいのうじん}だった《らしい》です。',
             'Tôi cũng không rõ lắm nhưng nghe mọi người nói cô ấy đã từng là nghệ sĩ nổi tiếng đấy.',
             '芸能人（げいのうじん）: nghệ sĩ, người nổi tiếng',
           ],
@@ -1584,9 +1588,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ]),
         ],
         examples: [
-          ['あなたは{熱|ねつ}がありそうですね。', 'Trông cậu như bị sốt vậy.', 'Nhìn mặt bạn.'],
-          ['あなたは{熱|ねつ}があるようですね。', 'Hình như cậu sốt đấy.', 'Nhìn & sờ trán.'],
-          ['あなたは{熱|ねつ}があるらしいですね。', 'Tớ nghe nói hình như cậu bị sốt à.', 'Nghe người khác nói.'],
+          ['あなたは{熱|ねつ}があり《そう@sou-youtai》ですね。', 'Trông cậu như bị sốt vậy.', 'Nhìn mặt bạn.'],
+          ['あなたは{熱|ねつ}がある《よう@you-mitai》ですね。', 'Hình như cậu sốt đấy.', 'Nhìn & sờ trán.'],
+          ['あなたは{熱|ねつ}がある《らしい@rashii》ですね。', 'Tớ nghe nói hình như cậu bị sốt à.', 'Nghe người khác nói.'],
         ],
       },
     ],
@@ -1664,9 +1668,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Đối với … (ai, cái gì)',
         structures: ['[Danh từ] ＋ には: Đối với ai, đối với cái gì'],
         examples: [
-          ['{今|いま} {私|わたし}には{日本語|にほんご}の{新聞|しんぶん}はむずかしいです。', 'Đối với tôi bây giờ thì báo tiếng Nhật vẫn còn khó.'],
+          ['{今|いま} {私|わたし}《には》{日本語|にほんご}の{新聞|しんぶん}はむずかしいです。', 'Đối với tôi bây giờ thì báo tiếng Nhật vẫn còn khó.'],
           [
-            '{英語|えいご}で{話|はな}すことは{彼|かれ}には{問題|もんだい}ありません。',
+            '{英語|えいご}で{話|はな}すことは{彼|かれ}《には》{問題|もんだい}ありません。',
             'Đối với anh ấy thì việc nói tiếng Anh không có vấn đề gì cả.',
             '問題（もんだい）: vấn đề',
           ],
@@ -1687,9 +1691,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         group: 'quyet-dinh',
         structures: ['Cấu trúc 1: [Danh từ] ＋ にする: Quyết định chọn cái gì'],
         examples: [
-          ['コーヒーにします。', 'Tôi chọn cà phê.', 'Gọi món trong nhà hàng.'],
+          ['コーヒー《にします》。', 'Tôi chọn cà phê.', 'Gọi món trong nhà hàng.'],
           [
-            '{夏休|なつやす}みの{旅行|りょこう}は{日本|にほん}にします。',
+            '{夏休|なつやす}みの{旅行|りょこう}は{日本|にほん}《にします》。',
             'Tôi quyết định sẽ chọn Nhật để đi du lịch vào kì nghỉ hè.',
           ],
         ],
@@ -1701,8 +1705,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         group: 'quyet-dinh',
         structures: ['Cấu trúc 2: [Động từ thể từ điển/ thể ない] ＋ ことにする: Quyết định làm gì/ không làm gì'],
         examples: [
-          ['{日本|にほん}に{留学|りゅうがく}することにしました。', 'Tôi đã quyết định đi du học Nhật.'],
-          ['{仕事|しごと}をやめることにします。', 'Tôi vừa quyết định là sẽ nghỉ việc.'],
+          ['{日本|にほん}に{留学|りゅうがく}する《ことにしました》。', 'Tôi đã quyết định đi du học Nhật.'],
+          ['{仕事|しごと}をやめる《ことにします》。', 'Tôi vừa quyết định là sẽ nghỉ việc.'],
         ],
       },
     ],
@@ -1720,29 +1724,29 @@ const RAW_SECTIONS: readonly RawSection[] = [
         structures: ['Tính từ -i (bỏ い) ＋ く ＋ する', 'Tính từ -na (bỏ な) ＋ に ＋ する'],
         examples: [
           [
-            'かみを みじかく します。',
+            'かみを みじか《く します》。',
             'Tôi sẽ cắt ngắn tóc.',
             'Nguyên văn: Tôi sẽ làm cho tóc ngắn đi.',
             { vi: ['Tôi sẽ làm cho tóc ngắn đi.'] },
           ],
           [
-            '{部屋|へや}を きれいに しました。',
+            '{部屋|へや}を きれい《に しました》。',
             'Tôi đã dọn sạch phòng.',
             'Nguyên văn: Tôi đã làm cho sạch phòng.',
             { vi: ['Tôi đã làm cho sạch phòng.'] },
           ],
           [
-            'テレビの{音|おと}を {小|ちい}さく してください。',
+            'テレビの{音|おと}を {小|ちい}さ《く してください》。',
             'Hãy vặn nhỏ tiếng ti vi đi.',
             'Nguyên văn: Hãy làm cho tiếng tivi nhỏ đi.',
             { vi: ['Hãy làm cho tiếng tivi nhỏ đi.'] },
           ],
           [
-            'もう {夜|よる} {遅|おそ}いですから、{静|しず}かに して いただけませんか。',
+            'もう {夜|よる} {遅|おそ}いですから、{静|しず}か《に して》 いただけませんか。',
             'Đã tối muộn rồi nên làm ơn giữ yên lặng giùm tôi.',
           ],
-          ['{水|みず}の{量|りょう}を {二倍|にばい}に してください。', 'Hãy tăng lượng nước lên gấp đôi.', '二倍: gấp đôi'],
-          ['{砂糖|さとう}の{量|りょう}を{半分|はんぶん}に してください。', 'Hãy giảm lượng đường xuống còn một nửa.'],
+          ['{水|みず}の{量|りょう}を {二倍|にばい}《に してください》。', 'Hãy tăng lượng nước lên gấp đôi.', '二倍: gấp đôi'],
+          ['{砂糖|さとう}の{量|りょう}を{半分|はんぶん}《に してください》。', 'Hãy giảm lượng đường xuống còn một nửa.'],
         ],
       },
     ],
@@ -1762,14 +1766,14 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Đã … rồi',
         group: 'mou-mada',
         examples: [
-          ['もう{晩|ばん}ご{飯|はん}を{食|た}べました。', 'Đã ăn tối rồi.'],
-          ['{冬休|ふゆやす}みの{予定|よてい}、もう{決|き}めましたか。', 'Kế hoạch cho kì nghỉ đông, anh đã quyết chưa?'],
-          ['はい、もう{決|き}めました。', 'Rồi, đã quyết rồi.', 'Trả lời cho 冬休みの予定、もう決めましたか。'],
+          ['《もう》{晩|ばん}ご{飯|はん}を{食|た}べました。', 'Đã ăn tối rồi.'],
+          ['{冬休|ふゆやす}みの{予定|よてい}、《もう》{決|き}めましたか。', 'Kế hoạch cho kì nghỉ đông, anh đã quyết chưa?'],
+          ['はい、《もう》{決|き}めました。', 'Rồi, đã quyết rồi.', 'Trả lời cho 冬休みの予定、もう決めましたか。'],
           [
-            '{昨日|きのう}この{漢字|かんじ}を{勉強|べんきょう}しましたが、{読|よ}み{方|かた}がもうわすれてしまいました。',
+            '{昨日|きのう}この{漢字|かんじ}を{勉強|べんきょう}しましたが、{読|よ}み{方|かた}が《もう》わすれてしまいました。',
             'Hôm qua đã học từ kanji này rồi mà đã quên mất cách đọc rồi.',
           ],
-          ['お{父|とう}さんはもうかえったみたいです。', 'Hình như bố đã về rồi.'],
+          ['お{父|とう}さんは《もう》かえったみたいです。', 'Hình như bố đã về rồi.'],
         ],
       },
       {
@@ -1778,9 +1782,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Vẫn chưa …',
         group: 'mou-mada',
         examples: [
-          ['まだ{晩|ばん}ご{飯|はん}を{食|た}べていません。', 'Vẫn chưa ăn tối.'],
+          ['《まだ》{晩|ばん}ご{飯|はん}を{食|た}べていません。', 'Vẫn chưa ăn tối.'],
           [
-            '{石田|いしだ}さんはもう{来|き}ましたが、{田中|たなか}さんはまだ{来|き}ていません。',
+            '{石田|いしだ}さんはもう{来|き}ましたが、{田中|たなか}さんは《まだ》{来|き}ていません。',
             'Anh Ishida đã đến rồi nhưng anh Tanaka thì vẫn chưa đến.',
           ],
         ],
@@ -1791,8 +1795,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Vẫn (còn) …',
         group: 'mou-mada',
         examples: [
-          ['まだ{彼|かれ}を{愛|あい}しています。', 'Vẫn còn yêu anh ta.'],
-          ['{日本語|にほんご}、まだべんきょうしてる？', 'Cậu vẫn đang học tiếng Nhật chứ?'],
+          ['《まだ》{彼|かれ}を{愛|あい}しています。', 'Vẫn còn yêu anh ta.'],
+          ['{日本語|にほんご}、《まだ》べんきょうしてる？', 'Cậu vẫn đang học tiếng Nhật chứ?'],
         ],
       },
       {
@@ -1801,9 +1805,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Không còn … nữa',
         group: 'mou-mada',
         examples: [
-          ['もう{彼|かれ}を{愛|あい}していません。', 'Không còn yêu anh ta nữa.'],
+          ['《もう》{彼|かれ}を{愛|あい}していません。', 'Không còn yêu anh ta nữa.'],
           [
-            'いいえ、もう[やめた/{勉強|べんきょう}してない]。',
+            'いいえ、《もう》[やめた/{勉強|べんきょう}してない]。',
             'Không, [tớ đã bỏ rồi/tớ không còn học nữa].',
             'Trả lời cho 日本語、まだべんきょうしてる？',
           ],
@@ -1825,10 +1829,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
         explanation: ['～ために: Để làm gì/ Vì cái gì … (Mục đích).'],
         structures: ['[Danh từ] ＋ の ＋ ために', '[Động từ thể từ điển] ＋ ために'],
         examples: [
-          ['{試験|しけん}のために、{毎日|まいにち}べんきょうしています。', 'Ngày nào tôi cũng học để chuẩn bị cho kỳ thi.'],
-          ['{結婚式|けっこんしき}に{行|い}くために、{化粧|けしょう}します。', 'Tôi trang điểm để đi dự tiệc cưới.'],
+          ['{試験|しけん}の《ために》、{毎日|まいにち}べんきょうしています。', 'Ngày nào tôi cũng học để chuẩn bị cho kỳ thi.'],
+          ['{結婚式|けっこんしき}に{行|い}く《ために》、{化粧|けしょう}します。', 'Tôi trang điểm để đi dự tiệc cưới.'],
           [
-            '{海外旅行|かいがいりょこう}のために、{新|あたら}しいスニーカーを{買|か}います。',
+            '{海外旅行|かいがいりょこう}の《ために》、{新|あたら}しいスニーカーを{買|か}います。',
             'Tôi sẽ mua một đôi giày sneaker mới để đi du lịch nước ngoài.',
           ],
         ],
@@ -1843,14 +1847,14 @@ const RAW_SECTIONS: readonly RawSection[] = [
           '～ように: Để có thể mà, để mà … Cũng là mẫu câu diễn đạt mục đích, nhưng 「～ように」 khác với 「～ために」 ở chỗ: mục đích được đề cập đến không thuộc sự kiểm soát trực tiếp của người nói. 「～ように」 do đó, thường hay đi kèm với thể khả năng (để có thể…), tự động từ hoặc thể ない (để không …).',
         ],
         examples: [
-          ['みんなによく{見|み}えるように、{字|じ}を{大|おお}きく{書|か}きました。', 'Tôi viết chữ to để mọi người có thể nhìn rõ.'],
+          ['みんなによく{見|み}える《ように》、{字|じ}を{大|おお}きく{書|か}きました。', 'Tôi viết chữ to để mọi người có thể nhìn rõ.'],
           [
-            '{忘|わす}れないように、メモします。',
+            '{忘|わす}れない《ように》、メモします。',
             'Tôi memo [ghi lại/] để không quên.',
             '',
             { vi: ['Tôi ghi lại để không quên.'] },
           ],
-          ['{風邪|かぜ}をひかないように、コートを{着|き}た。', 'Tôi mặc áo khoác để không bị cảm.', '着る（きる）: mặc'],
+          ['{風邪|かぜ}をひかない《ように》、コートを{着|き}た。', 'Tôi mặc áo khoác để không bị cảm.', '着る（きる）: mặc'],
         ],
       },
       {
@@ -1862,12 +1866,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '① So sánh hai câu',
             examples: [
               [
-                '{子|こ}どもが{勉強|べんきょう}するように、{新|あたら}しい{机|つくえ}を{買|か}ってあげました。',
+                '{子|こ}どもが{勉強|べんきょう}する《ように@you-ni-muc-dich》、{新|あたら}しい{机|つくえ}を{買|か}ってあげました。',
                 'Tôi mua tặng con cái bàn mới để con học.',
                 'Mục đích là hướng về “con”, không phải “tôi”.',
               ],
               [
-                '{私|わたし}は{勉強|べんきょう}するために、{新|あたら}しい{机|つくえ}を{買|か}いました。',
+                '{私|わたし}は{勉強|べんきょう}する《ために@tame-ni》、{新|あたら}しい{机|つくえ}を{買|か}いました。',
                 'Tôi mua cái bàn mới để tôi học.',
                 'Mục đích là hướng về bản thân “tôi”.',
               ],
@@ -1877,12 +1881,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '② So sánh hai câu',
             examples: [
               [
-                'みんなによく{見|み}えるように、{字|じ}を{大|おお}きく{書|か}きました。',
+                'みんなによく{見|み}える《ように@you-ni-muc-dich》、{字|じ}を{大|おお}きく{書|か}きました。',
                 'Tôi viết chữ to để mọi người có thể nhìn rõ.',
                 'Mục đích là hướng về “mọi người”, không phải “tôi”.',
               ],
               [
-                'みんなに{説明|せつめい}するために、Powerpointを{使|つか}いました。',
+                'みんなに{説明|せつめい}する《ために@tame-ni》、Powerpointを{使|つか}いました。',
                 'Tôi dùng powerpoint để giải thích cho mọi người.',
                 'Mục đích là “giúp tôi giải thích”, hướng về “tôi”.',
               ],
@@ -1892,12 +1896,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '③ Mục đích vẫn hướng về người nói, nhưng thuộc về khả năng hoặc người nói không kiểm soát hay quyết định trực tiếp được thì cũng dùng 「ように」',
             examples: [
               [
-                'ハワイに{行|い}けるように、お{金|かね}を{貯|た}めています。',
+                'ハワイに{行|い}ける《ように@you-ni-muc-dich》、お{金|かね}を{貯|た}めています。',
                 'Tôi tiết kiệm tiền để có thể đi Hawaii.',
                 'Thuộc về khả năng. 貯める（ためる）: tiết kiệm',
               ],
               [
-                '{風邪|かぜ}をひかないように、コートを{着|き}た。',
+                '{風邪|かぜ}をひかない《ように@you-ni-muc-dich》、コートを{着|き}た。',
                 'Tôi mặc áo khoác để không bị cảm.',
                 'Tôi không kiểm soát được việc “bị cảm”, nên làm gì đó để phòng tránh.',
               ],
@@ -1922,8 +1926,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         pattern: '～忘れます',
         meaning: 'Quên làm gì',
         examples: [
-          ['{大切|たいせつ}なことを{言|い}い{忘|わす}れました。', 'Tôi đã quên nói điều quan trọng.', '大切（たいせつ）: quan trọng'],
-          ['テストに{名前|なまえ}を{書|か}き{忘|わす}れました。', 'Tôi đã quên viết tên vào bài kiểm tra.'],
+          ['{大切|たいせつ}なことを{言|い}い《{忘|わす}れました》。', 'Tôi đã quên nói điều quan trọng.', '大切（たいせつ）: quan trọng'],
+          ['テストに{名前|なまえ}を{書|か}き《{忘|わす}れました》。', 'Tôi đã quên viết tên vào bài kiểm tra.'],
         ],
       },
       {
@@ -1931,9 +1935,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         pattern: '～過ぎます',
         meaning: 'Làm gì quá mức, quá nhiều',
         examples: [
-          ['きのう、{食|た}べ{過|す}ぎました。', 'Hôm qua tôi đã ăn quá nhiều.'],
-          ['テレビを{見|み}すぎて、{目|め}が{疲|つか}れました。', 'Xem ti vi quá nhiều nên mắt bị mỏi.', '疲れる（つかれる）: mệt/ mỏi'],
-          ['{彼|かれ}は{働|はたら}きすぎて、{病気|びょうき}になってしまいました。', 'Anh ấy làm việc quá sức nên bị ốm rồi.'],
+          ['きのう、{食|た}べ《{過|す}ぎました》。', 'Hôm qua tôi đã ăn quá nhiều.'],
+          ['テレビを{見|み}《すぎて》、{目|め}が{疲|つか}れました。', 'Xem ti vi quá nhiều nên mắt bị mỏi.', '疲れる（つかれる）: mệt/ mỏi'],
+          ['{彼|かれ}は{働|はたら}き《すぎて》、{病気|びょうき}になってしまいました。', 'Anh ấy làm việc quá sức nên bị ốm rồi.'],
         ],
       },
       {
@@ -1942,12 +1946,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Bắt đầu làm gì',
         group: 'bat-dau',
         examples: [
-          ['{彼|かれ}、{遅|おそ}いですね。{食|た}べ{始|はじ}めましょうか。', 'Anh ấy lâu thế nhỉ. Hay là bắt đầu ăn luôn đi.'],
+          ['{彼|かれ}、{遅|おそ}いですね。{食|た}べ《{始|はじ}めましょう》か。', 'Anh ấy lâu thế nhỉ. Hay là bắt đầu ăn luôn đi.'],
           [
-            '{友達|ともだち}の{子|こ}どもは1{歳|さい}になったとき、{歩|ある}き{始|はじ}めました。',
+            '{友達|ともだち}の{子|こ}どもは1{歳|さい}になったとき、{歩|ある}き《{始|はじ}めました》。',
             'Con của bạn tôi đã bắt đầu biết đi khi lên 1 tuổi.',
           ],
-          ['まだ{書|か}き{始|はじ}めないでください。', 'Xin vui lòng chưa bắt đầu viết vội.'],
+          ['まだ{書|か}き《{始|はじ}めないで》ください。', 'Xin vui lòng chưa bắt đầu viết vội.'],
         ],
       },
       {
@@ -1957,16 +1961,16 @@ const RAW_SECTIONS: readonly RawSection[] = [
         group: 'bat-dau',
         examples: [
           [
-            '{急|きゅう}に{空|そら}が{暗|くら}くなって、{雨|あめ}が{降|ふ}り{出|だ}しました。',
+            '{急|きゅう}に{空|そら}が{暗|くら}くなって、{雨|あめ}が{降|ふ}り《{出|だ}しました》。',
             'Bất chợt trời tối đi và mưa bắt đầu rơi.',
             '急に: bất ngờ, bất chợt、暗い（くらい）: tối',
           ],
           [
-            '{赤|あか}ちゃんが{急|きゅう}に{泣|な}き{出|だ}しました。',
+            '{赤|あか}ちゃんが{急|きゅう}に{泣|な}き《{出|だ}しました》。',
             'Em bé đột nhiên khóc òa lên.',
             '赤ちゃん（あかちゃん）: em bé、泣く（なく）: khóc',
           ],
-          ['{彼|かれ}が{急|きゅう}に{笑|わら}い{出|だ}しました。', 'Đột nhiên anh ta cười ầm lên.', '笑う（わらう）: cười'],
+          ['{彼|かれ}が{急|きゅう}に{笑|わら}い《{出|だ}しました》。', 'Đột nhiên anh ta cười ầm lên.', '笑う（わらう）: cười'],
         ],
       },
       {
@@ -1974,9 +1978,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         pattern: '～続けます',
         meaning: 'Tiếp tục / liên tục làm gì',
         examples: [
-          ['きのう、{朝|あさ}まで{飲|の}み{続|つづ}けました。', 'Hôm qua tôi đã uống liên tục đến sáng.'],
-          ['もう 30{分|ぷん}も{待|ま}ち{続|つづ}けています。', 'Liên tục đợi đến 30 phút rồi.'],
-          ['もう{時間|じかん}ですが、みんな{書|か}き{続|つづ}けています。', 'Hết giờ rồi mà mọi người vẫn tiếp tục viết.'],
+          ['きのう、{朝|あさ}まで{飲|の}み《{続|つづ}けました》。', 'Hôm qua tôi đã uống liên tục đến sáng.'],
+          ['もう 30{分|ぷん}も{待|ま}ち《{続|つづ}けています》。', 'Liên tục đợi đến 30 phút rồi.'],
+          ['もう{時間|じかん}ですが、みんな{書|か}き《{続|つづ}けています》。', 'Hết giờ rồi mà mọi người vẫn tiếp tục viết.'],
         ],
       },
       {
@@ -1984,9 +1988,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         pattern: '～終わります',
         meaning: 'Kết thúc, làm xong việc gì',
         examples: [
-          ['この{本|ほん}はもう{読|よ}み{終|お}わりました。', 'Tôi đọc xong cuốn sách này rồi.'],
-          ['もう{食|た}べ{終|お}わりますから、ちょっと{待|ま}ってください。', 'Tôi ăn xong rồi đây, đợi tôi một chút nhé.'],
-          ['{書|か}き{終|おわ}ったら、{私|わたし}に{見|み}せてください。', 'Viết xong thì đưa cho tôi xem nhé.'],
+          ['この{本|ほん}はもう{読|よ}み《{終|お}わりました》。', 'Tôi đọc xong cuốn sách này rồi.'],
+          ['もう{食|た}べ《{終|お}わります》から、ちょっと{待|ま}ってください。', 'Tôi ăn xong rồi đây, đợi tôi một chút nhé.'],
+          ['{書|か}き《{終|おわ}ったら》、{私|わたし}に{見|み}せてください。', 'Viết xong thì đưa cho tôi xem nhé.'],
         ],
       },
       {
@@ -1994,13 +1998,13 @@ const RAW_SECTIONS: readonly RawSection[] = [
         pattern: '～直します',
         meaning: 'Làm lại việc gì',
         examples: [
-          ['もう{一度|いちど}{考|かんが}え{直|なお}してください。', 'Hãy nghĩ lại lần nữa đi.', '一度（いちど）: một lần'],
+          ['もう{一度|いちど}{考|かんが}え《{直|なお}してください》。', 'Hãy nghĩ lại lần nữa đi.', '一度（いちど）: một lần'],
           [
-            '{間違|まちが}いが{多|おお}いので、{書|か}き{直|なお}します。',
+            '{間違|まちが}いが{多|おお}いので、{書|か}き《{直|なお}します》。',
             'Bị sai nhiều nên tôi sẽ viết lại.',
             '間違い（まちがい）: lỗi, sự nhầm lẫn',
           ],
-          ['{人生|じんせい}はやり{直|なお}すことができません。', 'Cuộc đời thì không thể làm lại được.', '人生: cuộc đời'],
+          ['{人生|じんせい}はやり《{直|なお}す》ことができません。', 'Cuộc đời thì không thể làm lại được.', '人生: cuộc đời'],
         ],
       },
       {
@@ -2008,9 +2012,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         pattern: '～かえます',
         meaning: 'Thay, đổi (làm gì đó để thay sang cái khác)',
         examples: [
-          ['{新大阪|しんおおさか}でJRに{乗|の}りかえます。', 'Tôi sẽ đổi sang tàu JR ở ga Shin Osaka.'],
-          ['ここで{靴|くつ}を{履|は}きかえてください。', 'Hãy thay giày tại đây.', '履く（はく）: đi giày'],
-          ['{新|あたら}しい{電池|でんち}に{取|と}りかえます。', 'Thay pin mới.', '電池: pin'],
+          ['{新大阪|しんおおさか}でJRに{乗|の}り《かえます》。', 'Tôi sẽ đổi sang tàu JR ở ga Shin Osaka.'],
+          ['ここで{靴|くつ}を{履|は}き《かえてください》。', 'Hãy thay giày tại đây.', '履く（はく）: đi giày'],
+          ['{新|あたら}しい{電池|でんち}に{取|と}り《かえます》。', 'Thay pin mới.', '電池: pin'],
         ],
       },
     ],
@@ -2033,10 +2037,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           '[Tính từ -i (bỏ い)]/ [Tính từ -na (bỏ な)] ＋ すぎる: quá …',
         ],
         examples: [
-          ['アンちゃんは あまいものを たべすぎる。', 'Bé An ăn đồ ngọt nhiều quá.'],
-          ['このもんだいは むずかしすぎる。', 'Câu hỏi này quá khó.', 'むずかしい: khó'],
-          ['かれは おさけを のみすぎました。', 'Anh ta đã uống quá nhiều rượu.'],
-          ['ロシアは さむすぎる。', 'Ở Nga quá lạnh.'],
+          ['アンちゃんは あまいものを たべ《すぎる》。', 'Bé An ăn đồ ngọt nhiều quá.'],
+          ['このもんだいは むずかし《すぎる》。', 'Câu hỏi này quá khó.', 'むずかしい: khó'],
+          ['かれは おさけを のみ《すぎました》。', 'Anh ta đã uống quá nhiều rượu.'],
+          ['ロシアは さむ《すぎる》。', 'Ở Nga quá lạnh.'],
         ],
       },
     ],
@@ -2061,8 +2065,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ]),
         ],
         examples: [
-          ['このくすりは のみやすいです。', 'Thuốc này dễ uống.'],
-          ['{彼|かれ}の{説明|せつめい}は わかりやすいです。', 'Phần giải thích của anh ấy dễ hiểu.'],
+          ['このくすりは のみ《やすい》です。', 'Thuốc này dễ uống.'],
+          ['{彼|かれ}の{説明|せつめい}は わかり《やすい》です。', 'Phần giải thích của anh ấy dễ hiểu.'],
         ],
       },
       {
@@ -2079,8 +2083,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
           ]),
         ],
         examples: [
-          ['さしみは {食|た}べにくいです。', 'Sashimi [gỏi cá sống/] rất là khó ăn.'],
-          ['このコップは われにくいです。', 'Cái cốc này khó vỡ.'],
+          ['さしみは {食|た}べ《にくい》です。', 'Sashimi [gỏi cá sống/] rất là khó ăn.'],
+          ['このコップは われ《にくい》です。', 'Cái cốc này khó vỡ.'],
         ],
       },
     ],
@@ -2119,12 +2123,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
               'Dạng chủ động: A は B を ＋ động từ chủ động → Dạng bị động: B は A に ＋ động từ bị động (B được/ bị A …)',
             examples: [
               [
-                '{私|わたし}は {先生|せんせい}に ほめられました。',
+                '{私|わたし}は {先生|せんせい}に ほめ《られました》。',
                 'Tôi đã được cô giáo khen.',
                 'Câu chủ động: 先生は 私を ほめました。(Cô giáo đã khen tôi.)',
               ],
               [
-                '{私|わたし}は {母|はは}に しかられました。',
+                '{私|わたし}は {母|はは}に しか《られました》。',
                 'Tôi đã bị mẹ mắng.',
                 'Câu chủ động: 母は 私を しかりました。(Mẹ đã mắng tôi.) しかる: mắng',
               ],
@@ -2135,12 +2139,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail: 'Dạng chủ động: A が B に C を ＋ động từ chủ động → Dạng bị động: B は A に C を ＋ động từ bị động',
             examples: [
               [
-                '{私|わたし}は {知|し}らない{人|ひと}に {道|みち}を {聞|き}かれました。',
+                '{私|わたし}は {知|し}らない{人|ひと}に {道|みち}を {聞|き}《かれました》。',
                 'Tôi bị một người không quen hỏi đường.',
                 'Câu chủ động: 知らない人が 私に 道を 聞きました。(Một người không quen đã hỏi đường tôi.)',
               ],
               [
-                '{私|わたし}は {近所|きんじょ}の{人|ひと}に いつも{文句|もんく}を {言|い}われます。',
+                '{私|わたし}は {近所|きんじょ}の{人|ひと}に いつも{文句|もんく}を {言|い}《われます》。',
                 'Tôi suốt ngày bị hàng xóm phàn nàn.',
                 'Câu chủ động: 近所の人が 私に いつも文句を 言います。(Hàng xóm cứ suốt ngày phàn nàn về tôi.) 近所（きんじょ）: vùng lân cận, gần nhà、文句（もんく）: kêu ca, phàn nàn (文句を言う)',
               ],
@@ -2151,12 +2155,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail: '→ Dạng bị động: B は A に [Danh từ] を ＋ động từ bị động',
             examples: [
               [
-                '{私|わたし}は {先生|せんせい}に {日本語|にほんご}を ほめられました。',
+                '{私|わたし}は {先生|せんせい}に {日本語|にほんご}を ほめ《られました》。',
                 'Tiếng Nhật của tôi được cô giáo khen.',
                 'Câu chủ động: 先生は 私の日本語を ほめました。(Cô giáo khen tiếng Nhật của tôi.)',
               ],
               [
-                '{私|わたし}は {友達|ともだち}に {携帯|けいたい}を {壊|こわ}されました。',
+                '{私|わたし}は {友達|ともだち}に {携帯|けいたい}を {壊|こわ}《されました》。',
                 'Di động của tôi bị bạn làm hỏng.',
                 'Câu chủ động: 友達は 私の携帯を 壊しました。(Bạn tôi làm hỏng cái di động của tôi.)',
               ],
@@ -2167,10 +2171,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail:
               'Chủ thể của hành động khi chuyển sang bị động sẽ chuyển thành dạng 「だれに」 (bởi ai đó) nhưng trong trường hợp người đó không được biết đến, hoặc thông tin không quan trọng thì có thể bỏ đi.',
             examples: [
-              ['この{家|いえ}は 200{年|ねん}{前|まえ}に {建|た}てられました。', 'Ngôi nhà này được xây cách đây 200 năm.'],
+              ['この{家|いえ}は 200{年|ねん}{前|まえ}に {建|た}て《られました》。', 'Ngôi nhà này được xây cách đây 200 năm.'],
               // Bản gốc dịch "sẽ được tổ chức", ngược với 行われました (đã).
               [
-                'オリンピックは 2020{年|ねん}に {東京|とうきょう}で {行|おこな}われました。',
+                'オリンピックは 2020{年|ねん}に {東京|とうきょう}で {行|おこな}《われました》。',
                 'Olympic đã được tổ chức ở Tokyo vào năm 2020.',
                 '行う（おこなう）: tiến hành, tổ chức',
               ],
@@ -2181,9 +2185,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail:
               '「によって」 thường được sử dụng thay cho 「に」 khi nhắc đến tác giả của những tác phẩm, công trình nghệ thuật, kiến trúc, phát minh có ý nghĩa lịch sử, xã hội quan trọng.',
             examples: [
-              ['「ハムレット」は シェークスピアによって {書|か}かれました。', 'Hamlet được viết bởi Shakespeare.'],
+              ['「ハムレット」は シェークスピアによって {書|か}《かれました》。', 'Hamlet được viết bởi Shakespeare.'],
               [
-                '「モナリザ」は レオナルド・ダ・ウィンチによって {描|か}かれました。',
+                '「モナリザ」は レオナルド・ダ・ウィンチによって {描|か}《かれました》。',
                 'Bức tranh nàng Monalisa do Leonardo da Vinci vẽ.',
                 '描く（かく）: vẽ',
               ],
@@ -2194,9 +2198,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail:
               'Đây là trường hợp đặc biệt và không có dạng câu chủ động tương đương với nó. Dạng bị động này thường được sử dụng để thể hiện sự bực tức, khó chịu, cảm giác bị làm phiền.',
             examples: [
-              ['{今朝|けさ} {雨|あめ}に{降|ふ}られました。', 'Sáng nay bị dính mưa.'],
+              ['{今朝|けさ} {雨|あめ}に{降|ふ}《られました》。', 'Sáng nay bị dính mưa.'],
               [
-                '{夜中|よなか}の 2{時|じ} {友達|ともだち}に{来|こ}られて、{困|こま}りました。',
+                '{夜中|よなか}の 2{時|じ} {友達|ともだち}に{来|こ}《られて》、{困|こま}りました。',
                 '2 giờ đêm thì bị bạn đến, thật là phiền phức.',
                 '夜中: nửa đêm、困る（こまる）: khó chịu, phiền phức',
               ],
@@ -2234,38 +2238,38 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: '1. A は B に ＋ [Danh từ] を ＋ 使役形: A bắt B làm việc gì (trường hợp có 2 tân ngữ)',
             examples: [
               [
-                '{先生|せんせい}は いつも{私|わたし}たちに {宿題|しゅくだい}を たくさんさせます。',
+                '{先生|せんせい}は いつも{私|わたし}たちに {宿題|しゅくだい}を たくさん《させます》。',
                 'Cô giáo lúc nào cũng bắt chúng tôi làm nhiều bài tập.',
               ],
               [
-                'こどもに {時々|ときどき}{自分|じぶん}で{部屋|へや}を そうじさせたほうがいいと{思|おも}います。',
+                'こどもに {時々|ときどき}{自分|じぶん}で{部屋|へや}を そうじ《させた》ほうがいいと{思|おも}います。',
                 'Thỉnh thoảng nên bắt trẻ con tự dọn phòng thì tốt hơn.',
               ],
-              ['{母|はは}は {毎日|まいにち}{私|わたし}に {英語|えいご}を {勉強|べんきょう}させる。', 'Ngày nào mẹ cũng bắt tôi học tiếng Anh.'],
+              ['{母|はは}は {毎日|まいにち}{私|わたし}に {英語|えいご}を {勉強|べんきょう}《させる》。', 'Ngày nào mẹ cũng bắt tôi học tiếng Anh.'],
             ],
           },
           {
             title: '2. A は B に ＋ [Danh từ] を ＋ 使役形: A cho phép B làm gì (trường hợp có 2 tân ngữ)',
             examples: [
-              ['{両親|りょうしん}は {私|わたし}に {好|す}きなことを させました。', 'Bố mẹ đã cho phép tôi làm những gì mình thích.'],
+              ['{両親|りょうしん}は {私|わたし}に {好|す}きなことを 《させました》。', 'Bố mẹ đã cho phép tôi làm những gì mình thích.'],
               [
-                '{先生|せんせい}は {学生|がくせい}に ひらがなで {宿題|しゅくだい}を {書|か}かせました。',
+                '{先生|せんせい}は {学生|がくせい}に ひらがなで {宿題|しゅくだい}を {書|か}《かせました》。',
                 'Giáo viên cho phép học sinh viết bài tập bằng hiragana.',
               ],
-              ['{父|ちち}は {私|わたし}に {携帯|けいたい}を {使|つか}わせません。', 'Bố không cho phép tôi dùng di động.'],
-              ['{私|わたし}は {子|こ}どもに コカコーラを {飲|の}ませません。', 'Tôi không cho phép con uống coca.'],
+              ['{父|ちち}は {私|わたし}に {携帯|けいたい}を {使|つか}《わせません》。', 'Bố không cho phép tôi dùng di động.'],
+              ['{私|わたし}は {子|こ}どもに コカコーラを {飲|の}《ませません》。', 'Tôi không cho phép con uống coca.'],
             ],
           },
           {
             title: '3. A は B を ＋ 使役形: A bắt/ cho phép B làm việc gì (trường hợp có 1 tân ngữ)',
             examples: [
-              ['コーチは {山田|やまだ}さんを {走|はし}らせました。', 'Huấn luyện viên bắt Yamada chạy bộ.', '走る（はしる）: chạy'],
+              ['コーチは {山田|やまだ}さんを {走|はし}《らせました》。', 'Huấn luyện viên bắt Yamada chạy bộ.', '走る（はしる）: chạy'],
               [
-                '{部長|ぶちょう}は {私|わたし}を {出張|しゅっちょう}に {行|い}かせました。',
+                '{部長|ぶちょう}は {私|わたし}を {出張|しゅっちょう}に {行|い}《かせました》。',
                 'Trưởng phòng bắt tôi đi công tác.',
                 '出張（しゅっちょう）: công tác',
               ],
-              ['お{母|かあ}さんは {子|こ}どもを はやく{寝|ね}させます。', 'Mẹ bắt con ngủ sớm.'],
+              ['お{母|かあ}さんは {子|こ}どもを はやく{寝|ね}《させます》。', 'Mẹ bắt con ngủ sớm.'],
             ],
           },
           {
@@ -2274,17 +2278,17 @@ const RAW_SECTIONS: readonly RawSection[] = [
               'Một số động từ bộc lộ cảm xúc khác: 喜ぶ（よろこぶ）: vui、がっかりする: thất vọng、泣く（なく）: khóc、悲しむ（かなしむ）: buồn、安心する（あんしんする）: an tâm、困る（こまる）: phiền phức, phiền toái',
             examples: [
               [
-                '{田中|たなか}さんは いつもおもしろい{話|はなし}をして、みんなを {笑|わら}わせます。',
+                '{田中|たなか}さんは いつもおもしろい{話|はなし}をして、みんなを {笑|わら}《わせます》。',
                 'Anh Tanaka lúc nào cũng kể chuyện thú vị làm tất cả mọi người cười.',
                 '笑う（わらう）: cười',
               ],
               [
-                '{私|わたし}は {病気|びょうき}になって、{両親|りょうしん}を {心配|しんぱい}させました。',
+                '{私|わたし}は {病気|びょうき}になって、{両親|りょうしん}を {心配|しんぱい}《させました》。',
                 'Tôi bị bệnh, làm cho bố mẹ lo lắng.',
                 '心配する（しんぱいする）: lo lắng',
               ],
               [
-                '{彼|かれ}は デートに{遅|おく}れて、{彼女|かのじょ}を {怒|おこ}らせた。',
+                '{彼|かれ}は デートに{遅|おく}れて、{彼女|かのじょ}を {怒|おこ}《らせた》。',
                 'Anh đến buổi hẹn muộn làm cho cô ấy tức giận.',
                 '怒る（おこる）: tức giận',
               ],
@@ -2298,10 +2302,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Hãy cho phép tôi làm … (xin phép)',
         structures: ['Thể sai khiến dạng て ＋ ください: Hãy cho phép tôi làm …'],
         examples: [
-          ['すみません、お{金|かね}を{払|はら}わせてください。', 'Xin hãy để tôi trả tiền.', '払う（はらう）: trả tiền, thanh toán'],
-          ['すみません、トイレに{行|い}かせてください。', 'Cho phép tôi vào nhà vệ sinh.'],
-          ['{今日|きょう}ははやく{帰|かえ}らせてください。', 'Hãy cho phép tôi về sớm ngày hôm nay.'],
-          ['すみません、もうすこし {考|かんが}えさせてください。', 'Xin cho phép tôi nghĩ thêm chút nữa.'],
+          ['すみません、お{金|かね}を{払|はら}《わせてください》。', 'Xin hãy để tôi trả tiền.', '払う（はらう）: trả tiền, thanh toán'],
+          ['すみません、トイレに{行|い}《かせてください》。', 'Cho phép tôi vào nhà vệ sinh.'],
+          ['{今日|きょう}ははやく{帰|かえ}《らせてください》。', 'Hãy cho phép tôi về sớm ngày hôm nay.'],
+          ['すみません、もうすこし {考|かんが}え《させてください》。', 'Xin cho phép tôi nghĩ thêm chút nữa.'],
         ],
       },
       {
@@ -2327,13 +2331,13 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Với động từ nhóm 1, ～せられる cũng có thể được rút gọn thành ～される: 行かせられる → 行かされる, 言わせられる → 言わされる, 書かせられる → 書かされる. Trừ trường hợp nếu phía trước ～せられる là 「さ」 thì vẫn giữ nguyên là ～させられる: 「話させられる」 hay 「押させられる」 thì vẫn giữ nguyên, không có dạng rút gọn.',
         ],
         examples: [
-          ['{私|わたし}は {両親|りょうしん}に アメリカに {留学|りゅうがく}させられた。', 'Tôi bị bố mẹ bắt đi du học ở Mỹ.'],
-          ['{母|はは}に {部屋|へや}を {掃除|そうじ}させられた。', 'Tôi bị mẹ bắt dọn phòng.', '掃除する（そうじする）: dọn dẹp'],
+          ['{私|わたし}は {両親|りょうしん}に アメリカに {留学|りゅうがく}《させられた》。', 'Tôi bị bố mẹ bắt đi du học ở Mỹ.'],
+          ['{母|はは}に {部屋|へや}を {掃除|そうじ}《させられた》。', 'Tôi bị mẹ bắt dọn phòng.', '掃除する（そうじする）: dọn dẹp'],
           [
-            '{田中|たなか}さんは {部長|ぶちょう}に ビールを たくさん{飲|の}ませられた。',
+            '{田中|たなか}さんは {部長|ぶちょう}に ビールを たくさん{飲|の}《ませられた》。',
             'Anh Tanaka bị trưởng phòng bắt uống nhiều bia.',
           ],
-          ['{私|わたし}たちは {先生|せんせい}に {宿題|しゅくだい}を たくさんさせられました。', 'Chúng tôi bị cô giáo bắt làm nhiều bài tập.'],
+          ['{私|わたし}たちは {先生|せんせい}に {宿題|しゅくだい}を たくさん《させられました》。', 'Chúng tôi bị cô giáo bắt làm nhiều bài tập.'],
         ],
       },
     ],
@@ -2395,8 +2399,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['{野菜|やさい}を{食|た}べなさい。', 'Ăn rau đi con.'],
-              ['よく{聞|き}きなさい。', 'Hãy nghe chăm chú vào.', 'Bố mẹ nói với con/ thầy cô nhắc học sinh.'],
+              ['{野菜|やさい}を{食|た}べ《なさい》。', 'Ăn rau đi con.'],
+              ['よく{聞|き}き《なさい》。', 'Hãy nghe chăm chú vào.', 'Bố mẹ nói với con/ thầy cô nhắc học sinh.'],
             ],
           },
           {
@@ -2437,17 +2441,17 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            'あした[{私|わたし}は/] {料理|りょうり}を{作|つく}ってあげるよ。',
+            'あした[{私|わたし}は/] {料理|りょうり}を{作|つく}って《あげる》よ。',
             'Mai tôi sẽ nấu ăn cho nhé.',
             '料理（りょうり）: đồ ăn、作る（つくる）: làm, nấu',
           ],
           [
-            '[{私|わたし}は/] {鈴木|すずき}さんに お{金|かね}を {貸|か}してあげました。',
+            '[{私|わたし}は/] {鈴木|すずき}さんに お{金|かね}を {貸|か}して《あげました》。',
             'Tôi đã cho Suzuki vay tiền.',
             '鈴木（すずき）、貸す（かす）: cho vay',
           ],
-          ['こどもに {本|ほん}を {読|よ}んで あげた。', 'Tôi đã đọc sách cho con.'],
-          ['{田中|たなか}さんは リンさんに {日本語|にほんご}を {教|おし}えてあげます。', 'Tanaka dạy tiếng Nhật cho Linh.'],
+          ['こどもに {本|ほん}を {読|よ}んで 《あげた》。', 'Tôi đã đọc sách cho con.'],
+          ['{田中|たなか}さんは リンさんに {日本語|にほんご}を {教|おし}えて《あげます》。', 'Tanaka dạy tiếng Nhật cho Linh.'],
         ],
       },
       {
@@ -2457,13 +2461,13 @@ const RAW_SECTIONS: readonly RawSection[] = [
         group: 'cho-nhan',
         structures: ['[Danh từ 1 (người cho)] は/ が [Danh từ 2 (tôi/ thành viên gia đình tôi)] に ＋ ～てくれます'],
         examples: [
-          ['{母|はは}が お{弁当|べんとう}を {作|つく}ってくれた。', 'Mẹ đã làm cơm hộp [bento/] cho tôi.', 'お弁当（おべんとう）: bento'],
+          ['{母|はは}が お{弁当|べんとう}を {作|つく}って《くれた》。', 'Mẹ đã làm cơm hộp [bento/] cho tôi.', 'お弁当（おべんとう）: bento'],
           [
-            '{友達|ともだち}が {買|か}い{物|もの}を してくれました。',
+            '{友達|ともだち}が {買|か}い{物|もの}を して《くれました》。',
             'Bạn tôi đã đi chợ giúp tôi.',
             '買い物する（かいものする）: đi chợ, đi mua sắm',
           ],
-          ['{山田|やまだ}さんが {息子|むすこ}に お{菓子|かし}を {買|か}ってくれました。', 'Anh Yamada đã mua kẹo cho con trai tôi.'],
+          ['{山田|やまだ}さんが {息子|むすこ}に お{菓子|かし}を {買|か}って《くれました》。', 'Anh Yamada đã mua kẹo cho con trai tôi.'],
         ],
       },
       {
@@ -2477,10 +2481,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           '「～てもらいます」 mang ý nghĩa nhờ vả (mình nhờ, sau đó người ta làm giúp), còn 「～てくれます」 có thể dùng cả khi người khác làm gì đó giúp mình mà không cần nhờ vả trước.',
         ],
         examples: [
-          ['{佐藤|さとう}さんに {漢字|かんじ}を {書|か}いてもらいました。', 'Tôi đã nhờ anh Sato viết kanji hộ tôi.'],
-          ['{旦那|だんな}に {洗濯|せんたく}を してもらった。', 'Tôi nhờ chồng giặt đồ hộ.', '洗濯する: giặt đồ'],
-          ['{小林|こばやし}さんに {手伝|てつだ}ってもらいました。', 'Tôi đã nhờ anh Kobayashi giúp đỡ.'],
-          ['マイクさんは {先生|せんせい}に {日本語|にほんご}を{教|おし}えてもらいました。', 'Mike đã nhờ cô giáo dạy tiếng Nhật giúp.'],
+          ['{佐藤|さとう}さんに {漢字|かんじ}を {書|か}いて《もらいました》。', 'Tôi đã nhờ anh Sato viết kanji hộ tôi.'],
+          ['{旦那|だんな}に {洗濯|せんたく}を して《もらった》。', 'Tôi nhờ chồng giặt đồ hộ.', '洗濯する: giặt đồ'],
+          ['{小林|こばやし}さんに {手伝|てつだ}って《もらいました》。', 'Tôi đã nhờ anh Kobayashi giúp đỡ.'],
+          ['マイクさんは {先生|せんせい}に {日本語|にほんご}を{教|おし}えて《もらいました》。', 'Mike đã nhờ cô giáo dạy tiếng Nhật giúp.'],
         ],
       },
     ],
@@ -2500,10 +2504,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: '① Diễn đạt một sự việc/ hành động đã hoàn thành (hay dùng với 「もう」)',
             examples: [
-              ['{田中|たなか}さんはケーキを{食|た}べてしまいました。', 'Tanaka đã ăn hết sạch cái bánh ngọt rồi.'],
-              ['もう{宿題|しゅくだい}をしてしまいました。', 'Tôi đã làm xong hết bài tập rồi.'],
+              ['{田中|たなか}さんはケーキを{食|た}べて《しまいました》。', 'Tanaka đã ăn hết sạch cái bánh ngọt rồi.'],
+              ['もう{宿題|しゅくだい}をして《しまいました》。', 'Tôi đã làm xong hết bài tập rồi.'],
               [
-                'もうすぐパーティーがはじまりますよ。{仕事|しごと}をしてしまいましょう。',
+                'もうすぐパーティーがはじまりますよ。{仕事|しごと}をして《しまいましょう》。',
                 'Tiệc sắp bắt đầu rồi đấy. Làm xong việc thôi nào.',
                 'もうすぐ: sắp, một chút nữa thôi',
               ],
@@ -2512,10 +2516,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: '② Diễn đạt sự tiếc nuối, hối hận vì đã lỡ làm gì đó',
             examples: [
-              ['{会社|かいしゃ}に{遅|おく}れてしまった。', 'Muộn giờ làm mất rồi!', '遅れる（おくれる）: muộn'],
-              ['{宿題|しゅくだい}を{忘|わす}れてしまいました。', 'Tôi quên làm bài tập mất rồi.'],
+              ['{会社|かいしゃ}に{遅|おく}れて《しまった》。', 'Muộn giờ làm mất rồi!', '遅れる（おくれる）: muộn'],
+              ['{宿題|しゅくだい}を{忘|わす}れて《しまいました》。', 'Tôi quên làm bài tập mất rồi.'],
               [
-                '{今朝|けさ} {財布|さいふ}を{落|お}としてしまいました。',
+                '{今朝|けさ} {財布|さいふ}を{落|お}として《しまいました》。',
                 'Sáng nay tôi làm rơi mất ví rồi.',
                 '財布: ví、落とす: làm rơi, đánh rơi',
               ],
@@ -2525,7 +2529,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Hay dùng khi biện bạch, phân trần lý do làm việc gì đó (いいわけ)',
             examples: [
               [
-                '{山田|やまだ}さん、すみません。{山田|やまだ}さんのコーヒーを{飲|の}んでしまったんです。',
+                '{山田|やまだ}さん、すみません。{山田|やまだ}さんのコーヒーを{飲|の}んで《しまった》んです。',
                 'Anh Yamada, xin lỗi vì tôi đã uống mất cà phê của anh rồi.',
               ],
             ],
@@ -2568,20 +2572,20 @@ const RAW_SECTIONS: readonly RawSection[] = [
             examples: [
               // Bản gốc dịch 窓 là "Cửa".
               [
-                '{窓|まど}が{開|あ}けてあります。',
+                '{窓|まど}が{開|あ}けて《あります》。',
                 'Cửa sổ đã được mở.',
                 'Ai đó đã mở vì mục đích gì đó và giờ nó đang ở trạng thái mở.',
               ],
-              ['{電気|でんき}が{消|け}してありました。', 'Điện đã được tắt.'],
-              ['{問題|もんだい}は 15ページに{書|か}いてあります。', 'Câu hỏi được viết ở trang số 15.'],
-              ['ドアが{開|あ}けてあります。', 'Cửa đã được mở.', 'Vì mục đích nào đó, như để đón khách v.v.'],
+              ['{電気|でんき}が{消|け}して《ありました》。', 'Điện đã được tắt.'],
+              ['{問題|もんだい}は 15ページに{書|か}いて《あります》。', 'Câu hỏi được viết ở trang số 15.'],
+              ['ドアが{開|あ}けて《あります》。', 'Cửa đã được mở.', 'Vì mục đích nào đó, như để đón khách v.v.'],
             ],
           },
           {
             title: 'So sánh 「～てあります」 với 「～ました」 và 「～ています」',
             reference: true,
             examples: [
-              ['ドアが{開|あ}けてあります。', 'Cửa đã được mở.', 'Hiện tại cửa đang mở và ai đó đã mở cửa vì mục đích nào đó (như để đón khách v.v).'],
+              ['ドアが{開|あ}けて《あります》。', 'Cửa đã được mở.', 'Hiện tại cửa đang mở và ai đó đã mở cửa vì mục đích nào đó (như để đón khách v.v).'],
               ['ドアを{開|あ}けました。', 'Tôi đã mở cửa.', 'Chỉ đơn giản miêu tả lại 1 hành động đã xảy ra: đã mở cửa.'],
               ['ドアが{開|あ}いています。', 'Cửa đang mở.', 'Chỉ là diễn tả trạng thái của cái cửa, không thể hiện mục đích gì.'],
             ],
@@ -2590,8 +2594,8 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Hành động đã hoàn thành vì một mục đích, kết quả còn liên quan đến hiện tại',
             detail: 'Trong trường hợp này dùng trợ từ 「を」 thay cho trợ từ 「が」.',
             examples: [
-              ['{漢字|かんじ}を{調|しら}べてあります。', 'Tôi đã tra kanji rồi.', 'Vì mục đích chuẩn bị bài đọc v.v.'],
-              ['ホテルを{予約|よやく}してありますよ。', 'Tôi đã đặt khách sạn rồi đấy.', 'Vì mục đích du lịch v.v.'],
+              ['{漢字|かんじ}を{調|しら}べて《あります》。', 'Tôi đã tra kanji rồi.', 'Vì mục đích chuẩn bị bài đọc v.v.'],
+              ['ホテルを{予約|よやく}して《あります》よ。', 'Tôi đã đặt khách sạn rồi đấy.', 'Vì mục đích du lịch v.v.'],
             ],
           },
         ],
@@ -2615,20 +2619,20 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             examples: [
               [
-                '{来週|らいしゅう}の{試験|しけん}のため、{漢字|かんじ}を{勉強|べんきょう}しておきました。',
+                '{来週|らいしゅう}の{試験|しけん}のため、{漢字|かんじ}を{勉強|べんきょう}して《おきました》。',
                 'Để chuẩn bị cho kỳ thi tuần tới, tôi đã học trước kanji rồi.',
               ],
-              ['{明日|あした}のパーティーを{準備|じゅんび}しておかないといけない。', 'Phải chuẩn bị sẵn cho buổi tiệc ngày mai thôi.'],
-              ['{会議|かいぎ}のために、{資料|しりょう}をコピーしておきました。', 'Tôi đã copy sẵn tài liệu để chuẩn bị cho buổi họp.'],
+              ['{明日|あした}のパーティーを{準備|じゅんび}して《おかない》といけない。', 'Phải chuẩn bị sẵn cho buổi tiệc ngày mai thôi.'],
+              ['{会議|かいぎ}のために、{資料|しりょう}をコピーして《おきました》。', 'Tôi đã copy sẵn tài liệu để chuẩn bị cho buổi họp.'],
             ],
           },
           {
             title: 'Làm gì đó sẵn giúp cho ai đó',
             examples: [
-              ['お{弁当|べんとう}を{作|つく}っておいたよ。', 'Tôi làm sẵn bento [cho anh/] rồi đấy.'],
-              ['{私|わたし}に{任|まか}せておいて。', 'Cứ để đấy cho tôi.', 'Tôi sẽ làm giúp cho.'],
+              ['お{弁当|べんとう}を{作|つく}って《おいた》よ。', 'Tôi làm sẵn bento [cho anh/] rồi đấy.'],
+              ['{私|わたし}に{任|まか}せて《おいて》。', 'Cứ để đấy cho tôi.', 'Tôi sẽ làm giúp cho.'],
               [
-                'ホテルを{予約|よやく}しておくから、{心配|しんぱい}しないで。',
+                'ホテルを{予約|よやく}して《おく》から、{心配|しんぱい}しないで。',
                 'Tôi sẽ đặt sẵn khách sạn [cho anh/] nên không phải lo đâu.',
               ],
             ],
@@ -2638,7 +2642,7 @@ const RAW_SECTIONS: readonly RawSection[] = [
             examples: [
               // Bản gốc dịch "đã đặt … rồi", lệch với しとくから (sẽ đặt sẵn).
               [
-                'ホテルを{予約|よやく}しとくから、{心配|しんぱい}しないで。',
+                'ホテルを{予約|よやく}し《とく》から、{心配|しんぱい}しないで。',
                 'Tôi sẽ đặt khách sạn trước nên đừng có lo lắng.',
               ],
             ],
@@ -2671,10 +2675,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
           'Trong hội thoại hàng ngày, 「かもしれません」 được nói ngắn gọn là 「かも」.',
         ],
         examples: [
-          ['{山田|やまだ}さんは{図書館|としょかん}にいるかもしれない。', 'Có lẽ Yamada đang ở thư viện.'],
-          ['{彼|かれ}は{来|こ}ないかもしれません。', 'Có lẽ anh ta sẽ không đến.'],
-          ['あした いそがしいかもしれない。', 'Có lẽ mai sẽ bận đấy.'],
-          ['{彼|かれ}は{来|こ}ないかもね。', 'Có lẽ anh ấy sẽ không đến nhỉ.', 'Cách nói ngắn gọn 「かも」 trong hội thoại.'],
+          ['{山田|やまだ}さんは{図書館|としょかん}にいる《かもしれない》。', 'Có lẽ Yamada đang ở thư viện.'],
+          ['{彼|かれ}は{来|こ}ない《かもしれません》。', 'Có lẽ anh ta sẽ không đến.'],
+          ['あした いそがしい《かもしれない》。', 'Có lẽ mai sẽ bận đấy.'],
+          ['{彼|かれ}は{来|こ}ない《かも》ね。', 'Có lẽ anh ấy sẽ không đến nhỉ.', 'Cách nói ngắn gọn 「かも」 trong hội thoại.'],
         ],
       },
       {
@@ -2698,15 +2702,15 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             examples: [
               [
-                '{今|いま} 10{時|じ}ですから、{郵便局|ゆうびんきょく}は{開|あ}いているはずです。',
+                '{今|いま} 10{時|じ}ですから、{郵便局|ゆうびんきょく}は{開|あ}いている《はず》です。',
                 'Bây giờ là 10 giờ nên chắc chắn là bưu điện đang mở cửa.',
               ],
               [
-                '{山田|やまだ}さんは{英語|えいご}の{教師|きょうし}ですから、{英語|えいご}が{話|はな}せるはずだ。',
+                '{山田|やまだ}さんは{英語|えいご}の{教師|きょうし}ですから、{英語|えいご}が{話|はな}せる《はず》だ。',
                 'Anh Yamada là giáo viên tiếng Anh nên chắc hẳn là nói được tiếng Anh.',
               ],
               [
-                '{山田|やまだ}さんは{英語|えいご}の{教師|きょうし}ですから、{英語|えいご}が{話|はな}せるはずだと{思|おも}いますが、{実|じつ}はあまり{話|はな}せません。',
+                '{山田|やまだ}さんは{英語|えいご}の{教師|きょうし}ですから、{英語|えいご}が{話|はな}せる《はず》だと{思|おも}いますが、{実|じつ}はあまり{話|はな}せません。',
                 'Vì anh Yamada là giáo viên tiếng Anh nên tôi nghĩ là chắc chắn anh ấy phải nói được tiếng Anh nhưng sự thực là anh ấy không nói được mấy.',
                 '「はずです」 là đánh giá của người nói nên đôi khi khác với thực tế.',
               ],
@@ -2716,12 +2720,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Thể phủ định: 「はずがない」/ 「はずはない」',
             examples: [
               [
-                '{彼|かれ}は{病気|びょうき}ですから、{来|く}るはずがないね。',
+                '{彼|かれ}は{病気|びょうき}ですから、{来|く}る《はず》がないね。',
                 'Anh ấy bị bệnh nên tôi không chắc chắn là anh ấy sẽ đến.',
                 'Tôi hầu như không tin việc anh ấy đến.',
               ],
               [
-                '{彼|かれ}は{病気|びょうき}ですから、{来|こ}ないはずだね。',
+                '{彼|かれ}は{病気|びょうき}ですから、{来|こ}ない《はず》だね。',
                 'Anh ấy bị bệnh nên chắc chắn là không đến đâu.',
                 'Tôi chỉ đoán là anh ấy không đến.',
               ],
@@ -2744,10 +2748,10 @@ const RAW_SECTIONS: readonly RawSection[] = [
         structures: ['[Động từ thể て] ＋ みる: Thử làm gì đó'],
         explanation: ['「みる」 có thể chia ở các thể khác nhau.'],
         examples: [
-          ['その{本|ほん}を{読|よ}んでみます。', 'Tôi sẽ thử đọc cuốn sách đó xem sao.'],
-          ['{日曜日|にちようび}{美術館|びじゅつかん}へ{行|い}ってみませんか。', 'Chủ nhật này thử đi bảo tàng mỹ thuật không?'],
-          ['すしを{食|た}べてみたけど、あまり{好|す}きじゃなかった。', 'Tôi ăn thử sushi rồi nhưng mà không thích lắm.'],
-          ['{着物|きもの}を{一度|いちど}{着|き}てみたいです。', 'Tôi muốn mặc thử kimono một lần.'],
+          ['その{本|ほん}を{読|よ}んで《みます》。', 'Tôi sẽ thử đọc cuốn sách đó xem sao.'],
+          ['{日曜日|にちようび}{美術館|びじゅつかん}へ{行|い}って《みませんか》。', 'Chủ nhật này thử đi bảo tàng mỹ thuật không?'],
+          ['すしを{食|た}べて《みた》けど、あまり{好|す}きじゃなかった。', 'Tôi ăn thử sushi rồi nhưng mà không thích lắm.'],
+          ['{着物|きもの}を{一度|いちど}{着|き}て《みたい》です。', 'Tôi muốn mặc thử kimono một lần.'],
         ],
       },
     ],
@@ -2771,14 +2775,14 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         notes: ['Để lịch sự hơn có thể thay 「いいですか」 bằng 「いいでしょうか」 hoặc 「いいと思いますか」.'],
         examples: [
-          ['[いつ/{何時|なんじ}に]{会|あ}ったらいい？', '[Lúc nào/Mấy giờ] gặp nhau thì được?'],
+          ['[いつ/{何時|なんじ}に]{会|あ}っ《たらいい》？', '[Lúc nào/Mấy giờ] gặp nhau thì được?'],
           [
-            'すしを{食|た}べたいんですが、どこで{食|た}べたらいいですか。',
+            'すしを{食|た}べたいんですが、どこで{食|た}べ《たらいいですか》。',
             'Tôi muốn ăn sushi thì nên ăn ở đâu?',
           ],
-          ['どこにゴミを{出|だ}したらいいでしょうか。', 'Tôi nên vứt rác ở đâu ạ?'],
+          ['どこにゴミを{出|だ}し《たらいいでしょうか》。', 'Tôi nên vứt rác ở đâu ạ?'],
           [
-            'すしを{食|た}べたいんですが、どこで{食|た}べたらいいと{思|おも}いますか。',
+            'すしを{食|た}べたいんですが、どこで{食|た}べ《たらいい》と{思|おも}いますか。',
             'Tôi muốn ăn sushi thì theo anh nên ăn ở đâu thì ngon?',
           ],
         ],
@@ -2791,11 +2795,11 @@ const RAW_SECTIONS: readonly RawSection[] = [
         structures: ['[Động từ thể た ＋ ら] ＋ どうですか: Sao không ～?'],
         examples: [
           [
-            'この{本|ほん}、おもしろいから、{読|よ}んでみたら[どう/]？',
+            'この{本|ほん}、おもしろいから、{読|よ}んでみ《たら[どう/]》？',
             'Quyển sách này rất thú vị, sao cậu không đọc thử xem sao?',
           ],
           [
-            '{沖縄|おきなわ}にいったらどうですか。',
+            '{沖縄|おきなわ}にいっ《たらどうですか》。',
             'Sao cậu không đi Okinawa đi?',
             'Đáp lại câu: 旅行(りょこう)をしたいですね。(Muốn đi du lịch ghê.)',
           ],
@@ -2821,15 +2825,15 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['ひらがなで {書|か}いて いただけませんか。', 'Làm ơn viết bằng hiragana giúp tôi được không?'],
-              ['もう{少|すこ}し ゆっくり {話|はな}して いただけませんか。', 'Làm ơn nói chậm hơn một chút được không?'],
+              ['ひらがなで {書|か}いて 《いただけませんか》。', 'Làm ơn viết bằng hiragana giúp tôi được không?'],
+              ['もう{少|すこ}し ゆっくり {話|はな}して 《いただけませんか》。', 'Làm ơn nói chậm hơn một chút được không?'],
             ],
           },
           {
             title: 'So sánh mức độ lịch sự, trang trọng (giảm dần ① → ② → ③)',
             reference: true,
             examples: [
-              ['ひらがなで {書|か}いて いただけませんか。', 'Làm ơn viết bằng hiragana giúp tôi được không?'],
+              ['ひらがなで {書|か}いて 《いただけませんか》。', 'Làm ơn viết bằng hiragana giúp tôi được không?'],
               ['ひらがなで {書|か}いて くださいませんか。', 'Làm ơn viết bằng hiragana giúp tôi được không?'],
               ['ひらがなで {書|か}いて ください。', 'Xin hãy viết bằng hiragana.'],
             ],
@@ -2859,17 +2863,17 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '{電車|でんしゃ}が {何時|なんじ}に {大阪|おおさか}に{着|つ}くか しっていますか。',
+            '{電車|でんしゃ}が {何時|なんじ}に {大阪|おおさか}に{着|つ}く《か》 しっていますか。',
             'Anh có biết mấy giờ tàu sẽ đến Osaka không?',
             'Câu hỏi gốc: 電車が 何時に 大阪に着きますか。しっていますか？(Mấy giờ tàu sẽ đến Osaka? Anh có biết không?)',
           ],
           [
-            'プレゼントは {何|なに}がいいか {彼|かれ}に{聞|き}きましょう。',
+            'プレゼントは {何|なに}がいい《か》 {彼|かれ}に{聞|き}きましょう。',
             'Hỏi anh ấy xem quà thì mua cái gì được đi.',
             'Câu hỏi gốc: プレゼントは 何がいいですか。彼に聞きましょう。(Quà thì mua cái gì được nhỉ? Hỏi anh ấy đi.)',
           ],
           [
-            '{彼|かれ}にはじめて{会|あ}ったのは いつか わすれてしまいました。',
+            '{彼|かれ}にはじめて{会|あ}ったのは いつ《か》 わすれてしまいました。',
             'Tôi đã quên mất lần đầu gặp anh ấy là khi nào rồi.',
             'Câu hỏi gốc: 彼にはじめて会ったのはいつですか。/ わすれてしまいました。(Lần đầu cậu gặp anh ấy là khi nào? / Tớ quên mất rồi.)',
           ],
@@ -2887,12 +2891,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
         ],
         examples: [
           [
-            '{山田|やまだ}さんがパーティーに {来|く}るかどうか わかりません。',
+            '{山田|やまだ}さんがパーティーに {来|く}る《かどうか》 わかりません。',
             'Tôi không biết là liệu anh Yamada có đến dự tiệc hay không.',
             'Câu hỏi gốc: 山田さんがパーティーに来ますか。/ わかりません。(Anh Yamada có đến dự tiệc không? / Tôi không biết.)',
           ],
           [
-            'このケーキは おいしいかどうか {食|た}べてみてください。',
+            'このケーキは おいしい《かどうか》 {食|た}べてみてください。',
             'Ăn thử xem liệu cái bánh này có ngon không?',
             'Câu hỏi gốc: このケーキはおいしいですか。/ 食べてみてください。(Bánh này có ngon không? / Ăn thử xem.)',
           ],
@@ -2924,13 +2928,13 @@ const RAW_SECTIONS: readonly RawSection[] = [
         usages: [
           {
             examples: [
-              ['{彼女|かのじょ}はきれいだし、{性格|せいかく}もいいです。', 'Cô ấy vừa xinh đẹp mà tính cũng rất hay.'],
+              ['{彼女|かのじょ}はきれいだ《し》、{性格|せいかく}もいいです。', 'Cô ấy vừa xinh đẹp mà tính cũng rất hay.'],
               [
-                'この{部屋|へや}は{広|ひろ}いし、{家賃|やちん}が{安|やす}いし、それに{駅|えき}からも{近|ちか}いです。',
+                'この{部屋|へや}は{広|ひろ}い《し》、{家賃|やちん}が{安|やす}い《し》、それに{駅|えき}からも{近|ちか}いです。',
                 'Căn phòng này vừa rộng, giá thuê lại rẻ, mà lại còn gần ga nữa.',
               ],
               [
-                '{彼|かれ}は{英語|えいご}が{上手|じょうず}だし、フランス{語|ご}も{話|はな}せます。',
+                '{彼|かれ}は{英語|えいご}が{上手|じょうず}だ《し》、フランス{語|ご}も{話|はな}せます。',
                 'Anh ấy không những giỏi tiếng Anh mà còn nói được cả tiếng Pháp.',
               ],
             ],
@@ -2939,15 +2943,15 @@ const RAW_SECTIONS: readonly RawSection[] = [
             title: 'Liệt kê các lý do, sau đó đưa ra câu kết luận hay đánh giá',
             examples: [
               [
-                '{日本語|にほんご}がわからないし、{日本|にほん}に{友達|ともだち}もいないし、{生活|せいかつ}はとても{大変|たいへん}です。',
+                '{日本語|にほんご}がわからない《し》、{日本|にほん}に{友達|ともだち}もいない《し》、{生活|せいかつ}はとても{大変|たいへん}です。',
                 'Tiếng Nhật cũng không biết, bạn bè ở Nhật cũng không có, nên cuộc sống rất là vất vả.',
               ],
               [
-                'ちょっと{疲|つか}れたし、あした{大阪|おおさか}に{出張|しゅっちょう}ですから、{今日|きょう}は{飲|の}みに{行|い}けません。',
+                'ちょっと{疲|つか}れた《し》、あした{大阪|おおさか}に{出張|しゅっちょう}ですから、{今日|きょう}は{飲|の}みに{行|い}けません。',
                 'Tôi hơi mệt, hơn nữa mai lại phải đi công tác ở Osaka, nên hôm nay không thể đi nhậu được.',
               ],
               [
-                'お{金|かね}がないし、{時間|じかん}もないし、{来年|らいねん}の{旅行|りょこう}をやめましょう。',
+                'お{金|かね}がない《し》、{時間|じかん}もない《し》、{来年|らいねん}の{旅行|りょこう}をやめましょう。',
                 'Tiền thì không có, thời gian cũng không, đành từ bỏ chuyến du lịch cho năm sau thôi.',
               ],
             ],
@@ -3016,26 +3020,26 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: 'Động từ có dạng kính ngữ đặc biệt',
             examples: [
-              ['{山田|やまだ}さんは おそばを {召|め}し{上|あ}がりました。', 'Anh Yamada đã ăn mì soba.'],
-              ['{田中|たなか}{先生|せんせい}は いらっしゃいますか。', 'Thầy Tanaka có ở đây không ạ?'],
-              ['{社長|しゃちょう}は ゴルフを なさいます。', 'Giám đốc chơi golf.'],
-              ['アンさんは インドへ {出張|しゅっちょう}なさいます。', 'Anh An sẽ đi công tác ở Ấn Độ.'],
+              ['{山田|やまだ}さんは おそばを 《{召|め}し{上|あ}がりました》。', 'Anh Yamada đã ăn mì soba.'],
+              ['{田中|たなか}{先生|せんせい}は 《いらっしゃいます》か。', 'Thầy Tanaka có ở đây không ạ?'],
+              ['{社長|しゃちょう}は ゴルフを 《なさいます》。', 'Giám đốc chơi golf.'],
+              ['アンさんは インドへ {出張|しゅっちょう}《なさいます》。', 'Anh An sẽ đi công tác ở Ấn Độ.'],
             ],
           },
           {
             title: 'Mẫu câu 1: お ＋ động từ thể ます (bỏ ます) ＋ に なります',
             examples: [
-              ['{先生|せんせい}は もう おかえりに なりました。', 'Thầy giáo đã về rồi.'],
-              ['{部長|ぶちょう}は たばこを お{吸|す}いに なりません。', 'Trưởng phòng không hút thuốc.'],
-              ['{社長|しゃちょう}は {会議|かいぎ}の{予定|よてい}を お{決|き}めに なりました。', 'Giám đốc đã quyết định lịch họp rồi.'],
+              ['{先生|せんせい}は もう 《お》かえり《に なりました》。', 'Thầy giáo đã về rồi.'],
+              ['{部長|ぶちょう}は たばこを 《お》{吸|す}い《に なりません》。', 'Trưởng phòng không hút thuốc.'],
+              ['{社長|しゃちょう}は {会議|かいぎ}の{予定|よてい}を 《お》{決|き}め《に なりました》。', 'Giám đốc đã quyết định lịch họp rồi.'],
             ],
           },
           {
             title: 'Mẫu câu 2: ～れます/ ～られます',
             examples: [
-              ['{山田|やまだ}{先生|せんせい}は さっき でかけられました。', 'Thầy Yamada vừa ra ngoài.'],
-              ['{社長|しゃちょう}は アメリカへ {出張|しゅっちょう}されました。', 'Giám đốc đã đi công tác ở Mỹ rồi.'],
-              ['{佐藤|さとう}さんは 8{時|じ}ごろ こられます。', 'Anh Satou sẽ đến vào tầm 8 giờ.'],
+              ['{山田|やまだ}{先生|せんせい}は さっき でかけ《られました》。', 'Thầy Yamada vừa ra ngoài.'],
+              ['{社長|しゃちょう}は アメリカへ {出張|しゅっちょう}《されました》。', 'Giám đốc đã đi công tác ở Mỹ rồi.'],
+              ['{佐藤|さとう}さんは 8{時|じ}ごろ こ《られます》。', 'Anh Satou sẽ đến vào tầm 8 giờ.'],
             ],
           },
           {
@@ -3043,16 +3047,16 @@ const RAW_SECTIONS: readonly RawSection[] = [
             detail:
               'Với những động từ có dạng kính ngữ đặc biệt thì chia thể て ＋ ください cho các động từ kính ngữ đó. Những động từ còn lại: động từ nhóm 1 & 2: お ＋ động từ thể ます (bỏ ます) ＋ ください; động từ nhóm 3 dạng “kanji ＋ します”: ご ＋ kanji ＋ ください.',
             examples: [
-              ['{召|め}し{上|あ}がってください。', 'Xin mời [anh/chị] dùng [đồ ăn/].'],
-              ['おっしゃってください。', 'Xin mời [anh/chị] nói.'],
+              ['《{召|め}し{上|あ}がって》ください。', 'Xin mời [anh/chị] dùng [đồ ăn/].'],
+              ['《おっしゃって》ください。', 'Xin mời [anh/chị] nói.'],
               [
-                'お{名前|なまえ}を ご{確認|かくにん} ください。',
+                'お{名前|なまえ}を 《ご》{確認|かくにん} 《ください》。',
                 'Xin vui lòng kiểm tra lại tên.',
                 '確認する（かくにんする）: kiểm tra, xác nhận',
               ],
-              ['ここに お{名前|なまえ}を お{書|か}き ください。', 'Xin vui lòng viết tên vào đây.'],
+              ['ここに お{名前|なまえ}を 《お》{書|か}き 《ください》。', 'Xin vui lòng viết tên vào đây.'],
               [
-                'いつでも ご{連絡|れんらく} ください。',
+                'いつでも 《ご》{連絡|れんらく} 《ください》。',
                 'Hãy liên lạc với tôi bất cứ lúc nào.',
                 '連絡する（れんらくする）: liên lạc, liên hệ',
               ],
@@ -3099,12 +3103,12 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: 'Động từ có dạng khiêm nhường ngữ đặc biệt',
             examples: [
-              ['{私|わたし}は ミラーと {申|もう}します。', 'Tôi tên là Miller.'],
-              ['{私|わたし}は ベトナムから {参|まい}ります。', 'Tôi đến từ Việt Nam.'],
-              ['3{時|じ}ごろ そちらへ {参|まい}ります。', 'Tôi sẽ đến đó tầm 3 giờ.'],
-              ['アンさんに ケーキを {作|つく}って いただきました。', 'An đã làm bánh ngọt cho tôi.'],
+              ['{私|わたし}は ミラーと 《{申|もう}します》。', 'Tôi tên là Miller.'],
+              ['{私|わたし}は ベトナムから 《{参|まい}ります》。', 'Tôi đến từ Việt Nam.'],
+              ['3{時|じ}ごろ そちらへ 《{参|まい}ります》。', 'Tôi sẽ đến đó tầm 3 giờ.'],
+              ['アンさんに ケーキを {作|つく}って 《いただきました》。', 'An đã làm bánh ngọt cho tôi.'],
               [
-                '{山田|やまだ}さんの {結婚式|けっこんしき}の{写真|しゃしん}を {拝見|はいけん}しました。',
+                '{山田|やまだ}さんの {結婚式|けっこんしき}の{写真|しゃしん}を 《{拝見|はいけん}しました》。',
                 'Tôi đã xem ảnh cưới của Yamada.',
               ],
             ],
@@ -3112,9 +3116,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: 'Động từ không có dạng khiêm nhường ngữ đặc biệt: お/ ご ＋ … ＋ します',
             examples: [
-              ['{今月|こんげつ}のスケジュールを お{送|おく}りします。', 'Tôi sẽ gửi lịch trình tháng này.'],
-              ['じゃ、また お{電話|でんわ}します。', 'Vậy thì, tôi sẽ gọi lại sau.', 'Lưu ý: お電話, không phải ご電話.'],
-              ['{明日|あした}、また ご{連絡|れんらく}します。', 'Ngày mai tôi sẽ liên lạc lại.'],
+              ['{今月|こんげつ}のスケジュールを 《お》{送|おく}り《します》。', 'Tôi sẽ gửi lịch trình tháng này.'],
+              ['じゃ、また 《お》{電話|でんわ}《します》。', 'Vậy thì, tôi sẽ gọi lại sau.', 'Lưu ý: お電話, không phải ご電話.'],
+              ['{明日|あした}、また 《ご》{連絡|れんらく}《します》。', 'Ngày mai tôi sẽ liên lạc lại.'],
             ],
           },
         ],
@@ -3125,9 +3129,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
         meaning: 'Cho phép tôi được làm … (khiêm nhường, trang trọng)',
         structures: ['(お/ ご) ＋ Động từ thể sai khiến (使役形) て ＋ いただきます: Cho phép tôi …'],
         examples: [
-          ['{新|あたら}しいメンバーを{紹介|しょうかい}させていただきます。', 'Cho phép tôi được giới thiệu thành viên mới.'],
+          ['{新|あたら}しいメンバーを{紹介|しょうかい}《させていただきます》。', 'Cho phép tôi được giới thiệu thành viên mới.'],
           [
-            '{工場内|こうじょうない}をご{案内|あんない}させていただきます。',
+            '{工場内|こうじょうない}をご{案内|あんない}《させていただきます》。',
             'Cho phép tôi được hướng dẫn quý vị tham quan trong nhà máy.',
           ],
         ],
@@ -3175,9 +3179,9 @@ const RAW_SECTIONS: readonly RawSection[] = [
           {
             title: 'Anh A là người ngoài công ty, nói chuyện với anh B là cấp dưới của 渡辺社長 (わたなべしゃちょう)',
             examples: [
-              ['{渡辺|わたなべ}{社長|しゃちょう}はいらっしゃいますか。', 'Giám đốc Watanabe có ở đó không ạ?', 'A (người ngoài công ty) hỏi.'],
+              ['{渡辺|わたなべ}{社長|しゃちょう}は《いらっしゃいます@sonkeigo》か。', 'Giám đốc Watanabe có ở đó không ạ?', 'A (người ngoài công ty) hỏi.'],
               [
-                '{渡辺|わたなべ}はただいま{外出|がいしゅつ}しております。',
+                '{渡辺|わたなべ}はただいま{外出|がいしゅつ}《しております@kenjougo》。',
                 'Hiện giờ anh Watanabe đang ra ngoài ạ.',
                 'B (cấp dưới của giám đốc) trả lời: dùng khiêm nhường ngữ và chỉ gọi tên, không dùng さん.',
               ],
@@ -3202,7 +3206,47 @@ export const N4_SYNONYMS: readonly (readonly string[])[] = [
   ['sasete-kudasai', 'sasete-itadakimasu'],
 ];
 
-function toExample([japanese, vietnamese, note, alt]: RawExample): N4Example {
+/**
+ * Nhóm mẫu dễ nhầm mà trong chính câu ví dụ của tài liệu thường THAY ĐƯỢC cho nhau:
+ * 「時間があれば」 nói 「時間があったら」 cũng đúng, 「行く予定です」 nói 「行くつもりです」
+ * cũng được. Bài "Điền vào chỗ trống" không lấy đáp án nhiễu trong cùng nhóm này — bày
+ * cả 〜ば lẫn 〜たら ra cho một câu thì chọn cái nào cũng đúng.
+ *
+ * Phần luyện ý nghĩa thì vẫn lấy: ở đó hỏi định nghĩa của mẫu, và phân biệt các định
+ * nghĩa gần nhau mới là chỗ khó.
+ */
+export const N4_INTERCHANGEABLE_GROUPS: readonly string[] = ['dieu-kien', 'du-dinh', 'suy-doan', 'bat-dau', 'no', 'chuan-bi'];
+
+/**
+ * Các mẫu khác nhóm mà có thể cùng một HÌNH THỨC trong câu, nên bài "Điền vào chỗ
+ * trống" không lấy mẫu này làm đáp án nhiễu cho mẫu kia: 「来られる」 vừa là thể khả
+ * năng, vừa là bị động, vừa là tôn kính ngữ; 「作っていただく」 vừa là khiêm nhường ngữ
+ * vừa là 〜てもらう nói lịch sự.
+ */
+export const N4_SAME_FORM: readonly (readonly string[])[] = [
+  ['kha-nang', 'ukemi', 'sonkeigo'],
+  ['kenjougo', 'te-moraimasu', 'te-itadakemasen-ka', 'sasete-itadakimasu'],
+];
+
+/** 《phần ngữ pháp》 hoặc 《phần ngữ pháp@id-mẫu》 — xem đầu `n4-grammar.model.ts`. */
+const BLANK = /《([^《》@]*)(?:@([a-z0-9-]+))?》/g;
+
+/**
+ * Bóc dấu 《…》 khỏi câu, giữ lại chỗ trống. `pointId` là mẫu chứa câu, dùng khi chỗ
+ * trống không ghi @id-mẫu. `npm run verify:n4` kiểm mẫu đích có tồn tại và có ý nghĩa.
+ */
+function blankOf(source: string, pointId: string): N4Blank | null {
+  const marks = [...source.matchAll(BLANK)];
+  if (marks.length === 0) return null;
+  return {
+    pointId: marks.find((mark) => mark[2])?.[2] ?? pointId,
+    prompt: source.replace(BLANK, BLANK_MARK),
+    filled: marks.map((mark) => plainText(mark[1])).join(' … '),
+  };
+}
+
+function toExample([source, vietnamese, note, alt]: RawExample, pointId: string): N4Example {
+  const japanese = source.replace(BLANK, '$1');
   return {
     id: hashId(plainText(japanese)),
     japanese,
@@ -3210,22 +3254,24 @@ function toExample([japanese, vietnamese, note, alt]: RawExample): N4Example {
     note: note ?? '',
     japaneseAlt: [...(alt?.ja ?? [])],
     vietnameseAlt: [...(alt?.vi ?? [])],
+    blank: blankOf(source, pointId),
+    chunks: chunksOf(japanese),
   };
 }
 
-function toUsage(raw: RawUsage): N4Usage {
+function toUsage(raw: RawUsage, pointId: string): N4Usage {
   return {
     title: raw.title ?? '',
     detail: raw.detail ?? '',
     reference: raw.reference === true,
-    examples: raw.examples.map(toExample),
+    examples: raw.examples.map((example) => toExample(example, pointId)),
   };
 }
 
 function toPoint(raw: RawPoint): N4Point {
   const usages = [
-    ...(raw.examples ? [toUsage({ examples: raw.examples })] : []),
-    ...(raw.usages ?? []).map(toUsage),
+    ...(raw.examples ? [toUsage({ examples: raw.examples }, raw.id)] : []),
+    ...(raw.usages ?? []).map((usage) => toUsage(usage, raw.id)),
   ];
   return {
     id: raw.id,
@@ -3246,6 +3292,7 @@ function toQuiz(raw: RawSection['quiz']): N4Quiz | null {
   return {
     instruction: raw.instruction,
     items: raw.items.map(([prompt, options, answer, note]) => ({
+      id: hashId(plainText(prompt)),
       prompt,
       options: [...options],
       answer,

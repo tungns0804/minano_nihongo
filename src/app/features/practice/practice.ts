@@ -20,14 +20,17 @@ import { PracticeSessionStore } from '../../core/practice/practice-session-store
 import { DrawingVerdict, STROKE_ISSUE_KEY, checkDrawing } from '../../core/strokes/stroke-score';
 import { StrokePoint } from '../../core/strokes/stroke.model';
 import { StrokeStore } from '../../core/strokes/stroke-store';
+import { plainText } from '../../core/translation/markup';
 import { valueOf } from '../../core/utils/dom-events';
+import { shuffle } from '../../core/utils/random';
+import { ChunkOrder } from '../../shared/chunk-order';
 import { RubyText } from '../../shared/ruby-text';
 import { StarButton } from '../../shared/star-button';
 import { StrokeCanvas } from '../../shared/stroke-canvas';
 
 @Component({
   selector: 'app-practice',
-  imports: [RubyText, StarButton, StrokeCanvas, T],
+  imports: [ChunkOrder, RubyText, StarButton, StrokeCanvas, T],
   templateUrl: './practice.html',
   styleUrl: './practice.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -83,6 +86,8 @@ export class Practice {
    * thì không bao giờ có, nên nhìn vào `choices` là đủ.
    */
   readonly isChoiceMode = computed(() => (this.question()?.choices.length ?? 0) > 0);
+  /** Câu sắp xếp mảnh — cũng xét theo từng câu: lộ trình N4 trộn nó với trắc nghiệm và câu gõ. */
+  readonly isOrderMode = computed(() => (this.question()?.chunks.length ?? 0) > 0);
   readonly isDrawMode = computed(() => this.config()?.answerMode === 'draw');
   readonly modeLabel = computed(() => {
     const config = this.config();
@@ -194,6 +199,62 @@ export class Practice {
   selectChoice(choice: string): void {
     if (this.isResolved() || this.isRejected(choice)) return;
     this.handleResult(this.session.submitAnswer(choice), choice);
+  }
+
+  // --- Sắp xếp câu ---
+
+  /**
+   * Thứ tự các mảnh trong "kho" (chỉ số vào `chunks`), trộn lại mỗi khi sang câu khác.
+   *
+   * Trộn ở đây chứ không ở lúc dựng câu hỏi: luyện lại câu sai thì phải được xếp lại
+   * từ một thứ tự mới. Không bao giờ để kho trùng đúng thứ tự đáp án — câu ba mảnh thì
+   * cứ sáu lần trộn lại có một lần như vậy.
+   */
+  readonly chunkBank = computed<number[]>(() => {
+    const count = this.question()?.chunks.length ?? 0;
+    const inOrder = Array.from({ length: count }, (_, index) => index);
+    if (count < 2) return inOrder;
+    for (let attempt = 0; attempt < 8; attempt++) {
+      const order = shuffle(inOrder);
+      if (order.some((value, index) => value !== index)) return order;
+    }
+    return [...inOrder].reverse();
+  });
+
+  /** Các mảnh đã bấm, theo thứ tự bấm (chỉ số vào `chunks`). */
+  readonly pickedChunks = signal<number[]>([]);
+  readonly allChunksPicked = computed(
+    () => this.isOrderMode() && this.pickedChunks().length === (this.question()?.chunks.length ?? 0),
+  );
+
+  pickChunk(index: number): void {
+    if (this.isResolved() || this.pickedChunks().includes(index)) return;
+    this.pickedChunks.update((picked) => [...picked, index]);
+  }
+
+  /** Bấm vào một mảnh đã xếp để trả nó về kho. */
+  unpickChunk(position: number): void {
+    if (this.isResolved()) return;
+    this.pickedChunks.update((picked) => picked.filter((_, at) => at !== position));
+  }
+
+  clearChunks(): void {
+    if (this.isResolved()) return;
+    this.pickedChunks.set([]);
+  }
+
+  /** Câu ghép từ các mảnh đã bấm, dạng chữ thường — chấm như một câu gõ tay. */
+  private orderedAnswer(): string {
+    const chunks = this.question()?.chunks ?? [];
+    return this.pickedChunks()
+      .map((index) => plainText(chunks[index]))
+      .join('');
+  }
+
+  submitOrder(): void {
+    if (this.isResolved() || !this.allChunksPicked()) return;
+    const answer = this.orderedAnswer();
+    this.handleResult(this.session.submitAnswer(answer), answer);
   }
 
   // --- Gõ đáp án ---
@@ -322,8 +383,10 @@ export class Practice {
 
     if (result === 'revealed') {
       this.focusFeedback();
-    } else {
-      // Còn lượt trả lời: xoá ô nhập để gõ lại, giữ nguyên focus tại đó.
+    } else if (!this.isOrderMode()) {
+      // Còn lượt trả lời: xoá ô nhập để gõ lại, giữ nguyên focus tại đó. Câu sắp xếp thì
+      // giữ nguyên cách xếp: thường chỉ sai một hai mảnh, bắt xếp lại từ đầu là phạt
+      // nặng hơn cái sai.
       this.typedAnswer.set('');
       this.focusAnswerInput();
     }
@@ -349,6 +412,7 @@ export class Practice {
 
     this.typedAnswer.set('');
     this.lastWrongAnswer.set(null);
+    this.pickedChunks.set([]);
     this.verdict.set(null);
     this.retryCount.set(0);
     this.focusAnswerInput();
@@ -387,6 +451,25 @@ export class Practice {
       return;
     }
 
+    // Câu sắp xếp: phím số bấm mảnh thứ n trong kho, Backspace bỏ mảnh vừa xếp, Enter
+    // chấm. preventDefault để Enter không "bấm" luôn cái nút đang focus — đó thường là
+    // mảnh vừa bấm, nó sẽ bị xếp thêm lần nữa.
+    if (this.isOrderMode()) {
+      const bank = this.chunkBank();
+      const position = Number(event.key);
+      if (Number.isInteger(position) && position >= 1 && position <= bank.length) {
+        event.preventDefault();
+        this.pickChunk(bank[position - 1]);
+      } else if (event.key === 'Backspace') {
+        event.preventDefault();
+        this.unpickChunk(this.pickedChunks().length - 1);
+      } else if (event.key === 'Enter') {
+        event.preventDefault();
+        this.submitOrder();
+      }
+      return;
+    }
+
     // Câu chưa chấm, chế độ trắc nghiệm: phím 1..4 chọn đáp án tương ứng.
     // Chế độ gõ không bắt phím số vì người dùng cần gõ chúng vào ô nhập.
     if (this.isChoiceMode()) {
@@ -400,7 +483,7 @@ export class Practice {
   }
 
   private focusAnswerInput(): void {
-    if (this.isChoiceMode()) return;
+    if (this.isChoiceMode() || this.isOrderMode()) return;
     setTimeout(() => this.answerInput()?.nativeElement.focus(), 0);
   }
 

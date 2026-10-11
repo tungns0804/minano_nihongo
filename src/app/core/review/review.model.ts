@@ -12,7 +12,7 @@
 
 import type { PracticeConfig, QuestionStatus } from '../practice/practice.model';
 import type { DayNumber } from '../n3/n3.model';
-import { isMeaningMode } from '../exercises/exercise.model';
+import { isMeaningMode, isTranslationMode } from '../exercises/exercise.model';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 
 // ── Khu và loại mục ──────────────────────────────────────────────────────
@@ -116,7 +116,17 @@ function itemTypeOf(
     case 'exercise':
       if (config.exercise === 'tu-tha-dong-tu') return 'tp';
       // Bài ngữ pháp N4 hỏi trên CÂU khi dịch ví dụ, trên MẪU khi luyện ý nghĩa.
-      if (config.exercise === 'ngu-phap-n4') return isMeaningMode(config.exerciseMode) ? 'nm' : 'ne';
+      //
+      // Bậc "Điền vào chỗ trống" và "Sắp xếp câu" không vào lịch: chúng là nấc trung
+      // gian để leo lên bậc dịch, còn thứ cần nhớ lâu — ý nghĩa của mẫu và câu tự viết
+      // ra được — đã có thẻ `nm` / `ne`. Ghi chung vào thẻ `ne` thì xếp đúng mảnh một
+      // lần là đẩy thẻ dịch câu lên nấc, dù người học chưa tự viết nổi câu đó. Lộ trình
+      // (`grammar-path`) trộn cả năm bậc nên tự gắn khoá cho từng câu khi dựng (xem
+      // `n4-grammar-questions.ts`); tới đây là câu của hai bậc giữa, không vào lịch.
+      if (config.exercise === 'ngu-phap-n4') {
+        if (isMeaningMode(config.exerciseMode)) return 'nm';
+        return isTranslationMode(config.exerciseMode) ? 'ne' : null;
+      }
       return 'ev';
     case 'kanji':
       // Phiên luyện âm Hán Việt hỏi trên CHỮ (mở từ danh sách), phiên còn lại hỏi

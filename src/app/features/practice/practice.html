@@ -94,6 +94,21 @@
             </button>
           }
         </div>
+      } @else if (isOrderMode()) {
+        <!-- Sắp xếp câu: bấm mảnh trong kho để xếp vào dòng câu trả lời, bấm mảnh đã xếp
+             để trả về kho. Phím tắt nằm ở onDocumentKeydown. -->
+        <app-chunk-order
+          [chunks]="q.chunks"
+          [bank]="chunkBank()"
+          [picked]="pickedChunks()"
+          [label]="answerPrompt()"
+          [disabled]="isResolved()"
+          [furigana]="showFurigana()"
+          (add)="pickChunk($event)"
+          (remove)="unpickChunk($event)"
+          (reset)="clearChunks()"
+          (check)="submitOrder()"
+        />
       } @else if (isDrawMode()) {
         <div class="draw-area">
           <span class="label">{{ answerPrompt() }}</span>
@@ -223,16 +238,26 @@
             }
           }
 
+          <!-- Câu trắc nghiệm luôn hiện đúng lựa chọn đúng, kể cả khi câu hỏi là một câu
+               tiếng Nhật: câu điền chỗ trống có đáp án là tên mẫu, còn `sentence` của nó
+               là câu đục lỗ chứ không phải đáp án. -->
           <p class="feedback-line">
             {{ t('practice.answer') }}
             <strong class="right-answer" [class.jp]="q.answerIsJapanese">
-              @if (q.sentence && q.answerIsJapanese) {
+              @if (q.sentence && q.answerIsJapanese && !isChoiceMode()) {
                 <app-ruby [text]="q.sentence.japanese" />
               } @else {
                 {{ correctAnswerText() }}
               }
             </strong>
           </p>
+
+          @if (q.sentence?.complete; as complete) {
+            <p class="feedback-line">
+              {{ t('practice.completeSentence') }}
+              <span class="complete-sentence jp"><app-ruby [text]="complete" /></span>
+            </p>
+          }
 
           @if (q.sentence?.alternatives; as alternatives) {
             @if (alternatives.length > 0) {
@@ -345,6 +370,10 @@
           <span class="small muted hint-line">
             @if (isChoiceMode()) {
               <app-t key="practice.hintChoice" /> <kbd>1</kbd>–<kbd>{{ q.choices.length }}</kbd>.
+            } @else if (isOrderMode()) {
+              <app-t key="practice.order.hint" /> <kbd>1</kbd>–<kbd>{{ q.chunks.length }}</kbd>,
+              <kbd>Backspace</kbd> <app-t key="practice.order.hintUndo" />, <kbd>Enter</kbd>
+              <app-t key="practice.order.hintCheck" />.
             } @else if (isDrawMode()) {
               <app-t key="practice.draw.hint" /> <kbd>{{ t('practice.check') }}</kbd>.
             } @else {

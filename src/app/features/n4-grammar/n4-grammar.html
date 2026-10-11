@@ -18,6 +18,20 @@
       </div>
     </header>
 
+    <!-- ── Cách học: bốn bước, đặt trước cả lý thuyết vì đó là lúc người học còn đang
+         hỏi "bắt đầu từ đâu" ─────────────────────────────────────────────────── -->
+    <section class="card n4-guide" aria-labelledby="n4-guide-title">
+      <div class="card-body stack stack-sm">
+        <h2 id="n4-guide-title" class="n4-guide-title">{{ t('exercise.n4.guide.title') }}</h2>
+        <ol class="n4-guide-steps">
+          <li><app-t key="exercise.n4.guide.read" block /></li>
+          <li><app-t key="exercise.n4.guide.path" block /></li>
+          <li><app-t key="exercise.n4.guide.star" block /></li>
+          <li><app-t key="exercise.n4.guide.review" block /></li>
+        </ol>
+      </div>
+    </section>
+
     <!-- ── Lý thuyết: các mục của tài liệu ───────────────────────────────── -->
     <section class="stack" aria-labelledby="n4-theory-title">
       <div class="stack stack-sm">
@@ -74,6 +88,17 @@
                   <span class="n4-section-meaning small muted">{{ summary }}</span>
                 }
               </span>
+              @if (progressOf(section.id); as progress) {
+                @if (progress.done > 0) {
+                  <span
+                    class="badge n4-progress"
+                    [class.badge-success]="progress.done === progress.total"
+                    [title]="t('exercise.n4.progress.title')"
+                  >
+                    {{ t('exercise.n4.progress', { done: progress.done, total: progress.total }) }}
+                  </span>
+                }
+              }
               <span class="n4-chevron" aria-hidden="true">›</span>
             </summary>
 
@@ -273,7 +298,7 @@
                 }
 
                 <div class="n4-section-actions">
-                  <button type="button" class="btn btn-sm" (click)="practiceSection(section.id)">
+                  <button type="button" class="btn btn-sm btn-primary" (click)="practiceSection(section.id)">
                     {{ t('exercise.n4.practiceSection') }}
                   </button>
                 </div>
@@ -291,18 +316,69 @@
 
         <div class="field">
           <span class="label">{{ t('exercise.n4.mode') }}</span>
-          <div class="options">
-            @for (item of modes; track item.id) {
-              <button
-                type="button"
-                class="option option-stacked"
-                [class.is-active]="mode() === item.id"
-                (click)="setMode(item.id)"
-              >
-                <strong><app-t [key]="item.labelKey" block /></strong>
-                <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
-              </button>
-            }
+
+          <!-- Một khối duy nhất ở cột phải: khung thiết lập xếp mọi .label con trực tiếp
+               của .field vào cột nhãn bên trái. -->
+          <div class="n4-modes">
+            <button
+              type="button"
+              class="option option-stacked n4-path-option"
+              [class.is-active]="mode() === pathMode.id"
+              (click)="setMode(pathMode.id)"
+            >
+              <span class="n4-mode-head">
+                <strong><app-t [key]="pathMode.labelKey" block /></strong>
+                <span class="badge badge-accent">{{ t('exercise.n4.recommended') }}</span>
+              </span>
+              <span class="option-example"><app-t [key]="pathMode.exampleKey" block /></span>
+              <span class="n4-mode-count small muted">
+                {{ t('exercise.n4.modeCount', { count: modeCount(pathMode.id) }) }}
+              </span>
+            </button>
+
+            <span class="n4-sublabel">{{ t('exercise.n4.ladder') }}</span>
+            <!-- Năm bậc xếp thành một cột đánh số, dễ ở trên khó ở dưới: nhìn vào là thấy
+                 mình đang đứng ở nấc nào và nấc kế tiếp là gì. -->
+            <ol class="n4-ladder">
+              @for (item of stepModes; track item.id) {
+                <li>
+                  <button
+                    type="button"
+                    class="option n4-step"
+                    [class.is-active]="mode() === item.id"
+                    [attr.aria-pressed]="mode() === item.id"
+                    (click)="setMode(item.id)"
+                  >
+                    <span class="n4-step-no" aria-hidden="true">{{ item.step }}</span>
+                    <span class="n4-step-text">
+                      <strong><app-t [key]="item.labelKey" block /></strong>
+                      <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+                    </span>
+                    <span class="n4-step-side">
+                      <span class="n4-level" [attr.data-level]="item.step">
+                        {{ t(levelKeyOf(item.step)) }}
+                      </span>
+                      <span class="small muted">{{ t('exercise.n4.modeCount', { count: modeCount(item.id) }) }}</span>
+                    </span>
+                  </button>
+                </li>
+              }
+            </ol>
+
+            <span class="n4-sublabel">{{ t('exercise.n4.extra') }}</span>
+            <div class="options">
+              @for (item of extraModes; track item.id) {
+                <button
+                  type="button"
+                  class="option option-stacked"
+                  [class.is-active]="mode() === item.id"
+                  (click)="setMode(item.id)"
+                >
+                  <strong><app-t [key]="item.labelKey" block /></strong>
+                  <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+                </button>
+              }
+            </div>
           </div>
         </div>
 
@@ -348,11 +424,7 @@
               [class.is-active]="scope() === 'all'"
               (click)="setScope('all')"
             >
-              {{
-                isMeaning()
-                  ? t('exercise.n4.scope.points', { count: scopeTotal() })
-                  : t('exercise.n4.scope.examples', { count: scopeTotal() })
-              }}
+              {{ scopeLabel() }}
             </button>
             <button
               type="button"
@@ -378,7 +450,7 @@
         <div class="field">
           <span class="label">{{ t('lesson.answerMode') }}</span>
           <p class="muted small">
-            <app-t [key]="isMeaning() ? 'exercise.n4.answer.choice' : 'exercise.n4.answer.typing'" block />
+            <app-t [key]="answerNoteKey()" block />
           </p>
         </div>
 
@@ -409,7 +481,7 @@
         <div class="field">
           <span class="label">{{ t('lesson.options') }}</span>
           <div class="options">
-            @if (!isMeaning()) {
+            @if (offersGrammarHint()) {
               <label class="checkbox">
                 <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
                 <span>
@@ -419,7 +491,7 @@
               </label>
             }
 
-            @if (japanesePrompt()) {
+            @if (offersFurigana()) {
               <label class="checkbox">
                 <input type="checkbox" [checked]="showFurigana()" (change)="toggleFurigana($event)" />
                 <span>
@@ -429,16 +501,22 @@
               </label>
             }
 
-            <label class="checkbox">
-              <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
-              <span>
-                <strong><app-t key="lesson.option.shuffle" block /></strong>
-                <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
-              </span>
-            </label>
+            <!-- Lộ trình không cho trộn: thứ tự dễ → khó chính là bài học. Trong từng bậc
+                 thì bộ dựng câu hỏi tự trộn. -->
+            @if (isPath()) {
+              <p class="hint n4-path-order"><app-t key="exercise.n4.pathOrder" block /></p>
+            } @else {
+              <label class="checkbox">
+                <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+                <span>
+                  <strong><app-t key="lesson.option.shuffle" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                </span>
+              </label>
+            }
 
             <!-- Bỏ dấu tiếng Việt chỉ có nghĩa khi người học gõ tiếng Việt. -->
-            @if (japanesePrompt()) {
+            @if (offersIgnoreDiacritics()) {
               <label class="checkbox">
                 <input
                   type="checkbox"
@@ -462,7 +540,7 @@
               [params]="{
                 count: plannedQuestionCount(),
                 mode: modeShort(),
-                answer: isMeaning() ? t('lesson.plan.choice') : t('lesson.plan.typing'),
+                answer: planAnswer(),
                 max: planMaxWrong()
               }"
             />
@@ -479,6 +557,8 @@
 
         @if (!canStart()) {
           <p class="hint">{{ t('lesson.emptyScope') }}</p>
+        } @else if (pathTooLong()) {
+          <p class="hint">{{ t('exercise.n4.pathTooLong', { count: plannedQuestionCount() }) }}</p>
         }
       </div>
     </section>

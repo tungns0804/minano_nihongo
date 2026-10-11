@@ -27,8 +27,14 @@ export type VerbPracticeMode = 'masu-to-form' | 'form-to-masu' | 'identify-group
  * `draw` là viết chữ bằng chuột: đáp án không phải chuỗi ký tự mà là hình các nét,
  * nên nó chấm bằng `checkDrawing` (xem `core/strokes/`) chứ không đi qua
  * `isAnswerCorrect` như hai cách kia.
+ *
+ * `order` là bấm các mảnh câu theo đúng thứ tự (bài ngữ pháp N4, bậc 4); câu ghép xong
+ * chấm như câu gõ tay. `mixed` là phiên trộn nhiều cách trả lời — lộ trình dễ → khó của
+ * bài ngữ pháp N4 đi từ trắc nghiệm, qua sắp xếp, tới gõ cả câu. Hai giá trị này chỉ
+ * để gọi tên phiên: cách trả lời của TỪNG câu luôn xét theo chính câu đó (`choices`,
+ * `chunks`), như phiên Ôn tập vẫn làm.
  */
-export type AnswerMode = 'choice' | 'typing' | 'draw';
+export type AnswerMode = 'choice' | 'typing' | 'draw' | 'order' | 'mixed';
 
 /**
  * Phạm vi luyện tập.
@@ -47,6 +53,8 @@ export const ANSWER_MODE_LABEL_KEY: Record<AnswerMode, MessageKey> = {
   choice: 'lesson.answerMode.choice',
   typing: 'lesson.answerMode.typing',
   draw: 'lesson.answerMode.draw',
+  order: 'lesson.answerMode.order',
+  mixed: 'lesson.answerMode.mixed',
 };
 
 export const SCOPE_LABEL_KEY: Record<PracticeScope, MessageKey> = {
@@ -384,6 +392,12 @@ export interface SentenceExtras {
   grammar: SentenceGrammar[];
   /** Các cách nói khác cũng được chấm đúng, ở thứ tiếng của đáp án (đã ở dạng thường). */
   alternatives: string[];
+  /**
+   * Câu đầy đủ, hiện ở phần phản hồi khi câu hỏi là câu ĐỤC LỖ (`japanese` có chỗ
+   * trống): đáp án lúc ấy là tên mẫu ngữ pháp, nhưng người học cần thấy cả câu đã điền
+   * xong mới đọc lại được. null với mọi câu khác.
+   */
+  complete: string | null;
 }
 
 /**
@@ -450,6 +464,15 @@ export interface PracticeQuestion {
   choices: string[];
   /** Khi có, `choices` là mã ổn định và nhãn hiển thị lấy từ đây. */
   choiceLabelKeys: Record<string, MessageKey> | null;
+  /**
+   * Các mảnh câu của bài "Sắp xếp câu", theo ĐÚNG thứ tự (cú pháp câu mẫu, có furigana);
+   * rỗng với mọi câu khác.
+   *
+   * Giữ thứ tự đúng chứ không trộn sẵn: màn hình luyện tập tự trộn mỗi lần hiện câu và
+   * tránh đúng thứ tự này — trộn sẵn một lần thì "luyện lại câu sai" gặp lại y nguyên
+   * cách xếp cũ, mà câu ba mảnh thì cứ sáu lần lại có một lần trộn ra đúng đáp án.
+   */
+  chunks: string[];
   /**
    * Bỏ qua dấu câu khi chấm. Chỉ bật cho bài hội thoại: câu dài mà bắt gõ đúng cả
    * 、。…… thì sai vì lý do không liên quan tới việc dịch. Bài từ vựng và động từ
@@ -524,6 +547,7 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     // Rỗng nghĩa là chế độ gõ. Khu nào có trắc nghiệm thì tự dựng `choices`.
     choices: [],
     choiceLabelKeys: null,
+    chunks: [],
     ignorePunctuation: false,
     isSentence: false,
     drawChar: null,
