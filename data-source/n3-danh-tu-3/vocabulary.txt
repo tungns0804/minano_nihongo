@@ -1,0 +1,23 @@
+# Từ vựng N3 · 名詞 — Bài 3 (từ 101–120)
+# Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
+PHÁN,判 (はん),Con dấu
+DANH THÍCH,名刺 (めいし),Danh thiếp
+MIỄN HỨA,免許 (めんきょ),Giấy phép
+ĐA,多く (おおく),Nhiều
+TIỀN BÁN,前半 (ぜんはん),Phần đầu
+HẬU BÁN,後半 (こうはん),Phần cuối
+TỐI CAO,最高 (さいこう),Cao nhất
+TỐI ĐÊ,最低 (さいてい),Thấp nhất
+TỐI SƠ,最初 (さいしょ),Đầu tiên
+TỐI HẬU,最後 (さいご),Cuối cùng
+TỰ ĐỘNG,自動 (じどう),Tự động
+CHỦNG LOẠI,種類 (しゅるい),Loại
+TÍNH CÁCH,性格 (せいかく),Tính cách
+TÍNH CHẤT,性質 (せいしつ),Tính chất
+THUẬN PHIÊN,順番 (じゅんばん),Thứ tự
+PHIÊN,番 (ばん),Lượt
+PHƯƠNG PHÁP,方法 (ほうほう),Phương pháp
+CHẾ PHẨM,製品 (せいひん),Sản phẩm
+TRỊ THƯỢNG,値上がり (ねあがり),Tăng giá
+SINH,生 (なま),Tươi

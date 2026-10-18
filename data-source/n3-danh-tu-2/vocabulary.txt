@@ -1,0 +1,53 @@
+# Từ vựng N3 · 名詞 — Bài 2 (từ 51–100)
+# Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
+DẪN VIỆT,引っ越し (ひっこし),Chuyển nhà
+THÂN TRƯỜNG,身長 (しんちょう),Chiều cao
+THỂ TRỌNG,体重 (たいじゅう),Cân nặng
+,けが,Vết thương
+HỘI,会 (かい),Hội, tiệc
+THÚ VỊ,趣味 (しゅみ),Sở thích
+HƯNG VỊ,興味 (きょうみ),Hứng thú
+TƯ XUẤT,思い出 (おもいで),Nhớ lại
+NHŨNG ĐÀM,冗談 (じょうだん),Đùa cợt
+MỤC ĐÍCH,目的 (もくてき),Mục đích
+ƯỚC THÚC,約束 (やくそく),Lời hứa
+,おしゃべり,Nói chuyện riêng
+VIỄN LỰ,遠慮 (えんりょ),Ngại ngần
+NGÃ MẠN,我慢 (がまん),Chịu đựng
+MÊ HOẶC,迷惑 (めいわく),Làm phiền
+HY VỌNG,希望 (きぼう),Hi vọng
+MỘNG,夢 (ゆめ),Giấc mơ
+TÁN THÀNH,賛成 (さんせい),Đồng ý
+PHẢN ĐỐI,反対 (はんたい),Đối lập
+TƯỞNG TƯỢNG,想像 (そうぞう),Tưởng tượng
+NỖ LỰC,努力 (どりょく),Nỗ lực
+THÁI DƯƠNG,太陽 (たいよう),Mặt trời
+ĐỊA CẦU,地球 (ちきゅう),Trái đất
+ÔN ĐỘ,温度 (おんど),Nhiệt độ
+THẤP ĐỘ,湿度 (しつど),Độ ẩm
+THẤP KHÍ,湿気 (しっけ),Hơi ẩm
+MAI VŨ,梅雨 (つゆ),Mùa mưa
+,かび,Nấm mốc
+NOÃN PHÒNG,暖房 (だんぼう),Điều hòa ấm
+BÌ,皮 (かわ),Vỏ
+PHỮU,缶 (かん),Đồ hộp
+HOẠ DIỆN,画面 (がめん),Màn hình
+PHIÊN TỔ,番組 (ばんぐみ),Chương trình
+KÝ SỰ,記事 (きじ),Ký sự
+CẬN SỞ,近所 (きんじょ),Xung quanh
+CẢNH SÁT,警察 (けいさつ),Cảnh sát
+PHẠM NHÂN,犯人 (はんにん),Tội phạm
+TIỂU TIỀN,小銭 (こぜに),Tiền lẻ
+,ごちそう,Chiêu đãi
+TÁC GIẢ,作者 (さくしゃ),Tác giả
+TÁC PHẨM,作品 (さくひん),Tác phẩm
+CHẾ PHỤC,制服 (せいふく),Đồng phục
+TẨY TỄ,洗剤 (せんざい),Bột giặt
+ĐỂ,底 (そこ),Đáy
+ĐỊA HẠ,地下 (ちか),Ngầm
+TỰ,寺 (てら),Chùa
+ĐẠO LỘ,道路 (どうろ),Đường
+BẢN,坂 (さか),Dốc
+YÊN,煙 (けむり),Khói
+HÔI,灰 (はい),Tàn

@@ -1,0 +1,53 @@
+# Từ vựng N3 · 名詞 — Bài 1 (từ 1–50)
+# Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
+NAM TÍNH,男性 (だんせい),Đàn ông
+NỮ TÍNH,女性 (じょせい),Phụ nữ
+CAO LINH,高齢 (こうれい),Cao tuổi
+NIÊN THƯỢNG,年上 (としうえ),Hơn tuổi
+MỤC THƯỢNG,目上 (めうえ),Bề trên
+TIÊN BỐI,先輩 (せんぱい),Tiền bối
+HẬU BỐI,後輩 (こうはい),Hậu bối
+THƯỢNG TY,上司 (じょうし),Cấp trên
+TƯƠNG THỦ,相手 (あいて),Người đối diện
+TRI HỢP,知り合い (しりあい),Người quen
+HỮU NHÂN,友人 (ゆうじん),Bạn bè
+TRỌNG,仲 (なか),Mối quan hệ
+SINH NIÊN NGUYỆT NHẬT,生年月日 (せいねんがっぴ),Ngày tháng năm sinh
+ĐẢN SINH,誕生 (たんじょう),Ra đời
+NIÊN,年 (とし),Năm
+XUẤT THÂN,出身 (しゅっしん),Quê quán
+CỐ HƯƠNG,故郷 (こきょう),Cố hương
+THÀNH TRƯỞNG,成長 (せいちょう),Trưởng thành
+THÀNH NHÂN,成人 (せいじん),Người trưởng thành
+HỢP CÁCH,合格 (ごうかく),Đỗ đại học
+TIẾN HỌC,進学 (しんがく),Vào đại học
+THOÁI HỌC,退学 (たいがく),Bỏ học
+TỰU CHỨC,就職 (しゅうしょく),Có việc làm
+THOÁI CHỨC,退職 (たいしょく),Nghỉ việc
+THẤT NGHIỆP,失業 (しつぎょう),Thất nghiệp
+TÀN NGHIỆP,残業 (ざんぎょう),Làm thêm
+SINH HOẠT,生活 (せいかつ),Cuộc sống
+THÔNG CẦN,通勤 (つうきん),Đi làm
+HỌC LỊCH,学歴 (がくれき),Bằng cấp
+CẤP LIỆU,給料 (きゅうりょう),Tiền lương
+DIỆN TIẾP,面接 (めんせつ),Phỏng vấn
+HƯU KHẾ,休憩 (きゅうけい),Nghỉ ngơi
+QUAN QUANG,観光 (かんこう),Tham quan
+QUY QUỐC,帰国 (きこく),Về nước
+QUY TỈNH,帰省 (きせい),Về quê
+QUY TRẠCH,帰宅 (きたく),Về nhà
+THAM GIA,参加 (さんか),Tham gia
+XUẤT TỊCH,出席 (しゅっせき),Có mặt
+KHUYẾT TỊCH,欠席 (けっせき),Vắng mặt
+TRÌ KHẮC,遅刻 (ちこく),Đến muộn
+HOÁ TRANG,化粧 (けしょう),Trang điểm
+KẾ TOÁN,計算 (けいさん),Tính toán
+KẾ HOẠCH,計画 (けいかく),Kế hoạch
+THÀNH CÔNG,成功 (せいこう),Thành công
+THẤT BẠI,失敗 (しっぱい),Thất bại
+CHUẨN BỊ,準備 (じゅんび),Chuẩn bị
+CHỈNH LÝ,整理 (せいり),Chỉnh sửa
+CHÚ VĂN,注文 (ちゅうもん),Đặt hàng
+TRỮ KIM,貯金 (ちょきん),Tiết kiệm
+TRIỆT DẠ,徹夜 (てつや),Thức xuyên đêm
