@@ -89,6 +89,8 @@
                 <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
               }
 
+              <app-lesson-progress [source]="lesson.id" [path]="'/translate/' + lesson.id" />
+
               <div class="lesson-card-bottom">
                 <span class="badge">
                   <app-t key="kind.translation.unit" [params]="{ count: lesson.itemCount }" />

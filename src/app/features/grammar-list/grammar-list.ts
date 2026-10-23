@@ -5,6 +5,7 @@ import { T } from '../../core/i18n/t';
 import { LessonSummary } from '../../core/lessons/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
 import { SearchBox } from '../../shared/search-box';
+import { LessonProgress } from '../../shared/lesson-progress';
 
 /**
  * Tab "Ngữ pháp" — danh sách các bài ngữ pháp.
@@ -18,7 +19,7 @@ import { SearchBox } from '../../shared/search-box';
  */
 @Component({
   selector: 'app-grammar-list',
-  imports: [RouterLink, SearchBox, T],
+  imports: [LessonProgress, RouterLink, SearchBox, T],
   templateUrl: './grammar-list.html',
   styleUrl: './grammar-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

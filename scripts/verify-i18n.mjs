@@ -74,7 +74,7 @@ for (const file of files) {
     // Chỉ quan tâm những chuỗi trông giống khoá thông điệp thật.
     if (allKeys.has(key)) {
       usedKeys.add(key);
-    } else if (/^(common|app|theme|kind|home|lesson|topic|grammar|translate|practice|result|import|scope|direction|verbMode|verbForm|group|parse|error|route|favorite|exercise|kanji|radical|n3|review|today|streak|plan)./.test(key)) {
+    } else if (/^(common|app|theme|kind|home|lesson|topic|grammar|translate|practice|result|import|scope|direction|verbMode|verbForm|group|parse|error|route|favorite|exercise|kanji|radical|n3|review|today|streak|plan|progress|pager)./.test(key)) {
       fail(`${file.replace(ROOT, '.')}: dùng khoá "${key}" nhưng từ điển không có`);
     }
   }

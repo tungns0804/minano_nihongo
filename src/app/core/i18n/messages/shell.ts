@@ -79,8 +79,8 @@ export const SHELL_MESSAGES = {
   'kind.exercise': { vi: 'Bài tập', ja: '練習問題' },
   'kind.exercise.unit': { vi: '{count} mục', ja: '{count}項目' },
   'kind.exercise.desc': {
-    vi: 'Bài tập chuyên đề nằm ngoài giáo trình: động từ gom từ nhiều cấp, và ngữ pháp N4 theo tài liệu tổng hợp.',
-    ja: '教科書外のテーマ別練習：複数レベルから集めた動詞と、まとめ資料に沿ったN4文法。',
+    vi: 'Bài tập chuyên đề nằm ngoài giáo trình: động từ gom từ nhiều cấp N5 → N2.',
+    ja: '教科書外のテーマ別練習：N5〜N2の複数レベルから集めた動詞。',
   },
   'kind.kanji': { vi: 'Kanji', ja: '漢字' },
   'kind.kanji.unit': { vi: '{count} chữ', ja: '漢字{count}字' },

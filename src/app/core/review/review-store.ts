@@ -3,6 +3,7 @@ import { Injectable, computed, signal } from '@angular/core';
 import { todayDay } from '../n3/n3.model';
 import {
   AreaSummary,
+  MASTERED_STAGE,
   ReviewArea,
   ReviewCard,
   ReviewGrade,
@@ -20,6 +21,13 @@ import {
 import { readJson, writeJson } from '../services/local-storage';
 
 const STORAGE_KEY = 'jp-practice:review';
+
+/** Tiến độ của một bài trong lịch ôn — xem `ReviewStore.progressBySource`. */
+export interface SourceProgress {
+  tracked: number;
+  due: number;
+  mastered: number;
+}
 const SETTINGS_KEY = 'jp-practice:review-settings';
 
 /**
@@ -62,6 +70,24 @@ export class ReviewStore {
   readonly dueTotal = computed(() =>
     Object.values(this.summary()).reduce((sum, area) => sum + area.due, 0),
   );
+
+  /**
+   * Tiến độ theo từng bài (`ReviewCard.source`): bao nhiêu mục đã vào lịch ôn, bao nhiêu
+   * đang đến hạn, bao nhiêu đã nhớ lâu — số liệu trên thẻ bài ở các trang danh sách.
+   * Thẻ ghi bài của lần luyện GẦN NHẤT, nên một từ có ở hai bài chỉ tính cho một bài.
+   */
+  readonly progressBySource = computed(() => {
+    const today = this.todayRef();
+    const map = new Map<string, SourceProgress>();
+    for (const card of Object.values(this.cards())) {
+      const entry = map.get(card.source) ?? { tracked: 0, due: 0, mastered: 0 };
+      entry.tracked++;
+      if (card.due <= today) entry.due++;
+      if (card.stage >= MASTERED_STAGE) entry.mastered++;
+      map.set(card.source, entry);
+    }
+    return map;
+  });
 
   refreshDay(): void {
     const today = todayDay();

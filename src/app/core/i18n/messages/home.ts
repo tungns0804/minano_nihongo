@@ -60,4 +60,13 @@ export const HOME_MESSAGES = {
     vi: 'Ôn đúng hạn để nhớ lâu — mỗi ngày vài phút.',
     ja: '期限どおりに復習すると長く覚えられます。毎日数分でOK。',
   },
+  // Dòng tiến độ trên thẻ bài (shared/lesson-progress.ts).
+  'progress.current': { vi: 'Đang học', ja: '学習中' },
+  'progress.learned': { vi: 'Đã học {count}/{total}', ja: '学習済み {count}/{total}' },
+  'progress.practiced': { vi: 'Đã luyện {count} câu', ja: '{count}問 練習済み' },
+  'progress.due': { vi: '{count} đến hạn ôn', ja: '復習期限 {count}' },
+  // Bài trước / bài sau ở cuối trang chi tiết (shared/lesson-pager.ts).
+  'pager.aria': { vi: 'Bài kề', ja: '前後のレッスン' },
+  'pager.prev': { vi: 'Bài trước', ja: '前のレッスン' },
+  'pager.next': { vi: 'Bài sau', ja: '次のレッスン' },
 } as const satisfies Record<string, Entry>;

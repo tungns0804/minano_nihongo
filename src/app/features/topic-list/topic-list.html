@@ -45,6 +45,8 @@
 
             <p class="topic-desc muted small clamp-2">{{ topic.description }}</p>
 
+            <app-lesson-progress [source]="topic.id" [path]="'/topic/' + topic.id" [total]="topic.wordCount" />
+
             <div class="topic-card-bottom">
               <span class="badge">{{ t('topic.wordCount', { count: topic.wordCount }) }}</span>
               <span class="badge badge-accent" [title]="t('topic.fromLessons.title')">

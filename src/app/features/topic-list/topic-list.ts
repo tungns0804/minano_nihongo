@@ -6,6 +6,7 @@ import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { TOPIC_CATALOG } from '../../core/topics/topic-catalog.generated';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
+import { LessonProgress } from '../../shared/lesson-progress';
 
 /** Một thẻ chủ đề, đã trộn sẵn phần khai tay với phần dữ liệu sinh. */
 interface TopicRow {
@@ -37,7 +38,7 @@ interface TopicRow {
  */
 @Component({
   selector: 'app-topic-list',
-  imports: [RouterLink, SearchBox, T],
+  imports: [LessonProgress, RouterLink, SearchBox, T],
   templateUrl: './topic-list.html',
   styleUrl: './topic-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

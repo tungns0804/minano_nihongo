@@ -36,6 +36,10 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
   và **Kế hoạch hôm nay** — đủ số câu, ôn hết mục đến hạn, tích đủ buổi lộ trình N3 — mỗi việc
   một nút làm ngay. Chip 🔥 trên thanh trên cùng luôn hiện chuỗi; màn kết quả báo còn bao nhiêu
   câu và chúc mừng đúng lần đạt mục tiêu. `npm run verify:streak` kiểm cách tính.
+- **Tiến độ trên từng thẻ bài** ([`shared/lesson-progress.ts`](src/app/shared/lesson-progress.ts)) ở
+  Từ vựng, Ngữ pháp, Luyện tập: nhãn *Đang học* cho bài mở gần nhất, thanh *Đã học x/y* (số mục
+  của bài đã vào lịch ôn) và *z đến hạn ôn*. Cuối trang chi tiết bài có **Bài trước / Bài sau**
+  ([`shared/lesson-pager.ts`](src/app/shared/lesson-pager.ts)) để học tiếp mà không quay về danh sách.
 - **Cấp độ chọn một lần cho cả app** ([`LevelPreference`](src/app/core/services/level-preference.ts)):
   bấm N4 ở tab nào thì mọi tab danh sách đều lọc N4. Tab không có bài ở cấp đó thì tạm hiện
   "Tất cả" mà không xoá lựa chọn.

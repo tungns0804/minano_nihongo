@@ -7,8 +7,8 @@ export const EXERCISE_MESSAGES = {
   // (core/exercises/), gom động từ của nhiều cấp theo một chủ đề ngữ pháp.
   'exercise.title': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'exercise.subtitle': {
-    vi: 'Các cách luyện ngoài việc nhớ nghĩa từ vựng: bài tập chuyên đề (động từ nhiều cấp, ngữ pháp N4), bài chia thể động từ, và bài dịch hội thoại Việt ↔ Nhật.',
-    ja: '単語の意味を覚える以外の練習：テーマ別練習（複数レベルの動詞、N4文法）、動詞の活用、そして越↔日の会話翻訳。',
+    vi: 'Luyện kỹ năng thay vì nhớ nghĩa: tự/tha và chuyển thể động từ, chia thể theo bài, dịch hội thoại Việt ↔ Nhật. Ngữ pháp N4 nằm ở mục Ngữ pháp.',
+    ja: '意味の暗記ではなくスキルの練習：自動詞・他動詞と動詞の活用、課ごとの活用、越↔日の会話翻訳。N4文法は「文法」にあります。',
   },
   'exercise.search': {
     vi: 'Tìm bài tập theo tên hoặc số bài…',
@@ -185,8 +185,8 @@ export const EXERCISE_MESSAGES = {
     ja: 'かなで入力しても正解です：かえって も 帰って も可。',
   },
   'exercise.answerNote': {
-    vi: 'Hai bài tập động từ chỉ có gõ đáp án: mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài ngữ pháp N4 đi theo lộ trình năm bậc: trắc nghiệm, sắp xếp mảnh câu, rồi mới gõ cả câu.',
-    ja: '動詞の2つの練習は入力解答のみです。狙いは正しい形を自分で書けることで、4択にすると見比べるだけになってしまいます。N4文法は5段階の学習で、4択・並べ替えから文全体の入力へ進みます。',
+    vi: 'Hai bài tập động từ chỉ có gõ đáp án: mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ.',
+    ja: '動詞の2つの練習は入力解答のみです。狙いは正しい形を自分で書けることで、4択にすると見比べるだけになってしまいます。',
   },
   'exercise.vnjpclub.name': { vi: 'Ngữ pháp N4 · vnjpclub', ja: 'N4文法・vnjpclub' },
   'exercise.vnjpclub.subtitle': {

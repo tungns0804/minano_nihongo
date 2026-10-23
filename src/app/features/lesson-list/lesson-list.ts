@@ -13,6 +13,7 @@ import {
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
 import { ReviewStore } from '../../core/review/review-store';
 import { SearchBox } from '../../shared/search-box';
+import { LessonProgress } from '../../shared/lesson-progress';
 
 /**
  * Trang chủ — tab "Từ vựng".
@@ -30,7 +31,7 @@ import { SearchBox } from '../../shared/search-box';
  */
 @Component({
   selector: 'app-lesson-list',
-  imports: [RouterLink, SearchBox, T],
+  imports: [LessonProgress, RouterLink, SearchBox, T],
   templateUrl: './lesson-list.html',
   styleUrl: './lesson-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

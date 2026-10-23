@@ -367,6 +367,9 @@
           }
         </ng-container>
       </app-practice-setup>
+
+      <!-- Sang bài kề cùng loại mà không phải quay về danh sách. -->
+      <app-lesson-pager [lessonId]="data.id" [kind]="data.kind" />
     </div>
   }
 </div>

@@ -112,6 +112,8 @@
                 <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
               }
 
+              <app-lesson-progress [source]="lesson.id" [path]="'/lesson/' + lesson.id" [total]="lesson.itemCount" />
+
               <div class="lesson-card-bottom">
                 <span class="badge">
                   <app-t [key]="unitKeyOf(lesson.kind)" [params]="{ count: lesson.itemCount }" />

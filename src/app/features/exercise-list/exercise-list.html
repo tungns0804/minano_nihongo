@@ -92,6 +92,8 @@
 
                 <p class="lesson-desc muted small clamp-2"><app-t [key]="card.descKey" block /></p>
 
+                <app-lesson-progress [source]="card.id" [path]="'/exercise/' + card.id" [total]="card.itemCount" />
+
                 <div class="lesson-card-bottom">
                   <span class="badge">
                     <app-t [key]="card.unitKey" [params]="{ count: card.itemCount }" />
@@ -155,6 +157,8 @@
                 @if (lesson.description) {
                   <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
                 }
+
+                <app-lesson-progress [source]="lesson.id" [path]="'/lesson/' + lesson.id" [total]="lesson.itemCount" />
 
                 <div class="lesson-card-bottom">
                   <span class="badge">

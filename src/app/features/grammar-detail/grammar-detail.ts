@@ -21,6 +21,7 @@ import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import { StarButton } from '../../shared/star-button';
 import { PracticeSetup } from '../../shared/practice-setup';
+import { LessonPager } from '../../shared/lesson-pager';
 
 /**
  * Trang một bài ngữ pháp: phần lý thuyết (công thức, giải thích, bảng biến đổi,
@@ -40,7 +41,7 @@ import { PracticeSetup } from '../../shared/practice-setup';
  */
 @Component({
   selector: 'app-grammar-detail',
-  imports: [PracticeSetup, RouterLink, StarButton, T],
+  imports: [LessonPager, PracticeSetup, RouterLink, StarButton, T],
   templateUrl: './grammar-detail.html',
   styleUrl: './grammar-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

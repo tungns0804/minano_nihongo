@@ -99,6 +99,8 @@
                 <p class="lesson-desc muted small jp clamp-2">{{ lesson.description }}</p>
               }
 
+              <app-lesson-progress [source]="lesson.id" [path]="'/grammar/' + lesson.id" />
+
               <div class="lesson-card-bottom">
                 <span class="badge">
                   <app-t key="kind.grammar.unit" [params]="{ count: lesson.itemCount }" />

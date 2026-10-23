@@ -5,6 +5,7 @@ import { T } from '../../core/i18n/t';
 import { LessonSummary } from '../../core/lessons/vocabulary.model';
 import { LeveledLessonBrowser } from '../../core/screens/lesson-browser';
 import { SearchBox } from '../../shared/search-box';
+import { LessonProgress } from '../../shared/lesson-progress';
 
 /**
  * Tab "Luyện dịch" — danh sách 50 bài luyện dịch theo giáo trình.
@@ -15,7 +16,7 @@ import { SearchBox } from '../../shared/search-box';
  */
 @Component({
   selector: 'app-translation-list',
-  imports: [RouterLink, SearchBox, T],
+  imports: [LessonProgress, RouterLink, SearchBox, T],
   templateUrl: './translation-list.html',
   styleUrl: './translation-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
