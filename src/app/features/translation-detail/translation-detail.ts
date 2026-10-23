@@ -150,6 +150,7 @@ export class TranslationDetail extends PracticeScreen {
     this.selectedSetIds.set(translation?.translationSets.map((set) => set.id) ?? []);
     this.notFound.set(translation === null);
     this.loading.set(false);
+    if (translation) this.rememberRecent({ title: translation.name, kindKey: 'kind.translation' });
   }
 
   private resetView(): void {

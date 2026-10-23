@@ -31,6 +31,16 @@ export const SHELL_MESSAGES = {
   'app.nav.kanji': { vi: 'Kanji', ja: '漢字' },
   'app.nav.radical': { vi: 'Bộ thủ', ja: '部首' },
   'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
+  // Năm nhóm của menu chính (xem core/navigation.ts) và tên các trang con trong hàng
+  // tab ở đầu trang. Tên nhóm là KỸ NĂNG; nguồn (minano, chủ đề, tổng hợp N4) nằm ở tab con.
+  'app.nav.today': { vi: 'Hôm nay', ja: '今日' },
+  'app.nav.vocab': { vi: 'Từ vựng', ja: '単語' },
+  'app.nav.grammarGroup': { vi: 'Ngữ pháp', ja: '文法' },
+  'app.nav.practice': { vi: 'Luyện tập', ja: '練習' },
+  'app.sub.minano': { vi: 'Minano', ja: '皆の日本語' },
+  'app.sub.topic': { vi: 'Theo chủ đề', ja: 'テーマ別' },
+  'app.sub.n4grammar': { vi: 'Tổng hợp N4', ja: 'N4総まとめ' },
+  'app.subnav': { vi: 'Các trang trong mục này', ja: 'このセクションのページ' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
   'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
   'app.backToTop': { vi: 'Lên đầu trang', ja: 'ページの先頭へ' },
@@ -144,6 +154,8 @@ export const SHELL_MESSAGES = {
     ja: 'レッスン一覧（public/lessons/index.json）を読み込めません。"npm run generate" を実行して data-source/ からデータを生成してください。',
   },
   'route.n3': { vi: 'Tiến độ thi N3', ja: 'N3 合格までの進捗' },
+  'route.today': { vi: 'Hôm nay', ja: '今日' },
+  'route.vocab': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
   'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
   'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
   // Trùng chữ với nhãn tab tương ứng: tiêu đề tab trình duyệt mà gọi tên khác thì

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 export type IconName =
+  | 'calendar'
   | 'book'
   | 'repeat'
   | 'layers'
@@ -44,6 +45,12 @@ export type IconName =
       focusable="false"
     >
       @switch (name()) {
+        @case ('calendar') {
+          <rect x="3.5" y="5" width="17" height="15.5" rx="2" />
+          <path d="M3.5 10h17" />
+          <path d="M8 3v4M16 3v4" />
+          <path d="m9 15 2 2 4-4" />
+        }
         @case ('book') {
           <path d="M2.5 5.5H9a3 3 0 0 1 3 3V20a2.5 2.5 0 0 0-2.5-2.5h-7z" />
           <path d="M21.5 5.5H15a3 3 0 0 0-3 3V20a2.5 2.5 0 0 1 2.5-2.5h7z" />

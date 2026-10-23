@@ -136,6 +136,7 @@ export class GrammarDetail extends PracticeScreen {
     this.selectedPointIds.set(grammarLesson?.grammarPoints.map((point) => point.id) ?? []);
     this.notFound.set(grammarLesson === null);
     this.loading.set(false);
+    if (grammarLesson) this.rememberRecent({ title: grammarLesson.name, kindKey: 'kind.grammar' });
   }
 
   private resetView(): void {

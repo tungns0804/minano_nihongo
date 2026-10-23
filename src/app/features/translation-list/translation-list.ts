@@ -21,10 +21,6 @@ import { SearchBox } from '../../shared/search-box';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TranslationList extends LeveledLessonBrowser {
-  protected levelStorageKey(): string {
-    return 'jp-practice:translate-level-filter';
-  }
-
   readonly allLessons = computed<LessonSummary[]>(() =>
     this.lessonStore.summaries().filter((lesson) => lesson.kind === 'translation'),
   );

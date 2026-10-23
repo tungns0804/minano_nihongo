@@ -18,7 +18,7 @@
       <div class="notice notice-error">
         {{ t('lesson.notFound', { id: lessonId() }) }}
       </div>
-      <div><a class="btn" routerLink="/">{{ t('common.backToList') }}</a></div>
+      <div><a class="btn" routerLink="/vocab">{{ t('common.backToList') }}</a></div>
     </div>
   } @else if (lesson(); as data) {
     <div class="stack stack-xl">

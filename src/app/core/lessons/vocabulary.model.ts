@@ -284,7 +284,7 @@ export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
 
 /** Đường dẫn tới màn hình danh sách của từng tab. */
 export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
-  home: '/',
+  home: '/vocab',
   topic: '/topic',
   exercise: '/exercise',
   grammar: '/grammar',

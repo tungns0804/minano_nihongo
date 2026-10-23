@@ -3,10 +3,10 @@ import { Signal, computed, inject, signal } from '@angular/core';
 import { LanguageStore } from '../i18n/language-store';
 import type { LevelFilter } from '../lessons/level-filter';
 import { countByLevel, levelFilterOptions } from '../lessons/level-filter';
-import { LessonSummary, isJlptLevel, levelOf } from '../lessons/vocabulary.model';
+import { LessonSummary, levelOf } from '../lessons/vocabulary.model';
 import { FavoriteStore } from '../services/favorite-store';
 import { LessonStore } from '../lessons/lesson-store';
-import { readJson, writeJson } from '../services/local-storage';
+import { LevelPreference } from '../services/level-preference';
 import { valueOf } from '../utils/dom-events';
 import { lessonMatches, normalizeSearch } from '../lessons/lesson-search';
 
@@ -50,9 +50,9 @@ export abstract class LessonBrowser {
 /**
  * Trang danh sách có thêm bộ lọc cấp độ: trang chủ và tab Ngữ pháp.
  *
- * Hai trang này chỉ khác nhau ở chỗ lấy bài nào (`allLessons`) và lưu cấp đang
- * chọn dưới khoá nào — mọi thứ còn lại, kể cả cách tự quay về "Tất cả" khi cấp
- * đang chọn hết bài, là một.
+ * Các trang này chỉ khác nhau ở chỗ lấy bài nào (`allLessons`) — mọi thứ còn lại,
+ * kể cả cách tự quay về "Tất cả" khi cấp đang chọn hết bài, là một. Cấp đang chọn
+ * dùng chung cho cả ứng dụng (`LevelPreference`).
  */
 export abstract class LeveledLessonBrowser extends LessonBrowser {
   protected readonly lessonStore = inject(LessonStore);
@@ -63,18 +63,10 @@ export abstract class LeveledLessonBrowser extends LessonBrowser {
   /** Số thẻ xám vẽ trong lúc chờ tải. Đủ kín một màn hình, không cần đúng số thật. */
   readonly skeletonCards = [0, 1, 2, 3, 4, 5];
 
-  /**
-   * Khoá lưu cấp đang chọn. RIÊNG cho từng tab: nội dung hai tab khác nhau nên
-   * người học rất hay ở N5 bên này mà N4 bên kia; dùng chung một khoá thì mỗi lần
-   * đổi tab lại phải chọn lại.
-   */
-  protected abstract levelStorageKey(): string;
-
   /** Mọi bài thuộc tab này, chưa lọc gì. */
   abstract readonly allLessons: Signal<LessonSummary[]>;
 
-  /** Cấp đã chọn, chưa kiểm tra còn bài hay không — đọc qua `level`. */
-  private readonly pickedLevel = signal<LevelFilter>('all');
+  private readonly levelPreference = inject(LevelPreference);
 
   /**
    * Đếm số bài theo từng cấp.
@@ -89,9 +81,10 @@ export abstract class LeveledLessonBrowser extends LessonBrowser {
    * thà hiện lại tất cả còn hơn một trang trống không rõ lý do.
    */
   readonly level = computed<LevelFilter>(() => {
-    const current = this.pickedLevel();
+    const current = this.levelPreference.value();
     if (current === 'all') return 'all';
-    return this.levelCounts()[current] > 0 ? current : 'all';
+    // Cấp chọn ở tab khác có thể không có mặt ở tab này (N2 chỉ có ở bài tập).
+    return (this.levelCounts()[current as LevelFilter] ?? 0) > 0 ? (current as LevelFilter) : 'all';
   });
 
   /** Các nút chọn cấp độ; cấp không có bài nào thì không hiện nút. */
@@ -115,14 +108,11 @@ export abstract class LeveledLessonBrowser extends LessonBrowser {
 
   constructor() {
     super();
-    const stored = readJson<unknown>(this.levelStorageKey(), 'all');
-    if (stored === 'none' || isJlptLevel(stored)) this.pickedLevel.set(stored);
     void this.lessonStore.loadIndex();
   }
 
   setLevel(value: LevelFilter): void {
-    this.pickedLevel.set(value);
-    writeJson(this.levelStorageKey(), value);
+    this.levelPreference.set(value);
   }
 
   /** Xoá cả từ khoá lẫn bộ lọc cấp độ — nút thoát hiểm của khung "không tìm thấy". */

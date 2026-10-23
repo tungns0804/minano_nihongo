@@ -9,8 +9,8 @@
   <app-t key="app.skipToContent" />
 </button>
 
-<!-- Thanh bên: menu chính trên màn hình từ 768px trở lên. Điện thoại dùng dải
-     .tab-strip trong header thay cho nó. -->
+<!-- Thanh bên: menu chính trên màn hình từ 768px trở lên. Điện thoại dùng thanh
+     menu đáy (.bottom-nav) thay cho nó. -->
 <aside class="app-sidebar">
   <a routerLink="/" class="brand" [title]="t('app.title')">
     <span class="brand-mark jp" aria-hidden="true">語</span>
@@ -38,7 +38,13 @@
         <a routerLink="/" class="jp crumb-home">皆の日本語</a>
         @if (crumbKey(); as key) {
           <span class="crumb-sep" aria-hidden="true">/</span>
-          <span class="crumb-current"><app-t [key]="key" /></span>
+          @if (crumbSubKey(); as subKey) {
+            <a class="crumb-group" [routerLink]="group()?.path"><app-t [key]="key" /></a>
+            <span class="crumb-sep" aria-hidden="true">/</span>
+            <span class="crumb-current"><app-t [key]="subKey" /></span>
+          } @else {
+            <span class="crumb-current"><app-t [key]="key" /></span>
+          }
         }
       </nav>
 
@@ -84,9 +90,6 @@
       </div>
     </div>
 
-    <nav class="tab-strip" #tabStrip [attr.aria-label]="t('app.nav')">
-      <ng-container [ngTemplateOutlet]="navLinks" />
-    </nav>
   </header>
 
   <!-- Thanh tiến trình chuyển trang. Luôn nằm trong DOM và chỉ đổi độ mờ, cùng lý do
@@ -109,11 +112,35 @@
     <span class="route-progress-bar" aria-hidden="true"></span>
   </div>
 
-  <main id="main-content" tabindex="-1">
+  <main id="main-content" tabindex="-1" [class.has-bottom-nav]="group() !== null">
+    <!-- Hàng tab con: các nguồn của cùng một kỹ năng (Từ vựng: Minano / Theo chủ đề…).
+         Chỉ hiện ở trang danh sách, xem App.subNav. -->
+    @if (subNav(); as sub) {
+      <nav class="container sub-nav" [attr.aria-label]="t('app.subnav')">
+        @for (page of sub.group.pages; track page.path) {
+          <a
+            class="sub-nav-link"
+            [routerLink]="page.path"
+            [class.is-active]="page === sub.page"
+            [attr.aria-current]="page === sub.page ? 'page' : null"
+          >
+            <app-t [key]="page.labelKey" />
+          </a>
+        }
+      </nav>
+    }
     <router-outlet />
   </main>
 </div>
 
+<!-- Menu đáy của điện thoại: năm nhóm, luôn trong tầm ngón cái. Ẩn ở màn hình luyện
+     tập và kết quả (group() === null) để người học tập trung và bàn phím ảo không
+     đẩy nó lên che câu hỏi. -->
+@if (group() !== null) {
+  <nav class="bottom-nav" [attr.aria-label]="t('app.nav')">
+    <ng-container [ngTemplateOutlet]="navLinks" />
+  </nav>
+}
 <!-- Nút quay lên đầu trang. Luôn nằm trong DOM, chỉ mờ đi và không nhận chuột khi
      chưa cuộn đủ xa — bật/tắt bằng @if thì nó bụp một cái, không có gì để chuyển. -->
 <button
@@ -133,14 +160,12 @@
      nhau ở CSS. Nơi nào không hợp khổ màn hình thì display: none, nên trình đọc màn
      hình luôn chỉ gặp đúng một menu. -->
 <ng-template #navLinks>
-  @for (item of navItems; track item.path) {
+  @for (item of navGroups; track item.id) {
     <a
       class="nav-link"
       [routerLink]="item.path"
-      [class.is-active]="section() === item.section"
-      [class.nav-goal]="item.goal"
-      [attr.aria-current]="section() === item.section ? 'true' : null"
-      [title]="t(item.labelKey)"
+      [class.is-active]="group()?.id === item.id"
+      [attr.aria-current]="group()?.id === item.id ? 'true' : null"
     >
       <app-icon [name]="item.icon" />
       <span class="nav-label"><app-t [key]="item.labelKey" /></span>

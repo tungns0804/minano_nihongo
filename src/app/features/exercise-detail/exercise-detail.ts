@@ -237,6 +237,7 @@ export class ExerciseDetail extends PracticeScreen {
     const info = exerciseInfo(id);
     this.info.set(info);
     if (!info) return;
+    this.rememberRecent({ title: this.t(info.nameKey), titleKey: info.nameKey, kindKey: 'kind.exercise' });
 
     // Mỗi bài tập có bộ chiều hỏi riêng, nên mở bài khác là phải đặt lại toàn bộ
     // thiết lập — giữ nguyên "Tự → Tha" khi sang bài chuyển thể thì chiều đó không

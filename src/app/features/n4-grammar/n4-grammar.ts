@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 import {
   DEFAULT_MODE,
@@ -161,7 +160,7 @@ function haystackOf(section: N4Section): string {
  */
 @Component({
   selector: 'app-n4-grammar',
-  imports: [RouterLink, RubyText, SearchBox, StarButton, T],
+  imports: [RubyText, SearchBox, StarButton, T],
   templateUrl: './n4-grammar.html',
   styleUrl: './n4-grammar.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -413,6 +412,11 @@ export class N4Grammar extends PracticeScreen {
     // Bật sẵn gợi ý mẫu ngữ pháp như bài ngữ pháp 皆の日本語: bắt tự nhớ ra mẫu nào hợp
     // với câu là một bài khó hơn hẳn, nên để thành lựa chọn người học tự tắt.
     this.showHint.set(true);
+    this.rememberRecent({
+      title: this.t('exercise.n4grammar.name'),
+      titleKey: 'exercise.n4grammar.name',
+      kindKey: 'kind.grammar',
+    });
   }
 
   setMode(mode: ExerciseMode): void {

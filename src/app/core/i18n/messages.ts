@@ -15,6 +15,7 @@
  */
 
 import { SHELL_MESSAGES } from './messages/shell';
+import { TODAY_MESSAGES } from './messages/today';
 import { HOME_MESSAGES } from './messages/home';
 import { LESSON_MESSAGES } from './messages/lesson';
 import { GRAMMAR_MESSAGES } from './messages/grammar';
@@ -45,6 +46,7 @@ export const LANGUAGE_SHORT: Record<Language, string> = {
 /** Các phần của từ điển, giữ riêng để `verify:i18n` dò khoá trùng giữa các file. */
 export const MESSAGE_PARTS = [
   SHELL_MESSAGES,
+  TODAY_MESSAGES,
   HOME_MESSAGES,
   LESSON_MESSAGES,
   GRAMMAR_MESSAGES,
@@ -61,6 +63,7 @@ export const MESSAGE_PARTS = [
 
 export const MESSAGES = {
   ...SHELL_MESSAGES,
+  ...TODAY_MESSAGES,
   ...HOME_MESSAGES,
   ...LESSON_MESSAGES,
   ...GRAMMAR_MESSAGES,

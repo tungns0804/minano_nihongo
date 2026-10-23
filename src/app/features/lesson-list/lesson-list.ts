@@ -49,10 +49,6 @@ export class LessonList extends LeveledLessonBrowser {
    */
   readonly reviewDue = inject(ReviewStore).dueTotal;
 
-  protected levelStorageKey(): string {
-    return 'jp-practice:level-filter';
-  }
-
   private readonly homeKinds = lessonKindsOfTab('home');
 
   /**

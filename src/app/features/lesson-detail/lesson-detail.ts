@@ -30,6 +30,7 @@ import {
   LESSON_KIND_TAB,
   LESSON_KIND_TABLE_KEY,
   LESSON_KIND_UNIT_KEY,
+  LESSON_KIND_LABEL_KEY,
   LESSON_TAB_ROUTE,
   Lesson,
   OPTIONAL_WORD_FIELDS,
@@ -364,6 +365,7 @@ export class LessonDetail extends PracticeScreen {
     this.lesson.set(lesson);
     this.notFound.set(lesson === null);
     this.loading.set(false);
+    if (lesson) this.rememberRecent({ title: lesson.name, kindKey: LESSON_KIND_LABEL_KEY[lesson.kind] });
   }
 
   private resetView(): void {
@@ -560,7 +562,7 @@ export class LessonDetail extends PracticeScreen {
     if (!confirm(this.lang.t('lesson.confirm.delete', { name: lesson.name }))) return;
     this.lessonStore.deleteCustomLesson(lesson.id);
     this.favoriteStore.clearLesson(lesson.id);
-    void this.router.navigate(['/']);
+    void this.router.navigate(['/vocab']);
   }
 
   groupOf(group: VerbGroup): string {

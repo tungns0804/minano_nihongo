@@ -9,6 +9,7 @@ import {
 } from '../practice/practice.model';
 import { PracticePlan } from '../practice/build-questions';
 import { FavoriteStore } from '../services/favorite-store';
+import { RecentEntry, RecentStore } from '../services/recent-store';
 import { PracticeSessionStore } from '../practice/practice-session-store';
 import { checkedOf, valueOf } from '../utils/dom-events';
 
@@ -35,6 +36,15 @@ export abstract class PracticeScreen {
   protected readonly router = inject(Router);
   protected readonly lang = inject(LanguageStore);
   private readonly host = inject(ElementRef<HTMLElement>);
+  private readonly recent = inject(RecentStore);
+
+  /**
+   * Ghi bài đang mở vào khối "Học tiếp" của trang Hôm nay, dưới đúng URL đang hiện —
+   * cùng màn hình chi tiết có thể nằm ở hai nhánh (/lesson/:id và /topic/:id).
+   */
+  protected rememberRecent(entry: Omit<RecentEntry, 'path'>): void {
+    this.recent.record({ ...entry, path: this.router.url.split(/[?#]/)[0] });
+  }
 
   /** Template gọi `t('key')` để dịch — xem `core/i18n/language-store`. */
   readonly t = this.lang.t.bind(this.lang);

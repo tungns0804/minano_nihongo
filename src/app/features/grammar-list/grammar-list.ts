@@ -24,10 +24,6 @@ import { SearchBox } from '../../shared/search-box';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GrammarList extends LeveledLessonBrowser {
-  protected levelStorageKey(): string {
-    return 'jp-practice:grammar-level-filter';
-  }
-
   /** Mọi bài ngữ pháp, chưa lọc — dùng để đếm tổng và biết đã tải xong hay chưa. */
   readonly allLessons = computed<LessonSummary[]>(() =>
     this.lessonStore.summaries().filter((lesson) => lesson.kind === 'grammar'),

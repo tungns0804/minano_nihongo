@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import {
@@ -26,7 +26,7 @@ import {
 import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import { lessonMatches, normalizeSearch } from '../../core/lessons/lesson-search';
-import { readJson, writeJson } from '../../core/services/local-storage';
+import { LevelPreference } from '../../core/services/level-preference';
 import { SearchBox } from '../../shared/search-box';
 
 interface ExerciseCard extends ExerciseInfo {
@@ -43,8 +43,6 @@ interface ExerciseFilterOption {
   value: ExerciseFilter;
   count: number;
 }
-
-const FILTER_STORAGE_KEY = 'jp-practice:exercise-level-filter';
 
 /** Một nhóm bài học của tab này (chia động từ, dịch hội thoại). */
 interface LessonGroup {
@@ -109,14 +107,16 @@ export class ExerciseList extends LessonBrowser {
     (kind) => kind !== 'exercise',
   );
 
-  /** Cấp đã chọn, chưa kiểm tra còn bài hay không — đọc qua `level`. */
-  private readonly pickedLevel = signal<ExerciseFilter>('all');
+  /** Cấp chọn chung cho cả ứng dụng, chưa kiểm tra còn bài hay không — đọc qua `level`. */
+  private readonly levelPreference = inject(LevelPreference);
 
   /** Các bài tập chuyên đề, chưa lọc. */
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
     const counts = this.favoriteStore.counts();
-    return EXERCISES.map((info) => ({
+    // Bài "Luyện tập ngữ pháp N4" là nội dung ngữ pháp: nó nằm ở nhóm Ngữ pháp, tab
+    // "Tổng hợp N4" (core/navigation.ts), không lặp lại ở đây.
+    return EXERCISES.filter((info) => info.id !== 'ngu-phap-n4').map((info) => ({
       ...info,
       itemCount: itemCountOf(info.id),
       levelRange:
@@ -207,7 +207,7 @@ export class ExerciseList extends LessonBrowser {
 
   /** Cấp đang có hiệu lực. Cấp đã chọn mà hết bài thì tự quay về "Tất cả". */
   readonly level = computed<ExerciseFilter>(() => {
-    const current = this.pickedLevel();
+    const current = this.levelPreference.value();
     return (this.levelCounts().get(current) ?? 0) > 0 ? current : 'all';
   });
 
@@ -243,16 +243,11 @@ export class ExerciseList extends LessonBrowser {
 
   constructor() {
     super();
-    const stored = readJson<unknown>(FILTER_STORAGE_KEY, 'all');
-    if (stored === 'none' || EXERCISE_LEVELS.includes(stored as ExerciseLevel)) {
-      this.pickedLevel.set(stored as ExerciseFilter);
-    }
     void this.lessonStore.loadIndex();
   }
 
   setLevel(value: ExerciseFilter): void {
-    this.pickedLevel.set(value);
-    writeJson(FILTER_STORAGE_KEY, value);
+    this.levelPreference.set(value);
   }
 
   reload(): void {

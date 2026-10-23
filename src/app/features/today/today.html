@@ -1,0 +1,136 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <section class="page-head">
+      <h1>{{ t('today.title') }}</h1>
+      <p>{{ t('today.subtitle') }}</p>
+    </section>
+
+    <!-- Ba việc của hôm nay, theo đúng thứ tự nên làm: ôn trước, học tiếp sau, rồi
+         liếc xem nhịp lộ trình. Mỗi khối đúng một nút chính. -->
+    <div class="today-grid">
+      <!-- ── Ôn tập ─────────────────────────────────────────────────────────── -->
+      <section class="card today-card" [class.is-due]="dueTotal() > 0">
+        <div class="card-body stack">
+          <h2 class="today-card-title">
+            <app-icon name="repeat" />
+            {{ t('today.review.title') }}
+          </h2>
+
+          @if (dueTotal() > 0) {
+            <p class="today-figure">
+              <strong>{{ dueTotal() }}</strong>
+              <span>{{ t('today.review.due', { count: dueTotal() }) }}</span>
+            </p>
+          } @else {
+            <p class="today-figure is-calm">
+              <span>{{ t('today.review.none') }}</span>
+            </p>
+            <p class="muted small">{{ t('today.review.noneHint') }}</p>
+          }
+
+          @if (mistakeTotal() > 0) {
+            <p class="small muted">{{ t('today.review.mistakes', { count: mistakeTotal() }) }}</p>
+          }
+
+          <div class="today-actions">
+            @if (dueTotal() > 0) {
+              <a class="btn btn-primary" routerLink="/review">{{ t('today.review.start') }}</a>
+            } @else {
+              <a class="btn" routerLink="/review">{{ t('today.review.open') }}</a>
+            }
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Học tiếp ───────────────────────────────────────────────────────── -->
+      <section class="card today-card">
+        <div class="card-body stack">
+          <h2 class="today-card-title">
+            <app-icon name="book" />
+            {{ t('today.continue.title') }}
+          </h2>
+
+          @if (recent().length > 0) {
+            <ul class="recent-list">
+              @for (entry of recent(); track entry.path) {
+                <li>
+                  <a class="recent-item" [routerLink]="entry.path">
+                    <span class="recent-name">{{ entry.label }}</span>
+                    <span class="badge">{{ t(entry.kindKey) }}</span>
+                    <span class="lesson-go" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              }
+            </ul>
+          } @else {
+            <p class="muted small">{{ t('today.continue.empty') }}</p>
+            <div class="today-actions">
+              <a class="btn" routerLink="/vocab">{{ t('today.continue.pick') }}</a>
+            </div>
+          }
+        </div>
+      </section>
+
+      <!-- ── Lộ trình N3 ────────────────────────────────────────────────────── -->
+      <section class="card today-card">
+        <div class="card-body stack">
+          <h2 class="today-card-title">
+            <app-icon name="target" />
+            {{ t('app.nav.n3') }}
+          </h2>
+
+          <p class="today-figure">
+            <strong>{{ n3Percent() }}%</strong>
+            <span>{{ t('today.n3.percent') }}</span>
+          </p>
+          <div
+            class="today-bar"
+            role="progressbar"
+            [attr.aria-valuenow]="n3Percent()"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            [attr.aria-label]="t('app.nav.n3')"
+          >
+            <span [style.width.%]="n3Percent()"></span>
+          </div>
+
+          <p class="small">
+            <span class="badge" [class.badge-warning]="n3Behind()">
+              {{ t(n3StateKey(), n3StateParams()) }}
+            </span>
+          </p>
+          @if (n3Active()) {
+            <p class="small muted">
+              {{ t('today.n3.daysLeft', { days: n3DaysLeft() }) }} ·
+              {{ t('today.n3.perDay', { count: n3PerDay() }) }}
+            </p>
+          }
+
+          <div class="today-actions">
+            <a class="btn" routerLink="/n3">{{ t('today.n3.open') }}</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ── Bốn kỹ năng: lối tắt tới các nhóm còn lại của menu ─────────────────── -->
+    <section class="stack">
+      <h2 class="section-title">{{ t('today.skills.title') }}</h2>
+      <div class="skill-grid">
+        @for (skill of skills; track skill.id) {
+          <a class="card lesson-card skill-card" [routerLink]="skill.path">
+            <div class="lesson-card-top">
+              <app-icon class="skill-icon" [name]="skill.icon" />
+              <h3 class="lesson-name">{{ t(skill.labelKey) }}</h3>
+            </div>
+            <p class="lesson-desc muted small">{{ t(skill.descKey) }}</p>
+            <div class="lesson-card-bottom">
+              <span class="spacer"></span>
+              <span class="lesson-go" aria-hidden="true">→</span>
+            </div>
+          </a>
+        }
+      </div>
+    </section>
+  </div>
+</div>

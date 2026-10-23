@@ -10,8 +10,14 @@ import { practiceGuard, resultGuard } from './core/guards/session.guards';
  */
 export const routes: Routes = [
   {
-    // Trang chủ không đặt title để tab hiện đúng tên ứng dụng.
+    // Trang chủ là trang Hôm nay. Không đặt title để tab hiện đúng tên ứng dụng.
     path: '',
+    loadComponent: () => import('./features/today/today').then((m) => m.Today),
+  },
+  {
+    // Danh sách bài từ vựng từng là trang chủ; nhường "/" cho trang Hôm nay.
+    path: 'vocab',
+    title: 'route.vocab',
     loadComponent: () => import('./features/lesson-list/lesson-list').then((m) => m.LessonList),
   },
   // Màn hình "Nạp bài mới" đang tắt (xem core/feature-flags.ts). Không đăng ký route

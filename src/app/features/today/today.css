@@ -1,0 +1,136 @@
+/* Trang Hôm nay. Thẻ kỹ năng dùng lại .lesson-card của danh sách bài (src/styles/lists.css). */
+
+/* Ba khối việc hôm nay: ba cột trên máy tính, xếp dọc trên điện thoại. */
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-4);
+  align-items: stretch;
+}
+
+.today-card .card-body {
+  height: 100%;
+  gap: var(--sp-3);
+}
+
+/* Có mục đến hạn thì khối ôn tập nổi lên một chút: đó là việc nên làm đầu tiên. */
+.today-card.is-due {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.today-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-lg);
+}
+
+.today-card-title app-icon {
+  color: var(--accent);
+}
+
+.today-figure {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin: 0;
+}
+
+.today-figure strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.today-figure span {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.today-figure.is-calm span {
+  color: var(--text);
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.today-bar {
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+
+.today-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+/* Nút chính luôn nằm ở đáy khối, ba khối cao bằng nhau thì ba nút thẳng hàng. */
+.today-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: auto;
+  padding-top: var(--sp-1);
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.recent-item:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  background: var(--bg-subtle);
+  text-decoration: none;
+}
+
+.recent-name {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-jp);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.section-title {
+  font-size: var(--fs-lg);
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.skill-card .lesson-card-top {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.skill-icon {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
