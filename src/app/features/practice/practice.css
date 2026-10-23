@@ -297,15 +297,17 @@
   gap: 10px;
 }
 
+/* Cỡ chữ khi gõ: vừa đủ đọc rõ, không to hơn chữ câu hỏi. Không xuống dưới 1rem
+   (16px): iPhone tự phóng to cả trang khi chạm vào ô có chữ nhỏ hơn mức đó. */
 .answer-input {
   flex: 1;
   min-width: 0;
-  padding: 13px 15px;
-  font-size: 1.05rem;
+  padding: 11px 14px;
+  font-size: 1rem;
 }
 
 .answer-input.jp {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
 }
 
 /* Ô nhập cả một câu (bài hội thoại, bài ngữ pháp).
@@ -317,20 +319,20 @@
 .answer-textarea {
   flex: 1;
   min-width: 0;
-  min-height: 110px;
-  padding: 14px 16px;
-  font-size: 1.1rem;
+  min-height: 96px;
+  padding: 12px 14px;
+  font-size: 1rem;
   line-height: 1.6;
   /* Kéo cao thêm được nếu câu dài, nhưng không kéo ngang để không phá bố cục hàng. */
   resize: vertical;
 }
 
 .answer-textarea.jp {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
 }
 
 /* Placeholder nhỏ hơn chữ người dùng gõ vào: nó chỉ là lời nhắc, không nên to ngang
-   nội dung thật — nhất là ở ô tiếng Nhật, nơi chữ được phóng lên 1.25rem. */
+   nội dung thật — nhất là ở ô tiếng Nhật, nơi chữ lớn hơn một chút (1.12rem). */
 .answer-input::placeholder,
 .answer-textarea::placeholder {
   font-size: var(--fs-sm);
