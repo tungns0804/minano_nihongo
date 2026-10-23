@@ -49,6 +49,19 @@
       </nav>
 
       <div class="app-actions">
+        <!-- Chuỗi ngày học: luôn trong tầm mắt, bấm vào là về kế hoạch hôm nay.
+             Sáng màu lửa khi hôm nay đã đạt mục tiêu, nhạt khi còn phải học. -->
+        <a
+          routerLink="/"
+          class="icon-btn streak-chip"
+          [attr.data-state]="activity.streak().state"
+          [title]="streakChipLabel()"
+          [attr.aria-label]="streakChipLabel()"
+        >
+          <app-icon name="flame" />
+          <span>{{ activity.streak().current }}</span>
+        </a>
+
         <button
           type="button"
           class="icon-btn"

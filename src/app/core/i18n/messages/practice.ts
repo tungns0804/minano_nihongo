@@ -145,5 +145,18 @@ export const PRACTICE_MESSAGES = {
   'result.selfGraded': { vi: 'Bạn tự xác nhận câu này đúng:', ja: '自己採点で正解にした解答：' },
   'result.markCorrect': { vi: 'Đúng', ja: '正解' },
   'result.markWrongLabel': { vi: 'Sai', ja: '誤答' },
+  // Dải chuỗi ngày học ở màn kết quả (core/activity).
+  'result.streak.met': {
+    vi: 'Đạt mục tiêu hôm nay! Chuỗi {count} ngày liên tiếp 🎉',
+    ja: '今日の目標達成！{count}日連続 🎉',
+  },
+  'result.streak.done': {
+    vi: 'Hôm nay {answered} câu · chuỗi {count} ngày đang giữ vững',
+    ja: '今日 {answered}問・{count}日連続キープ中',
+  },
+  'result.streak.remaining': {
+    vi: 'Hôm nay {answered}/{goal} câu · còn {remaining} câu nữa để giữ chuỗi',
+    ja: '今日 {answered}/{goal}問・あと{remaining}問で連続記録キープ',
+  },
   'result.backToReview': { vi: 'Về trang ôn tập', ja: '復習ページへ' },
 } as const satisfies Record<string, Entry>;

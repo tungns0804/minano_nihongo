@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 export type IconName =
   | 'calendar'
+  | 'flame'
   | 'book'
   | 'repeat'
   | 'layers'
@@ -50,6 +51,12 @@ export type IconName =
           <path d="M3.5 10h17" />
           <path d="M8 3v4M16 3v4" />
           <path d="m9 15 2 2 4-4" />
+        }
+        @case ('flame') {
+          <path
+            d="M12 21.5c-4 0-7-2.7-7-6.6 0-3.3 2.2-5.4 3.6-7.2.3 1.6 1 2.8 2.2 3.6-.2-3.4 1.2-6.5 3.9-8.8.2 3 1.6 4.8 3 6.6 1.3 1.6 2.3 3.3 2.3 5.6 0 4-3 6.8-8 6.8z"
+          />
+          <path d="M12 21.5c-1.9 0-3.3-1.3-3.3-3.1 0-1.7 1.3-2.8 2.3-4 .4 1 1 1.6 1.8 2 .2-1 .8-1.9 1.6-2.5.6 1.4 1 2.4 1 3.4 0 2.4-1.6 4.2-3.4 4.2z" />
         }
         @case ('book') {
           <path d="M2.5 5.5H9a3 3 0 0 1 3 3V20a2.5 2.5 0 0 0-2.5-2.5h-7z" />

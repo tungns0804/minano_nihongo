@@ -1,22 +1,22 @@
 /* Trang Hôm nay. Thẻ kỹ năng dùng lại .lesson-card của danh sách bài (src/styles/lists.css). */
 
-/* Ba khối việc hôm nay: ba cột trên máy tính, xếp dọc trên điện thoại. */
-.today-grid {
+/* --- Chuỗi ngày + kế hoạch: hai cột trên máy tính, xếp dọc trên điện thoại ----- */
+.hero-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: var(--sp-4);
   align-items: stretch;
 }
 
-.today-card .card-body {
-  height: 100%;
-  gap: var(--sp-3);
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
-/* Có mục đến hạn thì khối ôn tập nổi lên một chút: đó là việc nên làm đầu tiên. */
-.today-card.is-due {
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-  box-shadow: 0 0 0 3px var(--accent-ring);
+.hero-grid .card-body {
+  height: 100%;
+  gap: var(--sp-3);
 }
 
 .today-card-title {
@@ -30,59 +30,280 @@
   color: var(--accent);
 }
 
-.today-figure {
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: var(--sp-2);
-  margin: 0;
+/* --- Chuỗi ngày ---------------------------------------------------------------
+   Màu lửa (--star) khi chuỗi đang sống; xám khi chưa có chuỗi. Hôm nay đã giữ
+   chuỗi thì cả thẻ ấm lên một chút — phần thưởng nhìn thấy được. */
+.streak-card {
+  --flame: var(--star);
 }
 
-.today-figure strong {
+.streak-card[data-state='none'] {
+  --flame: var(--text-faint);
+}
+
+.streak-card[data-state='done'] {
+  border-color: color-mix(in srgb, var(--flame) 55%, var(--border));
+  background: linear-gradient(160deg, color-mix(in srgb, var(--flame) 12%, var(--bg-elevated)), var(--bg-elevated) 60%);
+}
+
+.streak-card .today-card-title app-icon {
+  color: var(--flame);
+}
+
+.streak-figure {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.streak-figure strong {
   font-family: var(--font-display);
-  font-size: var(--fs-2xl);
-  line-height: 1.1;
+  font-size: clamp(2.6rem, 2rem + 2vw, 3.4rem);
+  line-height: 1;
+  color: var(--flame);
   font-variant-numeric: tabular-nums;
 }
 
-.today-figure span {
+.streak-figure span {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.streak-hint {
+  margin: 0;
+  font-weight: 600;
+}
+
+.streak-week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin: var(--sp-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.streak-week li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.streak-dot {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1.5px dashed var(--border-strong);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.streak-week li.is-met .streak-dot {
+  border: none;
+  background: var(--flame);
+}
+
+.streak-week li.is-today .streak-dot {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--flame) 30%, transparent);
+}
+
+.streak-dow {
+  font-size: var(--fs-2xs);
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.streak-week li.is-today .streak-dow {
+  color: var(--text);
+}
+
+.streak-today {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.streak-today-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-2);
   color: var(--text-muted);
   font-size: var(--fs-sm);
 }
 
-.today-figure.is-calm span {
+.streak-today-row strong {
   color: var(--text);
-  font-size: var(--fs-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.streak-bar {
+  height: 8px;
+}
+
+.streak-bar span {
+  background: var(--flame);
+}
+
+.streak-best {
+  margin: auto 0 0;
+}
+
+/* --- Kế hoạch hôm nay ---------------------------------------------------------- */
+.plan-all-done {
+  margin: 0;
+}
+
+.plan-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.plan-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.plan-item.is-done {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+  background: var(--accent-soft);
+}
+
+.plan-check {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  font-weight: 800;
+}
+
+.plan-item.is-done .plan-check {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.plan-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.plan-title {
   font-weight: 600;
 }
 
+.plan-item.is-done .plan-title {
+  color: var(--text-muted);
+}
+
+.plan-detail {
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+}
+
+.plan-bar,
 .today-bar {
-  height: 8px;
+  display: block;
+  height: 6px;
   border-radius: var(--radius-pill);
   background: var(--bg-subtle);
   overflow: hidden;
 }
 
+.plan-bar span,
 .today-bar span {
   display: block;
   height: 100%;
   border-radius: inherit;
   background: var(--accent);
+  transition: width var(--dur) var(--ease);
 }
 
-/* Nút chính luôn nằm ở đáy khối, ba khối cao bằng nhau thì ba nút thẳng hàng. */
-.today-actions {
+.plan-item .btn {
+  flex-shrink: 0;
+}
+
+.goal-row {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
-  gap: var(--sp-2);
+  gap: var(--sp-2) var(--sp-3);
   margin-top: auto;
-  padding-top: var(--sp-1);
+  padding-top: var(--sp-2);
 }
 
+.goal-options {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--bg-subtle);
+}
+
+.goal-option {
+  min-width: 2.6rem;
+  padding: 4px 10px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.goal-option:hover {
+  color: var(--text);
+}
+
+.goal-option.is-active {
+  background: var(--bg-elevated);
+  color: var(--accent);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+}
+
+.how-it-works summary {
+  width: fit-content;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.how-it-works summary:hover {
+  color: var(--text);
+}
+
+.how-it-works p {
+  margin: var(--sp-2) 0 0;
+  max-width: 62ch;
+}
+
+/* --- Học tiếp ------------------------------------------------------------------ */
 .recent-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-1);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--sp-2);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -92,9 +313,11 @@
   display: flex;
   align-items: center;
   gap: var(--sp-2);
-  padding: 10px 12px;
+  height: 100%;
+  padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
   color: var(--text);
   transition:
     border-color var(--dur) var(--ease),
@@ -113,6 +336,50 @@
   font-family: var(--font-jp);
   font-weight: 600;
   overflow-wrap: anywhere;
+}
+
+/* --- Tiến độ N3: một dải bấm được ----------------------------------------------- */
+.n3-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 14px 18px;
+  color: var(--text);
+  transition: border-color var(--dur) var(--ease);
+}
+
+.n3-strip:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  text-decoration: none;
+}
+
+.n3-strip > app-icon {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.n3-strip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.n3-strip-bar {
+  flex: 1;
+  min-width: 60px;
+  max-width: 280px;
+  margin-left: auto;
+}
+
+@media (max-width: 520px) {
+  .n3-strip-bar {
+    display: none;
+  }
+
+  .n3-strip-text {
+    flex: 1;
+  }
 }
 
 .section-title {

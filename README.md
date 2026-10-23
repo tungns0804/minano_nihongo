@@ -29,6 +29,13 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 - **Trang Hôm nay** (`/`) trả lời "hôm nay học gì": số mục đến hạn ôn kèm nút *Ôn ngay*, ba bài
   mở gần nhất (*Học tiếp*), phần trăm và nhịp học của lộ trình N3, rồi lối tắt tới bốn kỹ năng.
   Danh sách bài từ vựng — trước đây là trang chủ — nay ở `/vocab`; mọi đường dẫn khác giữ nguyên.
+- **Chuỗi ngày học (streak) và kế hoạch hôm nay** ([`core/activity/`](src/app/core/activity/)):
+  mỗi câu trả lời xong (đúng hay sai, ở bất kỳ bài nào) được đếm; đủ mục tiêu trong ngày
+  (10 / 20 / 30 / 50 câu, mặc định 20) là giữ chuỗi. Hôm nay chưa học thì chuỗi vẫn còn tới
+  hết ngày; hạ mục tiêu không bơm được ngày cũ. Trang Hôm nay có thẻ chuỗi (dải 7 ngày, kỷ lục)
+  và **Kế hoạch hôm nay** — đủ số câu, ôn hết mục đến hạn, tích đủ buổi lộ trình N3 — mỗi việc
+  một nút làm ngay. Chip 🔥 trên thanh trên cùng luôn hiện chuỗi; màn kết quả báo còn bao nhiêu
+  câu và chúc mừng đúng lần đạt mục tiêu. `npm run verify:streak` kiểm cách tính.
 - **Cấp độ chọn một lần cho cả app** ([`LevelPreference`](src/app/core/services/level-preference.ts)):
   bấm N4 ở tab nào thì mọi tab danh sách đều lọc N4. Tab không có bài ở cấp đó thì tạm hiện
   "Tất cả" mà không xoá lựa chọn.

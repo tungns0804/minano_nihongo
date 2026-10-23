@@ -14,6 +14,7 @@ import { gradeOf, reviewRefOf } from '../review/review.model';
 import { isAnswerCorrect, isPatternCorrect } from './answer-check';
 import { shuffle } from '../utils/random';
 import { ReviewStore } from '../review/review-store';
+import { ActivityStore } from '../activity/activity-store';
 
 export type NextOutcome = 'moved' | 'finished' | 'blocked';
 
@@ -38,6 +39,7 @@ export interface SessionLesson {
 @Injectable({ providedIn: 'root' })
 export class PracticeSessionStore {
   private readonly reviews = inject(ReviewStore);
+  private readonly activity = inject(ActivityStore);
 
   private readonly lessonRef = signal<SessionLesson | null>(null);
   private readonly configRef = signal<PracticeConfig | null>(null);
@@ -231,10 +233,15 @@ export class PracticeSessionStore {
     return 'revealed';
   }
 
-  /** Ghi kết quả một câu vào lịch ôn. Câu còn đang mở (còn lượt trả lời) thì chưa ghi gì. */
+  /**
+   * Ghi kết quả một câu vào lịch ôn và vào số câu đã làm hôm nay (chuỗi ngày học).
+   * Câu còn đang mở (còn lượt trả lời) thì chưa ghi gì.
+   */
   private remember(question: PracticeQuestion, status: QuestionStatus, wrongAttempts: number): void {
+    if (status === 'pending') return;
     const grade = gradeOf(status, wrongAttempts);
     if (grade && question.review) this.reviews.record(question.review, grade);
+    this.activity.recordAnswer(status === 'correct');
   }
 
   /** Sang câu tiếp theo. Chỉ có tác dụng khi câu hiện tại đã được chấm xong. */

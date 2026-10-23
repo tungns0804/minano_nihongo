@@ -31,6 +31,7 @@ scripts/
   verify-n3.mjs                  Kiểm lộ trình N3: khớp mục lục sách, lịch phủ kín, nhịp học
   verify-n4-grammar.mjs          Kiểm mọi sách ngữ pháp: cú pháp câu, chỗ trống, mảnh câu, id
   verify-i18n.mjs                Kiểm từ điển giao diện: đủ hai thứ tiếng, không trùng khoá
+  verify-streak.mjs              Kiểm cách tính chuỗi ngày học
   import-vnjpclub.mjs            Tải + giải mã vnjpclub N4 → core/exercises/vnjpclub-n4.generated.ts
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay, không commit)
   index.json
@@ -44,6 +45,9 @@ src/app/
   app.*                          Vỏ ứng dụng: thanh bên / menu đáy, breadcrumb, hàng tab con
   core/
     navigation.ts                Năm nhóm menu + tab con của từng nhóm + nhóm của mỗi URL
+    activity/
+      activity.model.ts          Số câu mỗi ngày, mục tiêu, chuỗi ngày học — toán thuần
+      activity-store.ts          Nhật ký hoạt động trong localStorage; ghi từ PracticeSessionStore
     i18n/
       messages.ts                Gộp từ điển giao diện; MessageKey
       messages/                  Mỗi khu vực một file: shell, today, home, lesson, grammar…

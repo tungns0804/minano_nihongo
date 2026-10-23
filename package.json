@@ -16,7 +16,7 @@
     "generate:strokes": "node --experimental-strip-types --no-warnings scripts/generate-strokes.mjs",
     "generate:audio": "npm run generate && node --experimental-strip-types --no-warnings scripts/generate-audio.mjs",
     "verify": "npm run generate && npm run verify:ci",
-    "verify:ci": "npm run verify:parser && npm run verify:answer && npm run verify:conjugation && npm run verify:i18n && npm run verify:kanji && npm run verify:radicals && npm run verify:strokes && npm run verify:drawing && npm run verify:topics && npm run verify:n3 && npm run verify:n4 && npm run verify:review && npm run verify:audio",
+    "verify:ci": "npm run verify:parser && npm run verify:answer && npm run verify:conjugation && npm run verify:i18n && npm run verify:kanji && npm run verify:radicals && npm run verify:strokes && npm run verify:drawing && npm run verify:topics && npm run verify:n3 && npm run verify:n4 && npm run verify:review && npm run verify:streak && npm run verify:audio",
     "verify:audio": "node --experimental-strip-types --no-warnings scripts/generate-audio.mjs --check",
     "verify:answer": "node --experimental-strip-types --no-warnings scripts/verify-answer-check.mjs",
     "verify:i18n": "node --experimental-strip-types --no-warnings scripts/verify-i18n.mjs",
@@ -27,6 +27,7 @@
     "verify:topics": "node --experimental-strip-types --no-warnings scripts/generate-topics.mjs --check",
     "verify:n3": "node --experimental-strip-types --no-warnings scripts/verify-n3.mjs",
     "verify:n4": "node --experimental-strip-types --no-warnings scripts/verify-n4-grammar.mjs",
+    "verify:streak": "node --experimental-strip-types --no-warnings scripts/verify-streak.mjs",
     "verify:review": "node --experimental-strip-types --no-warnings scripts/verify-review.mjs",
     "verify:parser": "node --experimental-strip-types --no-warnings scripts/verify-parser-parity.mjs",
     "verify:conjugation": "node --experimental-strip-types --no-warnings scripts/verify-conjugation.mjs"

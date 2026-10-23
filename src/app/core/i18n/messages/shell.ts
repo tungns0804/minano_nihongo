@@ -17,16 +17,11 @@ export const SHELL_MESSAGES = {
   'app.title': { vi: 'Ôn tập từ vựng 皆の日本語', ja: '皆の日本語 単語練習' },
   'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
   'app.breadcrumb': { vi: 'Bạn đang ở', ja: '現在の場所' },
-  // Tên ba tab nói rõ tab nào bám theo giáo trình và tab nào không: hai tab đầu là
-  // nội dung của 皆の日本語, còn "bổ trợ" là bài tập chuyên đề tự soạn thêm.
-  'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
+  // Tên các trang con trong menu (core/navigation.ts).
   'app.nav.review': { vi: 'Ôn tập', ja: '復習' },
-  'app.nav.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
-  'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
   'app.nav.translate': { vi: 'Luyện dịch', ja: '翻訳練習' },
   'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
-  // Tab đo tiến độ, không phải tab nội dung — tên nó nói thẳng cái đích ("thi N3")
-  // chứ không gọi theo loại dữ liệu như bốn tab kia.
+  // Trang đo tiến độ, không phải nội dung — tên nói thẳng cái đích ("thi N3").
   'app.nav.n3': { vi: 'Tiến độ N3', ja: 'N3 進捗' },
   'app.nav.kanji': { vi: 'Kanji', ja: '漢字' },
   'app.nav.radical': { vi: 'Bộ thủ', ja: '部首' },
@@ -156,7 +151,6 @@ export const SHELL_MESSAGES = {
     ja: 'レッスン一覧（public/lessons/index.json）を読み込めません。"npm run generate" を実行して data-source/ からデータを生成してください。',
   },
   'route.n3': { vi: 'Tiến độ thi N3', ja: 'N3 合格までの進捗' },
-  'route.today': { vi: 'Hôm nay', ja: '今日' },
   'route.vocab': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
   'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
   'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },

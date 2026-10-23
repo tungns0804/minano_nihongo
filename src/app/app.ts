@@ -13,6 +13,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { filter, map } from 'rxjs';
 
+import { ActivityStore } from './core/activity/activity-store';
 import { LanguageStore } from './core/i18n/language-store';
 import type { MessageKey } from './core/i18n/messages';
 import { T } from './core/i18n/t';
@@ -53,6 +54,16 @@ export class App {
   protected readonly t = this.lang.t.bind(this.lang);
 
   protected readonly navGroups = NAV_GROUPS;
+  protected readonly activity = inject(ActivityStore);
+
+  /** Chú thích của chip 🔥: chuỗi mấy ngày, hôm nay đã làm bao nhiêu câu. */
+  protected readonly streakChipLabel = computed(() =>
+    this.t('streak.chip', {
+      count: this.activity.streak().current,
+      answered: this.activity.today().answered,
+      goal: this.activity.goal(),
+    }),
+  );
 
   /** URL hiện tại, cập nhật sau mỗi lần chuyển trang xong. */
   private readonly url = toSignal(

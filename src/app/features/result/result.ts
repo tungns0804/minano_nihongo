@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 import { KANJI_SESSION_ID } from '../../core/kanji/kanji.model';
 import { RADICAL_SESSION_ID } from '../../core/radical/radical.model';
@@ -13,6 +13,8 @@ import { reshuffleChoices } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
 import { StarButton } from '../../shared/star-button';
+import { Icon } from '../../shared/icon';
+import { ActivityStore } from '../../core/activity/activity-store';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';
 
@@ -40,18 +42,50 @@ const BACK_ROUTE: Record<LessonKind, string> = {
 
 @Component({
   selector: 'app-result',
-  imports: [StarButton, T],
+  imports: [Icon, RouterLink, StarButton, T],
   templateUrl: './result.html',
   styleUrl: './result.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Result {
   private readonly session = inject(PracticeSessionStore);
+  private readonly activity = inject(ActivityStore);
+
+  /**
+   * Phiên này vừa đưa hôm nay chạm mục tiêu — chụp lại một lần lúc mở màn hình rồi
+   * báo kho là đã chúc mừng, để các phiên sau trong ngày không chúc lại.
+   */
+  private readonly justMetGoal = this.activity.justMet();
+
+  protected readonly goalPercent = computed(() =>
+    Math.min(100, Math.round((this.activity.today().answered / this.activity.goal()) * 100)),
+  );
+
+  protected readonly streakTone = computed(() =>
+    this.justMetGoal ? 'celebrate' : this.activity.today().met ? 'done' : 'pending',
+  );
+
+  /** Một dòng về chuỗi ngày: chúc mừng, đã giữ chuỗi, hay còn bao nhiêu câu nữa. */
+  protected readonly streakMessage = computed(() => {
+    const today = this.activity.today();
+    const count = this.activity.streak().current;
+    if (this.justMetGoal) return this.t('result.streak.met', { count });
+    if (today.met) return this.t('result.streak.done', { answered: today.answered, count });
+    return this.t('result.streak.remaining', {
+      answered: today.answered,
+      goal: this.activity.goal(),
+      remaining: this.activity.remaining(),
+    });
+  });
   private readonly favoriteStore = inject(FavoriteStore);
   private readonly lang = inject(LanguageStore);
   private readonly router = inject(Router);
 
   readonly t = this.lang.t.bind(this.lang);
+
+  constructor() {
+    this.activity.acknowledgeGoal();
+  }
 
   readonly summary = this.session.summary;
   readonly filter = signal<ResultFilter>('all');

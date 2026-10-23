@@ -602,3 +602,33 @@
     0 1px 2px rgb(0 0 0 / 8%),
     0 0 0 1px color-mix(in srgb, var(--brand) 25%, transparent);
 }
+
+/* --- Chip chuỗi ngày trên thanh trên cùng (app.html) ----------------------------
+   Khai ở đây chứ không ở app.css: style của component gốc có ngân sách 8 kB. */
+a.icon-btn.streak-chip {
+  gap: 4px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+a.icon-btn.streak-chip:hover {
+  text-decoration: none;
+}
+
+a.icon-btn.streak-chip[data-state='at-risk'] {
+  color: var(--star);
+}
+
+a.icon-btn.streak-chip[data-state='done'] {
+  border-color: color-mix(in srgb, var(--star) 55%, var(--border));
+  background: color-mix(in srgb, var(--star) 14%, var(--bg-elevated));
+  color: var(--star);
+}
+
+/* Điện thoại hẹp: thêm chip 🔥 thì hàng trên không còn đủ chỗ cho chữ 皆の日本語 —
+   giữ ô biểu tượng 語, bỏ chữ, thay vì để chữ gãy thành hai dòng. */
+@media (max-width: 440px) {
+  .topbar-brand .brand-jp {
+    display: none;
+  }
+}
