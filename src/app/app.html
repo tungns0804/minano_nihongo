@@ -117,16 +117,18 @@
          Chỉ hiện ở trang danh sách, xem App.subNav. -->
     @if (subNav(); as sub) {
       <nav class="container sub-nav" [attr.aria-label]="t('app.subnav')">
-        @for (page of sub.group.pages; track page.path) {
-          <a
-            class="sub-nav-link"
-            [routerLink]="page.path"
-            [class.is-active]="page === sub.page"
-            [attr.aria-current]="page === sub.page ? 'page' : null"
-          >
-            <app-t [key]="page.labelKey" />
-          </a>
-        }
+        <div class="sub-nav-track">
+          @for (page of sub.group.pages; track page.path) {
+            <a
+              class="sub-nav-link"
+              [routerLink]="page.path"
+              [class.is-active]="page === sub.page"
+              [attr.aria-current]="page === sub.page ? 'page' : null"
+            >
+              <app-t [key]="page.labelKey" />
+            </a>
+          }
+        </div>
       </nav>
     }
     <router-outlet />

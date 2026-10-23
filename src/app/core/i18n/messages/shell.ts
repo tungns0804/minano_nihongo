@@ -39,8 +39,9 @@ export const SHELL_MESSAGES = {
   'app.nav.practice': { vi: 'Luyện tập', ja: '練習' },
   'app.sub.minano': { vi: 'Minano', ja: '皆の日本語' },
   'app.sub.topic': { vi: 'Theo chủ đề', ja: 'テーマ別' },
-  'app.sub.n4grammar': { vi: 'Tổng hợp N4', ja: 'N4総まとめ' },
-  'app.sub.vnjpclub': { vi: 'vnjpclub N4', ja: 'vnjpclub N4' },
+  // Tên tab ngắn: hàng tab đã nằm trong nhóm Ngữ pháp, nên chỉ cần tên nguồn.
+  'app.sub.n4grammar': { vi: 'N4', ja: 'N4' },
+  'app.sub.vnjpclub': { vi: 'vnjpclub', ja: 'vnjpclub' },
   'app.subnav': { vi: 'Các trang trong mục này', ja: 'このセクションのページ' },
   'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
   'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },

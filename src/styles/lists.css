@@ -140,6 +140,15 @@
   .level-options {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Nửa bề ngang thì "N4 · bài 26–50" vừa khít một dòng nếu bớt đệm và cỡ chữ —
+     để nó tự xuống dòng thì gãy giữa con số. */
+  .level-options .option {
+    gap: 6px;
+    padding-inline: 12px;
+    font-size: var(--fs-sm);
+    white-space: nowrap;
+  }
 }
 
 /* --- Tab chọn nhóm của bảng tra ------------------------------------------

@@ -20,7 +20,7 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 | --- | --- | --- |
 | **Hôm nay** | Hôm nay · Ôn tập · Tiến độ N3 | `/` · `/review` · `/n3` |
 | **Từ vựng** | Minano · Theo chủ đề | `/vocab` · `/topic` |
-| **Ngữ pháp** | Minano · Tổng hợp N4 · vnjpclub N4 | `/grammar` · `/exercise/ngu-phap-n4` · `/exercise/ngu-phap-vnjpclub` |
+| **Ngữ pháp** | Minano · N4 · vnjpclub | `/grammar` · `/exercise/ngu-phap-n4` · `/exercise/ngu-phap-vnjpclub` |
 | **Kanji** | Kanji · Bộ thủ | `/kanji` · `/radical` |
 | **Luyện tập** | Luyện dịch · Bài tập bổ trợ | `/translate` · `/exercise` |
 

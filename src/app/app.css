@@ -289,51 +289,7 @@ main:focus-visible {
   display: none;
 }
 
-/* --- Hàng tab con -------------------------------------------------------------
-   Các trang trong cùng một nhóm (Từ vựng: Minano / Theo chủ đề…). Dạng viên thuốc
-   giống nhóm nút lựa chọn, nhưng màu thương hiệu như menu: đây là "đang ở đâu",
-   không phải "chọn gì". Kéo sát xuống tiêu đề trang bằng margin âm, vì .page bên
-   dưới đã có sẵn khoảng đệm đầu trang của nó. */
-.sub-nav {
-  display: flex;
-  gap: 6px;
-  padding-top: var(--sp-5);
-  margin-bottom: calc(-1 * var(--sp-4));
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.sub-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.sub-nav-link {
-  flex-shrink: 0;
-  padding: 7px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  background: var(--bg-elevated);
-  color: var(--text-muted);
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  white-space: nowrap;
-  transition:
-    background-color var(--dur) var(--ease),
-    border-color var(--dur) var(--ease),
-    color var(--dur) var(--ease);
-}
-
-.sub-nav-link:hover {
-  border-color: var(--border-strong);
-  color: var(--text);
-  text-decoration: none;
-}
-
-.sub-nav-link.is-active {
-  border-color: color-mix(in srgb, var(--brand) 40%, var(--border));
-  background: var(--brand-soft);
-  color: var(--brand);
-}
+/* Hàng tab con (.sub-nav) khai ở src/styles/components.css. */
 
 /* --- Thanh tiến trình chuyển trang -----------------------------------------
    Một vệt mảnh chạy ngang, dính ngay dưới header.
