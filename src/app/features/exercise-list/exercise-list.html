@@ -36,6 +36,32 @@
       </div>
     </div>
 
+    <!-- Lọc theo cấp. Bài tập trải nhiều cấp hiện ở mọi cấp nó phủ; bài không gắn
+         cấp nào nằm ở "Tùy chọn". -->
+    <div class="field">
+      <span class="label">{{ t('home.level') }}</span>
+      <div class="options level-options">
+        @for (option of levelOptions(); track option.value) {
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="level() === option.value"
+            [attr.aria-pressed]="level() === option.value"
+            [title]="option.value === 'none' ? t('exercise.level.noneTitle') : null"
+            (click)="setLevel(option.value)"
+          >
+            @switch (option.value) {
+              @case ('all') { <app-t key="home.level.all" /> }
+              @case ('none') { <app-t key="exercise.level.none" /> }
+              @default { {{ option.value }} }
+            }
+            <span class="spacer"></span>
+            <span class="filter-count">{{ option.count }}</span>
+          </button>
+        }
+      </div>
+    </div>
+
     @if (noMatch()) {
       <div class="empty-state">
         <span class="empty-state-icon" aria-hidden="true">🔍</span>

@@ -91,11 +91,10 @@ hôm trước thì trông y như mất bài học.
 Trang chủ có thêm bộ lọc **Cấp độ**: **N5 = bài 1–25**, **N4 = bài 26–50**. Mốc chia này lấy
 đúng theo cuốn nguồn: hết bài 25 thì sách in tiêu đề “TỪ VỰNG MINNANO N4” rồi mới sang bài 26.
 
-Bộ lọc này chỉ có ở trang chủ, tức chỉ áp cho bài từ vựng. Tab Bài tập bổ trợ không có nó: hai
-bài tập động từ trải N5→N2 theo cấp gán cho TỪNG động từ chứ không theo số bài, còn bài ngữ pháp
-N4 đi theo một tài liệu tổng hợp chứ không theo bài nào, nên xếp chúng vào một bộ lọc chia theo
-số bài thì cả ba rơi hết vào ô "Không theo bài". Ở đó tìm bằng số bài ("28") nhanh hơn lọc, vì
-cả tab chỉ có mười hai thẻ.
+Tab Bài tập bổ trợ có bộ lọc **Cấp độ** riêng: **Tất cả · N5 · N4 · N3 · Tùy chọn**. Khác trang
+chủ, một thẻ ở đây thuộc MỌI cấp nó phủ: hai bài tập động từ trải N5→N2 hiện ở cả N5, N4 lẫn N3;
+bài ngữ pháp N4 chỉ ở N4; bài chia động từ / dịch hội thoại theo số bài (bài 33 → N4). Bài không
+gắn cấp nào (động từ đặc biệt, bài tự nạp) nằm ở **Tùy chọn**. Cấp đã chọn được nhớ cho lần sau.
 
 Cấp độ KHÔNG lưu trong từng bài mà suy ra từ **số bài**. Số bài do
 [`scripts/generate-lessons.mjs`](scripts/generate-lessons.mjs) tính lúc sinh dữ liệu (hàm

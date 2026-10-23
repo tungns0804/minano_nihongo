@@ -1,7 +1,13 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { EXERCISES, ExerciseId, ExerciseInfo } from '../../core/exercises/exercise.model';
+import {
+  EXERCISES,
+  EXERCISE_LEVELS,
+  ExerciseId,
+  ExerciseInfo,
+  ExerciseLevel,
+} from '../../core/exercises/exercise.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
 import { N4_SECTIONS } from '../../core/exercises/n4-grammar';
 import { meaningPoints } from '../../core/exercises/n4-grammar.model';
@@ -15,10 +21,12 @@ import {
   LessonKind,
   LessonSummary,
   lessonKindsOfTab,
+  levelOf,
 } from '../../core/lessons/vocabulary.model';
 import { LessonBrowser } from '../../core/screens/lesson-browser';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import { lessonMatches, normalizeSearch } from '../../core/lessons/lesson-search';
+import { readJson, writeJson } from '../../core/services/local-storage';
 import { SearchBox } from '../../shared/search-box';
 
 interface ExerciseCard extends ExerciseInfo {
@@ -27,6 +35,16 @@ interface ExerciseCard extends ExerciseInfo {
   levelRange: string;
   favoriteCount: number;
 }
+
+/** 'all', một cấp, hoặc 'none' — bài không gắn cấp nào (nút "Tùy chọn"). */
+type ExerciseFilter = ExerciseLevel | 'all' | 'none';
+
+interface ExerciseFilterOption {
+  value: ExerciseFilter;
+  count: number;
+}
+
+const FILTER_STORAGE_KEY = 'jp-practice:exercise-level-filter';
 
 /** Một nhóm bài học của tab này (chia động từ, dịch hội thoại). */
 interface LessonGroup {
@@ -56,8 +74,10 @@ interface LessonGroup {
  * cứng, để việc phân chia tab chỉ nằm ở một chỗ (xem `LESSON_KIND_TAB`).
  *
  * Ô tìm và cách đếm ★ trên thẻ đến từ `LessonBrowser`. Không kế thừa
- * `LeveledLessonBrowser` vì tab này không lọc theo cấp: một bài chia động từ trải
- * suốt N5→N3, xếp nó vào một cấp thì xếp kiểu gì cũng sai.
+ * `LeveledLessonBrowser`: ở đó mỗi bài thuộc đúng một cấp, còn ở đây một bài tập
+ * chuyên đề trải suốt N5→N3. Bộ lọc cấp của tab này vì vậy cho một thẻ thuộc MỌI cấp
+ * nó phủ — người học N4 vẫn thấy bài chia động từ N5→N2 — và gom bài không gắn cấp
+ * nào (động từ đặc biệt, bài tự nạp) vào nút "Tùy chọn".
  */
 @Component({
   selector: 'app-exercise-list',
@@ -89,6 +109,9 @@ export class ExerciseList extends LessonBrowser {
     (kind) => kind !== 'exercise',
   );
 
+  /** Cấp đã chọn, chưa kiểm tra còn bài hay không — đọc qua `level`. */
+  private readonly pickedLevel = signal<ExerciseFilter>('all');
+
   /** Các bài tập chuyên đề, chưa lọc. */
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
@@ -114,9 +137,11 @@ export class ExerciseList extends LessonBrowser {
    */
   readonly exercises = computed<ExerciseCard[]>(() => {
     const needle = this.needle();
-    if (!needle) return this.allExercises();
+    const level = this.level();
+    const byLevel = this.allExercises().filter((card) => matchesLevel(card.levels, level));
+    if (!needle) return byLevel;
 
-    return this.allExercises().filter((card) => {
+    return byLevel.filter((card) => {
       const haystack = normalizeSearch(
         `${this.lang.t(card.nameKey)} ${this.lang.t(card.descKey)} ${card.id}`,
       );
@@ -138,7 +163,10 @@ export class ExerciseList extends LessonBrowser {
     const all = this.allLessons();
 
     return this.lessonKinds.flatMap((kind) => {
-      const ofKind = all.filter((lesson) => lesson.kind === kind);
+      const level = this.level();
+      const ofKind = all.filter(
+        (lesson) => lesson.kind === kind && matchesLevel(lessonLevels(lesson), level),
+      );
       const lessons = needle ? ofKind.filter((lesson) => lessonMatches(lesson, needle)) : ofKind;
       if (lessons.length === 0) return [];
       return [
@@ -151,6 +179,36 @@ export class ExerciseList extends LessonBrowser {
         },
       ];
     });
+  });
+
+  /**
+   * Số thẻ theo từng nút lọc. Cố tình KHÔNG trừ từ khoá đang gõ, như bộ lọc cấp ở các
+   * tab khác: con số phải đứng yên khi gõ tìm. Thẻ trải nhiều cấp được đếm ở mỗi cấp.
+   */
+  private readonly levelCounts = computed(() => {
+    const levelSets = [
+      ...this.allExercises().map((card) => card.levels),
+      ...this.allLessons().map(lessonLevels),
+    ];
+    const counts = new Map<ExerciseFilter, number>([['all', levelSets.length]]);
+    for (const value of [...EXERCISE_LEVELS, 'none'] as const) {
+      counts.set(value, levelSets.filter((levels) => matchesLevel(levels, value)).length);
+    }
+    return counts;
+  });
+
+  /** Các nút lọc; cấp không có bài nào thì không hiện nút. */
+  readonly levelOptions = computed<ExerciseFilterOption[]>(() => {
+    const counts = this.levelCounts();
+    return (['all', ...EXERCISE_LEVELS, 'none'] as const)
+      .map((value) => ({ value, count: counts.get(value) ?? 0 }))
+      .filter((option) => option.value === 'all' || option.count > 0);
+  });
+
+  /** Cấp đang có hiệu lực. Cấp đã chọn mà hết bài thì tự quay về "Tất cả". */
+  readonly level = computed<ExerciseFilter>(() => {
+    const current = this.pickedLevel();
+    return (this.levelCounts().get(current) ?? 0) > 0 ? current : 'all';
   });
 
   /** Số thẻ đang hiện, tính cả bài tập chuyên đề lẫn bài học. */
@@ -185,7 +243,16 @@ export class ExerciseList extends LessonBrowser {
 
   constructor() {
     super();
+    const stored = readJson<unknown>(FILTER_STORAGE_KEY, 'all');
+    if (stored === 'none' || EXERCISE_LEVELS.includes(stored as ExerciseLevel)) {
+      this.pickedLevel.set(stored as ExerciseFilter);
+    }
     void this.lessonStore.loadIndex();
+  }
+
+  setLevel(value: ExerciseFilter): void {
+    this.pickedLevel.set(value);
+    writeJson(FILTER_STORAGE_KEY, value);
   }
 
   reload(): void {
@@ -202,4 +269,16 @@ function itemCountOf(id: ExerciseId): number {
     case 'ngu-phap-n4':
       return meaningPoints(N4_SECTIONS).length;
   }
+}
+
+/** Cấp của một bài chia động từ / dịch hội thoại: một cấp, hoặc rỗng nếu không gắn cấp. */
+function lessonLevels(lesson: LessonSummary): readonly ExerciseLevel[] {
+  const level = levelOf(lesson);
+  return level ? [level] : [];
+}
+
+function matchesLevel(levels: readonly ExerciseLevel[], filter: ExerciseFilter): boolean {
+  if (filter === 'all') return true;
+  if (filter === 'none') return levels.length === 0;
+  return levels.includes(filter);
 }

@@ -516,6 +516,12 @@ export const MESSAGES = {
   'exercise.verbCount': { vi: '{count} động từ', ja: '動詞{count}語' },
   'exercise.patternCount': { vi: '{count} mẫu ngữ pháp', ja: '文型{count}個' },
   'exercise.levelRange': { vi: 'Cấp độ {range}', ja: 'レベル {range}' },
+  // Bộ lọc cấp của tab này: bài không gắn cấp nào (động từ đặc biệt, bài tự nạp…).
+  'exercise.level.none': { vi: 'Tùy chọn', ja: 'その他' },
+  'exercise.level.noneTitle': {
+    vi: 'Bài không gắn với cấp độ nào, ví dụ bài gom động từ đặc biệt hay bài tự nạp',
+    ja: '特定のレベルに属さない練習（特別な動詞をまとめたもの、自分で追加したものなど）',
+  },
   'exercise.back': { vi: '← Danh sách bài tập', ja: '← 練習問題一覧' },
   'exercise.notFound': { vi: 'Không tìm thấy bài tập {id}.', ja: '練習問題 {id} が見つかりません。' },
 
