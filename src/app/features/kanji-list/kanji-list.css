@@ -157,3 +157,39 @@ Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-b
     font-size: 2.1rem;
   }
 }
+
+/* Chấm trạng thái ở góc trên bên trái ô: xanh là đã luyện, cam là có mục đến hạn ôn. */
+.kanji-cell[data-status]::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 1;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+.kanji-cell[data-status='due']::before {
+  background: var(--warning);
+}
+
+.kanji-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 12px;
+}
+
+.kanji-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.kanji-legend-dot.is-due {
+  background: var(--warning);
+}

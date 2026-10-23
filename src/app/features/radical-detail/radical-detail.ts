@@ -18,13 +18,14 @@ import {
   radicalQuestionCount,
   usableForParts,
 } from '../../core/radical/radical.model';
-import { radicalById } from '../../core/radical/radical-entries';
+import { RADICAL_ENTRIES, radicalById } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { PracticeSetup } from '../../shared/practice-setup';
+import { PagerItem, SiblingPager } from '../../shared/sibling-pager';
 
 /**
  * Màn hình MỘT bộ thủ: bộ vẽ to, âm Hán Việt + nghĩa + tên tiếng Nhật, và bảng các
@@ -41,7 +42,7 @@ import { PracticeSetup } from '../../shared/practice-setup';
  */
 @Component({
   selector: 'app-radical-detail',
-  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, SiblingPager, StarButton, T],
   templateUrl: './radical-detail.html',
   styleUrl: './radical-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -53,6 +54,13 @@ export class RadicalDetail extends PracticeScreen {
 
   readonly radicalId = signal('');
   readonly entry = signal<RadicalEntry | null>(null);
+
+  /** 214 bộ theo đúng thứ tự Khang Hy — dãy của "bộ trước / bộ sau". */
+  readonly pagerItems: readonly PagerItem[] = RADICAL_ENTRIES.map((item) => ({
+    key: item.id,
+    name: `${item.char} ${item.hanViet}`,
+    path: `/radical/${item.id}`,
+  }));
 
   /** ★ lưu theo từng bộ: chữ của bộ 人 và chữ của bộ 木 là hai danh sách khác nhau. */
   protected favoriteSessionId(): string {

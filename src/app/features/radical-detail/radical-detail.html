@@ -348,6 +348,13 @@
         </ng-container>
       </app-practice-setup>
       }
+
+      <app-sibling-pager
+        [items]="pagerItems"
+        [currentKey]="data.id"
+        prevKey="pager.prevRadical"
+        nextKey="pager.nextRadical"
+      />
     </div>
   }
 </div>

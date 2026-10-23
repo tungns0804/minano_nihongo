@@ -14,7 +14,7 @@ import {
   kanjiModeInfo,
   kanjiQuestionsPerItem,
 } from '../../core/kanji/kanji.model';
-import { kanjiById } from '../../core/kanji/kanji-entries';
+import { KANJI_ENTRIES, kanjiById } from '../../core/kanji/kanji-entries';
 import { LIMIT_CHOICES, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
@@ -26,6 +26,7 @@ import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { PracticeSetup } from '../../shared/practice-setup';
+import { PagerItem, SiblingPager } from '../../shared/sibling-pager';
 
 /**
  * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
@@ -42,7 +43,7 @@ import { PracticeSetup } from '../../shared/practice-setup';
  */
 @Component({
   selector: 'app-kanji-detail',
-  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, SiblingPager, StarButton, T],
   templateUrl: './kanji-detail.html',
   styleUrl: './kanji-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -54,6 +55,16 @@ export class KanjiDetail extends PracticeScreen {
 
   readonly kanjiId = signal('');
   readonly entry = signal<KanjiEntry | null>(null);
+
+  /** Các chữ cùng cấp JLPT, theo thứ tự lưới — dãy của "chữ trước / chữ sau". */
+  readonly pagerItems = computed<PagerItem[]>(() => {
+    const level = this.entry()?.level;
+    return KANJI_ENTRIES.filter((item) => item.level === level).map((item) => ({
+      key: item.id,
+      name: `${item.char} ${item.hanViet}`,
+      path: `/kanji/${item.id}`,
+    }));
+  });
 
   /** ★ lưu theo từng chữ: từ của 会 và từ của 社 là hai danh sách khác nhau. */
   protected favoriteSessionId(): string {

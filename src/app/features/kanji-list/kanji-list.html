@@ -77,7 +77,11 @@
               <!-- Ngôi sao là em ruột của link chứ không nằm trong: <button> lồng
                    trong <a> là HTML không hợp lệ. CSS cho link phủ kín ô nên bấm
                    chỗ nào cũng mở được chữ. -->
-              <div class="kanji-cell" [class.is-favorite]="isFavorite(entry.id)">
+              <div
+                class="kanji-cell"
+                [class.is-favorite]="isFavorite(entry.id)"
+                [attr.data-status]="statusOf(entry.id)"
+              >
                 <a class="kanji-link" [routerLink]="['/kanji', entry.id]">
                   <!-- Chữ vẽ to hẳn: cả ô này tồn tại để nhìn cho rõ mặt chữ. Ẩn
                        với trình đọc màn hình vì đọc lên một chữ Hán trơ không
@@ -98,6 +102,8 @@
 
           <p class="small faint">
             {{ t('kanji.showing', { shown: visibleEntries().length, total: levelEntries().length }) }}
+            <span class="kanji-legend"><span class="kanji-legend-dot is-learned"></span>{{ t('kanji.legend.learned') }}</span>
+            <span class="kanji-legend"><span class="kanji-legend-dot is-due"></span>{{ t('kanji.legend.due') }}</span>
           </p>
         }
       </div>

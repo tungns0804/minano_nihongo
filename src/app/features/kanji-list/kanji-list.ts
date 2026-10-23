@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
@@ -18,6 +18,8 @@ import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions, drawableKanji } from '../../core/practice/draw-questions';
 import { buildKanjiHanVietQuestions } from '../../core/practice/kanji-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
+import { ReviewStore } from '../../core/review/review-store';
+import { reviewKey } from '../../core/review/review.model';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
@@ -42,7 +44,22 @@ import { PracticeSetup } from '../../shared/practice-setup';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanjiList extends PracticeScreen {
+  private readonly reviews = inject(ReviewStore);
+
   readonly allLevels = KANJI_LEVELS;
+
+  /**
+   * Trạng thái học của một chữ trên lưới: đã luyện (âm Hán Việt của chữ — thẻ `kc` —
+   * hoặc các từ dùng chữ đó — thẻ có `source` là chữ) và có mục đến hạn ôn không.
+   * Lưới gần hai nghìn ô mà không đánh dấu thì không biết mình đã đi tới đâu.
+   */
+  statusOf(id: string): 'due' | 'learned' | null {
+    const key = reviewKey('kc', id);
+    const words = this.reviews.progressBySource().get(id);
+    if (this.reviews.isDue(key) || (words?.due ?? 0) > 0) return 'due';
+    if (this.reviews.cardOf(key) || (words?.tracked ?? 0) > 0) return 'learned';
+    return null;
+  }
   readonly modes = KANJI_LIST_MODES;
 
   /** Chiều hỏi: đọc âm Hán Việt của chữ, hay viết ra chính chữ đó. */

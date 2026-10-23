@@ -69,4 +69,10 @@ export const HOME_MESSAGES = {
   'pager.aria': { vi: 'Bài kề', ja: '前後のレッスン' },
   'pager.prev': { vi: 'Bài trước', ja: '前のレッスン' },
   'pager.next': { vi: 'Bài sau', ja: '次のレッスン' },
+  'pager.prevTopic': { vi: 'Chủ đề trước', ja: '前のテーマ' },
+  'pager.nextTopic': { vi: 'Chủ đề sau', ja: '次のテーマ' },
+  'pager.prevKanji': { vi: 'Chữ trước', ja: '前の漢字' },
+  'pager.nextKanji': { vi: 'Chữ sau', ja: '次の漢字' },
+  'pager.prevRadical': { vi: 'Bộ trước', ja: '前の部首' },
+  'pager.nextRadical': { vi: 'Bộ sau', ja: '次の部首' },
 } as const satisfies Record<string, Entry>;

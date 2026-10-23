@@ -65,7 +65,7 @@ const usedKeys = new Set();
 // Bắt 'khoa.co.dau.cham' trong t('...'), labelKey: '...', v.v., và cả key="khoa.co.dau.cham"
 // của <app-t> trong template.
 // Chỉ thuộc tính key TĨNH: [key]="biểu.thức" là biểu thức, không phải khoá.
-const KEY_PATTERN = /'([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)'|(?<![\[\w-])key="([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)"/g;
+const KEY_PATTERN = /'([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)'|(?<![\[\w-])(?:key|prevKey|nextKey|moreHintKey)="([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)"/g;
 
 for (const file of files) {
   const content = readFileSync(file, 'utf8');

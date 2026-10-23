@@ -98,6 +98,12 @@ export class ReviewStore {
     return this.cards()[key] ?? null;
   }
 
+  /** Thẻ `key` đang đến hạn ôn (hôm nay hoặc đã quá hạn) chưa. */
+  isDue(key: string): boolean {
+    const card = this.cards()[key];
+    return card !== undefined && card.due <= this.todayRef();
+  }
+
   dueKeys(areas: readonly ReviewArea[]): string[] {
     return dueKeysOf(this.cards(), areas, this.todayRef());
   }

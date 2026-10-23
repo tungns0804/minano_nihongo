@@ -24,6 +24,8 @@ export const KANJI_MESSAGES = {
     vi: 'Tìm theo từ, cách đọc hoặc nghĩa…',
     ja: '単語・読み方・意味で検索…',
   },
+  'kanji.legend.learned': { vi: 'đã luyện', ja: '練習済み' },
+  'kanji.legend.due': { vi: 'đến hạn ôn', ja: '復習期限' },
   'kanji.showing': { vi: 'Hiện {shown}/{total} mục.', ja: '{total}項目中{shown}項目を表示。' },
   'kanji.noMatch': { vi: 'Không có mục nào khớp.', ja: '一致する項目がありません。' },
   'kanji.typingOnly': {
