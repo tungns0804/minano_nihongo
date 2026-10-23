@@ -24,6 +24,7 @@ import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 /**
  * Màn hình MỘT bộ thủ: bộ vẽ to, âm Hán Việt + nghĩa + tên tiếng Nhật, và bảng các
@@ -40,7 +41,7 @@ import { StarButton } from '../../shared/star-button';
  */
 @Component({
   selector: 'app-radical-detail',
-  imports: [RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
   templateUrl: './radical-detail.html',
   styleUrl: './radical-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

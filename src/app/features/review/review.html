@@ -44,8 +44,7 @@
       </div>
 
       <!-- ── Ôn hôm nay ─────────────────────────────────────────────────── -->
-      <section class="card">
-        <div class="card-body stack setup">
+      <app-practice-setup moreHintKey="review.setup.moreHint">
           <h2>{{ t('review.setup') }}</h2>
 
           <div class="field">
@@ -90,6 +89,7 @@
             </div>
           </div>
 
+        <ng-container ngProjectAs="[setupAdvanced]">
           <div class="field">
             <span class="label">{{ t('lesson.answerMode') }}</span>
             <div class="options">
@@ -129,6 +129,9 @@
             </div>
           </div>
 
+        </ng-container>
+
+        <ng-container ngProjectAs="[setupActions]">
           <div class="start-bar">
             <div class="small muted">
               @if (plannedCount() > 0) {
@@ -150,8 +153,8 @@
           @if (buildFailed()) {
             <div class="notice notice-warning">{{ t('review.buildFailed') }}</div>
           }
-        </div>
-      </section>
+        </ng-container>
+      </app-practice-setup>
 
       <!-- ── Sổ lỗi sai ─────────────────────────────────────────────────── -->
       <section class="card">

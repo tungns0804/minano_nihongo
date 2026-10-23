@@ -29,6 +29,7 @@ import { LessonStore } from '../../core/lessons/lesson-store';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
 import { ReviewStore } from '../../core/review/review-store';
 import { shuffle } from '../../core/utils/random';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 const AREA_LABEL_KEY: Record<ReviewArea, MessageKey> = {
   vocab: 'review.area.vocab',
@@ -61,7 +62,7 @@ interface MistakeItem {
  */
 @Component({
   selector: 'app-review',
-  imports: [RouterLink, T],
+  imports: [PracticeSetup, RouterLink, T],
   templateUrl: './review.html',
   styleUrl: './review.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

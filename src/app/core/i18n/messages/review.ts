@@ -53,6 +53,7 @@ export const REVIEW_MESSAGES = {
     vi: 'Luyện một bài bất kỳ (từ vựng, kanji, ngữ pháp hay động từ) — các mục bạn trả lời sẽ tự vào lịch ôn.',
     ja: '単語・漢字・文法・動詞のどれかを練習すると、解答した項目が自動で復習スケジュールに入ります。',
   },
+  'review.setup.moreHint': { vi: 'cách trả lời, chiều hỏi', ja: '解答方法・出題の向き' },
   'review.empty.go': { vi: 'Tới danh sách bài học', ja: 'レッスン一覧へ' },
   'review.mistakes.title': { vi: 'Sổ lỗi sai', ja: '間違いノート' },
   'review.mistakes.hint': {

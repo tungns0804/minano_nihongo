@@ -135,8 +135,7 @@
     </section>
 
     <!-- ── Luyện trên bộ: đọc âm Hán Việt, hoặc viết bộ ───────────────── -->
-    <section class="card practice-card">
-      <div class="card-body stack setup">
+    <app-practice-setup class="practice-card">
         <div class="stack stack-sm">
           <h2>{{ t(isDrawing() ? 'radical.practiceDraw' : 'radical.practiceHanViet') }}</h2>
           <p class="muted small"><app-t key="radical.practiceHanViet.hint" block /></p>
@@ -190,6 +189,7 @@
           }
         </div>
 
+      <ng-container ngProjectAs="[setupAdvanced]">
         <div class="field">
           <span class="label">{{ t('lesson.answerMode') }}</span>
           @if (isDrawing()) {
@@ -275,6 +275,9 @@
           </div>
         </div>
 
+      </ng-container>
+
+      <ng-container ngProjectAs="[setupActions]">
         <div class="start-bar">
           <div class="small muted">
             <app-t
@@ -303,7 +306,7 @@
         }
 
         <p class="small faint"><app-t key="radical.dataNote" block /></p>
-      </div>
-    </section>
+      </ng-container>
+    </app-practice-setup>
   </div>
 </div>

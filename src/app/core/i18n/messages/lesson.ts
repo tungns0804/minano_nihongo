@@ -15,6 +15,14 @@ export const LESSON_MESSAGES = {
     ja: 'これらの動詞は練習から除外されます。',
   },
   'lesson.setup': { vi: 'Thiết lập luyện tập', ja: '練習の設定' },
+  // Phần gập lại của khung thiết lập (shared/practice-setup.ts) và dòng kể những gì
+  // nằm trong đó.
+  'lesson.setup.more': { vi: 'Tuỳ chỉnh thêm', ja: '詳細設定' },
+  'lesson.setup.moreHint': {
+    vi: 'cách trả lời, số câu, tuỳ chọn khác',
+    ja: '解答方法・問題数・その他',
+  },
+  'lesson.setup.moreHintCount': { vi: 'số câu, tuỳ chọn khác', ja: '問題数・その他' },
   'lesson.scope': { vi: 'Phạm vi', ja: '範囲' },
   'lesson.scope.all': { vi: 'Toàn bộ bài ({count})', ja: 'レッスン全体（{count}）' },
   'lesson.scope.favorite': { vi: '★ Chưa nhớ ({count})', ja: '★ 未習得（{count}）' },

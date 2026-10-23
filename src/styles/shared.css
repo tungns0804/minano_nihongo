@@ -205,6 +205,63 @@
   min-width: 0;
 }
 
+/* --- "Tuỳ chỉnh thêm" của khung thiết lập (shared/practice-setup.ts) -----
+   Một dòng bấm được, mũi tên xoay khi mở. Bên trong là một .setup nữa nên các
+   nhóm lựa chọn giữ đúng bố cục nhãn-trái / nút-phải như phần trên. */
+
+.setup-more {
+  border-top: 1px dashed var(--border);
+  padding-top: var(--sp-3);
+}
+
+.setup-more-toggle {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px var(--sp-2);
+  width: fit-content;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition: color var(--dur) var(--ease);
+}
+
+.setup-more-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.setup-more-toggle::before {
+  content: '▸';
+  display: inline-block;
+  color: var(--accent);
+  transition: transform var(--dur) var(--ease);
+}
+
+.setup-more[open] > .setup-more-toggle::before {
+  transform: rotate(90deg);
+}
+
+.setup-more-toggle:hover {
+  color: var(--text);
+}
+
+.setup-more-hint {
+  color: var(--text-faint);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+/* Đang mở thì dòng kể nội dung thừa — chính các lựa chọn đã hiện ra bên dưới. */
+.setup-more[open] .setup-more-hint {
+  display: none;
+}
+
+.setup-more-body {
+  padding-top: var(--sp-4);
+}
+
 /* --- Hàng lọc của bảng ---------------------------------------------------
    Ô tìm bên trái, ô tích "chỉ ★" bên phải, luôn nằm cùng một hàng. */
 

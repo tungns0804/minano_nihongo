@@ -50,10 +50,11 @@ import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { VerbRow, buildVerbRows, formsText } from './verb-rows';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 @Component({
   selector: 'app-lesson-detail',
-  imports: [RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
   templateUrl: './lesson-detail.html',
   styleUrl: './lesson-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

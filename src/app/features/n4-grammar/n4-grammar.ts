@@ -51,6 +51,7 @@ import { checkedOf } from '../../core/utils/dom-events';
 import { RubyText } from '../../shared/ruby-text';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 const EXERCISE_ID: ExerciseId = 'ngu-phap-n4';
 
@@ -160,7 +161,7 @@ function haystackOf(section: N4Section): string {
  */
 @Component({
   selector: 'app-n4-grammar',
-  imports: [RubyText, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RubyText, SearchBox, StarButton, T],
   templateUrl: './n4-grammar.html',
   styleUrl: './n4-grammar.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

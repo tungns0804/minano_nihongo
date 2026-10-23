@@ -193,8 +193,7 @@
       }
 
       <!-- ── Thiết lập luyện tập ─────────────────────────────────────────── -->
-      <section class="card">
-        <div class="card-body stack setup">
+      <app-practice-setup moreHintKey="lesson.setup.moreHintCount">
           <h2>{{ t('grammar.practice') }}</h2>
 
           <div class="field">
@@ -270,6 +269,7 @@
             <span class="hint"><app-t key="grammar.typingOnly" block /></span>
           </div>
 
+        <ng-container ngProjectAs="[setupAdvanced]">
           <div class="field">
             <span class="label">{{ t('lesson.questionCount') }}</span>
             <div class="options">
@@ -336,6 +336,9 @@
             </div>
           </div>
 
+        </ng-container>
+
+        <ng-container ngProjectAs="[setupActions]">
           <div class="start-bar">
             <div class="small muted">
               <app-t
@@ -362,8 +365,8 @@
           @if (!canStart()) {
             <p class="hint">{{ t('lesson.emptyScope') }}</p>
           }
-        </div>
-      </section>
+        </ng-container>
+      </app-practice-setup>
     </div>
   }
 </div>

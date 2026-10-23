@@ -21,6 +21,7 @@ import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 /**
  * Tab "Kanji" — lưới chữ Hán theo cấp độ, kèm phần luyện "chữ Hán → âm Hán Việt".
@@ -35,7 +36,7 @@ import { StarButton } from '../../shared/star-button';
  */
 @Component({
   selector: 'app-kanji-list',
-  imports: [RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
   templateUrl: './kanji-list.html',
   styleUrl: './kanji-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

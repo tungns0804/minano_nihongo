@@ -23,6 +23,7 @@ import {
 import { checkedOf } from '../../core/utils/dom-events';
 import { RubyText } from '../../shared/ruby-text';
 import { StarButton } from '../../shared/star-button';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 /** Một mẫu ngữ pháp trong phần tổng hợp đầu trang, kèm số câu của bài có dùng nó. */
 interface GrammarUse {
@@ -41,7 +42,7 @@ interface GrammarUse {
  */
 @Component({
   selector: 'app-translation-detail',
-  imports: [RouterLink, RubyText, StarButton, T],
+  imports: [PracticeSetup, RouterLink, RubyText, StarButton, T],
   templateUrl: './translation-detail.html',
   styleUrl: './translation-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

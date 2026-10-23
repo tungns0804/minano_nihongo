@@ -25,6 +25,7 @@ import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 /**
  * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
@@ -41,7 +42,7 @@ import { StarButton } from '../../shared/star-button';
  */
 @Component({
   selector: 'app-kanji-detail',
-  imports: [RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
   templateUrl: './kanji-detail.html',
   styleUrl: './kanji-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

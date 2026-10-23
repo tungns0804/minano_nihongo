@@ -159,8 +159,7 @@
       </section>
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
-      <section class="card">
-        <div class="card-body stack setup">
+      <app-practice-setup>
           <h2>{{ t('kanji.practiceWords') }}</h2>
 
           <div class="field">
@@ -224,6 +223,7 @@
             }
           </div>
 
+        <ng-container ngProjectAs="[setupAdvanced]">
           <div class="field">
             <span class="label">{{ t('lesson.answerMode') }}</span>
             <p class="muted small"><app-t key="kanji.typingOnly" block /></p>
@@ -290,6 +290,9 @@
             </div>
           </div>
 
+        </ng-container>
+
+        <ng-container ngProjectAs="[setupActions]">
           <div class="start-bar">
             <div class="small muted">
               <app-t
@@ -318,8 +321,8 @@
           }
 
           <p class="small faint"><app-t key="kanji.dataNote" block /></p>
-        </div>
-      </section>
+        </ng-container>
+      </app-practice-setup>
       }
     </div>
   }

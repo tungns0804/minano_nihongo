@@ -21,6 +21,7 @@ import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
+import { PracticeSetup } from '../../shared/practice-setup';
 
 /**
  * Tab "Bộ thủ" — lưới 214 bộ thủ theo số nét, kèm phần luyện "bộ thủ → âm Hán Việt".
@@ -32,7 +33,7 @@ import { StarButton } from '../../shared/star-button';
  */
 @Component({
   selector: 'app-radical-list',
-  imports: [RouterLink, SearchBox, StarButton, T],
+  imports: [PracticeSetup, RouterLink, SearchBox, StarButton, T],
   templateUrl: './radical-list.html',
   styleUrl: './radical-list.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

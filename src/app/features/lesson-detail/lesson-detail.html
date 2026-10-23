@@ -62,8 +62,7 @@
       }
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
-      <section class="card">
-        <div class="card-body stack setup">
+      <app-practice-setup>
           <h2>{{ t('lesson.setup') }}</h2>
 
           <div class="field">
@@ -164,6 +163,7 @@
             </div>
           }
 
+        <ng-container ngProjectAs="[setupAdvanced]">
           <!-- Bài hội thoại không có trắc nghiệm: chỉ báo cho biết là gõ đáp án. -->
           @if (answerModeLocked()) {
             <div class="field">
@@ -311,6 +311,9 @@
             </div>
           </div>
 
+        </ng-container>
+
+        <ng-container ngProjectAs="[setupActions]">
           <div class="start-bar">
             <div class="small muted">
               <app-t
@@ -332,8 +335,8 @@
           @if (!canStart()) {
             <div class="notice notice-warning">{{ t('lesson.emptyScope') }}</div>
           }
-        </div>
-      </section>
+        </ng-container>
+      </app-practice-setup>
 
       <!-- ── Bảng nội dung ──────────────────────────────────────────────── -->
       <section class="card">
