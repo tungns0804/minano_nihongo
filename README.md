@@ -733,13 +733,14 @@ Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi mộ
 
 ### 3. Luyện tập ngữ pháp N4
 
-Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N4”**, giữ đúng thứ tự và cách chia mục của tài liệu:
-**49 mục**, **81 mẫu** có ý nghĩa để luyện, **335 câu ví dụ** đem ra luyện (thêm vài câu chỉ để
-đối chiếu). Màn hình riêng ở `/exercise/ngu-phap-n4` gồm ba phần:
+Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N4”**, giữ đúng thứ tự và cách chia mục của tài liệu
+(49 mục), thêm mục 50 **Trợ từ「で」** chép từ bài
+[vnjpclub](https://www.vnjpclub.com/ngu-phap-n4/joshi-de-n4.html): **50 mục**, **89 mẫu** có ý
+nghĩa để luyện, **351 câu ví dụ** đem ra luyện (thêm vài câu chỉ để đối chiếu). Màn hình riêng ở `/exercise/ngu-phap-n4` gồm ba phần:
 
 - **Cách học hiệu quả** — bốn bước ngắn ở đầu trang: đọc một mục, học mục đó theo lộ trình,
   đánh ★ câu còn lưỡng lự, hôm sau vào tab Ôn tập trước khi học mục mới.
-- **Ngữ pháp & câu ví dụ** — danh sách 49 mục, đóng sẵn nên cũng là mục lục. Mở một mục ra là
+- **Ngữ pháp & câu ví dụ** — danh sách 50 mục, đóng sẵn nên cũng là mục lục. Mở một mục ra là
   đủ phần tài liệu viết: ý nghĩa, công thức, giải thích, bảng (kể cả bảng 70 cặp tự/tha động từ,
   bảng kính ngữ), lưu ý, câu dùng sai (✗), từng câu ví dụ kèm lời giải thích, và bài luyện tập
   của tài liệu (đáp án gập lại). Câu tiếng Nhật có **furigana** — tài liệu ghi cách đọc trong
@@ -764,7 +765,7 @@ tiếng Nhật). Từ chọn một trong bốn ý nghĩa nhảy thẳng sang t�
 bắt dựng câu nhưng chưa bắt nhớ từ vựng và gõ bộ gõ tiếng Nhật.
 
 **Lộ trình** (dạng mặc định, cũng là nút **Học mục này: dễ → khó** ở cuối mỗi mục) đi **theo
-mục**: mục này đủ năm bậc rồi mới sang mục sau, không phải bậc 1 của cả 49 mục rồi mới tới
+mục**: mục này đủ năm bậc rồi mới sang mục sau, không phải bậc 1 của cả 50 mục rồi mới tới
 bậc 2 — đi theo bậc thì tới lúc sắp xếp câu của ～ながら, người học đã qua hơn trăm câu của
 mẫu khác. Trong một bậc thì trộn thứ tự, giữa các bậc thì không bao giờ. Chọn số câu là học theo
 chặng: hết chặng, màn kết quả mời học tiếp chặng sau (cùng cơ chế "học theo cụm" của bài từ
@@ -790,7 +791,7 @@ chính phần phân biệt よう/そう/らしい mà câu tự sinh không h�
 
 **Bậc 4 — mảnh câu.** [`translation/chunks.ts`](src/app/core/translation/chunks.ts) cắt câu bằng
 vài quy tắc đủ cho câu N4 (khoảng trắng, 、, trợ từ sau chữ Hán/katakana, を, の/こと + trợ từ),
-không cần bộ tách từ. 229/335 câu ra được 3–7 mảnh; câu ngắn hơn bị bỏ khỏi bậc này vì hai mảnh
+không cần bộ tách từ. 236/351 câu ra được 3–7 mảnh; câu ngắn hơn bị bỏ khỏi bậc này vì hai mảnh
 thì sắp xếp chỉ còn là đoán. Câu ghép xong chấm như câu gõ tay, nên cách nói khác tài liệu ghi
 cũng đúng; xếp đúng ý mà khác thứ tự tài liệu thì người học tự xác nhận được. Sai một lần thì
 giữ nguyên cách xếp để sửa từng mảnh. Phím số bấm mảnh, Backspace bỏ mảnh vừa xếp, Enter chấm.
@@ -807,7 +808,7 @@ tập** ở khu Ngữ pháp — khoá `nm:<id mẫu>` cho ý nghĩa, `ne:<id câ
 **không** vào lịch: chúng là nấc để leo lên bậc dịch; ghi chung vào thẻ `ne` thì xếp đúng mảnh
 một lần là đẩy thẻ dịch câu lên nấc, dù người học chưa tự viết nổi câu đó. Mỗi mục trong danh
 sách hiện **Đã luyện x/y** — số mẫu và câu của mục đã có lịch ôn — để biết mình đang ở đâu trong
-49 mục.
+50 mục.
 
 `npm run verify:n4` soát dữ liệu: cú pháp furigana, cách đọc phải là kana, id câu / id mẫu / id
 câu luyện tập không trùng, ý nghĩa và tên mẫu không trùng (trùng là có câu trắc nghiệm hai đáp
@@ -1120,7 +1121,7 @@ src/app/
       transitive-pairs.ts        58 cặp tự động từ / tha động từ (N5→N3)
       exercise-verbs.ts          293 động từ cho bài chuyển thể (N5→N2)
       n4-grammar.model.ts        Kiểu dữ liệu bài ngữ pháp N4 (mục → mẫu → câu ví dụ)
-      n4-grammar.ts              49 mục chép từ tài liệu "TỔNG HỢP NGỮ PHÁP N4" + chỗ trống 《…》
+      n4-grammar.ts              50 mục: tài liệu "TỔNG HỢP NGỮ PHÁP N4" + trợ từ で, chỗ trống 《…》
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
       kanji-levels.ts            Danh sách JLPT N5→N1 — quyết định chữ nào, cấp nào
@@ -1193,7 +1194,7 @@ src/app/
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
     exercise-list/               Tab Bài tập bổ trợ — bài tập chuyên đề + bài động từ + bài hội thoại
     exercise-detail/             Một bài tập động từ: thiết lập luyện + bảng tra cứu
-    n4-grammar/                  Bài ngữ pháp N4: 49 mục lý thuyết + lộ trình luyện năm bậc
+    n4-grammar/                  Bài ngữ pháp N4: 50 mục lý thuyết + lộ trình luyện năm bậc
     n3-progress/                 Tab Tiến độ N3 — phần trăm, nhịp học mỗi ngày, bảng kiểm soát
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ

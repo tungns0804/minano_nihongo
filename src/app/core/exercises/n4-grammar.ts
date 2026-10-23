@@ -4,6 +4,7 @@
  * Giữ đúng thứ tự, cách chia mục và lời giải thích của tài liệu. Những chỗ sửa so với
  * bản gốc chỉ là lỗi gõ hiển nhiên (chữ thừa, thiếu chữ, sai cách đọc) và vài bản dịch
  * nói ngược câu tiếng Nhật đi kèm — mỗi chỗ đều có ghi chú ngay tại dòng đó.
+ * Mục 50 (trợ từ で) là mục thêm ngoài tài liệu, nguồn ghi ngay tại mục đó.
  *
  * Cú pháp câu ví dụ ({漢字|かな}, [a/b], [a/], 《chỗ trống》) và kiểu dữ liệu: xem
  * `n4-grammar.model.ts`.
@@ -3191,6 +3192,149 @@ const RAW_SECTIONS: readonly RawSection[] = [
       },
     ],
   },
+
+  // ══ 50 ═════════════════════════════════════════════════════════════════
+  // Mục thêm ngoài tài liệu, chép từ bài "Trợ từ で – Bằng…, tại…, vì…" của vnjpclub
+  // (https://www.vnjpclub.com/ngu-phap-n4/joshi-de-n4.html). Câu ví dụ ngắn lấy từ bảng
+  // "Cấu trúc cơ bản" của bài, bài chỉ ghi kèm vài chữ nên bản dịch của chúng là tự dịch.
+  {
+    id: 'tro-tu-de',
+    title: 'Trợ từ「で」: bằng, tại, vì',
+    intro: [
+      'Trợ từ で đa chức năng: nơi hành động, phương tiện, nguyên nhân, phạm vi, giá cả, giới hạn thời gian, trạng thái.',
+      'Khác biệt lõi với に: で = “tại (nơi diễn ra hành động)”, に = “tới/ở (vị trí tồn tại/đích)”.',
+      '「～で」 còn là dạng liên kết của だ đối với danh từ/な-tính từ, dùng để nối mệnh đề hoặc chỉ trạng thái.',
+    ],
+    points: [
+      {
+        id: 'de-noi-chon',
+        pattern: 'N（{場所|ばしょ}）＋で',
+        meaning: 'Tại, ở (nơi diễn ra hành động)',
+        group: 'tro-tu-de',
+        structures: ['N（{場所|ばしょ}）＋ で ＋ V'],
+        notes: [
+          'Nơi diễn ra hành động: {学校|がっこう}で{勉強|べんきょう}する (hành động học diễn ra tại trường).',
+          'Với ある／いる (tồn tại), dùng に, không dùng で: {学校|がっこう}に{学生|がくせい}がいる.',
+        ],
+        wrong: [
+          ['× {図書館|としょかん}で{本|ほん}がある', 'Dùng で với いる/ある → {図書館|としょかん}に{本|ほん}がある.'],
+          ['× {学校|がっこう}で{行|い}く', 'Nhầm で và に trong “đến nơi” → {学校|がっこう}に{行|い}く.'],
+        ],
+        examples: [
+          ['{図書館|としょかん}《で》{勉強|べんきょう}する。', 'Học ở thư viện.'],
+          ['{公園|こうえん}《で》{子|こ}どもたちが{遊|あそ}んでいる。', 'Bọn trẻ đang chơi ở công viên.'],
+        ],
+      },
+      {
+        id: 'de-phuong-tien',
+        pattern: 'N（{手段|しゅだん}）＋で',
+        meaning: 'Bằng, đi bằng, dùng (phương tiện, công cụ)',
+        group: 'tro-tu-de',
+        structures: ['N（{手段|しゅだん}）＋ で ＋ V'],
+        examples: [
+          ['{電車|でんしゃ}《で》{行|い}く。', 'Đi bằng tàu điện.'],
+          ['{箸|はし}《で》{食|た}べる。', 'Ăn bằng đũa.'],
+          ['バス《で》{空港|くうこう}へ{行|い}きます。', 'Đi bằng xe buýt đến sân bay.'],
+        ],
+      },
+      {
+        id: 'de-nguyen-nhan',
+        pattern: 'N（{原因|げんいん}）＋で',
+        meaning: 'Vì, do (nguyên nhân khách quan: sự cố, thiên tai, tắc nghẽn…)',
+        group: 'tro-tu-de',
+        structures: ['N（{原因|げんいん}）＋ で、～'],
+        notes: [
+          'Lý do bằng で mang tính sự cố/khách quan; lý do chủ quan, tiêu cực có thể dùng から/ので.',
+          'Nguyên nhân bằng で không dùng với mệnh đề dài; nếu cần giải thích, chuyển sang ため/ので.',
+        ],
+        examples: [
+          ['{雨|あめ}《で》{試合|しあい}が{中止|ちゅうし}だ。', 'Vì mưa nên trận đấu bị hoãn.'],
+          ['{事故|じこ}《で》{電車|でんしゃ}が{遅|おく}れた。', 'Vì tai nạn nên tàu bị trễ.'],
+        ],
+      },
+      {
+        id: 'de-pham-vi',
+        pattern: 'N（{人数|にんずう}）＋で',
+        meaning: 'Với, gồm (phạm vi, số lượng người cùng làm)',
+        group: 'tro-tu-de',
+        structures: ['N（{人数|にんずう}・{範囲|はんい}）＋ で ＋ V'],
+        notes: [
+          'Khi đếm người tham gia: ～{人|にん}で là công thức chuẩn trong đặt bàn/đặt chỗ — {一人|ひとり}で／{二人|ふたり}で (một mình/2 người).',
+        ],
+        examples: [
+          ['{三人|さんにん}《で》{旅行|りょこう}する。', 'Đi du lịch ba người.'],
+          ['{四人|よにん}《で》{食事|しょくじ}に{行|い}こう。', 'Đi ăn với 4 người nhé.'],
+        ],
+      },
+      {
+        id: 'de-gia',
+        pattern: 'Số tiền ＋で',
+        meaning: 'Với giá … (giá, chi phí)',
+        group: 'tro-tu-de',
+        structures: ['Số tiền ＋ で ＋ V'],
+        examples: [
+          ['{千|せん}{円|えん}《で》{買|か}える。', 'Mua được với giá 1.000 yên.'],
+          ['これ、{千|せん}{五|ご}{百|ひゃく}{円|えん}《で》{買|か}いました。', 'Cái này tôi mua với giá 1.500 yên.'],
+        ],
+      },
+      {
+        id: 'de-gioi-han',
+        pattern: 'N（{時|とき}）＋で',
+        meaning: 'Tính đến …, đến … là hết (giới hạn thời gian)',
+        group: 'tro-tu-de',
+        structures: ['N（{時|とき}）＋ で'],
+        notes: ['“これで{以上|いじょう}です／これで{終|お}わりです” là cụm cố định kết thúc phần trình bày.'],
+        examples: [
+          ['{今日|きょう}《で》{終|お}わりだ。', 'Đến hôm nay là hết.'],
+          ['{今回|こんかい}《で》{３回|さんかい}{目|め}だ。', 'Tính lần này là lần thứ ba.'],
+        ],
+      },
+      {
+        id: 'de-trang-thai',
+        pattern: 'N／Aな＋で（trạng thái）',
+        meaning: 'Trong trạng thái … (trạng thái khi thực hiện hành động)',
+        group: 'tro-tu-de',
+        structures: ['N／Aな ＋ で ＋ V'],
+        examples: [['{元気|げんき}《で》{働|はたら}く。', 'Làm việc khỏe mạnh.']],
+      },
+      {
+        id: 'de-lien-ket',
+        pattern: 'N／Aな＋で、～',
+        meaning: 'Là … và … (dạng nối của だ, nối mệnh đề danh từ / な-tính từ)',
+        group: 'tro-tu-de',
+        structures: ['N／Aな ＋ で、～', '{学生|がくせい}で、{独身|どくしん}で…'],
+        notes: ['Dạng nối của だ bằng で tạo câu mạch lạc và súc tích trong văn viết.'],
+        wrong: [
+          ['× {静|しず}かくて', 'Liên kết sai tính từ → {静|しず}かで.'],
+          ['× {安|やす}いで', 'Liên kết sai tính từ → {安|やす}くて.'],
+        ],
+        examples: [
+          ['{安全|あんぜん}《で》{静|しず}かな{町|まち}です。', 'Là một thị trấn an toàn và yên tĩnh.'],
+          ['{彼|かれ}は{医者|いしゃ}《で》、{研究者|けんきゅうしゃ}でもある。', 'Anh ấy là bác sĩ và cũng là nhà nghiên cứu.'],
+        ],
+      },
+      {
+        id: 'phan-biet-de',
+        pattern: 'So sánh & cụm cố định với 「で」',
+        tables: [
+          table('So sánh & phân biệt', ['Cặp so sánh', 'Khác biệt', 'Mẫu câu', 'Ví dụ ngắn'], [
+            ['で vs に (địa điểm)', 'で: nơi hành động; に: nơi tồn tại/đi đến', '{場所|ばしょ}でV／{場所|ばしょ}にいる', '{駅|えき}で{待|ま}つ／{駅|えき}にいる'],
+            ['で (nguyên nhân) vs から/ので', 'で: nguyên nhân khách quan; から/ので: lý do giải thích', 'Nで ～／～から', '{雪|ゆき}で{休校|きゅうこう}／{眠|ねむ}いので{帰|かえ}る'],
+            ['で (phương tiện) vs を (đối tượng)', 'で: công cụ; を: tân ngữ trực tiếp', '{道具|どうぐ}でV／NをV', '{箸|はし}で{食|た}べる／ご{飯|はん}を{食|た}べる'],
+            ['で (liên kết) vs くて', 'で dùng cho な/N; くて cho い-adj', 'Aな/Nで、Aいくて', '{便利|べんり}で{安|やす}くていい'],
+          ]),
+          table('Biến thể & cụm cố định', ['Cụm', 'Nghĩa'], [
+            ['～でお{願|ねが}いします', 'xin với …/bằng …'],
+            ['～で{結構|けっこう}です', 'thế là được'],
+            ['～で{大丈夫|だいじょうぶ}です', 'thế là ổn'],
+            ['これで{以上|いじょう}です／これで{終|お}わりです', 'đến đây là hết'],
+            ['{一人|ひとり}で／{二人|ふたり}で', 'một mình/2 người'],
+          ]),
+        ],
+        notes: ['Dùng で cho mọi loại lý do: mệnh đề dài nên chuyển ので/ために để tự nhiên hơn.'],
+      },
+    ],
+  },
 ];
 
 /**
@@ -3215,7 +3359,7 @@ export const N4_SYNONYMS: readonly (readonly string[])[] = [
  * Phần luyện ý nghĩa thì vẫn lấy: ở đó hỏi định nghĩa của mẫu, và phân biệt các định
  * nghĩa gần nhau mới là chỗ khó.
  */
-export const N4_INTERCHANGEABLE_GROUPS: readonly string[] = ['dieu-kien', 'du-dinh', 'suy-doan', 'bat-dau', 'no', 'chuan-bi'];
+export const N4_INTERCHANGEABLE_GROUPS: readonly string[] = ['dieu-kien', 'du-dinh', 'suy-doan', 'bat-dau', 'no', 'chuan-bi', 'tro-tu-de'];
 
 /**
  * Các mẫu khác nhóm mà có thể cùng một HÌNH THỨC trong câu, nên bài "Điền vào chỗ

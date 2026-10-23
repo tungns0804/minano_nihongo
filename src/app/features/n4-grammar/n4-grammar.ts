@@ -145,13 +145,13 @@ function haystackOf(section: N4Section): string {
 /**
  * Bài tập "Luyện tập ngữ pháp N4": đọc lý thuyết theo tài liệu, rồi luyện.
  *
- * Trang gồm hai phần, theo đúng thứ tự người học dùng: danh sách 49 mục của tài liệu
+ * Trang gồm hai phần, theo đúng thứ tự người học dùng: danh sách 50 mục của tài liệu
  * (mỗi mục mở ra thành mô tả mẫu, bảng, lưu ý, câu ví dụ kèm giải thích), rồi khung
  * thiết lập luyện tập. Không đi qua `features/exercise-detail` như hai bài tập động
  * từ: bên đó là bảng tra một loại mục, còn đây là trang lý thuyết dài — cùng lý do bài
  * ngữ pháp 皆の日本語 có màn hình riêng.
  *
- * Mục đóng sẵn và chỉ dựng nội dung khi mở: 49 mục mở hết là hơn ba trăm câu ví dụ
+ * Mục đóng sẵn và chỉ dựng nội dung khi mở: 50 mục mở hết là hơn ba trăm câu ví dụ
  * kèm furigana, dựng ngay từ đầu thì trang mở chậm hẳn trên điện thoại. Danh sách mục
  * lúc đóng cũng chính là mục lục của tài liệu.
  *
@@ -249,7 +249,7 @@ export class N4Grammar extends PracticeScreen {
 
   /**
    * Tiến độ của từng mục: bao nhiêu mẫu và câu đã có lịch ôn — tức đã luyện ở bậc ý
-   * nghĩa (1–2) hay bậc dịch câu (5). 49 mục mà không biết mình đang ở đâu thì mỗi lần
+   * nghĩa (1–2) hay bậc dịch câu (5). 50 mục mà không biết mình đang ở đâu thì mỗi lần
    * mở bài ra lại phải nhớ xem hôm trước học tới mục nào.
    *
    * Hai bậc giữa không tính: chúng không vào lịch ôn (xem `reviewRefOf`), nên không có
