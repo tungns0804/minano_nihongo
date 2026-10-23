@@ -15,7 +15,10 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { c, log } from './script-utils.mjs';
+import { c, log, resolveTsImports } from './script-utils.mjs';
+
+// messages.ts (nạp gián tiếp qua n3-view) import các file trong messages/ không kèm đuôi file.
+resolveTsImports();
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
