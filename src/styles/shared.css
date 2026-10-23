@@ -1,0 +1,400 @@
+/* Lớp dùng chung của nhiều màn hình: khung thiết lập luyện tập, bảng từ, trang lý thuyết ngữ pháp. Thứ tự nạp: xem src/styles.css. */
+
+/* ==========================================================================
+   Lớp dùng chung của nhiều màn hình
+   ==========================================================================
+   Mọi luật dưới đây trước kia được CHÉP nguyên văn vào từng file .css của
+   component — có luật nằm ở bảy chỗ. Style của component là style CÓ PHẠM VI,
+   nên chép là cách duy nhất để dùng lại, và cái giá là mỗi lần sửa một con số
+   thì phải sửa đúng bảy chỗ; sót một chỗ thì hai màn hình lệch nhau mà không
+   có gì báo.
+
+   Đưa lên global thì component vẫn ghi đè được: Angular gắn thêm thuộc tính
+   `[_ngcontent-…]` vào selector của component, nên `.star-btn` trong một file
+   component luôn thắng `.star-btn` ở đây. Nhờ vậy màn hình nào cần khác một
+   chút thì chỉ khai đúng phần khác, không phải khai lại cả khối. */
+
+/* Lưới nút lựa chọn hai cột co giãn — dùng ngoài khung thiết lập (trang nạp bài). */
+.options-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* --- Khung thiết lập luyện tập -------------------------------------------
+   Bảy màn hình có khung này (bài học, ngữ pháp, bài tập, kanji ×2, bộ thủ ×2),
+   cả bảy gắn `.setup` lên thân thẻ nên dùng chung đúng một bố cục.
+
+   Trước đây mỗi nhóm là nhãn nằm trên + lưới nút căng hết bề ngang: sáu nhóm xếp
+   dọc thành một khối rất cao, mà phần lớn chỉ là khoảng trống trong những nút rộng
+   300px chứa hai chữ "10 câu". Giờ nhãn nằm cột trái, nút co theo nội dung. */
+
+.setup {
+  gap: var(--sp-4);
+}
+
+@media (min-width: 720px) {
+  .setup > .field {
+    display: grid;
+    grid-template-columns: 9.5rem minmax(0, 1fr);
+    /* Nhãn trải dọc suốt nhóm (xem .label bên dưới) nên cần sẵn đủ hàng: một nhóm có
+       nhiều nhất hai phần bên phải — nút + ghi chú. */
+    grid-template-rows: auto auto auto;
+    /* row-gap 0 phải ghi rõ: `.field` dùng chung đặt `gap: 6px` cho cả hai chiều. */
+    gap: 0 var(--sp-4);
+    /* Không căn `baseline`: nhãn trải qua nhiều hàng mà căn baseline thì trình duyệt
+       chèn thêm khoảng đệm vào các hàng, nhóm nào cũng cao ra thêm cả chục pixel. */
+    align-items: start;
+  }
+
+  /* Nhãn dài bẻ hai dòng ("Cấp độ (chọn nhiều được)") mà chỉ nằm ở hàng đầu thì kéo
+     hàng đó cao lên, đẩy dòng ghi chú bên phải tụt xuống cách xa hàng nút.
+
+     padding-top đưa dòng nhãn xuống ngang chữ trong nút (viền 1px + đệm 6px + nửa
+     phần chênh cỡ chữ). Nhóm chỉ có một đoạn chữ bên phải thì bỏ khoảng đó đi. */
+  .setup > .field > .label {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    padding-top: 8px;
+  }
+
+  .setup > .field:not(:has(> .options)) > .label {
+    padding-top: 1px;
+  }
+
+  .setup > .field > :not(.label) {
+    grid-column: 2;
+  }
+
+  /* Khoảng cách giữa hàng nút và ghi chú làm bằng margin chứ không bằng row-gap:
+     hàng trống vẫn ăn row-gap, nhóm chỉ có một phần sẽ thừa khoảng trống ở đáy. */
+  .setup > .field > .label ~ * ~ * {
+    margin-top: 6px;
+  }
+}
+
+.setup > .field > .hint {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+.setup .options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.setup .option {
+  width: auto;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--fs-sm);
+}
+
+/* Nút nhỏ xếp sát nhau thì nền nhạt + viền màu là đủ nổi; vòng sáng 3px của nút to
+   cũ ở đây dính chùm sang nút bên cạnh. */
+.setup .option.is-active {
+  box-shadow: none;
+}
+
+/* Nhóm có dòng ví dụ dưới tên (dạng câu hỏi, chiều hỏi của Kanji…) vẫn phải là
+   thẻ: xếp thành hàng chip thì các thẻ cao thấp lộn xộn. */
+.setup .options:has(> .option-stacked) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.setup .option-stacked {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+}
+
+/* Tuỳ chọn bật/tắt: công tắc, không khung viền. Khung viền tô nền đặt ngay dưới các
+   nút lựa chọn thì trông y hệt nút — không phân biệt nổi đâu là chọn một, đâu là
+   bật tắt. */
+.setup .options:has(> .checkbox) {
+  display: grid;
+  /* 300px: hẹp hơn thì tên tuỳ chọn dài nhất ("Bỏ qua dấu tiếng Việt khi chấm")
+     bị bẻ xuống dòng. */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--sp-2) var(--sp-5);
+}
+
+.setup .checkbox,
+.setup .checkbox:has(input:checked),
+.setup .checkbox.is-disabled:has(input:checked) {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+}
+
+.setup .checkbox strong {
+  font-size: var(--fs-sm);
+}
+
+.setup .checkbox .hint {
+  font-size: var(--fs-xs);
+  color: var(--text-faint);
+}
+
+/* Núm tròn vẽ bằng radial-gradient chứ không bằng ::before — Firefox không vẽ
+   pseudo-element trên thẻ input. */
+.setup .checkbox input {
+  appearance: none;
+  width: 30px;
+  height: 18px;
+  margin-top: 2px;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle, #fff 0 6px, transparent 6.5px) 0 0 / 18px 18px no-repeat,
+    var(--border-strong);
+  cursor: inherit;
+  transition: background-position var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.setup .checkbox input:checked {
+  background-color: var(--accent);
+  background-position: 12px 0;
+}
+
+.checkbox strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.94rem;
+}
+
+.checkbox .hint {
+  display: block;
+  margin-top: 1px;
+}
+
+/* Ô lựa chọn có tên ở trên, ví dụ ở dưới. */
+.option-stacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.option-stacked strong {
+  font-weight: 620;
+}
+
+.option-example {
+  font-size: 0.82rem;
+  font-weight: 450;
+  opacity: 0.75;
+}
+
+/* Hàng cuối của khung thiết lập: dòng tóm tắt bên trái, nút "Bắt đầu" bên phải. */
+.start-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.start-bar .btn {
+  flex-shrink: 0;
+}
+
+/* Dòng tóm tắt được co lại, không đẩy nút "Bắt đầu" xuống hàng dưới. */
+.start-bar > .small {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* --- Hàng lọc của bảng ---------------------------------------------------
+   Ô tìm bên trái, ô tích "chỉ ★" bên phải, luôn nằm cùng một hàng. */
+
+.filter-row {
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-check {
+  flex-shrink: 0;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-check input {
+  margin-top: 0;
+}
+
+/* --- Nút ★ ---------------------------------------------------------------
+   Đánh dấu "chưa nhớ". Có mặt ở bảng từ, trang lý thuyết, màn hình luyện tập
+   và màn hình kết quả — bốn nơi bày ở bốn cỡ khác nhau, nên nơi nào cần cỡ
+   riêng thì khai lại `padding` và `font-size` trong file của nó. */
+
+.star-btn {
+  border: none;
+  background: none;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-faint);
+  border-radius: 5px;
+  transition:
+    color 0.15s,
+    transform 0.1s;
+}
+
+.star-btn.is-on {
+  color: var(--star);
+}
+
+@media (hover: hover) {
+  .star-btn:hover {
+    color: var(--star);
+    transform: scale(1.15);
+  }
+}
+
+/* Trên màn hình cảm ứng không có con trỏ để ngắm, nên vùng chạm phải to hẳn. */
+@media (hover: none) {
+  .star-btn {
+    padding: 8px 10px;
+    font-size: 1.35rem;
+  }
+}
+
+/* --- Bảng từ -------------------------------------------------------------
+   Bảng tra của các màn hình chi tiết: bài học, bài tập, một chữ Hán, một bộ thủ.
+   Bề rộng từng cột thì khác nhau nên vẫn nằm ở file của từng màn hình. */
+
+.word-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.word-table th {
+  padding: 9px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.word-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* Kẻ sọc để mắt không lạc dòng ở bảng dài. Hàng ★ có màu riêng nên bỏ qua. */
+.word-table tbody tr:nth-child(even):not(.is-favorite) {
+  background: color-mix(in srgb, var(--bg-subtle) 45%, transparent);
+}
+
+@media (hover: hover) {
+  .word-table tbody tr:hover:not(.is-favorite) {
+    background: var(--bg-subtle);
+  }
+}
+
+.word-table tr.is-favorite {
+  background: color-mix(in srgb, var(--warning-soft) 45%, transparent);
+}
+
+.col-star {
+  width: 44px;
+  text-align: center;
+}
+
+.col-level .badge {
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}
+
+/* --- Trang lý thuyết ngữ pháp -------------------------------------------
+   Công thức, đoạn giải thích, danh sách lưu ý và bảng biến đổi của một mẫu ngữ
+   pháp. Hai màn hình vẽ lý thuyết theo cùng một kiểu: bài ngữ pháp 皆の日本語 và
+   bài tập "Luyện tập ngữ pháp N4". */
+
+.structure-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+/* Công thức là thứ người học liếc vào đầu tiên — cho nó một khung riêng thay vì
+   để lẫn vào đoạn văn giải thích. */
+.structure {
+  padding: 8px 14px;
+  border: 1px solid var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.explain {
+  max-width: 78ch;
+  line-height: 1.7;
+}
+
+.note-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.grammar-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.grammar-table th {
+  padding: 8px 12px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-strong);
+  text-align: left;
+  font-size: var(--fs-2xs);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.grammar-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  font-size: 1.02rem;
+}
+
+/* Bảng BIẾN ĐỔI (đúng 2 cột: gốc → kết quả) thì tô đậm cột phải, vì đó mới là dạng
+   cần nhớ. Bộ chọn :nth-child(2):last-child khớp ô thứ hai chỉ khi nó cũng là ô cuối,
+   nên bảng so sánh 3–4 cột (ように/ために, そう/そう/よう, bảng chia bốn thể) không bị
+   tô màu vào một cột bất kỳ chẳng có nghĩa gì. */
+.grammar-table td:nth-child(2):last-child {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.grammar-table tbody tr:hover {
+  background: var(--bg-subtle);
+}

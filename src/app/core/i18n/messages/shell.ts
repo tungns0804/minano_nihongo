@@ -1,0 +1,167 @@
+/** Vỏ ứng dụng và phần dùng chung: menu, giao diện, loại bài, tiêu đề tab, lỗi dữ liệu. Quy ước chung: xem `../messages.ts`. */
+
+import type { Entry } from './entry';
+
+export const SHELL_MESSAGES = {
+  'common.retry': { vi: 'Thử lại', ja: '再試行' },
+  'common.back': { vi: '← Danh sách bài học', ja: '← レッスン一覧' },
+  'common.backToList': { vi: '← Về danh sách bài học', ja: '← レッスン一覧へ' },
+  'common.custom': { vi: 'Tự nạp', ja: '自作' },
+  'common.customTitle': {
+    vi: 'Bài học bạn tự nạp, lưu trong trình duyệt',
+    ja: 'ブラウザに保存された自作レッスン',
+  },
+  'common.all': { vi: 'Tất cả', ja: 'すべて' },
+  'common.delete': { vi: 'Xoá', ja: '削除' },
+  'app.namePrefix': { vi: 'Ôn tập từ vựng', ja: '単語練習' },
+  'app.title': { vi: 'Ôn tập từ vựng 皆の日本語', ja: '皆の日本語 単語練習' },
+  'app.nav': { vi: 'Điều hướng chính', ja: 'メインナビゲーション' },
+  'app.breadcrumb': { vi: 'Bạn đang ở', ja: '現在の場所' },
+  // Tên ba tab nói rõ tab nào bám theo giáo trình và tab nào không: hai tab đầu là
+  // nội dung của 皆の日本語, còn "bổ trợ" là bài tập chuyên đề tự soạn thêm.
+  'app.nav.lessons': { vi: 'Từ vựng minano', ja: '皆の日本語 単語' },
+  'app.nav.review': { vi: 'Ôn tập', ja: '復習' },
+  'app.nav.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
+  'app.nav.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
+  'app.nav.translate': { vi: 'Luyện dịch', ja: '翻訳練習' },
+  'app.nav.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
+  // Tab đo tiến độ, không phải tab nội dung — tên nó nói thẳng cái đích ("thi N3")
+  // chứ không gọi theo loại dữ liệu như bốn tab kia.
+  'app.nav.n3': { vi: 'Tiến độ N3', ja: 'N3 進捗' },
+  'app.nav.kanji': { vi: 'Kanji', ja: '漢字' },
+  'app.nav.radical': { vi: 'Bộ thủ', ja: '部首' },
+  'app.nav.import': { vi: 'Nạp bài mới', ja: 'レッスン追加' },
+  'app.language.switch': { vi: 'Chuyển sang {name}', ja: '{name}に切り替える' },
+  'app.skipToContent': { vi: 'Tới nội dung chính', ja: 'メインコンテンツへ' },
+  'app.backToTop': { vi: 'Lên đầu trang', ja: 'ページの先頭へ' },
+  'app.navigating': { vi: 'Đang mở trang…', ja: 'ページを読み込み中…' },
+  'theme.system': { vi: 'Tự động', ja: '自動' },
+  'theme.light': { vi: 'Sáng', ja: 'ライト' },
+  'theme.dark': { vi: 'Tối', ja: 'ダーク' },
+  'theme.night': { vi: 'Đèn đêm', ja: 'ナイトライト' },
+  'theme.title': {
+    vi: 'Giao diện: {current} — bấm để chuyển sang {next}',
+    ja: 'テーマ: {current} — クリックで{next}に切り替え',
+  },
+  'sound.turnOff': { vi: 'Tắt tiếng báo đúng/sai', ja: '正誤音をオフにする' },
+  'sound.turnOn': { vi: 'Bật tiếng báo đúng/sai', ja: '正誤音をオンにする' },
+  'kind.vocabulary': { vi: 'Từ vựng', ja: '単語' },
+  'kind.verb': { vi: 'Chia động từ', ja: '動詞の活用' },
+  'kind.vocabulary.unit': { vi: '{count} từ', ja: '{count}語' },
+  'kind.verb.unit': { vi: '{count} động từ', ja: '動詞{count}語' },
+  'kind.vocabulary.desc': {
+    vi: 'Luyện nghĩa từ vựng theo 4 chiều: Nhật → Việt, Việt → Nhật, Nhật → Hán Việt, Hán Việt → Nhật.',
+    ja: '4つの方向で単語の意味を練習：日→越、越→日、日→漢越音、漢越音→日。',
+  },
+  'kind.verb.desc': {
+    vi: 'Luyện chia động từ sang thể Te, Ta, Ru, Nai và nhận diện nhóm động từ.',
+    ja: 'て形・た形・辞書形・ない形への活用と、動詞グループの判別を練習。',
+  },
+  'kind.topic': { vi: 'Từ vựng theo chủ đề', ja: 'テーマ別単語' },
+  'kind.topic.unit': { vi: '{count} từ', ja: '{count}語' },
+  'kind.topic.desc': {
+    vi: 'Cùng kho từ của giáo trình nhưng gom theo chủ đề, luyện đủ 4 chiều như bài từ vựng.',
+    ja: '同じ単語をテーマ別にまとめたもの。単語レッスンと同じ4方向で練習できます。',
+  },
+  'kind.conversation': { vi: 'Dịch hội thoại', ja: '会話の翻訳' },
+  'kind.conversation.unit': { vi: '{count} câu', ja: '{count}文' },
+  'kind.conversation.desc': {
+    vi: 'Dịch từng câu qua lại giữa tiếng Việt và tiếng Nhật, gõ tay cả câu.',
+    ja: 'ベトナム語と日本語の間で一文ずつ翻訳し、文全体を入力します。',
+  },
+  'kind.exercise': { vi: 'Bài tập', ja: '練習問題' },
+  'kind.exercise.unit': { vi: '{count} mục', ja: '{count}項目' },
+  'kind.exercise.desc': {
+    vi: 'Bài tập chuyên đề nằm ngoài giáo trình: động từ gom từ nhiều cấp, và ngữ pháp N4 theo tài liệu tổng hợp.',
+    ja: '教科書外のテーマ別練習：複数レベルから集めた動詞と、まとめ資料に沿ったN4文法。',
+  },
+  'kind.kanji': { vi: 'Kanji', ja: '漢字' },
+  'kind.kanji.unit': { vi: '{count} chữ', ja: '漢字{count}字' },
+  'kind.kanji.desc': {
+    vi: 'Danh sách chữ Hán N5→N1: âm Hán Việt của chữ, và nghĩa lẫn cách đọc của các từ dùng chữ đó.',
+    ja: 'N5～N1の漢字一覧：字の漢越音と、その字を使う単語の意味・読み方。',
+  },
+  'kind.radical': { vi: 'Bộ thủ', ja: '部首' },
+  'kind.radical.unit': { vi: '{count} bộ', ja: '部首{count}個' },
+  'kind.radical.desc': {
+    vi: 'Bảng 214 bộ thủ: âm Hán Việt và nghĩa của từng bộ, kèm các chữ Hán ghép từ bộ đó.',
+    ja: '214部首の一覧：各部首の漢越音と意味、そしてその部首でできている漢字。',
+  },
+  'kind.grammar': { vi: 'Ngữ pháp', ja: '文法' },
+  'kind.grammar.unit': { vi: '{count} mẫu ngữ pháp', ja: '文型{count}個' },
+  'kind.grammar.desc': {
+    vi: 'Học mẫu ngữ pháp kèm giải thích, rồi luyện viết câu đúng mẫu theo cả hai chiều Việt ↔ Nhật.',
+    ja: '文型と解説を学び、越↔日の両方向で文型どおりに文を書く練習をします。',
+  },
+  'kind.translation': { vi: 'Luyện dịch', ja: '翻訳練習' },
+  'kind.translation.unit': { vi: '{count} câu', ja: '{count}文' },
+  'kind.translation.desc': {
+    vi: 'Dịch câu Nhật ↔ Việt theo từng bài, kết hợp ngữ pháp bài đó với các bài trước; chấm xong có giải thích ngữ pháp từng câu.',
+    ja: '課ごとに日↔越の文を翻訳します。その課と前の課の文法を組み合わせた文で、採点後に文ごとの文法解説が表示されます。',
+  },
+  'favorite.add': { vi: 'Đánh dấu chưa nhớ {name}', ja: '{name} を未習得にする' },
+  'favorite.remove': { vi: 'Bỏ đánh dấu {name}', ja: '{name} の印を外す' },
+  'parse.missingColumnsVocabulary': {
+    vi: 'Thiếu cột. Cần đủ 3 cột: ÂM HÁN VIỆT,TIẾNG NHẬT,NGHĨA TIẾNG VIỆT',
+    ja: '列が足りません。3列必要です：漢越音,日本語,ベトナム語訳',
+  },
+  'parse.missingColumnsVerb': {
+    vi: 'Thiếu cột. Cần đủ 4 cột: ÂM HÁN VIỆT,THỂ MẬU,NGHĨA TIẾNG VIỆT,NHÓM',
+    ja: '列が足りません。4列必要です：漢越音,ます形,ベトナム語訳,グループ',
+  },
+  'parse.emptyColumns': { vi: 'Cột rỗng: {columns}', ja: '空の列：{columns}' },
+  'parse.notMasuForm': {
+    vi: 'Động từ phải ở thể ます, nhận được "{value}"',
+    ja: '動詞はます形である必要があります（受け取った値：「{value}」）',
+  },
+  'parse.badGroup': {
+    vi: 'Nhóm phải là 1, 2 hoặc 3 (thêm * để đánh dấu đặc biệt), nhận được "{value}"',
+    ja: 'グループは1・2・3のいずれかです（*で特殊動詞の印）。受け取った値：「{value}」',
+  },
+  'parse.duplicateWord': {
+    vi: 'Trùng với một từ đã có ở phía trên, dòng này bị bỏ qua',
+    ja: '上に同じ単語があるため、この行は無視されます',
+  },
+  'parse.duplicateVerb': {
+    vi: 'Trùng với một động từ đã có ở phía trên, dòng này bị bỏ qua',
+    ja: '上に同じ動詞があるため、この行は無視されます',
+  },
+  'parse.badColumnsConversation': {
+    vi: 'Mỗi dòng phải là "TIẾNG NHẬT|TIẾNG VIỆT" hoặc "NGƯỜI NÓI|TIẾNG NHẬT|TIẾNG VIỆT"',
+    ja: '各行は「日本語|ベトナム語」または「話者|日本語|ベトナム語」の形式にしてください',
+  },
+  'parse.duplicateSentence': {
+    vi: 'Trùng với một câu đã có ở phía trên, dòng này bị bỏ qua',
+    ja: '上に同じ文があるため、この行は無視されます',
+  },
+  'parse.column.hanViet': { vi: 'âm Hán Việt', ja: '漢越音' },
+  'parse.column.japanese': { vi: 'tiếng Nhật', ja: '日本語' },
+  'parse.column.vietnamese': { vi: 'nghĩa tiếng Việt', ja: 'ベトナム語訳' },
+  'parse.column.masu': { vi: 'thể Mậu', ja: 'ます形' },
+  'parse.column.group': { vi: 'nhóm', ja: 'グループ' },
+  'error.lessonIndex': {
+    vi: 'Không đọc được danh sách bài học (public/lessons/index.json). Hãy chạy "npm run generate" để sinh dữ liệu từ thư mục data-source/.',
+    ja: 'レッスン一覧（public/lessons/index.json）を読み込めません。"npm run generate" を実行して data-source/ からデータを生成してください。',
+  },
+  'route.n3': { vi: 'Tiến độ thi N3', ja: 'N3 合格までの進捗' },
+  'route.import': { vi: 'Nạp bài học mới', ja: 'レッスン追加' },
+  'route.lesson': { vi: 'Chi tiết bài học', ja: 'レッスン詳細' },
+  // Trùng chữ với nhãn tab tương ứng: tiêu đề tab trình duyệt mà gọi tên khác thì
+  // mở lại lịch sử duyệt web không biết đâu là màn hình nào.
+  'route.topic': { vi: 'Từ vựng chủ đề', ja: 'テーマ別 単語' },
+  'route.topicDetail': { vi: 'Chủ đề từ vựng', ja: '単語のテーマ' },
+  'route.grammar': { vi: 'Ngữ pháp minano', ja: '皆の日本語 文法' },
+  'route.grammarLesson': { vi: 'Bài ngữ pháp', ja: '文法レッスン' },
+  'route.translate': { vi: 'Luyện dịch', ja: '翻訳練習' },
+  'route.translateLesson': { vi: 'Bài luyện dịch', ja: '翻訳練習の課' },
+  'route.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
+  'route.exerciseDetail': { vi: 'Nội dung bài tập', ja: '練習問題の詳細' },
+  'route.n4grammar': { vi: 'Luyện tập ngữ pháp N4', ja: 'N4文法の練習' },
+  'route.kanji': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
+  'route.kanjiDetail': { vi: 'Chữ Kanji', ja: '漢字' },
+  'route.radical': { vi: 'Danh sách bộ thủ', ja: '部首一覧' },
+  'route.radicalDetail': { vi: 'Bộ thủ', ja: '部首' },
+  'route.practice': { vi: 'Đang luyện tập', ja: '練習中' },
+  'route.result': { vi: 'Kết quả luyện tập', ja: '練習結果' },
+  'route.review': { vi: 'Ôn tập', ja: '復習' },
+} as const satisfies Record<string, Entry>;

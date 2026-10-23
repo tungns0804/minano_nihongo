@@ -20,7 +20,7 @@ Angular ghi nhận phụ thuộc` là comment tốt; `// lấy danh sách id` th
 bộ comment trong repo viết bằng tiếng Việt.
 
 **Không có gì được viết cứng bằng chữ hiển thị.** Mọi chuỗi người dùng nhìn thấy
-đều là `MessageKey` trong `core/i18n/messages.ts`; `npm run verify:i18n` chặn
+đều là `MessageKey` trong `core/i18n/messages.ts` (mỗi khu vực một file trong `core/i18n/messages/`); `npm run verify:i18n` chặn
 việc quên.
 
 ---
@@ -223,7 +223,7 @@ onSearch(event: Event): void { this.search.set(valueOf(event)); }
 
 ## CSS
 
-**Trước khi viết một luật mới, tìm nó trong `src/styles.css`.** Mục *"Lớp dùng
+**Trước khi viết một luật mới, tìm nó trong `src/styles/` (điểm vào `src/styles.css`).** Mục *"Lớp dùng
 chung của nhiều màn hình"* đã có: khung thiết lập (`.options-2`,
 `.options-limit`, `.option-stacked`, `.start-bar`), hàng lọc (`.filter-row`,
 `.search-input`, `.filter-check`), nút ★, bảng từ (`.word-table`, `.col-star`),

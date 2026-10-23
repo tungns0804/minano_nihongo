@@ -1259,7 +1259,7 @@ dung tiếng Nhật hoặc âm Hán Việt của một từ thì từ đó mới
 **Đa ngôn ngữ dịch lúc chạy, không dùng i18n của Angular.** `ng build --localize` dịch lúc biên
 dịch: mỗi ngôn ngữ là một bundle riêng, đổi ngôn ngữ phải tải trang khác, và **bản offline một
 file sẽ không làm được** (thành 2 file, không có nút chuyển). Thay vào đó toàn bộ chữ nằm ở
-[`src/app/core/i18n/messages.ts`](src/app/core/i18n/messages.ts) dưới dạng `khoá → { vi, ja }`, và
+[`src/app/core/i18n/messages/`](src/app/core/i18n/messages/) (mỗi khu vực một file, gộp ở `messages.ts`) dưới dạng `khoá → { vi, ja }`, và
 `LanguageStore` là một signal — template gọi `t('khoá')`, Angular ghi nhận phụ thuộc signal nên đổi
 ngôn ngữ là vẽ lại ngay.
 
@@ -1286,7 +1286,7 @@ khác nhau, làm mọi thứ bên dưới nhảy chỗ. Cách xử lý:
   chứ không phải ký tự `◐`/`☀`/`🕯`: ký tự thì khi `<html lang>` đổi, trình duyệt chọn font khác và
   vẽ rộng hẹp khác nhau (đo được 13px ↔ 16px), còn `🕯` là ô vuông rỗng trên nhiều máy Windows.
 
-**Bảng màu chỉ khai báo một lần.** `src/styles.css` dùng `light-dark(giá trị sáng, giá trị tối)`
+**Bảng màu chỉ khai báo một lần.** `src/styles/tokens.css` dùng `light-dark(giá trị sáng, giá trị tối)`
 cho từng biến màu, nên không có chuyện bảng màu tối bị lệch khỏi bảng màu sáng khi sửa. Đổi tông
 thực chất chỉ là đổi thuộc tính `color-scheme`, do `ThemeStore` đặt qua `data-theme` trên thẻ
 `<html>`. Thêm màu mới thì viết đúng một dòng `light-dark(...)`.

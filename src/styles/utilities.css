@@ -1,0 +1,152 @@
+/* Tiện ích, thiết bị chạm, giảm chuyển động. Thứ tự nạp: xem src/styles.css. */
+
+/* --- Tiện ích ------------------------------------------------------------- */
+
+.muted {
+  color: var(--text-muted);
+}
+
+.faint {
+  color: var(--text-faint);
+}
+
+.small {
+  font-size: var(--fs-sm);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Cắt đoạn văn sau hai dòng kèm dấu "…". Dùng cho mô tả trong thẻ bài học: mô tả
+   dài ngắn khác nhau làm các thẻ trong cùng một hàng cao thấp so le. */
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.scroll-x {
+  overflow-x: auto;
+  /* Cuộn ngang không được "lây" ra ngoài: thiếu dòng này thì trên điện thoại, vuốt
+     ngang tới cuối bảng sẽ làm cả trang trượt theo hoặc kích hoạt cử chỉ back. */
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--bg-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-inline: max(14px, env(safe-area-inset-left)) max(14px, env(safe-area-inset-right));
+  }
+
+  .card-body {
+    padding: var(--sp-4);
+  }
+
+  .page {
+    padding-block: var(--sp-5) calc(72px + env(safe-area-inset-bottom));
+  }
+
+  /* Đúng 16px, không phải 0.95rem: Safari trên iOS tự phóng to cả trang khi con trỏ
+     nhảy vào ô nhập có chữ NHỎ HƠN 16px, và không thu lại sau khi gõ xong. Đặt đủ
+     16px là cách duy nhất tắt được hành vi đó mà không phải chặn zoom của người dùng. */
+  .input,
+  .textarea,
+  .select {
+    font-size: 16px;
+  }
+}
+
+/* --- Thiết bị chạm ---------------------------------------------------------
+   Phân biệt bằng (hover: none) chứ không bằng bề rộng: máy tính cửa sổ hẹp vẫn có
+   chuột nên vẫn cần hiệu ứng hover, còn tablet rộng thì vẫn cần vùng bấm to. */
+
+@media (hover: none) {
+  /* 44px là ngưỡng vùng bấm tối thiểu để ngón tay không bấm trượt. */
+  .btn:not(.btn-sm),
+  .option {
+    min-height: 44px;
+  }
+
+  .btn-sm {
+    min-height: 36px;
+  }
+
+  .search-clear {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Người dùng đã báo với hệ điều hành là không muốn chuyển động thì không nhận gì
+   cả — kể cả hiệu ứng vào trang.
+
+   Phải dập CẢ animation-delay chứ không chỉ animation-duration. Các thẻ trong
+   danh sách vào lần lượt bằng cách trễ tới 0.2s, mà `animation-fill-mode:
+   backwards` lại giữ chúng ở đúng trạng thái đầu — opacity: 0 — trong suốt thời
+   gian chờ đó. Rút riêng thời lượng về 0.01ms thì hiệu ứng biến mất thật, nhưng
+   phần chờ vẫn còn: thẻ cuối vẫn nằm vô hình 0.2s rồi mới bụp ra. Với người bật
+   giảm chuyển động vì chóng mặt hay tiền đình, đó lại đúng là kiểu chuyển động
+   khó chịu nhất — nội dung nhấp nháy không báo trước. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Riêng khung chờ phải TẮT HẲN animation chứ không chỉ rút ngắn.
+
+     Quy tắc ở trên xử lý đúng những hiệu ứng chạy MỘT lần: rút về 0.01ms thì
+     coi như chúng nhảy thẳng tới trạng thái cuối. Nhưng hiệu ứng lấp lánh của
+     khung chờ lại lặp VÔ HẠN, nên rút ngắn không làm nó dừng — nó chạy hết vòng
+     này tới vòng khác trong mỗi khung hình, thành ra nhấp nháy loạn xạ, đúng thứ
+     mà người bật tuỳ chọn này muốn tránh. Không có hiệu ứng thì khối xám vẫn nói
+     đủ ý là "chỗ này đang chờ dữ liệu". */
+  .skeleton {
+    animation: none !important;
+    background: var(--bg-subtle);
+  }
+}

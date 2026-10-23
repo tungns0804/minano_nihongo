@@ -1,0 +1,115 @@
+/* Reset và kiểu chữ mặc định. Thứ tự nạp: xem src/styles.css. */
+
+/* --- Reset ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  /* Header dính che mất phần đầu của khối vừa cuộn tới (mục lục bài ngữ pháp,
+     liên kết neo). Chừa sẵn đúng chiều cao header cộng một chút thở. */
+  scroll-padding-top: calc(var(--header-h) + var(--sp-4));
+}
+
+/* Cuộn mượt khi bấm mục lục — nhưng chỉ khi người dùng không yêu cầu giảm chuyển
+   động. Khối @media ở cuối file không tắt được thuộc tính này, vì nó không phải
+   transition cũng không phải animation. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  /* 100dvh chứ không phải 100vh: trên điện thoại, 100vh tính cả phần thanh địa chỉ
+     của trình duyệt nên trang luôn cao hơn khung nhìn thật, sinh ra một khoảng cuộn
+     dọc vô nghĩa. dvh co lại theo thanh địa chỉ. */
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  /* 1.6 thay vì 1.55: app trộn chữ Việt có dấu (dấu thanh nằm cao) với kana/kanji
+     (ô chữ vuông, cao hơn chữ Latin), hai dòng liền nhau dễ chạm nhau. */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  line-height: 1.25;
+  font-weight: 700;
+  text-wrap: balance;
+  /* Cỡ chữ càng lớn thì khoảng cách giữa các chữ trông càng thưa — siết lại một
+     chút để tiêu đề nhìn liền khối. */
+  letter-spacing: -0.011em;
+}
+
+h1 {
+  font-size: var(--fs-2xl);
+}
+h2 {
+  font-size: var(--fs-xl);
+}
+h3 {
+  font-size: var(--fs-lg);
+}
+
+/* Không để dòng cuối của đoạn văn trơ lại đúng một từ. */
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

@@ -8,6 +8,8 @@
  *     tham số ở bản dịch là lỗi im lặng, chữ vẫn hiện nhưng mất mất số liệu.
  *  4. Không còn chuỗi tiếng Việt cứng sót lại trong template.
  *  5. Cảnh báo khoá khai báo nhưng không chỗ nào dùng.
+ *  6. Không có khoá nào khai ở hai file trong `messages/` — gộp bằng spread thì file
+ *     sau đè im lặng lên file trước.
  *
  * Chạy: npm run verify:i18n
  */
@@ -15,20 +17,35 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { c, log } from './script-utils.mjs';
+import { c, log, resolveTsImports } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const SRC = join(ROOT, 'src', 'app');
 const MESSAGES_FILE = join(SRC, 'core', 'i18n', 'messages.ts');
+const MESSAGES_DIR = join(SRC, 'core', 'i18n', 'messages');
+
+// messages.ts import các file trong messages/ không kèm đuôi file.
+resolveTsImports();
 
 const toFileUrl = (path) => new URL(`file:///${path.replace(/\\/g, '/')}`).href;
-const { MESSAGES, LANGUAGES } = await import(toFileUrl(MESSAGES_FILE));
+const { MESSAGES, MESSAGE_PARTS, LANGUAGES } = await import(toFileUrl(MESSAGES_FILE));
 
 let problems = 0;
 function fail(msg) {
   log(`${c.red}[LOI] ${msg}${c.reset}`);
   problems++;
+}
+
+// ── 6. Khoá trùng giữa các file của từ điển ─────────────────────────────
+{
+  const seen = new Set();
+  for (const part of MESSAGE_PARTS) {
+    for (const key of Object.keys(part)) {
+      if (seen.has(key)) fail(`Khoá "${key}" khai ở hai file trong messages/`);
+      seen.add(key);
+    }
+  }
 }
 
 /** Liệt kê mọi file .ts/.html trong src/app. */
@@ -40,18 +57,20 @@ function walk(dir) {
   });
 }
 
-const files = walk(SRC).filter((f) => f !== MESSAGES_FILE);
+const files = walk(SRC).filter((f) => f !== MESSAGES_FILE && !f.startsWith(MESSAGES_DIR));
 const allKeys = new Set(Object.keys(MESSAGES));
 
 // ── 1 & 5. Khoá dùng trong mã nguồn ──────────────────────────────────────
 const usedKeys = new Set();
-// Bắt 'khoa.co.dau.cham' trong t('...'), labelKey: '...', v.v.
-const KEY_PATTERN = /'([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)'/g;
+// Bắt 'khoa.co.dau.cham' trong t('...'), labelKey: '...', v.v., và cả key="khoa.co.dau.cham"
+// của <app-t> trong template.
+// Chỉ thuộc tính key TĨNH: [key]="biểu.thức" là biểu thức, không phải khoá.
+const KEY_PATTERN = /'([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)'|(?<![\[\w-])key="([a-z][a-zA-Z0-9]*(?:\.[a-zA-Z0-9-]+)+)"/g;
 
 for (const file of files) {
   const content = readFileSync(file, 'utf8');
   for (const match of content.matchAll(KEY_PATTERN)) {
-    const key = match[1];
+    const key = match[1] ?? match[2];
     // Chỉ quan tâm những chuỗi trông giống khoá thông điệp thật.
     if (allKeys.has(key)) {
       usedKeys.add(key);

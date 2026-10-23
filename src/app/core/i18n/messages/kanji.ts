@@ -1,0 +1,105 @@
+/** Khu Kanji. Quy ước chung: xem `../messages.ts`. */
+
+import type { Entry } from './entry';
+
+export const KANJI_MESSAGES = {
+  'kanji.title': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
+  'kanji.subtitle': {
+    vi: 'Chữ Hán từ N5 tới N1, giữ nguyên thứ tự học của danh sách gốc. Mở một chữ để xem các từ trong kho có dùng chữ đó. Chỉ gõ đáp án, không có trắc nghiệm.',
+    ja: 'N5からN1までの漢字。元の一覧の学習順をそのまま保ちます。漢字を開くと、その字を使う単語が見られます。解答は入力のみです。',
+  },
+  'kanji.back': { vi: '← Danh sách Kanji', ja: '← 漢字一覧' },
+  'kanji.notFound': { vi: 'Không tìm thấy chữ {id}.', ja: '漢字 {id} が見つかりません。' },
+  'kanji.kanjiCount': { vi: '{count} chữ', ja: '漢字{count}字' },
+  'kanji.wordCount': { vi: '{count} từ', ja: '{count}語' },
+  'kanji.levels': { vi: 'Cấp độ', ja: 'レベル' },
+  'kanji.level.count': { vi: '{level} ({count})', ja: '{level}（{count}）' },
+  'kanji.scope.all': { vi: 'Toàn bộ {level} ({count})', ja: '{level}全体（{count}）' },
+  'kanji.scope.allWords': { vi: 'Toàn bộ ({count})', ja: '全体（{count}）' },
+  'kanji.search': {
+    vi: 'Tìm theo chữ, âm Hán Việt, từ hoặc nghĩa…',
+    ja: '漢字・漢越音・単語・意味で検索…',
+  },
+  'kanji.searchWord': {
+    vi: 'Tìm theo từ, cách đọc hoặc nghĩa…',
+    ja: '単語・読み方・意味で検索…',
+  },
+  'kanji.showing': { vi: 'Hiện {shown}/{total} mục.', ja: '{total}項目中{shown}項目を表示。' },
+  'kanji.noMatch': { vi: 'Không có mục nào khớp.', ja: '一致する項目がありません。' },
+  'kanji.typingOnly': {
+    vi: 'Khu Kanji chỉ có gõ đáp án: bày sẵn bốn âm Hán Việt để chọn thì chỉ còn là nhận mặt chữ, mà cái cần nhớ ở đây là tự đọc ra được.',
+    ja: 'この画面は入力解答のみです。4択にすると見比べるだけになり、自分で読める力が身につきません。',
+  },
+  'kanji.multiReading': {
+    vi: 'Chữ này có nhiều âm Hán Việt — khi luyện, gõ âm nào cũng được tính đúng.',
+    ja: 'この漢字には漢越音が複数あります。練習ではどれを入力しても正解です。',
+  },
+  'kanji.practiceHanViet': { vi: 'Luyện âm Hán Việt của chữ', ja: '漢字の漢越音を練習' },
+  'kanji.practiceHanViet.hint': {
+    vi: 'Hỏi trên toàn bộ chữ của cấp độ đang chọn ở trên.',
+    ja: '上で選んでいるレベルの漢字すべてから出題します。',
+  },
+  'kanji.practiceWords': { vi: 'Luyện từ của chữ này', ja: 'この漢字の単語を練習' },
+  'kanji.mode': { vi: 'Chiều hỏi', ja: '出題の方向' },
+  'kanji.mode.kanjiHanViet': { vi: 'Chữ Hán → âm Hán Việt', ja: '漢字 → 漢越音' },
+  'kanji.mode.kanjiHanViet.short': { vi: 'Chữ → Hán Việt', ja: '漢字 → 漢越音' },
+  'kanji.mode.kanjiHanViet.example': { vi: '海 → HẢI', ja: '海 → HẢI' },
+  'kanji.mode.wordMeaning': { vi: 'Từ kanji → nghĩa tiếng Việt', ja: '漢字の単語 → ベトナム語訳' },
+  'kanji.mode.wordMeaning.short': { vi: 'Từ → nghĩa', ja: '単語 → 意味' },
+  'kanji.mode.wordMeaning.example': { vi: '海 → biển', ja: '海 → biển' },
+  'kanji.mode.wordReading': { vi: 'Từ kanji → hiragana', ja: '漢字の単語 → ひらがな' },
+  'kanji.mode.wordReading.short': { vi: 'Từ → hiragana', ja: '単語 → ひらがな' },
+  'kanji.mode.wordReading.example': { vi: '海 → うみ', ja: '海 → うみ' },
+  'kanji.mode.wordMixed': { vi: 'Hỏi cả nghĩa lẫn hiragana', ja: '意味と読み方の両方' },
+  'kanji.mode.wordMixed.short': { vi: 'Nghĩa + hiragana', ja: '意味＋読み' },
+  'kanji.mode.wordMixed.example': { vi: '海 → biển / うみ', ja: '海 → biển / うみ' },
+  'kanji.mode.draw': { vi: 'Âm Hán Việt → viết chữ', ja: '漢越音 → 書く' },
+  'kanji.mode.draw.short': { vi: 'Viết chữ', ja: '書き取り' },
+  'kanji.mode.draw.example': { vi: 'HẢI → 海', ja: 'HẢI → 海' },
+  'kanji.practiceDraw': { vi: 'Luyện viết chữ Hán', ja: '漢字の書き取り練習' },
+  'kanji.drawNote': {
+    vi: 'Đồ theo nét mẫu trong khung, viết đúng thứ tự và chiều từng nét. Máy chấm ngay trên máy bạn, không gửi gì đi đâu.',
+    ja: '枠内のお手本をなぞり、筆順と書く向きを守って書きます。採点はこの端末だけで行われ、データは送信されません。',
+  },
+  'kanji.drawThis': { vi: 'Luyện viết chữ này', ja: 'この漢字を書く練習' },
+  'kanji.drawThis.hint': {
+    vi: 'Một câu, hỏi đúng chữ đang mở. Viết xong còn bấm viết lại được bao nhiêu lần tuỳ ý.',
+    ja: 'この漢字だけを1問出題します。採点後も好きなだけ書き直せます。',
+  },
+  'kanji.drawMissing': {
+    vi: '{count} chữ chưa có dữ liệu nét nên không đưa vào phiên viết.',
+    ja: '{count}字は筆順データがないため、書き取りの出題から除きます。',
+  },
+  'kanji.label.kanjiHanViet': { vi: 'Chữ này đọc âm Hán Việt là gì?', ja: 'この漢字の漢越音は？' },
+  'kanji.label.draw': { vi: 'Viết chữ Hán có âm Hán Việt này', ja: 'この漢越音の漢字を書いてください' },
+  'kanji.label.wordMeaning': { vi: 'Từ này nghĩa là gì?', ja: 'この単語の意味は？' },
+  'kanji.label.wordReading': { vi: 'Từ này viết hiragana thế nào?', ja: 'この単語のひらがなは？' },
+  'kanji.answerPrompt.hanViet': { vi: 'Nhập âm Hán Việt của chữ', ja: '漢字の漢越音を入力' },
+  'kanji.option.showWordHint': { vi: 'Gợi ý một từ dùng chữ đó', ja: 'その字を使う単語をヒントに' },
+  'kanji.option.showWordHint.desc': {
+    vi: 'Chữ đứng một mình gần như không có manh mối; nhìn 会社 thì nhớ ra HỘI dễ hơn nhìn trơ chữ 会.',
+    ja: '漢字だけでは手がかりが少なめです。会社を見れば、会だけを見るよりHỘIを思い出しやすくなります。',
+  },
+  'kanji.option.showHanViet.desc': {
+    vi: 'Âm Hán Việt của cả từ dẫn tới nghĩa mà không đọc thẳng ra đáp án.',
+    ja: '単語全体の漢越音は、答えそのものを言わずに意味へ導いてくれます。',
+  },
+  'kanji.col.hanViet': { vi: 'Âm Hán Việt', ja: '漢越音' },
+  'kanji.col.kanji': { vi: 'Chữ Hán', ja: '漢字' },
+  'kanji.col.level': { vi: 'Cấp độ', ja: 'レベル' },
+  'kanji.col.word': { vi: 'Từ', ja: '単語' },
+  'kanji.col.examples': { vi: 'Từ dùng chữ này', ja: 'この字を使う単語' },
+  'kanji.table': { vi: 'Các từ dùng chữ {char}', ja: '{char} を使う単語' },
+  'kanji.noWordsYet': {
+    vi: 'Kho từ của ứng dụng chưa có từ nào dùng chữ này, nên chưa luyện từ ở đây được. Chữ vẫn được hỏi ở phần luyện âm Hán Việt ngoài danh sách.',
+    ja: 'この字を使う単語がまだデータにないため、ここでは単語練習ができません。一覧画面の漢越音練習には出てきます。',
+  },
+  'kanji.emptyPool': {
+    vi: 'Chưa có từ nào trong phạm vi đang chọn.',
+    ja: '選択中の範囲に単語がありません。',
+  },
+  'kanji.dataNote': {
+    vi: 'Danh sách chữ và cấp độ lấy theo bảng kanji JLPT N5→N1. Từ minh hoạ và phần lớn âm Hán Việt rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập); N2 và N1 nằm ngoài kho từ nên phần lớn chữ hai cấp đó chỉ luyện được âm Hán Việt.',
+    ja: '漢字の一覧とレベルはJLPT N5〜N1の漢字表に従います。例語と漢越音の多くはアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出しています。N2・N1はそのデータの範囲外なので、多くは漢越音の練習のみになります。',
+  },
+} as const satisfies Record<string, Entry>;

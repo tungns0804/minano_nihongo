@@ -1,0 +1,201 @@
+/* Thẻ bài học, lưới danh sách, tab chọn nhóm của bảng tra. Thứ tự nạp: xem src/styles.css. */
+
+/* --- Link quay lại -------------------------------------------------------
+   Dòng "← …" ở đầu mọi màn hình chi tiết. */
+
+.back-link {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  width: fit-content;
+  transition: color var(--dur) var(--ease);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* --- Thẻ bài học ---------------------------------------------------------
+   Lưới thẻ của trang chủ, tab Ngữ pháp và tab Bài tập bổ trợ. Tab Chủ đề dùng
+   lưới riêng (`.topic-*`) vì thẻ ở đó có thêm biểu tượng và hai dòng tên. */
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+.lesson-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  color: var(--text);
+  overflow: hidden;
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+/* Vạch màu bên trái, chỉ hiện khi rê chuột — dấu hiệu "thẻ này đang được ngắm". */
+.lesson-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .lesson-card:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .lesson-card:hover::before {
+    transform: scaleY(1);
+  }
+
+  .lesson-card:hover .lesson-go {
+    transform: translateX(3px);
+  }
+}
+
+.lesson-card:focus-visible {
+  border-color: var(--accent);
+}
+
+.lesson-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.lesson-name {
+  font-size: 1.05rem;
+  font-weight: 640;
+  font-family: var(--font-jp);
+}
+
+.lesson-desc {
+  flex: 1;
+}
+
+.lesson-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-top: auto;
+  padding-top: var(--sp-1);
+}
+
+.lesson-go {
+  color: var(--accent);
+  font-weight: 700;
+  transition: transform var(--dur) var(--ease);
+}
+
+/* Khung chờ của các trang danh sách — kích thước khớp với thẻ thật ở trên. */
+.skeleton-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-bar {
+  width: 220px;
+  height: 20px;
+}
+
+.skeleton-card {
+  height: 132px;
+  border-radius: var(--radius-lg);
+}
+
+/* Thanh công cụ của trang danh sách: ô tìm chiếm phần lớn, số liệu bám phải. */
+.toolbar .search {
+  flex: 1 1 360px;
+}
+
+.toolbar-counts {
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.level-options {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+/* --- Tab chọn nhóm của bảng tra ------------------------------------------
+   Kanji chia theo cấp JLPT, bộ thủ chia theo số nét — cùng một hình dạng nút. */
+
+.level-tabs {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.level-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 9px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.level-tab:hover:not(.is-active) {
+  border-color: var(--border-strong);
+  background: var(--bg-inset);
+}
+
+.level-tab strong {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.level-tab-count {
+  font-size: var(--fs-2xs);
+  color: var(--text-muted);
+}
+
+.level-tab.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.level-tab.is-active .level-tab-count {
+  color: var(--accent);
+}
+
+/* --- Khung chờ của màn hình chi tiết ------------------------------------- */
+
+.detail-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sk-pill {
+  width: 110px;
+  height: 22px;
+  border-radius: 999px;
+}

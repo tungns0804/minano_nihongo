@@ -47,7 +47,7 @@ const THEME_COLOR: Record<ResolvedTheme, string> = {
 /**
  * Lựa chọn giao diện: sáng, tối, hoặc đèn đêm.
  *
- * Bảng màu thật nằm trong `styles.css`. Sáng và tối khai báo chung bằng
+ * Bảng màu thật nằm trong `src/styles/tokens.css`. Sáng và tối khai báo chung bằng
  * `light-dark(sáng, tối)`, nên ở đây chỉ cần đổi `color-scheme` qua `data-theme`
  * trên thẻ <html> là toàn bộ biến màu đổi theo. Đèn đêm là bảng màu ấm viết riêng
  * dưới `:root[data-theme='night']`, cũng chỉ cần đúng thuộc tính đó để bật.

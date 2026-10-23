@@ -1,0 +1,546 @@
+/* Bố cục trang và các thành phần cơ bản: nút, form, ô tìm, badge, thông báo, khung chờ. Thứ tự nạp: xem src/styles.css. */
+
+/* --- Layout --------------------------------------------------------------- */
+
+/* Lề ngang dùng max(...env(safe-area-inset...)): trên iPhone có tai thỏ, ở chế độ
+   ngang phần bo góc và thanh gạt ăn vào hai bên màn hình, chữ sát lề sẽ bị che. */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: max(20px, env(safe-area-inset-left)) max(20px, env(safe-area-inset-right));
+}
+
+.page {
+  padding-block: var(--sp-7) calc(64px + env(safe-area-inset-bottom));
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+/* Ba bậc giãn cách cho .stack, thay cho các style="gap: 22px" rải rác trong
+   template: cùng một ý đồ thì nên gọi cùng một tên. */
+.stack-sm {
+  gap: var(--sp-2);
+}
+
+.stack-lg {
+  gap: var(--sp-5);
+}
+
+.stack-xl {
+  gap: var(--sp-6);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* --- Đầu trang ------------------------------------------------------------
+   Tiêu đề + câu mô tả của mỗi màn hình. Bề rộng dòng chữ có giới hạn: quá 70–75
+   ký tự thì mắt khó bắt được đầu dòng tiếp theo. */
+
+.page-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 64ch;
+}
+
+/* Tiêu đề co giãn theo bề rộng màn hình thay vì nhảy bậc ở đúng một ngưỡng. */
+.page-head h1 {
+  font-size: clamp(1.5rem, 1.18rem + 1.4vw, 2rem);
+}
+
+.page-head p {
+  color: var(--text-muted);
+}
+
+/* Đường kẻ mảnh dưới tiêu đề mục, tách phần này với phần trước mà không cần thêm
+   một thẻ khung nữa. */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* --- Thanh công cụ --------------------------------------------------------
+   Một hàng gồm phần điều khiển bên trái và số liệu / nút phụ bên phải.
+
+   Ở global chứ không ở từng component: bốn màn hình danh sách đều cần đúng bốn
+   dòng này, và bản sao thứ tư đã bị quên mất một lần — trang Tiến độ N3 dùng
+   class `.toolbar` mà không có luật nào áp, nên nút "Xoá dấu đã học" rơi xuống
+   một dòng riêng thay vì nằm cùng hàng với bộ lọc. Style của component là style
+   CÓ PHẠM VI: dùng lại một class từ component khác thì không thừa hưởng gì cả. */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+/* Con số nhỏ trong nút bộ lọc, ví dụ "N5 · bài 1–25  (25)". Cùng lý do như trên:
+   hai màn hình dùng, nên chỉ có một định nghĩa. */
+.filter-count {
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-inset);
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.option.is-active .filter-count {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
+}
+
+/* --- Card ----------------------------------------------------------------- */
+
+.card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-body {
+  padding: var(--sp-5);
+}
+
+/* --- Button --------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 9px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: 0.94rem;
+  font-weight: 550;
+  white-space: nowrap;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform 0.06s var(--ease);
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--bg-subtle);
+  border-color: var(--text-faint);
+  text-decoration: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  /* Bóng cùng màu nút và rất nhạt: đủ để nút chính nổi lên khỏi mặt thẻ, không
+     biến nó thành một khối đổ bóng nặng nề. */
+  box-shadow: 0 1px 2px var(--accent-ring), 0 4px 12px var(--accent-ring);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--accent-text);
+  box-shadow: 0 2px 4px var(--accent-ring), 0 8px 20px var(--accent-ring);
+}
+
+.btn-primary:active:not(:disabled) {
+  box-shadow: 0 1px 2px var(--accent-ring);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-subtle);
+  border-color: transparent;
+  color: var(--text);
+}
+
+.btn-danger {
+  color: var(--danger);
+  border-color: var(--danger-border);
+  background: transparent;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.btn-lg {
+  padding: 13px 26px;
+  font-size: 1.02rem;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: var(--fs-sm);
+}
+
+/* --- Form ----------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: var(--fs-xs);
+  font-weight: 620;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hint {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.textarea {
+  min-height: 200px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.checkbox:hover {
+  border-color: var(--border-strong);
+}
+
+/* Đã tích thì cả khung đổi màu theo, không chỉ mỗi dấu tích 16px. Trang thiết lập
+   có tới sáu ô kiểu này xếp cạnh nhau — liếc một cái phải biết ngay đang bật
+   những gì, không phải soi từng ô vuông nhỏ. */
+.checkbox:has(input:checked) {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+  background: var(--accent-soft);
+}
+
+.checkbox input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.checkbox.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ô đang bị khoá thì không tô màu "đang bật", kể cả khi input vẫn còn checked —
+   trạng thái checked lúc đó không có tác dụng gì nên không được hứa hẹn gì. */
+.checkbox.is-disabled:has(input:checked) {
+  border-color: var(--border);
+  background: var(--bg-subtle);
+}
+
+/* --- Ô tìm kiếm -----------------------------------------------------------
+   Ô nhập có kính lúp bên trái và nút xoá bên phải. */
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  color: var(--text-faint);
+  /* Bấm vào kính lúp thì con trỏ vẫn phải nhảy vào ô nhập nằm dưới nó. */
+  pointer-events: none;
+}
+
+/* SVG không khai báo width/height thì trình duyệt cho nó kích thước mặc định
+   300×150px — cao gấp tám lần chỗ đã chừa. Ép nó vừa đúng ô chứa. */
+.search-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.search .input {
+  padding-left: 38px;
+  padding-right: 40px;
+}
+
+/* Trình duyệt WebKit tự thêm dấu X riêng cho input[type=search]; bỏ đi để không
+   có hai nút xoá nằm cạnh nhau. */
+.search .input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: 7px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.search-clear:hover {
+  background: var(--bg-inset);
+  color: var(--text);
+}
+
+/* --- Nhóm nút chọn (segmented control) ------------------------------------ */
+
+.options {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  text-align: left;
+  font-weight: 500;
+  width: 100%;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  background: var(--bg-inset);
+}
+
+.option.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 620;
+  /* Viền 1px một mình chưa đủ nổi giữa một lưới sáu bảy nút; thêm vòng sáng mỏng
+     cùng màu thì mục đang chọn bật hẳn lên mà không phải tô đậm cả khối. */
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.option:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* --- Badge ---------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px;
+  /* Nhãn chữ nhật bo góc có viền cùng màu chữ, như nhãn "DỄ / TRUNG BÌNH" của
+     ByeTOEIC: phân biệt được với nút dạng viên thuốc (.filter-count, dải menu)
+     vốn là thứ bấm được, còn badge thì không. */
+  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+  border-radius: 6px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  background: var(--bg-inset);
+  color: var(--text-muted);
+  white-space: nowrap;
+  /* Chữ số cùng bề rộng: badge đếm số không co giãn khi con số đổi. */
+  font-variant-numeric: tabular-nums;
+}
+
+.badge-accent {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.badge-success {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.badge-danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.badge-warning {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+/* --- Chữ tiếng Nhật ------------------------------------------------------- */
+
+.jp {
+  font-family: var(--font-jp);
+  font-feature-settings: 'palt' 0;
+}
+
+/* --- Thông báo ------------------------------------------------------------ */
+
+.notice {
+  display: flex;
+  gap: var(--sp-3);
+  padding: 14px 16px;
+  /* Vạch dày bên trái thay cho viền đều bốn cạnh: liếc qua là phân biệt được lỗi
+     / cảnh báo / thành công mà chưa cần đọc chữ. */
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+  font-size: 0.92rem;
+}
+
+.notice-error {
+  border-color: var(--danger-border);
+  border-left-color: var(--danger);
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.notice-warning {
+  border-color: var(--warning-border);
+  border-left-color: var(--warning);
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.notice-success {
+  border-color: var(--success-border);
+  border-left-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* --- Khung rỗng -----------------------------------------------------------
+   Dùng khi tìm/lọc không ra kết quả. Một dòng chữ "không có gì" trơ trọi giữa
+   khoảng trắng dễ bị hiểu là trang hỏng; khung viền đứt cho thấy đây đúng là chỗ
+   lẽ ra có nội dung, chỉ là đang trống. */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--sp-8) var(--sp-5);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--bg-subtle) 55%, transparent);
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 1.7rem;
+  line-height: 1;
+  opacity: 0.55;
+}
+
+.empty-state-title {
+  font-weight: 620;
+}
+
+.empty-state-text {
+  max-width: 46ch;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+/* --- Khung chờ (skeleton) -------------------------------------------------
+   Hiện trong lúc đang tải, thay cho một dòng chữ "Đang tải…". Các khối xám đúng
+   hình dạng nội dung sắp hiện cho biết trang sắp có gì, và bố cục không giật một
+   nhịp khi dữ liệu về. */
+
+.skeleton {
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    90deg,
+    var(--bg-subtle) 25%,
+    var(--bg-inset) 37%,
+    var(--bg-subtle) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 100% 50%;
+  }
+  to {
+    background-position: 0 50%;
+  }
+}

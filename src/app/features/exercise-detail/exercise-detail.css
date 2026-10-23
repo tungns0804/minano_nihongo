@@ -2,7 +2,7 @@
    (khối thiết lập + bảng tra cứu, dưới 640px thì bảng đổi thành thẻ xếp dọc).
 
 Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-bar,
-   .star-btn, .word-table…) nay nằm ở `src/styles.css`, mục "Lớp dùng chung của
+   .star-btn, .word-table…) nay nằm ở `src/styles/shared.css`, mục "Lớp dùng chung của
    nhiều màn hình". File này chỉ còn những gì riêng của màn hình. */
 
 /* --- Bảng --- */
