@@ -120,6 +120,12 @@ export const routes: Routes = [
     loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
   },
   {
+    path: 'exercise/ngu-phap-vnjpclub',
+    title: 'route.vnjpclub',
+    data: { book: 'ngu-phap-vnjpclub' },
+    loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
+  },
+  {
     path: 'exercise/:id',
     title: 'route.exerciseDetail',
     loadComponent: () =>

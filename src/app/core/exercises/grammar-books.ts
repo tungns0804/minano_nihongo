@@ -7,7 +7,12 @@ import {
   N4_SYNONYMS,
 } from './n4-grammar';
 import type { N4Section } from './n4-grammar.model';
-
+import { buildSections } from './grammar-book.build';
+import {
+  VNJPCLUB_INTERCHANGEABLE_GROUPS,
+  VNJPCLUB_RAW_SECTIONS,
+  VNJPCLUB_SYNONYMS,
+} from './vnjpclub-n4.generated';
 
 /**
  * "Sách ngữ pháp": một bộ mục lý thuyết + câu ví dụ, luyện bằng cùng một màn hình
@@ -42,6 +47,18 @@ export const GRAMMAR_BOOKS: readonly GrammarBook[] = [
     synonyms: N4_SYNONYMS,
     interchangeableGroups: N4_INTERCHANGEABLE_GROUPS,
     sameForm: N4_SAME_FORM,
+  },
+  {
+    // Sinh bằng scripts/import-vnjpclub.mjs: công thức, ý nghĩa và câu ví dụ của từng
+    // trang; phần giải thích dài không chép, mỗi mục dẫn link về trang gốc.
+    id: 'ngu-phap-vnjpclub',
+    path: '/exercise/ngu-phap-vnjpclub',
+    nameKey: 'exercise.vnjpclub.name',
+    subtitleKey: 'exercise.vnjpclub.subtitle',
+    sections: buildSections(VNJPCLUB_RAW_SECTIONS),
+    synonyms: VNJPCLUB_SYNONYMS,
+    interchangeableGroups: VNJPCLUB_INTERCHANGEABLE_GROUPS,
+    sameForm: [],
   },
 ];
 

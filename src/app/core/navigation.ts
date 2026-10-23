@@ -63,6 +63,7 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     pages: [
       { path: '/grammar', labelKey: 'app.sub.minano' },
       { path: '/exercise/ngu-phap-n4', labelKey: 'app.sub.n4grammar' },
+      { path: '/exercise/ngu-phap-vnjpclub', labelKey: 'app.sub.vnjpclub' },
     ],
   },
   {
@@ -96,6 +97,7 @@ export const NAV_GROUPS: readonly NavGroup[] = [
  */
 const OWNERS: readonly (readonly [prefix: string, group: NavGroupId])[] = [
   ['/exercise/ngu-phap-n4', 'grammar'],
+  ['/exercise/ngu-phap-vnjpclub', 'grammar'],
   ['/review', 'today'],
   ['/n3', 'today'],
   ['/vocab', 'vocab'],

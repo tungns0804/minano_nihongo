@@ -12,7 +12,7 @@ Từng khu của ứng dụng: học gì, luyện thế nào, dữ liệu lấy 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | **Luyện tập → Bài tập bổ trợ** |
 | **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | **Luyện tập → Bài tập bổ trợ** |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | **Ngữ pháp → Minano** |
-| **Sách ngữ pháp** | Tổng hợp N4 (tài liệu) — lý thuyết + lộ trình 5 bậc | Cài sẵn trong mã nguồn | **Ngữ pháp → Tổng hợp N4** |
+| **Sách ngữ pháp** | Tổng hợp N4 (tài liệu), vnjpclub N4 — lý thuyết + lộ trình 5 bậc | Cài sẵn / sinh bằng script | **Ngữ pháp → Tổng hợp N4 / vnjpclub N4** |
 | **Kanji** | Danh sách 2.123 chữ Hán N5→N1 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | **Kanji → Kanji** |
 | **Bộ thủ** | 214 bộ thủ + các chữ Hán N5→N1 ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | **Kanji → Bộ thủ** |
 

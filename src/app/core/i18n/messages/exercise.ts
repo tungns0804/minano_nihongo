@@ -188,6 +188,11 @@ export const EXERCISE_MESSAGES = {
     vi: 'Hai bài tập động từ chỉ có gõ đáp án: mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài ngữ pháp N4 đi theo lộ trình năm bậc: trắc nghiệm, sắp xếp mảnh câu, rồi mới gõ cả câu.',
     ja: '動詞の2つの練習は入力解答のみです。狙いは正しい形を自分で書けることで、4択にすると見比べるだけになってしまいます。N4文法は5段階の学習で、4択・並べ替えから文全体の入力へ進みます。',
   },
+  'exercise.vnjpclub.name': { vi: 'Ngữ pháp N4 · vnjpclub', ja: 'N4文法・vnjpclub' },
+  'exercise.vnjpclub.subtitle': {
+    vi: 'Các mẫu ngữ pháp N4 theo vnjpclub.com: công thức, ý nghĩa và câu ví dụ để luyện theo 5 bậc. Mỗi mục có link tới trang gốc để đọc giải thích đầy đủ.',
+    ja: 'vnjpclub.comのN4文法：文型・意味・例文を5段階で練習できます。詳しい解説は各項目のリンクから元のページへ。',
+  },
   'exercise.n4.subtitle': {
     vi: 'Theo tài liệu “TỔNG HỢP NGỮ PHÁP N4”: mỗi mục mô tả mẫu ngữ pháp, câu ví dụ và lời giải thích. Đọc xong mục nào thì học ngay mục đó theo 5 bậc từ dễ đến khó.',
     ja: '資料「N4文法のまとめ」に沿って、項目ごとに文型の説明・例文・解説を載せています。読んだ項目は、すぐに5段階でやさしい順に練習できます。',

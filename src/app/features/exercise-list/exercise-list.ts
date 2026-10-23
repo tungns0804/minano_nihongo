@@ -113,7 +113,7 @@ export class ExerciseList extends LessonBrowser {
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
     const counts = this.favoriteStore.counts();
-    // Các "sách ngữ pháp" (core/exercises/grammar-books.ts) là nội dung ngữ pháp: chúng nằm ở
+    // Các "sách ngữ pháp" (Tổng hợp N4, vnjpclub) là nội dung ngữ pháp: chúng nằm ở
     // nhóm Ngữ pháp (core/navigation.ts), không lặp lại ở đây.
     return EXERCISES.filter((info) => !isGrammarBookId(info.id)).map((info) => ({
       ...info,
@@ -262,6 +262,7 @@ function itemCountOf(id: ExerciseId): number {
       return EXERCISE_VERBS.length;
     // Sách ngữ pháp không có thẻ ở trang này (xem `allExercises`).
     case 'ngu-phap-n4':
+    case 'ngu-phap-vnjpclub':
       return 0;
   }
 }

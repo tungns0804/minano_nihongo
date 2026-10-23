@@ -31,7 +31,7 @@ scripts/
   verify-n3.mjs                  Kiểm lộ trình N3: khớp mục lục sách, lịch phủ kín, nhịp học
   verify-n4-grammar.mjs          Kiểm mọi sách ngữ pháp: cú pháp câu, chỗ trống, mảnh câu, id
   verify-i18n.mjs                Kiểm từ điển giao diện: đủ hai thứ tiếng, không trùng khoá
-  import-vnjpclub.mjs            Tải + giải mã vnjpclub N4 → core/exercises/vnjpclub-n4.generated.ts (chưa bật)
+  import-vnjpclub.mjs            Tải + giải mã vnjpclub N4 → core/exercises/vnjpclub-n4.generated.ts
 public/lessons/                  Dữ liệu JSON do script sinh ra (không sửa tay, không commit)
   index.json
   minano-nihongo-33.json
@@ -59,7 +59,8 @@ src/app/
       n4-grammar.model.ts        Kiểu dữ liệu bài ngữ pháp N4 (mục → mẫu → câu ví dụ)
       n4-grammar.ts              50 mục: tài liệu "TỔNG HỢP NGỮ PHÁP N4" + trợ từ で, chỗ trống 《…》
       grammar-book.build.ts      Dựng dữ liệu một sách ngữ pháp từ dạng viết tay / sinh tự động
-      grammar-books.ts           Danh sách "sách ngữ pháp" — thêm nguồn mới là thêm một phần tử
+      grammar-books.ts           Danh sách "sách ngữ pháp" (Tổng hợp N4, vnjpclub N4)
+      vnjpclub-n4.generated.ts   Các mẫu N4 của vnjpclub — DO MÁY SINH (import-vnjpclub.mjs)
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji
       kanji-levels.ts            Danh sách JLPT N5→N1 — quyết định chữ nào, cấp nào

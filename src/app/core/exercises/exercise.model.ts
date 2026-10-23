@@ -32,7 +32,7 @@ export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | GrammarBookId
  * chỗ chỉ cần hỏi "đây có phải bài ngữ pháp không" (lịch ôn, nạp lúc khởi động) không
  * phải kéo theo toàn bộ dữ liệu ngữ pháp vào bundle.
  */
-export const GRAMMAR_BOOK_IDS = ['ngu-phap-n4'] as const;
+export const GRAMMAR_BOOK_IDS = ['ngu-phap-n4', 'ngu-phap-vnjpclub'] as const;
 export type GrammarBookId = (typeof GRAMMAR_BOOK_IDS)[number];
 
 export function isGrammarBookId(id: string | null | undefined): id is GrammarBookId {
@@ -228,6 +228,7 @@ export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
   // Lộ trình chứ không phải bậc khó nhất: người mới mở bài ra mà gặp ngay dạng gõ cả
   // câu tiếng Nhật thì chỉ thấy mình chưa biết gì.
   'ngu-phap-n4': 'grammar-path',
+  'ngu-phap-vnjpclub': 'grammar-path',
 };
 
 /** Dạng luyện ý nghĩa (trắc nghiệm) của bài ngữ pháp N4 — đơn vị hỏi là MẪU chứ không phải câu. */
