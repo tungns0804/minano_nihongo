@@ -26,6 +26,7 @@ export const EXERCISE_MESSAGES = {
     vi: 'Chuyển thể lịch sự ます sang thể Te, Ta, Ru, Nai và ngược lại, đủ ba nhóm kể cả động từ đặc biệt.',
     ja: 'ます形をて形・た形・辞書形・ない形へ、またその逆へ変換します。特殊な動詞も含め3グループすべて。',
   },
+  'exercise.n4.source': { vi: 'Xem giải thích đầy đủ ở trang gốc ↗', ja: '元のページで詳しい解説を見る ↗' },
   'exercise.n4grammar.name': { vi: 'Luyện tập ngữ pháp N4', ja: 'N4文法の練習' },
   'exercise.n4grammar.desc': {
     vi: 'Tổng hợp ngữ pháp N4 theo tài liệu: mô tả từng mẫu, câu ví dụ kèm giải thích. Luyện theo lộ trình 5 bậc từ dễ đến khó: ý nghĩa, điền chỗ trống, sắp xếp câu, tự dịch.',

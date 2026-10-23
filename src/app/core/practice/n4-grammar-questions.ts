@@ -1,10 +1,5 @@
 import type { MessageKey } from '../i18n/messages';
-import {
-  N4_INTERCHANGEABLE_GROUPS,
-  N4_SAME_FORM,
-  N4_SECTIONS,
-  N4_SYNONYMS,
-} from '../exercises/n4-grammar';
+import { GRAMMAR_BOOKS, GrammarBook, grammarBookOf } from '../exercises/grammar-books';
 import {
   N4ExampleRef,
   N4Point,
@@ -32,7 +27,8 @@ import { limitAttempts } from './vocabulary-questions';
  *
  * 1–2. Ý NGHĨA ↔ NGỮ PHÁP — trắc nghiệm bốn lựa chọn trên từng MẪU. Đáp án nhiễu ưu tiên
  *    lấy trong nhóm mẫu dễ nhầm với nhau (ば / たら / と / なら…), vì phân biệt chúng mới
- *    là chỗ khó; không bao giờ lấy mẫu CÙNG nghĩa (`N4_SYNONYMS`).
+ *    là chỗ khó; không bao giờ lấy mẫu CÙNG nghĩa (`GrammarBook.synonyms`). Mọi thứ
+ *    đọc theo sách của phiên luyện (`config.exercise`, xem `grammar-books.ts`).
  *
  * 3. ĐIỀN VÀO CHỖ TRỐNG — câu ví dụ bị đục phần ngữ pháp (《…》 trong dữ liệu), kèm
  *    nghĩa tiếng Việt; chọn MẪU hợp với chỗ trống. Lựa chọn là tên mẫu chứ không phải
@@ -185,11 +181,12 @@ export function buildN4BlankQuestions(
 function blankQuestion({ example, usage, point }: N4ExampleRef, config: PracticeConfig): PracticeQuestion | null {
   const blank = example.blank;
   // Chỗ trống của câu ở mục so sánh thuộc về một mẫu khác (@id-mẫu): đáp án là mẫu đó.
-  const target = blank ? POINT_BY_ID.get(blank.pointId) : undefined;
+  const index = indexOf(config);
+  const target = blank ? index.pointById.get(blank.pointId) : undefined;
   if (!blank || !target) return null;
 
   const correctAnswer = target.pattern;
-  const choices = shuffle([correctAnswer, ...distractorsOf(target, (item) => item.pattern, 'blank')]);
+  const choices = shuffle([correctAnswer, ...distractorsOf(target, (item) => item.pattern, 'blank', index)]);
 
   const lines: RecapItem[] = [
     recapJp('exercise.n4.filled', blank.filled),
@@ -275,11 +272,31 @@ function quizQuestion({ item, section }: N4QuizRef, config: PracticeConfig): Pra
 
 type MeaningDirection = 'pattern-to-meaning' | 'meaning-to-pattern';
 
-/** Mọi mẫu có ý nghĩa của tài liệu — nguồn đáp án nhiễu, kể cả khi chỉ luyện vài mục. */
-const ALL_MEANING_POINTS: readonly N4PointRef[] = meaningPoints(N4_SECTIONS);
-const POINT_BY_ID: ReadonlyMap<string, N4Point> = new Map(
-  ALL_MEANING_POINTS.map(({ point }) => [point.id, point]),
-);
+/** Một sách ngữ pháp kèm các bảng tra dựng sẵn, tính một lần cho mỗi sách. */
+interface BookIndex {
+  book: GrammarBook;
+  /** Mọi mẫu có ý nghĩa của sách — nguồn đáp án nhiễu, kể cả khi chỉ luyện vài mục. */
+  points: readonly N4PointRef[];
+  pointById: ReadonlyMap<string, N4Point>;
+}
+
+const BOOK_INDEX = new Map<string, BookIndex>();
+
+/**
+ * Sách của một phiên luyện, theo `config.exercise`. Đáp án nhiễu chỉ lấy trong CÙNG
+ * sách: hai nguồn đặt tên mẫu và viết ý nghĩa theo hai kiểu, trộn vào nhau thì nhìn
+ * cách viết là đoán ra đáp án.
+ */
+function indexOf(config: PracticeConfig): BookIndex {
+  const book = grammarBookOf(config.exercise) ?? GRAMMAR_BOOKS[0];
+  let index = BOOK_INDEX.get(book.id);
+  if (!index) {
+    const points = meaningPoints(book.sections);
+    index = { book, points, pointById: new Map(points.map(({ point }) => [point.id, point])) };
+    BOOK_INDEX.set(book.id, index);
+  }
+  return index;
+}
 
 export function buildN4MeaningQuestions(
   pool: readonly N4PointRef[],
@@ -303,7 +320,7 @@ function meaningQuestion(
   const asksMeaning = direction === 'pattern-to-meaning';
   const valueOf = (item: N4Point) => (asksMeaning ? item.meaning : item.pattern);
   const correctAnswer = valueOf(point);
-  const choices = shuffle([correctAnswer, ...distractorsOf(point, valueOf, 'meaning')]);
+  const choices = shuffle([correctAnswer, ...distractorsOf(point, valueOf, 'meaning', indexOf(config))]);
 
   const lines: RecapItem[] = [
     recapJp('grammar.recap.pattern', point.pattern),
@@ -344,21 +361,22 @@ function meaningQuestion(
  *
  * Câu điền chỗ trống (`blank`) cấm thêm hai thứ, vì ở đó mẫu được đặt vào MỘT câu cụ thể
  * và mẫu nhiễu mà cũng vừa câu đó là câu hỏi hai đáp án đúng: mẫu cùng nhóm thay được
- * cho nhau (`N4_INTERCHANGEABLE_GROUPS`), và mẫu có thể trùng hình thức (`N4_SAME_FORM`).
+ * cho nhau (`interchangeableGroups`), và mẫu có thể trùng hình thức (`sameForm`).
  */
 function distractorsOf(
   point: N4Point,
   valueOf: (item: N4Point) => string,
   kind: 'meaning' | 'blank',
+  { book, points }: BookIndex,
 ): string[] {
-  const banned = new Set([point.id, ...relatedOf(N4_SYNONYMS, point.id)]);
+  const banned = new Set([point.id, ...relatedOf(book.synonyms, point.id)]);
   let sameGroupAllowed = true;
   if (kind === 'blank') {
-    relatedOf(N4_SAME_FORM, point.id).forEach((id) => banned.add(id));
-    sameGroupAllowed = !N4_INTERCHANGEABLE_GROUPS.includes(point.group);
+    relatedOf(book.sameForm, point.id).forEach((id) => banned.add(id));
+    sameGroupAllowed = !book.interchangeableGroups.includes(point.group);
   }
 
-  const candidates = ALL_MEANING_POINTS.map((ref) => ref.point).filter(
+  const candidates = points.map((ref) => ref.point).filter(
     (item) => !banned.has(item.id) && (sameGroupAllowed || !point.group || item.group !== point.group),
   );
   const sameGroup =
@@ -379,7 +397,7 @@ function distractorsOf(
   return picked;
 }
 
-/** Các id cùng nhóm với `id` trong một danh sách nhóm (`N4_SYNONYMS`, `N4_SAME_FORM`). */
+/** Các id cùng nhóm với `id` trong một danh sách nhóm (`synonyms`, `sameForm`). */
 function relatedOf(groups: readonly (readonly string[])[], id: string): string[] {
   return groups.filter((group) => group.includes(id)).flat();
 }
@@ -441,7 +459,7 @@ export function buildN4PathQuestions(pools: N4Pools, config: PracticeConfig): Pr
     review: { key: reviewKey(type, question.subject.id), source: config.lessonId },
   });
 
-  return N4_SECTIONS.flatMap((section) => {
+  return indexOf(config).book.sections.flatMap((section) => {
     const inSection = <T extends { section: { id: string } }>(items: readonly T[]) =>
       items.filter((item) => item.section.id === section.id);
     const points = inSection(pools.points);

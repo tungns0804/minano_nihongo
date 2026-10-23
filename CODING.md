@@ -1,7 +1,7 @@
 # Quy ước viết code
 
 Tài liệu này nói **viết một tính năng mới thì đặt code ở đâu và dùng lại cái gì**.
-Nó không kể lại kiến trúc — phần đó ở [README.md](README.md).
+Nó không kể lại kiến trúc — phần đó ở [README.md](README.md) và [docs/ky-thuat.md](docs/ky-thuat.md).
 
 Đọc trước khi thêm một khu mới (một tab, một màn hình chi tiết, một kiểu luyện
 tập). Mọi mục dưới đây đều rút ra từ một chỗ đã bị chép nhầm ít nhất một lần.
@@ -55,6 +55,26 @@ export class MyScreen extends PracticeScreen {
   readonly favoriteCount = computed(() => this.favoritesOf(this.myItems()).length);
 }
 ```
+
+Khung trong template là `<app-practice-setup>` (`shared/practice-setup.ts`), chia ba vùng:
+
+```html
+<app-practice-setup>
+  <h2>{{ t('lesson.setup') }}</h2>
+  <div class="field">…phạm vi, chiều hỏi, dạng bài — chọn HỌC GÌ, luôn hiện…</div>
+
+  <ng-container ngProjectAs="[setupAdvanced]">
+    <div class="field">…cách trả lời, số câu, tuỳ chọn — chỉnh HỌC THẾ NÀO, gập lại…</div>
+  </ng-container>
+
+  <ng-container ngProjectAs="[setupActions]">
+    <div class="start-bar">…dòng tóm tắt + nút Bắt đầu…</div>
+  </ng-container>
+</app-practice-setup>
+```
+
+Dòng tóm tắt phải nói đủ những gì đang gập — người học không mở "Tuỳ chỉnh thêm" vẫn
+phải biết mình sắp luyện bao nhiêu câu, trả lời kiểu gì.
 
 Lớp cha đã có sẵn, **không khai lại**:
 

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import {
   DEFAULT_MODE,
-  ExerciseId,
   ExerciseMode,
   N4_EXTRA_MODES,
   N4_PATH_MODE,
@@ -12,7 +12,7 @@ import {
   isTranslationMode,
   modeQuestionsPerItem,
 } from '../../core/exercises/exercise.model';
-import { N4_SECTIONS } from '../../core/exercises/n4-grammar';
+import { GRAMMAR_BOOKS, grammarBookOf } from '../../core/exercises/grammar-books';
 import {
   N4ExampleRef,
   N4Section,
@@ -53,23 +53,22 @@ import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { PracticeSetup } from '../../shared/practice-setup';
 
-const EXERCISE_ID: ExerciseId = 'ngu-phap-n4';
-
 /**
  * Lộ trình dài hơn bấy nhiêu câu mà không chọn số câu thì nhắc chia chặng: một mục
  * trung bình ra khoảng hai mươi câu qua năm bậc, cả tài liệu là hơn một nghìn.
  */
 const PATH_COMFORTABLE_LENGTH = 60;
 
-/** Mọi thứ đem ra luyện được, theo từng bậc — dữ liệu tĩnh, tính một lần. */
-const ALL_POOLS: N4Pools = {
-  points: meaningPoints(N4_SECTIONS),
-  blanks: blankExamples(N4_SECTIONS),
-  quiz: quizItems(N4_SECTIONS),
-  orders: orderExamples(N4_SECTIONS),
-  examples: flattenN4Examples(N4_SECTIONS),
-};
-const ALL_SECTION_IDS: readonly string[] = N4_SECTIONS.map((section) => section.id);
+/** Mọi thứ đem ra luyện được của một sách, theo từng bậc — dữ liệu tĩnh, tính một lần. */
+function poolsOf(sections: readonly N4Section[]): N4Pools {
+  return {
+    points: meaningPoints(sections),
+    blanks: blankExamples(sections),
+    quiz: quizItems(sections),
+    orders: orderExamples(sections),
+    examples: flattenN4Examples(sections),
+  };
+}
 
 /**
  * Số MỤC (câu, hay mẫu) một dạng luyện hỏi trên một bộ pool — đơn vị của dòng "Toàn
@@ -155,7 +154,7 @@ function haystackOf(section: N4Section): string {
  * kèm furigana, dựng ngay từ đầu thì trang mở chậm hẳn trên điện thoại. Danh sách mục
  * lúc đóng cũng chính là mục lục của tài liệu.
  *
- * ★ lưu chung một danh sách (`EXERCISE_ID`) cho câu ví dụ, mẫu và câu của "Bài luyện
+ * ★ lưu chung một danh sách (id của sách, `book.id`) cho câu ví dụ, mẫu và câu của "Bài luyện
  * tập": dạng luyện câu đếm ★ trên câu, dạng luyện ý nghĩa đếm ★ trên mẫu, lộ trình đếm
  * cả hai. Id của các loại không bao giờ trùng nhau — `npm run verify:n4` kiểm điều đó.
  */
@@ -169,16 +168,24 @@ function haystackOf(section: N4Section): string {
 export class N4Grammar extends PracticeScreen {
   private readonly reviews = inject(ReviewStore);
 
-  readonly sections = N4_SECTIONS;
+  /**
+   * Sách đang mở, theo `data.book` của route (xem app.routes.ts). Một màn hình cho mọi
+   * sách ngữ pháp: tài liệu tổng hợp N4, bộ vnjpclub… — xem `grammar-books.ts`.
+   */
+  readonly book = grammarBookOf(inject(ActivatedRoute).snapshot.data['book']) ?? GRAMMAR_BOOKS[0];
+  private readonly allPools = poolsOf(this.book.sections);
+  private readonly allSectionIds: readonly string[] = this.book.sections.map((section) => section.id);
+
+  readonly sections = this.book.sections;
   readonly pathMode = N4_PATH_MODE;
   readonly stepModes = N4_STEP_MODES;
   readonly extraModes = N4_EXTRA_MODES;
-  readonly exampleTotal = ALL_POOLS.examples.length;
-  readonly pointTotal = ALL_POOLS.points.length;
+  readonly exampleTotal = this.allPools.examples.length;
+  readonly pointTotal = this.allPools.points.length;
   readonly circled = circled;
 
   protected favoriteSessionId(): string {
-    return EXERCISE_ID;
+    return this.book.id;
   }
 
   // ── Phần lý thuyết ──────────────────────────────────────────────────────
@@ -187,14 +194,14 @@ export class N4Grammar extends PracticeScreen {
   private readonly openIds = signal<ReadonlySet<string>>(new Set());
   readonly showFurigana = signal(true);
 
-  private readonly haystacks = new Map(N4_SECTIONS.map((section) => [section.id, haystackOf(section)]));
+  private readonly haystacks = new Map(this.sections.map((section) => [section.id, haystackOf(section)]));
 
   private readonly needle = computed(() => normalizeSearch(this.search()));
 
   readonly visibleSections = computed<readonly N4Section[]>(() => {
     const words = this.needle().split(' ').filter(Boolean);
-    if (words.length === 0) return N4_SECTIONS;
-    return N4_SECTIONS.filter((section) => {
+    if (words.length === 0) return this.sections;
+    return this.sections.filter((section) => {
       const haystack = this.haystacks.get(section.id) ?? '';
       return words.every((word) => haystack.includes(word));
     });
@@ -258,9 +265,9 @@ export class N4Grammar extends PracticeScreen {
   private readonly progress = computed(() => {
     const seen = (key: string) => this.reviews.cardOf(key) !== null;
     return new Map(
-      N4_SECTIONS.map((section) => {
-        const points = ALL_POOLS.points.filter((ref) => ref.section === section);
-        const examples = ALL_POOLS.examples.filter((ref) => ref.section === section);
+      this.sections.map((section) => {
+        const points = this.allPools.points.filter((ref) => ref.section === section);
+        const examples = this.allPools.examples.filter((ref) => ref.section === section);
         const done =
           points.filter((ref) => seen(reviewKey('nm', ref.point.id))).length +
           examples.filter((ref) => seen(reviewKey('ne', ref.example.id))).length;
@@ -275,9 +282,9 @@ export class N4Grammar extends PracticeScreen {
 
   // ── Thiết lập luyện tập ─────────────────────────────────────────────────
 
-  readonly mode = signal<ExerciseMode>(DEFAULT_MODE[EXERCISE_ID]);
+  readonly mode = signal<ExerciseMode>(DEFAULT_MODE[this.book.id]);
   /** Các mục đem ra luyện. Mặc định chọn hết. */
-  readonly selectedIds = signal<ReadonlySet<string>>(new Set(ALL_SECTION_IDS));
+  readonly selectedIds = signal<ReadonlySet<string>>(new Set(this.allSectionIds));
 
   readonly isPath = computed(() => this.mode() === 'grammar-path');
   readonly currentMode = computed(() => exerciseModeInfo(this.mode()));
@@ -302,11 +309,11 @@ export class N4Grammar extends PracticeScreen {
   private readonly selectedPools = computed<N4Pools>(() => {
     const ids = this.selectedIds();
     return {
-      points: inSections(ALL_POOLS.points, ids),
-      blanks: inSections(ALL_POOLS.blanks, ids),
-      quiz: inSections(ALL_POOLS.quiz, ids),
-      orders: inSections(ALL_POOLS.orders, ids),
-      examples: inSections(ALL_POOLS.examples, ids),
+      points: inSections(this.allPools.points, ids),
+      blanks: inSections(this.allPools.blanks, ids),
+      quiz: inSections(this.allPools.quiz, ids),
+      orders: inSections(this.allPools.orders, ids),
+      examples: inSections(this.allPools.examples, ids),
     };
   });
 
@@ -356,9 +363,9 @@ export class N4Grammar extends PracticeScreen {
   readonly favoriteTotal = computed(() => {
     const ids = this.favoriteIds();
     return (
-      ALL_POOLS.examples.filter((ref) => ids.has(ref.example.id)).length +
-      ALL_POOLS.points.filter((ref) => ids.has(ref.point.id)).length +
-      ALL_POOLS.quiz.filter((ref) => ids.has(ref.item.id)).length
+      this.allPools.examples.filter((ref) => ids.has(ref.example.id)).length +
+      this.allPools.points.filter((ref) => ids.has(ref.point.id)).length +
+      this.allPools.quiz.filter((ref) => ids.has(ref.item.id)).length
     );
   });
 
@@ -414,8 +421,8 @@ export class N4Grammar extends PracticeScreen {
     // với câu là một bài khó hơn hẳn, nên để thành lựa chọn người học tự tắt.
     this.showHint.set(true);
     this.rememberRecent({
-      title: this.t('exercise.n4grammar.name'),
-      titleKey: 'exercise.n4grammar.name',
+      title: this.t(this.book.nameKey),
+      titleKey: this.book.nameKey,
       kindKey: 'kind.grammar',
     });
   }
@@ -439,7 +446,7 @@ export class N4Grammar extends PracticeScreen {
   }
 
   selectAllSections(): void {
-    this.selectSections(new Set(ALL_SECTION_IDS));
+    this.selectSections(new Set(this.allSectionIds));
   }
 
   clearSections(): void {
@@ -474,9 +481,9 @@ export class N4Grammar extends PracticeScreen {
     const path = mode === 'grammar-path';
     const limit = this.questionLimit();
     const config = practiceConfig({
-      lessonId: EXERCISE_ID,
+      lessonId: this.book.id,
       lessonKind: 'exercise',
-      exercise: EXERCISE_ID,
+      exercise: this.book.id,
       exerciseMode: mode,
       scope: this.scope(),
       questionLimit: limit,
@@ -492,7 +499,7 @@ export class N4Grammar extends PracticeScreen {
     });
 
     this.launch(
-      { id: EXERCISE_ID, name: this.lang.t('exercise.n4grammar.name') },
+      { id: this.book.id, name: this.lang.t(this.book.nameKey) },
       config,
       orderQuestions(this.buildQuestions(config), config),
     );

@@ -7,10 +7,9 @@ import {
   ExerciseId,
   ExerciseInfo,
   ExerciseLevel,
+  isGrammarBookId,
 } from '../../core/exercises/exercise.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
-import { N4_SECTIONS } from '../../core/exercises/n4-grammar';
-import { meaningPoints } from '../../core/exercises/n4-grammar.model';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
@@ -114,9 +113,9 @@ export class ExerciseList extends LessonBrowser {
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
     const counts = this.favoriteStore.counts();
-    // Bài "Luyện tập ngữ pháp N4" là nội dung ngữ pháp: nó nằm ở nhóm Ngữ pháp, tab
-    // "Tổng hợp N4" (core/navigation.ts), không lặp lại ở đây.
-    return EXERCISES.filter((info) => info.id !== 'ngu-phap-n4').map((info) => ({
+    // Các "sách ngữ pháp" (core/exercises/grammar-books.ts) là nội dung ngữ pháp: chúng nằm ở
+    // nhóm Ngữ pháp (core/navigation.ts), không lặp lại ở đây.
+    return EXERCISES.filter((info) => !isGrammarBookId(info.id)).map((info) => ({
       ...info,
       itemCount: itemCountOf(info.id),
       levelRange:
@@ -261,8 +260,9 @@ function itemCountOf(id: ExerciseId): number {
       return TRANSITIVITY_PAIRS.length;
     case 'chuyen-the-dong-tu':
       return EXERCISE_VERBS.length;
+    // Sách ngữ pháp không có thẻ ở trang này (xem `allExercises`).
     case 'ngu-phap-n4':
-      return meaningPoints(N4_SECTIONS).length;
+      return 0;
   }
 }
 

@@ -12,7 +12,7 @@
 
 import type { PracticeConfig, QuestionStatus } from '../practice/practice.model';
 import type { DayNumber } from '../n3/n3.model';
-import { isMeaningMode, isTranslationMode } from '../exercises/exercise.model';
+import { isGrammarBookId, isMeaningMode, isTranslationMode } from '../exercises/exercise.model';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 
 // ── Khu và loại mục ──────────────────────────────────────────────────────
@@ -123,7 +123,7 @@ function itemTypeOf(
       // lần là đẩy thẻ dịch câu lên nấc, dù người học chưa tự viết nổi câu đó. Lộ trình
       // (`grammar-path`) trộn cả năm bậc nên tự gắn khoá cho từng câu khi dựng (xem
       // `n4-grammar-questions.ts`); tới đây là câu của hai bậc giữa, không vào lịch.
-      if (config.exercise === 'ngu-phap-n4') {
+      if (isGrammarBookId(config.exercise)) {
         if (isMeaningMode(config.exerciseMode)) return 'nm';
         return isTranslationMode(config.exerciseMode) ? 'ne' : null;
       }

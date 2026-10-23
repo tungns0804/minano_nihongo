@@ -111,9 +111,12 @@ export const routes: Routes = [
   // Bài "Luyện tập ngữ pháp N4" nằm cùng khu nhưng có màn hình riêng: nội dung là trang
   // lý thuyết dài kèm câu ví dụ, không phải bảng động từ như hai bài tập kia. Khai TRƯỚC
   // `exercise/:id` vì router lấy đường dẫn khớp đầu tiên theo thứ tự khai.
+  // Mỗi "sách ngữ pháp" (core/exercises/grammar-books.ts) là một route dùng chung màn
+  // hình này; `data.book` chọn sách.
   {
     path: 'exercise/ngu-phap-n4',
     title: 'route.n4grammar',
+    data: { book: 'ngu-phap-n4' },
     loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
   },
   {

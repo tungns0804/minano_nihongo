@@ -42,3 +42,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Trang tải về bởi scripts/import-vnjpclub.mjs --fetch; chỉ file .generated.ts sinh ra mới commit.
+/.cache

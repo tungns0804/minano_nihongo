@@ -2,8 +2,8 @@
   <div class="stack stack-xl">
     <!-- ── Tiêu đề ───────────────────────────────────────────────────────── -->
     <header class="stack stack-sm">
-      <h1><app-t key="exercise.n4grammar.name" /></h1>
-      <p class="muted"><app-t key="exercise.n4.subtitle" block /></p>
+      <h1><app-t [key]="book.nameKey" /></h1>
+      <p class="muted"><app-t [key]="book.subtitleKey" block /></p>
       <div class="row">
         <span class="badge">{{ t('exercise.n4.sectionCount', { count: sections.length }) }}</span>
         <span class="badge">{{ t('exercise.patternCount', { count: pointTotal }) }}</span>
@@ -105,6 +105,12 @@
               <div class="card-body stack n4-body">
                 @for (paragraph of section.intro; track $index) {
                   <p class="explain">{{ paragraph }}</p>
+                }
+                <!-- Mục chỉ tóm lược một trang web: dẫn về trang gốc để đọc giải thích đầy đủ. -->
+                @if (section.source) {
+                  <p class="small">
+                    <a [href]="section.source" target="_blank" rel="noopener">{{ t('exercise.n4.source') }}</a>
+                  </p>
                 }
 
                 @for (point of section.points; track point.id) {

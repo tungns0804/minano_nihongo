@@ -25,7 +25,19 @@ import type { VerbGroup } from '../japanese/conjugation';
  *  - khoá lưu danh sách ★ "chưa nhớ" (giống id bài học)
  * nên KHÔNG đổi tuỳ tiện: đổi là mất hết ★ của bài tập đó.
  */
-export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | 'ngu-phap-n4';
+export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | GrammarBookId;
+
+/**
+ * Id các "sách ngữ pháp" (`grammar-books.ts`) — khai ở đây chứ không ở file đó để những
+ * chỗ chỉ cần hỏi "đây có phải bài ngữ pháp không" (lịch ôn, nạp lúc khởi động) không
+ * phải kéo theo toàn bộ dữ liệu ngữ pháp vào bundle.
+ */
+export const GRAMMAR_BOOK_IDS = ['ngu-phap-n4'] as const;
+export type GrammarBookId = (typeof GRAMMAR_BOOK_IDS)[number];
+
+export function isGrammarBookId(id: string | null | undefined): id is GrammarBookId {
+  return (GRAMMAR_BOOK_IDS as readonly (string | null | undefined)[]).includes(id);
+}
 
 /**
  * Cấp độ JLPT của một mục trong bài tập.

@@ -146,6 +146,11 @@ export interface N4Section {
   points: N4Point[];
   /** "Bài luyện tập" kèm đáp án của tài liệu; chỉ một mục có. */
   quiz: N4Quiz | null;
+  /**
+   * Trang gốc khi mục chỉ là phần tóm lược của một trang web (bộ vnjpclub): màn hình
+   * hiện link "xem giải thích đầy đủ". Rỗng với tài liệu chép đủ.
+   */
+  source: string;
 }
 
 /** Một câu ví dụ kèm đường dẫn ngược lên mẫu và mục chứa nó. */

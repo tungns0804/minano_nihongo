@@ -1,6 +1,6 @@
 import type { ExerciseMode } from '../exercises/exercise.model';
 import { EXERCISE_VERBS } from '../exercises/exercise-verbs';
-import { N4_SECTIONS } from '../exercises/n4-grammar';
+import { GRAMMAR_BOOKS } from '../exercises/grammar-books';
 import { flattenN4Examples, meaningPoints } from '../exercises/n4-grammar.model';
 import { TRANSITIVITY_PAIRS } from '../exercises/transitive-pairs';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
@@ -197,15 +197,17 @@ function buildOne(
     }
 
     case 'ne': {
-      const example = flattenN4Examples(N4_SECTIONS).find((item) => item.example.id === id);
-      if (!example) return null;
+      // Khoá thẻ không ghi sách: tìm trong mọi sách, câu thuộc sách nào thì hỏi như sách đó.
+      const found = findInBooks((book) => flattenN4Examples(book.sections).find((item) => item.example.id === id));
+      if (!found) return null;
+      const [example, book] = found;
       // Luôn hiện mẫu ngữ pháp làm gợi ý, như mặc định của chính bài tập.
       return (
         buildN4ExampleQuestions(
           [example],
           configOf({
             lessonKind: 'exercise',
-            exercise: 'ngu-phap-n4',
+            exercise: book.id,
             exerciseMode: toJapanese ? 'example-vi-jp' : 'example-jp-vi',
             showGrammarHint: true,
           }),
@@ -214,8 +216,9 @@ function buildOne(
     }
 
     case 'nm': {
-      const point = meaningPoints(N4_SECTIONS).find((item) => item.point.id === id);
-      if (!point) return null;
+      const found = findInBooks((book) => meaningPoints(book.sections).find((item) => item.point.id === id));
+      if (!found) return null;
+      const [point, book] = found;
       // Luôn trắc nghiệm, kể cả khi người học chọn "gõ": ý nghĩa là một câu mô tả dài,
       // gõ lại cho khớp từng chữ thì không còn là nhớ ngữ pháp.
       return (
@@ -223,7 +226,7 @@ function buildOne(
           [point],
           configOf({
             lessonKind: 'exercise',
-            exercise: 'ngu-phap-n4',
+            exercise: book.id,
             exerciseMode: toJapanese ? 'meaning-to-pattern' : 'pattern-to-meaning',
             answerMode: 'choice',
           }),
@@ -231,4 +234,15 @@ function buildOne(
       );
     }
   }
+}
+
+/** Mục đầu tiên tìm thấy qua các sách ngữ pháp, kèm sách chứa nó. */
+function findInBooks<T>(
+  find: (book: (typeof GRAMMAR_BOOKS)[number]) => T | undefined,
+): [T, (typeof GRAMMAR_BOOKS)[number]] | null {
+  for (const book of GRAMMAR_BOOKS) {
+    const item = find(book);
+    if (item) return [item, book];
+  }
+  return null;
 }

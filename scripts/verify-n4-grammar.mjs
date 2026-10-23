@@ -28,9 +28,7 @@ const EXERCISES = join(ROOT, 'src', 'app', 'core', 'exercises');
 // n4-grammar.ts import "../lessons/vocabulary-parser" không kèm đuôi file.
 resolveTsImports();
 
-const { N4_INTERCHANGEABLE_GROUPS, N4_SAME_FORM, N4_SECTIONS, N4_SYNONYMS } = await import(
-  pathToFileURL(join(EXERCISES, 'n4-grammar.ts'))
-);
+const { GRAMMAR_BOOKS } = await import(pathToFileURL(join(EXERCISES, 'grammar-books.ts')));
 const { BLANK_MARK, blankExamples, flattenN4Examples, meaningPoints, orderExamples } = await import(
   pathToFileURL(join(EXERCISES, 'n4-grammar.model.ts'))
 );
@@ -90,191 +88,216 @@ function checkVietnamese(where, source) {
 
 // ── Mục và mẫu ───────────────────────────────────────────────────────────
 
-const sectionIds = new Set();
-const pointIds = new Set();
-const quizIds = new Set();
-const exampleTexts = new Map();
-let exampleCount = 0;
+/**
+ * Id mẫu và id mục phải duy nhất trên MỌI sách: khoá lịch ôn (`nm:<id mẫu>`) không ghi
+ * sách nào, tìm lại thẻ là tìm qua tất cả các sách.
+ */
+const globalPointIds = new Map();
 
-for (const section of N4_SECTIONS) {
-  const at = `[${section.number}. ${section.id}]`;
-  if (sectionIds.has(section.id)) fail(at, 'trùng id mục');
-  sectionIds.add(section.id);
-  if (section.points.length === 0) fail(at, 'mục không có mẫu nào');
+function verifyBook(book) {
+  const sectionIds = new Set();
+  const pointIds = new Set();
+  const quizIds = new Set();
+  const exampleTexts = new Map();
+  let exampleCount = 0;
 
-  for (const point of section.points) {
-    const where = `${at} ${point.id}`;
-    if (pointIds.has(point.id)) fail(where, 'trùng id mẫu');
-    pointIds.add(point.id);
-    if (!point.pattern.trim()) fail(where, 'thiếu tên mẫu');
+  for (const section of book.sections) {
+    const at = `[${section.number}. ${section.id}]`;
+    if (sectionIds.has(section.id)) fail(at, 'trùng id mục');
+    sectionIds.add(section.id);
+    if (section.points.length === 0) fail(at, 'mục không có mẫu nào');
 
-    for (const table of point.tables) {
-      table.rows.forEach((row, index) => {
-        if (table.headers.length > 0 && row.length !== table.headers.length) {
-          fail(where, `bảng "${table.caption}" dòng ${index + 1} có ${row.length} ô, tiêu đề có ${table.headers.length}`);
+    for (const point of section.points) {
+      const where = `${at} ${point.id}`;
+      if (pointIds.has(point.id)) fail(where, 'trùng id mẫu');
+      pointIds.add(point.id);
+      if (!point.pattern.trim()) fail(where, 'thiếu tên mẫu');
+
+      for (const table of point.tables) {
+        table.rows.forEach((row, index) => {
+          if (table.headers.length > 0 && row.length !== table.headers.length) {
+            fail(where, `bảng "${table.caption}" dòng ${index + 1} có ${row.length} ô, tiêu đề có ${table.headers.length}`);
+          }
+          row.forEach((cell) => checkMarkup(`${where} bảng "${table.caption}"`, cell));
+        });
+      }
+
+      for (const wrong of point.wrong) checkJapanese(`${where} câu sai`, wrong.japanese);
+
+      for (const usage of point.usages) {
+        if (usage.examples.length === 0) fail(where, `nhóm "${usage.title}" không có câu nào`);
+        for (const example of usage.examples) {
+          exampleCount++;
+          const ex = `${where} "${plainText(example.japanese)}"`;
+          checkJapanese(ex, example.japanese);
+          checkVietnamese(ex, example.vietnamese);
+          example.japaneseAlt.forEach((alt) => checkJapanese(`${ex} cách nói khác`, alt));
+          example.vietnameseAlt.forEach((alt) => checkVietnamese(`${ex} cách dịch khác`, alt));
+
+          // Cùng id thì phải đúng là cùng một câu (phần so sánh của tài liệu nhắc lại
+          // câu cũ) — khác câu mà trùng id là va chạm mã băm, ★ của câu này sẽ sáng
+          // theo câu kia.
+          const text = plainText(example.japanese);
+          const seen = exampleTexts.get(example.id);
+          if (seen !== undefined && seen !== text) fail(ex, `trùng id với câu khác: ${seen}`);
+          exampleTexts.set(example.id, text);
         }
-        row.forEach((cell) => checkMarkup(`${where} bảng "${table.caption}"`, cell));
-      });
-    }
-
-    for (const wrong of point.wrong) checkJapanese(`${where} câu sai`, wrong.japanese);
-
-    for (const usage of point.usages) {
-      if (usage.examples.length === 0) fail(where, `nhóm "${usage.title}" không có câu nào`);
-      for (const example of usage.examples) {
-        exampleCount++;
-        const ex = `${where} "${plainText(example.japanese)}"`;
-        checkJapanese(ex, example.japanese);
-        checkVietnamese(ex, example.vietnamese);
-        example.japaneseAlt.forEach((alt) => checkJapanese(`${ex} cách nói khác`, alt));
-        example.vietnameseAlt.forEach((alt) => checkVietnamese(`${ex} cách dịch khác`, alt));
-
-        // Cùng id thì phải đúng là cùng một câu (phần so sánh của tài liệu nhắc lại
-        // câu cũ) — khác câu mà trùng id là va chạm mã băm, ★ của câu này sẽ sáng
-        // theo câu kia.
-        const text = plainText(example.japanese);
-        const seen = exampleTexts.get(example.id);
-        if (seen !== undefined && seen !== text) fail(ex, `trùng id với câu khác: ${seen}`);
-        exampleTexts.set(example.id, text);
       }
     }
-  }
 
-  if (section.quiz) {
-    for (const item of section.quiz.items) {
-      checkJapanese(`${at} bài luyện tập`, item.prompt);
-      item.options.forEach((option) => checkMarkup(`${at} bài luyện tập`, option));
-      if (item.options.length < 2) fail(at, `câu luyện tập có dưới 2 lựa chọn: ${item.prompt}`);
-      // Câu này được đem ra luyện như trắc nghiệm: đáp án phải là một trong các lựa chọn.
-      const answers = item.answer.split('/').map((answer) => answer.trim());
-      if (!item.options.some((option) => answers.includes(plainText(option)))) {
-        fail(at, `đáp án "${item.answer}" không khớp lựa chọn nào: ${item.prompt}`);
-      }
-      if (quizIds.has(item.id)) fail(at, `trùng id câu luyện tập: ${item.prompt}`);
-      quizIds.add(item.id);
-    }
-  }
-}
-
-// ★ của bài tập lưu chung một danh sách cho mẫu, câu ví dụ và câu luyện tập.
-for (const id of pointIds) {
-  if (exampleTexts.has(id)) fail(`[${id}]`, 'id mẫu trùng id một câu ví dụ — ★ của hai thứ sẽ lẫn vào nhau');
-  if (quizIds.has(id)) fail(`[${id}]`, 'id mẫu trùng id một câu luyện tập');
-}
-for (const id of quizIds) {
-  if (exampleTexts.has(id)) fail(`[${id}]`, 'id câu luyện tập trùng id một câu ví dụ');
-}
-
-// ── Phần luyện ý nghĩa ───────────────────────────────────────────────────
-
-const meanings = meaningPoints(N4_SECTIONS);
-const byMeaning = new Map();
-const byPattern = new Map();
-for (const { point } of meanings) {
-  const meaningKey = point.meaning.trim().toLowerCase();
-  if (byMeaning.has(meaningKey)) fail(`[${point.id}]`, `trùng ý nghĩa với ${byMeaning.get(meaningKey)}`);
-  byMeaning.set(meaningKey, point.id);
-  if (byPattern.has(point.pattern)) fail(`[${point.id}]`, `trùng tên mẫu với ${byPattern.get(point.pattern)}`);
-  byPattern.set(point.pattern, point.id);
-}
-
-const meaningIds = new Set(meanings.map(({ point }) => point.id));
-for (const group of N4_SYNONYMS) {
-  for (const id of group) {
-    if (!meaningIds.has(id)) fail('[N4_SYNONYMS]', `"${id}" không phải một mẫu có ý nghĩa để luyện`);
-  }
-}
-
-const groups = new Map();
-for (const { point } of meanings) {
-  if (point.group) groups.set(point.group, (groups.get(point.group) ?? 0) + 1);
-}
-for (const [group, count] of groups) {
-  if (count < 2) fail(`[nhóm ${group}]`, 'chỉ có một mẫu — nhóm dễ nhầm phải có ít nhất hai');
-}
-if (meanings.length < CHOICE_COUNT) fail('[ý nghĩa]', `chỉ có ${meanings.length} mẫu, không đủ ${CHOICE_COUNT} lựa chọn`);
-
-for (const group of N4_INTERCHANGEABLE_GROUPS) {
-  if (!groups.has(group)) fail('[N4_INTERCHANGEABLE_GROUPS]', `"${group}" không phải nhóm dễ nhầm nào`);
-}
-for (const group of N4_SAME_FORM) {
-  for (const id of group) {
-    if (!meaningIds.has(id)) fail('[N4_SAME_FORM]', `"${id}" không phải một mẫu có ý nghĩa để luyện`);
-  }
-}
-
-// ── Bậc 3: điền vào chỗ trống ────────────────────────────────────────────
-
-const blanks = blankExamples(N4_SECTIONS);
-const blankTargets = new Set();
-for (const { example, point } of flattenN4Examples(N4_SECTIONS)) {
-  const ex = `[${point.id}] "${plainText(example.japanese)}"`;
-  const blank = example.blank;
-  if (!blank) {
-    fail(ex, 'câu ví dụ chưa đánh dấu phần ngữ pháp bằng 《…》 — bài "Điền vào chỗ trống" sẽ thiếu câu này');
-    continue;
-  }
-  if (!meaningIds.has(blank.pointId)) {
-    fail(ex, `chỗ trống trỏ về "${blank.pointId}" — không phải mẫu có ý nghĩa (câu ở mục so sánh thì ghi 《…@id-mẫu》)`);
-  }
-  blankTargets.add(blank.pointId);
-  if (!blank.filled.trim()) fail(ex, 'chỗ trống 《》 rỗng');
-  if (!blank.prompt.includes(BLANK_MARK)) fail(ex, 'câu đục lỗ không có ô trống');
-  checkMarkup(`${ex} câu đục lỗ`, blank.prompt);
-  if (/[《》@]/.test(blank.prompt) || /[《》@]/.test(example.japanese)) {
-    fail(ex, 'dấu 《》 / @ lọt vào câu — viết sai cú pháp chỗ trống');
-  }
-}
-
-// Câu nhắc lại ở phần so sánh có cùng id với câu gốc: chỗ trống của hai bản phải giống
-// nhau, không thì câu được luyện tuỳ vào bản nào đứng trước trong tài liệu.
-const blankById = new Map();
-for (const section of N4_SECTIONS) {
-  for (const point of section.points) {
-    for (const usage of point.usages) {
-      if (usage.reference) continue;
-      for (const example of usage.examples) {
-        const key = example.blank ? `${example.blank.pointId}|${example.blank.prompt}` : '';
-        const seen = blankById.get(example.id);
-        if (seen !== undefined && seen !== key) {
-          fail(`[${point.id}] "${plainText(example.japanese)}"`, 'hai bản của cùng một câu đánh dấu chỗ trống khác nhau');
+    if (section.quiz) {
+      for (const item of section.quiz.items) {
+        checkJapanese(`${at} bài luyện tập`, item.prompt);
+        item.options.forEach((option) => checkMarkup(`${at} bài luyện tập`, option));
+        if (item.options.length < 2) fail(at, `câu luyện tập có dưới 2 lựa chọn: ${item.prompt}`);
+        // Câu này được đem ra luyện như trắc nghiệm: đáp án phải là một trong các lựa chọn.
+        const answers = item.answer.split('/').map((answer) => answer.trim());
+        if (!item.options.some((option) => answers.includes(plainText(option)))) {
+          fail(at, `đáp án "${item.answer}" không khớp lựa chọn nào: ${item.prompt}`);
         }
-        blankById.set(example.id, key);
+        if (quizIds.has(item.id)) fail(at, `trùng id câu luyện tập: ${item.prompt}`);
+        quizIds.add(item.id);
       }
     }
   }
+
+  // ★ của bài tập lưu chung một danh sách cho mẫu, câu ví dụ và câu luyện tập.
+  for (const id of pointIds) {
+    if (exampleTexts.has(id)) fail(`[${id}]`, 'id mẫu trùng id một câu ví dụ — ★ của hai thứ sẽ lẫn vào nhau');
+    if (quizIds.has(id)) fail(`[${id}]`, 'id mẫu trùng id một câu luyện tập');
+  }
+  for (const id of quizIds) {
+    if (exampleTexts.has(id)) fail(`[${id}]`, 'id câu luyện tập trùng id một câu ví dụ');
+  }
+
+  // ── Phần luyện ý nghĩa ───────────────────────────────────────────────────
+
+  const meanings = meaningPoints(book.sections);
+  const byMeaning = new Map();
+  const byPattern = new Map();
+  for (const { point } of meanings) {
+    const meaningKey = point.meaning.trim().toLowerCase();
+    // Hai mẫu cùng một ý nghĩa chỉ được phép khi đã khai là đồng nghĩa: khi đó chúng
+    // không bao giờ làm đáp án nhiễu cho nhau, nên câu hỏi vẫn chỉ có một đáp án đúng.
+    const twin = byMeaning.get(meaningKey);
+    if (twin !== undefined && !book.synonyms.some((group) => group.includes(twin) && group.includes(point.id))) {
+      fail(`[${point.id}]`, `trùng ý nghĩa với ${twin}`);
+    }
+    byMeaning.set(meaningKey, point.id);
+    if (byPattern.has(point.pattern)) fail(`[${point.id}]`, `trùng tên mẫu với ${byPattern.get(point.pattern)}`);
+    byPattern.set(point.pattern, point.id);
+  }
+
+  const meaningIds = new Set(meanings.map(({ point }) => point.id));
+  for (const group of book.synonyms) {
+    for (const id of group) {
+      if (!meaningIds.has(id)) fail('[book.synonyms]', `"${id}" không phải một mẫu có ý nghĩa để luyện`);
+    }
+  }
+
+  const groups = new Map();
+  for (const { point } of meanings) {
+    if (point.group) groups.set(point.group, (groups.get(point.group) ?? 0) + 1);
+  }
+  for (const [group, count] of groups) {
+    if (count < 2) fail(`[nhóm ${group}]`, 'chỉ có một mẫu — nhóm dễ nhầm phải có ít nhất hai');
+  }
+  if (meanings.length < CHOICE_COUNT) fail('[ý nghĩa]', `chỉ có ${meanings.length} mẫu, không đủ ${CHOICE_COUNT} lựa chọn`);
+
+  for (const group of book.interchangeableGroups) {
+    if (!groups.has(group)) fail('[book.interchangeableGroups]', `"${group}" không phải nhóm dễ nhầm nào`);
+  }
+  for (const group of book.sameForm) {
+    for (const id of group) {
+      if (!meaningIds.has(id)) fail('[book.sameForm]', `"${id}" không phải một mẫu có ý nghĩa để luyện`);
+    }
+  }
+
+  // ── Bậc 3: điền vào chỗ trống ────────────────────────────────────────────
+
+  const blanks = blankExamples(book.sections);
+  const blankTargets = new Set();
+  for (const { example, point } of flattenN4Examples(book.sections)) {
+    const ex = `[${point.id}] "${plainText(example.japanese)}"`;
+    const blank = example.blank;
+    if (!blank) {
+      fail(ex, 'câu ví dụ chưa đánh dấu phần ngữ pháp bằng 《…》 — bài "Điền vào chỗ trống" sẽ thiếu câu này');
+      continue;
+    }
+    if (!meaningIds.has(blank.pointId)) {
+      fail(ex, `chỗ trống trỏ về "${blank.pointId}" — không phải mẫu có ý nghĩa (câu ở mục so sánh thì ghi 《…@id-mẫu》)`);
+    }
+    blankTargets.add(blank.pointId);
+    if (!blank.filled.trim()) fail(ex, 'chỗ trống 《》 rỗng');
+    if (!blank.prompt.includes(BLANK_MARK)) fail(ex, 'câu đục lỗ không có ô trống');
+    checkMarkup(`${ex} câu đục lỗ`, blank.prompt);
+    if (/[《》@]/.test(blank.prompt) || /[《》@]/.test(example.japanese)) {
+      fail(ex, 'dấu 《》 / @ lọt vào câu — viết sai cú pháp chỗ trống');
+    }
+  }
+
+  // Câu nhắc lại ở phần so sánh có cùng id với câu gốc: chỗ trống của hai bản phải giống
+  // nhau, không thì câu được luyện tuỳ vào bản nào đứng trước trong tài liệu.
+  const blankById = new Map();
+  for (const section of book.sections) {
+    for (const point of section.points) {
+      for (const usage of point.usages) {
+        if (usage.reference) continue;
+        for (const example of usage.examples) {
+          const key = example.blank ? `${example.blank.pointId}|${example.blank.prompt}` : '';
+          const seen = blankById.get(example.id);
+          if (seen !== undefined && seen !== key) {
+            fail(`[${point.id}] "${plainText(example.japanese)}"`, 'hai bản của cùng một câu đánh dấu chỗ trống khác nhau');
+          }
+          blankById.set(example.id, key);
+        }
+      }
+    }
+  }
+
+  // ── Bậc 4: sắp xếp câu ───────────────────────────────────────────────────
+
+  const orders = orderExamples(book.sections);
+  // Đúng các tuỳ chọn màn luyện tập dùng khi chấm câu tiếng Nhật bỏ qua dấu câu.
+  const compare = { ignoreDiacritics: false, ignoreAllWhitespace: true, ignorePunctuation: true };
+  for (const { example, point } of orders) {
+    const ex = `[${point.id}] "${plainText(example.japanese)}"`;
+    const { chunks } = example;
+    if (chunks.length < MIN_CHUNKS || chunks.length > MAX_CHUNKS) {
+      fail(ex, `${chunks.length} mảnh, ngoài khoảng ${MIN_CHUNKS}–${MAX_CHUNKS}`);
+    }
+    chunks.forEach((chunk) => checkMarkup(`${ex} mảnh "${chunk}"`, chunk));
+    const joined = chunks.map(plainText).join('');
+    if (!isPatternCorrect(joined, [example.japanese, ...example.japaneseAlt], compare)) {
+      fail(ex, `các mảnh ghép lại không được chấm đúng: ${chunks.map(plainText).join(' | ')}`);
+    }
+  }
+
+  // ── Tổng kết ─────────────────────────────────────────────────────────────
+
+  const practiced = flattenN4Examples(book.sections).length;
+
+  log(`${c.bold}Sach ngu phap ${book.id}${c.reset}`);
+  log(`  muc            : ${book.sections.length}`);
+  log(`  mau            : ${pointIds.size} (${meanings.length} mau luyen y nghia, ${groups.size} nhom de nham)`);
+  log(`  cau vi du      : ${exampleCount} (${practiced} cau dem ra luyen)`);
+  log(`  dien cho trong : ${blanks.length} cau, tro ve ${blankTargets.size} mau`);
+  log(`  sap xep cau    : ${orders.length} cau du dai de sap xep`);
+  log(`  bai luyen tap  : ${quizIds.size} cau cua tai lieu`);
+  log();
+
 }
 
-// ── Bậc 4: sắp xếp câu ───────────────────────────────────────────────────
-
-const orders = orderExamples(N4_SECTIONS);
-// Đúng các tuỳ chọn màn luyện tập dùng khi chấm câu tiếng Nhật bỏ qua dấu câu.
-const compare = { ignoreDiacritics: false, ignoreAllWhitespace: true, ignorePunctuation: true };
-for (const { example, point } of orders) {
-  const ex = `[${point.id}] "${plainText(example.japanese)}"`;
-  const { chunks } = example;
-  if (chunks.length < MIN_CHUNKS || chunks.length > MAX_CHUNKS) {
-    fail(ex, `${chunks.length} mảnh, ngoài khoảng ${MIN_CHUNKS}–${MAX_CHUNKS}`);
-  }
-  chunks.forEach((chunk) => checkMarkup(`${ex} mảnh "${chunk}"`, chunk));
-  const joined = chunks.map(plainText).join('');
-  if (!isPatternCorrect(joined, [example.japanese, ...example.japaneseAlt], compare)) {
-    fail(ex, `các mảnh ghép lại không được chấm đúng: ${chunks.map(plainText).join(' | ')}`);
+for (const book of GRAMMAR_BOOKS) {
+  verifyBook(book);
+  for (const section of book.sections) {
+    for (const point of section.points) {
+      const owner = globalPointIds.get(point.id);
+      if (owner !== undefined && owner !== book.id) fail(`[${point.id}]`, `trùng id mẫu với sách ${owner}`);
+      globalPointIds.set(point.id, book.id);
+    }
   }
 }
-
-// ── Tổng kết ─────────────────────────────────────────────────────────────
-
-const practiced = flattenN4Examples(N4_SECTIONS).length;
-
-log(`${c.bold}Luyen tap ngu phap N4${c.reset}`);
-log(`  muc            : ${N4_SECTIONS.length}`);
-log(`  mau            : ${pointIds.size} (${meanings.length} mau luyen y nghia, ${groups.size} nhom de nham)`);
-log(`  cau vi du      : ${exampleCount} (${practiced} cau dem ra luyen)`);
-log(`  dien cho trong : ${blanks.length} cau, tro ve ${blankTargets.size} mau`);
-log(`  sap xep cau    : ${orders.length} cau du dai de sap xep`);
-log(`  bai luyen tap  : ${quizIds.size} cau cua tai lieu`);
-log();
 
 if (problems.length > 0) {
   for (const problem of problems) log(`${c.red}[LOI] ${problem}${c.reset}`);

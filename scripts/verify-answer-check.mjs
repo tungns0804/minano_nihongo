@@ -205,19 +205,19 @@ for (const file of readdirSync(lessonsDir).filter((name) => name.endsWith('.json
   }
 }
 
-// ── Câu ví dụ của bài tập "Luyện tập ngữ pháp N4" ─────────────────────────
+// ── Câu ví dụ của mọi "sách ngữ pháp" (Tổng hợp N4, vnjpclub…) ────────────
 // Cùng cú pháp câu mẫu với khu Luyện dịch, nên thử đúng các cách gõ như trên: chữ
 // Hán, kana, gõ lẫn, từng lựa chọn của mỗi [...] — và gõ thiếu nửa câu phải bị chấm sai.
 // Dữ liệu nằm trong mã nguồn chứ không ở public/lessons/, nên nạp thẳng file .ts.
-const { N4_SECTIONS } = await import(
-  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'n4-grammar.ts'))
+const { GRAMMAR_BOOKS } = await import(
+  pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'grammar-books.ts'))
 );
 const { flattenN4Examples } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'n4-grammar.model.ts'))
 );
 
 let n4Examples = 0;
-for (const { example } of flattenN4Examples(N4_SECTIONS)) {
+for (const { example } of GRAMMAR_BOOKS.flatMap((book) => flattenN4Examples(book.sections))) {
   n4Examples++;
   for (const [patterns, options] of [
     [[example.japanese, ...example.japaneseAlt], JA],
@@ -247,6 +247,6 @@ if (problems.length > 0) {
   process.stdout.write(
     `OK: dau cau va khoang trang khong lam sai ket qua cham ` +
       `(${checks} luot thu tren ${sentences} cau hoi thoai + ngu phap, ${translationLines} cau luyen dich, ` +
-      `${n4Examples} cau vi du ngu phap N4).\n`,
+      `${n4Examples} cau vi du cua cac sach ngu phap).\n`,
   );
 }
