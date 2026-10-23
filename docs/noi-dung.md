@@ -511,6 +511,11 @@ tính khi chấm. Đáp án là chữ Latin nên không cần bộ gõ tiếng N
 Cũng như khu Kanji, phần luyện âm Hán Việt của **bộ** nằm ở màn hình danh sách (nó hỏi trên cả
 nhóm nét đang xem), còn hai chiều hỏi trên **chữ ghép** nằm ở màn hình một bộ.
 
+**Lịch ôn.** Câu gõ âm Hán Việt của một bộ vào lịch ôn dưới khoá `rc:<id bộ>`; câu hỏi trên chữ
+ghép vào chung thẻ chữ Hán `kc:<id chữ>` với khu Kanji (cùng một chữ thì cùng một lịch), nguồn là
+bộ đang mở. Nhờ vậy lưới bộ thủ chấm xanh bộ đã luyện, chấm cam bộ có mục đến hạn. Câu viết bằng
+chuột không vào lịch, như khu Kanji.
+
 ### Ba file dữ liệu
 
 ```

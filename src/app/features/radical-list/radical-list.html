@@ -83,7 +83,11 @@
               <!-- Ngôi sao là em ruột của link chứ không nằm trong: <button> lồng
                    trong <a> là HTML không hợp lệ. CSS cho link phủ kín ô nên bấm
                    chỗ nào cũng mở được bộ. -->
-              <div class="radical-cell" [class.is-favorite]="isFavorite(entry.id)">
+              <div
+                class="radical-cell"
+                [class.is-favorite]="isFavorite(entry.id)"
+                [attr.data-status]="statusOf(entry.id)"
+              >
                 <a class="radical-link" [routerLink]="['/radical', entry.id]">
                   <!-- Bộ vẽ to hẳn: cả ô này tồn tại để nhìn cho rõ mặt bộ. Ẩn với
                        trình đọc màn hình vì đọc lên một bộ thủ trơ không thành
@@ -124,6 +128,10 @@
               </div>
             }
           </div>
+          <p class="small faint radical-legend-row">
+            <span class="radical-legend"><span class="radical-legend-dot"></span>{{ t('kanji.legend.learned') }}</span>
+            <span class="radical-legend"><span class="radical-legend-dot is-due"></span>{{ t('kanji.legend.due') }}</span>
+          </p>
 
           <p class="small faint">
             {{

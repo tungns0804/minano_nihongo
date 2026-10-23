@@ -8001,6 +8001,298 @@ export const VNJPCLUB_RAW_SECTIONS: readonly RawSection[] = [
     ]
   },
   {
+    "id": "vj-sonoue",
+    "title": "文～。そのうえ～。",
+    "source": "https://www.vnjpclub.com/ngu-phap-n4/sonoue.html",
+    "points": [
+      {
+        "id": "vj-sonoue",
+        "pattern": "文～。そのうえ～。",
+        "meaning": "Hơn nữa…",
+        "tables": [
+          {
+            "caption": "Cấu trúc cơ bản",
+            "headers": [
+              "Cấu trúc",
+              "Ý nghĩa",
+              "Ví dụ ngắn",
+              "Ghi chú"
+            ],
+            "rows": [
+              [
+                "{文|ぶん}。そのうえ、{文|ぶん}。",
+                "thêm thông tin cùng chiều",
+                "{安|やす}い。そのうえ、おいしい。",
+                "Thường cùng cực (đều tốt hoặc đều xấu)."
+              ],
+              [
+                "{文|ぶん}。そのうえ、{文|ぶん}（{評価|ひょうか}/{結論|けつろん}）。",
+                "tăng cường lý lẽ",
+                "{便利|べんり}だ。そのうえ、{安全|あんぜん}だ。",
+                "Trang trọng hơn それに."
+              ]
+            ]
+          }
+        ],
+        "examples": [
+          [
+            "この{店|みせ}は{安|やす}い。《そのうえ》、{品質|ひんしつ}もいい。",
+            "Quán này rẻ. Hơn nữa, chất lượng cũng tốt."
+          ],
+          [
+            "{彼|かれ}は{親切|しんせつ}だ。《そのうえ》、{仕事|しごと}も{早|はや}い。",
+            "Anh ấy tốt bụng. Thêm vào đó, làm việc cũng nhanh."
+          ],
+          [
+            "{昨日|きのう}は{寒|さむ}かった。《そのうえ》、{風|かぜ}も{強|つよ}かった。",
+            "Hôm qua lạnh. Hơn nữa, gió cũng mạnh."
+          ],
+          [
+            "{彼女|かのじょ}は{遅刻|ちこく}した。《そのうえ》、{宿題|しゅくだい}も{出|だ}していない。",
+            "Cô ấy đi muộn. Thêm nữa, còn không nộp bài tập."
+          ],
+          [
+            "この{薬|くすり}はよく{効|き}く。《そのうえ》、{副作用|ふくさよう}が{少|すく}ない。",
+            "Thuốc này hiệu quả. Hơn nữa, ít tác dụng phụ."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vj-soreni",
+    "title": "文～。それに～。",
+    "source": "https://www.vnjpclub.com/ngu-phap-n4/soreni.html",
+    "points": [
+      {
+        "id": "vj-soreni",
+        "pattern": "文～。それに～。",
+        "meaning": "Thêm nữa…",
+        "tables": [
+          {
+            "caption": "Cấu trúc cơ bản",
+            "headers": [
+              "Loại",
+              "Cấu trúc",
+              "Ví dụ cấu trúc",
+              "Ghi chú"
+            ],
+            "rows": [
+              [
+                "Liên từ bổ sung (thêm thông tin)",
+                "S1。それに、S2。",
+                "{今日|きょう}は{寒|さむ}い。それに、{雨|あめ}も{降|ふ}っている。",
+                "Đặt đầu câu S2; thường có dấu phẩy sau それに. Mang nghĩa “thêm nữa, hơn nữa”."
+              ],
+              [
+                "Trong liệt kê",
+                "① ～し、～し、それに～。 ② Aは～。Bは～。それにCは～。",
+                "{安|やす}いし、{近|ちか}いし、それに{静|しず}かだ。",
+                "Tăng dần/nhấn mạnh độ thêm thắt. Không nêu quan hệ nguyên nhân-kết quả trực tiếp."
+              ],
+              [
+                "Độ lịch sự",
+                "… 。それに、… （trung tính)",
+                "{資料|しりょう}は{十分|じゅうぶん}です。それに、{時間|じかん}もあります。",
+                "Dùng được cả nói và viết; trung tính, tự nhiên trong hội thoại."
+              ]
+            ]
+          }
+        ],
+        "examples": [
+          [
+            "この{店|みせ}は{安|やす}い。《それに》、{品質|ひんしつ}もいい。",
+            "Cửa hàng này rẻ. Thêm nữa, chất lượng cũng tốt."
+          ],
+          [
+            "{今日|きょう}は{忙|いそが}しい。《それに》、{会議|かいぎ}も{三|みっ}つある。",
+            "Hôm nay bận. Ngoài ra còn có ba cuộc họp."
+          ],
+          [
+            "この{本|ほん}は{読|よ}みやすい。《それに》、{図|ず}が{多|おお}くて{理解|りかい}しやすい。",
+            "Cuốn sách này dễ đọc. Hơn nữa, có nhiều hình nên dễ hiểu."
+          ],
+          [
+            "{彼|かれ}は{経験|けいけん}が{豊富|ほうふ}だ。《それに》、{人柄|ひとがら}もいい。",
+            "Anh ấy kinh nghiệm dồi dào. Thêm nữa, tính cách cũng tốt."
+          ],
+          [
+            "{交通|こうつう}{費|ひ}は{会社|かいしゃ}が{出|だ}す。《それに》、{昼食|ちゅうしょく}も{支給|しきゅう}される。",
+            "Chi phí đi lại do công ty chi. Ngoài ra còn trợ cấp bữa trưa."
+          ],
+          [
+            "このパソコンは{軽|かる}い。《それに》、バッテリーが{長持|ながも}ちする。",
+            "Máy tính này nhẹ. Thêm nữa, pin dùng lâu."
+          ],
+          [
+            "{雨|あめ}が{降|ふ}っている。《それに》、{風|かぜ}まで{強|つよ}くなってきた。",
+            "Trời đang mưa. Thêm vào đó, gió còn mạnh lên nữa."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vj-kamoshirenai",
+    "title": "～かもしれない",
+    "source": "https://www.vnjpclub.com/ngu-phap-n4/kamoshirenai.html",
+    "points": [
+      {
+        "id": "vj-kamoshirenai",
+        "pattern": "～かもしれない",
+        "meaning": "Có thể…, không chừng…",
+        "tables": [
+          {
+            "caption": "Cấu trúc cơ bản",
+            "headers": [
+              "Dạng",
+              "Cấu tạo với ～かもしれない",
+              "Ví dụ",
+              "Ghi chú"
+            ],
+            "rows": [
+              [
+                "Động từ",
+                "V（{普通|ふつう}{形|けい}）+ かもしれない",
+                "{遅|おく}れるかもしれない",
+                "khả năng không chắc chắn; không gắn với một tỷ lệ phần trăm cố định"
+              ],
+              [
+                "い{形容詞|けいようし}",
+                "Adjい + かもしれない",
+                "{寒|さむ}いかもしれない",
+                ""
+              ],
+              [
+                "な{形容詞|けいようし}",
+                "Adjな + かもしれない",
+                "{静|しず}かかもしれない",
+                "Không dùng だ trước かもしれない"
+              ],
+              [
+                "{名詞|めいし}",
+                "N + かもしれない",
+                "{日本人|にほんじん}かもしれない",
+                "Quá khứ: Nだったかもしれない"
+              ],
+              [
+                "Lịch sự",
+                "～かもしれません",
+                "{雨|あめ}かもしれません",
+                "Lịch sự/chuẩn mực"
+              ],
+              [
+                "Rút gọn",
+                "～かも[ね/]",
+                "{高|たか}いかもね",
+                "Văn nói"
+              ]
+            ]
+          }
+        ],
+        "examples": [
+          [
+            "{明日|あした}は{雪|ゆき}に《なるかもしれない》。",
+            "Ngày mai có khi trời sẽ tuyết."
+          ],
+          [
+            "{彼|かれ}はもう{家|いえ}に《{帰|かえ}ったかもしれない》。",
+            "Anh ấy có thể đã về nhà rồi."
+          ],
+          [
+            "この{問題|もんだい}は{思|おも}ったより《{難|むずか}しいかもしれない》。",
+            "Bài này có lẽ khó hơn đã nghĩ."
+          ],
+          [
+            "もしかしたら、{彼女|かのじょ}は{来|こ}ない《かもしれない》。",
+            "Biết đâu cô ấy sẽ không đến."
+          ],
+          [
+            "それ、{偽物|にせもの}《かも》ね。",
+            "Cái đó có khi là đồ giả đấy."
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vj-darou",
+    "title": "～だろう",
+    "source": "https://www.vnjpclub.com/ngu-phap-n4/darou.html",
+    "points": [
+      {
+        "id": "vj-darou",
+        "pattern": "～だろう",
+        "meaning": "Có lẽ…",
+        "tables": [
+          {
+            "caption": "Cấu trúc cơ bản",
+            "headers": [
+              "Loại vị ngữ",
+              "Cấu tạo với ～だろう",
+              "Ví dụ",
+              "Ghi chú"
+            ],
+            "rows": [
+              [
+                "Động từ",
+                "V-る／V-た／V-ない + だろう",
+                "{行|い}くだろう／{来|こ}ないだろう",
+                "Phỏng đoán “có lẽ”."
+              ],
+              [
+                "い-tính từ",
+                "Aい + だろう",
+                "{難|むずか}しいだろう",
+                "Giữ nguyên Aい rồi + だろう."
+              ],
+              [
+                "な-tính từ",
+                "Aな → Aだろう",
+                "{静|しず}かだろう",
+                "Không dùng だ trước だろう: × {静|しず}かだだろう."
+              ],
+              [
+                "Danh từ",
+                "N + だろう",
+                "{学生|がくせい}だろう",
+                "Thể thường của でしょう (lịch sự)."
+              ],
+              [
+                "Hình thức khác",
+                "～だろうか",
+                "{本当|ほんとう}に{大丈夫|だいじょうぶ}だろうか。",
+                "Tự hỏi, băn khoăn."
+              ]
+            ]
+          }
+        ],
+        "examples": [
+          [
+            "{明日|あした}は{雪|ゆき}が{降|ふ}る《だろう》。",
+            "Ngày mai chắc sẽ có tuyết."
+          ],
+          [
+            "{彼|かれ}はもう{家|いえ}に{着|つ}いている《だろう》。",
+            "Anh ấy chắc đã về tới nhà rồi."
+          ],
+          [
+            "そんな{計画|けいかく}はうまくいかない《だろう》。",
+            "Kế hoạch đó có lẽ sẽ không suôn sẻ."
+          ],
+          [
+            "{君|きみ}もそう{思|おも}う《だろう》？",
+            "Cậu cũng nghĩ vậy, phải không?"
+          ],
+          [
+            "この{方法|ほうほう}で{本当|ほんとう}に{解決|かいけつ}できる《だろうか》。",
+            "Liệu thực sự có thể giải quyết bằng cách này không nhỉ."
+          ]
+        ]
+      }
+    ]
+  },
+  {
     "id": "vj-deshou",
     "title": "～でしょう",
     "source": "https://www.vnjpclub.com/ngu-phap-n4/deshou.html",

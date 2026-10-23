@@ -29,6 +29,7 @@ export const REVIEW_AREAS: readonly ReviewArea[] = ['vocab', 'kanji', 'grammar',
  *  w   từ vựng (bài từ vựng hoặc chủ đề)   nguồn: id bài / chủ đề
  *  kc  chữ Hán, hỏi âm Hán Việt             nguồn: KANJI_SESSION_ID
  *  kw  từ dùng một chữ Hán                  nguồn: id chữ
+ *  rc  bộ thủ, hỏi âm Hán Việt              nguồn: RADICAL_SESSION_ID hoặc id bộ
  *  g   câu ví dụ ngữ pháp                   nguồn: id bài ngữ pháp
  *  v   động từ của bài động từ              nguồn: id bài
  *  ev  động từ của bài "Chuyển thể"         nguồn: id bài tập
@@ -39,12 +40,13 @@ export const REVIEW_AREAS: readonly ReviewArea[] = ['vocab', 'kanji', 'grammar',
  * Nguồn cũng chính là khoá ★ của mục đó, nên phiên ôn gom câu từ nhiều bài vẫn
  * đánh dấu ★ đúng về bài chứa mục.
  */
-export type ReviewItemType = 'w' | 'kc' | 'kw' | 'g' | 'v' | 'ev' | 'tp' | 'ne' | 'nm';
+export type ReviewItemType = 'w' | 'kc' | 'kw' | 'rc' | 'g' | 'v' | 'ev' | 'tp' | 'ne' | 'nm';
 
 const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   w: 'vocab',
   kc: 'kanji',
   kw: 'kanji',
+  rc: 'kanji',
   g: 'grammar',
   v: 'verb',
   ev: 'verb',
@@ -89,10 +91,11 @@ export function areaOfKey(key: string): ReviewArea | null {
  * Khoá lịch ôn của một câu trong phiên luyện thường, suy từ thiết lập của phiên.
  *
  * Trả null cho những gì không vào lịch: phiên viết chữ bằng chuột (đó là kỹ năng
- * khác, và phiên ôn không trộn được câu vẽ với câu gõ), bài hội thoại, bộ thủ.
+ * khác, và phiên ôn không trộn được câu vẽ với câu gõ), bài hội thoại, luyện dịch.
  */
 export function reviewRefOf(
-  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'answerMode' | 'exercise' | 'exerciseMode'>,
+  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'answerMode' | 'exercise' | 'exerciseMode'> &
+    Partial<Pick<PracticeConfig, 'radicalMode'>>,
   subjectId: string,
 ): ReviewRef | null {
   if (config.answerMode === 'draw') return null;
@@ -101,7 +104,8 @@ export function reviewRefOf(
 }
 
 function itemTypeOf(
-  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'exercise' | 'exerciseMode'>,
+  config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'exercise' | 'exerciseMode'> &
+    Partial<Pick<PracticeConfig, 'radicalMode'>>,
 ): ReviewItemType | null {
   // switch đủ mọi loại bài: thêm loại mới mà quên quyết định nó có vào lịch ôn hay
   // không thì TypeScript báo lỗi ngay ở đây.
@@ -132,11 +136,16 @@ function itemTypeOf(
       // Phiên luyện âm Hán Việt hỏi trên CHỮ (mở từ danh sách), phiên còn lại hỏi
       // trên TỪ của một chữ.
       return config.lessonId === KANJI_SESSION_ID ? 'kc' : 'kw';
+    case 'radical':
+      // Khu Bộ thủ: câu hỏi trên chính BỘ (âm Hán Việt, viết bộ) là thẻ `rc`; câu hỏi
+      // trên CHỮ GHÉP từ một bộ là thẻ chữ Hán `kc` — cùng một chữ thì cùng một thẻ,
+      // học ở khu Kanji hay khu Bộ thủ đều đẩy chung một lịch. Nguồn là bộ đang mở,
+      // nên lưới bộ thủ biết bộ nào đã luyện.
+      return config.radicalMode?.startsWith('radical-') ? 'rc' : 'kc';
     // Câu luyện dịch là dịch tự do, chấm có cả phần người học tự xác nhận — không hợp
     // với lịch ôn vốn chỉ tin vào kết quả chấm máy. Nó cũng là một khu độc lập.
     case 'conversation':
     case 'translation':
-    case 'radical':
       return null;
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
@@ -18,6 +18,8 @@ import {
 } from '../../core/radical/radical.model';
 import { RADICAL_ENTRIES } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
+import { ReviewStore } from '../../core/review/review-store';
+import { reviewKey } from '../../core/review/review.model';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
@@ -39,7 +41,21 @@ import { PracticeSetup } from '../../shared/practice-setup';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadicalList extends PracticeScreen {
+  private readonly reviews = inject(ReviewStore);
+
   readonly allGroups = STROKE_GROUPS;
+
+  /**
+   * Trạng thái học của một bộ trên lưới, như lưới Kanji: đã luyện (âm Hán Việt của bộ —
+   * thẻ `rc` — hoặc chữ ghép luyện từ trang của bộ) và có mục đến hạn ôn không.
+   */
+  statusOf(id: string): 'due' | 'learned' | null {
+    const key = reviewKey('rc', id);
+    const kanji = this.reviews.progressBySource().get(id);
+    if (this.reviews.isDue(key) || (kanji?.due ?? 0) > 0) return 'due';
+    if (this.reviews.cardOf(key) || (kanji?.tracked ?? 0) > 0) return 'learned';
+    return null;
+  }
   readonly strokeGroupOf = strokeGroupOf;
   readonly modes = RADICAL_LIST_MODES;
   readonly totalCount = RADICAL_ENTRIES.length;

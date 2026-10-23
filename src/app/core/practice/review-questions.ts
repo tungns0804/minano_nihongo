@@ -5,6 +5,8 @@ import { flattenN4Examples, meaningPoints } from '../exercises/n4-grammar.model'
 import { TRANSITIVITY_PAIRS } from '../exercises/transitive-pairs';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 import { kanjiById } from '../kanji/kanji-entries';
+import { RADICAL_SESSION_ID } from '../radical/radical.model';
+import { radicalById } from '../radical/radical-entries';
 import {
   PracticeConfig,
   PracticeQuestion,
@@ -27,6 +29,7 @@ import {
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildKanjiHanVietQuestions, buildKanjiWordQuestions } from './kanji-questions';
 import { buildN4ExampleQuestions, buildN4MeaningQuestions } from './n4-grammar-questions';
+import { buildRadicalHanVietQuestions } from './radical-questions';
 import { FORMS_BY_MODE, buildVerbQuestions } from './verb-questions';
 import { buildVocabularyQuestions } from './vocabulary-questions';
 
@@ -161,6 +164,18 @@ function buildOne(
         buildKanjiHanVietQuestions(
           [entry],
           configOf({ lessonKind: 'kanji', lessonId: KANJI_SESSION_ID, kanjiMode: 'kanji-hanviet' }),
+        )[0] ?? null
+      );
+    }
+
+    case 'rc': {
+      const entry = radicalById(id);
+      if (!entry?.hanViet) return null;
+      // Thẻ có thể sinh từ câu viết bộ; khi ôn luôn hỏi âm Hán Việt như thẻ chữ Hán `kc`.
+      return (
+        buildRadicalHanVietQuestions(
+          [entry],
+          configOf({ lessonKind: 'radical', lessonId: RADICAL_SESSION_ID, radicalMode: 'radical-hanviet' }),
         )[0] ?? null
       );
     }

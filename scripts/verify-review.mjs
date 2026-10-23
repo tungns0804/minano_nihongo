@@ -182,7 +182,24 @@ expect(
   expect(parseReviewKey('ne:abc')?.type === 'ne' && parseReviewKey('nm:nagara')?.type === 'nm', 'nhan ra khoa ne / nm');
 }
 expect(ref({ lessonKind: 'kanji', lessonId: 'nhu-6fe1', answerMode: 'draw' }, 'x') === null, 'phien viet chu khong vao lich');
-expect(ref({ lessonKind: 'radical', lessonId: 'bo-thuy' }, 'x') === null, 'bo thu khong vao lich');
+expect(
+  ref({ lessonKind: 'radical', lessonId: 'bo-thu', radicalMode: 'radical-hanviet' }, 'x')?.key === 'rc:x',
+  'am Han Viet cua bo thu -> rc',
+);
+expect(
+  ref({ lessonKind: 'radical', lessonId: 'bo-thuy', radicalMode: 'kanji-hanviet' }, 'x')?.key === 'kc:x' &&
+    ref({ lessonKind: 'radical', lessonId: 'bo-thuy', radicalMode: 'kanji-parts' }, 'y')?.key === 'kc:y',
+  'chu ghep tu mot bo -> the chu Han kc',
+);
+expect(
+  ref({ lessonKind: 'radical', lessonId: 'bo-thuy', radicalMode: 'kanji-hanviet' }, 'x')?.source === 'bo-thuy',
+  'nguon cua chu ghep la bo dang mo',
+);
+expect(
+  ref({ lessonKind: 'radical', lessonId: 'bo-thu', radicalMode: 'radical-draw', answerMode: 'draw' }, 'x') === null,
+  'viet bo thu khong vao lich',
+);
+expect(parseReviewKey('rc:nhan-4eba')?.type === 'rc', 'nhan ra khoa rc');
 expect(ref({ lessonKind: 'conversation', lessonId: 'hoi-thoai-minano-26' }, 'x') === null, 'hoi thoai khong vao lich');
 expect(
   ref({ lessonKind: 'vocabulary', lessonId: 'minano-nihongo-44' }, 'x')?.source === 'minano-nihongo-44',

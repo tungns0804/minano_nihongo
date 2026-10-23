@@ -205,3 +205,44 @@ Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-b
     font-size: 0.9rem;
   }
 }
+
+/* Chấm trạng thái ở góc trên bên trái ô — như lưới Kanji: xanh là đã luyện, cam là
+   có mục đến hạn ôn. */
+.radical-cell[data-status]::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 1;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+.radical-cell[data-status='due']::before {
+  background: var(--warning);
+}
+
+.radical-legend-row {
+  display: flex;
+  gap: 12px;
+}
+
+.radical-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.radical-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.radical-legend-dot.is-due {
+  background: var(--warning);
+}
