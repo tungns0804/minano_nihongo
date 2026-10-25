@@ -49,6 +49,14 @@ function assetUrl(path: string): string {
 }
 
 /**
+ * Luôn hỏi lại server trước khi dùng bản trình duyệt đã lưu. GitHub Pages cho giữ
+ * file 10 phút, nên vừa deploy xong mà dùng bản lưu thì danh sách bài cũ (bài đã
+ * xoá, số từ cũ) vẫn hiện, bấm vào ra bài trống. File không đổi thì server trả 304
+ * nhờ ETag, không tải lại.
+ */
+const REVALIDATE = { cache: 'no-cache' as const };
+
+/**
  * Nguồn bài học của ứng dụng, gộp ba chỗ:
  *  - `public/lessons/*.json` do `npm run generate` sinh ra (origin = 'builtin')
  *  - các chủ đề ở `core/topics/` — cũng là 'builtin' nhưng nằm THẲNG trong mã
@@ -143,7 +151,7 @@ export class LessonStore {
 
     try {
       const file = await firstValueFrom(
-        this.http.get<unknown>(assetUrl(`${LESSONS_BASE_PATH}index.json`)),
+        this.http.get<unknown>(assetUrl(`${LESSONS_BASE_PATH}index.json`), REVALIDATE),
       );
       this.builtinIndex.set(sanitizeIndex(file));
       this.status.set('ready');
@@ -195,7 +203,7 @@ export class LessonStore {
 
     try {
       const raw = await firstValueFrom(
-        this.http.get<unknown>(assetUrl(`${LESSONS_BASE_PATH}${entry.file}`)),
+        this.http.get<unknown>(assetUrl(`${LESSONS_BASE_PATH}${entry.file}`), REVALIDATE),
       );
       const lesson = sanitizeLesson(raw, 'builtin');
       if (!lesson) return null;
