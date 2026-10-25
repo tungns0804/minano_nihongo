@@ -1,5 +1,5 @@
-# Từ vựng N3 · 名詞 — Bài 3 (từ 101–120)
-# Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
+# Từ vựng N3 · 名詞・動詞 — Bài 3 (từ 101–150)
+# Nguồn: ảnh bảng "Bài 1 名詞 120" (101–120, gửi 2026-10-18) và "Bài 2 動詞" (121–150, gửi 2026-10-25) người dùng gửi (Kanji · Hiragana · Meaning).
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
 PHÁN,判 (はん),Con dấu
 DANH THÍCH,名刺 (めいし),Danh thiếp
@@ -21,3 +21,34 @@ PHƯƠNG PHÁP,方法 (ほうほう),Phương pháp
 CHẾ PHẨM,製品 (せいひん),Sản phẩm
 TRỊ THƯỢNG,値上がり (ねあがり),Tăng giá
 SINH,生 (なま),Tươi
+# Động từ 121–150
+KHÁT,渇く (かわく),Khát
+KHỨU,嗅ぐ (かぐ),Ngửi
+KHẤU,叩く (たたく),Đánh, vỗ
+ẨU,殴る (なぐる),Đấm
+,ける,Đá
+BÃO,抱く (だく),Ôm
+ĐẢO,倒れる (たおれる),Đổ
+ĐẢO,倒す (たおす),Làm đổ
+KHỞI,起きる (おきる),Thức dậy
+KHỞI,起こす (おこす),Đánh thức
+TẦM,尋ねる (たずねる),Hỏi
+HÔ,呼ぶ (よぶ),Gọi
+KHIẾU,叫ぶ (さけぶ),Gào to
+MẶC,黙る (だまる),Im lặng
+TỰ,飼う (かう),Nuôi
+SỐ,数える (かぞえる),Đếm
+CAN,乾く (かわく),Khô
+CAN,乾かす (かわかす),Làm khô
+ĐIỆP,畳む (たたむ),Gấp
+DỤ,誘う (さそう),Mời, rủ
+,おごる,Chiêu đãi
+DỰ,預かる (あずかる),Chăm sóc
+DỰ,預ける (あずける),Gửi
+QUYẾT,決まる (きまる),Được quyết định
+QUYẾT,決める (きめる),Quyết định
+TẢ,写る (うつる),Chụp được
+TẢ,写す (うつす),Chụp
+TƯ XUẤT,思い出す (おもいだす),Nhớ lại
+GIÁO,教わる (おそわる),Được dạy
+THÂN NHẬP,申し込む (もうしこむ),Đăng ký
