@@ -36,11 +36,12 @@ export const REVIEW_AREAS: readonly ReviewArea[] = ['vocab', 'kanji', 'grammar',
  *  tp  cặp tự / tha động từ                 nguồn: id bài tập
  *  ne  câu ví dụ của bài ngữ pháp N4        nguồn: id bài tập
  *  nm  ý nghĩa một mẫu của bài ngữ pháp N4  nguồn: id bài tập
+ *  ct  một cách đếm của bài "Số đếm"       nguồn: id bài tập
  *
  * Nguồn cũng chính là khoá ★ của mục đó, nên phiên ôn gom câu từ nhiều bài vẫn
  * đánh dấu ★ đúng về bài chứa mục.
  */
-export type ReviewItemType = 'w' | 'kc' | 'kw' | 'rc' | 'g' | 'v' | 'ev' | 'tp' | 'ne' | 'nm';
+export type ReviewItemType = 'w' | 'kc' | 'kw' | 'rc' | 'g' | 'v' | 'ev' | 'tp' | 'ne' | 'nm' | 'ct';
 
 const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   w: 'vocab',
@@ -53,6 +54,8 @@ const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   tp: 'verb',
   ne: 'grammar',
   nm: 'grammar',
+  // Cách đọc số đếm là chuyện nhớ TỪ, nên ôn chung với từ vựng.
+  ct: 'vocab',
 };
 
 /** Một mục trong lịch ôn: khoá để tra lịch, nguồn để dựng lại câu hỏi. */
@@ -119,6 +122,7 @@ function itemTypeOf(
       return 'v';
     case 'exercise':
       if (config.exercise === 'tu-tha-dong-tu') return 'tp';
+      if (config.exercise === 'so-dem') return 'ct';
       // Bài ngữ pháp N4 hỏi trên CÂU khi dịch ví dụ, trên MẪU khi luyện ý nghĩa.
       //
       // Bậc "Điền vào chỗ trống" và "Sắp xếp câu" không vào lịch: chúng là nấc trung

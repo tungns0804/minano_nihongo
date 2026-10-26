@@ -1,0 +1,124 @@
+/* Phần dùng chung (.back-link, .start-bar, .word-table, .note-list, .grammar-table…)
+   nằm ở `src/styles/shared.css`. File này chỉ giữ thứ riêng của bài số đếm. */
+
+/* --- Quy tắc dễ nhớ --- */
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--sp-3, 12px);
+}
+
+@media (max-width: 400px) {
+  .rule-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rule {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-subtle);
+}
+
+.rule-title {
+  margin: 0 0 6px;
+  font-size: var(--fs-md);
+}
+
+/* --- Bảng biến âm --- */
+
+.matrix-table th,
+.matrix-table td {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.matrix-head {
+  text-align: left !important;
+}
+
+.matrix-counter {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin-right: 6px;
+}
+
+/* Ô biến âm tô màu để mắt bắt ngay chỗ khác thường. */
+.is-special {
+  color: var(--warning);
+  font-weight: 650;
+}
+
+td.is-special {
+  background: var(--warning-soft);
+}
+
+/* --- Bảng tra theo nhóm --- */
+
+.counter-group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 14px;
+}
+
+.counter-group summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.counter-group[open] summary {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 10px;
+}
+
+.counter-mark {
+  font-size: 1.4rem;
+  font-weight: 650;
+  min-width: 2.2em;
+  text-align: center;
+  color: var(--accent);
+}
+
+.counter-title {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.group-notes {
+  margin-bottom: 10px;
+}
+
+.counter-group .scroll-x {
+  margin-bottom: 12px;
+}
+
+@media (min-width: 641px) {
+  .counter-table {
+    min-width: 560px;
+  }
+}
+
+.counter-table th:nth-child(1) {
+  width: 44px;
+}
+
+.counter-table th:nth-child(2) {
+  width: 130px;
+}
+
+.col-written {
+  font-size: 1.08rem;
+  white-space: nowrap;
+}
+
+.special-badge {
+  margin-left: 6px;
+  font-size: 0.72rem;
+  padding: 1px 7px;
+}

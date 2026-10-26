@@ -7,8 +7,8 @@ export const EXERCISE_MESSAGES = {
   // (core/exercises/), gom động từ của nhiều cấp theo một chủ đề ngữ pháp.
   'exercise.title': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'exercise.subtitle': {
-    vi: 'Luyện kỹ năng thay vì nhớ nghĩa: tự/tha và chuyển thể động từ, chia thể theo bài, dịch hội thoại Việt ↔ Nhật. Ngữ pháp N4 nằm ở mục Ngữ pháp.',
-    ja: '意味の暗記ではなくスキルの練習：自動詞・他動詞と動詞の活用、課ごとの活用、越↔日の会話翻訳。N4文法は「文法」にあります。',
+    vi: 'Luyện kỹ năng thay vì nhớ nghĩa: tự/tha và chuyển thể động từ, số đếm & ngày tháng, chia thể theo bài, dịch hội thoại Việt ↔ Nhật. Ngữ pháp N4 nằm ở mục Ngữ pháp.',
+    ja: '意味の暗記ではなくスキルの練習：自動詞・他動詞と動詞の活用、数・助数詞と日付、課ごとの活用、越↔日の会話翻訳。N4文法は「文法」にあります。',
   },
   'exercise.search': {
     vi: 'Tìm bài tập theo tên hoặc số bài…',
@@ -295,4 +295,62 @@ export const EXERCISE_MESSAGES = {
     vi: 'Hôm sau mở tab Ôn tập trước khi học mục mới: mẫu và câu đã luyện tự lên lịch ôn đúng lúc sắp quên.',
     ja: '翌日は新しい項目の前に「復習」タブへ。練習した文型と例文は、忘れかけたころに自動で出題されます。',
   },
+
+  // Bài "Số đếm & trợ số từ" (core/exercises/counters.ts).
+  'exercise.counters.name': { vi: 'Số đếm & trợ số từ', ja: '数と助数詞' },
+  'exercise.counters.desc': {
+    vi: 'Đếm người, đồ vật, vật dài, vật mỏng…, giờ, phút, ngày tháng và số lớn — tập trung vào các cách đọc biến âm (さんぼん, ろっぽん, ついたち, はたち…), kèm quy tắc dễ nhớ.',
+    ja: '人・物・長い物・薄い物、時刻・分・日付・大きな数の数え方。音の変化（さんぼん、ろっぽん、ついたち、はたち…）を中心に、覚え方のコツ付き。',
+  },
+  'exercise.counterCount': { vi: '{count} cách đếm', ja: '{count}項目' },
+  'exercise.mode.counterChoice': { vi: 'Chọn cách đọc đúng', ja: '正しい読み方を選ぶ' },
+  'exercise.mode.counterChoice.short': { vi: 'Chọn cách đọc', ja: '読み方選択' },
+  'exercise.mode.counterChoice.example': { vi: '3本 → さんぼん / さんほん / さんぽん', ja: '3本 → さんぼん / さんほん / さんぽん' },
+  'exercise.mode.counterReading': { vi: 'Gõ cách đọc', ja: '読み方を入力' },
+  'exercise.mode.counterReading.short': { vi: 'Gõ cách đọc', ja: '読み方入力' },
+  'exercise.mode.counterReading.example': { vi: '6分 → ろっぷん', ja: '6分 → ろっぷん' },
+  'exercise.mode.counterViJp': { vi: 'Việt → Nhật (tự chọn trợ số từ)', ja: 'ベトナム語 → 日本語（助数詞も自分で）' },
+  'exercise.mode.counterViJp.short': { vi: 'Việt → Nhật', ja: '越 → 日' },
+  'exercise.mode.counterViJp.example': { vi: '3 cây/chai → さんぼん', ja: '3 cây/chai → さんぼん' },
+  'exercise.label.counterRead': { vi: 'Đọc thế nào?', ja: '読み方は？' },
+  'exercise.label.counterViJp': { vi: 'Nói bằng tiếng Nhật', ja: '日本語で言うと？' },
+  'exercise.answerPrompt.counterReading': { vi: 'Nhập cách đọc bằng hiragana', ja: '読み方をひらがなで入力' },
+  'exercise.answerPrompt.counterViJp': {
+    vi: 'Nhập cách đọc (さんぼん) hoặc số + trợ số từ (3本)',
+    ja: '読み方（さんぼん）または数字＋助数詞（3本）を入力',
+  },
+  'exercise.counter.col.counter': { vi: 'Trợ số từ', ja: '助数詞' },
+  'exercise.counter.col.rule': { vi: 'Ghi nhớ', ja: '覚え方' },
+  'exercise.counter.col.written': { vi: 'Cách viết', ja: '表記' },
+  'exercise.counter.rules': { vi: 'Quy tắc dễ nhớ', ja: '覚え方のコツ' },
+  'exercise.counter.matrix': { vi: 'Bảng biến âm: 1 · 3 · 4 · 6 · 8 · 10 · 何', ja: '音の変化表：1・3・4・6・8・10・何' },
+  'exercise.counter.matrix.hint': {
+    vi: 'Ô tô màu là cách đọc biến âm. Các số 2, 5, 7, 9 không bao giờ biến âm nên không có trong bảng.',
+    ja: '色付きのセルは音が変わる読み方です。2・5・7・9は変化しないので省略しています。',
+  },
+  'exercise.counter.groups': { vi: 'Nhóm trợ số từ', ja: '助数詞のグループ' },
+  'exercise.counter.groups.hint': {
+    vi: 'Bấm để bật/tắt từng nhóm. Luôn phải còn ít nhất một nhóm.',
+    ja: 'タップで各グループをオン・オフ。最低1つは選択が必要です。',
+  },
+  'exercise.counter.groups.all': { vi: 'Chọn tất cả', ja: 'すべて選択' },
+  'exercise.counter.scope.special': { vi: 'Chỉ cách đọc đặc biệt ({count})', ja: '特殊な読み方のみ（{count}）' },
+  'exercise.counter.scope.specialTitle': {
+    vi: 'Biến âm (っ, ぱ/ば…), đọc kiểu Nhật (ひとり, ついたち…) và các ngoại lệ (よじ, しがつ…)',
+    ja: '音の変化（っ・ぱ/ば…）、和語の読み（ひとり、ついたち…）、例外（よじ、しがつ…）',
+  },
+  'exercise.counter.specialCount': { vi: '{count} cách đọc đặc biệt', ja: '特殊な読み方{count}個' },
+  'exercise.counter.badge.special': { vi: 'đặc biệt', ja: '特殊' },
+  'exercise.counter.answerNote': {
+    vi: 'Dạng "Chọn cách đọc" là trắc nghiệm, hai dạng còn lại gõ đáp án. Đáp án nhiễu là các cách biến âm sai của chính số đó, nên phải nhớ đúng luật mới chọn được.',
+    ja: '「読み方を選ぶ」は4択、他の2つは入力式です。選択肢は同じ数の間違った音の変化なので、ルールを覚えていないと選べません。',
+  },
+  'exercise.counter.kana': {
+    vi: 'Khi gõ: hiragana được tính đúng; dạng Việt → Nhật nhận cả 3本 / ３本 / 三本.',
+    ja: '入力：ひらがなで正解。越→日では 3本・３本・三本 も可。',
+  },
+  'exercise.counter.table': { vi: 'Bảng tra theo trợ số từ', ja: '助数詞別の一覧' },
+  'exercise.counter.search': { vi: 'Tìm theo số, trợ số từ, cách đọc hoặc nghĩa…', ja: '数・助数詞・読み方・意味で検索…' },
+  'exercise.counter.items': { vi: '{count} mục', ja: '{count}項目' },
+  'exercise.counter.onlySpecial': { vi: 'Chỉ cách đọc đặc biệt', ja: '特殊な読み方のみ' },
 } as const satisfies Record<string, Entry>;

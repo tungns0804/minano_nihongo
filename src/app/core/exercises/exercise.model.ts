@@ -25,7 +25,7 @@ import type { VerbGroup } from '../japanese/conjugation';
  *  - khoá lưu danh sách ★ "chưa nhớ" (giống id bài học)
  * nên KHÔNG đổi tuỳ tiện: đổi là mất hết ★ của bài tập đó.
  */
-export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | GrammarBookId;
+export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | 'so-dem' | GrammarBookId;
 
 /**
  * Id các "sách ngữ pháp" (`grammar-books.ts`) — khai ở đây chứ không ở file đó để những
@@ -67,7 +67,11 @@ export type ExerciseMode =
   | 'example-order'
   | 'example-vi-jp'
   | 'example-jp-vi'
-  | 'meaning-mixed';
+  | 'meaning-mixed'
+  // Bài 4 — số đếm & trợ số từ
+  | 'counter-choice'
+  | 'counter-reading'
+  | 'counter-vi-jp';
 
 export interface ExerciseModeInfo {
   id: ExerciseMode;
@@ -211,10 +215,39 @@ export const N4_EXTRA_MODES: readonly ExerciseModeInfo[] = [
 
 export const N4_GRAMMAR_MODES: readonly ExerciseModeInfo[] = [N4_PATH_MODE, ...N4_STEP_MODES, ...N4_EXTRA_MODES];
 
+/**
+ * Dạng luyện của bài "Số đếm & trợ số từ", xếp dễ → khó: nhận ra cách đọc đúng giữa
+ * các cách biến âm sai, tự gõ ra cách đọc, rồi từ câu tiếng Việt tự chọn trợ số từ.
+ */
+export const COUNTER_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'counter-choice',
+    labelKey: 'exercise.mode.counterChoice',
+    shortKey: 'exercise.mode.counterChoice.short',
+    exampleKey: 'exercise.mode.counterChoice.example',
+    step: 0,
+  },
+  {
+    id: 'counter-reading',
+    labelKey: 'exercise.mode.counterReading',
+    shortKey: 'exercise.mode.counterReading.short',
+    exampleKey: 'exercise.mode.counterReading.example',
+    step: 0,
+  },
+  {
+    id: 'counter-vi-jp',
+    labelKey: 'exercise.mode.counterViJp',
+    shortKey: 'exercise.mode.counterViJp.short',
+    exampleKey: 'exercise.mode.counterViJp.example',
+    step: 0,
+  },
+];
+
 const ALL_MODES: readonly ExerciseModeInfo[] = [
   ...TRANSITIVITY_MODES,
   ...FORM_MODES,
   ...N4_GRAMMAR_MODES,
+  ...COUNTER_MODES,
 ];
 
 export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
@@ -225,6 +258,8 @@ export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
 export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
   'tu-tha-dong-tu': 'to-transitive',
   'chuyen-the-dong-tu': 'masu-to-form',
+  // Trắc nghiệm trước: luật biến âm phải nhìn thấy đúng/sai cạnh nhau vài lần mới ngấm.
+  'so-dem': 'counter-choice',
   // Lộ trình chứ không phải bậc khó nhất: người mới mở bài ra mà gặp ngay dạng gõ cả
   // câu tiếng Nhật thì chỉ thấy mình chưa biết gì.
   'ngu-phap-n4': 'grammar-path',
@@ -280,6 +315,13 @@ export const EXERCISES: readonly ExerciseInfo[] = [
     descKey: 'exercise.forms.desc',
     unitKey: 'exercise.verbCount',
     levels: ['N5', 'N4', 'N3', 'N2'],
+  },
+  {
+    id: 'so-dem',
+    nameKey: 'exercise.counters.name',
+    descKey: 'exercise.counters.desc',
+    unitKey: 'exercise.counterCount',
+    levels: ['N5', 'N4'],
   },
   {
     id: 'ngu-phap-n4',

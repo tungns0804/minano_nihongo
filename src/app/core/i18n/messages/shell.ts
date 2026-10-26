@@ -165,6 +165,7 @@ export const SHELL_MESSAGES = {
   'route.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'route.exerciseDetail': { vi: 'Nội dung bài tập', ja: '練習問題の詳細' },
   'route.n4grammar': { vi: 'Luyện tập ngữ pháp N4', ja: 'N4文法の練習' },
+  'route.counters': { vi: 'Số đếm & trợ số từ', ja: '数と助数詞' },
   'route.vnjpclub': { vi: 'Ngữ pháp N4 · vnjpclub', ja: 'N4文法・vnjpclub' },
   'route.kanji': { vi: 'Danh sách Kanji', ja: '漢字一覧' },
   'route.kanjiDetail': { vi: 'Chữ Kanji', ja: '漢字' },

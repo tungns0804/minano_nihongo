@@ -9,6 +9,7 @@ import {
   ExerciseLevel,
   isGrammarBookId,
 } from '../../core/exercises/exercise.model';
+import { COUNTER_ITEMS } from '../../core/exercises/counters';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
 import type { MessageKey } from '../../core/i18n/messages';
@@ -261,6 +262,8 @@ function itemCountOf(id: ExerciseId): number {
       return TRANSITIVITY_PAIRS.length;
     case 'chuyen-the-dong-tu':
       return EXERCISE_VERBS.length;
+    case 'so-dem':
+      return COUNTER_ITEMS.length;
     // Sách ngữ pháp không có thẻ ở trang này (xem `allExercises`).
     case 'ngu-phap-n4':
     case 'ngu-phap-vnjpclub':

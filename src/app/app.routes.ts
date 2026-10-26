@@ -125,6 +125,14 @@ export const routes: Routes = [
     data: { book: 'ngu-phap-vnjpclub' },
     loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
   },
+  // Bài "Số đếm & trợ số từ" cũng có màn hình riêng: trên đầu là phần quy tắc ghi nhớ
+  // và bảng biến âm, bảng tra chia theo từng trợ số từ — không phải bảng động từ.
+  {
+    path: 'exercise/so-dem',
+    title: 'route.counters',
+    loadComponent: () =>
+      import('./features/counter-exercise/counter-exercise').then((m) => m.CounterExercise),
+  },
   {
     path: 'exercise/:id',
     title: 'route.exerciseDetail',

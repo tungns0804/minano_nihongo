@@ -1,0 +1,314 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
+    <header class="stack stack-sm">
+      <a class="back-link" routerLink="/exercise">{{ t('exercise.back') }}</a>
+      <h1><app-t key="exercise.counters.name" /></h1>
+      <p class="muted"><app-t key="exercise.counters.desc" block /></p>
+      <div class="row">
+        <span class="badge">{{ t('exercise.counterCount', { count: totalCount }) }}</span>
+        <span class="badge badge-accent">{{ t('exercise.counter.specialCount', { count: specialCount() }) }}</span>
+        <span class="badge badge-warning">{{ t('home.favoriteCount', { count: favoriteCount() }) }}</span>
+      </div>
+    </header>
+
+    <!-- ── Quy tắc dễ nhớ ─────────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack">
+        <h2>{{ t('exercise.counter.rules') }}</h2>
+        <div class="rule-grid">
+          @for (rule of rules; track rule.title) {
+            <div class="rule">
+              <h3 class="rule-title">{{ rule.title }}</h3>
+              <ul class="note-list explain">
+                @for (line of rule.body; track $index) {
+                  <li>{{ line }}</li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+
+        <h3>{{ t('exercise.counter.matrix') }}</h3>
+        <div class="scroll-x">
+          <table class="grammar-table matrix-table">
+            <thead>
+              <tr>
+                <th></th>
+                @for (key of matrixKeys; track key) {
+                  <th class="jp">{{ key }}</th>
+                }
+              </tr>
+            </thead>
+            <tbody>
+              @for (row of matrix; track row.group.id) {
+                <tr>
+                  <th scope="row" class="matrix-head">
+                    <span class="jp matrix-counter">{{ row.group.counter }}</span>
+                    <span class="faint small">{{ row.group.title }}</span>
+                  </th>
+                  @for (cell of row.cells; track cell.key) {
+                    <td class="jp" [class.is-special]="cell.special">{{ cell.reading }}</td>
+                  }
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        <p class="small faint">{{ t('exercise.counter.matrix.hint') }}</p>
+      </div>
+    </section>
+
+    <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
+    <app-practice-setup>
+      <h2>{{ t('lesson.setup') }}</h2>
+
+      <div class="field">
+        <span class="label">{{ t('exercise.counter.groups') }}</span>
+        <div class="options">
+          @for (group of groups; track group.id) {
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="isGroupSelected(group.id)"
+              [attr.aria-pressed]="isGroupSelected(group.id)"
+              [title]="group.usage"
+              (click)="toggleGroup(group.id)"
+            >
+              @if (group.counter) {
+                <span class="jp">{{ group.counter }}</span>
+              }
+              {{ group.title }}
+              <span class="filter-count">{{ groupCounts[group.id] }}</span>
+            </button>
+          }
+          @if (!allSelected()) {
+            <button type="button" class="btn btn-sm" (click)="selectAllGroups()">
+              {{ t('exercise.counter.groups.all') }}
+            </button>
+          }
+        </div>
+        <span class="hint">{{ t('exercise.counter.groups.hint') }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">{{ t('exercise.mode') }}</span>
+        <div class="options">
+          @for (item of modes; track item.id) {
+            <button
+              type="button"
+              class="option option-stacked"
+              [class.is-active]="mode() === item.id"
+              (click)="setMode(item.id)"
+            >
+              <strong><app-t [key]="item.labelKey" block /></strong>
+              <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="label">{{ t('lesson.scope') }}</span>
+        <div class="options">
+          <button type="button" class="option" [class.is-active]="scope() === 'all'" (click)="setScope('all')">
+            {{ t('exercise.scope.all', { count: groupItems().length }) }}
+          </button>
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="scope() === 'special'"
+            [disabled]="specialCount() === 0"
+            [title]="t('exercise.counter.scope.specialTitle')"
+            (click)="setScope('special')"
+          >
+            {{ t('exercise.counter.scope.special', { count: specialCount() }) }}
+          </button>
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="scope() === 'favorite'"
+            [disabled]="favoriteCount() === 0"
+            (click)="setScope('favorite')"
+          >
+            {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+          </button>
+        </div>
+        @if (favoriteCount() === 0) {
+          <span class="hint"><app-t key="lesson.scope.hint" block /></span>
+        }
+      </div>
+
+      <ng-container ngProjectAs="[setupAdvanced]">
+        <div class="field">
+          <span class="label">{{ t('lesson.answerMode') }}</span>
+          <p class="muted small">{{ t('exercise.counter.answerNote') }}</p>
+          <span class="hint">{{ t('exercise.counter.kana') }}</span>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.questionCount') }}</span>
+          <div class="options">
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="questionLimit() === null"
+              (click)="setQuestionLimit(null)"
+            >
+              {{ t('common.all') }}
+            </button>
+            @for (limit of limitChoices(); track limit) {
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === limit"
+                (click)="setQuestionLimit(limit)"
+              >
+                {{ t('lesson.questionCount.n', { count: limit }) }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.options') }}</span>
+          <div class="options">
+            <label class="checkbox">
+              <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+              <span>
+                <strong><app-t key="lesson.option.showMeaning" block /></strong>
+                <span class="hint"><app-t key="lesson.option.harder" block /></span>
+              </span>
+            </label>
+
+            <label class="checkbox">
+              <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+              <span>
+                <strong><app-t key="lesson.option.shuffle" block /></strong>
+                <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container ngProjectAs="[setupActions]">
+        <div class="start-bar">
+          <div class="small muted">
+            <app-t
+              key="lesson.plan"
+              block
+              [params]="{
+                count: plannedQuestionCount(),
+                mode: modeShort(),
+                answer: isChoice() ? t('lesson.plan.choice') : t('lesson.plan.typing'),
+                max: maxWrongAttempts
+              }"
+            />
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" [disabled]="!canStart()" (click)="start()">
+            {{ t('lesson.start') }}
+          </button>
+        </div>
+
+        @if (!canStart()) {
+          <div class="notice notice-warning">{{ t('lesson.emptyScope') }}</div>
+        }
+      </ng-container>
+    </app-practice-setup>
+
+    <!-- ── Bảng tra ───────────────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack">
+        <div class="row">
+          <h2>{{ t('exercise.counter.table') }}</h2>
+          <span class="spacer"></span>
+          @if (favoriteCount() > 0) {
+            <button type="button" class="btn btn-sm" (click)="clearFavorites()">
+              {{ t('lesson.clearFavorites') }}
+            </button>
+          }
+        </div>
+
+        <div class="row filter-row">
+          <app-search-box
+            class="search-input"
+            [placeholder]="t('exercise.counter.search')"
+            [label]="t('lesson.search.aria')"
+            [value]="search()"
+            (changed)="search.set($event)"
+          />
+          <label class="checkbox filter-check">
+            <input type="checkbox" [checked]="onlySpecial()" (change)="toggleOnlySpecial($event)" />
+            <span>{{ t('exercise.counter.onlySpecial') }}</span>
+          </label>
+          <label class="checkbox filter-check">
+            <input type="checkbox" [checked]="onlyFavorites()" (change)="toggleOnlyFavorites($event)" />
+            <span><app-t key="lesson.onlyFavorites" /></span>
+          </label>
+        </div>
+
+        @if (shownCount() === 0) {
+          <p class="muted">{{ t('exercise.noMatch') }}</p>
+        }
+
+        @for (section of sections(); track section.group.id) {
+          <details class="counter-group" [open]="filtering()">
+            <summary>
+              @if (section.group.counter) {
+                <span class="jp counter-mark">{{ section.group.counter }}</span>
+              }
+              <span class="counter-title">
+                <strong>{{ section.group.title }}</strong>
+                <span class="muted small">{{ section.group.usage }}</span>
+              </span>
+              <span class="spacer"></span>
+              <span class="badge">{{ t('exercise.counter.items', { count: section.items.length }) }}</span>
+            </summary>
+
+            <ul class="note-list explain small group-notes">
+              @for (note of section.group.notes; track $index) {
+                <li>{{ note }}</li>
+              }
+            </ul>
+
+            <div class="scroll-x">
+              <table class="word-table counter-table">
+                <thead>
+                  <tr>
+                    <th class="col-star"><span class="sr-only">{{ t('lesson.col.star') }}</span>★</th>
+                    <th>{{ t('exercise.counter.col.written') }}</th>
+                    <th>{{ t('lesson.col.reading') }}</th>
+                    <th>{{ t('lesson.col.meaningShort') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (item of section.items; track item.id) {
+                    <tr [class.is-favorite]="isFavorite(item.id)">
+                      <td class="col-star">
+                        <button app-star [on]="isFavorite(item.id)" [name]="item.written" (click)="toggleFavorite(item.id)"></button>
+                      </td>
+                      <td class="jp col-written">{{ item.written }}</td>
+                      <td class="jp col-reading" [attr.data-label]="t('lesson.col.reading')">
+                        <span [class.is-special]="item.special">{{ item.readings[0] }}</span>
+                        @if (item.readings.length > 1) {
+                          <span class="faint"> / {{ item.readings.slice(1).join(' / ') }}</span>
+                        }
+                        @if (item.special) {
+                          <span class="badge badge-warning special-badge">{{ t('exercise.counter.badge.special') }}</span>
+                        }
+                      </td>
+                      <td class="muted" [attr.data-label]="t('lesson.col.meaningShort')">{{ item.meaning }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          </details>
+        }
+
+        <p class="small faint">{{ t('exercise.showing', { shown: shownCount(), total: totalCount }) }}</p>
+      </div>
+    </section>
+  </div>
+</div>

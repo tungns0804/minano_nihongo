@@ -1,4 +1,5 @@
 import type { ExerciseMode } from '../exercises/exercise.model';
+import { counterById } from '../exercises/counters';
 import { EXERCISE_VERBS } from '../exercises/exercise-verbs';
 import { GRAMMAR_BOOKS } from '../exercises/grammar-books';
 import { flattenN4Examples, meaningPoints } from '../exercises/n4-grammar.model';
@@ -26,6 +27,7 @@ import {
   buildTransitivityQuestions,
   buildVerbFormQuestions,
 } from './exercise-questions';
+import { buildCounterQuestions } from './counter-questions';
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildKanjiHanVietQuestions, buildKanjiWordQuestions } from './kanji-questions';
 import { buildN4ExampleQuestions, buildN4MeaningQuestions } from './n4-grammar-questions';
@@ -207,6 +209,29 @@ function buildOne(
         buildTransitivityQuestions(
           [pair],
           configOf({ lessonKind: 'exercise', exercise: 'tu-tha-dong-tu', exerciseMode, showHanViet: true }),
+        )[0] ?? null
+      );
+    }
+
+    case 'ct': {
+      const item = counterById(id);
+      if (!item) return null;
+      // Chiều Nhật → Việt là đọc 3本; trắc nghiệm hay gõ theo lựa chọn của người học.
+      const exerciseMode: ExerciseMode = toJapanese
+        ? 'counter-vi-jp'
+        : options.answerMode === 'choice'
+          ? 'counter-choice'
+          : 'counter-reading';
+      return (
+        buildCounterQuestions(
+          [item],
+          configOf({
+            lessonKind: 'exercise',
+            exercise: 'so-dem',
+            exerciseMode,
+            answerMode: exerciseMode === 'counter-choice' ? 'choice' : 'typing',
+            showHanViet: true,
+          }),
         )[0] ?? null
       );
     }
