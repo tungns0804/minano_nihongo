@@ -22,7 +22,7 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 | **Từ vựng** | Minano · Theo chủ đề | `/vocab` · `/topic` |
 | **Ngữ pháp** | Minano · N4 · vnjpclub | `/grammar` · `/exercise/ngu-phap-n4` · `/exercise/ngu-phap-vnjpclub` |
 | **Kanji** | Kanji · Bộ thủ | `/kanji` · `/radical` |
-| **Luyện tập** | Luyện dịch · Bài tập bổ trợ | `/translate` · `/exercise` |
+| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Đề N4 | `/translate` · `/exercise` · `/exercise/taisaku-n4` |
 
 - **Máy tính:** thanh bên trái, có nhãn nhỏ dưới biểu tượng khi màn hình hẹp hơn 1480px.
   **Điện thoại:** thanh menu năm nút ở đáy màn hình, ẩn đi lúc đang luyện và ở màn kết quả.
@@ -52,7 +52,7 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 ## Tài liệu
 
 - [docs/noi-dung.md](docs/noi-dung.md) — từng khu của ứng dụng: các loại bài học, từ vựng chủ đề,
-  tiến độ N3, ngữ pháp, kanji, bộ thủ, luyện viết, bài tập bổ trợ, tính năng chung.
+  tiến độ N3, ngữ pháp, kanji, bộ thủ, luyện viết, bài tập bổ trợ, đề luyện N4, tính năng chung.
 - [docs/du-lieu.md](docs/du-lieu.md) — định dạng file bài học và cách thêm bài mới.
 - [docs/ky-thuat.md](docs/ky-thuat.md) — cấu trúc dự án và các lưu ý kỹ thuật.
 - [CODING.md](CODING.md) — quy ước viết code.

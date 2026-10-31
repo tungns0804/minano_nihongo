@@ -787,6 +787,44 @@ người dùng tự nạp thêm. `npm run verify:conjugation` kiểm tra phần 
 từ phải chia được theo nhóm đã khai, cách đọc phải là kana thuần kết thúc bằng ます và cũng
 phải chia được, không có id nào trùng.
 
+## Đề luyện N4 · 直前対策
+
+Tab con **Đề N4** trong nhóm Luyện tập (`/exercise/taisaku-n4`) nạp toàn bộ bài tập của sách
+「日本語能力試験 直前対策 N4 文字・語彙・文法」 (国書刊行会, 2018), chép tay từ bản scan và đối chiếu
+từng câu với phần đáp án của sách. Trang chia ba lớp: **phần** → **dạng bài** → **đề / chủ đề**.
+
+| Phần | Dạng bài | Đề / chủ đề | Số câu |
+| --- | --- | --- | --- |
+| **文字・語彙** | もんだい1 đọc chữ Hán · 2 viết chữ Hán · 3 điền từ · 4 câu đồng nghĩa · 5 cách dùng từ · cả đề | 第1回 → 第10回 | 340 (34 câu × 10 đề) |
+| **文法** | もんだい1 chọn ngữ pháp · 2 mảnh ở chỗ ★ · 2 xếp cả câu · 3 điền vào đoạn văn · cả đề | 第1回 → 第10回 | 250 (25 câu × 10 đề) |
+| **付録** | Nhật → Việt · Việt → Nhật · bài tập trong sách | 16 chủ đề | 297 từ, 151 câu bài tập |
+
+- **Đề, lựa chọn và thứ tự lựa chọn giữ đúng sách**, kể cả furigana: "đáp án 3" dò lại trong
+  sách vẫn là đáp án 3. Phần gạch chân của sách hiện thành chữ gạch chân (`〈…〉` trong dữ liệu,
+  `RubyText.underline`); hội thoại A「…」B「…」 xuống dòng như sách. Tắt furigana để tự đọc chữ Hán.
+- **Dạng "cả đề"** đi đúng thứ tự sách, không trộn — như ngồi làm một đề thi. Các dạng khác
+  luyện riêng một đề hoặc gộp nhiều đề; số trên nút chọn đề là số câu của dạng đang chọn.
+- **Câu ★** có hai dạng: chọn mảnh ở ô ★ như đề thi, và bấm xếp cả bốn mảnh (dùng lại khu bấm
+  mảnh của bài ngữ pháp N4). Phản hồi luôn hiện cả câu đã ghép, mảnh ★ gạch chân.
+- **Bài đọc** (もんだい3 phần 文法): cả đoạn văn đứng trên, chỗ đang hỏi gạch chân; câu hỏi chỉ
+  là câu chứa chỗ trống, để khỏi dò lại cả đoạn ở mỗi câu.
+- **付録**: bảng từ luyện hai chiều, đáp án nhiễu lấy trong cùng chủ đề. Chủ đề kính ngữ (16)
+  không có bảng từ mà có bảng ba cột, nên mỗi động từ thành hai câu: tôn kính ngữ và khiêm nhường
+  ngữ, nhiễu đầu tiên luôn là vế còn lại của chính động từ đó. Bài nhìn tranh (chủ đề 1–7 và bài 1
+  của chủ đề 8) **không** đưa vào — tranh không có trong ứng dụng; từ của các chủ đề đó vẫn luyện
+  được ở hai chiều.
+- **Xem đề** ngay dưới khung thiết lập: câu của dạng và đề đang chọn, in theo từng もんだい như sách,
+  bật "Hiện đáp án" để dò lại; bảng từ thay cho phần này ở hai dạng luyện từ.
+- Câu đã chấm vào lịch **Ôn tập**: `tv:<id>` (từ vựng — phần 文字・語彙 và 付録) và `tg:<id>` (phần
+  文法). Dữ liệu sách chỉ được tải khi phiên ôn có mục loại đó. Dấu ★ lưu chung cho cả bài.
+
+Dữ liệu thô ở `src/app/core/exercises/taisaku-n4.data.ts` (đáp án ghi bằng **số thứ tự 1–4** như
+sách, không chép lại chữ), `taisaku-n4.ts` trải ra thành từng mục có id ổn định — `m<đề>-<câu>`,
+`b<đề>-<câu>`, `f<chủ đề>-w<n>`… — đổi cách đặt id là mất ★ và lịch ôn. `npm run verify:taisaku`
+soát: đủ số câu từng dạng, lựa chọn không trùng, đáp án nằm trong lựa chọn, ★ là hoán vị của 1–4,
+dấu của đề (`〈…〉`, `（　）`, `【★】`, `【21】…【25】`) đúng chỗ, cú pháp furigana, id không trùng và
+tra lại được.
+
 ## Tính năng chung
 
 **Bốn chiều luyện tập (bài từ vựng)**

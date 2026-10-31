@@ -25,7 +25,7 @@ import type { VerbGroup } from '../japanese/conjugation';
  *  - khoá lưu danh sách ★ "chưa nhớ" (giống id bài học)
  * nên KHÔNG đổi tuỳ tiện: đổi là mất hết ★ của bài tập đó.
  */
-export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | 'so-dem' | GrammarBookId;
+export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | 'so-dem' | 'taisaku-n4' | GrammarBookId;
 
 /**
  * Id các "sách ngữ pháp" (`grammar-books.ts`) — khai ở đây chứ không ở file đó để những
@@ -71,7 +71,22 @@ export type ExerciseMode =
   // Bài 4 — số đếm & trợ số từ
   | 'counter-choice'
   | 'counter-reading'
-  | 'counter-vi-jp';
+  | 'counter-vi-jp'
+  // Bài 5 — đề luyện N4 (直前対策): mỗi dạng câu của sách là một chiều hỏi
+  | 'tk-kanji-reading'
+  | 'tk-kanji-writing'
+  | 'tk-context'
+  | 'tk-paraphrase'
+  | 'tk-usage'
+  | 'tk-moji-test'
+  | 'tk-grammar'
+  | 'tk-star'
+  | 'tk-order'
+  | 'tk-passage'
+  | 'tk-bunpo-test'
+  | 'tk-word-meaning'
+  | 'tk-meaning-word'
+  | 'tk-book';
 
 export interface ExerciseModeInfo {
   id: ExerciseMode;
@@ -243,11 +258,135 @@ export const COUNTER_MODES: readonly ExerciseModeInfo[] = [
   },
 ];
 
+/**
+ * Dạng luyện của bài "Đề luyện N4 · 直前対策", chia theo ba phần của sách. Mỗi dạng câu
+ * của đề (もんだい1–5 phần 文字・語彙, もんだい1–3 phần 文法) là một dạng luyện riêng,
+ * thêm một dạng "cả đề" đi đúng thứ tự sách như ngồi thi thật.
+ *
+ * Câu ★ có hai dạng: chọn mảnh ở ô ★ như đề thi, và xếp cả bốn mảnh — xếp được cả câu
+ * mới chắc là hiểu, chứ chọn ô ★ thì đôi khi loại trừ là ra.
+ */
+export const TAISAKU_MOJI_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'tk-kanji-reading',
+    labelKey: 'taisaku.mode.kanjiReading',
+    shortKey: 'taisaku.mode.kanjiReading.short',
+    exampleKey: 'taisaku.mode.kanjiReading.example',
+    step: 0,
+  },
+  {
+    id: 'tk-kanji-writing',
+    labelKey: 'taisaku.mode.kanjiWriting',
+    shortKey: 'taisaku.mode.kanjiWriting.short',
+    exampleKey: 'taisaku.mode.kanjiWriting.example',
+    step: 0,
+  },
+  {
+    id: 'tk-context',
+    labelKey: 'taisaku.mode.context',
+    shortKey: 'taisaku.mode.context.short',
+    exampleKey: 'taisaku.mode.context.example',
+    step: 0,
+  },
+  {
+    id: 'tk-paraphrase',
+    labelKey: 'taisaku.mode.paraphrase',
+    shortKey: 'taisaku.mode.paraphrase.short',
+    exampleKey: 'taisaku.mode.paraphrase.example',
+    step: 0,
+  },
+  {
+    id: 'tk-usage',
+    labelKey: 'taisaku.mode.usage',
+    shortKey: 'taisaku.mode.usage.short',
+    exampleKey: 'taisaku.mode.usage.example',
+    step: 0,
+  },
+  {
+    id: 'tk-moji-test',
+    labelKey: 'taisaku.mode.mojiTest',
+    shortKey: 'taisaku.mode.mojiTest.short',
+    exampleKey: 'taisaku.mode.mojiTest.example',
+    step: 0,
+  },
+];
+
+export const TAISAKU_BUNPO_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'tk-grammar',
+    labelKey: 'taisaku.mode.grammar',
+    shortKey: 'taisaku.mode.grammar.short',
+    exampleKey: 'taisaku.mode.grammar.example',
+    step: 0,
+  },
+  {
+    id: 'tk-star',
+    labelKey: 'taisaku.mode.star',
+    shortKey: 'taisaku.mode.star.short',
+    exampleKey: 'taisaku.mode.star.example',
+    step: 0,
+  },
+  {
+    id: 'tk-order',
+    labelKey: 'taisaku.mode.order',
+    shortKey: 'taisaku.mode.order.short',
+    exampleKey: 'taisaku.mode.order.example',
+    step: 0,
+  },
+  {
+    id: 'tk-passage',
+    labelKey: 'taisaku.mode.passage',
+    shortKey: 'taisaku.mode.passage.short',
+    exampleKey: 'taisaku.mode.passage.example',
+    step: 0,
+  },
+  {
+    id: 'tk-bunpo-test',
+    labelKey: 'taisaku.mode.bunpoTest',
+    shortKey: 'taisaku.mode.bunpoTest.short',
+    exampleKey: 'taisaku.mode.bunpoTest.example',
+    step: 0,
+  },
+];
+
+/** Phần 付録: bảng từ theo chủ đề luyện hai chiều, cộng bài tập chữ của sách. */
+export const TAISAKU_FUROKU_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'tk-word-meaning',
+    labelKey: 'taisaku.mode.wordMeaning',
+    shortKey: 'taisaku.mode.wordMeaning.short',
+    exampleKey: 'taisaku.mode.wordMeaning.example',
+    step: 0,
+  },
+  {
+    id: 'tk-meaning-word',
+    labelKey: 'taisaku.mode.meaningWord',
+    shortKey: 'taisaku.mode.meaningWord.short',
+    exampleKey: 'taisaku.mode.meaningWord.example',
+    step: 0,
+  },
+  {
+    id: 'tk-book',
+    labelKey: 'taisaku.mode.book',
+    shortKey: 'taisaku.mode.book.short',
+    exampleKey: 'taisaku.mode.book.example',
+    step: 0,
+  },
+];
+
+/** Câu của phần 文法 ôn chung với ngữ pháp; hai phần kia là chuyện nhớ từ. */
+export function isTaisakuGrammarMode(mode: ExerciseMode): boolean {
+  return TAISAKU_BUNPO_MODES.some((info) => info.id === mode);
+}
+
 const ALL_MODES: readonly ExerciseModeInfo[] = [
   ...TRANSITIVITY_MODES,
   ...FORM_MODES,
   ...N4_GRAMMAR_MODES,
   ...COUNTER_MODES,
+  ...TAISAKU_MOJI_MODES,
+  ...TAISAKU_BUNPO_MODES,
+  ...TAISAKU_FUROKU_MODES,
 ];
 
 export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
@@ -260,6 +399,7 @@ export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
   'chuyen-the-dong-tu': 'masu-to-form',
   // Trắc nghiệm trước: luật biến âm phải nhìn thấy đúng/sai cạnh nhau vài lần mới ngấm.
   'so-dem': 'counter-choice',
+  'taisaku-n4': 'tk-kanji-reading',
   // Lộ trình chứ không phải bậc khó nhất: người mới mở bài ra mà gặp ngay dạng gõ cả
   // câu tiếng Nhật thì chỉ thấy mình chưa biết gì.
   'ngu-phap-n4': 'grammar-path',

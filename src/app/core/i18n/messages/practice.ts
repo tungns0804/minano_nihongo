@@ -69,6 +69,7 @@ export const PRACTICE_MESSAGES = {
   'practice.yourAnswer': { vi: 'Bạn trả lời:', ja: 'あなたの解答：' },
   'practice.answer': { vi: 'Đáp án:', ja: '正解：' },
   'practice.completeSentence': { vi: 'Câu đầy đủ:', ja: '完成した文：' },
+  'practice.exam.passage': { vi: 'Đoạn văn', ja: '文章' },
   'practice.order.placeholder': {
     vi: 'Bấm các mảnh bên dưới để xếp câu vào đây',
     ja: '下のかけらを押して、ここに文を並べます',

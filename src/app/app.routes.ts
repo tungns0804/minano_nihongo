@@ -133,6 +133,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/counter-exercise/counter-exercise').then((m) => m.CounterExercise),
   },
+  // Bài "Đề luyện N4 · 直前対策": chọn phần, dạng câu và đề của một quyển sách luyện
+  // thi, xem đề kèm đáp án — không giống bảng tra của bài nào ở trên.
+  {
+    path: 'exercise/taisaku-n4',
+    title: 'route.taisaku',
+    loadComponent: () => import('./features/taisaku-n4/taisaku-n4').then((m) => m.TaisakuN4),
+  },
   {
     path: 'exercise/:id',
     title: 'route.exerciseDetail',

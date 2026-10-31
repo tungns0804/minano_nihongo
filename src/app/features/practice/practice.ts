@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import type { MessageKey } from '../../core/i18n/messages';
-import { QuestionStatus, sessionShortKey } from '../../core/practice/practice.model';
+import { QuestionStatus, examText, sessionShortKey } from '../../core/practice/practice.model';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { FeedbackSound } from '../../core/services/feedback-sound';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
@@ -27,6 +27,9 @@ import { ChunkOrder } from '../../shared/chunk-order';
 import { RubyText } from '../../shared/ruby-text';
 import { StarButton } from '../../shared/star-button';
 import { StrokeCanvas } from '../../shared/stroke-canvas';
+
+/** Lựa chọn dài hơn ngần này ký tự thì xếp một cột (xem `wideChoices`). */
+const WIDE_CHOICE_LENGTH = 14;
 
 @Component({
   selector: 'app-practice',
@@ -114,8 +117,17 @@ export class Practice {
       : question.correctAnswer;
   });
 
-  /** Chữ hiển thị của một lựa chọn — có thể là mã cần dịch. */
+  /**
+   * Lựa chọn dài (câu của đề thi) xếp một cột: chia hai cột thì mỗi câu gãy làm ba
+   * bốn dòng, đọc so sánh bốn lựa chọn rất mệt.
+   */
+  readonly wideChoices = computed(() =>
+    (this.question()?.choices ?? []).some((choice) => this.choiceLabel(choice).length > WIDE_CHOICE_LENGTH),
+  );
+
+  /** Chữ hiển thị của một lựa chọn — có thể là mã cần dịch, hoặc câu đề thi có furigana. */
   choiceLabel(choice: string): string {
+    if (this.question()?.exam?.markupChoices) return examText(choice);
     const keys = this.question()?.choiceLabelKeys;
     const key = keys?.[choice] as MessageKey | undefined;
     return key ? this.lang.t(key) : choice;

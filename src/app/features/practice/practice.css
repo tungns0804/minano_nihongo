@@ -167,12 +167,32 @@
   line-height: 2.1;
 }
 
+/* --- Câu đề thi (Đề luyện N4) --- */
+
+/* Hội thoại A「…」B「…」 xuống dòng như sách. */
+.prompt app-ruby {
+  white-space: pre-line;
+}
+
+.exam-passage {
+  margin: 0 auto 16px;
+}
+
 /* --- Trắc nghiệm --- */
 
 .choices {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+}
+
+/* Lựa chọn là cả câu thì một cột (xem `wideChoices`). */
+.choices.is-wide {
+  grid-template-columns: 1fr;
+}
+
+.choice-text app-ruby {
+  line-height: 1.9;
 }
 
 .choice {

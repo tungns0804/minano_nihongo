@@ -8,6 +8,7 @@ import type { ReviewRef } from '../review/review.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from '../lessons/vocabulary.model';
+import { plainText } from '../translation/markup';
 
 /**
  * Các chiều luyện tập của bài TỪ VỰNG.
@@ -401,6 +402,32 @@ export interface SentenceExtras {
 }
 
 /**
+ * Phần riêng của câu đề thi (bài "Đề luyện N4 · 直前対策"): đề và lựa chọn của sách có
+ * furigana, chữ gạch chân và chỗ trống — vẽ bằng chữ thường thì mất cả ba.
+ *
+ * Viết theo cú pháp furigana của khu Luyện dịch (`core/translation/markup.ts`), thêm
+ * 〈…〉 là phần gạch chân như trong sách (xem `RubyText.underline`).
+ */
+export interface ExamExtras {
+  /** Đề bài, vẽ thay cho `prompt` (vẫn giữ `prompt` là chữ thường để đặt tên câu). */
+  prompt: string;
+  /**
+   * Lựa chọn và đáp án cũng viết theo cú pháp ấy. false khi lựa chọn là chữ thường —
+   * nghĩa tiếng Việt của câu "Nhật → Việt" có thể chứa dấu / mà cú pháp coi là ký hiệu.
+   */
+  markupChoices: boolean;
+  /** Cả đoạn văn của câu điền đoạn văn, chỗ đang hỏi gạch chân; null với câu khác. */
+  passage: string | null;
+  /** Câu đã điền đáp án, hiện ở phần phản hồi; null với câu không có chỗ trống. */
+  complete: string | null;
+}
+
+/** Chữ thường của một câu đề thi: bỏ furigana, bỏ dấu gạch chân, nối các dòng hội thoại. */
+export function examText(source: string): string {
+  return plainText(source).replace(/[〈〉]/g, '').replace(/\n/g, ' ');
+}
+
+/**
  * Mục đang được hỏi, đã tách khỏi kiểu dữ liệu gốc (từ vựng hay động từ) để màn
  * hình luyện tập và màn hình kết quả dùng chung được cho cả hai loại bài.
  */
@@ -502,6 +529,8 @@ export interface PracticeQuestion {
    * nhiều bài, và nguồn trong khoá cũng chính là khoá ★ của mục đó.
    */
   review: ReviewRef | null;
+  /** Phần riêng của câu đề thi; null với mọi câu khác. */
+  exam: ExamExtras | null;
 }
 
 /**
@@ -554,6 +583,7 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     // Khoá lịch ôn do `PracticeSessionStore.start` gắn theo thiết lập của phiên; chỉ
     // phiên Ôn tập mới tự điền sẵn (xem `review-questions.ts`).
     review: null,
+    exam: null,
     ...draft,
   };
 }

@@ -1,0 +1,155 @@
+/* Phần dùng chung (.level-tabs, .start-bar, .word-table, .grammar-table…) nằm ở
+   `src/styles/`. File này chỉ giữ phần "Xem đề" riêng của bài đề luyện N4. */
+
+/* --- Xem đề --- */
+
+.view-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2, 8px);
+  padding-top: var(--sp-3, 12px);
+  border-top: 1px solid var(--border);
+}
+
+.view-set {
+  margin: 0;
+  font-size: var(--fs-md);
+}
+
+.view-instruction {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Furigana cần chỗ phía trên dòng, nếu không nó đè lên dòng trước. */
+.view-prompt,
+.view-options,
+.view-complete,
+.view-bank {
+  line-height: 2.1;
+}
+
+.view-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+}
+
+.view-questions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2, 8px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.view-question {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.view-question.is-favorite {
+  border-color: var(--star);
+}
+
+.view-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.view-number {
+  flex-shrink: 0;
+  min-width: 26px;
+  margin-top: 8px;
+  padding: 0 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.view-prompt {
+  flex: 1;
+  white-space: pre-line;
+}
+
+.view-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0 16px;
+  margin: 4px 0 0;
+  padding: 0 0 0 36px;
+  list-style: none;
+}
+
+.view-options.is-wide {
+  grid-template-columns: 1fr;
+}
+
+.view-options li {
+  display: flex;
+  gap: 8px;
+  border-radius: var(--radius-sm);
+}
+
+.view-options li.is-answer {
+  background: var(--success-soft);
+  color: var(--success);
+  font-weight: 650;
+}
+
+.option-no {
+  flex-shrink: 0;
+  color: var(--text-faint);
+  font-weight: 650;
+}
+
+.view-answer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  margin: 4px 0 0;
+  padding-left: 36px;
+  color: var(--success);
+}
+
+.view-complete {
+  color: var(--text);
+}
+
+/* --- Bảng từ --- */
+
+.col-word {
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.col-example {
+  line-height: 2;
+}
+
+.keigo-table td {
+  line-height: 2;
+}
+
+.keigo-plain {
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .view-options,
+  .view-answer {
+    padding-left: 0;
+  }
+}

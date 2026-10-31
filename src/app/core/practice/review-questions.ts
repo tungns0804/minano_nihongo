@@ -45,6 +45,11 @@ export interface ReviewQuestionOptions {
 /** Loại mục nằm trong file bài học — phải tải bài về mới dựng lại được câu hỏi. */
 const LESSON_TYPES: ReadonlySet<string> = new Set(['w', 'g', 'v']);
 
+/** Loại mục của bài "Đề luyện N4" — dữ liệu sách nặng nên chỉ tải khi phiên ôn có mục đó. */
+const TAISAKU_TYPES: ReadonlySet<string> = new Set(['tv', 'tg']);
+
+type TaisakuBuilder = typeof import('./taisaku-questions');
+
 /**
  * Dựng lại câu hỏi cho các mục trong lịch ôn, giữ nguyên thứ tự `refs`.
  *
@@ -74,8 +79,12 @@ export async function buildReviewQuestions(
     }),
   );
 
+  const taisaku = refs.some((ref) => TAISAKU_TYPES.has(parseReviewKey(ref.key)?.type ?? ''))
+    ? await import('./taisaku-questions')
+    : null;
+
   return refs.flatMap((ref) => {
-    const question = buildOne(ref, lessons, options);
+    const question = buildOne(ref, lessons, taisaku, options);
     return question ? [{ ...question, review: ref }] : [];
   });
 }
@@ -83,6 +92,7 @@ export async function buildReviewQuestions(
 function buildOne(
   ref: ReviewRef,
   lessons: ReadonlyMap<string, Lesson | null>,
+  taisaku: TaisakuBuilder | null,
   options: ReviewQuestionOptions,
 ): PracticeQuestion | null {
   const parsed = parseReviewKey(ref.key);
@@ -235,6 +245,22 @@ function buildOne(
         )[0] ?? null
       );
     }
+
+    case 'tv':
+    case 'tg':
+      // Mọi câu của bài này là trắc nghiệm, kể cả khi người học chọn "gõ": đề luyện thi
+      // chỉ có lựa chọn, và gõ lại cả một câu lựa chọn thì không còn là đề thi nữa.
+      return (
+        taisaku?.buildTaisakuReviewQuestion(id, toJapanese, (exerciseMode) =>
+          configOf({
+            lessonKind: 'exercise',
+            exercise: 'taisaku-n4',
+            exerciseMode,
+            answerMode: 'choice',
+            showFurigana: true,
+          }),
+        ) ?? null
+      );
 
     case 'ne': {
       // Khoá thẻ không ghi sách: tìm trong mọi sách, câu thuộc sách nào thì hỏi như sách đó.

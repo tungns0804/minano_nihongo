@@ -84,6 +84,7 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     pages: [
       { path: '/translate', labelKey: 'app.nav.translate' },
       { path: '/exercise', labelKey: 'app.nav.exercise' },
+      { path: '/exercise/taisaku-n4', labelKey: 'app.sub.taisaku' },
     ],
   },
 ];

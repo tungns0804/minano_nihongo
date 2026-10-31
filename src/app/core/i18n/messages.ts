@@ -21,6 +21,7 @@ import { LESSON_MESSAGES } from './messages/lesson';
 import { GRAMMAR_MESSAGES } from './messages/grammar';
 import { TRANSLATE_MESSAGES } from './messages/translate';
 import { EXERCISE_MESSAGES } from './messages/exercise';
+import { TAISAKU_MESSAGES } from './messages/taisaku';
 import { TOPIC_MESSAGES } from './messages/topic';
 import { KANJI_MESSAGES } from './messages/kanji';
 import { RADICAL_MESSAGES } from './messages/radical';
@@ -52,6 +53,7 @@ export const MESSAGE_PARTS = [
   GRAMMAR_MESSAGES,
   TRANSLATE_MESSAGES,
   EXERCISE_MESSAGES,
+  TAISAKU_MESSAGES,
   TOPIC_MESSAGES,
   KANJI_MESSAGES,
   RADICAL_MESSAGES,
@@ -69,6 +71,7 @@ export const MESSAGES = {
   ...GRAMMAR_MESSAGES,
   ...TRANSLATE_MESSAGES,
   ...EXERCISE_MESSAGES,
+  ...TAISAKU_MESSAGES,
   ...TOPIC_MESSAGES,
   ...KANJI_MESSAGES,
   ...RADICAL_MESSAGES,

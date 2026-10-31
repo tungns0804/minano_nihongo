@@ -12,7 +12,12 @@
 
 import type { PracticeConfig, QuestionStatus } from '../practice/practice.model';
 import type { DayNumber } from '../n3/n3.model';
-import { isGrammarBookId, isMeaningMode, isTranslationMode } from '../exercises/exercise.model';
+import {
+  isGrammarBookId,
+  isMeaningMode,
+  isTaisakuGrammarMode,
+  isTranslationMode,
+} from '../exercises/exercise.model';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
 
 // ── Khu và loại mục ──────────────────────────────────────────────────────
@@ -37,11 +42,26 @@ export const REVIEW_AREAS: readonly ReviewArea[] = ['vocab', 'kanji', 'grammar',
  *  ne  câu ví dụ của bài ngữ pháp N4        nguồn: id bài tập
  *  nm  ý nghĩa một mẫu của bài ngữ pháp N4  nguồn: id bài tập
  *  ct  một cách đếm của bài "Số đếm"       nguồn: id bài tập
+ *  tv  câu từ vựng / từ của "Đề luyện N4"  nguồn: id bài tập
+ *  tg  câu ngữ pháp của "Đề luyện N4"     nguồn: id bài tập
  *
  * Nguồn cũng chính là khoá ★ của mục đó, nên phiên ôn gom câu từ nhiều bài vẫn
  * đánh dấu ★ đúng về bài chứa mục.
  */
-export type ReviewItemType = 'w' | 'kc' | 'kw' | 'rc' | 'g' | 'v' | 'ev' | 'tp' | 'ne' | 'nm' | 'ct';
+export type ReviewItemType =
+  | 'w'
+  | 'kc'
+  | 'kw'
+  | 'rc'
+  | 'g'
+  | 'v'
+  | 'ev'
+  | 'tp'
+  | 'ne'
+  | 'nm'
+  | 'ct'
+  | 'tv'
+  | 'tg';
 
 const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   w: 'vocab',
@@ -56,6 +76,9 @@ const AREA_OF_TYPE: Record<ReviewItemType, ReviewArea> = {
   nm: 'grammar',
   // Cách đọc số đếm là chuyện nhớ TỪ, nên ôn chung với từ vựng.
   ct: 'vocab',
+  // Đề luyện N4: phần 文字・語彙 và bảng từ 付録 là nhớ từ, phần 文法 là ngữ pháp.
+  tv: 'vocab',
+  tg: 'grammar',
 };
 
 /** Một mục trong lịch ôn: khoá để tra lịch, nguồn để dựng lại câu hỏi. */
@@ -123,6 +146,7 @@ function itemTypeOf(
     case 'exercise':
       if (config.exercise === 'tu-tha-dong-tu') return 'tp';
       if (config.exercise === 'so-dem') return 'ct';
+      if (config.exercise === 'taisaku-n4') return isTaisakuGrammarMode(config.exerciseMode) ? 'tg' : 'tv';
       // Bài ngữ pháp N4 hỏi trên CÂU khi dịch ví dụ, trên MẪU khi luyện ý nghĩa.
       //
       // Bậc "Điền vào chỗ trống" và "Sắp xếp câu" không vào lịch: chúng là nấc trung

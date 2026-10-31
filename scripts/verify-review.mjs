@@ -23,6 +23,7 @@ resolveTsImports();
 const {
   INTERVAL_DAYS,
   MAX_STAGE,
+  areaOfKey,
   dismissMistake,
   gradeOf,
   inMistakeBook,
@@ -180,6 +181,19 @@ expect(
   );
   expect(n4('example-vi-jp')?.source === 'ngu-phap-n4', 'nguon cua muc N4 la id bai tap (cung la khoa ★)');
   expect(parseReviewKey('ne:abc')?.type === 'ne' && parseReviewKey('nm:nagara')?.type === 'nm', 'nhan ra khoa ne / nm');
+}
+{
+  const tk = (exerciseMode) =>
+    ref({ lessonKind: 'exercise', lessonId: 'taisaku-n4', exercise: 'taisaku-n4', exerciseMode, answerMode: 'choice' }, 'm1-3');
+  expect(
+    ['tk-kanji-reading', 'tk-usage', 'tk-moji-test', 'tk-word-meaning', 'tk-book'].every((mode) => tk(mode)?.key === 'tv:m1-3'),
+    'de luyen N4: phan tu vung va 付録 -> tv',
+  );
+  expect(
+    ['tk-grammar', 'tk-star', 'tk-order', 'tk-passage', 'tk-bunpo-test'].every((mode) => tk(mode)?.key === 'tg:m1-3'),
+    'de luyen N4: phan ngu phap -> tg',
+  );
+  expect(areaOfKey('tv:f1-w1') === 'vocab' && areaOfKey('tg:b1-16') === 'grammar', 'tv on chung tu vung, tg on chung ngu phap');
 }
 expect(ref({ lessonKind: 'kanji', lessonId: 'nhu-6fe1', answerMode: 'draw' }, 'x') === null, 'phien viet chu khong vao lich');
 expect(

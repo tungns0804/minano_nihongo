@@ -455,3 +455,19 @@
 .grammar-table tbody tr:hover {
   background: var(--bg-subtle);
 }
+
+/* --- Bài đọc của đề thi ---------------------------------------------------
+   Đoạn văn của もんだい3 phần 文法 (bài "Đề luyện N4"): vẽ ở màn hình luyện tập, trên
+   câu đang hỏi, và ở phần "Xem đề" của chính bài đó. Đoạn văn có furigana nên dòng
+   phải cao, và giữ chỗ xuống dòng giữa các đoạn như sách. */
+
+.exam-passage {
+  max-width: 680px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  text-align: left;
+  line-height: 2.1;
+  white-space: pre-line;
+}

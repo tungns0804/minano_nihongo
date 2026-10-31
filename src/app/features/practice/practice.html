@@ -54,11 +54,22 @@
           </div>
         }
 
+        <!-- Câu điền đoạn văn: cả đoạn đứng trên, chỗ đang hỏi gạch chân; câu hỏi bên
+             dưới chỉ là câu chứa chỗ trống, để không phải dò lại cả đoạn mỗi câu. -->
+        @if (q.exam?.passage; as passage) {
+          <div class="exam-passage jp">
+            <span class="sentence-context-label">{{ t('practice.exam.passage') }}</span>
+            <div><app-ruby [text]="passage" [underline]="true" [furigana]="showFurigana()" /></div>
+          </div>
+        }
+
         <p class="prompt" [class.jp]="q.promptIsJapanese" [class.is-sentence]="q.isSentence">
           @if (q.sentence?.speaker; as speaker) {
             <span class="speaker"><app-ruby [text]="speaker" [furigana]="showFurigana()" />：</span>
           }
-          @if (q.sentence && q.promptIsJapanese) {
+          @if (q.exam) {
+            <app-ruby [text]="q.exam.prompt" [underline]="true" [furigana]="showFurigana()" />
+          } @else if (q.sentence && q.promptIsJapanese) {
             <app-ruby [text]="q.sentence.japanese" [furigana]="showFurigana()" />
           } @else {
             {{ q.prompt }}
@@ -74,7 +85,7 @@
     <!-- ── Vùng trả lời ─────────────────────────────────────────────────── -->
     <div #answerArea class="answer-area">
       @if (isChoiceMode()) {
-        <div class="choices">
+        <div class="choices" [class.is-wide]="wideChoices()">
           @for (choice of q.choices; track choice; let i = $index) {
             <button
               type="button"
@@ -85,7 +96,13 @@
               (click)="selectChoice(choice)"
             >
               <span class="choice-key" aria-hidden="true">{{ i + 1 }}</span>
-              <span class="choice-text" [class.jp]="q.answerIsJapanese">{{ choiceLabel(choice) }}</span>
+              <span class="choice-text" [class.jp]="q.answerIsJapanese">
+                @if (q.exam?.markupChoices) {
+                  <app-ruby [text]="choice" [underline]="true" />
+                } @else {
+                  {{ choiceLabel(choice) }}
+                }
+              </span>
               @if (isRevealedCorrect(choice)) {
                 <span class="choice-mark" aria-hidden="true">✓</span>
               } @else if (isRejected(choice)) {
@@ -244,13 +261,22 @@
           <p class="feedback-line">
             {{ t('practice.answer') }}
             <strong class="right-answer" [class.jp]="q.answerIsJapanese">
-              @if (q.sentence && q.answerIsJapanese && !isChoiceMode()) {
+              @if (q.exam?.markupChoices) {
+                <app-ruby [text]="q.correctAnswer" [underline]="true" />
+              } @else if (q.sentence && q.answerIsJapanese && !isChoiceMode()) {
                 <app-ruby [text]="q.sentence.japanese" />
               } @else {
                 {{ correctAnswerText() }}
               }
             </strong>
           </p>
+
+          @if (q.exam?.complete; as complete) {
+            <p class="feedback-line">
+              {{ t('practice.completeSentence') }}
+              <span class="complete-sentence jp"><app-ruby [text]="complete" [underline]="true" /></span>
+            </p>
+          }
 
           @if (q.sentence?.complete; as complete) {
             <p class="feedback-line">

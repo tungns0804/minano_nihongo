@@ -1,0 +1,351 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
+    <header class="stack stack-sm">
+      <h1><app-t key="taisaku.name" /></h1>
+      <p class="muted"><app-t key="taisaku.desc" block /></p>
+      <div class="row">
+        <span class="badge">{{ t('taisaku.questionCount', { count: questionCount }) }}</span>
+        <span class="badge">{{ t('taisaku.wordCount', { count: wordCount }) }}</span>
+        <span class="badge badge-warning">{{ t('home.favoriteCount', { count: favoriteTotal() }) }}</span>
+      </div>
+    </header>
+
+    <!-- ── Phần của sách ──────────────────────────────────────────────── -->
+    <div class="stack stack-sm">
+      <div class="level-tabs" role="tablist" [attr.aria-label]="t('taisaku.part')">
+        @for (item of parts; track item) {
+          <button
+            type="button"
+            role="tab"
+            class="level-tab"
+            [class.is-active]="part() === item"
+            [attr.aria-selected]="part() === item"
+            (click)="setPart(item)"
+          >
+            <strong>{{ t(partLabelKey[item]) }}</strong>
+          </button>
+        }
+      </div>
+      <p class="muted small">{{ t(partDescKey[part()]) }}</p>
+    </div>
+
+    <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
+    <app-practice-setup>
+      <h2>{{ t('lesson.setup') }}</h2>
+
+      <div class="field">
+        <span class="label">{{ t('taisaku.mode') }}</span>
+        <div class="options">
+          @for (item of modeList(); track item.id) {
+            <button
+              type="button"
+              class="option option-stacked"
+              [class.is-active]="mode() === item.id"
+              (click)="setMode(item.id)"
+            >
+              <strong><app-t [key]="item.labelKey" block /></strong>
+              <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+            </button>
+          }
+        </div>
+        @if (isTestMode()) {
+          <span class="hint">{{ t('taisaku.testNote') }}</span>
+        }
+      </div>
+
+      <div class="field">
+        <span class="label">{{ isFuroku() ? t('taisaku.sets.topics') : t('taisaku.sets.tests') }}</span>
+        <div class="options">
+          @for (no of setNumbers(); track no) {
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="isSetSelected(no)"
+              [attr.aria-pressed]="isSetSelected(no)"
+              [disabled]="setCount(no) === 0"
+              [title]="setCount(no) === 0 ? t('taisaku.sets.emptyTopic') : ''"
+              (click)="toggleSet(no)"
+            >
+              @if (isFuroku()) {
+                {{ no }} <span class="jp">{{ topicTitle(no) }}</span>
+              } @else {
+                {{ t('taisaku.set.test', { no }) }}
+              }
+              <span class="filter-count">{{ setCount(no) }}</span>
+            </button>
+          }
+          @if (!allSetsSelected()) {
+            <button type="button" class="btn btn-sm" (click)="selectAllSets()">
+              {{ t('taisaku.sets.all') }}
+            </button>
+          }
+        </div>
+        <span class="hint">{{ t('taisaku.sets.hint') }}</span>
+      </div>
+
+      <div class="field">
+        <span class="label">{{ t('lesson.scope') }}</span>
+        <div class="options">
+          <button type="button" class="option" [class.is-active]="scope() === 'all'" (click)="setScope('all')">
+            {{ t('exercise.scope.all', { count: units().length }) }}
+          </button>
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="scope() === 'favorite'"
+            [disabled]="favoriteCount() === 0"
+            (click)="setScope('favorite')"
+          >
+            {{ t('lesson.scope.favorite', { count: favoriteCount() }) }}
+          </button>
+        </div>
+        @if (favoriteCount() === 0) {
+          <span class="hint"><app-t key="lesson.scope.hint" block /></span>
+        }
+      </div>
+
+      <ng-container ngProjectAs="[setupAdvanced]">
+        <div class="field">
+          <span class="label">{{ t('lesson.answerMode') }}</span>
+          <p class="muted small">{{ isOrderMode() ? t('taisaku.orderNote') : t('taisaku.answerNote') }}</p>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.questionCount') }}</span>
+          <div class="options">
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="questionLimit() === null"
+              (click)="setQuestionLimit(null)"
+            >
+              {{ t('common.all') }}
+            </button>
+            @for (limit of limitChoices(); track limit) {
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="questionLimit() === limit"
+                (click)="setQuestionLimit(limit)"
+              >
+                {{ t('lesson.questionCount.n', { count: limit }) }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.options') }}</span>
+          <div class="options">
+            <label class="checkbox">
+              <input type="checkbox" [checked]="showFurigana()" (change)="toggleFurigana($event)" />
+              <span>
+                <strong>{{ t('taisaku.option.furigana') }}</strong>
+                <span class="hint">{{ t('taisaku.option.furiganaHint') }}</span>
+              </span>
+            </label>
+
+            @if (mode() === 'tk-word-meaning') {
+              <label class="checkbox">
+                <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+                <span>
+                  <strong>{{ t('taisaku.option.example') }}</strong>
+                  <span class="hint">{{ t('taisaku.option.exampleHint') }}</span>
+                </span>
+              </label>
+            }
+
+            @if (!isTestMode()) {
+              <label class="checkbox">
+                <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+                <span>
+                  <strong><app-t key="lesson.option.shuffle" block /></strong>
+                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                </span>
+              </label>
+            }
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container ngProjectAs="[setupActions]">
+        <div class="start-bar">
+          <div class="small muted">
+            <app-t
+              key="lesson.plan"
+              block
+              [params]="{
+                count: plannedQuestionCount(),
+                mode: modeShort(),
+                answer: isOrderMode() ? t('lesson.plan.order') : t('lesson.plan.choice'),
+                max: planMax()
+              }"
+            />
+          </div>
+          <button type="button" class="btn btn-primary btn-lg" [disabled]="!canStart()" (click)="start()">
+            {{ t('lesson.start') }}
+          </button>
+        </div>
+
+        @if (!canStart()) {
+          <div class="notice notice-warning">{{ t('lesson.emptyScope') }}</div>
+        }
+      </ng-container>
+    </app-practice-setup>
+
+    <!-- ── Xem đề / bảng từ ───────────────────────────────────────────── -->
+    <section class="card">
+      <div class="card-body stack">
+        <div class="row">
+          <h2>{{ isWordMode() ? t('taisaku.view.words') : isFuroku() ? t('taisaku.view.book') : t('taisaku.view') }}</h2>
+          <span class="spacer"></span>
+          @if (!isWordMode()) {
+            <label class="checkbox filter-check">
+              <input type="checkbox" [checked]="showAnswers()" (change)="toggleShowAnswers($event)" />
+              <span>{{ t('taisaku.view.showAnswers') }}</span>
+            </label>
+          }
+          @if (favoriteCount() > 0) {
+            <button type="button" class="btn btn-sm" (click)="clearFavorites()">
+              {{ t('lesson.clearFavorites') }}
+            </button>
+          }
+        </div>
+
+        @if (isWordMode()) {
+          @for (topic of viewTopics(); track topic.no) {
+            <h3 class="view-set">
+              {{ t('taisaku.topic', { no: topic.no }) }} · <app-ruby class="jp" [text]="topic.title" />
+            </h3>
+
+            @if (topic.words.length > 0) {
+              <div class="scroll-x">
+                <table class="word-table taisaku-words">
+                  <thead>
+                    <tr>
+                      <th class="col-star"><span class="sr-only">{{ t('lesson.col.star') }}</span>★</th>
+                      <th>{{ t('taisaku.col.word') }}</th>
+                      <th>{{ t('lesson.col.meaningShort') }}</th>
+                      @if (hasExamples(topic)) {
+                        <th>{{ t('taisaku.col.example') }}</th>
+                      }
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (word of topic.words; track word.id) {
+                      <tr [class.is-favorite]="isFavorite(word.id)">
+                        <td class="col-star">
+                          <button app-star [on]="isFavorite(word.id)" [name]="plain(word.word)" (click)="toggleFavorite(word.id)"></button>
+                        </td>
+                        <td class="jp col-word"><app-ruby [text]="word.word" /></td>
+                        <td class="muted" [attr.data-label]="t('lesson.col.meaningShort')">{{ word.meaning }}</td>
+                        @if (hasExamples(topic)) {
+                          <td class="jp col-example" [attr.data-label]="t('taisaku.col.example')">
+                            <app-ruby [text]="word.example" />
+                          </td>
+                        }
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            }
+
+            @if (topic.keigo.length > 0) {
+              <div class="scroll-x">
+                <table class="grammar-table keigo-table">
+                  <thead>
+                    <tr>
+                      <th>{{ t('taisaku.col.sonkei') }}</th>
+                      <th>{{ t('taisaku.col.plain') }}</th>
+                      <th>{{ t('taisaku.col.kenjou') }}</th>
+                      <th>{{ t('lesson.col.meaningShort') }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (row of topic.keigo; track row.id) {
+                      <tr>
+                        <td class="jp"><app-ruby [text]="row.sonkei || '—'" /></td>
+                        <td class="jp keigo-plain"><app-ruby [text]="row.plain" /></td>
+                        <td class="jp"><app-ruby [text]="row.kenjou || '—'" /></td>
+                        <td class="muted">{{ row.meaning }}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            }
+          }
+        } @else {
+          @if (viewGroups().length === 0) {
+            <p class="muted">{{ t('taisaku.view.empty') }}</p>
+          }
+
+          @for (group of viewGroups(); track group.key) {
+            <section class="view-group">
+              <h3 class="view-set">
+                @if (isFuroku()) {
+                  {{ t('taisaku.topic', { no: group.set }) }} · <span class="jp">{{ topicTitle(group.set) }}</span>
+                } @else {
+                  {{ t('taisaku.set.test', { no: group.set }) }}
+                }
+              </h3>
+              <p class="view-instruction">{{ t(group.instructionKey) }}</p>
+
+              @if (group.bank.length > 0) {
+                <p class="view-bank jp">
+                  @for (word of group.bank; track word) {
+                    <span class="bank-word"><app-ruby [text]="word" [furigana]="showFurigana()" /></span>
+                  }
+                </p>
+              }
+
+              @if (group.passage; as passage) {
+                <div class="exam-passage jp"><app-ruby [text]="passage" [furigana]="showFurigana()" /></div>
+              }
+
+              <ol class="view-questions">
+                @for (q of group.questions; track q.id) {
+                  <li class="view-question" [class.is-favorite]="isFavorite(q.id)">
+                    <div class="view-head">
+                      <span class="view-number">{{ q.number }}</span>
+                      <div class="view-prompt jp">
+                        @if (q.kind !== 'passage') {
+                          <app-ruby [text]="viewPrompt(q)" [underline]="true" [furigana]="showFurigana()" />
+                        }
+                      </div>
+                      <button app-star [on]="isFavorite(q.id)" [name]="starName(q)" (click)="toggleFavorite(q.id)"></button>
+                    </div>
+
+                    @if (q.kind !== 'fill') {
+                      <ol class="view-options" [class.is-wide]="q.kind === 'paraphrase' || q.kind === 'usage'">
+                        @for (option of q.options; track $index) {
+                          <li [class.is-answer]="showAnswers() && option === q.answer">
+                            <span class="option-no">{{ $index + 1 }}</span>
+                            <span class="jp"><app-ruby [text]="option" [underline]="true" [furigana]="showFurigana()" /></span>
+                          </li>
+                        }
+                      </ol>
+                    }
+
+                    @if (showAnswers()) {
+                      <p class="view-answer small">
+                        @if (q.kind !== 'fill') {
+                          {{ t('taisaku.view.answer') }} <strong>{{ answerNumber(q) }}</strong>
+                        }
+                        @if (q.complete; as complete) {
+                          <span class="jp view-complete"><app-ruby [text]="complete" [underline]="true" [furigana]="showFurigana()" /></span>
+                        }
+                      </p>
+                    }
+                  </li>
+                }
+              </ol>
+            </section>
+          }
+        }
+      </div>
+    </section>
+  </div>
+</div>
