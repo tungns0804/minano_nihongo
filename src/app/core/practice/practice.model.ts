@@ -427,6 +427,17 @@ export function examText(source: string): string {
   return plainText(source).replace(/[〈〉]/g, '').replace(/\n/g, ' ');
 }
 
+/** Hình minh họa của mục đang hỏi (xem `core/images/vocab-images.ts`). */
+export interface QuestionImage {
+  /** Đường dẫn tương đối theo `<base href>`. */
+  src: string;
+  /**
+   * Hiện ngay trên thẻ câu hỏi. false khi câu hỏi hỏi NGHĨA của từ: hình chính là
+   * nghĩa, hiện trước thì lộ đáp án — lúc đó hình chỉ hiện ở phần phản hồi.
+   */
+  inPrompt: boolean;
+}
+
 /**
  * Mục đang được hỏi, đã tách khỏi kiểu dữ liệu gốc (từ vựng hay động từ) để màn
  * hình luyện tập và màn hình kết quả dùng chung được cho cả hai loại bài.
@@ -531,6 +542,8 @@ export interface PracticeQuestion {
   review: ReviewRef | null;
   /** Phần riêng của câu đề thi; null với mọi câu khác. */
   exam: ExamExtras | null;
+  /** Hình minh họa; null với mục chưa có hình. */
+  image: QuestionImage | null;
 }
 
 /**
@@ -584,6 +597,7 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     // phiên Ôn tập mới tự điền sẵn (xem `review-questions.ts`).
     review: null,
     exam: null,
+    image: null,
     ...draft,
   };
 }

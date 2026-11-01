@@ -46,6 +46,7 @@ import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import { VocabAudioPlayer } from '../../core/audio/vocab-audio-player';
+import { vocabImageOf } from '../../core/images/vocab-images';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
@@ -141,6 +142,9 @@ export class LessonDetail extends PracticeScreen {
 
   /** Chỉ hiện cột ví dụ khi bài có ít nhất một câu — tránh cột trống vô ích. */
   readonly hasExamples = computed(() => this.words().some((word) => word.example.length > 0));
+  /** Bài có từ nào có hình minh họa không — có thì ghi nguồn hình dưới bảng. */
+  readonly hasImages = computed(() => this.words().some((word) => vocabImageOf(word) !== null));
+  readonly imageOf = vocabImageOf;
   readonly hasReadings = computed(() => hasWordField(this.words(), 'reading'));
 
   /**

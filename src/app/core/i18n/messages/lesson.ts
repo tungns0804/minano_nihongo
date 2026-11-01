@@ -138,6 +138,7 @@ export const LESSON_MESSAGES = {
   'lesson.deleteLesson': { vi: 'Xoá bài học này', ja: 'このレッスンを削除' },
   'lesson.markSpecial': { vi: '★ Đánh dấu động từ đặc biệt', ja: '★ 特殊動詞に印を付ける' },
   'lesson.clearFavorites': { vi: 'Bỏ đánh dấu tất cả', ja: 'すべての印を外す' },
+  'lesson.imageCredit': { vi: 'Hình minh họa:', ja: 'イラスト：' },
   'lesson.search.verb': {
     vi: 'Tìm theo âm Hán Việt, động từ, nghĩa hoặc thể đã chia…',
     ja: '漢越音・動詞・意味・活用形で検索…',

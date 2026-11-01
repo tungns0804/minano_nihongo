@@ -1,8 +1,10 @@
 import type { MessageKey } from '../i18n/messages';
+import { vocabImageOf } from '../images/vocab-images';
 import {
   CHOICE_COUNT,
   PracticeConfig,
   PracticeQuestion,
+  QuestionImage,
   QuestionSubject,
   directionInfo,
   makeQuestion,
@@ -83,8 +85,14 @@ export function buildVocabularyQuestions(
       answerPromptKey: ANSWER_PROMPT_KEY[info.answer],
       choices,
       maxWrongAttempts: limitAttempts(config.maxWrongAttempts, config.answerMode, choices.length),
+      image: imageOf(word, info.answer !== 'vietnamese'),
     });
   });
+}
+
+function imageOf(word: VocabularyWord, inPrompt: boolean): QuestionImage | null {
+  const src = vocabImageOf(word);
+  return src ? { src, inPrompt } : null;
 }
 
 /**

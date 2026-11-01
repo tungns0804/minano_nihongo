@@ -899,6 +899,29 @@ npm run verify:audio               # kiểm tra đủ file chưa, không ghi gì
 Bản offline một file (`npm run build:offline`) **không có** phần này — mở bằng `file://` thì không
 tải được tài nguyên ngoài, nên nút loa tự ẩn đi thay vì bày ra rồi bấm không kêu.
 
+**Hình minh họa (bài từ vựng)**
+
+Từ có hình hiện một icon nhỏ cạnh từ trong bảng từ vựng. Khi luyện, hình hiện ngay trên thẻ câu
+hỏi ở các chiều hỏi ra chữ Nhật / cách đọc / âm Hán Việt; riêng chiều **Nhật → Việt** thì hình bị
+giấu vì nó chính là nghĩa — hình chỉ hiện ở phần phản hồi sau khi chấm. Phiên Ôn tập cũng vậy.
+
+Hình là icon của **OpenMoji** (https://openmoji.org, giấy phép CC BY-SA 4.0): tải thẳng từ CDN,
+không cần tài khoản hay API key, lưu sẵn trong `public/images/vocab/`. Trang bài học có hình ghi
+nguồn ngay dưới bảng từ, đúng yêu cầu của giấy phép. Hiện có hình cho 50 từ của bài N3 · 名詞
+Bài 4 (151–200).
+
+Thêm hình cho từ khác: thêm một dòng `'chữ Nhật|cách đọc': 'mã icon'` vào
+`src/app/core/images/vocab-images.ts` (mã icon là mã Unicode của emoji, tra trên openmoji.org),
+rồi:
+
+```bash
+npm run generate:images   # tải SVG còn thiếu, xoá SVG không còn từ nào dùng
+npm run verify:images     # kiểm tra đủ file, mọi từ trong bảng có thật, không hai từ chung một icon
+```
+
+Mỗi từ phải một icon riêng, kể cả cặp tự / tha động từ: hai từ chung một hình thì nhìn hình không
+phân biệt được. Bản offline một file không có hình, như phát âm.
+
 **Favorite — luyện từ chưa nhớ**
 
 Bấm ngôi sao ở bảng từ vựng, trong lúc luyện, hoặc ở màn hình kết quả để đánh dấu từ hay quên.

@@ -79,6 +79,10 @@
         @if (q.hint) {
           <p class="prompt-hint" [class.jp]="q.hintIsJapanese">{{ q.hint }}</p>
         }
+
+        @if (q.image?.inPrompt) {
+          <img class="vocab-image vocab-image-lg" [src]="q.image?.src" alt="" />
+        }
       </div>
     </section>
 
@@ -270,6 +274,12 @@
               }
             </strong>
           </p>
+
+          <!-- Hình luôn hiện lại ở đây, kể cả câu hỏi nghĩa (nơi hình bị giấu trên thẻ
+               câu hỏi vì nó chính là đáp án): nhớ từ bằng hình là lúc vừa biết đáp án. -->
+          @if (q.image; as image) {
+            <img class="vocab-image vocab-image-md" [src]="image.src" alt="" />
+          }
 
           @if (q.exam?.complete; as complete) {
             <p class="feedback-line">
