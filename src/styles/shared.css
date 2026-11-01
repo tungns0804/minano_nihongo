@@ -351,8 +351,9 @@
   vertical-align: top;
 }
 
-/* Kẻ sọc để mắt không lạc dòng ở bảng dài. Hàng ★ có màu riêng nên bỏ qua. Pha 45% như
-   trước thì ở tông Đèn đêm sọc gần như biến mất — nền thẻ và --bg-subtle vốn đã gần nhau. */
+/* Kẻ sọc để mắt không lạc dòng ở bảng dài. Hàng ★ có màu riêng nên bỏ qua. Pha 75% chứ
+   không phải 45%: ở tông Đèn đêm nền thẻ và --bg-subtle gần nhau, pha nhạt hơn thì sọc
+   gần như biến mất. */
 .word-table tbody tr:nth-child(even):not(.is-favorite) {
   background: color-mix(in srgb, var(--bg-subtle) 75%, transparent);
 }

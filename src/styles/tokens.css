@@ -179,29 +179,30 @@
    color-scheme vẫn là light: ô nhập liệu, thanh cuộn, hộp chọn của trình duyệt
    đều lấy bản sáng, khớp với nền ngà chứ không phải nền tối.
 
-   Ba lớp nền phải TÁCH NHAU thấy được: nền trang ngả cát đậm, thẻ / thanh bên /
-   thanh trên gần như kem trắng, ô lõm ở giữa. Bản đầu tiên để các lớp chỉ chênh
-   nhau 1.11:1 về độ sáng — thẻ, thanh bên, nền trang và hàng kẻ sọc của bảng nhìn
-   thành một mảng ngà liền, không biết khung nào chứa cái gì. Nay thẻ so với nền
-   trang là 1.34:1.
+   Nền "kem nhạt": nền trang kem rất nhạt, thẻ / thanh bên / thanh trên gần trắng.
+   Hai lần thử trước đều hỏng theo hai hướng ngược nhau: bản đầu tiên là ngà vàng
+   đậm, các lớp sát màu nhau thành một mảng ngà liền; bản thứ hai kéo nền trang
+   xuống màu cát đậm để tách lớp, nhìn nặng và bẩn. Người dùng chọn bản này khi
+   xem bốn phương án đặt cạnh nhau. Khung tách nhau bằng viền và bóng, không bằng
+   một mảng nền đậm.
 
-   Độ tương phản: ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 4.5:1 trên cả bốn
-   lớp nền (chữ nhạt nhất: 5.15:1 trên nền trang, 6.89:1 trên thẻ), tức đạt WCAG AA
-   cho chữ nhỏ. Sửa màu thì phải đo lại. */
+   Độ tương phản: ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5:1 trên cả bốn lớp
+   nền (chữ nhạt nhất: 5.58:1 trên ô lõm, 7.0:1 trên thẻ), tức đạt WCAG AA cho chữ
+   nhỏ. Sửa màu thì phải đo lại. */
 :root[data-theme='night'] {
   color-scheme: light;
 
-  --bg: #e8d9bc;
-  --bg-elevated: #fffaf1;
-  --bg-subtle: #f6ecd9;
-  --bg-inset: #ecdcbe;
+  --bg: #f3ece0;
+  --bg-elevated: #fffcf6;
+  --bg-subtle: #f7f1e6;
+  --bg-inset: #ece2d1;
 
   --text: #2b2113;
   --text-muted: #5c4728;
   --text-faint: #6a5434;
 
-  --border: #e6d4b4;
-  --border-strong: #c9ad80;
+  --border: #e6dccb;
+  --border-strong: #cdbda3;
 
   /* Chàm là màu xanh nhất trong bảng màu sáng, nên nó là thứ đầu tiên phải thay
      khi cả tông này sinh ra để bớt ánh sáng xanh. Cam đất giữ đúng vai trò "màu
