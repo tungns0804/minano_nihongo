@@ -45,8 +45,11 @@ const CHECK_ONLY = process.argv.includes('--check');
 const problems = [];
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/** Giấy phép tự do: dùng được miễn ghi tác giả (và chia sẻ cùng giấy phép với BY-SA). */
-const FREE_LICENSE = /^(CC0|Public domain|PD|CC BY(-SA)? \d\.\d)\b/i;
+/**
+ * Giấy phép tự do: dùng được miễn ghi tác giả (và chia sẻ cùng giấy phép với BY-SA).
+ * "No restrictions" là nhãn của Flickr Commons — ảnh lưu trữ không còn bản quyền đã biết.
+ */
+const FREE_LICENSE = /^(CC0|Public domain|PD|No restrictions|CC BY(-SA)? \d\.\d)\b/i;
 
 // ── Mọi từ trong bảng phải có thật ──────────────────────────────────────────
 if (!existsSync(LESSONS_DIR)) {

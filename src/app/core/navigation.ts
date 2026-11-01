@@ -62,7 +62,6 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     icon: 'cap',
     pages: [
       { path: '/grammar', labelKey: 'app.sub.minano' },
-      { path: '/exercise/ngu-phap-n4', labelKey: 'app.sub.n4grammar' },
       { path: '/exercise/ngu-phap-vnjpclub', labelKey: 'app.sub.vnjpclub' },
     ],
   },
@@ -84,6 +83,9 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     pages: [
       { path: '/translate', labelKey: 'app.nav.translate' },
       { path: '/exercise', labelKey: 'app.nav.exercise' },
+      // Bài "Luyện tập ngữ pháp N4" nằm ở nhóm Luyện tập theo ý người dùng (01/11/2026): họ
+      // dùng nó để luyện theo lộ trình năm bậc, cạnh đề luyện N4, hơn là để đọc lý thuyết.
+      { path: '/exercise/ngu-phap-n4', labelKey: 'app.sub.n4grammar' },
       { path: '/exercise/taisaku-n4', labelKey: 'app.sub.taisaku' },
     ],
   },
@@ -91,13 +93,13 @@ export const NAV_GROUPS: readonly NavGroup[] = [
 
 /**
  * Nhóm sở hữu từng nhánh đường dẫn. Xét từ trên xuống, nhánh dài hơn đứng trước:
- * bài "Luyện tập ngữ pháp N4" nằm dưới /exercise nhưng là nội dung NGỮ PHÁP.
+ * sách vnjpclub nằm dưới /exercise nhưng là nội dung NGỮ PHÁP. Bài "Luyện tập ngữ pháp N4"
+ * thì thuộc nhóm Luyện tập, nên nó đi theo nhánh /exercise như mọi bài tập khác.
  *
  * Bài chia động từ và bài hội thoại mở ở /lesson/:id như bài từ vựng, nên URL không
  * cho biết loại bài — chúng sáng mục Từ vựng, đúng như trước khi có nhóm.
  */
 const OWNERS: readonly (readonly [prefix: string, group: NavGroupId])[] = [
-  ['/exercise/ngu-phap-n4', 'grammar'],
   ['/exercise/ngu-phap-vnjpclub', 'grammar'],
   ['/review', 'today'],
   ['/n3', 'today'],

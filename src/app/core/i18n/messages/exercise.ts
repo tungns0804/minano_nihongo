@@ -7,8 +7,8 @@ export const EXERCISE_MESSAGES = {
   // (core/exercises/), gom động từ của nhiều cấp theo một chủ đề ngữ pháp.
   'exercise.title': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'exercise.subtitle': {
-    vi: 'Luyện kỹ năng thay vì nhớ nghĩa: tự/tha và chuyển thể động từ, số đếm & ngày tháng, chia thể theo bài, dịch hội thoại Việt ↔ Nhật. Ngữ pháp N4 nằm ở mục Ngữ pháp.',
-    ja: '意味の暗記ではなくスキルの練習：自動詞・他動詞と動詞の活用、数・助数詞と日付、課ごとの活用、越↔日の会話翻訳。N4文法は「文法」にあります。',
+    vi: 'Luyện kỹ năng thay vì nhớ nghĩa: tự/tha và chuyển thể động từ, số đếm & ngày tháng, chia thể theo bài, dịch hội thoại Việt ↔ Nhật. Ngữ pháp N4 và đề luyện N4 ở hai tab bên cạnh.',
+    ja: '意味の暗記ではなくスキルの練習：自動詞・他動詞と動詞の活用、数・助数詞と日付、課ごとの活用、越↔日の会話翻訳。N4文法とN4模試は隣のタブにあります。',
   },
   'exercise.search': {
     vi: 'Tìm bài tập theo tên hoặc số bài…',

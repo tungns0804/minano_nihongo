@@ -12,7 +12,7 @@ Từng khu của ứng dụng: học gì, luyện thế nào, dữ liệu lấy 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | **Luyện tập → Bài tập bổ trợ** |
 | **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | **Luyện tập → Bài tập bổ trợ** |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | **Ngữ pháp → Minano** |
-| **Sách ngữ pháp** | Tổng hợp N4 (tài liệu), vnjpclub N4 — lý thuyết + lộ trình 5 bậc | Cài sẵn / sinh bằng script | **Ngữ pháp → N4 / vnjpclub** |
+| **Sách ngữ pháp** | Tổng hợp N4 (tài liệu), vnjpclub N4 — lý thuyết + lộ trình 5 bậc | Cài sẵn / sinh bằng script | **Luyện tập → Ngữ pháp N4** / **Ngữ pháp → vnjpclub** |
 | **Kanji** | Danh sách 2.123 chữ Hán N5→N1 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | **Kanji → Kanji** |
 | **Bộ thủ** | 214 bộ thủ + các chữ Hán N5→N1 ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | **Kanji → Bộ thủ** |
 
@@ -916,7 +916,7 @@ có giấy phép tự do: CC0, phạm vi công cộng, CC BY, CC BY-SA. Mỗi �
 CC BY-SA bắt buộc ghi tác giả và giấy phép ở chỗ dùng ảnh — vì vậy dòng ghi nguồn đi chung một
 component với ảnh (`shared/vocab-photo.ts`), không chỗ nào vẽ ảnh mà thiếu nó. Bản thu nhỏ 330px
 lưu sẵn trong `public/images/vocab/` (mỗi ảnh vài chục KB), trang không gọi Commons lúc chạy.
-Hiện có ảnh cho 50 từ của bài N3 · 名詞 Bài 4 (151–200).
+Hiện có ảnh cho 192 từ của bốn bài N3 · 名詞 (1–200); 8 từ trừu tượng ở bài 1–2 chưa có ảnh vì Commons không có ảnh nào đúng nghĩa.
 
 Thêm ảnh cho từ khác: tìm ảnh trên commons.wikimedia.org, thêm một mục vào
 `src/app/core/images/vocab-images.ts` — khoá `'chữ Nhật|cách đọc'`, giá trị là tên file trên

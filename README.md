@@ -20,9 +20,9 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 | --- | --- | --- |
 | **Hôm nay** | Hôm nay · Ôn tập · Tiến độ N3 | `/` · `/review` · `/n3` |
 | **Từ vựng** | Minano · Theo chủ đề | `/vocab` · `/topic` |
-| **Ngữ pháp** | Minano · N4 · vnjpclub | `/grammar` · `/exercise/ngu-phap-n4` · `/exercise/ngu-phap-vnjpclub` |
+| **Ngữ pháp** | Minano · vnjpclub | `/grammar` · `/exercise/ngu-phap-vnjpclub` |
 | **Kanji** | Kanji · Bộ thủ | `/kanji` · `/radical` |
-| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Đề N4 | `/translate` · `/exercise` · `/exercise/taisaku-n4` |
+| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Ngữ pháp N4 · Đề N4 | `/translate` · `/exercise` · `/exercise/ngu-phap-n4` · `/exercise/taisaku-n4` |
 
 - **Máy tính:** thanh bên trái, có nhãn nhỏ dưới biểu tượng khi màn hình hẹp hơn 1480px.
   **Điện thoại:** thanh menu năm nút ở đáy màn hình, ẩn đi lúc đang luyện và ở màn kết quả.
