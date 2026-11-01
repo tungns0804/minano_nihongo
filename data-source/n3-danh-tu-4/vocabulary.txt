@@ -1,0 +1,56 @@
+# Từ vựng N3 · 名詞 — Bài 4 (từ 151–200)
+# Nguồn: ảnh bảng "Bài 2 動詞" (151–170) và "Bài 3 連用名詞" (221–250) người dùng gửi 2026-11-01 (Kanji · Hiragana · Meaning).
+# Theo yêu cầu người dùng, từ 221 của bảng Bài 3 được tính là từ 171 của bài này: 221–250 thành 171–200.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
+# Động từ 151–170
+ĐOẠN,断る (ことわる),Từ chối
+KIẾN,見つかる (みつかる),Được tìm thấy
+KIẾN,見つける (みつける),Tìm thấy
+BỘ,捕まる (つかまる),Bị bắt
+BỘ,捕まえる (つかまえる),Bắt
+THỪA,乗る (のる),Leo lên
+THỪA,乗せる (のせる),Cho lên
+GIÁNG,降りる (おりる),Xuống
+GIÁNG,降ろす (おろす),Cho xuống
+TRỰC,直る (なおる),Được sửa
+TRỰC,直す (なおす),Sửa
+TRỊ,治る (なおる),Hồi phục
+TRỊ,治す (なおす),Cứu chữa
+VONG,亡くなる (なくなる),Chết
+VONG,亡くす (なくす),Mất
+SINH,生まれる (うまれる),Được sinh ra
+SINH,生む (うむ),Sinh
+XUẤT HỘI,出会う (であう),Gặp (ngẫu nhiên)
+PHỎNG,訪ねる (たずねる),Thăm
+PHÓ HỢP,付き合う (つきあう),Hẹn hò, giao tiếp
+# Danh từ gốc động từ (連用名詞) 221–250, tính là 171–200
+SỨC,飾り (かざり),Trang trí
+DU,遊び (あそび),Chơi
+TẬP,集まり (あつまり),Tập hợp
+GIÁO,教え (おしえ),Dạy
+DŨNG,踊り (おどり),Nhảy
+TƯ,思い (おもい),Suy nghĩ, cảm giác
+KHẢO,考え (かんがえ),Nghĩ, ý tưởng
+PHIẾN,片づけ (かたづけ),Ngăn nắp
+THỦ TRUYỀN,手伝い (てつだい),Giúp đỡ
+ĐỘNG,働き (はたらき),Hoạt động
+QUYẾT,決まり (きまり),Luật lệ
+TAO,騒ぎ (さわぎ),Ồn ào, om xòm
+TRI,知らせ (しらせ),Tin tức, thông báo
+LẠI,頼み (たのみ),Yêu cầu
+BÌ,疲れ (つかれ),Vất vả, mệt mỏi
+VI,違い (ちがい),Khác biệt
+THỦY,始め (はじめ),Khởi đầu
+TỤC,続き (つづき),Tiếp tục
+MỘ,暮れ (くれ),Cuối năm
+HÀNH,行き (いき),Đi
+QUY,帰り (かえり),Trở về
+CẤP,急ぎ (いそぎ),Khẩn cấp, vội
+TRÌ,遅れ (おくれ),Gián đoạn
+THẢI,貸し (かし),Cho mượn
+TÁ,借り (かり),Mượn
+THẮNG,勝ち (かち),Thắng
+PHỤ,負け (まけ),Thua
+NGHÊNH,迎え (むかえ),Đón
+THỦY,始まり (はじまり),Bắt đầu
+CHUNG,終わり (おわり),Kết thúc
