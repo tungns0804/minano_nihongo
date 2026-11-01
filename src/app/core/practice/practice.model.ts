@@ -241,6 +241,11 @@ export interface PracticeConfig {
   // --- Riêng bài từ vựng ---
   direction: PracticeDirection;
   showHanViet: boolean;
+  /**
+   * Hiện ảnh minh họa trên thẻ câu hỏi (xem `ImagePreference`). Tắt đi thì ảnh chỉ hiện
+   * ở phần phản hồi sau khi chấm.
+   */
+  showImages: boolean;
 
   // --- Riêng bài ngữ pháp (và bài luyện dịch) ---
   /** Hiện tên mẫu ngữ pháp (kèm công thức với bài ngữ pháp) làm gợi ý dưới câu hỏi. */
@@ -315,6 +320,7 @@ export function practiceConfig(
     ignoreDiacritics: false,
     direction: 'jp-vi',
     showHanViet: false,
+    showImages: true,
     showGrammarHint: false,
     showFurigana: false,
     verbMode: 'masu-to-form',

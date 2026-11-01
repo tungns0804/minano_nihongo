@@ -36,7 +36,7 @@ import type { VocabImage } from '../core/images/vocab-images';
 
     .vocab-photo {
       margin: 0;
-      width: 132px;
+      width: 120px;
     }
 
     /* Khoảng cách theo chỗ đặt ảnh ở màn hình luyện tập: dưới gợi ý của câu hỏi, và
@@ -61,6 +61,7 @@ import type { VocabImage } from '../core/images/vocab-images';
       object-fit: cover;
       border-radius: var(--radius-sm);
       background: var(--bg-inset);
+      box-shadow: var(--shadow-sm);
     }
 
     /* Dòng ghi nguồn nhỏ và nhạt: bắt buộc phải có, nhưng không được giành mắt với từ. */
@@ -89,6 +90,6 @@ import type { VocabImage } from '../core/images/vocab-images';
 export class VocabPhoto {
   readonly lang = inject(LanguageStore);
   readonly image = input.required<VocabImage>();
-  /** `sm`: ô 132px của bảng từ và phần phản hồi; `lg`: ảnh to giữa thẻ câu hỏi. */
+  /** `sm`: ô 120px của bảng từ và phần phản hồi; `lg`: ảnh to giữa thẻ câu hỏi. */
   readonly size = input<'sm' | 'lg'>('sm');
 }

@@ -13,6 +13,7 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
 import { PracticeQuestion, practiceConfig } from '../../core/practice/practice.model';
+import { ImagePreference } from '../../core/images/image-preference';
 import { buildReviewQuestions } from '../../core/practice/review-questions';
 import {
   AreaSummary,
@@ -73,6 +74,7 @@ export class Review {
   private readonly session = inject(PracticeSessionStore);
   private readonly router = inject(Router);
   private readonly lang = inject(LanguageStore);
+  private readonly images = inject(ImagePreference);
 
   readonly t = this.lang.t.bind(this.lang);
 
@@ -217,6 +219,7 @@ export class Review {
         await buildReviewQuestions(this.refsOf(keys), (id) => this.lessonStore.getLesson(id), {
           answerMode,
           direction,
+          showImages: this.images.show(),
         }),
       );
 

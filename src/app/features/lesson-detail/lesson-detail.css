@@ -54,11 +54,18 @@
 .word-table.has-reading.has-example th:nth-child(4) { width: 14%; }
 .word-table.has-reading.has-example th:nth-child(5) { width: 17.5%; }
 
-/* Cột ảnh (chỉ có ở bài có ảnh) luôn đứng cuối và rộng cố định vừa ảnh 132px cộng lề ô.
+/* Cột ảnh (chỉ có ở bài có ảnh) luôn đứng cuối và rộng cố định vừa ảnh 120px cộng lề ô.
    Khai bằng lớp chứ không bằng nth-child: số thứ tự của nó đổi theo các cột tuỳ bài ở
    trên, còn các quy tắc nth-child ở trên không bao giờ chạm tới vị trí của nó. */
 .word-table th.col-image {
-  width: 156px;
+  width: 144px;
+}
+
+/* Hàng có ảnh cao gấp ba hàng chữ: căn chữ lên đỉnh ô (như bảng không ảnh) thì dưới mỗi
+   từ là một mảng trống, mắt phải dò ngang mới biết ảnh thuộc từ nào. Căn giữa theo chiều
+   dọc thì từ, nghĩa và ảnh nằm trên cùng một đường. */
+.word-table.has-image td {
+  vertical-align: middle;
 }
 
 /* Cùng kiểu chữ với cột tiếng Nhật nhưng nhạt hơn — đây là thông tin phụ trợ,
@@ -217,7 +224,8 @@
 }
 
 .col-jp {
-  font-size: 1.08rem;
+  font-size: 1.18rem;
+  font-weight: 500;
 }
 
 /* --- Bảng chia động từ --- */

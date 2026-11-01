@@ -144,6 +144,12 @@ export const LESSON_MESSAGES = {
     ja: '（撮影者とライセンスは各写真の下に記載）',
   },
   'lesson.col.image': { vi: 'Hình ảnh', ja: '写真' },
+  'lesson.showImages': { vi: 'Hiện ảnh', ja: '写真を表示' },
+  'lesson.option.showImages': { vi: 'Hiện ảnh minh họa', ja: 'イラスト写真を表示' },
+  'lesson.option.showImagesHint': {
+    vi: 'Tắt để tự nhớ nghĩa không nhìn ảnh — ảnh vẫn hiện lại sau khi trả lời.',
+    ja: '消すと写真なしで覚える練習に。答えた後には写真が表示されます。',
+  },
   'lesson.photo.source': { vi: 'Xem ảnh gốc trên Wikimedia Commons', ja: 'Wikimedia Commons で元の写真を見る' },
   'lesson.search.verb': {
     vi: 'Tìm theo âm Hán Việt, động từ, nghĩa hoặc thể đã chia…',

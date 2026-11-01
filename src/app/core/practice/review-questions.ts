@@ -40,6 +40,8 @@ export type LessonLoader = (id: string) => Promise<Lesson | null>;
 export interface ReviewQuestionOptions {
   answerMode: ReviewAnswerMode;
   direction: ReviewDirection;
+  /** Hiện ảnh minh họa trên thẻ câu hỏi — cùng lựa chọn với khu từ vựng (`ImagePreference`). */
+  showImages?: boolean;
 }
 
 /** Loại mục nằm trong file bài học — phải tải bài về mới dựng lại được câu hỏi. */
@@ -121,7 +123,11 @@ function buildOne(
           [word],
           // Đáp án nhiễu lấy từ cả bài chứa từ đó, như lúc luyện ở bài gốc.
           lesson.words,
-          configOf({ lessonKind: lesson.kind, answerMode: options.answerMode }),
+          configOf({
+            lessonKind: lesson.kind,
+            answerMode: options.answerMode,
+            showImages: options.showImages ?? true,
+          }),
         )[0] ?? null
       );
     }

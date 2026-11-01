@@ -46,8 +46,10 @@ import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import { VocabAudioPlayer } from '../../core/audio/vocab-audio-player';
+import { ImagePreference } from '../../core/images/image-preference';
 import { vocabImageOf } from '../../core/images/vocab-images';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
+import { checkedOf } from '../../core/utils/dom-events';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { VerbRow, buildVerbRows, formsText } from './verb-rows';
@@ -143,8 +145,12 @@ export class LessonDetail extends PracticeScreen {
 
   /** Chỉ hiện cột ví dụ khi bài có ít nhất một câu — tránh cột trống vô ích. */
   readonly hasExamples = computed(() => this.words().some((word) => word.example.length > 0));
-  /** Bài có từ nào có ảnh minh họa không — có thì bảng thêm cột "Hình ảnh". */
+  /** Bài có từ nào có ảnh minh họa không — có thì mới hiện công tắc ảnh. */
   readonly hasImages = computed(() => this.words().some((word) => vocabImageOf(word) !== null));
+  private readonly imagePreference = inject(ImagePreference);
+  readonly showImages = this.imagePreference.show;
+  /** Bảng có cột "Hình ảnh" không: bài có ảnh và người học không tắt ảnh. */
+  readonly imageColumn = computed(() => this.hasImages() && this.showImages());
   readonly imageOf = vocabImageOf;
   readonly hasReadings = computed(() => hasWordField(this.words(), 'reading'));
 
@@ -484,6 +490,10 @@ export class LessonDetail extends PracticeScreen {
    * Không đụng gì tới Favorite hay bộ lọc: đây chỉ là nghe thử một từ trong lúc dò
    * bảng, không phải một thao tác học.
    */
+  toggleShowImages(event: Event): void {
+    this.imagePreference.set(checkedOf(event));
+  }
+
   speak(word: VocabularyWord): void {
     this.audio.play(word);
   }
@@ -549,6 +559,7 @@ export class LessonDetail extends PracticeScreen {
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
       showHanViet: this.showHint() && this.hanVietHintAvailable(),
+      showImages: this.showImages(),
       // Bài ngữ pháp mở từ đây luôn hiện gợi ý; khung thiết lập riêng của khu ngữ
       // pháp mới cho tắt.
       showGrammarHint: true,

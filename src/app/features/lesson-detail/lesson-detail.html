@@ -284,6 +284,16 @@
                 </label>
               }
 
+              @if (hasImages()) {
+                <label class="checkbox">
+                  <input type="checkbox" [checked]="showImages()" (change)="toggleShowImages($event)" />
+                  <span>
+                    <strong>{{ t('lesson.option.showImages') }}</strong>
+                    <span class="hint">{{ t('lesson.option.showImagesHint') }}</span>
+                  </span>
+                </label>
+              }
+
               <label class="checkbox">
                 <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
                 <span>
@@ -373,6 +383,12 @@
               <input type="checkbox" [checked]="onlyFavorites()" (change)="toggleOnlyFavorites($event)" />
               <span><app-t key="lesson.onlyFavorites" /></span>
             </label>
+            @if (hasImages()) {
+              <label class="checkbox filter-check">
+                <input type="checkbox" [checked]="showImages()" (change)="toggleShowImages($event)" />
+                <span>{{ t('lesson.showImages') }}</span>
+              </label>
+            }
           </div>
 
           @if (isConversationLesson()) {
@@ -497,6 +513,7 @@
                   [class.has-example]="hasExamples()"
                   [class.has-reading]="hasReadings()"
                   [class.has-han]="hasHanViet()"
+                  [class.has-image]="imageColumn()"
                 >
                   <thead>
                     <tr>
@@ -512,7 +529,7 @@
                       @if (hasExamples()) {
                         <th>{{ t('lesson.col.example') }}</th>
                       }
-                      @if (hasImages()) {
+                      @if (imageColumn()) {
                         <th class="col-image">{{ t('lesson.col.image') }}</th>
                       }
                     </tr>
@@ -570,7 +587,7 @@
                         }
                         <!-- Cột ảnh đứng CUỐI bảng: các quy tắc nth-child chỉnh bề rộng ở
                              lesson-detail.css chỉ nhắm cột 2–5, chèn ảnh vào giữa là lệch hết. -->
-                        @if (hasImages()) {
+                        @if (imageColumn()) {
                           <td class="col-image">
                             @if (imageOf(word); as image) {
                               <app-vocab-photo [image]="image" />
@@ -583,7 +600,7 @@
                 </table>
               </div>
               <p class="small faint">{{ t('lesson.showingWords', { shown: filteredWords().length, total: words().length }) }}</p>
-              @if (hasImages()) {
+              @if (imageColumn()) {
                 <p class="small faint">
                   {{ t('lesson.imageCredit') }}
                   <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>

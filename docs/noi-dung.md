@@ -906,6 +906,11 @@ Bài có ảnh thì bảng từ vựng có thêm cột **Hình ảnh** ở cuố
 hỏi ở các chiều hỏi ra chữ Nhật / cách đọc / âm Hán Việt; riêng chiều **Nhật → Việt** thì ảnh bị
 giấu vì nó chính là nghĩa — ảnh chỉ hiện ở phần phản hồi sau khi chấm. Phiên Ôn tập cũng vậy.
 
+**Ẩn ảnh** giống tuỳ chọn âm Hán Việt: công tắc "Hiện ảnh" cạnh ô tìm của bảng từ và "Hiện ảnh
+minh họa" trong "Tuỳ chỉnh thêm" của khung thiết lập là CÙNG một lựa chọn (`ImagePreference`), nhớ
+qua các lần mở và áp cho cả phiên Ôn tập. Tắt đi thì bảng bỏ cột ảnh, thẻ câu hỏi không có ảnh —
+ảnh vẫn hiện lại ở phần phản hồi sau khi trả lời, lúc đó nó giúp nhớ chứ không còn là gợi ý.
+
 Ảnh lấy từ **Wikimedia Commons** qua API công khai (không cần tài khoản hay API key), chỉ nhận ảnh
 có giấy phép tự do: CC0, phạm vi công cộng, CC BY, CC BY-SA. Mỗi ảnh có giấy phép riêng, CC BY và
 CC BY-SA bắt buộc ghi tác giả và giấy phép ở chỗ dùng ảnh — vì vậy dòng ghi nguồn đi chung một

@@ -41,7 +41,7 @@ type ResolvedTheme = 'light' | 'dark' | 'night';
 const THEME_COLOR: Record<ResolvedTheme, string> = {
   light: '#ffffff',
   dark: '#181d24',
-  night: '#fbf3e3',
+  night: '#fffaf1',
 };
 
 /**

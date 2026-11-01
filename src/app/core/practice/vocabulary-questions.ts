@@ -85,7 +85,9 @@ export function buildVocabularyQuestions(
       answerPromptKey: ANSWER_PROMPT_KEY[info.answer],
       choices,
       maxWrongAttempts: limitAttempts(config.maxWrongAttempts, config.answerMode, choices.length),
-      image: imageOf(word, info.answer !== 'vietnamese'),
+      // Ảnh lên thẻ câu hỏi khi người học không tắt ảnh và ảnh không lộ đáp án — chiều
+      // hỏi nghĩa thì ảnh chính là nghĩa. Còn lại ảnh chờ ở phần phản hồi.
+      image: imageOf(word, config.showImages && info.answer !== 'vietnamese'),
     });
   });
 }
