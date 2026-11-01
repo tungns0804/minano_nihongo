@@ -91,8 +91,8 @@ export function buildVocabularyQuestions(
 }
 
 function imageOf(word: VocabularyWord, inPrompt: boolean): QuestionImage | null {
-  const src = vocabImageOf(word);
-  return src ? { src, inPrompt } : null;
+  const image = vocabImageOf(word);
+  return image ? { ...image, inPrompt } : null;
 }
 
 /**

@@ -138,7 +138,13 @@ export const LESSON_MESSAGES = {
   'lesson.deleteLesson': { vi: 'Xoá bài học này', ja: 'このレッスンを削除' },
   'lesson.markSpecial': { vi: '★ Đánh dấu động từ đặc biệt', ja: '★ 特殊動詞に印を付ける' },
   'lesson.clearFavorites': { vi: 'Bỏ đánh dấu tất cả', ja: 'すべての印を外す' },
-  'lesson.imageCredit': { vi: 'Hình minh họa:', ja: 'イラスト：' },
+  'lesson.imageCredit': { vi: 'Ảnh minh họa lấy từ', ja: '写真の出典：' },
+  'lesson.imageCreditEach': {
+    vi: '— tác giả và giấy phép ghi dưới từng ảnh.',
+    ja: '（撮影者とライセンスは各写真の下に記載）',
+  },
+  'lesson.col.image': { vi: 'Hình ảnh', ja: '写真' },
+  'lesson.photo.source': { vi: 'Xem ảnh gốc trên Wikimedia Commons', ja: 'Wikimedia Commons で元の写真を見る' },
   'lesson.search.verb': {
     vi: 'Tìm theo âm Hán Việt, động từ, nghĩa hoặc thể đã chia…',
     ja: '漢越音・動詞・意味・活用形で検索…',

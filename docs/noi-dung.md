@@ -899,28 +899,31 @@ npm run verify:audio               # kiểm tra đủ file chưa, không ghi gì
 Bản offline một file (`npm run build:offline`) **không có** phần này — mở bằng `file://` thì không
 tải được tài nguyên ngoài, nên nút loa tự ẩn đi thay vì bày ra rồi bấm không kêu.
 
-**Hình minh họa (bài từ vựng)**
+**Ảnh minh họa (bài từ vựng)**
 
-Từ có hình hiện một icon nhỏ cạnh từ trong bảng từ vựng. Khi luyện, hình hiện ngay trên thẻ câu
-hỏi ở các chiều hỏi ra chữ Nhật / cách đọc / âm Hán Việt; riêng chiều **Nhật → Việt** thì hình bị
-giấu vì nó chính là nghĩa — hình chỉ hiện ở phần phản hồi sau khi chấm. Phiên Ôn tập cũng vậy.
+Bài có ảnh thì bảng từ vựng có thêm cột **Hình ảnh** ở cuối: ảnh thật, dưới mỗi ảnh ghi tác giả
+(bấm vào mở trang ảnh trên Wikimedia Commons) và giấy phép. Khi luyện, ảnh hiện ngay trên thẻ câu
+hỏi ở các chiều hỏi ra chữ Nhật / cách đọc / âm Hán Việt; riêng chiều **Nhật → Việt** thì ảnh bị
+giấu vì nó chính là nghĩa — ảnh chỉ hiện ở phần phản hồi sau khi chấm. Phiên Ôn tập cũng vậy.
 
-Hình là icon của **OpenMoji** (https://openmoji.org, giấy phép CC BY-SA 4.0): tải thẳng từ CDN,
-không cần tài khoản hay API key, lưu sẵn trong `public/images/vocab/`. Trang bài học có hình ghi
-nguồn ngay dưới bảng từ, đúng yêu cầu của giấy phép. Hiện có hình cho 50 từ của bài N3 · 名詞
-Bài 4 (151–200).
+Ảnh lấy từ **Wikimedia Commons** qua API công khai (không cần tài khoản hay API key), chỉ nhận ảnh
+có giấy phép tự do: CC0, phạm vi công cộng, CC BY, CC BY-SA. Mỗi ảnh có giấy phép riêng, CC BY và
+CC BY-SA bắt buộc ghi tác giả và giấy phép ở chỗ dùng ảnh — vì vậy dòng ghi nguồn đi chung một
+component với ảnh (`shared/vocab-photo.ts`), không chỗ nào vẽ ảnh mà thiếu nó. Bản thu nhỏ 330px
+lưu sẵn trong `public/images/vocab/` (mỗi ảnh vài chục KB), trang không gọi Commons lúc chạy.
+Hiện có ảnh cho 50 từ của bài N3 · 名詞 Bài 4 (151–200).
 
-Thêm hình cho từ khác: thêm một dòng `'chữ Nhật|cách đọc': 'mã icon'` vào
-`src/app/core/images/vocab-images.ts` (mã icon là mã Unicode của emoji, tra trên openmoji.org),
-rồi:
+Thêm ảnh cho từ khác: tìm ảnh trên commons.wikimedia.org, thêm một mục vào
+`src/app/core/images/vocab-images.ts` — khoá `'chữ Nhật|cách đọc'`, giá trị là tên file trên
+Commons, tác giả, giấy phép (chép đúng như trang ảnh ghi) — rồi:
 
 ```bash
-npm run generate:images   # tải SVG còn thiếu, xoá SVG không còn từ nào dùng
-npm run verify:images     # kiểm tra đủ file, mọi từ trong bảng có thật, không hai từ chung một icon
+npm run generate:images   # tải bản thu nhỏ còn thiếu, xoá ảnh không còn từ nào dùng
+npm run verify:images     # đủ file, giấy phép tự do, có tác giả, mọi từ có thật, không hai từ chung ảnh
 ```
 
-Mỗi từ phải một icon riêng, kể cả cặp tự / tha động từ: hai từ chung một hình thì nhìn hình không
-phân biệt được. Bản offline một file không có hình, như phát âm.
+Từ trừu tượng (đủ, kịp giờ, hiệu quả…) chỉ có ảnh gợi ý gần nghĩa — Commons không có ảnh nào
+"đúng" cho chúng. Bản offline một file không có ảnh, như phát âm.
 
 **Favorite — luyện từ chưa nhớ**
 

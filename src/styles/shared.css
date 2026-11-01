@@ -471,35 +471,3 @@
   line-height: 2.1;
   white-space: pre-line;
 }
-
-/* --- Hình minh họa của từ vựng --------------------------------------------
-   Icon OpenMoji (core/images/vocab-images.ts): ở bảng từ của bài, trên thẻ câu hỏi
-   và ở phần phản hồi. Icon có nét viền đen, nên luôn đặt trên một ô nền sáng — nền
-   tối của chế độ tối nuốt mất nét viền. */
-
-.vocab-image {
-  flex: none;
-  width: 30px;
-  height: 30px;
-  padding: 2px;
-  border-radius: 7px;
-  background: #f7f5f0;
-}
-
-.vocab-image-md {
-  display: block;
-  width: 64px;
-  height: 64px;
-  padding: 4px;
-  border-radius: 14px;
-  margin-bottom: 8px;
-}
-
-.vocab-image-lg {
-  display: block;
-  width: 104px;
-  height: 104px;
-  padding: 6px;
-  border-radius: 20px;
-  margin: 14px auto 0;
-}

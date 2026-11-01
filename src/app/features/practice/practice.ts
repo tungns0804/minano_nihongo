@@ -27,13 +27,14 @@ import { ChunkOrder } from '../../shared/chunk-order';
 import { RubyText } from '../../shared/ruby-text';
 import { StarButton } from '../../shared/star-button';
 import { StrokeCanvas } from '../../shared/stroke-canvas';
+import { VocabPhoto } from '../../shared/vocab-photo';
 
 /** Lựa chọn dài hơn ngần này ký tự thì xếp một cột (xem `wideChoices`). */
 const WIDE_CHOICE_LENGTH = 14;
 
 @Component({
   selector: 'app-practice',
-  imports: [ChunkOrder, RubyText, StarButton, StrokeCanvas, T],
+  imports: [ChunkOrder, RubyText, StarButton, StrokeCanvas, T, VocabPhoto],
   templateUrl: './practice.html',
   styleUrl: './practice.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

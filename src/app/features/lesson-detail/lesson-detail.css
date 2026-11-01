@@ -54,6 +54,13 @@
 .word-table.has-reading.has-example th:nth-child(4) { width: 14%; }
 .word-table.has-reading.has-example th:nth-child(5) { width: 17.5%; }
 
+/* Cột ảnh (chỉ có ở bài có ảnh) luôn đứng cuối và rộng cố định vừa ảnh 132px cộng lề ô.
+   Khai bằng lớp chứ không bằng nth-child: số thứ tự của nó đổi theo các cột tuỳ bài ở
+   trên, còn các quy tắc nth-child ở trên không bao giờ chạm tới vị trí của nó. */
+.word-table th.col-image {
+  width: 156px;
+}
+
 /* Cùng kiểu chữ với cột tiếng Nhật nhưng nhạt hơn — đây là thông tin phụ trợ,
    không nên hút mắt hơn chính từ đang học. */
 .col-reading {
@@ -414,6 +421,10 @@
   .word-table .col-reading {
     font-size: 0.95rem;
     line-height: 1.4;
+  }
+
+  .word-table .col-image {
+    margin-top: 8px;
   }
 
   .word-table .col-example {

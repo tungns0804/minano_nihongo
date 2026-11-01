@@ -512,6 +512,9 @@
                       @if (hasExamples()) {
                         <th>{{ t('lesson.col.example') }}</th>
                       }
+                      @if (hasImages()) {
+                        <th class="col-image">{{ t('lesson.col.image') }}</th>
+                      }
                     </tr>
                   </thead>
                   <tbody>
@@ -529,9 +532,6 @@
                         }
                         <td class="col-jp jp">
                           <span class="jp-cell">
-                            @if (imageOf(word); as image) {
-                              <img class="vocab-image" [src]="image" alt="" width="30" height="30" loading="lazy" />
-                            }
                             <span>{{ word.japanese }}</span>
                             <!-- Nút loa nằm TRONG ô tiếng Nhật chứ không thành một cột
                                  riêng: thêm cột thì mọi quy tắc nth-child chỉnh bề rộng
@@ -568,6 +568,15 @@
                         @if (hasExamples()) {
                           <td class="col-example jp">{{ word.example }}</td>
                         }
+                        <!-- Cột ảnh đứng CUỐI bảng: các quy tắc nth-child chỉnh bề rộng ở
+                             lesson-detail.css chỉ nhắm cột 2–5, chèn ảnh vào giữa là lệch hết. -->
+                        @if (hasImages()) {
+                          <td class="col-image">
+                            @if (imageOf(word); as image) {
+                              <app-vocab-photo [image]="image" />
+                            }
+                          </td>
+                        }
                       </tr>
                     }
                   </tbody>
@@ -577,7 +586,8 @@
               @if (hasImages()) {
                 <p class="small faint">
                   {{ t('lesson.imageCredit') }}
-                  <a href="https://openmoji.org" target="_blank" rel="noopener">OpenMoji</a> (CC BY-SA 4.0)
+                  <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>
+                  {{ t('lesson.imageCreditEach') }}
                 </p>
               }
             }

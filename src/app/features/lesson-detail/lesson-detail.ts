@@ -52,11 +52,12 @@ import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { VerbRow, buildVerbRows, formsText } from './verb-rows';
 import { PracticeSetup } from '../../shared/practice-setup';
+import { VocabPhoto } from '../../shared/vocab-photo';
 import { LessonPager } from '../../shared/lesson-pager';
 
 @Component({
   selector: 'app-lesson-detail',
-  imports: [LessonPager, PracticeSetup, RouterLink, SearchBox, StarButton, T],
+  imports: [LessonPager, PracticeSetup, RouterLink, SearchBox, StarButton, T, VocabPhoto],
   templateUrl: './lesson-detail.html',
   styleUrl: './lesson-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -142,7 +143,7 @@ export class LessonDetail extends PracticeScreen {
 
   /** Chỉ hiện cột ví dụ khi bài có ít nhất một câu — tránh cột trống vô ích. */
   readonly hasExamples = computed(() => this.words().some((word) => word.example.length > 0));
-  /** Bài có từ nào có hình minh họa không — có thì ghi nguồn hình dưới bảng. */
+  /** Bài có từ nào có ảnh minh họa không — có thì bảng thêm cột "Hình ảnh". */
   readonly hasImages = computed(() => this.words().some((word) => vocabImageOf(word) !== null));
   readonly imageOf = vocabImageOf;
   readonly hasReadings = computed(() => hasWordField(this.words(), 'reading'));

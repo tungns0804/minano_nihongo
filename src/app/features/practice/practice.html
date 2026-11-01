@@ -80,8 +80,10 @@
           <p class="prompt-hint" [class.jp]="q.hintIsJapanese">{{ q.hint }}</p>
         }
 
-        @if (q.image?.inPrompt) {
-          <img class="vocab-image vocab-image-lg" [src]="q.image?.src" alt="" />
+        @if (q.image; as image) {
+          @if (image.inPrompt) {
+            <app-vocab-photo class="prompt-photo" [image]="image" size="lg" />
+          }
         }
       </div>
     </section>
@@ -275,10 +277,12 @@
             </strong>
           </p>
 
-          <!-- Hình luôn hiện lại ở đây, kể cả câu hỏi nghĩa (nơi hình bị giấu trên thẻ
-               câu hỏi vì nó chính là đáp án): nhớ từ bằng hình là lúc vừa biết đáp án. -->
+          <!-- Câu hỏi nghĩa giấu ảnh trên thẻ câu hỏi (ảnh chính là đáp án), nên ảnh hiện
+               ở đây, lúc vừa biết đáp án. Câu khác đã thấy ảnh ở trên rồi, không lặp lại. -->
           @if (q.image; as image) {
-            <img class="vocab-image vocab-image-md" [src]="image.src" alt="" />
+            @if (!image.inPrompt) {
+              <app-vocab-photo class="feedback-photo" [image]="image" />
+            }
           }
 
           @if (q.exam?.complete; as complete) {

@@ -9,6 +9,7 @@ import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from '../lessons/vocabulary.model';
 import { plainText } from '../translation/markup';
+import type { VocabImage } from '../images/vocab-images';
 
 /**
  * Các chiều luyện tập của bài TỪ VỰNG.
@@ -427,13 +428,11 @@ export function examText(source: string): string {
   return plainText(source).replace(/[〈〉]/g, '').replace(/\n/g, ' ');
 }
 
-/** Hình minh họa của mục đang hỏi (xem `core/images/vocab-images.ts`). */
-export interface QuestionImage {
-  /** Đường dẫn tương đối theo `<base href>`. */
-  src: string;
+/** Ảnh minh họa của mục đang hỏi, kèm tác giả và giấy phép (xem `core/images/vocab-images.ts`). */
+export interface QuestionImage extends VocabImage {
   /**
-   * Hiện ngay trên thẻ câu hỏi. false khi câu hỏi hỏi NGHĨA của từ: hình chính là
-   * nghĩa, hiện trước thì lộ đáp án — lúc đó hình chỉ hiện ở phần phản hồi.
+   * Hiện ngay trên thẻ câu hỏi. false khi câu hỏi hỏi NGHĨA của từ: ảnh chính là
+   * nghĩa, hiện trước thì lộ đáp án — lúc đó ảnh chỉ hiện ở phần phản hồi.
    */
   inPrompt: boolean;
 }
