@@ -278,10 +278,10 @@ import { c, emitGenerated, log, quote, toFileUrl } from './script-utils.mjs';
 Script sinh mã phải hỗ trợ `--check` và đăng ký nó vào `verify:ci` trong
 `package.json`: CI chỉ chặn được file sinh bị lệch nếu có ai đó đi hỏi.
 
-> **Lưu ý trên Windows:** `verify:kanji`, `verify:radicals` và `verify:topics`
-> báo lệch trên máy Windows có `core.autocrlf=true`, vì file trong thư mục làm
-> việc là CRLF còn script ghi ra LF. Đây là chuyện của môi trường, không phải nội
-> dung — CI chạy trên Linux nên vẫn xanh.
+> **Xuống dòng:** `.gitattributes` buộc file văn bản dùng LF cả trong thư mục làm
+> việc, nên `verify:ci` chạy thẳng trên Windows như trên CI. Thấy `verify:kanji` hay
+> `verify:radicals` báo lệch mà không sửa gì thì kiểm tra file có bị một trình soạn
+> thảo đổi sang CRLF không.
 
 ---
 
