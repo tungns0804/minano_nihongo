@@ -15,14 +15,16 @@ export const TODAY_MESSAGES = {
     vi: '50 bài minano, bài N3 và 20 chủ đề hay ra thi',
     ja: '皆の日本語50課、N3、試験頻出の20テーマ',
   },
+  // Hai mô tả dưới phải khớp các tab con trong core/navigation.ts: sách tổng hợp N4
+  // nằm ở nhóm Luyện tập (cạnh đề N4), sách vnjpclub ở nhóm Ngữ pháp.
   'today.skill.grammar.desc': {
-    vi: 'Ngữ pháp từng bài minano và tổng hợp N4',
-    ja: '各課の文法とN4総まとめ',
+    vi: 'Ngữ pháp từng bài minano và sách N4 của vnjpclub',
+    ja: '各課の文法とvnjpclubのN4文法',
   },
   'today.skill.kanji.desc': { vi: 'Chữ Hán N5–N1 và 214 bộ thủ', ja: 'N5〜N1の漢字と214部首' },
   'today.skill.practice.desc': {
-    vi: 'Luyện dịch, chia động từ, tự/tha động từ',
-    ja: '翻訳、動詞の活用、自動詞・他動詞',
+    vi: 'Luyện dịch, động từ, ngữ pháp N4 theo 5 bậc và đề N4',
+    ja: '翻訳、動詞、5段階のN4文法、N4模試',
   },
   // ── Chuỗi ngày học (core/activity) ─────────────────────────────────────
   'streak.title': { vi: 'Chuỗi ngày học', ja: '連続学習' },

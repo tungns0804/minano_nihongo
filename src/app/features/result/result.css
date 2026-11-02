@@ -347,3 +347,14 @@
     transform: scale(1);
   }
 }
+
+/* Dòng báo buổi N3 vừa tự tích — bấm để mở trang tiến độ. */
+.n3-ticked {
+  align-items: center;
+  font-weight: 600;
+}
+
+.n3-ticked:hover {
+  text-decoration: none;
+  border-color: var(--success);
+}

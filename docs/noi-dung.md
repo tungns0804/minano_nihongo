@@ -198,7 +198,7 @@ chứa bài học nào — nó ĐO các khu kia, cộng thêm ba quyển 総ま�
 học trên sách.
 
 Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba lỗ hổng, cách học từng phần, bảng
-241 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](../LO-TRINH-N3.md)**.
+245 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](../LO-TRINH-N3.md)**.
 
 ### Trang này hiện gì
 
@@ -209,7 +209,7 @@ Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba
 | Ba khối điểm | 言語知識 / 読解 / 聴解, mỗi khối 0–60 điểm |
 | Sáu trụ nội dung | Nền N5–N4, 文字, 語彙, 文法, 読解, 聴解 |
 | Bốn giai đoạn | Mốc ngày, việc làm hằng ngày, tiến độ từng giai đoạn |
-| Bảng kiểm soát | 241 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
+| Bảng kiểm soát | 245 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
 
 ### Vì sao đo bằng điểm khối, không đo bằng số bài
 
@@ -218,12 +218,18 @@ chuẩn ở dù chỉ một khối là trượt cho dù tổng điểm cao. Nên
 nghĩa nếu 90% đó nằm cả trong một khối. `N3_SECTION_POINTS` quy 20/20/20 điểm cho
 文字/語彙/文法, 60 cho 読解, 60 cho 聴解 — tổng 180, đúng thang điểm thật.
 
-### Vì sao phải tự tay tích
+### Tích tay, và tự tích khi học hết bài trong app
 
-Trang này KHÔNG suy tiến độ ra từ việc đã luyện bài nào trong app. Phần lớn lộ trình học **trên
-sách** — ba quyển 漢字 / 語彙 / 読解 chưa nạp vào app — nên đo bằng hoạt động trong app sẽ báo 0%
-cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `localStorage` khoá
-`jp-practice:n3-progress`, kèm **ngày tích** để trang tính được "7 ngày qua học mấy buổi".
+Trang này không suy tiến độ ra từ HOẠT ĐỘNG trong app. Phần lớn lộ trình học **trên sách** — ba
+quyển 漢字 / 語彙 / 読解 chưa nạp vào app — nên đo bằng hoạt động trong app sẽ báo 0% cho một người
+đã học xong nửa quyển sách. Dấu tích lưu ở `localStorage` khoá `jp-practice:n3-progress`, kèm
+**ngày tích** để trang tính được "7 ngày qua học mấy buổi".
+
+Riêng buổi trỏ tới **một bài trong app** (`/lesson/<id>`, `/grammar/<id>`) thì tự được tích
+([`n3-auto-tick.ts`](../src/app/core/n3/n3-auto-tick.ts)) đúng lúc bài đó vừa được **học hết** —
+mọi mục của bài đã vào lịch ôn, tức thanh "Đã học y/y" trên thẻ bài đầy. Màn kết quả báo lại buổi
+nào vừa được tích. Chỉ tích lúc bài chuyển từ chưa hết sang hết: bài học hết từ trước không bị
+tích ngược với ngày hôm nay, và buổi người học tự bỏ tích không bị tích lại ở câu sau.
 
 ### Ba giới hạn đã biết
 
@@ -239,7 +245,7 @@ cho một người đã học xong nửa quyển sách. Dấu tích lưu ở `lo
 
 | File | Việc |
 | --- | --- |
-| [`n3-syllabus.ts`](../src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 241 buổi học chép từ mục lục bốn quyển, bốn giai đoạn, mốc ngày |
+| [`n3-syllabus.ts`](../src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 245 buổi học (mục lục bốn quyển và phần bổ trợ trong app), bốn giai đoạn, mốc ngày |
 | [`n3.model.ts`](../src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
 | [`n3-progress-store.ts`](../src/app/core/n3/n3-progress-store.ts) | Dấu tích trong `localStorage` |
 
@@ -639,7 +645,7 @@ Tab **Bài tập bổ trợ** gom mọi cách luyện không phải là nhớ ng
 
 | Nhóm | Nội dung | Mở ở |
 | --- | --- | --- |
-| **Bài tập** | Ba bài chuyên đề cài sẵn trong mã nguồn | `/exercise/<id>` |
+| **Bài tập** | Ba bài chuyên đề cài sẵn trong mã nguồn: tự/tha động từ, chuyển thể, số đếm | `/exercise/<id>` |
 | **Chia động từ** | Bài động từ theo giáo trình, từ `data-source/` | `/lesson/<id>` |
 | **Dịch hội thoại** | Bài hội thoại theo giáo trình và bài dịch chuyên đề, từ `data-source/` | `/lesson/<id>` |
 
@@ -650,8 +656,8 @@ hiện.
 Ba bài chuyên đề nằm ngoài giáo trình. Hai bài động từ gom động từ của nhiều bài lẫn nhiều cấp
 theo một chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách; cả hai **chỉ có gõ đáp án** —
 mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài
-ngữ pháp N4 đi theo tài liệu tổng hợp và một lộ trình năm bậc: trắc nghiệm, sắp xếp mảnh câu,
-rồi mới gõ cả câu. Ghi
+**Số đếm & trợ số từ** có màn hình riêng ở `/exercise/so-dem`. Hai sách ngữ pháp N4 không có thẻ
+ở tab này: chúng có tab con riêng (xem [Luyện tập ngữ pháp N4](#luyện-tập-ngữ-pháp-n4)). Ghi
 chú về cách trả lời đặt ngay trong nhóm của chúng chứ không ở cuối trang: bài **Chia động từ**
 bên dưới có trắc nghiệm theo cách riêng, treo ghi chú ở cuối trang là nói sai về nó.
 
@@ -685,7 +691,26 @@ kể cả các trường hợp đặc biệt:
 
 Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi một câu cho từng thể đã chọn.
 
-### 3. Luyện tập ngữ pháp N4
+### Điểm chung của hai bài tập động từ
+
+- **Lọc theo cấp độ** — bật tắt N5 / N4 / N3 / N2, bảng tra cứu và số câu đổi theo ngay.
+- **Gõ bằng kana cũng đúng** — `かえって` được tính đúng như `帰って`. Cách đọc được chia bằng
+  đúng engine chia thể (luật chia bám vào kana ở đuôi), nên không phải khai tay thể nào cả.
+- **Phạm vi ★ Chưa nhớ**, giới hạn số câu, trộn thứ tự, hiện/ẩn nghĩa tiếng Việt — giống các
+  loại bài khác. Dấu ★ lưu riêng cho từng bài tập.
+- **Bảng tra cứu** ngay dưới phần thiết lập: bảng cặp tự/tha động từ, hoặc bảng chia đủ 4 thể.
+- Dùng lại nguyên màn hình luyện tập và màn hình kết quả của các loại bài kia.
+
+Dữ liệu cả ba bài tập nằm thẳng trong mã nguồn (`src/app/core/exercises/`) chứ không đi qua
+`data-source/` + `npm run generate`: đây là chức năng cố định của ứng dụng, không phải nội dung
+người dùng tự nạp thêm. `npm run verify:conjugation` kiểm tra phần dữ liệu động từ — mọi động
+từ phải chia được theo nhóm đã khai, cách đọc phải là kana thuần kết thúc bằng ます và cũng
+phải chia được, không có id nào trùng.
+
+## Luyện tập ngữ pháp N4
+
+Tab con **Ngữ pháp N4** trong nhóm Luyện tập. Sách vnjpclub N4 dùng chung màn hình này, ở tab con
+**vnjpclub** của nhóm Ngữ pháp (`/exercise/ngu-phap-vnjpclub`).
 
 Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N4”**, giữ đúng thứ tự và cách chia mục của tài liệu
 (49 mục), thêm mục 50 **Trợ từ「で」** chép từ bài
@@ -770,22 +795,6 @@ câu luyện tập không trùng, ý nghĩa và tên mẫu không trùng (trùng
 phải có chỗ trống `《…》` trỏ về một mẫu có ý nghĩa, câu nhắc lại ở mục so sánh phải đánh dấu y
 như bản gốc, và các mảnh của mọi câu ghép lại phải được chấm đúng. `npm run verify:answer` thử chấm mọi câu ví dụ với các
 cách gõ khác nhau.
-
-### Điểm chung của hai bài tập động từ
-
-- **Lọc theo cấp độ** — bật tắt N5 / N4 / N3 / N2, bảng tra cứu và số câu đổi theo ngay.
-- **Gõ bằng kana cũng đúng** — `かえって` được tính đúng như `帰って`. Cách đọc được chia bằng
-  đúng engine chia thể (luật chia bám vào kana ở đuôi), nên không phải khai tay thể nào cả.
-- **Phạm vi ★ Chưa nhớ**, giới hạn số câu, trộn thứ tự, hiện/ẩn nghĩa tiếng Việt — giống các
-  loại bài khác. Dấu ★ lưu riêng cho từng bài tập.
-- **Bảng tra cứu** ngay dưới phần thiết lập: bảng cặp tự/tha động từ, hoặc bảng chia đủ 4 thể.
-- Dùng lại nguyên màn hình luyện tập và màn hình kết quả của các loại bài kia.
-
-Dữ liệu cả ba bài tập nằm thẳng trong mã nguồn (`src/app/core/exercises/`) chứ không đi qua
-`data-source/` + `npm run generate`: đây là chức năng cố định của ứng dụng, không phải nội dung
-người dùng tự nạp thêm. `npm run verify:conjugation` kiểm tra phần dữ liệu động từ — mọi động
-từ phải chia được theo nhóm đã khai, cách đọc phải là kana thuần kết thúc bằng ます và cũng
-phải chia được, không có id nào trùng.
 
 ## Đề luyện N4 · 直前対策
 

@@ -14,6 +14,7 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import { T } from '../../core/i18n/t';
 import type { MessageKey } from '../../core/i18n/messages';
 import { QuestionStatus, examText, sessionShortKey } from '../../core/practice/practice.model';
+import { N3AutoTick } from '../../core/n3/n3-auto-tick';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { FeedbackSound } from '../../core/services/feedback-sound';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
@@ -174,6 +175,9 @@ export class Practice {
     // Dữ liệu nét nằm ở một gói tải riêng, nên phiên viết tay phải gọi lấy ngay từ
     // đầu — chờ tới câu đầu tiên mới tải thì khung vẽ trống mất mấy trăm mili giây.
     if (this.config()?.answerMode === 'draw') void this.strokeStore.load();
+    // Khởi động việc tự tích buổi N3 TRƯỚC câu trả lời đầu tiên (nó lấy mốc so sánh
+    // lúc tạo), và xoá thông báo của phiên trước để màn kết quả chỉ nói về phiên này.
+    inject(N3AutoTick).clearTicked();
   }
 
   readonly isCurrentFavorite = computed(() => {

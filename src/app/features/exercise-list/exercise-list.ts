@@ -59,8 +59,7 @@ interface LessonGroup {
  *
  * Gồm ba nhóm:
  *  1. Bài tập chuyên đề cài sẵn trong mã nguồn (`core/exercises/`): hai bài gom động
- *     từ của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp, và bài ngữ pháp N4
- *     theo tài liệu tổng hợp.
+ *     từ của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp, và bài số đếm.
  *  2. Bài chia động từ — tới từ `data-source/`, mở ở `/lesson/:id`.
  *  3. Bài dịch hội thoại — cũng tới từ `data-source/`, cũng mở ở `/lesson/:id`.
  *
@@ -115,8 +114,8 @@ export class ExerciseList extends LessonBrowser {
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
     const counts = this.favoriteStore.counts();
-    // Các "sách ngữ pháp" (Tổng hợp N4, vnjpclub) là nội dung ngữ pháp: chúng nằm ở
-    // nhóm Ngữ pháp (core/navigation.ts), không lặp lại ở đây.
+    // Các "sách ngữ pháp" (Tổng hợp N4, vnjpclub) có tab con riêng (core/navigation.ts),
+    // nên không lặp lại thẻ ở đây.
     return EXERCISES.filter((info) => !isGrammarBookId(info.id)).map((info) => ({
       ...info,
       itemCount: itemCountOf(info.id),

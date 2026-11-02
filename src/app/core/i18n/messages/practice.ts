@@ -160,4 +160,9 @@ export const PRACTICE_MESSAGES = {
     ja: '今日 {answered}/{goal}問・あと{remaining}問で連続記録キープ',
   },
   'result.backToReview': { vi: 'Về trang ôn tập', ja: '復習ページへ' },
+  // Bài vừa học hết thì buổi N3 của nó tự được tích (core/n3/n3-auto-tick.ts).
+  'result.n3Ticked': {
+    vi: 'Đã học hết bài — tự tích {count} buổi lộ trình N3: {names}',
+    ja: '課を学び終えたので、N3ロードマップを{count}件チェックしました：{names}',
+  },
 } as const satisfies Record<string, Entry>;

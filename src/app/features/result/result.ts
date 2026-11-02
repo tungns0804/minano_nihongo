@@ -15,6 +15,7 @@ import { PracticeSessionStore } from '../../core/practice/practice-session-store
 import { StarButton } from '../../shared/star-button';
 import { Icon } from '../../shared/icon';
 import { ActivityStore } from '../../core/activity/activity-store';
+import { N3AutoTick } from '../../core/n3/n3-auto-tick';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';
 
@@ -80,8 +81,20 @@ export class Result {
   private readonly favoriteStore = inject(FavoriteStore);
   private readonly lang = inject(LanguageStore);
   private readonly router = inject(Router);
+  private readonly n3Ticked = inject(N3AutoTick).ticked;
 
   readonly t = this.lang.t.bind(this.lang);
+
+  /** Buổi lộ trình N3 phiên này vừa tự tích; rỗng thì không hiện dòng báo. */
+  protected readonly n3TickedMessage = computed(() => {
+    const units = this.n3Ticked();
+    if (units.length === 0) return '';
+    const ja = this.lang.language() === 'ja';
+    return this.t('result.n3Ticked', {
+      count: units.length,
+      names: units.map((unit) => (ja ? unit.titleJa : unit.titleVi)).join(' · '),
+    });
+  });
 
   constructor() {
     this.activity.acknowledgeGoal();

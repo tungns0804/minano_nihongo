@@ -56,6 +56,13 @@
         <span class="streak-banner-bar" aria-hidden="true"><span [style.width.%]="goalPercent()"></span></span>
       </a>
 
+      @if (n3TickedMessage(); as message) {
+        <a class="notice notice-success n3-ticked" routerLink="/n3">
+          <app-icon name="target" />
+          <span>{{ message }}</span>
+        </a>
+      }
+
       <!-- ── Hành động ────────────────────────────────────────────────────── -->
       <section class="card">
         <div class="card-body stack" style="gap: 12px">

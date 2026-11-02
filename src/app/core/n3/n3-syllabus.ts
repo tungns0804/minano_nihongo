@@ -392,6 +392,26 @@ const GOI_BLOCKS: N3Block[] = [
     '意味がたくさんある動詞②|Động từ nhiều nghĩa ②',
     '実戦問題|Bài kiểm tra thực chiến',
   ]),
+  {
+    // Bốn bài từ vựng N3 chép từ bảng người dùng gửi (名詞 1–120, 動詞 121–200). Chúng
+    // không nằm trong mục lục quyển 語彙 nên là khối "Bổ trợ" như `kanji-7`: không vào
+    // con số 42 đối chiếu với sách, nhưng có hẹn ngày — học xong trong app thì buổi
+    // tự được tích (`N3AutoTick`), không có thì 200 từ này học xong cũng không được tính.
+    id: 'goi-7',
+    labelJa: '補強',
+    labelVi: 'Bổ trợ',
+    titleJa: 'アプリの語彙 N3（200語）',
+    titleVi: 'Từ vựng N3 trong app — 4 bài, 200 từ',
+    startPage: 0,
+    units: [1, 2, 3, 4].map((no) =>
+      appUnit(
+        `goi-7-${no}`,
+        `名詞 第${no}課`,
+        `Từ vựng N3 · Bài ${no} (từ ${no * 50 - 49}–${no * 50})`,
+        `/lesson/n3-danh-tu-${no}`,
+      ),
+    ),
+  },
 ];
 
 // ── Trụ 4: 文法 — nền N4 trong app, phần N3 chưa có sách ──────────────────
@@ -716,6 +736,7 @@ export const N3_PHASES: readonly N3Phase[] = [
       'goi-4',
       'goi-5',
       'goi-6',
+      'goi-7',
       'dokkai-1',
       'dokkai-2',
       'dokkai-3',
