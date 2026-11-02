@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { loadGrammarBook } from './core/exercises/grammar-books';
 import { IMPORT_LESSON_ENABLED } from './core/feature-flags';
 import { practiceGuard, resultGuard } from './core/guards/session.guards';
 
@@ -112,17 +113,17 @@ export const routes: Routes = [
   // lý thuyết dài kèm câu ví dụ, không phải bảng động từ như hai bài tập kia. Khai TRƯỚC
   // `exercise/:id` vì router lấy đường dẫn khớp đầu tiên theo thứ tự khai.
   // Mỗi "sách ngữ pháp" (core/exercises/grammar-books.ts) là một route dùng chung màn
-  // hình này; `data.book` chọn sách.
+  // hình này; `resolve.book` nạp đúng gói dữ liệu của sách đó trước khi mở màn hình.
   {
     path: 'exercise/ngu-phap-n4',
     title: 'route.n4grammar',
-    data: { book: 'ngu-phap-n4' },
+    resolve: { book: () => loadGrammarBook('ngu-phap-n4') },
     loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
   },
   {
     path: 'exercise/ngu-phap-vnjpclub',
     title: 'route.vnjpclub',
-    data: { book: 'ngu-phap-vnjpclub' },
+    resolve: { book: () => loadGrammarBook('ngu-phap-vnjpclub') },
     loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
   },
   // Bài "Số đếm & trợ số từ" cũng có màn hình riêng: trên đầu là phần quy tắc ghi nhớ

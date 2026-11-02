@@ -1,13 +1,11 @@
 import type { ExerciseMode } from '../exercises/exercise.model';
 import { counterById } from '../exercises/counters';
 import { EXERCISE_VERBS } from '../exercises/exercise-verbs';
-import { GRAMMAR_BOOKS } from '../exercises/grammar-books';
+import { GrammarBook, loadGrammarBooks } from '../exercises/grammar-books';
 import { flattenN4Examples, meaningPoints } from '../exercises/n4-grammar.model';
 import { TRANSITIVITY_PAIRS } from '../exercises/transitive-pairs';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
-import { kanjiById } from '../kanji/kanji-entries';
 import { RADICAL_SESSION_ID } from '../radical/radical.model';
-import { radicalById } from '../radical/radical-entries';
 import {
   PracticeConfig,
   PracticeQuestion,
@@ -50,7 +48,25 @@ const LESSON_TYPES: ReadonlySet<string> = new Set(['w', 'g', 'v']);
 /** Loại mục của bài "Đề luyện N4" — dữ liệu sách nặng nên chỉ tải khi phiên ôn có mục đó. */
 const TAISAKU_TYPES: ReadonlySet<string> = new Set(['tv', 'tg']);
 
-type TaisakuBuilder = typeof import('./taisaku-questions');
+/** Loại mục của các "sách ngữ pháp" — mỗi sách một gói tải riêng, chỉ nạp khi phiên ôn cần. */
+const GRAMMAR_BOOK_TYPES: ReadonlySet<string> = new Set(['ne', 'nm']);
+
+/**
+ * Loại mục cần dữ liệu khu Kanji / Bộ thủ. Hai kho đó nặng gần 700 kB; nhập thẳng thì
+ * mở trang Ôn tập là tải đủ, kể cả hôm không có chữ Hán nào đến hạn. Thẻ `kc` sinh ở
+ * khu Bộ thủ (chữ ghép từ một bộ) vẫn tra ở kho Kanji.
+ */
+const KANJI_TYPES: ReadonlySet<string> = new Set(['kc', 'kw']);
+const RADICAL_TYPES: ReadonlySet<string> = new Set(['rc']);
+
+/** Dữ liệu đã tải cho một phiên ôn — phần nào phiên không cần thì rỗng. */
+interface ReviewData {
+  lessons: ReadonlyMap<string, Lesson | null>;
+  taisaku: typeof import('./taisaku-questions') | null;
+  books: readonly GrammarBook[];
+  kanji: typeof import('../kanji/kanji-entries') | null;
+  radical: typeof import('../radical/radical-entries') | null;
+}
 
 /**
  * Dựng lại câu hỏi cho các mục trong lịch ôn, giữ nguyên thứ tự `refs`.
@@ -81,22 +97,28 @@ export async function buildReviewQuestions(
     }),
   );
 
-  const taisaku = refs.some((ref) => TAISAKU_TYPES.has(parseReviewKey(ref.key)?.type ?? ''))
-    ? await import('./taisaku-questions')
-    : null;
+  const has = (types: ReadonlySet<string>) =>
+    refs.some((ref) => types.has(parseReviewKey(ref.key)?.type ?? ''));
+  const [taisaku, books, kanji, radical] = await Promise.all([
+    has(TAISAKU_TYPES) ? import('./taisaku-questions') : null,
+    has(GRAMMAR_BOOK_TYPES) ? loadGrammarBooks() : [],
+    has(KANJI_TYPES) ? import('../kanji/kanji-entries') : null,
+    has(RADICAL_TYPES) ? import('../radical/radical-entries') : null,
+  ]);
+  const data: ReviewData = { lessons, taisaku, books, kanji, radical };
 
   return refs.flatMap((ref) => {
-    const question = buildOne(ref, lessons, taisaku, options);
+    const question = buildOne(ref, data, options);
     return question ? [{ ...question, review: ref }] : [];
   });
 }
 
 function buildOne(
   ref: ReviewRef,
-  lessons: ReadonlyMap<string, Lesson | null>,
-  taisaku: TaisakuBuilder | null,
+  data: ReviewData,
   options: ReviewQuestionOptions,
 ): PracticeQuestion | null {
+  const { lessons, taisaku, books, kanji, radical } = data;
   const parsed = parseReviewKey(ref.key);
   if (!parsed) return null;
 
@@ -163,7 +185,7 @@ function buildOne(
     }
 
     case 'kw': {
-      const entry = kanjiById(ref.source);
+      const entry = kanji?.kanjiById(ref.source);
       const word = entry?.words.find((item) => item.id === id);
       if (!entry || !word) return null;
       return (
@@ -176,7 +198,7 @@ function buildOne(
     }
 
     case 'kc': {
-      const entry = kanjiById(id);
+      const entry = kanji?.kanjiById(id);
       if (!entry?.hanViet) return null;
       return (
         buildKanjiHanVietQuestions(
@@ -187,7 +209,7 @@ function buildOne(
     }
 
     case 'rc': {
-      const entry = radicalById(id);
+      const entry = radical?.radicalById(id);
       if (!entry?.hanViet) return null;
       // Thẻ có thể sinh từ câu viết bộ; khi ôn luôn hỏi âm Hán Việt như thẻ chữ Hán `kc`.
       return (
@@ -270,7 +292,9 @@ function buildOne(
 
     case 'ne': {
       // Khoá thẻ không ghi sách: tìm trong mọi sách, câu thuộc sách nào thì hỏi như sách đó.
-      const found = findInBooks((book) => flattenN4Examples(book.sections).find((item) => item.example.id === id));
+      const found = findInBooks(books, (book) =>
+        flattenN4Examples(book.sections).find((item) => item.example.id === id),
+      );
       if (!found) return null;
       const [example, book] = found;
       // Luôn hiện mẫu ngữ pháp làm gợi ý, như mặc định của chính bài tập.
@@ -288,7 +312,9 @@ function buildOne(
     }
 
     case 'nm': {
-      const found = findInBooks((book) => meaningPoints(book.sections).find((item) => item.point.id === id));
+      const found = findInBooks(books, (book) =>
+        meaningPoints(book.sections).find((item) => item.point.id === id),
+      );
       if (!found) return null;
       const [point, book] = found;
       // Luôn trắc nghiệm, kể cả khi người học chọn "gõ": ý nghĩa là một câu mô tả dài,
@@ -310,9 +336,10 @@ function buildOne(
 
 /** Mục đầu tiên tìm thấy qua các sách ngữ pháp, kèm sách chứa nó. */
 function findInBooks<T>(
-  find: (book: (typeof GRAMMAR_BOOKS)[number]) => T | undefined,
-): [T, (typeof GRAMMAR_BOOKS)[number]] | null {
-  for (const book of GRAMMAR_BOOKS) {
+  books: readonly GrammarBook[],
+  find: (book: GrammarBook) => T | undefined,
+): [T, GrammarBook] | null {
+  for (const book of books) {
     const item = find(book);
     if (item) return [item, book];
   }

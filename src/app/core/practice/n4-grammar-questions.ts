@@ -1,5 +1,6 @@
 import type { MessageKey } from '../i18n/messages';
-import { GRAMMAR_BOOKS, GrammarBook, grammarBookOf } from '../exercises/grammar-books';
+import { isGrammarBookId } from '../exercises/exercise.model';
+import { GrammarBook, loadedGrammarBook } from '../exercises/grammar-books';
 import {
   N4ExampleRef,
   N4Point,
@@ -288,7 +289,7 @@ const BOOK_INDEX = new Map<string, BookIndex>();
  * cách viết là đoán ra đáp án.
  */
 function indexOf(config: PracticeConfig): BookIndex {
-  const book = grammarBookOf(config.exercise) ?? GRAMMAR_BOOKS[0];
+  const book = loadedGrammarBook(isGrammarBookId(config.exercise) ? config.exercise : 'ngu-phap-n4');
   let index = BOOK_INDEX.get(book.id);
   if (!index) {
     const points = meaningPoints(book.sections);

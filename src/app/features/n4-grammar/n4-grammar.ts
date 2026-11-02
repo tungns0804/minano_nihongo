@@ -12,7 +12,7 @@ import {
   isTranslationMode,
   modeQuestionsPerItem,
 } from '../../core/exercises/exercise.model';
-import { GRAMMAR_BOOKS, grammarBookOf } from '../../core/exercises/grammar-books';
+import type { GrammarBook } from '../../core/exercises/grammar-books';
 import {
   N4ExampleRef,
   N4Section,
@@ -169,10 +169,11 @@ export class N4Grammar extends PracticeScreen {
   private readonly reviews = inject(ReviewStore);
 
   /**
-   * Sách đang mở, theo `data.book` của route (xem app.routes.ts). Một màn hình cho mọi
-   * sách ngữ pháp: tài liệu tổng hợp N4, bộ vnjpclub… — xem `grammar-books.ts`.
+   * Sách đang mở, do route nạp sẵn trước khi mở màn hình (`resolve.book` ở
+   * app.routes.ts). Một màn hình cho mọi sách ngữ pháp: tài liệu tổng hợp N4, bộ
+   * vnjpclub… — xem `grammar-books.ts`.
    */
-  readonly book = grammarBookOf(inject(ActivatedRoute).snapshot.data['book']) ?? GRAMMAR_BOOKS[0];
+  readonly book: GrammarBook = inject(ActivatedRoute).snapshot.data['book'];
   private readonly allPools = poolsOf(this.book.sections);
   private readonly allSectionIds: readonly string[] = this.book.sections.map((section) => section.id);
 

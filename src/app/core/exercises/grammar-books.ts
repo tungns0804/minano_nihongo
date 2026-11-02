@@ -1,26 +1,13 @@
 import type { MessageKey } from '../i18n/messages';
-import type { GrammarBookId } from './exercise.model';
-import {
-  N4_INTERCHANGEABLE_GROUPS,
-  N4_SAME_FORM,
-  N4_SECTIONS,
-  N4_SYNONYMS,
-} from './n4-grammar';
+import { GRAMMAR_BOOK_IDS, type GrammarBookId } from './exercise.model';
 import type { N4Section } from './n4-grammar.model';
-import { buildSections } from './grammar-book.build';
-import {
-  VNJPCLUB_INTERCHANGEABLE_GROUPS,
-  VNJPCLUB_RAW_SECTIONS,
-  VNJPCLUB_SYNONYMS,
-} from './vnjpclub-n4.generated';
 
 /**
  * "Sách ngữ pháp": một bộ mục lý thuyết + câu ví dụ, luyện bằng cùng một màn hình
  * (`features/n4-grammar`) và cùng lộ trình năm bậc.
  *
- * Thêm một nguồn ngữ pháp mới là thêm một phần tử vào `GRAMMAR_BOOKS` — không thêm
- * màn hình, không thêm tab: nó hiện thành một tab con trong nhóm Ngữ pháp
- * (`core/navigation.ts`).
+ * Thêm một nguồn ngữ pháp mới là thêm một file `grammar-book-<tên>.ts` và một dòng vào
+ * `LOADERS` — không thêm màn hình. Tab con của nó khai ở `core/navigation.ts`.
  */
 export interface GrammarBook {
   /** Id bài tập: khoá ★, `lessonId` của phiên luyện, và đoạn cuối đường dẫn. */
@@ -37,31 +24,39 @@ export interface GrammarBook {
   readonly sameForm: readonly (readonly string[])[];
 }
 
-export const GRAMMAR_BOOKS: readonly GrammarBook[] = [
-  {
-    id: 'ngu-phap-n4',
-    path: '/exercise/ngu-phap-n4',
-    nameKey: 'exercise.n4grammar.name',
-    subtitleKey: 'exercise.n4.subtitle',
-    sections: N4_SECTIONS,
-    synonyms: N4_SYNONYMS,
-    interchangeableGroups: N4_INTERCHANGEABLE_GROUPS,
-    sameForm: N4_SAME_FORM,
-  },
-  {
-    // Sinh bằng scripts/import-vnjpclub.mjs: công thức, ý nghĩa và câu ví dụ của từng
-    // trang; phần giải thích dài không chép, mỗi mục dẫn link về trang gốc.
-    id: 'ngu-phap-vnjpclub',
-    path: '/exercise/ngu-phap-vnjpclub',
-    nameKey: 'exercise.vnjpclub.name',
-    subtitleKey: 'exercise.vnjpclub.subtitle',
-    sections: buildSections(VNJPCLUB_RAW_SECTIONS),
-    synonyms: VNJPCLUB_SYNONYMS,
-    interchangeableGroups: VNJPCLUB_INTERCHANGEABLE_GROUPS,
-    sameForm: [],
-  },
-];
+/**
+ * Mỗi sách một gói tải riêng.
+ *
+ * Trước đây file này nhập thẳng cả hai sách, nên mở một sách là tải luôn sách kia
+ * (gộp lại 661 kB), và trang Ôn tập — nhập file này để dựng lại câu ôn — tải đủ
+ * 661 kB đó ngay cả khi không có câu ngữ pháp nào đến hạn.
+ */
+const LOADERS: Record<GrammarBookId, () => Promise<GrammarBook>> = {
+  'ngu-phap-n4': () => import('./grammar-book-n4').then((m) => m.N4_BOOK),
+  'ngu-phap-vnjpclub': () => import('./grammar-book-vnjpclub').then((m) => m.VNJPCLUB_BOOK),
+};
 
-export function grammarBookOf(id: string | null | undefined): GrammarBook | null {
-  return GRAMMAR_BOOKS.find((book) => book.id === id) ?? null;
+const loaded = new Map<GrammarBookId, GrammarBook>();
+
+export async function loadGrammarBook(id: GrammarBookId): Promise<GrammarBook> {
+  const cached = loaded.get(id);
+  if (cached) return cached;
+  const book = await LOADERS[id]();
+  loaded.set(id, book);
+  return book;
+}
+
+/** Mọi sách, theo thứ tự của `GRAMMAR_BOOK_IDS` — phiên ôn không biết câu thuộc sách nào. */
+export function loadGrammarBooks(): Promise<GrammarBook[]> {
+  return Promise.all(GRAMMAR_BOOK_IDS.map(loadGrammarBook));
+}
+
+/**
+ * Sách đã nạp, đọc đồng bộ — cho bộ dựng câu hỏi, vốn chạy sau khi màn hình đã nạp
+ * sách (route resolver của `N4Grammar`, hoặc `loadGrammarBooks` của phiên ôn).
+ */
+export function loadedGrammarBook(id: GrammarBookId): GrammarBook {
+  const book = loaded.get(id);
+  if (!book) throw new Error(`Sach ngu phap "${id}" chua duoc nap`);
+  return book;
 }

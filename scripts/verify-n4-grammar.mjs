@@ -28,7 +28,8 @@ const EXERCISES = join(ROOT, 'src', 'app', 'core', 'exercises');
 // n4-grammar.ts import "../lessons/vocabulary-parser" không kèm đuôi file.
 resolveTsImports();
 
-const { GRAMMAR_BOOKS } = await import(pathToFileURL(join(EXERCISES, 'grammar-books.ts')));
+const { loadGrammarBooks } = await import(pathToFileURL(join(EXERCISES, 'grammar-books.ts')));
+const GRAMMAR_BOOKS = await loadGrammarBooks();
 const { BLANK_MARK, blankExamples, flattenN4Examples, meaningPoints, orderExamples } = await import(
   pathToFileURL(join(EXERCISES, 'n4-grammar.model.ts'))
 );

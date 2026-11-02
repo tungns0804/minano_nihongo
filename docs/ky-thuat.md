@@ -63,7 +63,9 @@ src/app/
       n4-grammar.model.ts        Kiểu dữ liệu bài ngữ pháp N4 (mục → mẫu → câu ví dụ)
       n4-grammar.ts              50 mục: tài liệu "TỔNG HỢP NGỮ PHÁP N4" + trợ từ で, chỗ trống 《…》
       grammar-book.build.ts      Dựng dữ liệu một sách ngữ pháp từ dạng viết tay / sinh tự động
-      grammar-books.ts           Danh sách "sách ngữ pháp" (Tổng hợp N4, vnjpclub N4)
+      grammar-books.ts           Kiểu "sách ngữ pháp" + nạp động từng sách (mỗi sách một gói tải)
+      grammar-book-n4.ts         Sách Tổng hợp N4 (dữ liệu ở n4-grammar.ts)
+      grammar-book-vnjpclub.ts   Sách vnjpclub N4 (dữ liệu ở vnjpclub-n4.generated.ts)
       vnjpclub-n4.generated.ts   Các mẫu N4 của vnjpclub — DO MÁY SINH (import-vnjpclub.mjs)
     kanji/
       kanji.model.ts             Kiểu dữ liệu + chiều hỏi của khu Kanji

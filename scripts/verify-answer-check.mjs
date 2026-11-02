@@ -209,9 +209,10 @@ for (const file of readdirSync(lessonsDir).filter((name) => name.endsWith('.json
 // Cùng cú pháp câu mẫu với khu Luyện dịch, nên thử đúng các cách gõ như trên: chữ
 // Hán, kana, gõ lẫn, từng lựa chọn của mỗi [...] — và gõ thiếu nửa câu phải bị chấm sai.
 // Dữ liệu nằm trong mã nguồn chứ không ở public/lessons/, nên nạp thẳng file .ts.
-const { GRAMMAR_BOOKS } = await import(
+const { loadGrammarBooks } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'grammar-books.ts'))
 );
+const GRAMMAR_BOOKS = await loadGrammarBooks();
 const { flattenN4Examples } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'exercises', 'n4-grammar.model.ts'))
 );
