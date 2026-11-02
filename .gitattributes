@@ -1,0 +1,7 @@
+# File văn bản dùng LF cả trong repo LẪN trong thư mục làm việc, kể cả trên Windows
+# có core.autocrlf=true.
+#
+# Script sinh mã ghi ra LF rồi đem so nguyên văn với file đang có (`--check`). Khi
+# thư mục làm việc là CRLF, verify:kanji / verify:radicals / verify:topics báo lệch dù
+# nội dung không đổi một chữ, và muốn chạy verify:ci cho đúng phải clone lại ở chỗ khác.
+* text=auto eol=lf
