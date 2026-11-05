@@ -152,6 +152,33 @@ import { PartNode } from '../../core/kanji/kanji-composition';
       border-left: 1.5px solid var(--line);
     }
 
+    /* Cây mọc xuống từng tầng: chữ gốc trước, rồi các thành phần, rồi thành phần của
+       thành phần — mắt đi theo đúng chiều "chữ này ghép từ đâu ra". Mỗi tầng trễ 70ms
+       và dừng ở tầng thứ ba, nên nút cuối cùng cũng chỉ đợi 0,21s. Đặt trên li để
+       đường nối của nhánh hiện ra cùng với chính nút đó. */
+    li {
+      animation: node-in 0.22s var(--ease) backwards;
+    }
+
+    .tree > li > ul > li {
+      animation-delay: 0.07s;
+    }
+
+    .tree > li > ul > li > ul > li {
+      animation-delay: 0.14s;
+    }
+
+    .tree > li > ul > li > ul > li > ul > li {
+      animation-delay: 0.21s;
+    }
+
+    @keyframes node-in {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+    }
+
     /* Gốc không có cha nên không có đường nối nào phía trên. */
     .tree > li {
       padding-top: 0;

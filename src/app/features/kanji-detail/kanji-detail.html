@@ -4,8 +4,14 @@
       <div class="notice notice-error">{{ t('kanji.notFound', { id: kanjiId() }) }}</div>
       <div><a class="btn" routerLink="/kanji">{{ t('kanji.back') }}</a></div>
     </div>
-  } @else if (entry(); as data) {
+  } @else {
+    <!-- Khoá theo chữ: bấm "Chữ sau" thì router dùng lại component (cùng một route),
+         nên không có gì tự dựng lại và trang chỉ đổi chữ phắt một cái. Khoá ở đây làm
+         cả phần thân dựng mới — nó mờ dần hiện ra (motion.css: .kanji-body), và cây
+         cấu tạo, thứ tự nét, ô viết thử đều bắt đầu lại từ đầu cho chữ mới. -->
     <div class="stack stack-xl">
+    @for (data of shownEntry(); track data.id) {
+    <div class="stack stack-xl kanji-body">
       <!-- ── Chữ Hán ─────────────────────────────────────────────────────── -->
       <header class="stack stack-sm">
         <!-- Đi từ một bài sang thì quay về đúng bài đó, không văng ra danh sách Kanji. -->
@@ -459,13 +465,19 @@
         </ng-container>
       </app-practice-setup>
       }
+    </div>
+    }
 
+    <!-- Nằm NGOÀI phần thân dựng lại theo chữ: bấm Enter vào "Chữ sau" thì focus vẫn
+         đứng ở đúng nút đó, lật tiếp được mà không phải Tab lại từ đầu trang. -->
+    @if (entry(); as data) {
       <app-sibling-pager
         [items]="pagerItems()"
         [currentKey]="data.id"
         prevKey="pager.prevKanji"
         nextKey="pager.nextKanji"
       />
+    }
     </div>
   }
 </div>

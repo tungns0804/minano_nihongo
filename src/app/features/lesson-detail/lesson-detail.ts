@@ -429,7 +429,15 @@ export class LessonDetail extends PracticeScreen {
   /** Nút ở đầu trang: lưới chữ nằm dưới bảng 50 từ, không cuộn thì không ai thấy. */
   scrollToKanji(): void {
     // Cuộn bằng script chứ không dùng href="#…": bản offline định tuyến bằng dấu #.
-    document.getElementById('lesson-kanji')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const card = document.getElementById('lesson-kanji');
+    if (!card) return;
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // Viền khối loé lên khi tới nơi (motion.css: .is-arrived). Gỡ lớp, ép trình duyệt
+    // tính lại bố cục, rồi gắn lại — không thì bấm lần thứ hai hiệu ứng không chạy nữa.
+    card.classList.remove('is-arrived');
+    void card.offsetWidth;
+    card.classList.add('is-arrived');
   }
 
   private resetView(): void {

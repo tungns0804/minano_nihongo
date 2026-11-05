@@ -192,6 +192,12 @@ export class KanjiDetail extends PracticeScreen {
   readonly mode = signal<KanjiMode>('word-meaning');
 
   readonly notFound = computed(() => this.entry() === null);
+
+  /** Chữ đang mở dưới dạng mảng một phần tử — để template khoá phần thân theo chữ. */
+  readonly shownEntry = computed<KanjiEntry[]>(() => {
+    const entry = this.entry();
+    return entry ? [entry] : [];
+  });
   /**
    * Chữ có trong danh sách JLPT nhưng kho từ chưa có từ nào dùng nó. Vẫn hiện
    * chữ và âm Hán Việt (luyện âm ở màn danh sách vẫn hỏi tới nó), chỉ là chưa

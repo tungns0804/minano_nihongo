@@ -7,6 +7,8 @@ import {
   inject,
   input,
   model,
+  signal,
+  untracked,
   viewChild,
 } from '@angular/core';
 
@@ -48,39 +50,46 @@ const SWIPE_DISTANCE = 48;
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" /></svg>
           </button>
 
-          <!-- Vuốt trên chính ảnh: trên điện thoại đó là chỗ ngón tay tự nhiên đặt vào. -->
-          <div class="viewer-photo" (pointerdown)="swipeStart($event)" (pointerup)="swipeEnd($event)">
-            <app-vocab-photo [image]="item.image" size="xl" />
-          </div>
+          <!-- Khoá theo từ: sang ảnh khác là khối này dựng lại, nên hiệu ứng trượt theo
+               hướng vừa bấm chạy lại mỗi lần. Nút đóng và hàng ← → nằm NGOÀI khối để
+               không trượt theo — và để focus không rơi mất khi khối dựng lại. -->
+          @for (slide of [item]; track slide.word.id) {
+            <div class="viewer-slide" [attr.data-dir]="direction()">
+              <!-- Vuốt trên chính ảnh: trên điện thoại đó là chỗ ngón tay tự nhiên đặt vào. -->
+              <div class="viewer-photo" (pointerdown)="swipeStart($event)" (pointerup)="swipeEnd($event)">
+                <app-vocab-photo [image]="item.image" size="xl" />
+              </div>
 
-          <div class="viewer-word">
-            @if (item.word.hanViet) {
-              <span class="viewer-han">{{ item.word.hanViet }}</span>
-            }
-            <span class="viewer-jp jp">
-              {{ item.word.japanese }}
-              @if (audio.canPlay(item.word)) {
-                <button
-                  type="button"
-                  class="viewer-speak"
-                  [class.is-playing]="audio.isPlaying(item.word)"
-                  [disabled]="audio.isBroken(item.word)"
-                  (click)="audio.play(item.word)"
-                  [attr.aria-label]="t('lesson.speak', { name: item.word.japanese })"
-                >
-                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                    <path d="M4 8h2.4L9.8 4.6v10.8L6.4 12H4z" stroke-linejoin="round" />
-                    <path d="M12.8 7.6a3.4 3.4 0 0 1 0 4.8" stroke-linecap="round" />
-                    <path d="M15 5.4a6.5 6.5 0 0 1 0 9.2" stroke-linecap="round" />
-                  </svg>
-                </button>
-              }
-            </span>
-            @if (item.word.reading) {
-              <span class="viewer-reading jp">{{ item.word.reading }}</span>
-            }
-            <span class="viewer-meaning">{{ item.word.vietnamese }}</span>
-          </div>
+              <div class="viewer-word">
+                @if (item.word.hanViet) {
+                  <span class="viewer-han">{{ item.word.hanViet }}</span>
+                }
+                <span class="viewer-jp jp">
+                  {{ item.word.japanese }}
+                  @if (audio.canPlay(item.word)) {
+                    <button
+                      type="button"
+                      class="viewer-speak"
+                      [class.is-playing]="audio.isPlaying(item.word)"
+                      [disabled]="audio.isBroken(item.word)"
+                      (click)="audio.play(item.word)"
+                      [attr.aria-label]="t('lesson.speak', { name: item.word.japanese })"
+                    >
+                      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                        <path d="M4 8h2.4L9.8 4.6v10.8L6.4 12H4z" stroke-linejoin="round" />
+                        <path d="M12.8 7.6a3.4 3.4 0 0 1 0 4.8" stroke-linecap="round" />
+                        <path d="M15 5.4a6.5 6.5 0 0 1 0 9.2" stroke-linecap="round" />
+                      </svg>
+                    </button>
+                  }
+                </span>
+                @if (item.word.reading) {
+                  <span class="viewer-reading jp">{{ item.word.reading }}</span>
+                }
+                <span class="viewer-meaning">{{ item.word.vietnamese }}</span>
+              </div>
+            </div>
+          }
 
           @if (words().length > 1) {
             <div class="viewer-nav">
@@ -109,10 +118,70 @@ const SWIPE_DISTANCE = 48;
       color: var(--text);
       box-shadow: var(--shadow-lg);
       overscroll-behavior: contain;
+      /* Ảnh trượt vào từ bên cạnh lấn ra ngoài khung một nhịp — cắt đi, đừng để nó
+         đẻ ra thanh cuộn ngang trong 0,2 giây đó. */
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .viewer::backdrop {
       background: rgb(10 14 20 / 62%);
+    }
+
+    /* Mở ra: khung phóng nhẹ từ nhỏ lên và nền mờ dần — mắt hiểu ngay là "ảnh vừa
+       được phóng to", không phải một trang mới bụp ra đè lên. Quy tắc nằm trên [open]
+       nên mỗi lần mở là chạy lại. Đóng thì tắt ngay: đóng là muốn quay lại bảng,
+       bắt đợi hiệu ứng là bắt ngồi chờ. */
+    .viewer[open] {
+      animation: viewer-in 0.22s var(--ease);
+    }
+
+    .viewer[open]::backdrop {
+      animation: backdrop-in 0.22s ease-out;
+    }
+
+    @keyframes viewer-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+      }
+    }
+
+    @keyframes backdrop-in {
+      from {
+        opacity: 0;
+      }
+    }
+
+    /* Sang ảnh khác: trượt vào từ phía vừa bấm — → thì từ bên phải, ← thì từ bên trái,
+       đúng như lật một xấp thẻ. Mở lần đầu thì không trượt (data-dir rỗng), vì khung đã
+       có hiệu ứng mở của riêng nó. */
+    .viewer-slide {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .viewer-slide[data-dir='next'] {
+      animation: slide-from-right 0.2s var(--ease);
+    }
+
+    .viewer-slide[data-dir='prev'] {
+      animation: slide-from-left 0.2s var(--ease);
+    }
+
+    @keyframes slide-from-right {
+      from {
+        opacity: 0;
+        transform: translateX(28px);
+      }
+    }
+
+    @keyframes slide-from-left {
+      from {
+        opacity: 0;
+        transform: translateX(-28px);
+      }
     }
 
     .viewer-body {
@@ -251,6 +320,9 @@ export class PhotoViewer {
   private readonly dialog = viewChild.required<ElementRef<HTMLDialogElement>>('dialog');
   private swipeFrom: { x: number; y: number } | null = null;
 
+  /** Hướng của lần chuyển ảnh gần nhất — quyết định ảnh mới trượt vào từ phía nào. */
+  protected readonly direction = signal<'next' | 'prev' | null>(null);
+
   protected readonly current = computed(() => {
     const index = this.index();
     const word = index === null ? undefined : this.words()[index];
@@ -267,7 +339,11 @@ export class PhotoViewer {
     effect(() => {
       const open = this.current() !== null;
       const dialog = this.dialog().nativeElement;
-      if (open && !dialog.open) dialog.showModal();
+      if (open && !dialog.open) {
+        // Mở mới thì không trượt: hướng của lần xem trước không còn nghĩa gì.
+        untracked(() => this.direction.set(null));
+        dialog.showModal();
+      }
       if (!open && dialog.open) dialog.close();
     });
   }
@@ -278,6 +354,7 @@ export class PhotoViewer {
     const next = index + delta;
     if (next < 0 || next >= this.words().length) return;
     this.audio.stop();
+    this.direction.set(delta > 0 ? 'next' : 'prev');
     this.index.set(next);
   }
 

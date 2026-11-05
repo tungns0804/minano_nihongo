@@ -105,20 +105,55 @@
 
    Ba quy tắc `n + …` chồng lên nhau chứ không loại trừ nhau: ô thứ 20 khớp cả
    ba, và luật viết sau thắng — đúng thứ tự tăng dần muốn có. */
-.kanji-cell {
+.kanji-cell,
+.lesson-kanji-cell,
+.user-chip {
   animation: fade-in 0.24s var(--ease) backwards;
 }
 
-.kanji-cell:nth-child(n + 5) {
+/* Cùng nhịp cho hai lưới chữ mới: "Chữ Hán trong bài" ở trang bài học và "Chữ có chứa
+   …" ở trang một chữ. Bấm "Hiện thêm" ở lưới sau thì các ô mới cũng hiện theo đợt sóng
+   này — đúng câu hỏi "có gì mới hiện ra?". */
+.kanji-cell:nth-child(n + 5),
+.lesson-kanji-cell:nth-child(n + 5),
+.user-chip:nth-child(n + 5) {
   animation-delay: 0.04s;
 }
 
-.kanji-cell:nth-child(n + 13) {
+.kanji-cell:nth-child(n + 13),
+.lesson-kanji-cell:nth-child(n + 13),
+.user-chip:nth-child(n + 13) {
   animation-delay: 0.08s;
 }
 
-.kanji-cell:nth-child(n + 25) {
+.kanji-cell:nth-child(n + 25),
+.lesson-kanji-cell:nth-child(n + 25),
+.user-chip:nth-child(n + 25) {
   animation-delay: 0.12s;
+}
+
+/* Trang một chữ Hán lật sang chữ khác ("Chữ trước / Chữ sau", hay bấm một thành phần
+   của cây). Router dùng lại component nên .page không chạy lại — phần thân được khoá
+   theo chữ (xem kanji-detail.html) và mờ dần hiện ra ở đây: "trang vừa đổi phải
+   không?". Chỉ mờ, không trượt, vì lần mở đầu tiên .page đã trượt rồi — trượt thêm
+   một lớp nữa thì chữ đi gấp đôi quãng đường. */
+.kanji-body {
+  animation: fade-in 0.24s var(--ease) backwards;
+}
+
+/* Vừa cuộn tới một khối bằng nút lối tắt ("Xem 40 chữ Hán trong bài ↓"): viền khối
+   loé lên rồi tắt — "mình vừa nhảy tới đâu?". Đây là hiệu ứng duy nhất cố ý dài hơn
+   320ms, vì nó không bắt ai chờ: trễ 0,3s cho cuộn mượt xong, rồi tắt dần trong
+   0,9s để mắt kịp bắt được trong lúc đang định thần. Gắn bằng JS (lessonDetail
+   .scrollToKanji) mỗi lần bấm. */
+@keyframes arrive-ring {
+  from {
+    box-shadow: 0 0 0 3px var(--accent), var(--shadow);
+  }
+}
+
+.is-arrived {
+  animation: arrive-ring 0.9s ease-out 0.3s backwards;
 }
 
 /* Từng mẫu ngữ pháp trong trang lý thuyết. Không trễ dần: các thẻ này nằm sau
