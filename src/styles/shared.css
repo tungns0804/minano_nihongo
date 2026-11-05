@@ -473,3 +473,14 @@
   line-height: 2.1;
   white-space: pre-line;
 }
+
+/* --- Khung phóng to đang mở (shared/photo-viewer.ts) ----------------------
+   Khoá cuộn của trang phía sau: không có dòng này thì vuốt trong khung trên điện thoại
+   cuộn luôn cả bảng từ bên dưới, đóng khung ra là đã lạc khỏi chỗ đang xem. Giữ chỗ
+   thanh cuộn để trang không giật sang ngang lúc thanh cuộn biến mất. Nằm ở file chung vì
+   chọn trên <html> — CSS của component không với ra ngoài chính nó được. */
+
+html:has(dialog.viewer[open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}

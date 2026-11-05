@@ -55,12 +55,13 @@ import { StarButton } from '../../shared/star-button';
 import { VerbRow, buildVerbRows, formsText } from './verb-rows';
 import { PracticeSetup } from '../../shared/practice-setup';
 import { VocabPhoto } from '../../shared/vocab-photo';
+import { PhotoViewer } from '../../shared/photo-viewer';
 import { LessonPager } from '../../shared/lesson-pager';
 import { KanjiEntry, LESSONS_WITH_KANJI } from '../../core/kanji/kanji.model';
 
 @Component({
   selector: 'app-lesson-detail',
-  imports: [LessonPager, PracticeSetup, RouterLink, SearchBox, StarButton, T, VocabPhoto],
+  imports: [LessonPager, PhotoViewer, PracticeSetup, RouterLink, SearchBox, StarButton, T, VocabPhoto],
   templateUrl: './lesson-detail.html',
   styleUrl: './lesson-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -160,6 +161,29 @@ export class LessonDetail extends PracticeScreen {
   readonly imageColumn = computed(() => this.hasImages() && this.showImages());
   readonly imageOf = vocabImageOf;
   readonly hasReadings = computed(() => hasWordField(this.words(), 'reading'));
+
+  /**
+   * Cách đọc đứng thành cột riêng hay nằm ngay dưới từ trong ô tiếng Nhật.
+   *
+   * Có cột ảnh thì hàng nào cũng đã cao bằng cái ảnh, nên cách đọc xuống dòng dưới từ
+   * không làm hàng cao thêm mà bảng bớt được một cột — cột nghĩa rộng ra, hết cảnh mấy
+   * cột chữ ngắn đứng cách nhau cả gang tay. Không có ảnh thì hàng chỉ một dòng chữ,
+   * gộp vào lại làm cả bảng cao gấp rưỡi, nên vẫn giữ cột riêng như cũ.
+   */
+  readonly readingColumn = computed(() => this.hasReadings() && !this.imageColumn());
+  readonly readingInline = computed(() => this.hasReadings() && this.imageColumn());
+
+  /** Các từ có ảnh, theo đúng thứ tự (và bộ lọc) của bảng — dãy ← → của khung phóng to. */
+  readonly photoWords = computed(() =>
+    this.filteredWords().filter((word) => vocabImageOf(word) !== null),
+  );
+  /** Ảnh đang phóng to (vị trí trong `photoWords`); null là khung đóng. */
+  readonly photoIndex = signal<number | null>(null);
+
+  openPhoto(word: VocabularyWord): void {
+    const index = this.photoWords().indexOf(word);
+    if (index >= 0) this.photoIndex.set(index);
+  }
 
   /**
    * Bài có âm Hán Việt không. Bài 総まとめ N3 gồm nhiều từ katakana và trạng từ
@@ -411,6 +435,7 @@ export class LessonDetail extends PracticeScreen {
   private resetView(): void {
     this.lesson.set(null);
     this.lessonKanji.set([]);
+    this.photoIndex.set(null);
     this.search.set('');
     this.onlyFavorites.set(false);
     this.scope.set('all');

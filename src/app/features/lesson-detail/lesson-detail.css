@@ -54,11 +54,11 @@
 .word-table.has-reading.has-example th:nth-child(4) { width: 14%; }
 .word-table.has-reading.has-example th:nth-child(5) { width: 17.5%; }
 
-/* Cột ảnh (chỉ có ở bài có ảnh) luôn đứng cuối và rộng cố định vừa ảnh 120px cộng lề ô.
-   Khai bằng lớp chứ không bằng nth-child: số thứ tự của nó đổi theo các cột tuỳ bài ở
+/* Cột ảnh (chỉ có ở bài có ảnh) luôn đứng cuối và rộng cố định vừa ảnh nhỏ 72px cộng lề
+   ô. Khai bằng lớp chứ không bằng nth-child: số thứ tự của nó đổi theo các cột tuỳ bài ở
    trên, còn các quy tắc nth-child ở trên không bao giờ chạm tới vị trí của nó. */
 .word-table th.col-image {
-  width: 144px;
+  width: 100px;
 }
 
 /* Hàng có ảnh cao gấp ba hàng chữ: căn chữ lên đỉnh ô (như bảng không ảnh) thì dưới mỗi
@@ -574,5 +574,59 @@
 
   .lesson-kanji-char {
     font-size: 1.8rem;
+  }
+}
+
+/* ============================================================================
+   ẢNH NHỎ TRONG BẢNG + CÁCH ĐỌC GỘP VÀO Ô TIẾNG NHẬT (bảng có ảnh)
+   ========================================================================== */
+
+/* Cách đọc ngay dưới từ, nhỏ và nhạt như furigana: đọc là biết, nhưng không giành mắt. */
+.jp-reading {
+  display: block;
+  margin-top: 1px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+/* Nút bọc ảnh nhỏ: không viền không nền, con trỏ kính lúp để biết ảnh bấm được. */
+.photo-open {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: zoom-in;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .photo-open:hover {
+    transform: scale(1.04);
+    box-shadow: var(--shadow);
+  }
+}
+
+.photo-open:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Điện thoại: ảnh nhỏ sang cột phải của thẻ, ngay dưới ngôi sao, đứng ngang hàng với
+   từ và nghĩa — thay vì một tấm ảnh nằm riêng một hàng ở đáy thẻ làm thẻ dài gấp đôi. */
+@media (max-width: 640px) {
+  .word-table.has-image .col-image {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    align-self: start;
+    margin-top: 2px;
+  }
+
+  .word-table.has-image .col-star {
+    justify-self: end;
+  }
+
+  .word-table .jp-reading {
+    font-size: 0.95rem;
   }
 }

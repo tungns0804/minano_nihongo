@@ -518,7 +518,7 @@
                 <table
                   class="word-table"
                   [class.has-example]="hasExamples()"
-                  [class.has-reading]="hasReadings()"
+                  [class.has-reading]="readingColumn()"
                   [class.has-han]="hasHanViet()"
                   [class.has-image]="imageColumn()"
                 >
@@ -529,7 +529,7 @@
                         <th>{{ t('lesson.col.hanViet') }}</th>
                       }
                       <th>{{ t('lesson.col.japanese') }}</th>
-                      @if (hasReadings()) {
+                      @if (readingColumn()) {
                         <th>{{ t('lesson.col.reading') }}</th>
                       }
                       <th>{{ t('lesson.col.meaning') }}</th>
@@ -584,8 +584,13 @@
                               </button>
                             }
                           </span>
+                          <!-- Bảng có ảnh: cách đọc nằm ngay dưới từ, như furigana, thay cho cột
+                               riêng — xem readingInline ở lesson-detail.ts. -->
+                          @if (readingInline() && word.reading) {
+                            <span class="jp-reading">{{ word.reading }}</span>
+                          }
                         </td>
-                        @if (hasReadings()) {
+                        @if (readingColumn()) {
                           <td class="col-reading jp">{{ word.reading }}</td>
                         }
                         <td>{{ word.vietnamese }}</td>
@@ -596,8 +601,18 @@
                              lesson-detail.css chỉ nhắm cột 2–5, chèn ảnh vào giữa là lệch hết. -->
                         @if (imageColumn()) {
                           <td class="col-image">
+                            <!-- Ảnh nhỏ, bấm để phóng to. Tác giả và giấy phép nằm ở title của
+                                 nút và đầy đủ trong khung phóng to — xem chú thích của VocabPhoto. -->
                             @if (imageOf(word); as image) {
-                              <app-vocab-photo [image]="image" />
+                              <button
+                                type="button"
+                                class="photo-open"
+                                (click)="openPhoto(word)"
+                                [title]="t('lesson.photo.open', { author: image.author, license: image.license })"
+                                [attr.aria-label]="t('lesson.photo.openAria', { word: word.japanese })"
+                              >
+                                <app-vocab-photo [image]="image" size="thumb" />
+                              </button>
                             }
                           </td>
                         }
@@ -613,6 +628,7 @@
                   <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>
                   {{ t('lesson.imageCreditEach') }}
                 </p>
+                <app-photo-viewer [words]="photoWords()" [(index)]="photoIndex" />
               }
             }
           }

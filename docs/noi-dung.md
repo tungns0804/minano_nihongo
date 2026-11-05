@@ -958,10 +958,26 @@ tải được tài nguyên ngoài, nên nút loa tự ẩn đi thay vì bày ra
 
 **Ảnh minh họa (bài từ vựng)**
 
-Bài có ảnh thì bảng từ vựng có thêm cột **Hình ảnh** ở cuối: ảnh thật, dưới mỗi ảnh ghi tác giả
-(bấm vào mở trang ảnh trên Wikimedia Commons) và giấy phép. Khi luyện, ảnh hiện ngay trên thẻ câu
-hỏi ở các chiều hỏi ra chữ Nhật / cách đọc / âm Hán Việt; riêng chiều **Nhật → Việt** thì ảnh bị
-giấu vì nó chính là nghĩa — ảnh chỉ hiện ở phần phản hồi sau khi chấm. Phiên Ôn tập cũng vậy.
+Bài có ảnh thì bảng từ vựng có thêm cột **Hình ảnh** ở cuối: ảnh nhỏ 72px, để mỗi hàng chỉ cao
+bằng hai dòng chữ (trước đây ảnh 120px kèm hai dòng ghi nguồn làm hàng cao gấp đôi, bài 50 từ dài
+khoảng 7.000px). Rê chuột lên ảnh là thấy tác giả và giấy phép; **bấm vào ảnh** là mở khung phóng
+to ([`photo-viewer.ts`](../src/app/shared/photo-viewer.ts)): cả ảnh không cắt, từ, cách đọc, nghĩa,
+nút phát âm, ghi nguồn đầy đủ kèm link trang ảnh trên Commons, và ← → (phím mũi tên, vuốt trên
+điện thoại) để xem ảnh của từ trước / sau theo đúng thứ tự và bộ lọc đang hiện của bảng. Esc, nút ✕
+hoặc bấm ra ngoài để đóng.
+
+Bảng có cột ảnh thì **cách đọc nằm ngay dưới từ** trong ô tiếng Nhật thay cho cột riêng: hàng đã
+cao bằng ảnh nên dòng thứ hai không làm hàng cao thêm, còn bảng bớt một cột. Bài không có ảnh (hay
+đã tắt ảnh) thì hàng chỉ một dòng chữ, nên vẫn giữ cột Cách đọc như cũ.
+
+Ghi nguồn không còn nằm dưới ảnh nhỏ mà nằm ở `title` của ảnh và trong khung phóng to — giấy phép CC
+cho ghi nguồn "theo cách hợp lý với phương tiện" (xem chú thích của
+[`vocab-photo.ts`](../src/app/shared/vocab-photo.ts)). Ở màn luyện tập ảnh vẫn kèm dòng ghi nguồn
+ngay dưới như trước.
+
+Khi luyện, ảnh hiện ngay trên thẻ câu hỏi ở các chiều hỏi ra chữ Nhật / cách đọc / âm Hán Việt;
+riêng chiều **Nhật → Việt** thì ảnh bị giấu vì nó chính là nghĩa — ảnh chỉ hiện ở phần phản hồi sau
+khi chấm. Phiên Ôn tập cũng vậy.
 
 **Ẩn ảnh** giống tuỳ chọn âm Hán Việt: công tắc "Hiện ảnh" cạnh ô tìm của bảng từ và "Hiện ảnh
 minh họa" trong "Tuỳ chỉnh thêm" của khung thiết lập là CÙNG một lựa chọn (`ImagePreference`), nhớ

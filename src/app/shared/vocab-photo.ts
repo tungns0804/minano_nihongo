@@ -10,23 +10,34 @@ import type { VocabImage } from '../core/images/vocab-images';
  * Ảnh và dòng ghi nguồn đi chung một component để không chỗ nào vẽ ảnh mà quên ghi nguồn:
  * ảnh CC BY / CC BY-SA bắt buộc ghi tác giả và giấy phép ở chính chỗ dùng ảnh.
  *
+ * Ngoại lệ duy nhất là cỡ `thumb` (ảnh nhỏ trong bảng từ): nó không có dòng chữ dưới ảnh,
+ * vì hai dòng ghi nguồn cao gần bằng chính cái ảnh và làm mỗi hàng của bảng cao gấp đôi.
+ * Bù lại, nơi dùng `thumb` PHẢI bọc nó trong một nút mở cỡ `xl` — khung phóng to có đủ
+ * tác giả, giấy phép và link — và ghi tác giả vào `title` của nút. Giấy phép CC cho ghi
+ * nguồn "theo cách hợp lý với phương tiện"; một bấm là tới là cách hợp lý ở đây.
+ *
  * `alt` rỗng là cố ý: ảnh chỉ minh họa cho từ đứng ngay cạnh, tả lại bằng chữ thì trình
  * đọc màn hình đọc thừa — và ở câu hỏi Việt → Nhật thì còn đọc lộ đáp án.
  */
 @Component({
   selector: 'app-vocab-photo',
   template: `
-    <figure class="vocab-photo" [class.is-large]="size() === 'lg'">
-      <img [src]="image().src" alt="" loading="lazy" />
-      <figcaption>
-        <a [href]="image().page" target="_blank" rel="noopener" [title]="lang.t('lesson.photo.source')">{{ image().author }}</a>
-        ·
-        @if (image().licenseUrl; as url) {
-          <a [href]="url" target="_blank" rel="noopener">{{ image().license }}</a>
-        } @else {
-          {{ image().license }}
-        }
-      </figcaption>
+    <figure class="vocab-photo" [attr.data-size]="size()">
+      <img [src]="image().src" alt="" [attr.loading]="size() === 'xl' ? null : 'lazy'" />
+      @if (size() !== 'thumb') {
+        <figcaption>
+          <a [href]="image().page" target="_blank" rel="noopener" [title]="lang.t('lesson.photo.source')">{{ image().author }}</a>
+          ·
+          @if (image().licenseUrl; as url) {
+            <a [href]="url" target="_blank" rel="noopener">{{ image().license }}</a>
+          } @else {
+            {{ image().license }}
+          }
+          @if (size() === 'xl') {
+            · <a [href]="image().page" target="_blank" rel="noopener">{{ lang.t('lesson.photo.source') }} ↗</a>
+          }
+        </figcaption>
+      }
     </figure>
   `,
   styles: `
@@ -49,9 +60,18 @@ import type { VocabImage } from '../core/images/vocab-images';
       margin-bottom: 10px;
     }
 
-    .vocab-photo.is-large {
+    .vocab-photo[data-size='lg'] {
       width: min(280px, 100%);
       margin-inline: auto;
+    }
+
+    /* Ảnh nhỏ trong bảng từ: đủ nhận ra hình, đủ thấp để hàng chỉ cao bằng hai dòng chữ. */
+    .vocab-photo[data-size='thumb'] {
+      width: 72px;
+    }
+
+    .vocab-photo[data-size='xl'] {
+      width: 100%;
     }
 
     img {
@@ -62,6 +82,18 @@ import type { VocabImage } from '../core/images/vocab-images';
       border-radius: var(--radius-sm);
       background: var(--bg-inset);
       box-shadow: var(--shadow-sm);
+    }
+
+    /* Khung phóng to hiện CẢ ảnh, không cắt về 4:3 như ảnh nhỏ: phóng to lên mà vẫn mất
+       hai mép thì người học không bao giờ được thấy phần ảnh bị cắt. Ảnh dọc thì giới hạn
+       theo chiều cao để nút và chữ bên dưới vẫn nằm trong màn hình. */
+    [data-size='xl'] img {
+      width: auto;
+      max-width: 100%;
+      max-height: min(52vh, 420px);
+      aspect-ratio: auto;
+      object-fit: contain;
+      margin-inline: auto;
     }
 
     /* Dòng ghi nguồn nhỏ và nhạt: bắt buộc phải có, nhưng không được giành mắt với từ. */
@@ -77,8 +109,18 @@ import type { VocabImage } from '../core/images/vocab-images';
       overflow: hidden;
     }
 
-    .is-large figcaption {
+    [data-size='lg'] figcaption {
       text-align: center;
+    }
+
+    /* Ở khung phóng to dòng ghi nguồn là nơi DUY NHẤT người học đọc được tác giả của ảnh
+       nhỏ trong bảng, nên không cắt dòng và chữ to hơn một chút. */
+    [data-size='xl'] figcaption {
+      margin-top: 6px;
+      font-size: var(--fs-xs);
+      text-align: center;
+      display: block;
+      overflow: visible;
     }
 
     a {
@@ -90,6 +132,10 @@ import type { VocabImage } from '../core/images/vocab-images';
 export class VocabPhoto {
   readonly lang = inject(LanguageStore);
   readonly image = input.required<VocabImage>();
-  /** `sm`: ô 120px của bảng từ và phần phản hồi; `lg`: ảnh to giữa thẻ câu hỏi. */
-  readonly size = input<'sm' | 'lg'>('sm');
+  /**
+   * `sm`: ô 120px ở phần phản hồi khi luyện; `lg`: ảnh to giữa thẻ câu hỏi;
+   * `thumb`: ảnh nhỏ 72px của bảng từ, KHÔNG có dòng ghi nguồn (xem chú thích lớp);
+   * `xl`: khung phóng to, cả ảnh không cắt, ghi nguồn đầy đủ.
+   */
+  readonly size = input<'sm' | 'lg' | 'thumb' | 'xl'>('sm');
 }
