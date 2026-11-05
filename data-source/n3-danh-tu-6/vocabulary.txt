@@ -1,0 +1,57 @@
+# Từ vựng N3 · 名詞 — Bài 6 (từ 251–300)
+# Nguồn: ảnh các bảng "Bài 3 連用名詞" (251–298) và "Bài 4 形容詞" (299–300) người dùng gửi 2026-11-05 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
+# 300: ảnh ghi 温める là "ấm, nóng" — 温める là tha động từ (vế của 温まる), ở đây ghi "Làm ấm, hâm nóng".
+# Danh từ gốc động từ (連用名詞) 251–259
+LỆ,戻り (もどり),Trở về, trả lại
+BIỆT,別れ (わかれ),Chia ly
+HỶ,喜び (よろこび),Hớn hở
+LẠC,楽しみ (たのしみ),Sung sướng
+TIẾU,笑い (わらい),Cười
+KINH,驚き (おどろき),Ngạc nhiên
+NỘ,怒り (いかり),Giận dữ
+BI,悲しみ (かなしみ),Buồn bã
+HẠNH,幸せな (しあわせな),Hạnh phúc
+# Tính từ 260–298
+ĐẮC Ý,得意な (とくいな),Mạnh, giỏi
+KHỔ THỦ,苦手な (にがてな),Yếu, kém
+NHIỆT TÂM,熱心な (ねっしんな),Chăm chỉ
+MỘNG TRUNG,夢中な (むちゅうな),Chú tâm
+THOÁI KHUẤT,退屈な (たいくつな),Chán
+KIỆN KHANG,健康な (けんこうな),Khỏe khoắn
+KHỔ,苦しい (くるしい),Cực khổ
+BÌNH KHÍ,平気な (へいきな),Bình thản
+HỐI,悔しい (くやしい),Cay cú
+,うらやましい,Ghen tỵ
+,かゆい,Ngứa
+,おとなしい,Trầm lặng
+NGÃ MẠN CƯỜNG,我慢強い (がまんづよい),Chịu đựng giỏi
+CHÍNH TRỰC,正直な (しょうじきな),Trung thực
+,けちな,Kẹt xỉ
+NGÃ TẬN,我儘な (わがままな),Ích kỷ
+TÍCH CỰC ĐÍCH,積極的な (せっきょくてきな),Tích cực
+TIÊU CỰC ĐÍCH,消極的な (しょうきょくてきな),Tiêu cực
+MÃN TÚC,満足な (まんぞくな),Thỏa mãn
+BẤT MÃN,不満な (ふまんな),Bất mãn
+BẤT AN,不安な (ふあんな),Bất an
+ĐẠI BIẾN,大変な (たいへんな),Tồi tệ
+VÔ LÝ,無理な (むりな),Vô lý
+BẤT CHÚ Ý,不注意な (ふちゅういな),Không chú ý
+LẠC,楽な (らくな),Thoải mái
+DIỆN ĐẢO,面倒な (めんどうな),Phiền phức
+THẤT LỄ,失礼な (しつれいな),Thất lễ
+ĐƯƠNG NHIÊN,当然な (とうぜんな),Đương nhiên
+Ý NGOẠI,意外な (いがいな),Không ngờ đến
+KẾT CẤU,結構な (けっこうな),Tốt, đủ
+PHÁI THỦ,派手な (はでな),Lòe loẹt
+ĐỊA VỊ,地味な (じみな),Giản dị
+,おしゃれな,Thời trang, mốt
+BIẾN,変な (へんな),Lạ
+BẤT TƯ NGHỊ,不思議な (ふしぎな),Thần bí
+,ましな,Tốt lên
+,むだな,Lãng phí
+TỰ DO,自由な (じゆうな),Tự do
+BẤT TỰ DO,不自由な (ふじゆうな),Tàn tật, không tự do
+# Động từ 299–300 (đầu bảng "Bài 4 形容詞")
+ÔN,温まる (あたたまる),Trở nên ấm hơn
+ÔN,温める (あたためる),Làm ấm, hâm nóng

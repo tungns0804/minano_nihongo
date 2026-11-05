@@ -1,0 +1,57 @@
+# Từ vựng N3 · 名詞 — Bài 5 (từ 201–250)
+# Nguồn: ảnh các bảng "Bài 2 動詞" (201–220) và "Bài 3 連用名詞" (221–250) người dùng gửi 2026-11-05 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
+# 220: ảnh ghi 役立てる là "được sử dụng" (nghĩa bị động) — 役立てる là tha động từ, ở đây ghi "Tận dụng, dùng vào việc có ích".
+# 243: ảnh ghi 遅れ là "gián đoạn" — 遅れ là sự chậm trễ (電車の遅れ), ở đây ghi đúng nghĩa.
+# Động từ 201–220
+,むく,Lột
+HOẠT,滑る (すべる),Trượt
+TÍCH,積もる (つもる),Được tích tụ
+TÍCH,積む (つむ),Tích tụ, chất lại
+KHÔNG,空く (あく),Bị thủng
+KHÔNG,空ける (あける),Thủng
+HẠ,下がる (さがる),Bị giảm
+HẠ,下げる (さげる),Giảm
+LÃNH,冷える (ひえる),Bị lạnh
+LÃNH,冷やす (ひやす),Làm lạnh
+LÃNH,冷める (さめる),Bị nguội
+LÃNH,冷ます (さます),Làm nguội
+NHIÊN,燃える (もえる),Cháy
+NHIÊN,燃やす (もやす),Đốt
+PHÍ,沸く (わく),Sôi
+PHÍ,沸かす (わかす),Đun sôi
+MINH,鳴る (なる),Kêu
+MINH,鳴らす (ならす),Làm kêu
+DỊCH LẬP,役立つ (やくだつ),Hữu ích
+DỊCH LẬP,役立てる (やくだてる),Tận dụng, dùng vào việc có ích
+# Danh từ gốc động từ (連用名詞) 221–250
+SỨC,飾り (かざり),Trang trí
+DU,遊び (あそび),Chơi
+TẬP,集まり (あつまり),Tập hợp
+GIÁO,教え (おしえ),Dạy
+DŨNG,踊り (おどり),Nhảy
+TƯ,思い (おもい),Suy nghĩ, cảm giác
+KHẢO,考え (かんがえ),Nghĩ, ý tưởng
+PHIẾN,片づけ (かたづけ),Ngăn nắp
+THỦ TRUYỀN,手伝い (てつだい),Giúp đỡ
+ĐỘNG,働き (はたらき),Hoạt động
+QUYẾT,決まり (きまり),Luật lệ
+TAO,騒ぎ (さわぎ),Ồn ào, om xòm
+TRI,知らせ (しらせ),Tin tức, thông báo
+LẠI,頼み (たのみ),Yêu cầu
+BÌ,疲れ (つかれ),Vất vả, mệt mỏi
+VI,違い (ちがい),Khác biệt
+THỦY,始め (はじめ),Khởi đầu
+TỤC,続き (つづき),Tiếp tục
+MỘ,暮れ (くれ),Cuối năm
+HÀNH,行き (いき),Đi
+QUY,帰り (かえり),Trở về
+CẤP,急ぎ (いそぎ),Khẩn cấp, vội
+TRÌ,遅れ (おくれ),Sự chậm trễ
+THẢI,貸し (かし),Cho mượn
+TÁ,借り (かり),Mượn
+THẮNG,勝ち (かち),Thắng
+PHỤ,負け (まけ),Thua
+NGHINH,迎え (むかえ),Đón
+THỦY,始まり (はじまり),Bắt đầu
+CHUNG,終わり (おわり),Kết thúc

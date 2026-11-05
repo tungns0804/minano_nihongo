@@ -198,7 +198,7 @@ chứa bài học nào — nó ĐO các khu kia, cộng thêm ba quyển 総ま�
 học trên sách.
 
 Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba lỗ hổng, cách học từng phần, bảng
-245 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](../LO-TRINH-N3.md)**.
+247 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](../LO-TRINH-N3.md)**.
 
 ### Trang này hiện gì
 
@@ -209,7 +209,7 @@ Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba
 | Ba khối điểm | 言語知識 / 読解 / 聴解, mỗi khối 0–60 điểm |
 | Sáu trụ nội dung | Nền N5–N4, 文字, 語彙, 文法, 読解, 聴解 |
 | Bốn giai đoạn | Mốc ngày, việc làm hằng ngày, tiến độ từng giai đoạn |
-| Bảng kiểm soát | 245 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
+| Bảng kiểm soát | 247 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
 
 ### Vì sao đo bằng điểm khối, không đo bằng số bài
 
@@ -245,7 +245,7 @@ tích ngược với ngày hôm nay, và buổi người học tự bỏ tích k
 
 | File | Việc |
 | --- | --- |
-| [`n3-syllabus.ts`](../src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 245 buổi học (mục lục bốn quyển và phần bổ trợ trong app), bốn giai đoạn, mốc ngày |
+| [`n3-syllabus.ts`](../src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 247 buổi học (mục lục bốn quyển và phần bổ trợ trong app), bốn giai đoạn, mốc ngày |
 | [`n3.model.ts`](../src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
 | [`n3-progress-store.ts`](../src/app/core/n3/n3-progress-store.ts) | Dấu tích trong `localStorage` |
 
@@ -925,7 +925,7 @@ có giấy phép tự do: CC0, phạm vi công cộng, CC BY, CC BY-SA. Mỗi �
 CC BY-SA bắt buộc ghi tác giả và giấy phép ở chỗ dùng ảnh — vì vậy dòng ghi nguồn đi chung một
 component với ảnh (`shared/vocab-photo.ts`), không chỗ nào vẽ ảnh mà thiếu nó. Bản thu nhỏ 330px
 lưu sẵn trong `public/images/vocab/` (mỗi ảnh vài chục KB), trang không gọi Commons lúc chạy.
-Hiện có ảnh cho 192 từ của bốn bài N3 · 名詞 (1–200); 8 từ trừu tượng ở bài 1–2 chưa có ảnh vì Commons không có ảnh nào đúng nghĩa.
+Hiện có ảnh cho 192 từ của bốn bài N3 · 名詞 đầu (1–200); 8 từ trừu tượng ở bài 1–2 chưa có ảnh vì Commons không có ảnh nào đúng nghĩa. Bài 5–6 (201–300) chưa có ảnh.
 
 Thêm ảnh cho từ khác: tìm ảnh trên commons.wikimedia.org, thêm một mục vào
 `src/app/core/images/vocab-images.ts` — khoá `'chữ Nhật|cách đọc'`, giá trị là tên file trên

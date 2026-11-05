@@ -5,7 +5,7 @@ Cấu trúc mã nguồn và các quyết định kỹ thuật. Quy ước viết
 ## Cấu trúc dự án
 
 ```
-LO-TRINH-N3.md                   Bản phân tích lộ trình thi N3 (đề thi, kiểm kê, 245 ô tích)
+LO-TRINH-N3.md                   Bản phân tích lộ trình thi N3 (đề thi, kiểm kê, 247 ô tích)
 data-source/                     Nguồn dữ liệu dạng text, mỗi thư mục là một bài
   minano-nihongo-33/
     meta.json                    Tên hiển thị + loại bài (tuỳ chọn)
@@ -99,7 +99,7 @@ src/app/
       lesson-search.ts           Tìm bài / mục theo từ khoá, bỏ dấu tiếng Việt
     n3/
       n3.model.ts                Kiểu + toán thuần: rải mục vào lịch, tính phần trăm và nhịp
-      n3-syllabus.ts             245 buổi học (mục lục bốn quyển 総まとめ + phần bổ trợ trong app) + bốn giai đoạn
+      n3-syllabus.ts             247 buổi học (mục lục bốn quyển 総まとめ + phần bổ trợ trong app) + bốn giai đoạn
       n3-progress-store.ts       Dấu "đã học xong" của từng buổi trong lộ trình N3
       n3-auto-tick.ts            Tự tích buổi N3 khi bài của buổi đó vừa được học hết trong app
     practice/
