@@ -115,6 +115,23 @@ export function levelOf(lesson: {
   return lesson.level ?? levelOfLesson(lesson.lessonNumber);
 }
 
+/**
+ * Bài có khối "Chữ Hán trong bài" ở trang bài học: lưới các chữ của bài, bấm vào là
+ * sang trang chữ đó mà vẫn nhớ đường về bài (`/kanji/:id?lesson=<id bài>`).
+ *
+ * Bật cho MỌI bài từ vựng N3 — sáu bài 名詞 lẫn sáu bài 総まとめ — theo cấp khai trong
+ * meta.json chứ không theo danh sách id: bài N3 thêm sau này tự có khối mà không ai
+ * phải nhớ quay lại đây. Bắt đầu là bản thử ở N3 bài 5 rồi mở cho cả N3 cùng ngày
+ * 2026-11-05. Bài Minano (N5, N4) chưa bật — muốn bật thì nới điều kiện ở đây, khối
+ * tự dựng từ chính từ vựng của bài.
+ *
+ * Nằm ở file này chứ không ở `kanji.model.ts`: file kia nằm trong gói tải ban đầu,
+ * import `levelOf` từ đây là kéo cả file này vào gói ban đầu theo (đã đo: +2,5 kB).
+ */
+export function showsLessonKanji(lesson: Pick<Lesson, 'kind' | 'level' | 'lessonNumber'>): boolean {
+  return lesson.kind === 'vocabulary' && levelOf(lesson) === 'N3';
+}
+
 /** Bài học nằm sẵn trong `public/lessons` hay do người dùng tự nạp. */
 export type LessonOrigin = 'builtin' | 'custom';
 

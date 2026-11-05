@@ -398,10 +398,19 @@ qua bản gọn `kanji-parts.generated.ts` — không có cách tách nào viế
 
 ### Đi từ một bài học sang
 
-Bài có trong `LESSONS_WITH_KANJI` ([`kanji.model.ts`](../src/app/core/kanji/kanji.model.ts)) có thêm
-khối **"Chữ Hán trong bài"** dưới bảng từ, và một nút "Xem N chữ Hán trong bài ↓" ở đầu trang để
-nhảy tới đó. Bản thử đang bật cho **Từ vựng N3 · Bài 5** (40 chữ); muốn bật cho bài khác thì thêm
-id bài vào danh sách đó, khối tự dựng từ chính từ vựng của bài.
+**Mọi bài từ vựng N3** (sáu bài Từ vựng N3 · 名詞 và sáu bài 総まとめ N3) có thêm khối **"Chữ Hán
+trong bài"** dưới bảng từ, và một nút "Xem N chữ Hán trong bài ↓" ở đầu trang để nhảy tới đó.
+Điều kiện là `showsLessonKanji` ([`vocabulary.model.ts`](../src/app/core/lessons/vocabulary.model.ts)): bài từ
+vựng có cấp N3 trong meta.json — bài N3 thêm sau này tự có khối, không phải khai id ở đâu. Bài
+Minano (N5, N4) chưa bật; muốn bật thì nới điều kiện đó, khối tự dựng từ chính từ vựng của bài.
+
+| Bài | Số chữ | Chữ của bài không có ô (không nằm trong danh sách Kanji của app) |
+| --- | --- | --- |
+| Từ vựng N3 · 名詞 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 77 / 78 / 52 / 30 / 40 / 59 | 叩 (bài 3), 儘 (bài 6) |
+| 総まとめ N3 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 43 / 33 / 24 / 22 / 25 / 33 | 栄 (bài 2), 穴 (bài 6) |
+
+々 (dấu lặp chữ) không phải chữ Hán nên không có ô — đúng như mong muốn. 栄 và 穴 thiếu vì danh sách
+JLPT chép từ ảnh người dùng gửi (xem mục âm Hán Việt của từ N3 ở trên); 叩 và 儘 nằm ngoài bảng jōyō.
 
 Bấm một chữ là mở `/kanji/<id>?lesson=<id bài>`. Tham số `lesson` làm ba việc:
 

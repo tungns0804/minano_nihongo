@@ -39,6 +39,7 @@ import {
   WordField,
   fieldValue,
   hasWordField,
+  showsLessonKanji,
 } from '../../core/lessons/vocabulary.model';
 import { batchCount, batchRange } from '../../core/practice/batch';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
@@ -57,7 +58,7 @@ import { PracticeSetup } from '../../shared/practice-setup';
 import { VocabPhoto } from '../../shared/vocab-photo';
 import { PhotoViewer } from '../../shared/photo-viewer';
 import { LessonPager } from '../../shared/lesson-pager';
-import { KanjiEntry, LESSONS_WITH_KANJI } from '../../core/kanji/kanji.model';
+import type { KanjiEntry } from '../../core/kanji/kanji.model';
 
 @Component({
   selector: 'app-lesson-detail',
@@ -121,8 +122,8 @@ export class LessonDetail extends PracticeScreen {
   readonly words = computed(() => this.lesson()?.words ?? []);
 
   /**
-   * Chữ Hán của bài, theo thứ tự gặp trong bảng từ — chỉ ở bài có trong
-   * `LESSONS_WITH_KANJI`. Rỗng cho tới khi kho chữ nạp xong.
+   * Chữ Hán của bài, theo thứ tự gặp trong bảng từ — chỉ ở bài mà
+   * `showsLessonKanji` cho phép (mọi bài từ vựng N3). Rỗng cho tới khi kho chữ nạp xong.
    */
   readonly lessonKanji = signal<readonly KanjiEntry[]>([]);
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
@@ -410,7 +411,7 @@ export class LessonDetail extends PracticeScreen {
     this.notFound.set(lesson === null);
     this.loading.set(false);
     if (lesson) this.rememberRecent({ title: lesson.name, kindKey: LESSON_KIND_LABEL_KEY[lesson.kind] });
-    if (lesson && LESSONS_WITH_KANJI.has(lesson.id)) void this.loadLessonKanji(lesson);
+    if (lesson && showsLessonKanji(lesson)) void this.loadLessonKanji(lesson);
   }
 
   /**

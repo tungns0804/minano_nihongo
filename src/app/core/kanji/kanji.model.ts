@@ -228,14 +228,3 @@ function slug(text: string): string {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 }
-
-/**
- * Bài học có khối "Chữ Hán trong bài": lưới các chữ của bài, bấm vào là sang trang
- * chữ đó mà vẫn nhớ đường về bài (`/kanji/:id?lesson=<id bài>`).
- *
- * Đang là bản thử ở một bài (2026-11-05) để duyệt cách trình bày trước khi bật cho
- * mọi bài — thêm id bài vào đây là xong, khối tự dựng từ chính từ vựng của bài.
- * Nằm ở file model (không kèm dữ liệu) để trang bài học đọc được mà không phải
- * kéo theo cả kho 2.123 chữ; kho đó chỉ nạp khi bài thật sự có khối này.
- */
-export const LESSONS_WITH_KANJI: ReadonlySet<string> = new Set(['n3-danh-tu-5']);
