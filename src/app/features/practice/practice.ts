@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   computed,
+  effect,
   inject,
   signal,
   viewChild,
@@ -21,6 +22,7 @@ import { PracticeSessionStore } from '../../core/practice/practice-session-store
 import { DrawingVerdict, checkDrawing, drawingIssues } from '../../core/strokes/stroke-score';
 import { StrokePoint } from '../../core/strokes/stroke.model';
 import { StrokeStore } from '../../core/strokes/stroke-store';
+import { StrokePathStore } from '../../core/strokes/stroke-path-store';
 import { plainText } from '../../core/translation/markup';
 import { valueOf } from '../../core/utils/dom-events';
 import { shuffle } from '../../core/utils/random';
@@ -45,6 +47,7 @@ export class Practice {
   private readonly favoriteStore = inject(FavoriteStore);
   private readonly sound = inject(FeedbackSound);
   private readonly strokeStore = inject(StrokeStore);
+  private readonly strokePaths = inject(StrokePathStore);
   private readonly lang = inject(LanguageStore);
   private readonly router = inject(Router);
 
@@ -178,6 +181,13 @@ export class Practice {
     // Khởi động việc tự tích buổi N3 TRƯỚC câu trả lời đầu tiên (nó lấy mốc so sánh
     // lúc tạo), và xoá thông báo của phiên trước để màn kết quả chỉ nói về phiên này.
     inject(N3AutoTick).clearTicked();
+
+    // Tải nhóm đường nét của chữ sắp viết. Mỗi nhóm một lần — câu sau cùng cấp thì
+    // không tải gì thêm.
+    effect(() => {
+      const char = this.question()?.drawChar;
+      if (char) void this.strokePaths.loadFor(char);
+    });
   }
 
   readonly isCurrentFavorite = computed(() => {
@@ -319,6 +329,17 @@ export class Practice {
   });
 
   readonly strokesReady = computed(() => this.referenceStrokes().length > 0);
+
+  /**
+   * Đường gốc để vẽ nét mẫu mờ cho ngay ngắn (xem `stroke-path.ts`). Chấm thì vẫn
+   * theo `referenceStrokes` như cũ; đây chỉ là hình để đồ theo. Nhóm chưa về thì
+   * null và khung tạm vẽ nét mẫu từ điểm chấm.
+   */
+  readonly guidePaths = computed(() => {
+    void this.strokePaths.version();
+    const char = this.question()?.drawChar;
+    return char ? this.strokePaths.pathsOf(char) : null;
+  });
 
   /**
    * Có vẽ nét mẫu mờ để đồ theo không.

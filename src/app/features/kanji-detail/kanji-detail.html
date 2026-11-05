@@ -126,11 +126,11 @@
               <div class="write-grid">
                 <div class="write-panel">
                   <span class="label">{{ t('kanji.write.order') }}</span>
-                  <app-stroke-order [char]="data.char" [strokes]="strokes()" />
+                  <app-stroke-order [char]="data.char" [paths]="paths()" />
                 </div>
                 <div class="write-panel">
                   <span class="label">{{ t('kanji.write.try') }}</span>
-                  <app-draw-pad [reference]="strokes()" [resetKey]="data.id" [showGuide]="drawGuide()" />
+                  <app-draw-pad [reference]="strokes()" [guidePaths]="paths()" [resetKey]="data.id" [showGuide]="drawGuide()" />
                 </div>
               </div>
             } @else {

@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
   effect,
   inject,
@@ -12,6 +13,7 @@ import {
 
 import { LanguageStore } from '../core/i18n/language-store';
 import { Stroke, StrokePoint } from '../core/strokes/stroke.model';
+import { KANJIVG_BOX, strokeLabels } from '../core/strokes/stroke-path';
 
 /**
  * Cạnh khung vẽ tính bằng điểm ảnh thật. CSS co giãn khung, toạ độ vẫn tính theo 0..1.
@@ -152,6 +154,12 @@ export class StrokeCanvas {
 
   /** Nét mẫu của chữ đang hỏi. */
   readonly reference = input.required<readonly Stroke[]>();
+  /**
+   * Đường GỐC của nét mẫu (khung 109×109, xem `stroke-path.ts`) để vẽ nét mờ cho
+   * ngay ngắn. Không có (dữ liệu chưa về, hay nơi gọi không truyền) thì vẽ tạm từ
+   * `reference` như trước — gợn hơn nhưng vẫn đồ theo được.
+   */
+  readonly guidePaths = input<readonly string[] | null>(null);
   /** Vẽ nét mẫu mờ để đồ theo. Tắt đi là kiểm tra trí nhớ thật. */
   readonly showGuide = input(true);
   /** Câu đã chấm xong: không nhận nét mới nữa. */
@@ -170,6 +178,16 @@ export class StrokeCanvas {
 
   private readonly board = viewChild<ElementRef<HTMLCanvasElement>>('board');
 
+  /**
+   * Đường gốc dựng sẵn thành Path2D cùng chỗ đặt số thứ tự — dựng một lần cho mỗi
+   * chữ, không dựng lại mỗi lần vẽ thêm một nét.
+   */
+  private readonly guide = computed(() => {
+    const paths = this.guidePaths();
+    if (!paths || paths.length === 0) return null;
+    return { shapes: paths.map((d) => new Path2D(d)), labels: strokeLabels(paths) };
+  });
+
   readonly strokes = signal<StrokePoint[][]>([]);
   /** Nét đang kéo dở. Không phải signal: mỗi lần chuột nhích là vẽ thêm một đoạn,
       đi qua signal thì mỗi đoạn kéo theo một lượt kiểm tra thay đổi của cả màn hình. */
@@ -180,12 +198,13 @@ export class StrokeCanvas {
       // Đọc hết các signal ảnh hưởng tới hình vẽ để effect chạy lại khi chúng đổi.
       const strokes = this.strokes();
       const reference = this.reference();
+      const guide = this.guide();
       const showGuide = this.showGuide();
       const wrong = new Set(this.wrongStrokes());
       const canvas = this.board()?.nativeElement;
       if (!canvas) return;
 
-      this.repaint(canvas, strokes, reference, showGuide, wrong);
+      this.repaint(canvas, strokes, reference, guide, showGuide, wrong);
     });
 
     // Sang lượt vẽ khác (đổi chữ, hoặc bấm viết lại) thì xoá nét cũ đi.
@@ -260,6 +279,7 @@ export class StrokeCanvas {
     canvas: HTMLCanvasElement,
     strokes: readonly StrokePoint[][],
     reference: readonly Stroke[],
+    guide: { shapes: Path2D[]; labels: StrokePoint[] } | null,
     showGuide: boolean,
     wrong: ReadonlySet<number>,
   ): void {
@@ -270,7 +290,23 @@ export class StrokeCanvas {
     const ink = style.color;
     context.clearRect(0, 0, SIZE, SIZE);
 
-    if (showGuide) {
+    if (showGuide && guide) {
+      // Đường gốc: phóng khung 109 lên khung vẽ, nét dày bằng nét mẫu tay vẽ cũ.
+      const scale = SIZE / KANJIVG_BOX;
+      context.globalAlpha = 0.22;
+      context.save();
+      context.scale(scale, scale);
+      context.strokeStyle = ink;
+      context.lineWidth = 14 / scale;
+      context.lineCap = 'round';
+      context.lineJoin = 'round';
+      for (const shape of guide.shapes) context.stroke(shape);
+      context.restore();
+      for (const [index, label] of guide.labels.entries()) {
+        this.strokeNumber(context, { x: label.x / KANJIVG_BOX, y: label.y / KANJIVG_BOX }, index + 1, ink);
+      }
+      context.globalAlpha = 1;
+    } else if (showGuide) {
       context.globalAlpha = 0.22;
       for (const [index, stroke] of reference.entries()) {
         this.strokePath(context, stroke, ink, 14);

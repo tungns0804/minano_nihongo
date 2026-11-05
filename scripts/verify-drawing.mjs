@@ -70,6 +70,66 @@ if (listed.length !== chars.length || listed.some((char, i) => char !== chars[i]
   );
 }
 
+// ── 1b. Đường nét gốc (để vẽ) khớp bảng chấm ──────────────────────────────
+//
+// Trang một chữ vẽ nét và chấm ô viết thử từ ĐƯỜNG GỐC (stroke-paths-*.generated.ts),
+// còn màn luyện chấm theo bảng 10 điểm ở trên. Hai bên phải nói cùng một chữ: mỗi
+// chữ có đường gốc ở đúng một nhóm, cùng số nét, và điểm chấm rút từ đường gốc lệch
+// bảng chấm không quá một nấc làm tròn của lưới 64 mức (1/63) — không thì cùng một
+// nét vẽ, ô viết thử chấm đúng mà màn luyện chấm sai.
+
+const { strokesFromPaths } = await import(toFileUrl(join(STROKES, 'stroke-path.ts')));
+const { STROKE_PATH_SHARDS } = await import(toFileUrl(join(STROKES, 'stroke-path-shards.generated.ts')));
+
+const pathsOf = new Map();
+for (const shard of Object.keys(STROKE_PATH_SHARDS)) {
+  const { STROKE_PATHS } = await import(toFileUrl(join(STROKES, `stroke-paths-${shard}.generated.ts`)));
+  if ([...STROKE_PATH_SHARDS[shard]].join('') !== Object.keys(STROKE_PATHS).join('')) {
+    fail(`Nhóm ${shard}: danh sách chữ ở stroke-path-shards.generated.ts không khớp file của nhóm`);
+  }
+  for (const [char, row] of Object.entries(STROKE_PATHS)) {
+    if (pathsOf.has(char)) fail(`Chữ ${char} nằm ở hai nhóm đường nét`);
+    pathsOf.set(char, row.split('|'));
+  }
+}
+
+const QUANT_STEP = 1 / 63;
+let worstPathGap = 0;
+let worstPathChar = '';
+for (const [char, strokes] of decoded) {
+  const paths = pathsOf.get(char);
+  if (!paths) {
+    fail(`Chữ ${char} có trong bảng chấm nhưng không có đường nét gốc`);
+    continue;
+  }
+  if (paths.length !== strokes.length) {
+    fail(`Chữ ${char}: đường gốc ${paths.length} nét, bảng chấm ${strokes.length} nét`);
+    continue;
+  }
+  const fromPaths = strokesFromPaths(paths);
+  for (let i = 0; i < strokes.length; i++) {
+    for (let j = 0; j < strokes[i].length; j++) {
+      const gap = Math.max(
+        Math.abs(fromPaths[i][j].x - strokes[i][j].x),
+        Math.abs(fromPaths[i][j].y - strokes[i][j].y),
+      );
+      if (gap > worstPathGap) {
+        worstPathGap = gap;
+        worstPathChar = char;
+      }
+    }
+  }
+}
+if (pathsOf.size !== decoded.size) {
+  fail(`Có ${pathsOf.size} chữ có đường gốc nhưng ${decoded.size} chữ có bảng chấm`);
+}
+if (worstPathGap > QUANT_STEP) {
+  fail(
+    `Chữ ${worstPathChar}: điểm chấm rút từ đường gốc lệch bảng chấm ${worstPathGap.toFixed(4)} ` +
+      `(> một nấc ${QUANT_STEP.toFixed(4)}). Chạy: npm run generate:strokes`,
+  );
+}
+
 // ── 2 & 3 & 4. Cách chấm ──────────────────────────────────────────────────
 
 /** Số ngẫu nhiên lặp lại được, để lần chạy nào cũng cho đúng kết quả ấy. */
@@ -210,6 +270,7 @@ log(`  nguong cham       : ${STROKE_TOLERANCE}`);
 log(`  ve nguoc van dung : ${reversedMissed} chu (net cham, khong xet chieu)`);
 log(`  doi cho net khong bao sai thu tu: ${orderMissed}/${multiStroke} chu`);
 log(`  cap de lan        : ${confusable}${examples.length > 0 ? ` (${examples.join(' ')})` : ''}`);
+log(`  duong goc lech    : toi da ${worstPathGap.toFixed(4)} (${worstPathChar}), nguong ${QUANT_STEP.toFixed(4)}`);
 log();
 
 if (problems === 0) {

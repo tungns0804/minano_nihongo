@@ -669,12 +669,30 @@ src/app/core/strokes/
   stroke-store.ts       ← nạp dữ liệu nét theo yêu cầu
   stroke-data.generated.ts  ← DO MÁY SINH: nét của 2.231 chữ (473 kB)
   stroke-coverage.generated.ts  ← DO MÁY SINH: danh sách chữ có dữ liệu nét
+  stroke-path.ts        ← đọc đường gốc KanjiVG, rút nét chấm từ nó, đặt số thứ tự nét
+  stroke-path-store.ts  ← nạp đường gốc theo nhóm cấp
+  stroke-paths-<n5|n4|n3|n2|n1|radical>.generated.ts  ← DO MÁY SINH: đường gốc để VẼ
+  stroke-path-shards.generated.ts  ← DO MÁY SINH: chữ nào ở nhóm nào
 ```
 
 `stroke-data.generated.ts` **không đi vào gói chính**: nó chỉ được nạp bằng `import()` động lúc người học
 mở phần luyện viết, nên ai không dùng tính năng này thì không phải tải 473 kB đó. Danh sách chữ
 viết được tách riêng ra `stroke-coverage.generated.ts` (vài kB) để màn hình danh sách đếm được số câu mà
 không phải nạp cả kho.
+
+**Hai bản của cùng một nét: bản để CHẤM và bản để VẼ.** `stroke-data.generated.ts` giữ mỗi nét 10 điểm
+làm tròn về lưới 64 mức — đủ để so hai nét, nhưng vẽ lại từ đó thì nét ngang gợn sóng và góc gập bị bo
+tròn. Nên hình thứ tự nét và nét mẫu mờ trong khung viết vẽ từ **đường gốc** của KanjiVG (Bézier, làm
+tròn một chữ số thập phân trên khung 109), chia theo cấp JLPT để trang một chữ chỉ tải nhóm của chữ đó
+(15–290 kB nén, so với 280 kB nén của cả bản chấm). Trang một chữ còn rút luôn nét chấm cho ô viết thử
+từ đường gốc này, nên không phải tải bản chấm; màn luyện vẫn chấm theo bản chấm như cũ.
+
+Bộ đọc đường SVG (`pathToPoints` trong `stroke-path.ts`) là DUY NHẤT — script sinh dữ liệu gọi đúng hàm
+đó để rút ra bản chấm. `verify:drawing` kiểm mỗi chữ có đường gốc ở đúng một nhóm, cùng số nét, và
+điểm chấm rút từ đường gốc lệch bản chấm không quá một nấc của lưới 64 mức.
+
+Bản KanjiVG trong gói npm không kèm vị trí số thứ tự nét, nên số được đặt tự động: lùi về trước đầu
+nét, và nếu chỗ đó đã có số khác thì thử sang hai bên, xa hơn một chút (`strokeLabels`).
 
 Sinh lại sau khi đổi danh sách chữ hoặc đổi số điểm lấy mẫu:
 

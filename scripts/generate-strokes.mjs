@@ -3,6 +3,9 @@
  * Sinh dữ liệu nét viết cho khu "luyện viết":
  *   - `src/app/core/strokes/stroke-data.generated.ts`     — nét của từng chữ, đã nén
  *   - `src/app/core/strokes/stroke-coverage.generated.ts` — danh sách chữ có dữ liệu
+ *   - `src/app/core/strokes/stroke-paths-<nhóm>.generated.ts` — đường nét GỐC (Bézier)
+ *     để VẼ cho người học nhìn, chia theo cấp JLPT; `stroke-path-shards.generated.ts`
+ *     cho biết chữ nào nằm ở nhóm nào (xem `stroke-path.ts` vì sao cần bản này)
  *
  * Nguồn: KanjiVG (CC BY-SA 3.0), lấy qua gói devDependency `@madcat/kanjivg`.
  * Mỗi chữ là một file SVG, mỗi nét một thẻ `<path>` xếp đúng thứ tự viết.
@@ -24,7 +27,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { c, emitGenerated, log, quote, toFileUrl } from './script-utils.mjs';
+import { c, emitGenerated, log, quote, resolveTsImports, toFileUrl } from './script-utils.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
@@ -33,15 +36,17 @@ const DATA_FILE = join(OUT_DIR, 'stroke-data.generated.ts');
 const COVERAGE_FILE = join(OUT_DIR, 'stroke-coverage.generated.ts');
 const KANJIVG_DIR = join(ROOT, 'node_modules', '@madcat', 'kanjivg', 'dist', 'main');
 
-/** Khung của KanjiVG: mọi file đều là viewBox "0 0 109 109". */
-const VIEW_BOX = 109;
-/** Số điểm rời rạc hoá mỗi đoạn Bézier trước khi lấy mẫu lại theo chiều dài. */
-const CURVE_STEPS = 12;
-
 const checkOnly = process.argv.includes('--check');
 
+// stroke-path.ts import "./stroke.model" không kèm đuôi file — xem `resolveTsImports`.
+resolveTsImports();
 const { STROKE_SAMPLES, encodeStrokes, resampleStroke } = await import(
   toFileUrl(join(ROOT, 'src/app/core/strokes/stroke.model.ts'))
+);
+// Bộ đọc đường SVG nằm trong app chứ không ở đây: màn hình vẽ nét từ đường gốc,
+// và phải hiểu đường đó đúng như script này hiểu khi rút ra dữ liệu chấm.
+const { KANJIVG_BOX, compactPath, pathToPoints } = await import(
+  toFileUrl(join(ROOT, 'src/app/core/strokes/stroke-path.ts'))
 );
 const { KANJI_BY_LEVEL } = await import(toFileUrl(join(ROOT, 'src/app/core/kanji/kanji-levels.ts')));
 const { RADICAL_ROWS } = await import(toFileUrl(join(ROOT, 'src/app/core/radical/radical-list.ts')));
@@ -83,112 +88,30 @@ function svgPathOf(char) {
   return join(KANJIVG_DIR, `${code}.svg`);
 }
 
-/**
- * Rời rạc hoá một đường trong thuộc tính `d` thành chuỗi điểm.
- *
- * KanjiVG chỉ dùng bốn lệnh: `M`/`m` dời bút và `C`/`c`/`S`/`s` vẽ Bézier bậc ba.
- * Gặp lệnh khác thì DỪNG HẲN chứ không bỏ qua: bỏ qua một lệnh vẽ là nét sinh ra
- * thiếu mất một khúc, mà dữ liệu sai kiểu đó không có gì báo — nó chỉ làm người
- * học bị chấm sai về sau.
- *
- * Chuẩn SVG cho phép bỏ chữ cái khi lặp lại cùng một lệnh (`c … … …`), nên bộ
- * đọc này giữ lại lệnh trước. Riêng sau `M`/`m` thì xoá đi: lặp lại `M` theo
- * chuẩn là `L`, mà `L` chưa xử lý ở đây nên phải để nó báo lỗi thay vì dời bút
- * nhầm thành một nét mới.
- */
-function pathToPoints(d, char) {
-  const tokens = d.match(/[A-Za-z]|-?\d*\.?\d+(?:e[-+]?\d+)?/g) ?? [];
-  const points = [];
-  let index = 0;
-  let command = '';
-  let x = 0;
-  let y = 0;
-  // Điểm điều khiển thứ hai của đoạn Bézier trước — `S`/`s` soi gương qua nó.
-  let lastControlX = 0;
-  let lastControlY = 0;
-  let previousWasCurve = false;
-
-  const number = () => Number(tokens[index++]);
-
-  const curveTo = (c1x, c1y, c2x, c2y, endX, endY) => {
-    for (let step = 1; step <= CURVE_STEPS; step++) {
-      const t = step / CURVE_STEPS;
-      const u = 1 - t;
-      points.push({
-        x: u * u * u * x + 3 * u * u * t * c1x + 3 * u * t * t * c2x + t * t * t * endX,
-        y: u * u * u * y + 3 * u * u * t * c1y + 3 * u * t * t * c2y + t * t * t * endY,
-      });
-    }
-    lastControlX = c2x;
-    lastControlY = c2y;
-    x = endX;
-    y = endY;
-    previousWasCurve = true;
-  };
-
-  while (index < tokens.length) {
-    if (/^[A-Za-z]$/.test(tokens[index])) command = tokens[index++];
-
-    switch (command) {
-      case 'M':
-      case 'm': {
-        const dx = number();
-        const dy = number();
-        x = command === 'M' ? dx : x + dx;
-        y = command === 'M' ? dy : y + dy;
-        points.push({ x, y });
-        previousWasCurve = false;
-        command = '';
-        break;
-      }
-      case 'C':
-      case 'c': {
-        const base = command === 'C' ? { x: 0, y: 0 } : { x, y };
-        curveTo(
-          base.x + number(),
-          base.y + number(),
-          base.x + number(),
-          base.y + number(),
-          base.x + number(),
-          base.y + number(),
-        );
-        break;
-      }
-      case 'S':
-      case 's': {
-        const base = command === 'S' ? { x: 0, y: 0 } : { x, y };
-        const c1x = previousWasCurve ? 2 * x - lastControlX : x;
-        const c1y = previousWasCurve ? 2 * y - lastControlY : y;
-        curveTo(
-          c1x,
-          c1y,
-          base.x + number(),
-          base.y + number(),
-          base.x + number(),
-          base.y + number(),
-        );
-        break;
-      }
-      default:
-        throw new Error(`Chữ ${char}: lệnh SVG chưa xử lý "${command}" trong d="${d}"`);
-    }
-  }
-
-  return points;
-}
-
-/** Các nét của một chữ, đã chuẩn hoá về 0..1 và lấy mẫu đều theo chiều dài. */
-function strokesOf(char) {
+/** Các đường `d` của một chữ, đúng thứ tự viết; null nếu KanjiVG không có chữ đó. */
+function pathsOf(char) {
   const file = svgPathOf(char);
   if (!existsSync(file)) return null;
 
   const svg = readFileSync(file, 'utf8');
   const paths = [...svg.matchAll(/\sd="([^"]+)"/g)].map((match) => match[1]);
-  if (paths.length === 0) return null;
+  return paths.length > 0 ? paths : null;
+}
 
+/** Rời rạc hoá một đường, gắn tên chữ vào lỗi để biết file nào hỏng. */
+function pointsOf(d, char) {
+  try {
+    return pathToPoints(d);
+  } catch (error) {
+    throw new Error(`Chữ ${char}: ${error.message}`);
+  }
+}
+
+/** Các nét của một chữ, đã chuẩn hoá về 0..1 và lấy mẫu đều theo chiều dài. */
+function strokesOf(paths, char) {
   return paths.map((d) =>
     resampleStroke(
-      pathToPoints(d, char).map((point) => ({ x: point.x / VIEW_BOX, y: point.y / VIEW_BOX })),
+      pointsOf(d, char).map((point) => ({ x: point.x / KANJIVG_BOX, y: point.y / KANJIVG_BOX })),
       STROKE_SAMPLES,
     ),
   );
@@ -200,14 +123,19 @@ const rows = [];
 const missing = [];
 let strokeCount = 0;
 
+/** chữ -> đường gốc đã viết gọn, để sinh các file vẽ nét bên dưới. */
+const compactPaths = new Map();
+
 for (const char of wanted) {
-  const strokes = strokesOf(char);
-  if (!strokes) {
+  const paths = pathsOf(char);
+  if (!paths) {
     missing.push(char);
     continue;
   }
+  const strokes = strokesOf(paths, char);
   strokeCount += strokes.length;
   rows.push(`  ${quote(char)}: ${quote(encodeStrokes(strokes))},`);
+  compactPaths.set(char, paths.map(compactPath));
 }
 
 const covered = wanted.filter((char) => !missing.includes(char));
@@ -244,11 +172,73 @@ const coverageText = `/* eslint-disable */
 export const STROKE_CHARS = ${quote(covered.join(''))};
 `;
 
+// ── Đường nét gốc để VẼ, chia theo cấp ─────────────────────────────────────
+//
+// Cả bảng đường gốc nặng ~1,4 MB (~530 kB nén) — gấp ba bản chấm — vì giữ nguyên
+// đường cong. Trang một chữ chỉ cần đúng một chữ, nên chia theo cấp JLPT: mở chữ
+// N3 thì chỉ tải nhóm N3 (~86 kB nén). Chữ thuộc cấp nào lấy đúng cấp đầu tiên
+// của nó trong `kanji-levels.ts`; bộ thủ và biến thể không thuộc cấp nào vào nhóm
+// riêng. Thứ tự nhóm cố định để tên file và nội dung ổn định giữa các lần chạy.
+
+const SHARD_OF_LEVEL = { N5: 'n5', N4: 'n4', N3: 'n3', N2: 'n2', N1: 'n1' };
+const SHARDS = ['n5', 'n4', 'n3', 'n2', 'n1', 'radical'];
+
+const shardOf = new Map();
+for (const [level, chars] of Object.entries(KANJI_BY_LEVEL)) {
+  for (const char of chars) if (!shardOf.has(char)) shardOf.set(char, SHARD_OF_LEVEL[level]);
+}
+
+const shardRows = new Map(SHARDS.map((shard) => [shard, []]));
+for (const [char, paths] of compactPaths) {
+  shardRows.get(shardOf.get(char) ?? 'radical').push([char, paths]);
+}
+
+const pathFiles = SHARDS.map((shard) => {
+  const list = shardRows.get(shard);
+  return {
+    file: join(OUT_DIR, `stroke-paths-${shard}.generated.ts`),
+    text: `/* eslint-disable */
+/**
+ * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:strokes\` để sinh lại.
+ *
+ * Đường nét GỐC của nhóm "${shard}", rút từ KanjiVG (CC BY-SA 3.0,
+ * https://kanjivg.tagaini.net): mỗi chữ là các thuộc tính \`d\` (khung 109×109) nối
+ * bằng "|", đúng thứ tự viết, làm tròn một chữ số thập phân. Dùng để VẼ nét —
+ * xem \`stroke-path.ts\` và \`stroke-path-store.ts\`. Chỉ nạp bằng \`import()\` động.
+ *
+ * Thống kê lần sinh gần nhất: ${list.length} chữ.
+ */
+
+export const STROKE_PATHS: Readonly<Record<string, string>> = {
+${list.map(([char, paths]) => `  ${quote(char)}: ${quote(paths.join('|'))},`).join('\n')}
+};
+`,
+  };
+});
+
+const shardsText = `/* eslint-disable */
+/**
+ * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:strokes\` để sinh lại.
+ *
+ * Chữ nào nằm ở nhóm đường nét nào (\`stroke-paths-<nhóm>.generated.ts\`) — để biết
+ * phải tải nhóm nào trước khi vẽ một chữ, mà không phải tải thử.
+ */
+
+export const STROKE_PATH_SHARDS = {
+${SHARDS.map((shard) => `  ${shard}: ${quote(shardRows.get(shard).map(([char]) => char).join(''))},`).join('\n')}
+} as const;
+
+export type StrokePathShard = keyof typeof STROKE_PATH_SHARDS;
+`;
+
 log(`${c.bold}Du lieu net viet${c.reset}`);
 log(`  chu can lay   : ${wanted.length}`);
 log(`  co du lieu    : ${covered.length}`);
 log(`  tong so net   : ${strokeCount}`);
 log(`  kich thuoc    : ${(Buffer.byteLength(dataText, 'utf8') / 1024).toFixed(0)} kB`);
+for (const { file, text } of pathFiles) {
+  log(`  ${file.split(/[\\/]/).pop().padEnd(34)}: ${(Buffer.byteLength(text, 'utf8') / 1024).toFixed(0)} kB`);
+}
 
 if (missing.length > 0) {
   log(
@@ -261,6 +251,8 @@ emitGenerated(
   [
     { file: DATA_FILE, text: dataText },
     { file: COVERAGE_FILE, text: coverageText },
+    { file: join(OUT_DIR, 'stroke-path-shards.generated.ts'), text: shardsText },
+    ...pathFiles,
   ],
   { checkOnly, root: ROOT, rerun: 'npm run generate:strokes' },
 );

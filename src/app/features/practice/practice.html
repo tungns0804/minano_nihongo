@@ -140,6 +140,7 @@
           @if (strokesReady()) {
             <app-stroke-canvas
               [reference]="referenceStrokes()"
+              [guidePaths]="guidePaths()"
               [resetKey]="drawKey()"
               [showGuide]="showGuide()"
               [disabled]="isResolved() && !isRedrawing()"

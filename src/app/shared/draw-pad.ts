@@ -35,6 +35,7 @@ import { StrokeCanvas } from './stroke-canvas';
     <div class="pad-board" #board>
       <app-stroke-canvas
         [reference]="reference()"
+        [guidePaths]="guidePaths()"
         [resetKey]="drawKey()"
         [showGuide]="showGuide() || verdict() !== null"
         [disabled]="verdict() !== null"
@@ -170,6 +171,8 @@ export class DrawPad {
   protected readonly t = this.lang.t.bind(this.lang);
 
   readonly reference = input.required<readonly Stroke[]>();
+  /** Đường gốc để vẽ nét mẫu mờ cho ngay ngắn — xem `StrokeCanvas.guidePaths`. */
+  readonly guidePaths = input<readonly string[] | null>(null);
   /** Đổi khoá (mở chữ khác) là xoá khung và quên kết quả cũ. */
   readonly resetKey = input.required<string>();
   /** Hiện nét mẫu mờ để đồ theo. Chấm xong thì luôn hiện, vì lúc đó nó là đáp án. */

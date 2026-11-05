@@ -1,13 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 
 import { LanguageStore } from '../core/i18n/language-store';
-import { Stroke, StrokePoint } from '../core/strokes/stroke.model';
-
-/** Cạnh khung toạ độ của hình — nét đã chuẩn hoá 0..1 nên nhân lên là xong. */
-const BOX = 100;
-
-/** Số thứ tự nét đặt lùi về trước đầu nét bằng chừng này, để khỏi đè lên chính nét. */
-const LABEL_GAP = 6;
+import { KANJIVG_BOX, strokeLabels } from '../core/strokes/stroke-path';
 
 interface DrawnStroke {
   path: string;
@@ -20,10 +14,12 @@ interface DrawnStroke {
  * Thứ tự nét của một chữ: từng nét vẽ ra kèm số thứ tự ở đầu nét, và nút cho nét
  * hiện lần lượt như đang viết.
  *
- * Dùng đúng dữ liệu nét của phần luyện viết (KanjiVG, xem `core/strokes/`), nên
- * hình xem ở đây và nét mẫu đem đi chấm là một — không có chuyện hình một đằng,
- * chấm một nẻo. Vẽ bằng SVG chứ không bằng canvas: chữ số, nét và hoạt hình đều là
- * thẻ thường, CSS lo hết, và hình nét căng theo khung mà không mờ.
+ * Vẽ thẳng từ đường GỐC của KanjiVG (Bézier, xem `core/strokes/stroke-path.ts`)
+ * chứ không từ bản 10 điểm dùng để chấm: bản đó vẽ ra nét ngang gợn sóng và góc
+ * gập bị bo tròn, mà hình này chính là mẫu để người học bắt chước cho ngay ngắn.
+ * Nét chấm điểm cũng rút từ đúng đường gốc này, nên hình xem và nét chấm vẫn là một.
+ * Vẽ bằng SVG chứ không bằng canvas: chữ số, nét và hoạt hình đều là thẻ thường,
+ * CSS lo hết, và hình nét căng theo khung mà không mờ.
  */
 @Component({
   selector: 'app-stroke-order',
@@ -102,20 +98,21 @@ interface DrawnStroke {
       stroke-linejoin: round;
     }
 
+    /* Bề dày 3/109 đúng như hình mẫu của chính KanjiVG. */
     .order-ghost path {
       stroke: var(--border-strong);
-      stroke-width: 3.4;
+      stroke-width: 3;
     }
 
     .order-ink path {
       stroke: var(--text);
-      stroke-width: 3.4;
+      stroke-width: 3;
     }
 
     .order-num text {
       fill: var(--accent);
       font-family: var(--font-ui);
-      font-size: 6px;
+      font-size: 6.5px;
       font-weight: 700;
       text-anchor: middle;
       dominant-baseline: central;
@@ -183,62 +180,23 @@ export class StrokeOrder {
   private readonly lang = inject(LanguageStore);
 
   protected readonly t = this.lang.t.bind(this.lang);
-  protected readonly box = BOX;
+  protected readonly box = KANJIVG_BOX;
 
   /** Chữ đang vẽ — chỉ để đặt nhãn cho trình đọc màn hình. */
   readonly char = input.required<string>();
-  readonly strokes = input.required<readonly Stroke[]>();
+  /** Các đường `d` gốc (khung 109×109), đúng thứ tự viết. */
+  readonly paths = input.required<readonly string[]>();
 
   /** Số lần đã bấm phát; 0 là hình đứng yên, đủ cả chữ ngay từ đầu. */
   protected readonly runs = signal(0);
 
-  protected readonly drawn = computed<DrawnStroke[]>(() =>
-    this.strokes().map((stroke) => {
-      const label = labelPoint(stroke);
-      return { path: pathOf(stroke), labelX: label.x, labelY: label.y };
-    }),
-  );
+  protected readonly drawn = computed<DrawnStroke[]>(() => {
+    const paths = this.paths();
+    const labels = strokeLabels(paths);
+    return paths.map((path, index) => ({ path, labelX: labels[index].x, labelY: labels[index].y }));
+  });
 
   play(): void {
     this.runs.update((count) => count + 1);
   }
-}
-
-/** Đường cong qua trung điểm các điểm mẫu — đúng cách khung viết vẽ nét mẫu. */
-function pathOf(points: readonly StrokePoint[]): string {
-  const at = (point: StrokePoint) => `${round(point.x * BOX)} ${round(point.y * BOX)}`;
-  if (points.length === 0) return '';
-  if (points.length === 1) return `M${at(points[0])}L${at(points[0])}`;
-
-  let d = `M${at(points[0])}`;
-  for (let i = 1; i < points.length - 1; i++) {
-    const middle = { x: (points[i].x + points[i + 1].x) / 2, y: (points[i].y + points[i + 1].y) / 2 };
-    d += `Q${at(points[i])} ${at(middle)}`;
-  }
-  return `${d}L${at(points[points.length - 1])}`;
-}
-
-/**
- * Chỗ đặt số thứ tự: lùi về trước đầu nét, ngược hướng nét đi.
- *
- * Nhìn số là biết luôn nét bắt đầu từ đâu và đi về đâu. Đặt ngay trên đầu nét thì
- * số đè lên chính nét, mà nét ngang ngắn của 言 thì gần như bị số che mất.
- */
-function labelPoint(points: readonly StrokePoint[]): StrokePoint {
-  const start = points[0];
-  // Lấy hướng qua vài điểm chứ không chỉ điểm kế: đầu nét vẽ tay hay có móc nhỏ.
-  const ahead = points[Math.min(2, points.length - 1)];
-  const dx = ahead.x - start.x;
-  const dy = ahead.y - start.y;
-  const length = Math.hypot(dx, dy) || 1;
-
-  const clamp = (value: number) => Math.min(BOX - 5, Math.max(5, value));
-  return {
-    x: round(clamp(start.x * BOX - (dx / length) * LABEL_GAP)),
-    y: round(clamp(start.y * BOX - (dy / length) * LABEL_GAP)),
-  };
-}
-
-function round(value: number): number {
-  return Math.round(value * 10) / 10;
 }

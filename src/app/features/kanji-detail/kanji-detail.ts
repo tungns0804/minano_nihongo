@@ -27,7 +27,9 @@ import { LIMIT_CHOICES, practiceConfig } from '../../core/practice/practice.mode
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
-import { StrokeStore, canDraw } from '../../core/strokes/stroke-store';
+import { canDraw } from '../../core/strokes/stroke-store';
+import { StrokePathStore } from '../../core/strokes/stroke-path-store';
+import { strokesFromPaths } from '../../core/strokes/stroke-path';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
@@ -91,7 +93,7 @@ const USERS_PREVIEW = 24;
 export class KanjiDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
   private readonly lessonStore = inject(LessonStore);
-  private readonly strokeStore = inject(StrokeStore);
+  private readonly strokePaths = inject(StrokePathStore);
 
   readonly modes = KANJI_WORD_MODES;
 
@@ -172,15 +174,22 @@ export class KanjiDetail extends PracticeScreen {
   // --- Cách viết ---
 
   /**
-   * Nét của chữ đang mở; rỗng khi dữ liệu nét chưa về.
+   * Đường nét gốc của chữ đang mở (xem `stroke-path.ts`); rỗng khi nhóm chưa về.
    *
-   * Đọc `ready()` trước để computed chạy lại ngay khi gói dữ liệu tải xong.
+   * Đọc `version()` trước để computed chạy lại ngay khi nhóm tải xong.
    */
-  readonly strokes = computed(() => {
-    void this.strokeStore.ready();
+  readonly paths = computed<readonly string[]>(() => {
+    void this.strokePaths.version();
     const entry = this.entry();
-    return entry ? (this.strokeStore.strokesOf(entry.char) ?? []) : [];
+    return entry ? (this.strokePaths.pathsOf(entry.char) ?? []) : [];
   });
+
+  /**
+   * Nét để CHẤM ô viết thử, rút thẳng từ đường gốc ở trên — trang này nhờ vậy không
+   * phải tải cả bảng chấm ~280 kB nén của màn luyện, chỉ tải nhóm đường của đúng cấp
+   * chữ đang mở. Kết quả khớp bảng chấm tới từng nấc làm tròn (`verify:drawing`).
+   */
+  readonly strokes = computed(() => strokesFromPaths(this.paths()));
 
   /** ★ lưu theo từng chữ: từ của 会 và từ của 社 là hai danh sách khác nhau. */
   protected favoriteSessionId(): string {
@@ -337,9 +346,9 @@ export class KanjiDetail extends PracticeScreen {
     this.entry.set(entry);
     if (!entry) return;
 
-    // Nét viết nằm ở gói tải riêng (~280 kB nén) — chỉ trang có khối Cách viết mới
-    // gọi, và chỉ lần đầu: những lần sau `load()` trả lại đúng lời hứa cũ.
-    if (canDraw(entry.char)) void this.strokeStore.load();
+    // Đường nét nằm ở gói tải riêng theo cấp (15–290 kB nén) — chỉ tải nhóm của chữ
+    // đang mở, và mỗi nhóm một lần: lật sang chữ cùng cấp thì không tải gì thêm.
+    if (canDraw(entry.char)) void this.strokePaths.loadFor(entry.char);
     this.showAllUsers.set(false);
 
     // Mở chữ khác là đặt lại toàn bộ thiết lập: cấp độ và ★ của chữ cũ không nói gì

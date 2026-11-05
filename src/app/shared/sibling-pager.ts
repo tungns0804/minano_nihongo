@@ -14,9 +14,14 @@ export interface PagerItem {
 }
 
 /**
- * "← Trước · Sau →" ở cuối trang chi tiết: hai thẻ dẫn sang phần tử kề trong cùng
+ * "← Trước · Sau →" ở cuối trang chi tiết: hai nút dẫn sang phần tử kề trong cùng
  * một dãy. Ai gọi thì tự quyết dãy là gì (bài cùng loại, chữ cùng cấp, bộ theo số
  * thứ tự) — component này chỉ tìm vị trí hiện tại và vẽ.
+ *
+ * Là MỘT hàng nút gọn ở hai đầu chứ không phải hai thẻ lớn chia đôi bề ngang: hai
+ * thẻ cao 70px chỉ để chứa hai dòng chữ là thêm hai khối nặng nề cuối mỗi trang, và
+ * ở chữ đầu dãy (chỉ có "Chữ sau") thì nửa trái bỏ trống trông như vỡ bố cục. Ở đây
+ * mỗi nút vừa đúng nội dung, nút còn lại vẫn đứng đúng phía của nó.
  */
 @Component({
   selector: 'app-sibling-pager',
@@ -25,17 +30,21 @@ export interface PagerItem {
     @if (prev() || next()) {
       <nav class="pager" [attr.aria-label]="t('pager.aria')">
         @if (prev(); as item) {
-          <a class="card pager-link" [routerLink]="item.path" [queryParams]="item.query">
-            <span class="pager-dir">← {{ t(prevKey()) }}</span>
-            <span class="pager-name">{{ item.name }}</span>
+          <a class="pager-link" [routerLink]="item.path" [queryParams]="item.query">
+            <span class="pager-arrow" aria-hidden="true">←</span>
+            <span class="pager-text">
+              <span class="pager-dir">{{ t(prevKey()) }}</span>
+              <span class="pager-name">{{ item.name }}</span>
+            </span>
           </a>
-        } @else {
-          <span></span>
         }
         @if (next(); as item) {
-          <a class="card pager-link pager-next" [routerLink]="item.path" [queryParams]="item.query">
-            <span class="pager-dir">{{ t(nextKey()) }} →</span>
-            <span class="pager-name">{{ item.name }}</span>
+          <a class="pager-link pager-next" [routerLink]="item.path" [queryParams]="item.query">
+            <span class="pager-text">
+              <span class="pager-dir">{{ t(nextKey()) }}</span>
+              <span class="pager-name">{{ item.name }}</span>
+            </span>
+            <span class="pager-arrow" aria-hidden="true">→</span>
           </a>
         }
       </nav>
@@ -43,40 +52,71 @@ export interface PagerItem {
   `,
   styles: `
     .pager {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: var(--sp-3);
     }
 
     .pager-link {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 14px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      /* Hai nút cùng hàng không bao giờ chen nhau: mỗi nút tối đa nửa hàng, tên dài
+         thì xuống dòng (tên bài như "Từ vựng N3 · 名詞 — Bài 4"). */
+      max-width: calc(50% - var(--sp-3) / 2);
+      min-width: 0;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg-elevated);
       color: var(--text);
-      transition: border-color var(--dur) var(--ease);
+      transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
     }
 
     .pager-link:hover {
       border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+      background: var(--bg-subtle);
       text-decoration: none;
     }
 
+    /* Chỉ có "sau" thì nút vẫn nằm bên phải — đó là hướng người học đang đi tới. */
     .pager-next {
-      grid-column: 2;
+      margin-left: auto;
       text-align: right;
     }
 
-    .pager-dir {
+    .pager-arrow {
+      flex: none;
       color: var(--accent);
-      font-size: var(--fs-xs);
       font-weight: 700;
     }
 
+    .pager-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .pager-dir {
+      color: var(--text-faint);
+      font-size: var(--fs-2xs);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    /* Xuống dòng tối đa hai dòng chứ không cắt ở dòng đầu: tên bài khác nhau ở CUỐI
+       ("… — Bài 4" / "… — Bài 6"), cắt ở dòng đầu thì trên điện thoại hai nút trông
+       y hệt nhau. */
     .pager-name {
       font-family: var(--font-jp);
       font-weight: 600;
       overflow-wrap: anywhere;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
