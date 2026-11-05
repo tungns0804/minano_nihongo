@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Sinh `src/app/core/radical/radical-kanji.generated.ts` cho khu "Bộ thủ".
+ * Sinh `src/app/core/radical/radical-kanji.generated.ts` cho khu "Bộ thủ", và
+ * `kanji-parts.generated.ts` — bản chiết tự gọn cho cây cấu tạo ở màn hình một chữ Hán.
  *
  * Ghép hai nguồn viết tay của khu này với dữ liệu SẴN CÓ của khu Kanji:
  *   - `radical-list.ts`  — 214 bộ thủ (chữ, biến thể, âm Hán Việt, nghĩa, tên Nhật)
@@ -29,6 +30,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const OUT_FILE = join(ROOT, 'src', 'app', 'core', 'radical', 'radical-kanji.generated.ts');
+const PARTS_OUT_FILE = join(ROOT, 'src', 'app', 'core', 'radical', 'kanji-parts.generated.ts');
 
 /** Số tầng khai triển tối đa của một thành phần. */
 const MAX_DEPTH = 4;
@@ -258,6 +260,72 @@ const body = radicals
 
 const withKanji = radicals.filter((r) => kanjiOfRadical.get(r.char).length > 0).length;
 
+// ── Chiết tự gọn cho màn hình một chữ ─────────────────────────────────────
+//
+// Màn hình `/kanji/:id` vẽ cây cấu tạo của chữ đang mở và liệt kê các chữ ghép từ
+// nó. Nó KHÔNG nạp `radical-kanji.generated.ts`: file đó mang theo từ ví dụ và bảng
+// của 214 bộ (~240 kB) chỉ để đọc lại đúng một chuỗi "日+寺". File riêng này giữ
+// đúng hai thứ màn hình đó cần, và vẫn sinh từ CHÍNH `partsOf` ở trên — hai khu
+// không thể nói khác nhau về cách tách một chữ.
+
+/** Dòng chiết tự theo đúng thứ tự dạy, rồi tới các thành phần nằm ngoài danh sách. */
+const partRows = [...partsOf]
+  .filter(([char, parts]) => !(parts.length === 1 && parts[0] === char))
+  .sort(
+    ([a], [b]) =>
+      (kanjiOrder.get(a) ?? Number.MAX_SAFE_INTEGER) - (kanjiOrder.get(b) ?? Number.MAX_SAFE_INTEGER),
+  );
+
+/**
+ * Hình nào là bộ thủ nào: mọi hình xuất hiện trong một dòng chiết tự, cộng mọi chữ
+ * của khu Kanji mà bản thân nó là bộ thủ (để trang của 手 nói được "đây cũng là bộ
+ * 手"). 阝 không có dòng riêng — màn hình xét vị trí như `radicalOfPart` — nên hai
+ * bộ của nó phải có mặt.
+ */
+const radicalForms = new Set([...partRows.flatMap(([, parts]) => parts), ...inLevels]);
+if (radicalForms.has(AMBIGUOUS)) radicalForms.add('阜').add('邑');
+
+const partInfoRows = [...radicalForms]
+  .map((form) => {
+    const radical = form === AMBIGUOUS ? undefined : radicalOf.get(form);
+    if (radical) return [form, radical, hanVietOfRadical.get(radical) ?? ''];
+    // Hình không phải bộ thủ cũng không phải chữ của khu Kanji: chỉ có âm bù.
+    if (PART_HAN_VIET[form] && !kanjiInfo.has(form)) return [form, '', PART_HAN_VIET[form]];
+    return null;
+  })
+  .filter(Boolean)
+  .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+
+const partsOutput = `/* eslint-disable */
+/**
+ * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:radicals\` để sinh lại.
+ *
+ * Chiết tự gọn cho màn hình một chữ Hán (\`/kanji/:id\`): cây cấu tạo và "chữ có
+ * chứa chữ này". Cùng nguồn với \`radical-kanji.generated.ts\` (\`radical-parts.ts\` +
+ * dòng N2/N1 của \`kanji-levels.ts\`) nhưng không kèm từ ví dụ — xem
+ * \`scripts/generate-radicals.mjs\`.
+ *
+ * Thống kê lần sinh gần nhất: ${partRows.length} dòng chiết tự, ${partInfoRows.length} hình có bộ hoặc âm bù.
+ */
+
+/**
+ * Chữ -> thành phần tầng ngoài cùng, đúng như viết tay (\`時\` -> \`日+寺\`). Xếp theo
+ * thứ tự dạy của khu Kanji. Chữ độc thể (\`日:日\`) không có dòng.
+ */
+export const KANJI_PART_ROWS: Readonly<Record<string, string>> = {
+${partRows.map(([char, parts]) => `  ${quote(char)}: ${quote(parts.join('+'))},`).join('\n')}
+};
+
+/**
+ * Hình -> [bộ thủ gốc, âm Hán Việt]. Bộ thủ gốc rỗng khi hình chỉ có âm bù
+ * (\`PART_HAN_VIET\`) chứ không thuộc bộ nào. Chữ của khu Kanji không cần nằm đây
+ * trừ khi bản thân nó là bộ thủ — âm của nó đã có ở \`kanji-words.generated.ts\`.
+ */
+export const PART_INFO: Readonly<Record<string, readonly [radical: string, hanViet: string]>> = {
+${partInfoRows.map(([form, radical, hanViet]) => `  ${quote(form)}: [${quote(radical)}, ${quote(hanViet)}],`).join('\n')}
+};
+`;
+
 const output = `/* eslint-disable */
 /**
  * FILE NÀY DO MÁY SINH — đừng sửa tay, chạy \`npm run generate:radicals\` để sinh lại.
@@ -318,8 +386,14 @@ if (unknownParts.size > 0) {
   log('           Them vao PART_HAN_VIET trong radical-parts.ts');
 }
 
-emitGenerated([{ file: OUT_FILE, text: output }], {
-  checkOnly,
-  root: ROOT,
-  rerun: 'npm run generate:radicals',
-});
+emitGenerated(
+  [
+    { file: OUT_FILE, text: output },
+    { file: PARTS_OUT_FILE, text: partsOutput },
+  ],
+  {
+    checkOnly,
+    root: ROOT,
+    rerun: 'npm run generate:radicals',
+  },
+);

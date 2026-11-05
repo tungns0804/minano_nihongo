@@ -14,19 +14,49 @@ import {
   kanjiModeInfo,
   kanjiQuestionsPerItem,
 } from '../../core/kanji/kanji.model';
-import { KANJI_ENTRIES, kanjiById } from '../../core/kanji/kanji-entries';
+import { KANJI_ENTRIES, kanjiById, kanjiInTexts } from '../../core/kanji/kanji-entries';
+import {
+  compositionTree,
+  directParts,
+  kanjiUsing,
+  ownRadical,
+} from '../../core/kanji/kanji-composition';
+import { LessonStore } from '../../core/lessons/lesson-store';
+import type { VocabularyWord } from '../../core/lessons/vocabulary.model';
 import { LIMIT_CHOICES, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
 import { buildKanjiWordQuestions } from '../../core/practice/kanji-questions';
-import { canDraw } from '../../core/strokes/stroke-store';
+import { StrokeStore, canDraw } from '../../core/strokes/stroke-store';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { checkedOf } from '../../core/utils/dom-events';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
+import { DrawPad } from '../../shared/draw-pad';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
+import { StrokeOrder } from '../../shared/stroke-order';
 import { PracticeSetup } from '../../shared/practice-setup';
 import { PagerItem, SiblingPager } from '../../shared/sibling-pager';
+import { CompositionTree } from './composition-tree';
+
+/**
+ * Bài học đang dẫn người học tới chữ này (`/kanji/:id?lesson=<id bài>`).
+ *
+ * Có nó thì nút quay lại trỏ về bài, "chữ trước / chữ sau" lật theo thứ tự chữ
+ * trong bài, và đầu trang nhắc lại những từ của bài có dùng chữ đang xem.
+ */
+interface LessonContext {
+  id: string;
+  name: string;
+  words: readonly VocabularyWord[];
+  kanji: readonly KanjiEntry[];
+}
+
+/**
+ * Số chữ "có chứa chữ này" hiện sẵn. 日 hay 口 nằm trong cả trăm chữ — bày hết ra
+ * thì phần cấu tạo dài hơn mọi thứ khác trên trang.
+ */
+const USERS_PREVIEW = 24;
 
 /**
  * Màn hình MỘT chữ Hán: chữ vẽ to, âm Hán Việt, và bảng các từ dùng chữ đó kèm
@@ -43,27 +73,113 @@ import { PagerItem, SiblingPager } from '../../shared/sibling-pager';
  */
 @Component({
   selector: 'app-kanji-detail',
-  imports: [PracticeSetup, RouterLink, SearchBox, SiblingPager, StarButton, T],
+  imports: [
+    CompositionTree,
+    DrawPad,
+    PracticeSetup,
+    RouterLink,
+    SearchBox,
+    SiblingPager,
+    StarButton,
+    StrokeOrder,
+    T,
+  ],
   templateUrl: './kanji-detail.html',
   styleUrl: './kanji-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class KanjiDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
+  private readonly lessonStore = inject(LessonStore);
+  private readonly strokeStore = inject(StrokeStore);
 
   readonly modes = KANJI_WORD_MODES;
 
   readonly kanjiId = signal('');
   readonly entry = signal<KanjiEntry | null>(null);
 
-  /** Các chữ cùng cấp JLPT, theo thứ tự lưới — dãy của "chữ trước / chữ sau". */
+  /** Bài đang dẫn tới chữ này; null khi mở từ danh sách Kanji như mọi khi. */
+  readonly lessonContext = signal<LessonContext | null>(null);
+  private lessonRequest = '';
+
+  /**
+   * Dãy của "chữ trước / chữ sau".
+   *
+   * Đi từ một bài sang thì lật theo đúng các chữ của bài đó — học xong 滑 thì chữ
+   * sau là 積 của từ kế tiếp, không phải chữ kế tiếp trong bảng N2. Bấm sang một
+   * thành phần không thuộc bài (然 của 燃) thì quay về dãy cùng cấp như thường.
+   */
   readonly pagerItems = computed<PagerItem[]>(() => {
-    const level = this.entry()?.level;
+    const entry = this.entry();
+    const lesson = this.lessonContext();
+    if (lesson && entry && lesson.kanji.some((item) => item.id === entry.id)) {
+      return lesson.kanji.map((item) => ({
+        key: item.id,
+        name: `${item.char} ${item.hanViet}`,
+        path: `/kanji/${item.id}`,
+        query: { lesson: lesson.id },
+      }));
+    }
+
+    const level = entry?.level;
     return KANJI_ENTRIES.filter((item) => item.level === level).map((item) => ({
       key: item.id,
       name: `${item.char} ${item.hanViet}`,
       path: `/kanji/${item.id}`,
     }));
+  });
+
+  /** Từ của bài đang dẫn tới có dùng chữ này — 積 thì 積もる, 積む của bài 5. */
+  readonly lessonWords = computed<readonly VocabularyWord[]>(() => {
+    const char = this.entry()?.char;
+    const lesson = this.lessonContext();
+    if (!char || !lesson) return [];
+    return lesson.words.filter((word) => word.japanese.includes(char));
+  });
+
+  // --- Cấu tạo chữ ---
+
+  /** Cây cấu tạo; null với chữ độc thể (日, 手). */
+  readonly tree = computed(() => {
+    const entry = this.entry();
+    return entry ? compositionTree(entry) : null;
+  });
+
+  /** Tầng ngoài cùng của cây — dòng "Cấu tạo" ngắn ở đầu trang. */
+  readonly parts = computed(() => {
+    const entry = this.entry();
+    return entry ? directParts(entry.char) : [];
+  });
+
+  /** Chữ này chính là một bộ thủ (手, 日) — khi đó đầu trang dẫn sang trang của bộ. */
+  readonly radical = computed(() => {
+    const entry = this.entry();
+    return entry ? ownRadical(entry.char) : null;
+  });
+
+  /** Những chữ ghép trực tiếp từ chữ này — 寺 thì 時, 持, 待… */
+  readonly users = computed(() => {
+    const entry = this.entry();
+    return entry ? kanjiUsing(entry.char) : [];
+  });
+
+  readonly showAllUsers = signal(false);
+  readonly visibleUsers = computed(() =>
+    this.showAllUsers() ? this.users() : this.users().slice(0, USERS_PREVIEW),
+  );
+  readonly hiddenUserCount = computed(() => this.users().length - this.visibleUsers().length);
+
+  // --- Cách viết ---
+
+  /**
+   * Nét của chữ đang mở; rỗng khi dữ liệu nét chưa về.
+   *
+   * Đọc `ready()` trước để computed chạy lại ngay khi gói dữ liệu tải xong.
+   */
+  readonly strokes = computed(() => {
+    void this.strokeStore.ready();
+    const entry = this.entry();
+    return entry ? (this.strokeStore.strokesOf(entry.char) ?? []) : [];
   });
 
   /** ★ lưu theo từng chữ: từ của 会 và từ của 社 là hai danh sách khác nhau. */
@@ -177,12 +293,48 @@ export class KanjiDetail extends PracticeScreen {
       this.kanjiId.set(id);
       this.load(id);
     });
+    this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe((params) => {
+      void this.loadLesson(params.get('lesson') ?? '');
+    });
+  }
+
+  /**
+   * Nạp bài đang dẫn tới chữ này. Lật sang chữ khác trong cùng bài thì không nạp
+   * lại — `LessonStore` có nhớ bài, nhưng dựng lại dãy chữ của cả bài thì không cần.
+   */
+  private async loadLesson(lessonId: string): Promise<void> {
+    if (lessonId === this.lessonRequest) return;
+    this.lessonRequest = lessonId;
+    if (!lessonId) {
+      this.lessonContext.set(null);
+      return;
+    }
+
+    const lesson = await this.lessonStore.getLesson(lessonId);
+    // Người học đã lật đi chỗ khác trong lúc chờ: kết quả này không còn là của trang nữa.
+    if (this.lessonRequest !== lessonId) return;
+    if (!lesson || lesson.words.length === 0) {
+      this.lessonContext.set(null);
+      return;
+    }
+
+    this.lessonContext.set({
+      id: lesson.id,
+      name: lesson.name,
+      words: lesson.words,
+      kanji: kanjiInTexts(lesson.words.map((word) => word.japanese)),
+    });
   }
 
   private load(id: string): void {
     const entry = kanjiById(id);
     this.entry.set(entry);
     if (!entry) return;
+
+    // Nét viết nằm ở gói tải riêng (~280 kB nén) — chỉ trang có khối Cách viết mới
+    // gọi, và chỉ lần đầu: những lần sau `load()` trả lại đúng lời hứa cũ.
+    if (canDraw(entry.char)) void this.strokeStore.load();
+    this.showAllUsers.set(false);
 
     // Mở chữ khác là đặt lại toàn bộ thiết lập: cấp độ và ★ của chữ cũ không nói gì
     // về chữ mới, mà chữ mới có thể không có cấp mà chữ cũ đang chọn.

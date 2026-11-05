@@ -248,8 +248,13 @@ export function buildRadicalEntries(
   }));
 }
 
-/** "nhan-4eba" — âm Hán Việt bỏ dấu ghép mã Unicode, cùng lối đặt id với khu Kanji. */
-function radicalId(char: string, hanViet: string): string {
+/**
+ * "nhan-4eba" — âm Hán Việt bỏ dấu ghép mã Unicode, cùng lối đặt id với khu Kanji.
+ *
+ * Xuất ra cho cây cấu tạo ở màn hình một chữ: nó dẫn sang trang bộ thủ mà không
+ * phải nạp cả bảng 214 bộ chỉ để đọc lại id.
+ */
+export function radicalId(char: string, hanViet: string): string {
   const code = char.codePointAt(0)!.toString(16);
   const name = slug(hanViet);
   return name ? `${name}-${code}` : `r-${code}`;

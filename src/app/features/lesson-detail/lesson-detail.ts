@@ -56,6 +56,7 @@ import { VerbRow, buildVerbRows, formsText } from './verb-rows';
 import { PracticeSetup } from '../../shared/practice-setup';
 import { VocabPhoto } from '../../shared/vocab-photo';
 import { LessonPager } from '../../shared/lesson-pager';
+import { KanjiEntry, LESSONS_WITH_KANJI } from '../../core/kanji/kanji.model';
 
 @Component({
   selector: 'app-lesson-detail',
@@ -117,6 +118,12 @@ export class LessonDetail extends PracticeScreen {
     return 'common.back';
   });
   readonly words = computed(() => this.lesson()?.words ?? []);
+
+  /**
+   * Chữ Hán của bài, theo thứ tự gặp trong bảng từ — chỉ ở bài có trong
+   * `LESSONS_WITH_KANJI`. Rỗng cho tới khi kho chữ nạp xong.
+   */
+  readonly lessonKanji = signal<readonly KanjiEntry[]>([]);
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
   readonly lines = computed(() => this.lesson()?.lines ?? []);
 
@@ -379,10 +386,31 @@ export class LessonDetail extends PracticeScreen {
     this.notFound.set(lesson === null);
     this.loading.set(false);
     if (lesson) this.rememberRecent({ title: lesson.name, kindKey: LESSON_KIND_LABEL_KEY[lesson.kind] });
+    if (lesson && LESSONS_WITH_KANJI.has(lesson.id)) void this.loadLessonKanji(lesson);
+  }
+
+  /**
+   * Dựng lưới "Chữ Hán trong bài".
+   *
+   * Nạp ĐỘNG kho chữ: nó nặng ~300 kB, mà trang bài học mở cho mọi bài — bài nào
+   * không có khối này thì không phải tải nó.
+   */
+  private async loadLessonKanji(lesson: Lesson): Promise<void> {
+    const { kanjiInTexts } = await import('../../core/kanji/kanji-entries');
+    // Người học đã sang bài khác trong lúc chờ.
+    if (this.lesson()?.id !== lesson.id) return;
+    this.lessonKanji.set(kanjiInTexts(lesson.words.map((word) => word.japanese)));
+  }
+
+  /** Nút ở đầu trang: lưới chữ nằm dưới bảng 50 từ, không cuộn thì không ai thấy. */
+  scrollToKanji(): void {
+    // Cuộn bằng script chứ không dùng href="#…": bản offline định tuyến bằng dấu #.
+    document.getElementById('lesson-kanji')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   private resetView(): void {
     this.lesson.set(null);
+    this.lessonKanji.set([]);
     this.search.set('');
     this.onlyFavorites.set(false);
     this.scope.set('all');

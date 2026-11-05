@@ -9,6 +9,8 @@ export interface PagerItem {
   key: string;
   name: string;
   path: string;
+  /** Tham số kèm đường dẫn — ví dụ `?lesson=` để lật chữ mà vẫn nhớ đang đi từ bài nào. */
+  query?: Readonly<Record<string, string>>;
 }
 
 /**
@@ -23,7 +25,7 @@ export interface PagerItem {
     @if (prev() || next()) {
       <nav class="pager" [attr.aria-label]="t('pager.aria')">
         @if (prev(); as item) {
-          <a class="card pager-link" [routerLink]="item.path">
+          <a class="card pager-link" [routerLink]="item.path" [queryParams]="item.query">
             <span class="pager-dir">← {{ t(prevKey()) }}</span>
             <span class="pager-name">{{ item.name }}</span>
           </a>
@@ -31,7 +33,7 @@ export interface PagerItem {
           <span></span>
         }
         @if (next(); as item) {
-          <a class="card pager-link pager-next" [routerLink]="item.path">
+          <a class="card pager-link pager-next" [routerLink]="item.path" [queryParams]="item.query">
             <span class="pager-dir">{{ t(nextKey()) }} →</span>
             <span class="pager-name">{{ item.name }}</span>
           </a>

@@ -18,7 +18,7 @@ import { N3AutoTick } from '../../core/n3/n3-auto-tick';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { FeedbackSound } from '../../core/services/feedback-sound';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
-import { DrawingVerdict, STROKE_ISSUE_KEY, checkDrawing } from '../../core/strokes/stroke-score';
+import { DrawingVerdict, checkDrawing, drawingIssues } from '../../core/strokes/stroke-score';
 import { StrokePoint } from '../../core/strokes/stroke.model';
 import { StrokeStore } from '../../core/strokes/stroke-store';
 import { plainText } from '../../core/translation/markup';
@@ -349,12 +349,7 @@ export class Practice {
     (this.verdict()?.problems ?? []).map((problem) => problem.stroke),
   );
 
-  readonly drawIssues = computed(() =>
-    (this.verdict()?.problems ?? []).map((problem) => ({
-      key: STROKE_ISSUE_KEY[problem.issue],
-      params: { stroke: problem.stroke },
-    })),
-  );
+  readonly drawIssues = computed(() => drawingIssues(this.verdict()));
 
   readonly drawScore = computed(() => {
     const verdict = this.verdict();

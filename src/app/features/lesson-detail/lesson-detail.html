@@ -44,6 +44,13 @@
           @if (specialCount() > 0) {
             <span class="badge badge-accent">{{ t('lesson.specialCount', { count: specialCount() }) }}</span>
           }
+          <!-- Lưới chữ nằm sau bảng từ (học từ trước, rồi mới đi vào từng chữ), nên
+               đầu trang phải có lối tắt — không thì phải cuộn qua 50 dòng mới biết. -->
+          @if (lessonKanji().length > 0) {
+            <button type="button" class="btn btn-sm kanji-jump" (click)="scrollToKanji()">
+              {{ t('lesson.kanji.jump', { count: lessonKanji().length }) }}
+            </button>
+          }
         </div>
       </header>
 
@@ -611,6 +618,32 @@
           }
         </div>
       </section>
+
+      <!-- ── Chữ Hán trong bài ──────────────────────────────────────────── -->
+      <!-- Mỗi ô mở trang chữ kèm ?lesson= để trang đó quay về đúng bài này và lật
+           "chữ sau" theo thứ tự chữ trong bài. -->
+      @if (lessonKanji().length > 0) {
+        <section class="card" id="lesson-kanji">
+          <div class="card-body stack">
+            <div class="stack stack-sm">
+              <div class="row">
+                <h2>{{ t('lesson.kanji.title') }}</h2>
+                <span class="badge">{{ t('kanji.kanjiCount', { count: lessonKanji().length }) }}</span>
+              </div>
+              <p class="muted small"><app-t key="lesson.kanji.desc" block /></p>
+            </div>
+
+            <div class="lesson-kanji-grid">
+              @for (entry of lessonKanji(); track entry.id) {
+                <a class="lesson-kanji-cell" [routerLink]="['/kanji', entry.id]" [queryParams]="{ lesson: data.id }">
+                  <span class="lesson-kanji-char jp" aria-hidden="true">{{ entry.char }}</span>
+                  <span class="lesson-kanji-han">{{ entry.hanViet }}</span>
+                </a>
+              }
+            </div>
+          </div>
+        </section>
+      }
 
       <!-- Sang bài kề cùng loại mà không phải quay về danh sách. -->
       <app-lesson-pager [lessonId]="data.id" [kind]="data.kind" />

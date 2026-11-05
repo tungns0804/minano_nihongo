@@ -375,8 +375,46 @@ N1 1.119 — lấy đúng theo `src/app/core/kanji/kanji-levels.ts`, và **giữ
 sách gốc (thứ tự dạy theo lối chiết tự: 一 二 八 六 日 目 三…, chữ ít nét và chữ làm thành phần của
 chữ khác đi trước). Lưới hiện 12 ô một hàng, mỗi ô là chữ vẽ to kèm âm Hán Việt.
 
-Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, và bảng các từ trong kho của ứng dụng có dùng
-chữ đó (từ · cách đọc · âm Hán Việt của cả từ · nghĩa · cấp độ).
+Mở một chữ ra là thấy chữ đó vẽ to, âm Hán Việt, số nét, dòng **Cấu tạo** (`燃` → `火 HỎA + 然
+NHIÊN`, mỗi mảnh là link), và bảng các từ trong kho của ứng dụng có dùng chữ đó (từ · cách đọc ·
+âm Hán Việt của cả từ · nghĩa · cấp độ). Ở giữa là hai khối:
+
+- **Cách viết** — bên trái là *thứ tự nét*: từng nét đánh số ở đầu nét, nút "Xem cách viết"
+  cho các nét hiện lần lượt như đang viết (tắt chuyển động trong hệ điều hành thì hiện ngay cả
+  chữ). Bên phải là *viết thử*: viết bằng chuột / ngón tay, bấm Kiểm tra là thấy nét nào sai, sai
+  kiểu gì, nét sai tô đỏ. Viết thử **không lưu gì** — muốn được chấm như một câu hỏi (4 lượt, màn
+  kết quả, tính vào số câu hôm nay) thì vẫn có nút "Luyện viết chữ này" như trước. Cả hai dùng
+  đúng dữ liệu nét và cách chấm của phần [Luyện viết chữ](#luyện-viết-chữ).
+- **Cấu tạo chữ** — cây từ trên xuống: chữ ở gốc, các thành phần toả xuống theo thứ tự viết,
+  mỗi thành phần lại tách tiếp (tối đa ba tầng: `燃 → 火 + 然 → 月 + 犬 + 灬 → 大 + 丶`). Màu nói
+  thành phần là gì: xanh lam là chữ có trang riêng, vàng là bộ thủ, xám là mảnh chỉ có âm. Bấm
+  một nút là sang trang chữ / trang bộ đó. Dưới cây là **"Chữ có chứa 燃"** — các chữ ghép
+  *trực tiếp* từ chữ đang xem (寺 → 時 持 待…), hiện 24 chữ đầu, bấm "Hiện thêm" để xem hết.
+  Chữ độc thể (日, 手) không có cây; nếu nó là bộ thủ thì đầu trang ghi "Chữ này cũng chính là
+  bộ thủ 日" và dẫn sang trang bộ.
+
+Cây cấu tạo đọc **đúng bảng chiết tự của khu Bộ thủ** (xem [Quy ước chiết tự](#quy-ước-chiết-tự))
+qua bản gọn `kanji-parts.generated.ts` — không có cách tách nào viết riêng cho màn hình này.
+
+### Đi từ một bài học sang
+
+Bài có trong `LESSONS_WITH_KANJI` ([`kanji.model.ts`](../src/app/core/kanji/kanji.model.ts)) có thêm
+khối **"Chữ Hán trong bài"** dưới bảng từ, và một nút "Xem N chữ Hán trong bài ↓" ở đầu trang để
+nhảy tới đó. Bản thử đang bật cho **Từ vựng N3 · Bài 5** (40 chữ); muốn bật cho bài khác thì thêm
+id bài vào danh sách đó, khối tự dựng từ chính từ vựng của bài.
+
+Bấm một chữ là mở `/kanji/<id>?lesson=<id bài>`. Tham số `lesson` làm ba việc:
+
+- nút quay lại trỏ về **bài**, không về danh sách Kanji;
+- "Chữ trước / Chữ sau" lật theo **thứ tự chữ trong bài** (滑 → 積 → 空…), không theo bảng JLPT;
+- đầu trang nhắc lại **từ của bài** có dùng chữ đó (`積もる（つもる）Được tích tụ`) — bảng từ bên
+  dưới chỉ lấy từ kho Minano và khu Bài tập, nên đây là chỗ duy nhất có đúng từ vừa đọc ở bài.
+
+Bấm sang một thành phần (然 của 燃) thì tham số vẫn giữ để còn đường về bài; chữ đó không thuộc
+bài nên "Chữ trước / Chữ sau" quay về dãy cùng cấp như thường.
+
+Kho chữ (~300 kB) chỉ nạp ở bài có khối này; dữ liệu nét (~280 kB nén) chỉ nạp khi mở trang một
+chữ, và chỉ lần đầu.
 
 ### Các phần luyện tập
 
@@ -529,7 +567,12 @@ src/app/core/radical/
   radical-list.ts       ← 214 BỘ THỦ: chữ, biến thể, âm Hán Việt, nghĩa, tên tiếng Nhật
   radical-parts.ts      ← CHIẾT TỰ N5→N3: mỗi chữ Hán gồm những bộ nào (642 dòng)
   radical-kanji.generated.ts  ← DO MÁY SINH: 214 bộ + 2.123 chữ + 5.604 lượt chữ ghép
+  kanji-parts.generated.ts    ← DO MÁY SINH: bản chiết tự gọn cho cây cấu tạo ở trang một chữ
 ```
+
+`kanji-parts.generated.ts` sinh cùng lượt với file trên, từ cùng bảng chiết tự, nhưng chỉ giữ
+"chữ → thành phần" và "hình → bộ thủ, âm" (~50 kB) — trang một chữ không phải nạp cả 240 kB từ ví dụ
+và bảng 214 bộ chỉ để đọc lại một chuỗi `日+寺`.
 
 Khu này **không chép tay lại bất cứ âm Hán Việt hay nghĩa nào của CHỮ**: âm Hán Việt, cấp độ và
 từ ví dụ của từng chữ ghép đều lấy thẳng từ `kanji-words.generated.ts` của khu Kanji, nên hai khu không
@@ -593,7 +636,12 @@ phiên**; luyện thêm cho quen tay không phải là làm lại bài.
 
 Mở một chữ ở `/kanji/:id` (hay một bộ ở `/radical/:id`) là thấy ngay khối **"Luyện viết chữ này"**
 — kể cả với hơn một nghìn chữ trong danh sách JLPT mà kho từ chưa có từ nào dùng tới. Trước đây
-những chữ đó mở ra chỉ có đúng một dòng cảnh báo "chưa luyện từ ở đây được".
+những chữ đó mở ra chỉ có đúng một dòng cảnh báo "chưa luyện từ ở đây được". Ở trang một chữ Hán,
+khối này nay là **Cách viết**: thứ tự nét và ô viết thử nằm ngay trên trang (xem mục
+[Kanji](#kanji)), nút mở phiên luyện vẫn ở đó.
+
+Các nét thiếu (hay thừa) liền nhau được gộp thành một dòng — viết mỗi nét đầu của chữ 16 nét thì
+nhận xét là `Nét 1: lệch quá xa nét mẫu` + `Nét 2–16: còn thiếu`, không phải mười sáu dòng.
 
 ### Chấm ngay trên máy, không gọi dịch vụ nào
 

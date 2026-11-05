@@ -6,6 +6,12 @@ export const LESSON_MESSAGES = {
   'lesson.loading': { vi: 'Đang tải bài học…', ja: 'レッスンを読み込み中…' },
   'lesson.notFound': { vi: 'Không tìm thấy bài học {id}.', ja: 'レッスン {id} が見つかりません。' },
   'lesson.specialCount': { vi: '{count} động từ đặc biệt', ja: '特殊動詞{count}語' },
+  'lesson.kanji.jump': { vi: 'Xem {count} chữ Hán trong bài ↓', ja: 'この課の漢字{count}字を見る ↓' },
+  'lesson.kanji.title': { vi: 'Chữ Hán trong bài', ja: 'この課の漢字' },
+  'lesson.kanji.desc': {
+    vi: 'Các chữ Hán của những từ ở trên, theo thứ tự trong bảng. Mở một chữ để xem thứ tự nét, viết thử và cấu tạo của nó; nút "Chữ sau" ở cuối trang chữ đi tiếp theo đúng thứ tự này.',
+    ja: '上の単語に使われている漢字を、表の順に並べています。字を開くと筆順・試し書き・構成が見られ、ページ下の「次の漢字」でこの順に進めます。',
+  },
   'lesson.brokenVerbs': {
     vi: '{count} động từ khai báo sai nhóm, không chia được:',
     ja: 'グループ指定が誤っていて活用できない動詞が{count}語あります：',

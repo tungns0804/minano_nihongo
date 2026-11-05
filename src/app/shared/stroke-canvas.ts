@@ -13,7 +13,11 @@ import {
 import { LanguageStore } from '../core/i18n/language-store';
 import { Stroke, StrokePoint } from '../core/strokes/stroke.model';
 
-/** Cạnh khung vẽ tính bằng điểm ảnh thật. CSS co giãn khung, toạ độ vẫn tính theo 0..1. */
+/**
+ * Cạnh khung vẽ tính bằng điểm ảnh thật. CSS co giãn khung, toạ độ vẫn tính theo 0..1.
+ *
+ * Đổi số này thì đổi luôn `width`/`height` tĩnh của thẻ canvas trong template.
+ */
 const SIZE = 600;
 
 /**
@@ -33,12 +37,16 @@ const SIZE = 600;
   selector: 'app-stroke-canvas',
   template: `
     <div class="stroke-frame">
+      <!-- Kích thước khai TĨNH (bằng SIZE) chứ không ràng buộc [width]="size": gán
+           width cho canvas là xoá trắng nó, mà ràng buộc thì chạy SAU lần vẽ đầu tiên
+           của effect — nét mẫu bị xoá ngay khi vừa vẽ và chỉ hiện lại khi người học
+           đã vẽ xong nét đầu, đúng lúc không còn cần đồ theo nữa. -->
       <canvas
         #board
         class="stroke-board"
         [class.is-disabled]="disabled()"
-        [width]="size"
-        [height]="size"
+        width="600"
+        height="600"
         [attr.aria-label]="t('practice.draw.canvas')"
         role="img"
         (pointerdown)="onPointerDown($event)"
@@ -49,32 +57,35 @@ const SIZE = 600;
     </div>
 
     <div class="stroke-bar">
-      <span class="small muted">{{ t('practice.draw.strokeCount', { count: strokes().length }) }}</span>
-      <span class="spacer"></span>
-      <button
-        type="button"
-        class="btn btn-sm btn-ghost"
-        [disabled]="disabled() || strokes().length === 0"
-        (click)="undo()"
-      >
-        {{ t('practice.draw.undo') }}
-      </button>
-      <button
-        type="button"
-        class="btn btn-sm btn-ghost"
-        [disabled]="disabled() || strokes().length === 0"
-        (click)="clear()"
-      >
-        {{ t('practice.draw.clear') }}
-      </button>
-      <button
-        type="button"
-        class="btn btn-primary"
-        [disabled]="disabled() || strokes().length === 0"
-        (click)="submit()"
-      >
-        {{ t('practice.check') }}
-      </button>
+      <span class="small muted stroke-count">{{ t('practice.draw.strokeCount', { count: strokes().length }) }}</span>
+      <!-- Ba nút đi thành một cụm: thiếu chỗ thì cả cụm xuống hàng dưới, căn phải,
+           thay vì bóp dòng "Đã vẽ 3 nét" thành bốn dòng mỗi dòng một chữ. -->
+      <div class="stroke-actions">
+        <button
+          type="button"
+          class="btn btn-sm btn-ghost"
+          [disabled]="disabled() || strokes().length === 0"
+          (click)="undo()"
+        >
+          {{ t('practice.draw.undo') }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-sm btn-ghost"
+          [disabled]="disabled() || strokes().length === 0"
+          (click)="clear()"
+        >
+          {{ t('practice.draw.clear') }}
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="disabled() || strokes().length === 0"
+          (click)="submit()"
+        >
+          {{ t('practice.check') }}
+        </button>
+      </div>
     </div>
   `,
   styles: `
@@ -115,9 +126,21 @@ const SIZE = 600;
 
     .stroke-bar {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: var(--sp-2);
       width: min(320px, 78vw);
+    }
+
+    .stroke-count {
+      white-space: nowrap;
+    }
+
+    .stroke-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-left: auto;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -126,7 +149,6 @@ export class StrokeCanvas {
   private readonly lang = inject(LanguageStore);
 
   readonly t = this.lang.t.bind(this.lang);
-  readonly size = SIZE;
 
   /** Nét mẫu của chữ đang hỏi. */
   readonly reference = input.required<readonly Stroke[]>();

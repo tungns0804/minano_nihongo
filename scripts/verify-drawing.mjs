@@ -2,7 +2,8 @@
 /**
  * Kiểm tra dữ liệu nét viết và cách chấm của khu "luyện viết".
  *
- * Bốn thứ script này canh:
+ * Năm thứ script này canh (thứ năm: lời nhận xét gộp các nét thiếu / thừa liền
+ * nhau thành một dòng "Nét 2–16", xem `drawingIssues`):
  *
  *  1. Dữ liệu giải mã được: độ dài chuỗi phải chia hết cho một nét, và danh sách
  *     chữ ở `stroke-coverage.generated.ts` phải khớp đúng khoá của `stroke-data.generated.ts`.
@@ -37,7 +38,7 @@ const RIVALS_PER_CHAR = 20;
 const { STROKE_CODE_LENGTH, decodeStrokes } = await import(
   toFileUrl(join(STROKES, 'stroke.model.ts'))
 );
-const { STROKE_TOLERANCE, checkDrawing } = await import(toFileUrl(join(STROKES, 'stroke-score.ts')));
+const { STROKE_TOLERANCE, checkDrawing, drawingIssues } = await import(toFileUrl(join(STROKES, 'stroke-score.ts')));
 const { STROKE_DATA } = await import(toFileUrl(join(STROKES, 'stroke-data.generated.ts')));
 const { STROKE_CHARS } = await import(toFileUrl(join(STROKES, 'stroke-coverage.generated.ts')));
 
@@ -147,6 +148,34 @@ if (reversedRatio > 0.15) {
     `${reversedMissed}/${decoded.size} chữ vẽ ngược nét đầu vẫn được chấm đúng — ` +
       'phần so chiều nét đang không có tác dụng',
   );
+}
+
+// ── Lời nhận xét: nét thiếu / thừa liền nhau gộp thành một dòng ─────────
+//
+// Mới viết một nét của chữ 16 nét mà bị liệt kê 15 dòng "còn thiếu" thì lỗi thật
+// chìm mất. Gộp sai thì ngược lại: một dải "2–16" nuốt luôn lỗi nét lệch ở giữa.
+{
+  const [char, strokes] = [...decoded].find(([, list]) => list.length >= 10);
+  const firstOnly = drawingIssues(checkDrawing([strokes[0]], strokes));
+  const range = firstOnly[0];
+  if (
+    firstOnly.length !== 1 ||
+    range.key !== 'practice.draw.issue.missingRange' ||
+    range.params.from !== 2 ||
+    range.params.to !== strokes.length
+  ) {
+    fail(`Chữ ${char} chỉ viết nét 1: nhận xét không gộp thành "Nét 2–${strokes.length}: còn thiếu"`);
+  }
+
+  const lastMissing = drawingIssues(checkDrawing(strokes.slice(0, -1), strokes));
+  if (lastMissing.length !== 1 || lastMissing[0].key !== 'practice.draw.issue.missing') {
+    fail(`Chữ ${char} thiếu đúng một nét: nhận xét phải là một dòng thường, không phải dải nét`);
+  }
+
+  const twoExtra = drawingIssues(checkDrawing([...strokes, strokes[0], strokes[1]], strokes));
+  if (twoExtra.length !== 1 || twoExtra[0].key !== 'practice.draw.issue.extraRange') {
+    fail(`Chữ ${char} thừa hai nét: nhận xét không gộp thành một dòng`);
+  }
 }
 
 // ── Cặp chữ dễ lẫn ────────────────────────────────────────────────────────

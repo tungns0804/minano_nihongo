@@ -65,6 +65,46 @@ export interface StrokeProblem {
   issue: StrokeIssue;
 }
 
+/** Lỗi "thiếu" và "thừa" luôn dồn ở cuối chữ nên gộp được thành một dải nét. */
+const RANGE_KEY: Partial<Record<StrokeIssue, MessageKey>> = {
+  missing: 'practice.draw.issue.missingRange',
+  extra: 'practice.draw.issue.extraRange',
+};
+
+export interface DrawingIssueText {
+  key: MessageKey;
+  /** Luôn có `stroke` (nét đầu tiên của lỗi) để làm khoá; dải nét có thêm `from`, `to`. */
+  params: Record<string, number> & { stroke: number };
+}
+
+/**
+ * Lời nhận xét cho từng nét sai, sẵn để `<app-t>` hiện ra.
+ *
+ * Màn luyện tập và ô viết thử ở trang chữ Hán nói cùng một câu cho cùng một lỗi,
+ * nên câu đó dựng ở đây một lần.
+ *
+ * Các nét thiếu (hay thừa) liền nhau gộp thành MỘT dòng "Nét 2–16: còn thiếu":
+ * mới viết một nét của chữ 16 nét mà bị liệt kê 15 dòng "còn thiếu" thì lỗi thật
+ * — nét 1 viết lệch — chìm mất giữa danh sách.
+ */
+export function drawingIssues(verdict: DrawingVerdict | null): DrawingIssueText[] {
+  const groups: { issue: StrokeIssue; from: number; to: number }[] = [];
+  for (const problem of verdict?.problems ?? []) {
+    const last = groups[groups.length - 1];
+    if (last && RANGE_KEY[problem.issue] && last.issue === problem.issue && last.to === problem.stroke - 1) {
+      last.to = problem.stroke;
+    } else {
+      groups.push({ issue: problem.issue, from: problem.stroke, to: problem.stroke });
+    }
+  }
+
+  return groups.map(({ issue, from, to }): DrawingIssueText => {
+    const rangeKey = RANGE_KEY[issue];
+    if (rangeKey && to > from) return { key: rangeKey, params: { stroke: from, from, to } };
+    return { key: STROKE_ISSUE_KEY[issue], params: { stroke: from } };
+  });
+}
+
 export interface DrawingVerdict {
   correct: boolean;
   /** Số nét vẽ khớp nét mẫu. */

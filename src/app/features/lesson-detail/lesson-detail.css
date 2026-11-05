@@ -508,3 +508,71 @@
   height: 320px;
   border-radius: var(--radius-lg);
 }
+
+/* ============================================================================
+   CHỮ HÁN TRONG BÀI — lưới chữ dưới bảng từ (chỉ ở bài có trong LESSONS_WITH_KANJI)
+   ========================================================================== */
+
+/* Nút ở hàng badge đầu trang: cùng chiều cao với badge bên cạnh để hàng không
+   phình ra, nhưng là nút thật (viền, con trỏ) vì badge ở đây vốn không bấm được. */
+.kanji-jump {
+  min-height: 0;
+  padding: 1px 10px;
+  font-size: var(--fs-xs);
+}
+
+/* Cùng nhịp với lưới của tab Kanji để người học nhận ra ngay đây là "các chữ",
+   chỉ nhỏ hơn một chút vì nằm cuối một trang đã dài. */
+.lesson-kanji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 8px;
+}
+
+.lesson-kanji-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  color: var(--text);
+  text-align: center;
+  text-decoration: none;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.lesson-kanji-cell:hover,
+.lesson-kanji-cell:focus-visible {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.lesson-kanji-char {
+  font-size: 2.2rem;
+  line-height: 1.15;
+}
+
+.lesson-kanji-han {
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .lesson-kanji-grid {
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 6px;
+  }
+
+  .lesson-kanji-char {
+    font-size: 1.8rem;
+  }
+}

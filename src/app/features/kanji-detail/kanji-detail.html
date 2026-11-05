@@ -8,7 +8,14 @@
     <div class="stack stack-xl">
       <!-- ── Chữ Hán ─────────────────────────────────────────────────────── -->
       <header class="stack stack-sm">
-        <a class="back-link" routerLink="/kanji">{{ t('kanji.back') }}</a>
+        <!-- Đi từ một bài sang thì quay về đúng bài đó, không văng ra danh sách Kanji. -->
+        @if (lessonContext(); as lesson) {
+          <a class="back-link" [routerLink]="['/lesson', lesson.id]">
+            {{ t('kanji.backToLesson', { name: lesson.name }) }}
+          </a>
+        } @else {
+          <a class="back-link" routerLink="/kanji">{{ t('kanji.back') }}</a>
+        }
 
         <div class="kanji-head">
           <!-- Chữ vẽ to hết cỡ: người học phải nhìn rõ từng nét. -->
@@ -23,6 +30,9 @@
 
             <div class="row">
               <span class="badge">{{ data.level }}</span>
+              @if (strokes().length > 0) {
+                <span class="badge">{{ t('kanji.strokeCount', { count: strokes().length }) }}</span>
+              }
               <span class="badge">{{ t('kanji.wordCount', { count: levelWords().length }) }}</span>
               @if (favoriteCount() > 0) {
                 <span class="badge badge-warning">
@@ -31,22 +41,95 @@
               }
             </div>
 
+            <!-- Một dòng tóm tắt cấu tạo: đọc ngay ở đầu trang mà không phải cuộn
+                 xuống cây. Mỗi mảnh là link sang chính nó. -->
+            @if (parts().length > 0) {
+              <p class="parts-line">
+                <span class="parts-label">{{ t('kanji.parts.label') }}</span>
+                @for (part of parts(); track $index) {
+                  @if ($index > 0) {
+                    <span class="parts-plus" aria-hidden="true">+</span>
+                  }
+                  @if (part.link) {
+                    <a class="part-chip" [attr.data-kind]="part.kind" [routerLink]="part.link" [queryParamsHandling]="part.kind === 'kanji' ? 'preserve' : null">
+                      <span class="jp">{{ part.char }}</span>
+                      @if (part.hanViet) {
+                        <span class="part-han">{{ part.hanViet }}</span>
+                      }
+                    </a>
+                  } @else {
+                    <span class="part-chip" [attr.data-kind]="part.kind">
+                      <span class="jp">{{ part.char }}</span>
+                      @if (part.hanViet) {
+                        <span class="part-han">{{ part.hanViet }}</span>
+                      }
+                    </span>
+                  }
+                }
+              </p>
+            } @else if (radical(); as own) {
+              <p class="parts-line">
+                <span class="parts-label">{{ t('kanji.parts.label') }}</span>
+                <span class="muted small">{{ t('kanji.parts.isRadical') }}</span>
+                <a class="part-chip" data-kind="radical" [routerLink]="own.link">
+                  <span class="jp">{{ own.char }}</span>
+                  <span class="part-han">{{ own.hanViet }}</span>
+                </a>
+              </p>
+            }
           </div>
         </div>
+
+        <!-- Từ của bài vừa đi tới có dùng chữ này. Bảng từ bên dưới chỉ lấy từ kho
+             Minano và khu Bài tập, nên đây là chỗ duy nhất nhắc lại đúng từ người học
+             vừa đọc ở bài. -->
+        @if (lessonContext(); as lesson) {
+          @if (lessonWords().length > 0) {
+            <div class="lesson-words">
+              <span class="parts-label">{{ t('kanji.inLesson', { name: lesson.name }) }}</span>
+              <ul class="lesson-word-list">
+                @for (word of lessonWords(); track word.id) {
+                  <li>
+                    <span class="jp lesson-word">{{ word.japanese }}</span>
+                    @if (word.reading) {
+                      <span class="jp muted">（{{ word.reading }}）</span>
+                    }
+                    <span class="muted">{{ word.vietnamese }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        }
       </header>
 
-      <!-- ── Luyện viết ─────────────────────────────────────────────────── -->
+      <!-- ── Cách viết ──────────────────────────────────────────────────── -->
       <!-- Đứng NGAY sau đầu trang và nằm NGOÀI nhánh "chưa có từ": hơn một nghìn
            chữ trong danh sách JLPT chưa có từ nào trong kho, mà viết thì chữ nào
-           cũng viết được — trước đây những chữ đó mở ra chỉ thấy đúng một dòng
-           cảnh báo. -->
+           cũng viết được. Thứ tự nét và ô viết thử đứng cạnh nhau: xem một nét bên
+           trái rồi viết ngay nét đó bên phải. -->
       @if (canDrawChar()) {
         <section class="card">
           <div class="card-body stack setup">
             <div class="stack stack-sm">
-              <h2>{{ t('kanji.practiceDraw') }}</h2>
+              <h2>{{ t('kanji.write.title') }}</h2>
               <p class="muted small"><app-t key="kanji.drawNote" block /></p>
             </div>
+
+            @if (strokes().length > 0) {
+              <div class="write-grid">
+                <div class="write-panel">
+                  <span class="label">{{ t('kanji.write.order') }}</span>
+                  <app-stroke-order [char]="data.char" [strokes]="strokes()" />
+                </div>
+                <div class="write-panel">
+                  <span class="label">{{ t('kanji.write.try') }}</span>
+                  <app-draw-pad [reference]="strokes()" [resetKey]="data.id" [showGuide]="drawGuide()" />
+                </div>
+              </div>
+            } @else {
+              <p class="muted write-loading">{{ t('practice.draw.loading') }}</p>
+            }
 
             <label class="checkbox">
               <input type="checkbox" [checked]="drawGuide()" (change)="toggleDrawGuide($event)" />
@@ -56,12 +139,64 @@
               </span>
             </label>
 
+            <!-- Viết thử ở trên không lưu gì. Phiên luyện vẫn giữ nguyên như trước:
+                 có lượt, có màn kết quả và được tính vào số câu hôm nay. -->
             <div class="start-bar">
               <div class="small muted"><app-t key="kanji.drawThis.hint" block /></div>
-              <button type="button" class="btn btn-primary btn-lg" (click)="startDrawing()">
+              <button type="button" class="btn" (click)="startDrawing()">
                 {{ t('kanji.drawThis') }}
               </button>
             </div>
+          </div>
+        </section>
+      }
+
+      <!-- ── Cấu tạo chữ ────────────────────────────────────────────────── -->
+      @if (tree() || users().length > 0) {
+        <section class="card">
+          <div class="card-body stack">
+            <div class="stack stack-sm">
+              <h2>{{ t('kanji.parts.title', { char: data.char }) }}</h2>
+              @if (tree()) {
+                <p class="muted small"><app-t key="kanji.parts.desc" block /></p>
+              }
+            </div>
+
+            @if (tree(); as root) {
+              <app-composition-tree [root]="root" />
+
+              <ul class="parts-legend small muted" [attr.aria-label]="t('kanji.parts.legend')">
+                <li><span class="legend-swatch" data-kind="kanji"></span>{{ t('kanji.parts.kind.kanji') }}</li>
+                <li><span class="legend-swatch" data-kind="radical"></span>{{ t('kanji.parts.kind.radical') }}</li>
+                <li><span class="legend-swatch" data-kind="other"></span>{{ t('kanji.parts.kind.other') }}</li>
+              </ul>
+            }
+
+            @if (users().length > 0) {
+              <div class="stack stack-sm users-block" [class.has-tree]="tree() !== null">
+                <h3>{{ t('kanji.usedIn.title', { char: data.char, count: users().length }) }}</h3>
+                <div class="users-grid">
+                  @for (user of visibleUsers(); track user.id) {
+                    <a class="user-chip" [routerLink]="['/kanji', user.id]" queryParamsHandling="preserve">
+                      <span class="user-char jp" aria-hidden="true">{{ user.char }}</span>
+                      <span class="user-han">{{ user.hanViet }}</span>
+                    </a>
+                  }
+                </div>
+                @if (hiddenUserCount() > 0) {
+                  <div>
+                    <button type="button" class="btn btn-sm btn-ghost" (click)="showAllUsers.set(true)">
+                      {{ t('kanji.usedIn.more', { count: hiddenUserCount() }) }}
+                    </button>
+                  </div>
+                }
+                @if (radical(); as own) {
+                  <p class="small muted">
+                    <a [routerLink]="own.link">{{ t('kanji.usedIn.radical', { char: own.char }) }}</a>
+                  </p>
+                }
+              </div>
+            }
           </div>
         </section>
       }
