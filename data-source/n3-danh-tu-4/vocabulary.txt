@@ -8,7 +8,7 @@ KIẾN,見つかる (みつかる),Được tìm thấy|なくした鍵が見つ
 KIẾN,見つける (みつける),Tìm thấy|駅の近くでいいアパートを見つけました。|Tôi đã tìm được một căn hộ tốt gần ga.
 BỘ,捕まる (つかまる),Bị bắt|犯人はすぐに警察に捕まりました。|Thủ phạm đã nhanh chóng bị cảnh sát bắt.
 BỘ,捕まえる (つかまえる),Bắt|子どもたちが川で魚を捕まえています。|Bọn trẻ đang bắt cá ở sông.
-THỪA,乗る (のる),Leo lên|駅の前でバスに乗りました。|Tôi đã lên xe buýt ở trước ga.
+THỪA,乗る (のる),Lên (xe)/ đi (xe)|駅の前でバスに乗りました。|Tôi đã lên xe buýt ở trước ga.
 THỪA,乗せる (のせる),Cho lên|父が車で駅まで乗せてくれました。|Bố đã chở tôi đến ga bằng ô tô.
 GIÁNG,降りる (おりる),Xuống|次の駅で電車を降ります。|Tôi xuống tàu ở ga tiếp theo.
 GIÁNG,降ろす (おろす),Cho xuống|すみません、駅の前で降ろしてください。|Xin lỗi, cho tôi xuống ở trước ga.
@@ -46,7 +46,7 @@ LY,離す (はなす),Tách ra|道を渡るときは、子どもの手を離さ�
 PHIẾN PHÓ,片付く (かたづく),Được dọn dẹp|部屋がやっと片付きました。|Cuối cùng phòng cũng đã được dọn gọn.
 PHIẾN PHÓ,片付ける (かたづける),Dọn dẹp|遊んだ後は、おもちゃを片付けなさい。|Chơi xong thì dọn đồ chơi đi.
 BAO,包む (つつむ),Bọc|プレゼントをきれいな紙で包みました。|Tôi đã gói quà bằng giấy đẹp.
-TRƯƠNG,張る (はる),Dán|壁にポスターを張りました。|Tôi đã dán áp phích lên tường.
+THIẾP,貼る (はる),Dán|壁にポスターを貼りました。|Tôi đã dán áp phích lên tường.
 VÔ,無くなる (なくなる),Bị mất|財布が無くなってしまいました。|Ví của tôi bị mất rồi.
 VÔ,無くす (なくす),Mất|大切な鍵を無くしてしまいました。|Tôi lỡ làm mất chiếc chìa khoá quan trọng.
 TÚC,足りる (たりる),Đủ|お金が足りないので、カードで払います。|Không đủ tiền mặt nên tôi trả bằng thẻ.

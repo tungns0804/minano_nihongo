@@ -5,9 +5,9 @@
 # Danh từ gốc động từ (連用名詞) 251–259
 LỆ,戻り (もどり),Trở về, trả lại|部長は会議中で、戻りは3時ごろです。|Trưởng phòng đang họp, khoảng 3 giờ mới quay lại.
 BIỆT,別れ (わかれ),Chia ly|友達との別れはつらいです。|Chia tay bạn bè thật buồn.
-HỶ,喜び (よろこび),Hớn hở|子どもが生まれた喜びは忘れられません。|Tôi không thể quên niềm vui khi con chào đời.
-LẠC,楽しみ (たのしみ),Sung sướng|週末の旅行が楽しみです。|Tôi rất mong chờ chuyến du lịch cuối tuần.
-TIẾU,笑い (わらい),Cười|彼の話で、教室は笑いでいっぱいになりました。|Câu chuyện của anh ấy khiến cả lớp tràn ngập tiếng cười.
+HỶ,喜び (よろこび),Niềm vui|子どもが生まれた喜びは忘れられません。|Tôi không thể quên niềm vui khi con chào đời.
+LẠC,楽しみ (たのしみ),Niềm vui/ sự mong chờ|週末の旅行が楽しみです。|Tôi rất mong chờ chuyến du lịch cuối tuần.
+TIẾU,笑い (わらい),Tiếng cười/ nụ cười|彼の話で、教室は笑いでいっぱいになりました。|Câu chuyện của anh ấy khiến cả lớp tràn ngập tiếng cười.
 KINH,驚き (おどろき),Ngạc nhiên|そのニュースを聞いて、驚きで言葉が出ませんでした。|Nghe tin đó, tôi ngạc nhiên đến mức không nói nên lời.
 NỘ,怒り (いかり),Giận dữ|彼の失礼な言葉に怒りを感じました。|Tôi thấy giận trước lời nói thất lễ của anh ta.
 BI,悲しみ (かなしみ),Buồn bã|母を亡くした悲しみはなかなか消えません。|Nỗi buồn mất mẹ mãi không nguôi.
@@ -30,11 +30,11 @@ CHÍNH TRỰC,正直な (しょうじきな),Trung thực|正直に話してく�
 ,けちな,Kẹt xỉ|彼はけちで、全然お金を使いません。|Anh ta keo kiệt, chẳng chịu tiêu tiền gì cả.
 NGÃ TẬN,我儘な (わがままな),Ích kỷ|彼は我儘な人で、自分のことしか考えません。|Anh ta là người ích kỷ, chỉ nghĩ đến bản thân.
 TÍCH CỰC ĐÍCH,積極的な (せっきょくてきな),Tích cực|彼女は授業で積極的に質問します。|Cô ấy tích cực đặt câu hỏi trong giờ học.
-TIÊU CỰC ĐÍCH,消極的な (しょうきょくてきな),Tiêu cực|彼は新しいことに消極的です。|Anh ấy dè dặt, thụ động trước những điều mới.
+TIÊU CỰC ĐÍCH,消極的な (しょうきょくてきな),Thụ động/ thiếu chủ động|彼は新しいことに消極的です。|Anh ấy dè dặt, thụ động trước những điều mới.
 MÃN TÚC,満足な (まんぞくな),Thỏa mãn|今の生活に満足しています。|Tôi hài lòng với cuộc sống hiện tại.
 BẤT MÃN,不満な (ふまんな),Bất mãn|給料が安いことに不満を持っています。|Tôi bất mãn vì lương thấp.
 BẤT AN,不安な (ふあんな),Bất an|一人で外国に行くのは不安です。|Đi nước ngoài một mình khiến tôi bất an.
-ĐẠI BIẾN,大変な (たいへんな),Tồi tệ|毎日残業で大変です。|Ngày nào cũng làm thêm giờ, vất vả lắm.
+ĐẠI BIẾN,大変な (たいへんな),Vất vả/ khó khăn/ nghiêm trọng|毎日残業で大変です。|Ngày nào cũng làm thêm giờ, vất vả lắm.
 VÔ LÝ,無理な (むりな),Vô lý|一日でこの仕事を終わらせるのは無理です。|Làm xong việc này trong một ngày là không thể.
 BẤT CHÚ Ý,不注意な (ふちゅういな),Không chú ý|不注意で、コップを割ってしまいました。|Vì bất cẩn nên tôi đã làm vỡ cốc.
 LẠC,楽な (らくな),Thoải mái|この仕事は楽ですが、給料が安いです。|Công việc này nhàn nhưng lương thấp.
@@ -48,7 +48,7 @@ PHÁI THỦ,派手な (はでな),Lòe loẹt|その赤い服はちょっと派�
 ,おしゃれな,Thời trang, mốt|駅の近くにおしゃれなカフェができました。|Gần ga mới mở một quán cà phê sành điệu.
 BIẾN,変な (へんな),Lạ|この牛乳は変なにおいがします。|Sữa này có mùi lạ.
 BẤT TƯ NGHỊ,不思議な (ふしぎな),Thần bí|昨夜、不思議な夢を見ました。|Đêm qua tôi đã có một giấc mơ kỳ lạ.
-,ましな,Tốt lên|熱は下がらないが、昨日よりは少しましだ。|Vẫn chưa hạ sốt, nhưng đã đỡ hơn hôm qua một chút.
+,ましな,Khá hơn/ đỡ hơn|熱は下がらないが、昨日よりは少しましだ。|Vẫn chưa hạ sốt, nhưng đã đỡ hơn hôm qua một chút.
 ,むだな,Lãng phí|時間をむだに使わないようにしましょう。|Hãy cố đừng lãng phí thời gian.
 TỰ DO,自由な (じゆうな),Tự do|土曜日は自由な時間がたくさんあります。|Thứ bảy tôi có nhiều thời gian tự do.
 BẤT TỰ DO,不自由な (ふじゆうな),Tàn tật, không tự do|駅には目の不自由な人のための点字ブロックがあります。|Ở nhà ga có gạch dẫn đường dành cho người khiếm thị.

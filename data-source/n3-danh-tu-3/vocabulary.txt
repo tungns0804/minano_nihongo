@@ -8,7 +8,7 @@ MIỄN HỨA,免許 (めんきょ),Giấy phép|去年、車の免許を取り�
 TIỀN BÁN,前半 (ぜんはん),Phần đầu|試合の前半は0対0でした。|Hiệp một của trận đấu có tỉ số 0–0.
 HẬU BÁN,後半 (こうはん),Phần cuối|映画の後半はとてもおもしろかったです。|Nửa sau của bộ phim rất hay.
 TỐI CAO,最高 (さいこう),Cao nhất|今日の最高気温は35度です。|Nhiệt độ cao nhất hôm nay là 35 độ.
-TỐI ĐÊ,最低 (さいてい),Thấp nhất|毎日、最低7時間は寝たいです。|Mỗi ngày tôi muốn ngủ ít nhất 7 tiếng.
+TỐI ĐÊ,最低 (さいてい),Thấp nhất/ tối thiểu|毎日、最低7時間は寝たいです。|Mỗi ngày tôi muốn ngủ ít nhất 7 tiếng.
 TỐI SƠ,最初 (さいしょ),Đầu tiên|最初は日本語が全然分かりませんでした。|Lúc đầu tôi hoàn toàn không hiểu tiếng Nhật.
 TỐI HẬU,最後 (さいご),Cuối cùng|最後に部屋を出る人は電気を消してください。|Người cuối cùng ra khỏi phòng hãy tắt điện.
 TỰ ĐỘNG,自動 (じどう),Tự động|このドアは自動で開きます。|Cửa này tự động mở.
@@ -43,11 +43,11 @@ CAN,乾かす (かわかす),Làm khô|ドライヤーで髪を乾かします�
 ĐIỆP,畳む (たたむ),Gấp|洗濯物を畳んで、たんすにしまいました。|Tôi gấp quần áo rồi cất vào tủ.
 DỤ,誘う (さそう),Mời, rủ|友達を映画に誘いました。|Tôi đã rủ bạn đi xem phim.
 ,おごる,Chiêu đãi|今日は私がおごりますよ。|Hôm nay để tôi khao nhé.
-DỰ,預かる (あずかる),Chăm sóc|旅行の間、隣の人が犬を預かってくれました。|Trong lúc tôi đi du lịch, người hàng xóm đã trông giúp con chó.
+DỰ,預かる (あずかる),Nhận giữ/ trông giúp|旅行の間、隣の人が犬を預かってくれました。|Trong lúc tôi đi du lịch, người hàng xóm đã trông giúp con chó.
 DỰ,預ける (あずける),Gửi|銀行にお金を預けました。|Tôi đã gửi tiền vào ngân hàng.
 QUYẾT,決まる (きまる),Được quyết định|旅行の日にちが決まりました。|Đã chốt được ngày đi du lịch.
 QUYẾT,決める (きめる),Quyết định|夏休みにどこへ行くか、もう決めましたか。|Bạn đã quyết định nghỉ hè đi đâu chưa?
-TẢ,写る (うつる),Chụp được|この写真には富士山がきれいに写っています。|Trong bức ảnh này núi Phú Sĩ hiện lên rất đẹp.
+TẢ,写る (うつる),Hiện lên trong ảnh/ được chụp|この写真には富士山がきれいに写っています。|Trong bức ảnh này núi Phú Sĩ hiện lên rất đẹp.
 TẢ,写す (うつす),Chụp|カメラで山の景色を写しました。|Tôi đã chụp phong cảnh núi bằng máy ảnh.
 TƯ XUẤT,思い出す (おもいだす),Nhớ lại|この歌を聞くと、子どものころを思い出します。|Hễ nghe bài hát này là tôi lại nhớ về thời thơ ấu.
 GIÁO,教わる (おそわる),Được dạy|田中先生に日本語を教わりました。|Tôi đã được thầy Tanaka dạy tiếng Nhật.

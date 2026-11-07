@@ -1122,7 +1122,7 @@ export const VOCAB_IMAGES: Readonly<Record<string, VocabImageSource>> = {
     license: 'CC BY-SA 4.0',
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
   },
-  '張る|はる': {
+  '貼る|はる': {
     file: 'The Soviet Union 1960 Illustrated stamped envelope Lapkin 60-186(1286)face(Eurasian beaver) with stamp and Jacobs 799 cancelled.jpg',
     author: 'USSR Post',
     license: 'Public domain',

@@ -8,8 +8,8 @@
 HOẠT,滑る (すべる),Trượt|雪の道で滑って転びました。|Tôi trượt chân ngã trên đường tuyết.
 TÍCH,積もる (つもる),Được tích tụ|夜の間に雪が10センチ積もりました。|Qua đêm tuyết đã phủ dày 10 cm.
 TÍCH,積む (つむ),Tích tụ, chất lại|トラックに荷物を積みました。|Tôi đã chất hàng lên xe tải.
-KHÔNG,空く (あく),Bị thủng|靴下に穴が空いてしまいました。|Tất bị thủng một lỗ rồi.
-KHÔNG,空ける (あける),Thủng|壁に穴を空けないでください。|Đừng khoan lỗ lên tường.
+KHÔNG,空く (あく),Trống ra/ thủng (lỗ)|靴下に穴が空いてしまいました。|Tất bị thủng một lỗ rồi.
+KHÔNG,空ける (あける),Để trống/ khoét (lỗ)|壁に穴を空けないでください。|Đừng khoan lỗ lên tường.
 HẠ,下がる (さがる),Bị giảm|夜になって、気温が下がりました。|Về đêm nhiệt độ đã giảm.
 HẠ,下げる (さげる),Giảm|エアコンの温度を少し下げてください。|Hãy giảm nhiệt độ điều hoà xuống một chút.
 LÃNH,冷える (ひえる),Bị lạnh|夜は冷えますから、上着を持って行ってください。|Ban đêm trời lạnh nên hãy mang theo áo khoác.
@@ -25,26 +25,26 @@ MINH,鳴らす (ならす),Làm kêu|自転車のベルを鳴らしました。|
 DỊCH LẬP,役立つ (やくだつ),Hữu ích|この辞書は勉強にとても役立ちます。|Cuốn từ điển này rất hữu ích cho việc học.
 DỊCH LẬP,役立てる (やくだてる),Tận dụng, dùng vào việc có ích|日本で学んだことを国で役立てたいです。|Tôi muốn đem những gì học ở Nhật về áp dụng ở quê nhà.
 # Danh từ gốc động từ (連用名詞) 221–250
-SỨC,飾り (かざり),Trang trí|クリスマスツリーに飾りをつけました。|Tôi đã treo đồ trang trí lên cây thông Noel.
-DU,遊び (あそび),Chơi|今度うちへ遊びに来てください。|Lần tới hãy đến nhà tôi chơi nhé.
-TẬP,集まり (あつまり),Tập hợp|今夜、大学の友達の集まりがあります。|Tối nay có buổi họp mặt bạn đại học.
-GIÁO,教え (おしえ),Dạy|両親の教えを今も守っています。|Đến giờ tôi vẫn giữ những lời dạy của bố mẹ.
-DŨNG,踊り (おどり),Nhảy|お祭りで日本の踊りを見ました。|Tôi đã xem điệu múa Nhật ở lễ hội.
+SỨC,飾り (かざり),Đồ trang trí|クリスマスツリーに飾りをつけました。|Tôi đã treo đồ trang trí lên cây thông Noel.
+DU,遊び (あそび),Việc đi chơi/ trò chơi|今度うちへ遊びに来てください。|Lần tới hãy đến nhà tôi chơi nhé.
+TẬP,集まり (あつまり),Buổi họp mặt/ cuộc tụ tập|今夜、大学の友達の集まりがあります。|Tối nay có buổi họp mặt bạn đại học.
+GIÁO,教え (おしえ),Lời dạy/ điều dạy bảo|両親の教えを今も守っています。|Đến giờ tôi vẫn giữ những lời dạy của bố mẹ.
+DŨNG,踊り (おどり),Điệu múa/ điệu nhảy|お祭りで日本の踊りを見ました。|Tôi đã xem điệu múa Nhật ở lễ hội.
 TƯ,思い (おもい),Suy nghĩ, cảm giác|家族への思いを手紙に書きました。|Tôi đã viết tình cảm dành cho gia đình vào lá thư.
 KHẢO,考え (かんがえ),Nghĩ, ý tưởng|それはいい考えですね。|Đó là một ý hay đấy.
-PHIẾN,片づけ (かたづけ),Ngăn nắp|パーティーの後の片づけを手伝いました。|Tôi đã giúp dọn dẹp sau bữa tiệc.
+PHIẾN,片づけ (かたづけ),Việc dọn dẹp|パーティーの後の片づけを手伝いました。|Tôi đã giúp dọn dẹp sau bữa tiệc.
 THỦ TRUYỀN,手伝い (てつだい),Giúp đỡ|友達の引っ越しの手伝いに行きました。|Tôi đã đến giúp bạn chuyển nhà.
-ĐỘNG,働き (はたらき),Hoạt động|この薬には熱を下げる働きがあります。|Thuốc này có tác dụng hạ sốt.
+ĐỘNG,働き (はたらき),Hoạt động/ tác dụng|この薬には熱を下げる働きがあります。|Thuốc này có tác dụng hạ sốt.
 QUYẾT,決まり (きまり),Luật lệ|寮には夜10時までに帰るという決まりがあります。|Ký túc xá có quy định phải về trước 10 giờ tối.
 TAO,騒ぎ (さわぎ),Ồn ào, om xòm|外で何か騒ぎが起きているようです。|Hình như bên ngoài đang có chuyện ồn ào gì đó.
 TRI,知らせ (しらせ),Tin tức, thông báo|合格の知らせを聞いて、とてもうれしかったです。|Nghe tin đỗ, tôi đã rất vui.
 LẠI,頼み (たのみ),Yêu cầu|一つ頼みがあるんですが、いいですか。|Tôi có một việc muốn nhờ, được không?
-BÌ,疲れ (つかれ),Vất vả, mệt mỏi|温泉に入って、一週間の疲れが取れました。|Ngâm suối nước nóng xong, mệt mỏi cả tuần tan biến.
+BÌ,疲れ (つかれ),Sự mệt mỏi|温泉に入って、一週間の疲れが取れました。|Ngâm suối nước nóng xong, mệt mỏi cả tuần tan biến.
 VI,違い (ちがい),Khác biệt|「は」と「が」の違いを教えてください。|Hãy giải thích cho tôi sự khác nhau giữa "wa" và "ga".
 THỦY,始め (はじめ),Khởi đầu|来月の始めに引っ越します。|Đầu tháng sau tôi chuyển nhà.
 TỤC,続き (つづき),Tiếp tục|このドラマの続きが早く見たいです。|Tôi muốn sớm được xem phần tiếp theo của bộ phim này.
 MỘ,暮れ (くれ),Cuối năm|年の暮れはいつも忙しいです。|Cuối năm lúc nào cũng bận rộn.
-HÀNH,行き (いき),Đi|行きの飛行機の中で映画を見ました。|Tôi đã xem phim trên chuyến bay lượt đi.
+HÀNH,行き (いき),Lượt đi/ chiều đi|行きの飛行機の中で映画を見ました。|Tôi đã xem phim trên chuyến bay lượt đi.
 QUY,帰り (かえり),Trở về|会社の帰りにスーパーに寄りました。|Trên đường đi làm về tôi ghé siêu thị.
 CẤP,急ぎ (いそぎ),Khẩn cấp, vội|急ぎの用事があるので、お先に失礼します。|Tôi có việc gấp nên xin phép về trước.
 TRÌ,遅れ (おくれ),Sự chậm trễ|事故で電車に30分の遅れが出ています。|Do tai nạn, tàu điện đang bị chậm 30 phút.

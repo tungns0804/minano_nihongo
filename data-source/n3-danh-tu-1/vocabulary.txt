@@ -20,13 +20,13 @@ XUẤT THÂN,出身 (しゅっしん),Quê quán|ご出身はどちらですか�
 CỐ HƯƠNG,故郷 (こきょう),Cố hương|十年ぶりに故郷に帰りました。|Sau mười năm tôi mới về lại quê hương.
 THÀNH TRƯỞNG,成長 (せいちょう),Trưởng thành|この一年で、彼は大きく成長しました。|Trong một năm qua, cậu ấy đã trưởng thành lên nhiều.
 THÀNH NHÂN,成人 (せいじん),Người trưởng thành|日本では18歳で成人になります。|Ở Nhật, 18 tuổi là trở thành người trưởng thành.
-HỢP CÁCH,合格 (ごうかく),Đỗ đại học|兄は大学の入学試験に合格しました。|Anh tôi đã đỗ kỳ thi vào đại học.
+HỢP CÁCH,合格 (ごうかく),Thi đỗ/ đỗ|兄は大学の入学試験に合格しました。|Anh tôi đã đỗ kỳ thi vào đại học.
 TIẾN HỌC,進学 (しんがく),Vào đại học|高校を卒業したら、大学に進学するつもりです。|Tốt nghiệp cấp ba xong, tôi định học lên đại học.
 THOÁI HỌC,退学 (たいがく),Bỏ học|彼は病気で大学を退学しました。|Anh ấy đã bỏ học đại học vì bị bệnh.
 TỰU CHỨC,就職 (しゅうしょく),Có việc làm|卒業したら、日本の会社に就職したいです。|Tốt nghiệp xong, tôi muốn vào làm ở một công ty Nhật.
 THOÁI CHỨC,退職 (たいしょく),Nghỉ việc|父は来年、会社を退職します。|Năm sau bố tôi sẽ nghỉ việc ở công ty.
 THẤT NGHIỆP,失業 (しつぎょう),Thất nghiệp|会社が倒産して、失業してしまいました。|Công ty phá sản nên tôi đã bị thất nghiệp.
-TÀN NGHIỆP,残業 (ざんぎょう),Làm thêm|今日は仕事が多くて、9時まで残業しました。|Hôm nay nhiều việc nên tôi làm thêm giờ đến 9 giờ.
+TÀN NGHIỆP,残業 (ざんぎょう),Làm thêm giờ|今日は仕事が多くて、9時まで残業しました。|Hôm nay nhiều việc nên tôi làm thêm giờ đến 9 giờ.
 SINH HOẠT,生活 (せいかつ),Cuộc sống|日本の生活にはもう慣れました。|Tôi đã quen với cuộc sống ở Nhật rồi.
 THÔNG CẦN,通勤 (つうきん),Đi làm|毎朝、電車で通勤しています。|Sáng nào tôi cũng đi làm bằng tàu điện.
 HỌC LỊCH,学歴 (がくれき),Bằng cấp|この仕事に学歴は関係ありません。|Công việc này không đòi hỏi bằng cấp.
@@ -47,7 +47,7 @@ KẾ HOẠCH,計画 (けいかく),Kế hoạch|夏休みの旅行の計画を�
 THÀNH CÔNG,成功 (せいこう),Thành công|実験は成功しました。|Thí nghiệm đã thành công.
 THẤT BẠI,失敗 (しっぱい),Thất bại|失敗を恐れないでください。|Đừng sợ thất bại.
 CHUẨN BỊ,準備 (じゅんび),Chuẩn bị|旅行の準備はもうできましたか。|Bạn đã chuẩn bị xong cho chuyến đi chưa?
-CHỈNH LÝ,整理 (せいり),Chỉnh sửa|机の上を整理してください。|Hãy sắp xếp lại mặt bàn cho gọn.
+CHỈNH LÝ,整理 (せいり),Sắp xếp/ chỉnh lý|机の上を整理してください。|Hãy sắp xếp lại mặt bàn cho gọn.
 CHÚ VĂN,注文 (ちゅうもん),Đặt hàng|インターネットで本を注文しました。|Tôi đã đặt mua sách qua mạng.
 TRỮ KIM,貯金 (ちょきん),Tiết kiệm|旅行のために毎月貯金しています。|Tôi tiết kiệm tiền hằng tháng để đi du lịch.
 TRIỆT DẠ,徹夜 (てつや),Thức xuyên đêm|試験の前の日に徹夜で勉強しました。|Hôm trước ngày thi tôi đã thức trắng đêm học bài.

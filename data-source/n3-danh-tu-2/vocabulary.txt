@@ -8,8 +8,8 @@ THỂ TRỌNG,体重 (たいじゅう),Cân nặng|毎朝、体重を量って�
 HỘI,会 (かい),Hội, tiệc|会の始めに、社長があいさつをしました。|Đầu buổi tiệc, giám đốc đã phát biểu chào mừng.
 THÚ VỊ,趣味 (しゅみ),Sở thích|私の趣味は写真を撮ることです。|Sở thích của tôi là chụp ảnh.
 HƯNG VỊ,興味 (きょうみ),Hứng thú|日本の歴史に興味があります。|Tôi có hứng thú với lịch sử Nhật Bản.
-TƯ XUẤT,思い出 (おもいで),Nhớ lại|日本での生活は楽しい思い出になりました。|Cuộc sống ở Nhật đã trở thành một kỷ niệm vui.
-NHŨNG ĐÀM,冗談 (じょうだん),Đùa cợt|怒らないで。冗談ですよ。|Đừng giận. Tôi đùa thôi mà.
+TƯ XUẤT,思い出 (おもいで),Kỷ niệm|日本での生活は楽しい思い出になりました。|Cuộc sống ở Nhật đã trở thành một kỷ niệm vui.
+NHŨNG ĐÀM,冗談 (じょうだん),Lời nói đùa/ đùa|怒らないで。冗談ですよ。|Đừng giận. Tôi đùa thôi mà.
 MỤC ĐÍCH,目的 (もくてき),Mục đích|今回の旅行の目的は何ですか。|Mục đích của chuyến đi lần này là gì?
 ƯỚC THÚC,約束 (やくそく),Lời hứa|友達と6時に会う約束をしました。|Tôi đã hẹn gặp bạn lúc 6 giờ.
 ,おしゃべり,Nói chuyện riêng|授業中におしゃべりをしてはいけません。|Không được nói chuyện riêng trong giờ học.
@@ -19,7 +19,7 @@ MÊ HOẶC,迷惑 (めいわく),Làm phiền|夜遅くに電話をするのは�
 HY VỌNG,希望 (きぼう),Hi vọng|希望の会社に就職できました。|Tôi đã vào làm được ở công ty mình mong muốn.
 MỘNG,夢 (ゆめ),Giấc mơ|私の夢は医者になることです。|Ước mơ của tôi là trở thành bác sĩ.
 TÁN THÀNH,賛成 (さんせい),Đồng ý|私はその意見に賛成です。|Tôi đồng ý với ý kiến đó.
-PHẢN ĐỐI,反対 (はんたい),Đối lập|両親は私の留学に反対しています。|Bố mẹ phản đối việc tôi đi du học.
+PHẢN ĐỐI,反対 (はんたい),Phản đối/ ngược lại|両親は私の留学に反対しています。|Bố mẹ phản đối việc tôi đi du học.
 TƯỞNG TƯỢNG,想像 (そうぞう),Tưởng tượng|十年後の自分を想像してみてください。|Hãy thử tưởng tượng bản thân mười năm sau.
 NỖ LỰC,努力 (どりょく),Nỗ lực|努力すれば、きっと合格できます。|Nếu nỗ lực thì chắc chắn sẽ đỗ.
 THÁI DƯƠNG,太陽 (たいよう),Mặt trời|太陽は東から昇ります。|Mặt trời mọc ở phía đông.
@@ -29,13 +29,13 @@ THẤP ĐỘ,湿度 (しつど),Độ ẩm|日本の夏は湿度が高いです�
 THẤP KHÍ,湿気 (しっけ),Hơi ẩm|湿気が多くて、洗濯物が乾きません。|Không khí ẩm quá nên đồ giặt không khô.
 MAI VŨ,梅雨 (つゆ),Mùa mưa|梅雨に入って、毎日雨が降っています。|Vào mùa mưa rồi nên ngày nào cũng mưa.
 ,かび,Nấm mốc|パンにかびが生えてしまいました。|Bánh mì bị mốc mất rồi.
-NOÃN PHÒNG,暖房 (だんぼう),Điều hòa ấm|寒いので暖房をつけました。|Lạnh quá nên tôi đã bật máy sưởi.
+NOÃN PHÒNG,暖房 (だんぼう),Máy sưởi/ sưởi ấm|寒いので暖房をつけました。|Lạnh quá nên tôi đã bật máy sưởi.
 BÌ,皮 (かわ),Vỏ|りんごの皮をむいてください。|Hãy gọt vỏ táo.
 PHỮU,缶 (かん),Đồ hộp|空き缶はこちらに捨ててください。|Hãy bỏ vỏ lon rỗng vào đây.
 HOẠ DIỆN,画面 (がめん),Màn hình|パソコンの画面が急に暗くなりました。|Màn hình máy tính đột nhiên tối đi.
 PHIÊN TỔ,番組 (ばんぐみ),Chương trình|毎晩、ニュース番組を見ています。|Tối nào tôi cũng xem chương trình thời sự.
-KÝ SỰ,記事 (きじ),Ký sự|新聞でおもしろい記事を読みました。|Tôi đã đọc được một bài báo thú vị trên báo.
-CẬN SỞ,近所 (きんじょ),Xung quanh|この近所に郵便局はありますか。|Quanh đây có bưu điện không?
+KÝ SỰ,記事 (きじ),Bài báo/ ký sự|新聞でおもしろい記事を読みました。|Tôi đã đọc được một bài báo thú vị trên báo.
+CẬN SỞ,近所 (きんじょ),Hàng xóm/ khu gần nhà|この近所に郵便局はありますか。|Quanh đây có bưu điện không?
 CẢNH SÁT,警察 (けいさつ),Cảnh sát|道で財布を拾ったので、警察に届けました。|Tôi nhặt được một chiếc ví trên đường nên đã mang nộp cho cảnh sát.
 PHẠM NHÂN,犯人 (はんにん),Tội phạm|犯人はまだ捕まっていません。|Thủ phạm vẫn chưa bị bắt.
 TIỂU TIỀN,小銭 (こぜに),Tiền lẻ|小銭がないので、千円札で払います。|Tôi không có tiền lẻ nên trả bằng tờ 1000 yên.
@@ -45,9 +45,9 @@ TÁC PHẨM,作品 (さくひん),Tác phẩm|美術館でピカソの作品を�
 CHẾ PHỤC,制服 (せいふく),Đồng phục|この学校の制服はかわいいです。|Đồng phục của trường này dễ thương.
 TẨY TỄ,洗剤 (せんざい),Bột giặt|洗剤が少なくなったので、買っておいてください。|Bột giặt sắp hết rồi, mua sẵn giúp tôi nhé.
 ĐỂ,底 (そこ),Đáy|かばんの底に鍵がありました。|Chìa khoá nằm ở đáy túi.
-ĐỊA HẠ,地下 (ちか),Ngầm|駐車場は地下にあります。|Bãi đỗ xe ở dưới tầng hầm.
+ĐỊA HẠ,地下 (ちか),Dưới lòng đất/ tầng hầm|駐車場は地下にあります。|Bãi đỗ xe ở dưới tầng hầm.
 TỰ,寺 (てら),Chùa|京都にはたくさんのお寺があります。|Ở Kyoto có rất nhiều chùa.
 ĐẠO LỘ,道路 (どうろ),Đường|道路が込んでいて、遅れました。|Đường đông xe nên tôi bị muộn.
 BẢN,坂 (さか),Dốc|駅までは長い坂を上らなければなりません。|Đến ga phải leo một con dốc dài.
 YÊN,煙 (けむり),Khói|台所から煙が出ています。|Khói đang bốc ra từ nhà bếp.
-HÔI,灰 (はい),Tàn|たばこの灰を床に落とさないでください。|Đừng để tàn thuốc lá rơi xuống sàn.
+HÔI,灰 (はい),Tro/ tàn|たばこの灰を床に落とさないでください。|Đừng để tàn thuốc lá rơi xuống sàn.

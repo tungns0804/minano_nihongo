@@ -6,7 +6,7 @@
  * `core/exercises/`). Âm Hán Việt của từng chữ suy ra bằng cách căn âm tiết của
  * âm Hán Việt cả từ với các chữ Hán trong từ — xem `scripts/generate-kanji.mjs`.
  *
- * Thống kê lần sinh gần nhất: 2123 chữ (N5=118 N4=149 N3=375 N2=362 N1=1119), 2732 lượt từ.
+ * Thống kê lần sinh gần nhất: 2125 chữ (N5=118 N4=149 N3=375 N2=364 N1=1119), 2735 lượt từ.
  */
 
 import type { KanjiSeed } from './kanji.model';
@@ -417,7 +417,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['会社を休みます', 'かいしゃをやすみます', 'HỘI XÃ HƯU', 'nghỉ làm việc', 'N5'],
     ['連休', 'れんきゅう', 'LIÊN HƯU', 'ngày nghỉ liền nhau/ kỳ nghỉ dài', 'N4'],
     ['本日休業', 'ほんじつきゅうぎょう', 'BẢN NHẬT HƯU NGHIỆP', 'hôm nay nghỉ/ hôm nay đóng cửa', 'N4'],
-    ['休憩します', 'きゅうけいします', 'HƯU KHÊ', 'nghỉ/ giải lao', 'N4'],
+    ['休憩します', 'きゅうけいします', 'HƯU KHẾ', 'nghỉ/ giải lao', 'N4'],
     ['休みを取ります', 'やすみをとります', 'HƯU THỦ', 'xin nghỉ/ nghỉ phép', 'N4'],
   ]],
   ['本', 'BẢN', 'BỔN', 'N5', [
@@ -1249,7 +1249,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['皿', 'MÃNH', '', 'N4', [
     ['お皿', 'おさら', 'MÃNH', 'cái đĩa', 'N4'],
-    ['灰皿', 'はいざら', 'HỘI MÃNH', 'cái gạt tàn', 'N4'],
+    ['灰皿', 'はいざら', 'HÔI MÃNH', 'cái gạt tàn', 'N4'],
   ]],
   ['親', 'THÂN', '', 'N4', [
     ['親切', 'しんせつ', 'THÂN THIẾT', 'tốt bụng, thân thiện', 'N5'],
@@ -4062,8 +4062,8 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['嫌', 'いや', 'HIỀM', 'chán/ ghét', 'N4'],
     ['嫌がります', 'いやがります', 'HIỀM', 'không thích/ tỏ ra ghét', 'N4'],
   ]],
-  ['憩', 'KHÊ', '', 'N2', [
-    ['休憩します', 'きゅうけいします', 'HƯU KHÊ', 'nghỉ/ giải lao', 'N4'],
+  ['憩', 'KHẾ', '', 'N2', [
+    ['休憩します', 'きゅうけいします', 'HƯU KHẾ', 'nghỉ/ giải lao', 'N4'],
   ]],
   ['展', 'TRIỂN', '', 'N2', [
     ['展覧会', 'てんらんかい', 'TRIỂN LÃM HỘI', 'triển lãm', 'N4'],
@@ -4478,8 +4478,8 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['召', 'TRIỆU', '', 'N2', [
     ['召し上がります', 'めしあがります', 'TRIỆU THƯỢNG', 'ăn/ uống (kính ngữ)', 'N4'],
   ]],
-  ['灰', 'HỘI', '', 'N2', [
-    ['灰皿', 'はいざら', 'HỘI MÃNH', 'cái gạt tàn', 'N4'],
+  ['灰', 'HÔI', '', 'N2', [
+    ['灰皿', 'はいざら', 'HÔI MÃNH', 'cái gạt tàn', 'N4'],
   ]],
   ['停', 'ĐÌNH', '', 'N2', [
     ['バス停', 'バスてい', 'ĐÌNH', 'điểm dừng xe buýt', 'N4'],
@@ -4711,6 +4711,13 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['栓抜き', 'せんぬき', 'THUYÊN BẠT', 'cái bật nắp chai', 'N4'],
     ['抜きます', 'ぬきます', '', 'rút ra/ nhổ', 'N3'],
     ['抜けます', 'ぬけます', '', 'tuột ra/ rụng', 'N3'],
+  ]],
+  ['栄', 'VINH', '', 'N2', [
+    ['栄養のバランスを考える', 'えいようのバランスをかんがえる', '', 'cân nhắc cân bằng dinh dưỡng', 'N3'],
+  ]],
+  ['穴', 'HUYỆT', '', 'N2', [
+    ['穴をほる', 'あなをほる', '', 'đào hố', 'N3'],
+    ['穴をうめる', 'あなをうめる', '', 'lấp hố', 'N3'],
   ]],
   ['仁', 'NHÂN', '', 'N1', [
   ]],
@@ -6092,7 +6099,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['酌', 'CHƯỚC', '', 'N1', [
   ]],
-  ['酢', 'TÁC', '', 'N1', [
+  ['酢', 'TẠC', '', 'N1', [
     ['酢', 'す', '', 'giấm', 'N3'],
   ]],
   ['酬', 'THÙ', '', 'N1', [
@@ -6291,7 +6298,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ]],
   ['互', 'HỖ', '', 'N1', [
   ]],
-  ['冗', 'NHUNG', '', 'N1', [
+  ['冗', 'NHŨNG', '', 'N1', [
   ]],
   ['冥', 'MINH', '', 'N1', [
   ]],

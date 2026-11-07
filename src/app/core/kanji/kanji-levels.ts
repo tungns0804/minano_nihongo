@@ -1,5 +1,5 @@
 /**
- * DANH SÁCH CHỮ HÁN THEO CẤP JLPT — N5 → N1, tổng 2123 chữ.
+ * DANH SÁCH CHỮ HÁN THEO CẤP JLPT — N5 → N1, tổng 2125 chữ.
  *
  * Ba danh sách N5, N4, N3 chép nguyên từ ảnh người dùng cung cấp, GIỮ ĐÚNG THỨ TỰ
  * trong ảnh (thứ tự dạy theo lối chiết tự, không phải thứ tự bảng chữ hay tần
@@ -179,6 +179,9 @@ export const KANJI_N2_ROWS: readonly string[] = [
   '与|DỮ|与', '超|SIÊU|走+召', '抱|BÃO|扌+包', '捕|BỘ|扌+甫', '尋|TẦM|彐+工+口+寸', '溢|DẬT|氵+益',
   '眺|THIẾU|目+兆', '就|TỰU|京+尤', '更|CANH|一+日+乂', '提|ĐỀ|扌+是', '躍|DƯỢC|足+羽+隹', '討|THẢO|言+寸',
   '沸|PHÍ|氵+弗', '抜|BẠT|扌+友',
+  // Hai chữ jōyō mà từ vựng N3 có dùng (栄養, 穴をほる) nhưng cả năm danh sách đều
+  // chép thiếu — thiếu thì từ không ghép được âm Hán Việt và chữ không có trang riêng.
+  '栄|VINH|小+冖+木', '穴|HUYỆT|宀+八',
 ];
 
 export const KANJI_N1_ROWS: readonly string[] = [
@@ -448,7 +451,7 @@ export const KANJI_N1_ROWS: readonly string[] = [
   '還|HOÀN|辶+罒+衣',
 
   // ── 酉 hũ rượu, 里 dặm ──
-  '酌|CHƯỚC|酉+勺', '酢|TÁC|酉+乍', '酬|THÙ|酉+州', '酵|HIỆU|酉+耂+子',
+  '酌|CHƯỚC|酉+勺', '酢|TẠC|酉+乍', '酬|THÙ|酉+州', '酵|HIỆU|酉+耂+子',
   '酸|TOAN|酉+夂+八', '醸|NHƯỠNG|酉+亠+口+衣', '醜|XÚ|酉+鬼',
 
   // ── 金 kim loại, 門 cửa ──
@@ -488,7 +491,7 @@ export const KANJI_N1_ROWS: readonly string[] = [
   '革|CÁCH|革', '瓦|NGÕA|瓦', '牙|NHA|牙',
 
   // ── Bổ sung: chữ thường gặp còn thiếu ──
-  '互|HỖ|一+彐', '冗|NHUNG|冖+几', '冥|MINH|冖+日+八', '刃|NHẪN|刀+丶',
+  '互|HỖ|一+彐', '冗|NHŨNG|冖+几', '冥|MINH|冖+日+八', '刃|NHẪN|刀+丶',
   '券|QUYỀN|八+刀', '制|CHẾ|牛+刂', '劾|HẶC|亥+力', '侯|HẦU|亻+彐+矢',
   '党|ĐẢNG|小+冂+口+儿', '奴|NÔ|女+又', '姻|HÔN|女+因', '媒|MÔI|女+某',
   '婿|TẾ|女+疋+月', '嫡|ĐÍCH|女+立+冂+口', '尿|NIỆU|尸+水', '幻|HUYỄN|幺+乚',

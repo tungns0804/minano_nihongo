@@ -14,7 +14,7 @@ THÍ NGHIỆM THỤ,試験を受けます (しけんをうけます),thi/ dự k
 ĐẠI HỌC NHẬP HỌC,大学に入学します (だいがくににゅうがくします),nhập học/ vào đại học|来年、大学に入学するつもりです。
 ĐẠI HỌC TỐT NGHIỆP,大学を卒業します (だいがくをそつぎょうします),tốt nghiệp đại học|去年、大学を卒業しました。
 HỘI NGHỊ XUẤT TỊCH,会議に出席します (かいぎにしゅっせきします),tham dự cuộc họp/ tham gia cuộc họp|部長の代わりに会議に出席します。
-HƯU KHÊ,休憩します (きゅうけいします),nghỉ/ giải lao|ここで少し休憩しましょう。
+HƯU KHẾ,休憩します (きゅうけいします),nghỉ/ giải lao|ここで少し休憩しましょう。
 LIÊN HƯU,連休 (れんきゅう),ngày nghỉ liền nhau/ kỳ nghỉ dài|連休に旅行しようと思っています。
 TÁC VĂN,作文 (さくぶん),bài văn/ bài tập làm văn|作文を書く宿題があります。
 TRIỂN LÃM HỘI,展覧会 (てんらんかい),triển lãm|美術館で展覧会を見ました。
