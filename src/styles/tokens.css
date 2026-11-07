@@ -22,41 +22,54 @@
      nền navy gần đen. Giá trị gốc lấy từ biến CSS của trang đó, rồi chỉnh độ đậm
      ở những chỗ chưa đạt tương phản (xem từng nhóm). */
 
-  /* --- Nền: bốn bậc, từ nền trang ra tới ô lõm sâu nhất -------------------- */
-  --bg: light-dark(#faf9f7, #0f1318);
+  /* --- Nền: bốn bậc, từ nền trang ra tới ô lõm sâu nhất --------------------
+     Bản sáng: nền trang "xám ngà" #eeebe6, thẻ trắng. Nền gốc #faf9f7 chỉ chênh
+     1.05:1 với thẻ trắng, mắt không thấy ranh giới, cả trang thành một mảng trắng
+     liền. #eeebe6 đạt 1.19:1 — các khối tách ra rõ mà nền vẫn sáng, cùng tông ấm
+     cũ, và không lẫn với nền kem của Đèn đêm. Người dùng chọn bản này khi xem bốn
+     phương án đặt cạnh nhau trên app thật.
+
+     Vì nền trang giờ đậm hơn --bg-subtle, --bg-subtle chỉ dùng BÊN TRONG thẻ
+     (đầu bảng, dòng xen kẽ, ô hover), đừng đặt nó trực tiếp lên nền trang. */
+  --bg: light-dark(#eeebe6, #0f1318);
   --bg-elevated: light-dark(#ffffff, #181d24);
-  --bg-subtle: light-dark(#f3f1ee, #20262e);
-  --bg-inset: light-dark(#eae6e1, #29303a);
+  --bg-subtle: light-dark(#f6f4f0, #20262e);
+  --bg-inset: light-dark(#e7e2db, #29303a);
 
   /* --- Chữ ---------------------------------------------------------------
      Ba bậc, và cả ba đều phải ĐỌC ĐƯỢC: ≥ 4.5:1 (WCAG AA cho chữ nhỏ) trên nền
      thẻ, vì bậc nhạt nhất dùng cho đúng loại chữ nhỏ nhất trong app — nhãn cột,
      chú thích, dòng đếm số kết quả. Xám gốc của ByeTOEIC (#627284) chỉ đạt 4.3:1
-     trên ô lõm nên được kéo đậm thêm. */
+     trên ô lõm nên được kéo đậm thêm. Từ khi nền trang đổi sang xám ngà, bậc nhạt
+     nhất là #58636f: 5.15:1 trên nền trang, 4.75:1 trên ô lõm, 6.1:1 trên thẻ. */
   --text: light-dark(#222d39, #edebe8);
   --text-muted: light-dark(#4f5d70, #a0a6ae);
-  --text-faint: light-dark(#66727f, #868d97);
+  --text-faint: light-dark(#58636f, #868d97);
 
-  --border: light-dark(#e6e1db, #2a313a);
-  --border-strong: light-dark(#d2cac1, #3c4550);
+  --border: light-dark(#dcd5cb, #2a313a);
+  --border-strong: light-dark(#c3b8aa, #3c4550);
 
   /* Màu nhấn: xanh lá của khu học (Luyện nghe, Khóa ngữ pháp) — cho nút bắt đầu,
      lựa chọn đang bật, liên kết trong nội dung. Xanh lá gốc rgb(32 180 134) chỉ
-     đạt 2.6:1 với chữ trắng nên bản sáng dùng tông đậm hơn, 4.6:1. */
-  --accent: light-dark(#15855f, #2cc594);
-  --accent-hover: light-dark(#0f6e4e, #56d4ab);
+     đạt 2.6:1 với chữ trắng nên bản sáng dùng tông đậm hơn: #117553, 5.7:1 với
+     chữ trắng và 4.8:1 khi là chữ trên nền trang xám ngà (bản #15855f trước đó
+     chỉ còn 3.9:1 trên nền mới). */
+  --accent: light-dark(#117553, #2cc594);
+  --accent-hover: light-dark(#0c5f43, #56d4ab);
   --accent-soft: light-dark(#e6f4ee, #173a31);
   --accent-text: light-dark(#ffffff, #06140f);
   /* Vòng sáng quanh phần tử đang focus hoặc đang được chọn. Màu trong suốt nên
      chồng lên nền nào cũng hợp, không phải khai báo lại theo từng chỗ đặt. */
-  --accent-ring: light-dark(rgb(21 133 95 / 16%), rgb(44 197 148 / 22%));
+  --accent-ring: light-dark(rgb(17 117 83 / 16%), rgb(44 197 148 / 22%));
 
   /* Màu thương hiệu: xanh Mekong — chỉ cho khung ứng dụng (logo, breadcrumb, mục
      menu đang mở), không dùng trong nội dung. Xem .nav-link.is-active ở app.css. */
   --brand: light-dark(#0057b8, #5c9be0);
   --brand-soft: light-dark(#e6eef8, #1e2f44);
 
-  --success: light-dark(#3d7a3d, #86c28f);
+  /* Chữ trạng thái bản sáng: ≥ 4.8:1 trên nền trang xám ngà và trên nền nhạt
+     cùng màu của chính nó. */
+  --success: light-dark(#387238, #86c28f);
   --success-soft: light-dark(#e9f3e7, #1b3223);
   --success-border: light-dark(#a9d0a5, #3a6a45);
 
@@ -64,7 +77,7 @@
   --danger-soft: light-dark(#fcebe7, #3a1f1c);
   --danger-border: light-dark(#eba99c, #74392f);
 
-  --warning: light-dark(#94620b, #e0c77a);
+  --warning: light-dark(#8a5a08, #e0c77a);
   --warning-soft: light-dark(#fdf3dc, #342a10);
   --warning-border: light-dark(#ebd08c, #6d5a22);
 
@@ -75,8 +88,8 @@
   --radius-lg: 16px;
   --radius-pill: 999px;
 
-  --shadow-sm: 0 1px 2px light-dark(rgb(34 45 57 / 6%), rgb(0 0 0 / 30%));
-  --shadow: 0 4px 16px light-dark(rgb(34 45 57 / 8%), rgb(0 0 0 / 35%));
+  --shadow-sm: 0 1px 2px light-dark(rgb(34 45 57 / 8%), rgb(0 0 0 / 30%));
+  --shadow: 0 4px 16px light-dark(rgb(34 45 57 / 10%), rgb(0 0 0 / 35%));
   --shadow-lg: 0 12px 32px light-dark(rgb(34 45 57 / 12%), rgb(0 0 0 / 45%));
 
   /* --- Thang cỡ chữ ------------------------------------------------------
