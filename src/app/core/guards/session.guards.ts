@@ -1,6 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
+import { PATH } from '../paths';
 import { PracticeSessionStore } from '../practice/practice-session-store';
 
 /**
@@ -11,12 +12,12 @@ import { PracticeSessionStore } from '../practice/practice-session-store';
 export const practiceGuard: CanActivateFn = () => {
   const session = inject(PracticeSessionStore);
   const router = inject(Router);
-  return session.isRunning() ? true : router.createUrlTree(['/']);
+  return session.isRunning() ? true : router.createUrlTree([PATH.today]);
 };
 
 /** Màn hình kết quả chỉ vào được ngay sau khi vừa hoàn thành một phiên. */
 export const resultGuard: CanActivateFn = () => {
   const session = inject(PracticeSessionStore);
   const router = inject(Router);
-  return session.summary() !== null ? true : router.createUrlTree(['/']);
+  return session.summary() !== null ? true : router.createUrlTree([PATH.today]);
 };

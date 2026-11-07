@@ -82,7 +82,7 @@
                 [class.is-favorite]="isFavorite(entry.id)"
                 [attr.data-status]="statusOf(entry.id)"
               >
-                <a class="kanji-link" [routerLink]="['/kanji', entry.id]">
+                <a class="kanji-link" [routerLink]="itemPath(PATH.kanji, entry.id)">
                   <!-- Chữ vẽ to hẳn: cả ô này tồn tại để nhìn cho rõ mặt chữ. Ẩn
                        với trình đọc màn hình vì đọc lên một chữ Hán trơ không
                        thành tiếng gì; âm Hán Việt ở dưới mới là nhãn của link. -->

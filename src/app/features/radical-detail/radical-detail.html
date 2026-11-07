@@ -2,13 +2,13 @@
   @if (notFound()) {
     <div class="stack">
       <div class="notice notice-error">{{ t('radical.notFound', { id: radicalId() }) }}</div>
-      <div><a class="btn" routerLink="/radical">{{ t('radical.back') }}</a></div>
+      <div><a class="btn" [routerLink]="PATH.radicals">{{ t('radical.back') }}</a></div>
     </div>
   } @else if (entry(); as data) {
     <div class="stack stack-xl">
       <!-- ── Bộ thủ ──────────────────────────────────────────────────────── -->
       <header class="stack stack-sm">
-        <a class="back-link" routerLink="/radical">{{ t('radical.back') }}</a>
+        <a class="back-link" [routerLink]="PATH.radicals">{{ t('radical.back') }}</a>
 
         <div class="radical-head">
           <!-- Bộ vẽ to hết cỡ: người học phải nhìn rõ từng nét. -->

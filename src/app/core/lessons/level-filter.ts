@@ -10,7 +10,7 @@ import {
 } from './vocabulary.model';
 
 /**
- * Bộ lọc cấp độ dùng chung cho trang chủ (`/`) và tab Ngữ pháp (`/grammar`).
+ * Bộ lọc cấp độ dùng chung cho tab Từ vựng (`/tu-vung`) và tab Ngữ pháp (`/ngu-phap`).
  *
  * Vì sao tách ra khỏi component: từ khi có N3 thì hai tab đều cần đúng bộ lọc này,
  * và nó không còn là mấy dòng viết cứng "N5, N4" nữa mà phải biết cấp nào bám theo

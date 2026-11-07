@@ -23,11 +23,13 @@ thao tác chứ không phải học thuộc một danh sách.
 
 Vì trang chủ chỉ còn đúng một loại nên **bộ lọc "Loại bài học" đã bỏ**; một bộ lọc có duy nhất
 một lựa chọn thì không lọc được gì. Loại bài nào thuộc tab nào khai ở bảng `LESSON_KIND_TAB`
-trong [`vocabulary.model.ts`](../src/app/core/lessons/vocabulary.model.ts) — một chỗ duy nhất, cả
-hai màn hình danh sách lẫn nút "quay lại" ở trang chi tiết bài đều tra vào đó.
+trong [`paths.ts`](../src/app/core/paths.ts) — một chỗ duy nhất: hai màn hình danh sách, nút
+"quay lại" ở trang chi tiết bài, và chính đường dẫn của bài đều tra vào đó.
 
-**Đổi tab không đổi URL.** Bài chia động từ và bài dịch hội thoại vẫn mở ở `/lesson/<id>` như
-trước, nên link cũ vẫn vào được và dấu ★ "chưa nhớ" (khoá theo id bài) không mất một mục nào.
+**Bài nằm ngay dưới tab liệt kê nó.** Bài chia động từ và bài dịch hội thoại mở ở
+`/luyen-tap/bai-tap/dong-tu-bai-33`, `/luyen-tap/bai-tap/hoi-thoai-bai-26`…, nên menu sáng đúng nhóm
+Luyện tập. Link cũ `/lesson/<id>` tự chuyển tới đó, và dấu ★ "chưa nhớ" khoá theo id bài chứ
+không theo URL nên không mất một mục nào.
 
 Danh sách đã hơn 50 bài nên **cả ba tab** (Từ vựng minano, Bài tập bổ trợ, Ngữ pháp minano) đều
 có ô tìm kiếm ở đầu trang. Gõ tên bài, số bài ("33"), hay chữ không dấu ("dong tu") đều ra — từ
@@ -68,7 +70,7 @@ một danh sách dài không đọc nổi. Tab Ngữ pháp có bộ lọc **Cấ
 
 ## Từ vựng theo chủ đề
 
-Tab **Từ vựng chủ đề** (`/topic`) là **cách gom thứ hai** cho đúng kho từ mà tab Từ vựng minano
+Tab **Từ vựng chủ đề** (`/tu-vung/chu-de`) là **cách gom thứ hai** cho đúng kho từ mà tab Từ vựng minano
 đang dùng — không phải một kho từ mới.
 
 Lý do: giáo trình xếp từ theo thứ tự **DẠY** (bài 7 có 父 và 母, bài 11 có 兄 và 姉, bài 39 có
@@ -178,8 +180,8 @@ chủ đề chỉ tốn 6,8 KB; 179 KB kia chỉ tải khi thật sự bấm và
 
 ### Màn hình chi tiết dùng chung với bài học thường
 
-`/topic/<id>` chạy đúng component [`lesson-detail`](../src/app/features/lesson-detail/) như
-`/lesson/<id>`: một chủ đề **là** một `Lesson` đầy đủ, chỉ mang `kind: 'topic'`. Nhờ vậy bảng
+`/tu-vung/chu-de/<id>` chạy đúng component [`lesson-detail`](../src/app/features/lesson-detail/) như
+`/tu-vung/bai-N`: một chủ đề **là** một `Lesson` đầy đủ, chỉ mang `kind: 'topic'`. Nhờ vậy bảng
 tra, ô tìm trong bài, dấu ★, nút phát âm, học theo cụm, cả 6 chiều luyện và màn hình kết quả
 đều có sẵn, không viết lại dòng nào.
 
@@ -193,7 +195,7 @@ thuộc về một cấp, gán đại một cấp là nói dối người học.
 
 ## Tiến độ N3
 
-Tab **Tiến độ N3** (`/n3`) là bảng kiểm soát việc học để đỗ N3 vào **10/12/2026**. Nó không
+Tab **Tiến độ N3** (`/tien-do-n3`) là bảng kiểm soát việc học để đỗ N3 vào **10/12/2026**. Nó không
 chứa bài học nào — nó ĐO các khu kia, cộng thêm ba quyển 総まとめ chưa nạp vào app mà vẫn phải
 học trên sách.
 
@@ -225,7 +227,7 @@ quyển 漢字 / 語彙 / 読解 chưa nạp vào app — nên đo bằng hoạt
 đã học xong nửa quyển sách. Dấu tích lưu ở `localStorage` khoá `jp-practice:n3-progress`, kèm
 **ngày tích** để trang tính được "7 ngày qua học mấy buổi".
 
-Riêng buổi trỏ tới **một bài trong app** (`/lesson/<id>`, `/grammar/<id>`) thì tự được tích
+Riêng buổi trỏ tới **một bài trong app** (`/tu-vung/bai-12`, `/ngu-phap/bai-26`…) thì tự được tích
 ([`n3-auto-tick.ts`](../src/app/core/n3/n3-auto-tick.ts)) đúng lúc bài đó vừa được **học hết** —
 mọi mục của bài đã vào lịch ôn, tức thanh "Đã học y/y" trên thẻ bài đầy. Màn kết quả báo lại buổi
 nào vừa được tích. Chỉ tích lúc bài chuyển từ chưa hết sang hết: bài học hết từ trước không bị
@@ -251,7 +253,7 @@ tích ngược với ngày hôm nay, và buổi người học tự bỏ tích k
 
 `npm run verify:n3` soát dữ liệu và lịch: id không trùng, tiêu đề không rỗng, trọng số > 0, số
 mục khớp mục lục sách (42/42/42/23), mỗi tuần đúng 7 ngày với ngày cuối là bài kiểm tra, mọi
-đường dẫn trỏ tới bài **có thật và đúng loại** (bài ngữ pháp phải đi qua `/grammar/`), mọi khoá
+đường dẫn trỏ tới bài **có thật và đúng loại** (đúng bằng `lessonPath` của bài đó — bài ngữ pháp ở `/ngu-phap/`, không ở `/tu-vung/`), mọi khoá
 chữ hiển thị đều có trong từ điển, bốn giai đoạn phủ kín không hở không trùng, thang điểm khớp
 cả tổng 180 lẫn từng khối 60/60/60, và **nhịp mỗi giai đoạn không vượt 3,5 buổi/ngày** — kiểm
 tra cuối cùng là quan trọng nhất với người học, vì một lộ trình đòi 6 buổi/ngày thì đúng về số
@@ -550,12 +552,12 @@ thì không ai đoán được vì sao chữ này lại nằm trong bộ 寸, n�
 
 | Ở đâu | Chiều hỏi | Ví dụ | Cách trả lời |
 | --- | --- | --- | --- |
-| `/radical` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` | gõ đáp án |
-| `/radical` (danh sách) | Âm Hán Việt → viết bộ | `THỦY` → vẽ 氵 | viết bằng chuột |
-| `/radical/:id` (một bộ) | Viết đúng bộ đang mở | `THỦY` → vẽ 氵 | viết bằng chuột |
-| `/radical/:id` | Chữ ghép → âm Hán Việt | `休` → `HƯU` | gõ đáp án |
-| `/radical/:id` | Chữ ghép → các bộ tạo thành | `休` → `NHÂN MỘC` | gõ đáp án |
-| `/radical/:id` | Hỏi cả hai (mỗi chữ 2 câu) | `休` → `HƯU` / `NHÂN MỘC` | gõ đáp án |
+| `/kanji/bo-thu` (danh sách) | Bộ thủ → âm Hán Việt | `氵` → `THỦY` | gõ đáp án |
+| `/kanji/bo-thu` (danh sách) | Âm Hán Việt → viết bộ | `THỦY` → vẽ 氵 | viết bằng chuột |
+| `/kanji/bo-thu/:id` (một bộ) | Viết đúng bộ đang mở | `THỦY` → vẽ 氵 | viết bằng chuột |
+| `/kanji/bo-thu/:id` | Chữ ghép → âm Hán Việt | `休` → `HƯU` | gõ đáp án |
+| `/kanji/bo-thu/:id` | Chữ ghép → các bộ tạo thành | `休` → `NHÂN MỘC` | gõ đáp án |
+| `/kanji/bo-thu/:id` | Hỏi cả hai (mỗi chữ 2 câu) | `休` → `HƯU` / `NHÂN MỘC` | gõ đáp án |
 
 Chiều **chiết tự** là phần riêng của khu này: gõ âm Hán Việt của từng bộ theo đúng thứ tự viết.
 Gõ `NHÂN MỘC`, `NHÂN + MỘC` hay `NHÂN, MỘC` đều được tính đúng — dấu câu và khoảng trắng không
@@ -643,7 +645,7 @@ Chấm xong — đúng hay hết bốn lượt đều vậy — có nút **"Vi�
 bao nhiêu lần tuỳ ý. Lượt viết lại vẫn được chấm để đối chiếu nhưng **không đụng tới kết quả
 phiên**; luyện thêm cho quen tay không phải là làm lại bài.
 
-Mở một chữ ở `/kanji/:id` (hay một bộ ở `/radical/:id`) là thấy ngay khối **"Luyện viết chữ này"**
+Mở một chữ ở `/kanji/:id` (hay một bộ ở `/kanji/bo-thu/:id`) là thấy ngay khối **"Luyện viết chữ này"**
 — kể cả với hơn một nghìn chữ trong danh sách JLPT mà kho từ chưa có từ nào dùng tới. Trước đây
 những chữ đó mở ra chỉ có đúng một dòng cảnh báo "chưa luyện từ ở đây được". Ở trang một chữ Hán,
 khối này nay là **Cách viết**: thứ tự nét và ô viết thử nằm ngay trên trang (xem mục
@@ -720,9 +722,9 @@ Tab **Bài tập bổ trợ** gom mọi cách luyện không phải là nhớ ng
 
 | Nhóm | Nội dung | Mở ở |
 | --- | --- | --- |
-| **Bài tập** | Ba bài chuyên đề cài sẵn trong mã nguồn: tự/tha động từ, chuyển thể, số đếm | `/exercise/<id>` |
-| **Chia động từ** | Bài động từ theo giáo trình, từ `data-source/` | `/lesson/<id>` |
-| **Dịch hội thoại** | Bài hội thoại theo giáo trình và bài dịch chuyên đề, từ `data-source/` | `/lesson/<id>` |
+| **Bài tập** | Ba bài chuyên đề cài sẵn trong mã nguồn: tự/tha động từ, chuyển thể, số đếm | `/luyen-tap/bai-tap/<id>` |
+| **Chia động từ** | Bài động từ theo giáo trình, từ `data-source/` | `/luyen-tap/bai-tap/dong-tu-bai-N` |
+| **Dịch hội thoại** | Bài hội thoại theo giáo trình và bài dịch chuyên đề, từ `data-source/` | `/luyen-tap/bai-tap/hoi-thoai-bai-N` |
 
 Đầu trang có **ô tìm kiếm** lọc cả ba nhóm cùng lúc; nhóm không còn thẻ nào khớp thì mất luôn
 cả tiêu đề nhóm chứ không để lại một tiêu đề trống. Số liệu ở góc phải đếm theo đúng phần đang
@@ -731,7 +733,7 @@ hiện.
 Ba bài chuyên đề nằm ngoài giáo trình. Hai bài động từ gom động từ của nhiều bài lẫn nhiều cấp
 theo một chủ đề ngữ pháp, thay vì bám theo thứ tự bài trong sách; cả hai **chỉ có gõ đáp án** —
 mục tiêu là tự viết ra được dạng đúng, mà bày sẵn bốn đáp án thì chỉ còn là nhận mặt chữ. Bài
-**Số đếm & trợ số từ** có màn hình riêng ở `/exercise/so-dem`. Hai sách ngữ pháp N4 không có thẻ
+**Số đếm & trợ số từ** có màn hình riêng ở `/luyen-tap/bai-tap/so-dem`. Hai sách ngữ pháp N4 không có thẻ
 ở tab này: chúng có tab con riêng (xem [Luyện tập ngữ pháp N4](#luyện-tập-ngữ-pháp-n4)). Ghi
 chú về cách trả lời đặt ngay trong nhóm của chúng chứ không ở cuối trang: bài **Chia động từ**
 bên dưới có trắc nghiệm theo cách riêng, treo ghi chú ở cuối trang là nói sai về nó.
@@ -785,12 +787,12 @@ phải chia được, không có id nào trùng.
 ## Luyện tập ngữ pháp N4
 
 Tab con **Ngữ pháp N4** trong nhóm Luyện tập. Sách vnjpclub N4 dùng chung màn hình này, ở tab con
-**vnjpclub** của nhóm Ngữ pháp (`/exercise/ngu-phap-vnjpclub`).
+**vnjpclub** của nhóm Ngữ pháp (`/ngu-phap/vnjpclub`).
 
 Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N4”**, giữ đúng thứ tự và cách chia mục của tài liệu
 (49 mục), thêm mục 50 **Trợ từ「で」** chép từ bài
 [vnjpclub](https://www.vnjpclub.com/ngu-phap-n4/joshi-de-n4.html): **50 mục**, **89 mẫu** có ý
-nghĩa để luyện, **351 câu ví dụ** đem ra luyện (thêm vài câu chỉ để đối chiếu). Màn hình riêng ở `/exercise/ngu-phap-n4` gồm ba phần:
+nghĩa để luyện, **351 câu ví dụ** đem ra luyện (thêm vài câu chỉ để đối chiếu). Màn hình riêng ở `/luyen-tap/ngu-phap-n4` gồm ba phần:
 
 - **Cách học hiệu quả** — bốn bước ngắn ở đầu trang: đọc một mục, học mục đó theo lộ trình,
   đánh ★ câu còn lưỡng lự, hôm sau vào tab Ôn tập trước khi học mục mới.
@@ -873,7 +875,7 @@ cách gõ khác nhau.
 
 ## Đề luyện N4 · 直前対策
 
-Tab con **Đề N4** trong nhóm Luyện tập (`/exercise/taisaku-n4`) nạp toàn bộ bài tập của sách
+Tab con **Đề N4** trong nhóm Luyện tập (`/luyen-tap/de-n4`) nạp toàn bộ bài tập của sách
 「日本語能力試験 直前対策 N4 文字・語彙・文法」 (国書刊行会, 2018), chép tay từ bản scan và đối chiếu
 từng câu với phần đáp án của sách. Trang chia ba lớp: **phần** → **dạng bài** → **đề / chủ đề**.
 

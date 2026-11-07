@@ -212,6 +212,24 @@ Ba chỗ dễ sai:
 
 ---
 
+## Đường dẫn
+
+Mọi đường dẫn nằm ở `core/paths.ts`. Không viết tay `'/ngu-phap'`, không ghép `'/tu-vung/' + id`:
+
+| Cần | Dùng |
+|---|---|
+| Trang cố định (danh sách, Ôn tập…) | `PATH.grammar`, `PATH.review`… — template của `PracticeScreen` / `LessonBrowser` có sẵn `PATH` |
+| Trang một bài | `lessonPath(kind, id)` — tự rút gọn id: `ngu-phap-minano-12` → `/ngu-phap/bai-12` |
+| Trang một chữ / một bộ | `itemPath(PATH.kanji, id)`, `itemPath(PATH.radicals, id)` |
+| Màn hình chi tiết đọc id từ URL | `idOfSlug(base, params.get('slug'))` |
+
+Thêm một khu mới: khai đường dẫn vào `PATH` (tiếng Việt không dấu, nằm dưới nhóm menu của nó),
+route trong `app.routes.ts` viết `r(PATH.x)`, tab con vào `NAV_GROUPS`. Bài của khu phải nằm
+**ngay dưới** danh sách liệt kê nó — `locate` dựa vào đúng điều đó để biết menu nào sáng, tab nào,
+breadcrumb nói gì. Màn hình chi tiết gọi `labelPage(tên ngắn)` khi dữ liệu về, để breadcrumb và
+tiêu đề tab có tên bài. Đổi một đường dẫn đã phát hành thì thêm nhánh vào `legacyPathTarget`, đừng
+để link cũ rơi về trang chủ. `npm run verify:paths` kiểm cả ba điều trên cho mọi bài.
+
 ## Template
 
 Ô tìm và nút ★ đã là component — **đừng chép lại markup**:
@@ -289,7 +307,7 @@ Script sinh mã phải hỗ trợ `--check` và đăng ký nó vào `verify:ci` 
 
 ```
 npm run build        # gồm cả kiểm tra template (strictTemplates)
-npm run verify:ci    # parser, chấm điểm, chia động từ, i18n, file sinh, lộ trình N3
+npm run verify:ci    # parser, đường dẫn, chấm điểm, chia động từ, i18n, file sinh, lộ trình N3
 ```
 
 Đừng chạy `prettier --write` trên cả repo: repo hiện không prettier-clean, nên

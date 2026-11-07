@@ -85,7 +85,7 @@
       } @else {
         <div class="lesson-grid">
           @for (lesson of lessons(); track lesson.id) {
-            <a class="card lesson-card" [routerLink]="['/grammar', lesson.id]">
+            <a class="card lesson-card" [routerLink]="lessonPath('grammar', lesson.id)">
               <div class="lesson-card-top">
                 <h3 class="lesson-name">{{ lesson.name }}</h3>
                 @if (lesson.origin === 'custom') {
@@ -99,7 +99,7 @@
                 <p class="lesson-desc muted small jp clamp-2">{{ lesson.description }}</p>
               }
 
-              <app-lesson-progress [source]="lesson.id" [path]="'/grammar/' + lesson.id" />
+              <app-lesson-progress [source]="lesson.id" [path]="lessonPath('grammar', lesson.id)" />
 
               <div class="lesson-card-bottom">
                 <span class="badge">

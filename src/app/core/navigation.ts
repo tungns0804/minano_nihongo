@@ -1,5 +1,6 @@
 import { IMPORT_LESSON_ENABLED } from './feature-flags';
 import type { MessageKey } from './i18n/messages';
+import { PATH, isUnder, pathOf } from './paths';
 import type { IconName } from '../shared/icon';
 
 /**
@@ -11,8 +12,9 @@ import type { IconName } from '../shared/icon';
  * người học chỉ chọn "học cái gì" ở menu, còn "học từ nguồn nào" là hàng tab con ở
  * đầu trang (`SubNav` trong app.html).
  *
- * Đường dẫn của mọi trang GIỮ NGUYÊN, trừ danh sách bài từ vựng: trang đó nhường "/"
- * cho trang Hôm nay và chuyển sang "/vocab".
+ * Đường dẫn đi theo đúng thứ bậc này (xem `core/paths.ts`): trang con nằm dưới đường
+ * dẫn của nhóm, bài nằm dưới trang con liệt kê nó. Nhờ vậy nhóm, tab và breadcrumb
+ * đều suy ra thẳng từ URL — không có bảng tra tay nào để quên cập nhật.
  */
 
 export type NavGroupId = 'today' | 'vocab' | 'grammar' | 'kanji' | 'practice';
@@ -35,112 +37,86 @@ export interface NavGroup {
 export const NAV_GROUPS: readonly NavGroup[] = [
   {
     id: 'today',
-    path: '/',
+    path: PATH.today,
     labelKey: 'app.nav.today',
     icon: 'calendar',
     pages: [
-      { path: '/', labelKey: 'app.nav.today' },
-      { path: '/review', labelKey: 'app.nav.review' },
-      { path: '/n3', labelKey: 'app.nav.n3' },
+      { path: PATH.today, labelKey: 'app.nav.today' },
+      { path: PATH.review, labelKey: 'app.nav.review' },
+      { path: PATH.n3, labelKey: 'app.nav.n3' },
     ],
   },
   {
     id: 'vocab',
-    path: '/vocab',
+    path: PATH.vocab,
     labelKey: 'app.nav.vocab',
     icon: 'book',
     pages: [
-      { path: '/vocab', labelKey: 'app.sub.minano' },
-      { path: '/topic', labelKey: 'app.sub.topic' },
-      ...(IMPORT_LESSON_ENABLED ? [{ path: '/import', labelKey: 'app.nav.import' as MessageKey }] : []),
+      { path: PATH.vocab, labelKey: 'app.sub.minano' },
+      { path: PATH.topics, labelKey: 'app.sub.topic' },
+      ...(IMPORT_LESSON_ENABLED
+        ? [{ path: PATH.importLesson, labelKey: 'app.nav.import' as MessageKey }]
+        : []),
     ],
   },
   {
     id: 'grammar',
-    path: '/grammar',
+    path: PATH.grammar,
     labelKey: 'app.nav.grammarGroup',
     icon: 'cap',
     pages: [
-      { path: '/grammar', labelKey: 'app.sub.minano' },
-      { path: '/exercise/ngu-phap-vnjpclub', labelKey: 'app.sub.vnjpclub' },
+      { path: PATH.grammar, labelKey: 'app.sub.minano' },
+      { path: PATH.vnjpclub, labelKey: 'app.sub.vnjpclub' },
     ],
   },
   {
     id: 'kanji',
-    path: '/kanji',
+    path: PATH.kanji,
     labelKey: 'app.nav.kanji',
     icon: 'pencil',
     pages: [
-      { path: '/kanji', labelKey: 'app.nav.kanji' },
-      { path: '/radical', labelKey: 'app.nav.radical' },
+      { path: PATH.kanji, labelKey: 'app.nav.kanji' },
+      { path: PATH.radicals, labelKey: 'app.nav.radical' },
     ],
   },
   {
     id: 'practice',
-    path: '/translate',
+    // Nhóm này không có trang chung: bấm menu là vào thẳng tab đầu (/luyen-tap tự
+    // chuyển tới đó nếu ai gõ tay).
+    path: PATH.translate,
     labelKey: 'app.nav.practice',
     icon: 'clipboard',
     pages: [
-      { path: '/translate', labelKey: 'app.nav.translate' },
-      { path: '/exercise', labelKey: 'app.nav.exercise' },
+      { path: PATH.translate, labelKey: 'app.nav.translate' },
+      { path: PATH.exercises, labelKey: 'app.nav.exercise' },
       // Bài "Luyện tập ngữ pháp N4" nằm ở nhóm Luyện tập theo ý người dùng (01/11/2026): họ
       // dùng nó để luyện theo lộ trình năm bậc, cạnh đề luyện N4, hơn là để đọc lý thuyết.
-      { path: '/exercise/ngu-phap-n4', labelKey: 'app.sub.n4grammar' },
-      { path: '/exercise/taisaku-n4', labelKey: 'app.sub.taisaku' },
+      { path: PATH.n4grammar, labelKey: 'app.sub.n4grammar' },
+      { path: PATH.taisaku, labelKey: 'app.sub.taisaku' },
     ],
   },
 ];
 
-/**
- * Nhóm sở hữu từng nhánh đường dẫn. Xét từ trên xuống, nhánh dài hơn đứng trước:
- * sách vnjpclub nằm dưới /exercise nhưng là nội dung NGỮ PHÁP. Bài "Luyện tập ngữ pháp N4"
- * thì thuộc nhóm Luyện tập, nên nó đi theo nhánh /exercise như mọi bài tập khác.
- *
- * Bài chia động từ và bài hội thoại mở ở /lesson/:id như bài từ vựng, nên URL không
- * cho biết loại bài — chúng sáng mục Từ vựng, đúng như trước khi có nhóm.
- */
-const OWNERS: readonly (readonly [prefix: string, group: NavGroupId])[] = [
-  ['/exercise/ngu-phap-vnjpclub', 'grammar'],
-  ['/review', 'today'],
-  ['/n3', 'today'],
-  ['/vocab', 'vocab'],
-  ['/lesson', 'vocab'],
-  ['/topic', 'vocab'],
-  ['/import', 'vocab'],
-  ['/grammar', 'grammar'],
-  ['/kanji', 'kanji'],
-  ['/radical', 'kanji'],
-  ['/translate', 'practice'],
-  ['/exercise', 'practice'],
-];
-
-/** Đường dẫn trần của một URL: bỏ query, fragment và tham số ma trận. */
-export function pathOf(url: string): string {
-  const path = url.split(/[?#;]/)[0];
-  return path.length > 1 ? path.replace(/\/+$/, '') : '/';
+/** Vị trí của một URL trong menu. */
+export interface NavSpot {
+  readonly group: NavGroup;
+  /** Trang con chứa URL này — chính nó, hoặc danh sách liệt kê bài đang mở. */
+  readonly page: NavPage;
+  /** URL đúng là trang con (trang danh sách), không phải một bài bên dưới nó. */
+  readonly isPage: boolean;
 }
 
-/**
- * Nhóm của một URL, hoặc null với màn hình không thuộc nhóm nào — đang luyện tập và
- * kết quả, nơi menu ẩn đi cho người học tập trung.
- */
-export function groupOf(url: string): NavGroup | null {
-  const path = pathOf(url);
-  if (path === '/') return NAV_GROUPS[0];
-  const owner = OWNERS.find(([prefix]) => path === prefix || path.startsWith(`${prefix}/`));
-  return owner ? (NAV_GROUPS.find((group) => group.id === owner[1]) ?? null) : null;
-}
+/** Mọi trang con, đường dẫn dài trước: /tu-vung/chu-de phải thắng /tu-vung. */
+const PAGES_LONGEST_FIRST = NAV_GROUPS.flatMap((group) =>
+  group.pages.map((page) => ({ group, page })),
+).sort((a, b) => b.page.path.length - a.page.path.length);
 
 /**
- * Trang con đang mở, nếu URL đúng là một trang danh sách trong hàng tab. Trang chi
- * tiết (/lesson/:id, /grammar/:id…) không hiện hàng tab: ở đó đã có nút quay lại, và
- * hàng tab sẽ đẩy nội dung đang học xuống thấp.
+ * Nhóm và trang con của một URL, hoặc null với màn hình không thuộc nhóm nào — đang
+ * luyện tập và kết quả, nơi menu ẩn đi cho người học tập trung.
  */
-export function subPageOf(url: string): NavPage | null {
+export function locate(url: string): NavSpot | null {
   const path = pathOf(url);
-  for (const group of NAV_GROUPS) {
-    const page = group.pages.find((item) => item.path === path);
-    if (page) return page;
-  }
-  return null;
+  const hit = PAGES_LONGEST_FIRST.find(({ page }) => isUnder(path, page.path));
+  return hit ? { ...hit, isPage: hit.page.path === path } : null;
 }

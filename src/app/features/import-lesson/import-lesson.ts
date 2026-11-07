@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 
 import { VERB_GROUP_LABEL_KEY, conjugate } from '../../core/japanese/conjugation';
 import { LanguageStore } from '../../core/i18n/language-store';
+import { PATH, lessonPath } from '../../core/paths';
 import { T } from '../../core/i18n/t';
 import {
   LESSON_KIND_UNIT_KEY,
@@ -72,6 +73,8 @@ interface PreviewRow {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImportLesson {
+  protected readonly PATH = PATH;
+  protected readonly lessonPath = lessonPath;
   private readonly lessonStore = inject(LessonStore);
   private readonly favoriteStore = inject(FavoriteStore);
   private readonly lang = inject(LanguageStore);
@@ -234,7 +237,7 @@ export class ImportLesson {
     }
 
     this.lessonStore.saveCustomLesson(lesson);
-    void this.router.navigate(['/lesson', lesson.id]);
+    void this.router.navigateByUrl(lessonPath(lesson.kind, lesson.id));
   }
 
   /** Tải file JSON đúng định dạng để đặt vào `public/lessons/`. */

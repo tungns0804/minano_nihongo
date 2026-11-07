@@ -3,6 +3,7 @@ import { Injectable, effect, inject, signal, untracked } from '@angular/core';
 import { LessonStore } from '../lessons/lesson-store';
 import { flattenGrammarExamples } from '../lessons/vocabulary.model';
 import { ReviewStore, type SourceProgress } from '../review/review-store';
+import { lessonIdOfPath } from '../paths';
 import { N3ProgressStore } from './n3-progress-store';
 import { N3_SECTIONS } from './n3-syllabus';
 import { type N3Unit, unitsOf } from './n3.model';
@@ -10,15 +11,16 @@ import { type N3Unit, unitsOf } from './n3.model';
 /**
  * Buổi lộ trình N3 ứng với từng bài trong app, theo id bài.
  *
- * Chỉ lấy buổi trỏ tới MỘT bài (`/lesson/<id>`, `/grammar/<id>`): buổi trỏ tới cả một
- * khu như `/kanji` không có điểm "học hết" nào để đo.
+ * Chỉ lấy buổi trỏ tới MỘT bài (`/tu-vung/bai-12`, `/ngu-phap/bai-26`…): buổi trỏ tới
+ * cả một khu như `/kanji` không có điểm "học hết" nào để đo. Bài không vào lịch ôn
+ * (bài tập cài trong mã nguồn, luyện dịch) thì `totalOf` trả 0 và tự bị bỏ qua.
  */
 const UNITS_BY_LESSON: ReadonlyMap<string, readonly N3Unit[]> = (() => {
   const map = new Map<string, N3Unit[]>();
   for (const unit of N3_SECTIONS.flatMap(unitsOf)) {
-    const match = unit.source === 'app' ? /^\/(?:lesson|grammar)\/(.+)$/.exec(unit.route) : null;
-    if (!match) continue;
-    map.set(match[1], [...(map.get(match[1]) ?? []), unit]);
+    const lessonId = unit.source === 'app' ? lessonIdOfPath(unit.route) : null;
+    if (!lessonId) continue;
+    map.set(lessonId, [...(map.get(lessonId) ?? []), unit]);
   }
   return map;
 })();
@@ -30,8 +32,8 @@ function trackedOf(progress: ReadonlyMap<string, SourceProgress>): Map<string, n
 /**
  * Tự tích buổi lộ trình N3 khi bài của buổi đó vừa được học HẾT trong app.
  *
- * Trước đây trang /n3 chỉ tích tay: học xong một bài trong app rồi vẫn phải sang
- * /n3 tìm đúng dòng mà tích, quên là phần trăm và nhịp học nói sai. "Học hết" ở
+ * Trước đây trang Tiến độ N3 chỉ tích tay: học xong một bài trong app rồi vẫn phải
+ * sang đó tìm đúng dòng mà tích, quên là phần trăm và nhịp học nói sai. "Học hết" ở
  * đây đúng bằng thanh "Đã học y/y" trên thẻ bài: mọi mục của bài đã vào lịch ôn.
  *
  * Chỉ tích lúc bài CHUYỂN từ chưa hết sang hết, so với lần đọc lịch ôn trước đó:

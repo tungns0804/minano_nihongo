@@ -1,3 +1,4 @@
+import { PATH } from '../paths';
 import type { GrammarBook } from './grammar-books';
 import { buildSections } from './grammar-book.build';
 import {
@@ -13,7 +14,7 @@ import {
  */
 export const VNJPCLUB_BOOK: GrammarBook = {
   id: 'ngu-phap-vnjpclub',
-  path: '/exercise/ngu-phap-vnjpclub',
+  path: PATH.vnjpclub,
   nameKey: 'exercise.vnjpclub.name',
   subtitleKey: 'exercise.vnjpclub.subtitle',
   sections: buildSections(VNJPCLUB_RAW_SECTIONS),

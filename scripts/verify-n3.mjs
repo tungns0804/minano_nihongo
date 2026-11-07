@@ -53,6 +53,12 @@ const { MESSAGES } = await import(
   toFileUrl(join(ROOT, 'src', 'app', 'core', 'i18n', 'messages.ts'))
 );
 
+// Cùng các hàm mà app dùng để dựng và đọc đường dẫn — kiểm tra bằng thứ khác thì hai
+// bên có thể lệch nhau mà không ai hay.
+const { exercisePath, isStaticPath, lessonIdOfPath, lessonPath } = await import(
+  toFileUrl(join(ROOT, 'src', 'app', 'core', 'paths.ts'))
+);
+
 let problems = 0;
 function fail(msg) {
   log(`${c.red}[LOI] ${msg}${c.reset}`);
@@ -70,9 +76,9 @@ function warn(msg) {
 /**
  * Bài học có thật: id → loại, đọc từ public/lessons/index.json.
  *
- * Cần cả LOẠI chứ không chỉ id: bài ngữ pháp đi qua `/grammar/:id` còn ba loại
- * kia qua `/lesson/:id`. Gộp hết vào một tập id thì một bài từ vựng bị trỏ nhầm
- * sang nhánh `/grammar/` vẫn qua được kiểm tra, rồi ra trang trắng lúc chạy.
+ * Cần cả LOẠI chứ không chỉ id: mỗi loại nằm ở một nhánh riêng (/tu-vung/, /ngu-phap/,
+ * /luyen-tap/bai-tap/…). Gộp hết vào một tập id thì một bài từ vựng bị trỏ nhầm sang
+ * nhánh /ngu-phap/ vẫn qua được kiểm tra, rồi ra trang "không tìm thấy" lúc chạy.
  */
 const lessonKinds = new Map();
 try {
@@ -89,7 +95,7 @@ try {
  *
  * Bản trước quét `id: '...'` trong exercise.model.ts, và biểu thức đó bắt luôn
  * sáu id của `ExerciseMode` ('to-transitive', 'masu-to-form'…) — những thứ không
- * phải đường dẫn. Hệ quả: `/exercise/masu-to-form` qua được kiểm tra rồi ra trang
+ * phải đường dẫn. Hệ quả: `/luyen-tap/bai-tap/masu-to-form` qua được kiểm tra rồi ra trang
  * trắng. Script này đã nạp ba module .ts khác qua --experimental-strip-types nên
  * nhập thêm một module nữa không tốn gì, và nó không thể lệch với sự thật.
  */
@@ -97,9 +103,6 @@ const { EXERCISES } = await import(
   toFileUrl(join(ROOT, 'src', 'app', 'core', 'exercises', 'exercise.model.ts'))
 );
 const exerciseIds = new Set(EXERCISES.map((item) => item.id));
-
-/** Đường dẫn không gắn với một bài cụ thể thì luôn hợp lệ. */
-const STATIC_ROUTES = new Set(['/kanji', '/radical', '/exercise', '/grammar', '/']);
 
 /**
  * Số mục mà mỗi quyển sách PHẢI có.
@@ -141,28 +144,23 @@ for (const section of N3_SECTIONS) {
     if (!unit.titleJa.trim() || !unit.titleVi.trim()) {
       fail(`Muc "${unit.id}" thieu tieu de (ja="${unit.titleJa}" vi="${unit.titleVi}")`);
     }
-    if (!unit.route || STATIC_ROUTES.has(unit.route)) continue;
+    // Đường dẫn không gắn với một bài cụ thể (/kanji, /kanji/bo-thu) thì luôn hợp lệ.
+    if (!unit.route || isStaticPath(unit.route)) continue;
 
-    const lesson = /^\/lesson\/(.+)$/.exec(unit.route);
-    const grammar = /^\/grammar\/(.+)$/.exec(unit.route);
-    const exercise = /^\/exercise\/(.+)$/.exec(unit.route);
-
-    if (lesson || grammar) {
-      const id = (lesson ?? grammar)[1];
-      const kind = lessonKinds.get(id);
-      if (lessonKinds.size > 0 && kind === undefined) {
-        fail(`Muc "${unit.id}" tro toi bai hoc "${id}" khong co trong index.json`);
-      } else if (grammar && kind !== undefined && kind !== 'grammar') {
-        fail(`Muc "${unit.id}" dung /grammar/ cho bai "${id}" loai "${kind}"`);
-      } else if (lesson && kind === 'grammar') {
-        fail(`Muc "${unit.id}" dung /lesson/ cho bai ngu phap "${id}" — phai la /grammar/`);
-      }
-    } else if (exercise) {
-      if (!exerciseIds.has(exercise[1])) {
-        fail(`Muc "${unit.id}" tro toi bai tap "${exercise[1]}" khong co trong EXERCISES`);
-      }
-    } else {
+    const id = lessonIdOfPath(unit.route);
+    if (id === null) {
       fail(`Muc "${unit.id}" co duong dan la khong nhan ra: "${unit.route}"`);
+    } else if (exerciseIds.has(id)) {
+      if (exercisePath(id) !== unit.route) {
+        fail(`Muc "${unit.id}" tro bai tap "${id}" sai cho "${unit.route}", phai la "${exercisePath(id)}"`);
+      }
+    } else if (lessonKinds.size > 0) {
+      const kind = lessonKinds.get(id);
+      if (kind === undefined) {
+        fail(`Muc "${unit.id}" tro toi bai hoc "${id}" khong co trong index.json`);
+      } else if (lessonPath(kind, id) !== unit.route) {
+        fail(`Muc "${unit.id}" dung "${unit.route}" cho bai "${id}" (${kind}), phai la "${lessonPath(kind, id)}"`);
+      }
     }
   }
 }

@@ -9,6 +9,7 @@ import { LessonStore } from '../lessons/lesson-store';
 import { LevelPreference } from '../services/level-preference';
 import { valueOf } from '../utils/dom-events';
 import { lessonMatches, normalizeSearch } from '../lessons/lesson-search';
+import { PATH, lessonPath } from '../paths';
 
 /**
  * Phần chung của bốn trang danh sách: trang chủ, tab Ngữ pháp, tab Bài tập bổ
@@ -23,6 +24,9 @@ export abstract class LessonBrowser {
   protected readonly lang = inject(LanguageStore);
 
   readonly t = this.lang.t.bind(this.lang);
+  /** Đường dẫn cho template — thẻ bài dùng `lessonPath(kind, id)`, không ghép tay. */
+  protected readonly PATH = PATH;
+  protected readonly lessonPath = lessonPath;
 
   /**
    * Từ khoá tìm. KHÔNG nhớ sang lần mở sau, khác với bộ lọc cấp độ: mở app lên mà

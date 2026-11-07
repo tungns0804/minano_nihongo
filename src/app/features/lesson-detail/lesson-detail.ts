@@ -27,11 +27,9 @@ import {
 import {
   ConversationLine,
   LESSON_KIND_SEARCH_KEY,
-  LESSON_KIND_TAB,
   LESSON_KIND_TABLE_KEY,
   LESSON_KIND_UNIT_KEY,
   LESSON_KIND_LABEL_KEY,
-  LESSON_TAB_ROUTE,
   Lesson,
   OPTIONAL_WORD_FIELDS,
   VerbEntry,
@@ -39,8 +37,10 @@ import {
   WordField,
   fieldValue,
   hasWordField,
+  shortLessonName,
   showsLessonKanji,
 } from '../../core/lessons/vocabulary.model';
+import { LESSON_KIND_TAB, PATH, idOfSlug, lessonPath, listPathOf, pathOf } from '../../core/paths';
 import { batchCount, batchRange } from '../../core/practice/batch';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
 import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
@@ -60,6 +60,34 @@ import { PhotoViewer } from '../../shared/photo-viewer';
 import { LessonPager } from '../../shared/lesson-pager';
 import type { KanjiEntry } from '../../core/kanji/kanji.model';
 
+/**
+ * Thiết lập mà bài TỪ VỰNG có sẵn khi mở ra — đúng bộ người học chụp gửi ngày
+ * 2026-11-07 và yêu cầu làm mặc định: nhìn chữ Hán gõ ra cách đọc, mỗi phiên 10 từ
+ * theo đúng thứ tự trong bài (bắt đầu từ cụm 1), có âm Hán Việt làm mốc nhớ.
+ *
+ * Chỉ áp cho bài từ vựng (kể cả bài chủ đề). Bài động từ và hội thoại giữ mặc định
+ * cũ — chúng không có chiều "cách đọc", và bài hội thoại còn khoá luôn cách trả lời.
+ */
+const VOCABULARY_DEFAULTS = {
+  direction: 'jp-kana',
+  /** Bài không có cách đọc thì không có chiều jp-kana — lùi về chiều này. */
+  fallbackDirection: 'jp-vi',
+  answerMode: 'typing',
+  questionLimit: 10,
+  /** Cụm 1 (đếm từ 0). */
+  batch: 0,
+  shuffle: false,
+  showHanViet: true,
+} as const satisfies {
+  direction: PracticeDirection;
+  fallbackDirection: PracticeDirection;
+  answerMode: AnswerMode;
+  questionLimit: number;
+  batch: number;
+  shuffle: boolean;
+  showHanViet: boolean;
+};
+
 @Component({
   selector: 'app-lesson-detail',
   imports: [LessonPager, PhotoViewer, PracticeSetup, RouterLink, SearchBox, StarButton, T, VocabPhoto],
@@ -76,6 +104,12 @@ export class LessonDetail extends PracticeScreen {
   readonly directions = DIRECTIONS;
   readonly verbModes = VERB_MODES;
   readonly formLabelKey = VERB_FORM_LABEL_KEY;
+
+  /**
+   * Danh sách mà route này nằm dưới (`data.base` trong app.routes.ts): cùng màn hình
+   * mở bài từ vựng, chủ đề, và bài động từ / hội thoại của tab Bài tập.
+   */
+  private readonly base: string = this.route.snapshot.data['base'] ?? PATH.vocab;
 
   readonly lessonId = signal('');
   readonly lesson = signal<Lesson | null>(null);
@@ -110,7 +144,10 @@ export class LessonDetail extends PracticeScreen {
    * quay lại sẽ rơi vào một danh sách KHÔNG chứa bài vừa xem — đúng kiểu lạc đường
    * mà người dùng không hiểu nổi tại sao.
    */
-  readonly backRoute = computed(() => LESSON_TAB_ROUTE[LESSON_KIND_TAB[this.lesson()?.kind ?? 'vocabulary']]);
+  readonly backRoute = computed(() => {
+    const kind = this.lesson()?.kind;
+    return kind ? listPathOf(kind) : this.base;
+  });
 
   /** Chữ trên nút quay lại, gọi đúng tên cái danh sách sắp quay về. */
   readonly backLabelKey = computed<MessageKey>(() => {
@@ -383,35 +420,41 @@ export class LessonDetail extends PracticeScreen {
 
   constructor() {
     super();
-    // Bài từ vựng mặc định HIỆN âm Hán Việt: nó là mốc nhớ chính của người học
-    // tiếng Việt, và ở chiều hỏi nào lộ đáp án thì `hanVietHintAvailable` tự tắt.
-    this.showHint.set(true);
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
-      const id = params.get('id') ?? '';
+      const slug = params.get('slug') ?? '';
+      const id = idOfSlug(this.base, slug);
       this.lessonId.set(id);
       this.resetView();
-      void this.load(id);
+      void this.load(id, `${this.base}/${slug}`);
     });
   }
 
-  private async load(id: string): Promise<void> {
+  private async load(id: string, requested: string): Promise<void> {
     this.loading.set(true);
     this.notFound.set(false);
     const lesson = await this.lessonStore.getLesson(id);
 
-    // Bài ngữ pháp và bài luyện dịch có màn hình riêng. Đường dẫn cũ hoặc link chép tay
-    // vẫn có thể trỏ vào đây, nên đưa sang đúng chỗ thay vì vẽ ra một trang trống (hai
-    // loại bài đó không có words/verbs/lines nên mọi bảng ở màn hình này đều rỗng).
-    if (lesson?.kind === 'grammar' || lesson?.kind === 'translation') {
-      const base = lesson.kind === 'grammar' ? '/grammar' : '/translate';
-      void this.router.navigate([base, id], { replaceUrl: true });
+    // Bài nằm sai nhánh — đường dẫn cũ /lesson/<id> đoán nhầm loại, link chép tay, bài
+    // ngữ pháp mở ở /tu-vung/… — thì đưa sang đúng chỗ thay vì vẽ ở đây: bài ngữ pháp
+    // và luyện dịch có màn hình riêng (ở đây mọi bảng của chúng đều rỗng), còn bài đúng
+    // loại mà sai nhánh thì menu, tab và nút quay lại đều chỉ sai chỗ.
+    //
+    // Chỉ chuyển khi người học VẪN đang ở trang vừa yêu cầu: trong lúc chờ tải bài họ
+    // có thể đã bấm sang trang khác, và kéo họ quay lại là cướp cú bấm đó.
+    const here = pathOf(this.router.url);
+    if (lesson && here === requested && lessonPath(lesson.kind, lesson.id) !== here) {
+      void this.router.navigateByUrl(lessonPath(lesson.kind, lesson.id), { replaceUrl: true });
       return;
     }
 
     this.lesson.set(lesson);
     this.notFound.set(lesson === null);
     this.loading.set(false);
-    if (lesson) this.rememberRecent({ title: lesson.name, kindKey: LESSON_KIND_LABEL_KEY[lesson.kind] });
+    if (lesson) {
+      this.rememberRecent({ title: lesson.name, kindKey: LESSON_KIND_LABEL_KEY[lesson.kind] });
+      this.labelPage(shortLessonName(lesson.name));
+      if (lesson.kind === 'vocabulary') this.applyVocabularyDefaults();
+    }
     if (lesson && showsLessonKanji(lesson)) void this.loadLessonKanji(lesson);
   }
 
@@ -442,6 +485,13 @@ export class LessonDetail extends PracticeScreen {
     card.classList.add('is-arrived');
   }
 
+  /**
+   * Mỗi bài mở ra ở thiết lập mặc định của LOẠI bài đó. Màn hình này được dùng lại khi
+   * chuyển bài (chỉ đổi tham số đường dẫn), nên không đặt lại thì chiều luyện, cách trả
+   * lời và trộn câu của bài vừa xem sẽ đi theo sang bài sau — sang bài động từ mà vẫn
+   * mang chiều "Nhật → Cách đọc" của bài từ vựng. Bài từ vựng đè tiếp bằng
+   * `applyVocabularyDefaults` khi dữ liệu bài đã về.
+   */
   private resetView(): void {
     this.lesson.set(null);
     this.lessonKanji.set([]);
@@ -451,8 +501,36 @@ export class LessonDetail extends PracticeScreen {
     this.scope.set('all');
     this.questionLimit.set(null);
     this.pickedBatch.set(null);
+    this.direction.set('jp-vi');
+    this.answerMode.set('choice');
+    this.shuffleQuestions.set(true);
+    // Mặc định HIỆN âm Hán Việt: nó là mốc nhớ chính của người học tiếng Việt, và ở
+    // chiều hỏi nào lộ đáp án thì `hanVietHintAvailable` tự tắt.
+    this.showHint.set(true);
     this.verbMode.set('masu-to-form');
     this.selectedForms.set(['te']);
+  }
+
+  /**
+   * Đặt `VOCABULARY_DEFAULTS` cho bài vừa nạp. Phải chạy SAU khi `lesson` đã có: chiều
+   * luyện dùng được hay không tuỳ bài có cách đọc không, và số câu của bài lại tuỳ
+   * chiều luyện (chiều cách đọc bỏ qua từ katakana không có cách đọc riêng).
+   */
+  private applyVocabularyDefaults(): void {
+    const defaults = VOCABULARY_DEFAULTS;
+    this.direction.set(
+      directionIsUsable(defaults.direction, this.hasField())
+        ? defaults.direction
+        : defaults.fallbackDirection,
+    );
+    this.answerMode.set(defaults.answerMode);
+    this.shuffleQuestions.set(defaults.shuffle);
+    this.showHint.set(defaults.showHanViet);
+    // Bài ngắn hơn 10 câu không có nút "10 câu" (xem `limitChoices`), nên giữ "Tất cả".
+    if (defaults.questionLimit < this.totalQuestionCount()) {
+      this.questionLimit.set(defaults.questionLimit);
+      this.pickedBatch.set(defaults.batch);
+    }
   }
 
   private filterLines(): ConversationLine[] {
@@ -643,7 +721,7 @@ export class LessonDetail extends PracticeScreen {
     if (!confirm(this.lang.t('lesson.confirm.delete', { name: lesson.name }))) return;
     this.lessonStore.deleteCustomLesson(lesson.id);
     this.favoriteStore.clearLesson(lesson.id);
-    void this.router.navigate(['/vocab']);
+    void this.router.navigateByUrl(PATH.vocab);
   }
 
   groupOf(group: VerbGroup): string {

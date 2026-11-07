@@ -34,16 +34,23 @@
         <span class="jp brand-jp">皆の日本語</span>
       </a>
 
+      <!-- Chữ thường chứ không <app-t>: app-t giữ chỗ cho bản dịch DÀI NHẤT để đổi ngôn
+           ngữ không giật bố cục, nên giữa dòng nó để lại một khoảng hở sau "Minano"
+           (bản tiếng Nhật 皆の日本語 rộng hơn). -->
       <nav class="crumbs" [attr.aria-label]="t('app.breadcrumb')">
         <a routerLink="/" class="jp crumb-home">皆の日本語</a>
-        @if (crumbKey(); as key) {
+        @for (crumb of crumbs(); track $index; let last = $last) {
           <span class="crumb-sep" aria-hidden="true">/</span>
-          @if (crumbSubKey(); as subKey) {
-            <a class="crumb-group" [routerLink]="group()?.path"><app-t [key]="key" /></a>
-            <span class="crumb-sep" aria-hidden="true">/</span>
-            <span class="crumb-current"><app-t [key]="subKey" /></span>
+          @if (crumb.path; as path) {
+            <a class="crumb" [routerLink]="path">{{ crumb.key ? t(crumb.key) : crumb.text }}</a>
           } @else {
-            <span class="crumb-current"><app-t [key]="key" /></span>
+            <span
+              class="crumb"
+              [class.crumb-current]="last"
+              [attr.aria-current]="last ? 'page' : null"
+              [attr.title]="last && crumb.text ? crumb.text : null"
+            >{{ crumb.key ? t(crumb.key) : crumb.text }}</span
+          >
           }
         }
       </nav>

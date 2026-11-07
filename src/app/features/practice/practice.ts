@@ -16,6 +16,7 @@ import { T } from '../../core/i18n/t';
 import type { MessageKey } from '../../core/i18n/messages';
 import { QuestionStatus, examText, sessionShortKey } from '../../core/practice/practice.model';
 import { N3AutoTick } from '../../core/n3/n3-auto-tick';
+import { PATH } from '../../core/paths';
 import { FavoriteStore } from '../../core/services/favorite-store';
 import { FeedbackSound } from '../../core/services/feedback-sound';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
@@ -439,7 +440,7 @@ export class Practice {
     if (outcome === 'blocked') return;
 
     if (outcome === 'finished') {
-      void this.router.navigate(['/result']);
+      void this.router.navigateByUrl(PATH.result);
       return;
     }
 
@@ -461,7 +462,7 @@ export class Practice {
   quit(): void {
     if (!confirm(this.lang.t('practice.confirmQuit'))) return;
     this.session.abandon();
-    void this.router.navigate(['/']);
+    void this.router.navigateByUrl(PATH.today);
   }
 
   // --- Bàn phím ---

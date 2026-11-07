@@ -12,7 +12,7 @@
  *
  * ĐANG TẮT. Tắt cờ này thì:
  *  - mục "Nạp bài mới" biến mất khỏi thanh điều hướng,
- *  - đường dẫn /import không còn được đăng ký, gõ tay vào sẽ bị đưa về trang chủ,
+ *  - đường dẫn /tu-vung/nap-bai không còn được đăng ký, gõ tay vào sẽ bị đưa về trang chủ,
  *  - trang chủ lúc chưa có bài nào chỉ hướng dẫn cách thêm bài qua data-source/.
  *
  * KHÔNG đụng tới các bài đã nạp từ trước: chúng vẫn nằm trong localStorage, vẫn

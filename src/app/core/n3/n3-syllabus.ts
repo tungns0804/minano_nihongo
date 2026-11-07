@@ -4,6 +4,10 @@ import type { MessageKey } from '../i18n/messages';
 // Node chỉ xoá cú pháp kiểu chứ không tra xem tên nào là kiểu, nên một import
 // thường sẽ thành lệnh nhập thật lúc chạy rồi ném "does not provide an export".
 import type { N3Block, N3Phase, N3Pillar, N3Section, N3Unit, N3UnitSource } from './n3.model';
+// Import THƯỜNG, có chủ đích: đường dẫn dựng bằng đúng hàm mà thẻ bài dùng, nên lộ trình
+// không thể trỏ lệch khỏi chỗ bài thật sự nằm. `paths.ts` không kéo Angular theo nên
+// script vẫn nạp được.
+import { PATH, exercisePath, lessonPath } from '../paths';
 
 /**
  * LỘ TRÌNH N3 — NGUỒN SỰ THẬT DUY NHẤT của tab "Tiến độ N3".
@@ -173,7 +177,7 @@ function minnaVocabSources(
   for (let lesson = from; lesson <= to; lesson++) {
     map[`${prefix}-${no}-${lesson - from + 1}`] = {
       source: 'app',
-      route: `/lesson/minano-nihongo-${lesson}`,
+      route: lessonPath('vocabulary', `minano-nihongo-${lesson}`),
     };
   }
   return map;
@@ -210,30 +214,30 @@ const FOUNDATION_BLOCKS: N3Block[] = [
     titleVi: 'Chữ Hán, bộ thủ và chia động từ',
     startPage: 0,
     units: [
-      appUnit('nen-3-1', '漢字 N5（118字）', 'Luyện 118 chữ Kanji N5 — âm Hán Việt', '/kanji'),
-      appUnit('nen-3-2', '漢字 N4（149字）', 'Luyện 149 chữ Kanji N4 — âm Hán Việt', '/kanji'),
-      appUnit('nen-3-3', '部首（214）', 'Luyện 214 bộ thủ — nhận mặt bộ trong chữ', '/radical'),
+      appUnit('nen-3-1', '漢字 N5（118字）', 'Luyện 118 chữ Kanji N5 — âm Hán Việt', PATH.kanji),
+      appUnit('nen-3-2', '漢字 N4（149字）', 'Luyện 149 chữ Kanji N4 — âm Hán Việt', PATH.kanji),
+      appUnit('nen-3-3', '部首（214）', 'Luyện 214 bộ thủ — nhận mặt bộ trong chữ', PATH.radicals),
       appUnit(
         'nen-3-4',
         '自動詞・他動詞',
         'Bài tập tự động từ & tha động từ (N5→N3)',
-        '/exercise/tu-tha-dong-tu',
+        exercisePath('tu-tha-dong-tu'),
       ),
       appUnit(
         'nen-3-5',
         '動詞の活用',
         'Bài tập chuyển thể động từ (N5→N2)',
-        '/exercise/chuyen-the-dong-tu',
+        exercisePath('chuyen-the-dong-tu'),
       ),
-      appUnit('nen-3-6', '第33課 · 動詞', 'Chia động từ bài 33', '/lesson/dong-tu-minano-33'),
-      appUnit('nen-3-7', '特別な動詞', 'Động từ đặc biệt & bất quy tắc', '/lesson/dong-tu-dac-biet'),
-      appUnit('nen-3-8', '第13課 · 文法', 'Ngữ pháp bài 13', '/grammar/ngu-phap-minano-13'),
-      appUnit('nen-3-9', '第26課 · 会話', 'Dịch hội thoại bài 26', '/lesson/hoi-thoai-minano-26'),
-      appUnit('nen-3-10', '第28課 · 会話', 'Dịch hội thoại bài 28', '/lesson/hoi-thoai-minano-28'),
-      appUnit('nen-3-11', '第29課 · 会話', 'Dịch hội thoại bài 29', '/lesson/hoi-thoai-minano-29'),
-      appUnit('nen-3-12', '第33課 · 会話', 'Dịch hội thoại bài 33', '/lesson/hoi-thoai-minano-33'),
-      appUnit('nen-3-13', '第39課 · 会話', 'Dịch hội thoại bài 39', '/lesson/hoi-thoai-minano-39'),
-      appUnit('nen-3-14', '第40課 · 会話', 'Dịch hội thoại bài 40', '/lesson/hoi-thoai-minano-40'),
+      appUnit('nen-3-6', '第33課 · 動詞', 'Chia động từ bài 33', lessonPath('verb', 'dong-tu-minano-33')),
+      appUnit('nen-3-7', '特別な動詞', 'Động từ đặc biệt & bất quy tắc', lessonPath('verb', 'dong-tu-dac-biet')),
+      appUnit('nen-3-8', '第13課 · 文法', 'Ngữ pháp bài 13', lessonPath('grammar', 'ngu-phap-minano-13')),
+      appUnit('nen-3-9', '第26課 · 会話', 'Dịch hội thoại bài 26', lessonPath('conversation', 'hoi-thoai-minano-26')),
+      appUnit('nen-3-10', '第28課 · 会話', 'Dịch hội thoại bài 28', lessonPath('conversation', 'hoi-thoai-minano-28')),
+      appUnit('nen-3-11', '第29課 · 会話', 'Dịch hội thoại bài 29', lessonPath('conversation', 'hoi-thoai-minano-29')),
+      appUnit('nen-3-12', '第33課 · 会話', 'Dịch hội thoại bài 33', lessonPath('conversation', 'hoi-thoai-minano-33')),
+      appUnit('nen-3-13', '第39課 · 会話', 'Dịch hội thoại bài 39', lessonPath('conversation', 'hoi-thoai-minano-39')),
+      appUnit('nen-3-14', '第40課 · 会話', 'Dịch hội thoại bài 40', lessonPath('conversation', 'hoi-thoai-minano-40')),
     ],
   },
 ];
@@ -307,10 +311,10 @@ const MOJI_BLOCKS: N3Block[] = [
         'kanji-7-1',
         '漢字 N3（375字）· 漢越音',
         'Luyện âm Hán Việt của 375 chữ Kanji N3',
-        '/kanji',
+        PATH.kanji,
       ),
-      appUnit('kanji-7-2', '漢字 N3 · 語彙', 'Luyện các từ dùng chữ Kanji N3', '/kanji'),
-      appUnit('kanji-7-3', '部首 → 漢字', 'Đi từ bộ thủ ra chữ, cho chữ N3', '/radical'),
+      appUnit('kanji-7-2', '漢字 N3 · 語彙', 'Luyện các từ dùng chữ Kanji N3', PATH.kanji),
+      appUnit('kanji-7-3', '部首 → 漢字', 'Đi từ bộ thủ ra chữ, cho chữ N3', PATH.radicals),
     ],
   },
 ];
@@ -319,12 +323,12 @@ const MOJI_BLOCKS: N3Block[] = [
 
 /** Sáu bài từ vựng N3 đã nạp vào app, ứng với tuần 1 ngày 1–6 của quyển 語彙. */
 const GOI_WEEK1_SOURCES: Record<string, { source: N3UnitSource; route: string }> = {
-  'goi-1-1': { source: 'app', route: '/lesson/soumatome-n3-1' },
-  'goi-1-2': { source: 'app', route: '/lesson/soumatome-n3-2' },
-  'goi-1-3': { source: 'app', route: '/lesson/soumatome-n3-3' },
-  'goi-1-4': { source: 'app', route: '/lesson/soumatome-n3-4' },
-  'goi-1-5': { source: 'app', route: '/lesson/soumatome-n3-5' },
-  'goi-1-6': { source: 'app', route: '/lesson/soumatome-n3-6' },
+  'goi-1-1': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-1') },
+  'goi-1-2': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-2') },
+  'goi-1-3': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-3') },
+  'goi-1-4': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-4') },
+  'goi-1-5': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-5') },
+  'goi-1-6': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-6') },
 };
 
 const GOI_BLOCKS: N3Block[] = [
@@ -409,7 +413,7 @@ const GOI_BLOCKS: N3Block[] = [
         `goi-7-${no}`,
         `名詞 第${no}課`,
         `Từ vựng N3 · Bài ${no} (từ ${no * 50 - 49}–${no * 50})`,
-        `/lesson/n3-danh-tu-${no}`,
+        lessonPath('vocabulary', `n3-danh-tu-${no}`),
       ),
     ),
   },
@@ -443,7 +447,7 @@ const BUNPOU_BLOCKS: N3Block[] = [
         `bunpou-1-${index + 1}`,
         `第${lesson}課`,
         `Ngữ pháp bài ${lesson}`,
-        `/grammar/ngu-phap-minano-${lesson}`,
+        lessonPath('grammar', `ngu-phap-minano-${lesson}`),
       ),
     ),
   },

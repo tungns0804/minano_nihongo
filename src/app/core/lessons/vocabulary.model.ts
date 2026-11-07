@@ -1,6 +1,7 @@
 import type { VerbGroup } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
 import type { GrammarRef, TranslationSet } from '../translation/translation.model';
+import { LESSON_KIND_TAB, type LessonTab } from '../paths';
 
 /** Một từ vựng. Trùng cấu trúc với phần tử trong `public/lessons/<id>.json`. */
 export interface VocabularyWord {
@@ -122,8 +123,18 @@ export function levelOf(lesson: {
 }
 
 /**
+ * Tên ngắn của bài cho breadcrumb và tiêu đề tab: "皆の日本語 — Bài 12 · Ngữ pháp" chỉ
+ * còn "Bài 12 · Ngữ pháp", vì cả hai chỗ đó đã có chữ 皆の日本語 ngay bên cạnh. Bài của
+ * sách khác (総まとめ N3…) giữ nguyên tên — bỏ tên sách đi thì "Bài 1" không nói là
+ * bài 1 của sách nào.
+ */
+export function shortLessonName(name: string): string {
+  return name.replace(/^皆の日本語\s*—\s*/, '');
+}
+
+/**
  * Bài có khối "Chữ Hán trong bài" ở trang bài học: lưới các chữ của bài, bấm vào là
- * sang trang chữ đó mà vẫn nhớ đường về bài (`/kanji/:id?lesson=<id bài>`).
+ * sang trang chữ đó mà vẫn nhớ đường về bài (`/kanji/:id?bai=<id bài>`).
  *
  * Bật cho MỌI bài từ vựng N3 — sáu bài 名詞 lẫn sáu bài 総まとめ — theo cấp khai trong
  * meta.json chứ không theo danh sách id: bài N3 thêm sau này tự có khối mà không ai
@@ -145,29 +156,29 @@ export type LessonOrigin = 'builtin' | 'custom';
  * Loại bài học: học nghĩa từ vựng, luyện chia động từ, dịch câu hội thoại, hay học
  * mẫu ngữ pháp.
  *
- * Bài ngữ pháp KHÔNG hiện ở trang chủ mà có tab riêng (`/grammar`) — xem
+ * Bài ngữ pháp KHÔNG hiện ở trang chủ mà có tab riêng (`/ngu-phap`) — xem
  * `CATEGORY_ORDER` trong `features/lesson-list/lesson-list.ts`. Lý do: mỗi bài ngữ
  * pháp là một trang lý thuyết dài, gom chung vào lưới thẻ của trang chủ thì danh
  * sách 25 bài (26–50) sẽ đè bẹp phần từ vựng và động từ.
  *
- * `exercise` cũng có tab riêng (`/exercise`) và KHÔNG bao giờ tới từ file bài học:
+ * `exercise` cũng có tab riêng (`/luyen-tap/bai-tap`) và KHÔNG bao giờ tới từ file bài học:
  * đó là hai bài tập chuyên đề cài sẵn trong mã nguồn (xem `core/exercises/`). Loại
  * này có mặt ở đây vì phiên luyện tập của chúng đi qua đúng `PracticeConfig` và
  * đúng màn hình luyện tập / kết quả như bốn loại bài kia.
  *
  * `kanji` cũng vậy: tab `/kanji`, dữ liệu nằm ở `core/kanji/`, và cũng đi qua đúng
- * màn hình luyện tập / kết quả chung. `radical` (khu Bộ thủ, tab `/radical`, dữ
+ * màn hình luyện tập / kết quả chung. `radical` (khu Bộ thủ, tab `/kanji/bo-thu`, dữ
  * liệu ở `core/radical/`) là bản sao cùng lối của `kanji`, chỉ khác chiều học: đi
  * từ bộ thủ ra chữ thay vì từ chữ ra từ.
  *
- * `topic` (tab `/topic`) là bài TỪ VỰNG THEO CHỦ ĐỀ: cùng kiểu dữ liệu và cùng
+ * `topic` (tab `/tu-vung/chu-de`) là bài TỪ VỰNG THEO CHỦ ĐỀ: cùng kiểu dữ liệu và cùng
  * màn hình chi tiết với `vocabulary`, chỉ khác cách gom — theo chủ đề (gia đình,
  * thiên nhiên, tự/tha động từ…) thay vì theo số bài trong giáo trình. Nó phải là
  * một LOẠI riêng chứ không phải một bài từ vựng nữa: cùng một từ có mặt ở cả bài
  * 11 lẫn chủ đề "Gia đình", nên hai nhóm này không được nằm chung một danh sách.
  * Nội dung nằm ở `core/topics/`, xem `topic.model.ts`.
  *
- * `translation` (tab `/translate`) là bài LUYỆN DỊCH theo từng bài 皆の日本語: vài bài
+ * `translation` (tab `/luyen-tap/dich`) là bài LUYỆN DỊCH theo từng bài 皆の日本語: vài bài
  * nhỏ khoảng 10 câu, mỗi câu kết hợp mẫu ngữ pháp của bài đó với mẫu của các bài
  * trước. Khác bài hội thoại ở chỗ mỗi câu mang theo các mẫu ngữ pháp nó dùng để giải
  * thích sau khi chấm — xem `core/translation/`.
@@ -256,64 +267,6 @@ export const LESSON_KIND_SEARCH_KEY: Record<LessonKind, MessageKey> = {
   exercise: 'lesson.search.verb',
   kanji: 'kanji.search',
   radical: 'radical.search',
-};
-
-/** Các tab của ứng dụng chứa danh sách bài để chọn. */
-export type LessonTab =
-  | 'home'
-  | 'topic'
-  | 'exercise'
-  | 'grammar'
-  | 'translate'
-  | 'kanji'
-  | 'radical';
-
-/**
- * Loại bài nào hiện ở tab nào.
- *
- * Đây là NGUỒN SỰ THẬT DUY NHẤT cho việc phân chia đó: trang chủ lấy phần của
- * mình từ bảng này, tab Bài tập bổ trợ lấy phần của nó cũng từ đây, và nút quay
- * lại ở màn hình chi tiết bài cũng tra bảng này để biết đưa người dùng về đâu.
- * Trước kia trang chủ giữ riêng một danh sách loại bài, nên chuyển một loại sang
- * tab khác là phải nhớ sửa đúng ba chỗ mà không có gì nhắc.
- *
- * Là `Record` đủ mọi loại chứ không phải danh sách: thêm loại bài thứ bảy mà quên
- * xếp tab thì TypeScript báo lỗi ngay tại đây, thay vì loại đó lặng lẽ không hiện
- * ở tab nào cả.
- *
- * `exercise` là hai bài tập chuyên đề cài trong mã nguồn — chúng không tới từ
- * `LessonStore` nhưng vẫn nằm ở tab đó, nên vẫn phải khai.
- */
-export const LESSON_KIND_TAB: Record<LessonKind, LessonTab> = {
-  vocabulary: 'home',
-  // Bài chủ đề cắt LẠI đúng kho từ của trang chủ theo chủ đề, nên nó phải đứng ở
-  // một tab khác chứ không thể nằm chung: gộp vào thì mỗi từ hiện hai lần trong
-  // cùng một danh sách, và số "bài" ngoài trang chủ tự dưng phồng lên gấp rưỡi.
-  topic: 'topic',
-  // Hai loại này từng ở trang chủ. Chuyển sang tab Bài tập bổ trợ vì cả hai đều là
-  // cách luyện (chia thể, dịch câu) chứ không phải một kho từ để nhớ nghĩa — cùng
-  // họ với hai bài tập chuyên đề hơn là với bài từ vựng.
-  verb: 'exercise',
-  conversation: 'exercise',
-  grammar: 'grammar',
-  // Tab riêng chứ không nằm chung tab Bài tập bổ trợ với bài dịch hội thoại: bài luyện
-  // dịch đi đủ 50 bài theo giáo trình và có bộ lọc cấp độ, gom chung thì tab kia thành
-  // một lưới 57 thẻ không lọc được.
-  translation: 'translate',
-  exercise: 'exercise',
-  kanji: 'kanji',
-  radical: 'radical',
-};
-
-/** Đường dẫn tới màn hình danh sách của từng tab. */
-export const LESSON_TAB_ROUTE: Record<LessonTab, string> = {
-  home: '/vocab',
-  topic: '/topic',
-  exercise: '/exercise',
-  grammar: '/grammar',
-  translate: '/translate',
-  kanji: '/kanji',
-  radical: '/radical',
 };
 
 /** Thứ tự hiển thị các nhóm loại bài trong một tab. */

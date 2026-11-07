@@ -15,8 +15,10 @@ import {
   GrammarPoint,
   Lesson,
   flattenGrammarExamples,
+  shortLessonName,
 } from '../../core/lessons/vocabulary.model';
 import { buildQuestions } from '../../core/practice/build-questions';
+import { PATH, idOfSlug } from '../../core/paths';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import { StarButton } from '../../shared/star-button';
@@ -118,7 +120,7 @@ export class GrammarDetail extends PracticeScreen {
     // mẫu nào hợp với câu là một bài khó hơn hẳn.
     this.showHint.set(true);
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
-      const id = params.get('id') ?? '';
+      const id = idOfSlug(PATH.grammar, params.get('slug') ?? '');
       this.lessonId.set(id);
       this.resetView();
       void this.load(id);
@@ -130,7 +132,7 @@ export class GrammarDetail extends PracticeScreen {
     this.notFound.set(false);
 
     const lesson = await this.lessonStore.getLesson(id);
-    // Mở /grammar/<id-bài-từ-vựng> thì coi như không tìm thấy: màn hình này chỉ biết
+    // Mở /ngu-phap/<id-bài-từ-vựng> thì coi như không tìm thấy: màn hình này chỉ biết
     // vẽ bài ngữ pháp, hiện một bài từ vựng ở đây sẽ ra trang trắng không rõ lý do.
     const grammarLesson = lesson?.kind === 'grammar' ? lesson : null;
 
@@ -138,7 +140,10 @@ export class GrammarDetail extends PracticeScreen {
     this.selectedPointIds.set(grammarLesson?.grammarPoints.map((point) => point.id) ?? []);
     this.notFound.set(grammarLesson === null);
     this.loading.set(false);
-    if (grammarLesson) this.rememberRecent({ title: grammarLesson.name, kindKey: 'kind.grammar' });
+    if (grammarLesson) {
+      this.rememberRecent({ title: grammarLesson.name, kindKey: 'kind.grammar' });
+      this.labelPage(shortLessonName(grammarLesson.name));
+    }
   }
 
   private resetView(): void {

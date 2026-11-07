@@ -57,7 +57,7 @@
       </a>
 
       @if (n3TickedMessage(); as message) {
-        <a class="notice notice-success n3-ticked" routerLink="/n3">
+        <a class="notice notice-success n3-ticked" [routerLink]="PATH.n3">
           <app-icon name="target" />
           <span>{{ message }}</span>
         </a>

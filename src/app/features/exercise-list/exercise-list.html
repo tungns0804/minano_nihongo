@@ -85,14 +85,14 @@
 
           <div class="lesson-grid">
             @for (card of exercises(); track card.id) {
-              <a class="card lesson-card" [routerLink]="['/exercise', card.id]">
+              <a class="card lesson-card" [routerLink]="lessonPath('exercise', card.id)">
                 <div class="lesson-card-top">
                   <h3 class="lesson-name"><app-t [key]="card.nameKey" /></h3>
                 </div>
 
                 <p class="lesson-desc muted small clamp-2"><app-t [key]="card.descKey" block /></p>
 
-                <app-lesson-progress [source]="card.id" [path]="'/exercise/' + card.id" [total]="card.itemCount" />
+                <app-lesson-progress [source]="card.id" [path]="lessonPath('exercise', card.id)" [total]="card.itemCount" />
 
                 <div class="lesson-card-bottom">
                   <span class="badge">
@@ -144,7 +144,7 @@
 
           <div class="lesson-grid">
             @for (lesson of group.lessons; track lesson.id) {
-              <a class="card lesson-card" [routerLink]="['/lesson', lesson.id]">
+              <a class="card lesson-card" [routerLink]="lessonPath(lesson.kind, lesson.id)">
                 <div class="lesson-card-top">
                   <h3 class="lesson-name">{{ lesson.name }}</h3>
                   @if (lesson.origin === 'custom') {
@@ -158,7 +158,7 @@
                   <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
                 }
 
-                <app-lesson-progress [source]="lesson.id" [path]="'/lesson/' + lesson.id" [total]="lesson.itemCount" />
+                <app-lesson-progress [source]="lesson.id" [path]="lessonPath(lesson.kind, lesson.id)" [total]="lesson.itemCount" />
 
                 <div class="lesson-card-bottom">
                   <span class="badge">

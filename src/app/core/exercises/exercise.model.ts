@@ -11,8 +11,8 @@
  * `n4-grammar.ts`) chứ không đi qua `data-source/` + `npm run generate`: các bài tập
  * này là chức năng cố định của ứng dụng, không phải nội dung người dùng tự nạp thêm.
  *
- * Bài ngữ pháp N4 có màn hình riêng (`features/n4-grammar`, đường dẫn đăng ký TRƯỚC
- * `/exercise/:id`): nội dung của nó là trang lý thuyết cộng câu ví dụ, không phải bảng
+ * Bài ngữ pháp N4 có màn hình riêng (`features/n4-grammar`, đường dẫn riêng
+ * `/luyen-tap/ngu-phap-n4`): nội dung của nó là trang lý thuyết cộng câu ví dụ, không phải bảng
  * động từ như hai bài kia.
  */
 
@@ -21,7 +21,7 @@ import type { VerbGroup } from '../japanese/conjugation';
 
 /**
  * Id của bài tập. Dùng làm luôn:
- *  - đoạn cuối đường dẫn `/exercise/<id>`
+ *  - đoạn cuối đường dẫn `/luyen-tap/bai-tap/<id>` (xem `exercisePath`)
  *  - khoá lưu danh sách ★ "chưa nhớ" (giống id bài học)
  * nên KHÔNG đổi tuỳ tiện: đổi là mất hết ★ của bài tập đó.
  */

@@ -2,7 +2,7 @@
   @if (notFound()) {
     <div class="stack">
       <div class="notice notice-error">{{ t('kanji.notFound', { id: kanjiId() }) }}</div>
-      <div><a class="btn" routerLink="/kanji">{{ t('kanji.back') }}</a></div>
+      <div><a class="btn" [routerLink]="PATH.kanji">{{ t('kanji.back') }}</a></div>
     </div>
   } @else {
     <!-- Khoá theo chữ: bấm "Chữ sau" thì router dùng lại component (cùng một route),
@@ -16,11 +16,11 @@
       <header class="stack stack-sm">
         <!-- Đi từ một bài sang thì quay về đúng bài đó, không văng ra danh sách Kanji. -->
         @if (lessonContext(); as lesson) {
-          <a class="back-link" [routerLink]="['/lesson', lesson.id]">
+          <a class="back-link" [routerLink]="lesson.path">
             {{ t('kanji.backToLesson', { name: lesson.name }) }}
           </a>
         } @else {
-          <a class="back-link" routerLink="/kanji">{{ t('kanji.back') }}</a>
+          <a class="back-link" [routerLink]="PATH.kanji">{{ t('kanji.back') }}</a>
         }
 
         <div class="kanji-head">
@@ -183,7 +183,7 @@
                 <h3>{{ t('kanji.usedIn.title', { char: data.char, count: users().length }) }}</h3>
                 <div class="users-grid">
                   @for (user of visibleUsers(); track user.id) {
-                    <a class="user-chip" [routerLink]="['/kanji', user.id]" queryParamsHandling="preserve">
+                    <a class="user-chip" [routerLink]="kanjiPath(user.id)" queryParamsHandling="preserve">
                       <span class="user-char jp" aria-hidden="true">{{ user.char }}</span>
                       <span class="user-han">{{ user.hanViet }}</span>
                     </a>

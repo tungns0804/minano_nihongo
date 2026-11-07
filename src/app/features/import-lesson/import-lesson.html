@@ -1,7 +1,7 @@
 <div class="container page">
   <div class="stack stack-lg">
     <header class="stack" style="gap: 6px">
-      <a class="back-link" routerLink="/vocab">{{ t('common.back') }}</a>
+      <a class="back-link" [routerLink]="PATH.vocab">{{ t('common.back') }}</a>
       <h1>{{ t('import.title') }}</h1>
       <p class="muted">
 <app-t key="import.subtitle" block />
@@ -298,7 +298,7 @@
             @for (lesson of customLessons(); track lesson.id) {
               <li class="custom-item">
                 <div class="custom-info">
-                  <a [routerLink]="['/lesson', lesson.id]" class="custom-name">{{ lesson.name }}</a>
+                  <a [routerLink]="lessonPath(lesson.kind, lesson.id)" class="custom-name">{{ lesson.name }}</a>
                   <span class="small faint">
                     <code class="mono">{{ lesson.id }}</code> ·
                     {{ t(unitKeyOf(lesson.kind), { count: lesson.itemCount }) }}

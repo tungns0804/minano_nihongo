@@ -88,7 +88,7 @@
                 [class.is-favorite]="isFavorite(entry.id)"
                 [attr.data-status]="statusOf(entry.id)"
               >
-                <a class="radical-link" [routerLink]="['/radical', entry.id]">
+                <a class="radical-link" [routerLink]="itemPath(PATH.radicals, entry.id)">
                   <!-- Bộ vẽ to hẳn: cả ô này tồn tại để nhìn cho rõ mặt bộ. Ẩn với
                        trình đọc màn hình vì đọc lên một bộ thủ trơ không thành
                        tiếng gì; âm Hán Việt ở dưới mới là nhãn của link. -->

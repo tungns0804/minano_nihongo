@@ -21,11 +21,11 @@
  *    `core/audio/vocab-audio.ts`), mà chuỗi đó y hệt bài gốc.
  *
  * ── Ba màn hình dùng dữ liệu này ──────────────────────────────────────────
- *  - `/topic`      lưới chủ đề.
- *  - `/topic/:id`  bảng từ + khung luyện tập, dùng CHUNG component với bài học
- *                  thường (`features/lesson-detail`) — chủ đề là một `Lesson`
- *                  đầy đủ, chỉ khác `kind`.
- *  - `/practice`   phiên luyện đi qua đúng `PracticeConfig` như bài từ vựng.
+ *  - `/tu-vung/chu-de`      lưới chủ đề.
+ *  - `/tu-vung/chu-de/:id`  bảng từ + khung luyện tập, dùng CHUNG component với
+ *                  bài học thường (`features/lesson-detail`) — chủ đề là một
+ *                  `Lesson` đầy đủ, chỉ khác `kind`.
+ *  - `/lam-bai`    phiên luyện đi qua đúng `PracticeConfig` như bài từ vựng.
  *
  * ── Năm file, và vì sao phải tách ra ──────────────────────────────────────
  *  - `topic.model.ts`   kiểu + hàm dựng. Không chứa dữ liệu.
@@ -52,7 +52,7 @@ import type { Lesson, LessonSummary, VocabularyWord } from '../lessons/vocabular
  */
 export interface TopicDef {
   /**
-   * Id chủ đề — CŨNG LÀ id bài học, và cũng là đoạn cuối `/topic/<id>`.
+   * Id chủ đề — CŨNG LÀ id bài học, và cũng là đoạn cuối `/tu-vung/chu-de/<id>`.
    *
    * Ba thứ đó là một chuỗi duy nhất chứ không phải ba chuỗi phải khớp nhau, vì
    * cả ba đều là khoá: `LessonStore` tra bài theo id, ★ lưu theo id, và địa chỉ
@@ -107,7 +107,7 @@ export type TopicSeed = readonly [id: string, words: readonly TopicWordSeed[]];
  * của `topic-list.ts`: sinh thì `--check` bắt được lệch, chép tay thì không.
  */
 export interface TopicCatalogEntry {
-  /** Id chủ đề = id bài học = đoạn cuối `/topic/<id>`. */
+  /** Id chủ đề = id bài học = đoạn cuối `/tu-vung/chu-de/<id>`. */
   id: string;
   japanese: string;
   vietnamese: string;

@@ -168,7 +168,7 @@ export class LessonStore {
     const findCustom = () => this.customLessons().find((lesson) => lesson.id === id) ?? null;
 
     // Chủ đề tra trước hết: nội dung nằm trong mã nguồn nên không phải chờ
-    // index.json, và mở thẳng /topic/<id> lúc mạng hỏng vẫn học được.
+    // index.json, và mở thẳng /tu-vung/chu-de/<id> lúc mạng hỏng vẫn học được.
     //
     // Nạp ĐỘNG: chỉ lúc này mới thật sự cần tới từ vựng của chủ đề, và chỉ chủ đề
     // đang mở mới đáng để tải 130 KB đó. Danh mục nhẹ ở trên đã đủ cho mọi màn

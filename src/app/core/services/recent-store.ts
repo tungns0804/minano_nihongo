@@ -1,11 +1,12 @@
 import { Injectable, signal } from '@angular/core';
 
 import type { MessageKey } from '../i18n/messages';
+import { legacyPathTarget } from '../paths';
 import { readJson, writeJson } from './local-storage';
 
 /** Một bài vừa mở, đủ để vẽ một dòng "Học tiếp" trên trang Hôm nay. */
 export interface RecentEntry {
-  /** Đường dẫn mở lại bài, ví dụ "/lesson/minano-nihongo-33". */
+  /** Đường dẫn mở lại bài, ví dụ "/tu-vung/bai-33". */
   path: string;
   /**
    * Tên bài như lúc mở. Bài từ dữ liệu có tên là chữ sẵn; bài tập cài trong mã
@@ -32,7 +33,20 @@ function sanitize(raw: unknown): RecentEntry[] {
         typeof item.title === 'string' &&
         typeof item.kindKey === 'string',
     )
+    .map(upgradePath)
+    .filter((item, index, all) => all.findIndex((other) => other.path === item.path) === index)
     .slice(0, MAX_ENTRIES);
+}
+
+/**
+ * Dòng ghi từ trước 07/11/2026 mang đường dẫn kiểu cũ (/lesson/minano-nihongo-33). Mở
+ * vẫn được nhờ route chuyển tiếp, nhưng đổi ngay ở đây thì thẻ bài ngoài danh sách
+ * nhận ra đúng bài "đang học", và mở lại bài đó không sinh thêm một dòng trùng.
+ * `kindKey` cho biết loại bài, nên /lesson/<id> đi thẳng tới đúng nhánh.
+ */
+function upgradePath(entry: RecentEntry): RecentEntry {
+  const path = legacyPathTarget(entry.path, entry.kindKey);
+  return path ? { ...entry, path } : entry;
 }
 
 /**

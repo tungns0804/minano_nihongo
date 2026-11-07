@@ -18,17 +18,25 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 
 | Nhóm | Tab con | Đường dẫn |
 | --- | --- | --- |
-| **Hôm nay** | Hôm nay · Ôn tập · Tiến độ N3 | `/` · `/review` · `/n3` |
-| **Từ vựng** | Minano · Theo chủ đề | `/vocab` · `/topic` |
-| **Ngữ pháp** | Minano · vnjpclub | `/grammar` · `/exercise/ngu-phap-vnjpclub` |
-| **Kanji** | Kanji · Bộ thủ | `/kanji` · `/radical` |
-| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Ngữ pháp N4 · Đề N4 | `/translate` · `/exercise` · `/exercise/ngu-phap-n4` · `/exercise/taisaku-n4` |
+| **Hôm nay** | Hôm nay · Ôn tập · Tiến độ N3 | `/` · `/on-tap` · `/tien-do-n3` |
+| **Từ vựng** | Minano · Theo chủ đề | `/tu-vung` · `/tu-vung/chu-de` |
+| **Ngữ pháp** | Minano · vnjpclub | `/ngu-phap` · `/ngu-phap/vnjpclub` |
+| **Kanji** | Kanji · Bộ thủ | `/kanji` · `/kanji/bo-thu` |
+| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Ngữ pháp N4 · Đề N4 | `/luyen-tap/dich` · `/luyen-tap/bai-tap` · `/luyen-tap/ngu-phap-n4` · `/luyen-tap/de-n4` |
+
+**Đường dẫn đọc y như menu** ([`core/paths.ts`](src/app/core/paths.ts)): nhóm → tab → bài, tiếng Việt
+không dấu — `/tu-vung/bai-12`, `/ngu-phap/bai-12`, `/luyen-tap/dich/bai-12`,
+`/luyen-tap/bai-tap/hoi-thoai-bai-26`, `/kanji/bo-thu/nhan-4eba`. Bài luôn nằm ngay dưới danh sách
+liệt kê nó, nên menu, tab con, breadcrumb (*Ngữ pháp / Minano / Bài 12 · Ngữ pháp*) và nút quay lại
+đều suy ra từ URL; tiêu đề tab trình duyệt mang tên bài. Đường dẫn cũ (`/lesson/…`, `/grammar/…`,
+`/exercise/…`, trước 07/11/2026) tự chuyển sang chỗ mới. `npm run verify:paths` kiểm cả ba điều đó
+cho mọi bài.
 
 - **Máy tính:** thanh bên trái, có nhãn nhỏ dưới biểu tượng khi màn hình hẹp hơn 1480px.
   **Điện thoại:** thanh menu năm nút ở đáy màn hình, ẩn đi lúc đang luyện và ở màn kết quả.
 - **Trang Hôm nay** (`/`) trả lời "hôm nay học gì": số mục đến hạn ôn kèm nút *Ôn ngay*, ba bài
   mở gần nhất (*Học tiếp*), phần trăm và nhịp học của lộ trình N3, rồi lối tắt tới bốn kỹ năng.
-  Danh sách bài từ vựng — trước đây là trang chủ — nay ở `/vocab`; mọi đường dẫn khác giữ nguyên.
+  Danh sách bài từ vựng — trước đây là trang chủ — nay ở `/tu-vung`.
 - **Chuỗi ngày học (streak) và kế hoạch hôm nay** ([`core/activity/`](src/app/core/activity/)):
   mỗi câu trả lời xong (đúng hay sai, ở bất kỳ bài nào) được đếm; đủ mục tiêu trong ngày
   (10 / 20 / 30 / 50 câu, mặc định 20) là giữ chuỗi. Hôm nay chưa học thì chuỗi vẫn còn tới

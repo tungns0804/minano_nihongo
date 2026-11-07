@@ -2,6 +2,8 @@ import { ElementRef, Signal, computed, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { LanguageStore } from '../i18n/language-store';
+import type { MessageKey } from '../i18n/messages';
+import { PATH, itemPath, pathOf } from '../paths';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
   PracticeConfig,
@@ -9,6 +11,7 @@ import {
 } from '../practice/practice.model';
 import { PracticePlan } from '../practice/build-questions';
 import { FavoriteStore } from '../services/favorite-store';
+import { PageLabel } from '../services/page-label';
 import { RecentEntry, RecentStore } from '../services/recent-store';
 import { PracticeSessionStore } from '../practice/practice-session-store';
 import { checkedOf, valueOf } from '../utils/dom-events';
@@ -37,17 +40,33 @@ export abstract class PracticeScreen {
   protected readonly lang = inject(LanguageStore);
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly recent = inject(RecentStore);
+  private readonly pageLabel = inject(PageLabel);
 
   /**
    * Ghi bài đang mở vào khối "Học tiếp" của trang Hôm nay, dưới đúng URL đang hiện —
-   * cùng màn hình chi tiết có thể nằm ở hai nhánh (/lesson/:id và /topic/:id).
+   * cùng màn hình chi tiết có thể nằm ở nhiều nhánh (/tu-vung/…, /tu-vung/chu-de/…,
+   * /luyen-tap/bai-tap/…).
    */
   protected rememberRecent(entry: Omit<RecentEntry, 'path'>): void {
-    this.recent.record({ ...entry, path: this.router.url.split(/[?#]/)[0] });
+    this.recent.record({ ...entry, path: pathOf(this.router.url) });
+  }
+
+  /**
+   * Đặt tên ngắn cho trang bài đang mở — mắt xích cuối của breadcrumb và tiêu đề tab
+   * (xem `PageLabel`). Gọi khi dữ liệu của bài đã về.
+   */
+  protected labelPage(text: string, key?: MessageKey): void {
+    this.pageLabel.set({ path: pathOf(this.router.url), text, key });
   }
 
   /** Template gọi `t('key')` để dịch — xem `core/i18n/language-store`. */
   readonly t = this.lang.t.bind(this.lang);
+  /**
+   * Đường dẫn cho template — `[routerLink]="PATH.kanji"`, `itemPath(PATH.kanji, id)` —
+   * thay cho chuỗi viết tay. Xem `core/paths.ts`.
+   */
+  protected readonly PATH = PATH;
+  protected readonly itemPath = itemPath;
   readonly maxWrongAttempts = DEFAULT_MAX_WRONG_ATTEMPTS;
 
   // ── Thiết lập luyện tập ─────────────────────────────────────────────────
@@ -193,7 +212,7 @@ export abstract class PracticeScreen {
     plan: PracticePlan,
   ): void {
     if (this.session.start(lesson, config, plan)) {
-      void this.router.navigate(['/practice']);
+      void this.router.navigateByUrl(PATH.session);
     }
   }
 }

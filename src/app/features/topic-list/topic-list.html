@@ -32,7 +32,7 @@
     } @else {
       <div class="topic-grid">
         @for (topic of topics(); track topic.id) {
-          <a class="card topic-card" [routerLink]="['/topic', topic.id]">
+          <a class="card topic-card" [routerLink]="lessonPath('topic', topic.id)">
             <div class="topic-card-top">
               <!-- Biểu tượng thuần trang trí: nó không mang thông tin nào mà tên
                    chủ đề ngay bên cạnh chưa nói. -->
@@ -45,7 +45,7 @@
 
             <p class="topic-desc muted small clamp-2">{{ topic.description }}</p>
 
-            <app-lesson-progress [source]="topic.id" [path]="'/topic/' + topic.id" [total]="topic.wordCount" />
+            <app-lesson-progress [source]="topic.id" [path]="lessonPath('topic', topic.id)" [total]="topic.wordCount" />
 
             <div class="topic-card-bottom">
               <span class="badge">{{ t('topic.wordCount', { count: topic.wordCount }) }}</span>

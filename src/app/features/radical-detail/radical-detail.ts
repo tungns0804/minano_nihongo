@@ -18,6 +18,7 @@ import {
   radicalQuestionCount,
   usableForParts,
 } from '../../core/radical/radical.model';
+import { PATH, itemPath } from '../../core/paths';
 import { RADICAL_ENTRIES, radicalById } from '../../core/radical/radical-entries';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { checkedOf } from '../../core/utils/dom-events';
@@ -59,7 +60,7 @@ export class RadicalDetail extends PracticeScreen {
   readonly pagerItems: readonly PagerItem[] = RADICAL_ENTRIES.map((item) => ({
     key: item.id,
     name: `${item.char} ${item.hanViet}`,
-    path: `/radical/${item.id}`,
+    path: itemPath(PATH.radicals, item.id),
   }));
 
   /** ★ lưu theo từng bộ: chữ của bộ 人 và chữ của bộ 木 là hai danh sách khác nhau. */
@@ -190,6 +191,7 @@ export class RadicalDetail extends PracticeScreen {
     const entry = radicalById(id);
     this.entry.set(entry);
     if (!entry) return;
+    this.labelPage(`${entry.char} · ${entry.hanViet}`);
 
     // Mở bộ khác là đặt lại toàn bộ thiết lập: cấp độ và ★ của bộ cũ không nói gì
     // về bộ mới, mà bộ mới có thể không có cấp mà bộ cũ đang chọn.

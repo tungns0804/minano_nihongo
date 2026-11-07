@@ -227,8 +227,9 @@ export class ExerciseDetail extends PracticeScreen {
     // Khu Bài tập mặc định HIỆN nghĩa tiếng Việt: câu hỏi chỉ là một động từ trơ,
     // không có nghĩa thì nhiều từ gần giống nhau không phân biệt nổi.
     this.showHint.set(true);
+    // Bài tập cài trong mã nguồn không có luật rút gọn: đoạn URL chính là id.
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
-      const id = params.get('id') ?? '';
+      const id = params.get('slug') ?? '';
       this.exerciseId.set(id);
       this.load(id);
     });
@@ -239,6 +240,7 @@ export class ExerciseDetail extends PracticeScreen {
     this.info.set(info);
     if (!info) return;
     this.rememberRecent({ title: this.t(info.nameKey), titleKey: info.nameKey, kindKey: 'kind.exercise' });
+    this.labelPage(this.t(info.nameKey), info.nameKey);
 
     // Mỗi bài tập có bộ chiều hỏi riêng, nên mở bài khác là phải đặt lại toàn bộ
     // thiết lập — giữ nguyên "Tự → Tha" khi sang bài chuyển thể thì chiều đó không

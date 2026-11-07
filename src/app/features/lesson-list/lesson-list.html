@@ -8,7 +8,7 @@
     <!-- Lời nhắc ôn đứng trên danh sách bài: ôn đúng hạn những gì đã học quan trọng
          hơn học thêm bài mới, và không có dòng này thì phải nhớ ra mà mở tab Ôn tập. -->
     @if (reviewDue() > 0) {
-      <a class="card review-banner" routerLink="/review">
+      <a class="card review-banner" [routerLink]="PATH.review">
         <span class="review-banner-count">{{ reviewDue() }}</span>
         <span class="review-banner-text">
           <strong>{{ t('home.review.title', { count: reviewDue() }) }}</strong>
@@ -98,7 +98,7 @@
       } @else {
         <div class="lesson-grid">
           @for (lesson of lessons(); track lesson.id) {
-            <a class="card lesson-card" [routerLink]="['/lesson', lesson.id]">
+            <a class="card lesson-card" [routerLink]="lessonPath(lesson.kind, lesson.id)">
               <div class="lesson-card-top">
                 <h3 class="lesson-name">{{ lesson.name }}</h3>
                 @if (lesson.origin === 'custom') {
@@ -112,7 +112,7 @@
                 <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
               }
 
-              <app-lesson-progress [source]="lesson.id" [path]="'/lesson/' + lesson.id" [total]="lesson.itemCount" />
+              <app-lesson-progress [source]="lesson.id" [path]="lessonPath(lesson.kind, lesson.id)" [total]="lesson.itemCount" />
 
               <div class="lesson-card-bottom">
                 <span class="badge">
@@ -145,7 +145,7 @@
               <li>{{ t('home.empty.step2') }}</li>
             </ol>
             <div>
-              <a class="btn btn-primary" routerLink="/import">{{ t('app.nav.import') }}</a>
+              <a class="btn btn-primary" [routerLink]="PATH.importLesson">{{ t('app.nav.import') }}</a>
             </div>
           } @else {
             <p class="muted">{{ t('home.empty.introOnly') }}</p>

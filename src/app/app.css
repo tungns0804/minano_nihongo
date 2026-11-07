@@ -232,16 +232,21 @@ main:focus-visible {
   color: var(--text-faint);
 }
 
-.crumb-current {
-  font-weight: 600;
-}
-
-.crumb-group {
+/* Mắt xích bậc trên mờ đi, trang đang mở đậm lên. Tên bài dài (総まとめ N3…) thì cắt
+   bằng dấu … chứ không đẩy hai nút bên phải ra khỏi thanh. */
+.crumb {
   color: var(--text-muted);
   font-weight: 600;
 }
 
-.crumb-group:hover {
+a.crumb:hover {
+  color: var(--text);
+}
+
+.crumb-current {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--text);
 }
 

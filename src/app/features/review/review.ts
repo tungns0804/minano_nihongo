@@ -27,6 +27,7 @@ import {
   areaOfKey,
 } from '../../core/review/review.model';
 import { LessonStore } from '../../core/lessons/lesson-store';
+import { PATH } from '../../core/paths';
 import { PracticeSessionStore } from '../../core/practice/practice-session-store';
 import { ReviewStore } from '../../core/review/review-store';
 import { shuffle } from '../../core/utils/random';
@@ -69,6 +70,7 @@ interface MistakeItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Review {
+  protected readonly PATH = PATH;
   private readonly reviews = inject(ReviewStore);
   private readonly lessonStore = inject(LessonStore);
   private readonly session = inject(PracticeSessionStore);
@@ -239,7 +241,7 @@ export class Review {
         { questions, all: questions },
       );
       if (started) {
-        void this.router.navigate(['/practice']);
+        void this.router.navigateByUrl(PATH.session);
       } else {
         this.buildFailed.set(true);
       }

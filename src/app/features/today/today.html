@@ -129,8 +129,8 @@
       </section>
     }
 
-    <!-- ── Tiến độ N3: một dòng tóm tắt, chi tiết ở trang /n3 ──────────────────── -->
-    <a class="card n3-strip" routerLink="/n3">
+    <!-- ── Tiến độ N3: một dòng tóm tắt, chi tiết ở trang /tien-do-n3 ─────────────── -->
+    <a class="card n3-strip" [routerLink]="PATH.n3">
       <app-icon name="target" />
       <span class="n3-strip-text">
         <strong>{{ t('app.nav.n3') }} · {{ n3Percent() }}%</strong>

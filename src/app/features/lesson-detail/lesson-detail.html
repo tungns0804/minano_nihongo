@@ -18,7 +18,7 @@
       <div class="notice notice-error">
         {{ t('lesson.notFound', { id: lessonId() }) }}
       </div>
-      <div><a class="btn" routerLink="/vocab">{{ t('common.backToList') }}</a></div>
+      <div><a class="btn" [routerLink]="backRoute()">{{ t('common.backToList') }}</a></div>
     </div>
   } @else if (lesson(); as data) {
     <div class="stack stack-xl">
@@ -660,7 +660,7 @@
 
             <div class="lesson-kanji-grid">
               @for (entry of lessonKanji(); track entry.id) {
-                <a class="lesson-kanji-cell" [routerLink]="['/kanji', entry.id]" [queryParams]="{ lesson: data.id }">
+                <a class="lesson-kanji-cell" [routerLink]="itemPath(PATH.kanji, entry.id)" [queryParams]="{ bai: data.id }">
                   <span class="lesson-kanji-char jp" aria-hidden="true">{{ entry.char }}</span>
                   <span class="lesson-kanji-han">{{ entry.hanViet }}</span>
                 </a>

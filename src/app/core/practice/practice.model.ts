@@ -260,7 +260,7 @@ export interface PracticeConfig {
   /** Các thể được đem ra hỏi; nhiều thể thì trộn lẫn trong một phiên. */
   verbForms: VerbForm[];
 
-  // --- Riêng khu Bài tập (/exercise) ---
+  // --- Riêng khu Bài tập (/luyen-tap/bai-tap) ---
   /** Bài tập đang luyện, null với mọi bài học thường. */
   exercise: ExerciseId | null;
   /**
@@ -276,14 +276,14 @@ export interface PracticeConfig {
    */
   kanjiMode: KanjiMode;
 
-  // --- Riêng khu Bộ thủ (/radical) ---
+  // --- Riêng khu Bộ thủ (/kanji/bo-thu) ---
   /**
    * Chiều hỏi của khu Bộ thủ. `radical-hanviet` hỏi trên BỘ (mở từ màn hình danh
    * sách), ba chiều còn lại hỏi trên CHỮ ghép (mở từ màn hình một bộ).
    */
   radicalMode: RadicalMode;
 
-  // --- Riêng trang Ôn tập (/review) ---
+  // --- Riêng trang Ôn tập (/on-tap) ---
   /**
    * Phiên ôn tập: câu hỏi gom từ nhiều khu nên `lessonKind` không nói được phiên
    * thuộc về đâu. Màn hình kết quả và nhãn phiên phải xét cờ này trước.

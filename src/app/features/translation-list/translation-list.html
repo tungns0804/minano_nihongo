@@ -80,7 +80,7 @@
       } @else {
         <div class="lesson-grid">
           @for (lesson of lessons(); track lesson.id) {
-            <a class="card lesson-card" [routerLink]="['/translate', lesson.id]">
+            <a class="card lesson-card" [routerLink]="lessonPath('translation', lesson.id)">
               <div class="lesson-card-top">
                 <h3 class="lesson-name">{{ lesson.name }}</h3>
               </div>
@@ -89,7 +89,7 @@
                 <p class="lesson-desc muted small clamp-2">{{ lesson.description }}</p>
               }
 
-              <app-lesson-progress [source]="lesson.id" [path]="'/translate/' + lesson.id" />
+              <app-lesson-progress [source]="lesson.id" [path]="lessonPath('translation', lesson.id)" />
 
               <div class="lesson-card-bottom">
                 <span class="badge">

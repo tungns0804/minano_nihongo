@@ -7,7 +7,7 @@ import { LanguageStore } from '../../core/i18n/language-store';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
 import { QuestionResult, describeConfigKeys } from '../../core/practice/practice.model';
-import { LessonKind } from '../../core/lessons/vocabulary.model';
+import { PATH, lessonPath, listPathOf } from '../../core/paths';
 import { batchRange } from '../../core/practice/batch';
 import { reshuffleChoices } from '../../core/practice/build-questions';
 import { FavoriteStore } from '../../core/services/favorite-store';
@@ -19,28 +19,6 @@ import { N3AutoTick } from '../../core/n3/n3-auto-tick';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';
 
-/**
- * Nút "Về bài học" quay lại đâu, theo loại bài vừa luyện.
- *
- * Là một bảng đủ mọi loại chứ không phải chuỗi ternary: thêm loại bài mới mà quên
- * khai báo thì TypeScript báo lỗi ngay, thay vì lặng lẽ đẩy người dùng tới
- * /lesson/<id> — một đường dẫn không tồn tại và sẽ bị đưa về trang chủ.
- */
-const BACK_ROUTE: Record<LessonKind, string> = {
-  vocabulary: '/lesson',
-  // Chủ đề có đường dẫn riêng dù dùng chung màn hình chi tiết với bài học: trả về
-  // /lesson/<id> thì nút "quay lại" ở màn hình đó sẽ chỉ về tab chủ đề trong khi
-  // địa chỉ nói là bài học — hai thứ nói ngược nhau.
-  topic: '/topic',
-  verb: '/lesson',
-  conversation: '/lesson',
-  grammar: '/grammar',
-  translation: '/translate',
-  exercise: '/exercise',
-  kanji: '/kanji',
-  radical: '/radical',
-};
-
 @Component({
   selector: 'app-result',
   imports: [Icon, RouterLink, StarButton, T],
@@ -49,6 +27,7 @@ const BACK_ROUTE: Record<LessonKind, string> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Result {
+  protected readonly PATH = PATH;
   private readonly session = inject(PracticeSessionStore);
   private readonly activity = inject(ActivityStore);
 
@@ -289,7 +268,7 @@ export class Result {
    */
   startNextBatch(): void {
     if (this.session.startNextBatch()) {
-      void this.router.navigate(['/practice']);
+      void this.router.navigateByUrl(PATH.session);
     }
   }
 
@@ -299,45 +278,44 @@ export class Result {
     // Trộn lại thứ tự đáp án để không nhớ vị trí đáp án của lần trước.
     const questions = results.map((r) => reshuffleChoices(r.question));
     if (this.session.restart(questions)) {
-      void this.router.navigate(['/practice']);
+      void this.router.navigateByUrl(PATH.session);
     }
   }
 
   /**
    * Quay lại đúng màn hình của bài vừa luyện.
    *
-   * Bài ngữ pháp nằm ở nhánh /grammar/:id và bài tập ở /exercise/:id chứ không
-   * phải /lesson/:id — dùng `config.lessonKind` chứ không đoán theo id, vì id chỉ
-   * là một chuỗi bất kỳ.
+   * Mỗi loại bài nằm ở một nhánh riêng (/tu-vung/…, /ngu-phap/…, /luyen-tap/bai-tap/…)
+   * — dùng `config.lessonKind` chứ không đoán theo id, vì id chỉ là một chuỗi bất kỳ.
    */
   backToLesson(): void {
     const summary = this.summary();
     this.session.clearSummary();
     if (!summary) {
-      void this.router.navigate(['/']);
+      void this.router.navigateByUrl(PATH.today);
       return;
     }
 
     // Phiên ôn gom câu từ nhiều bài nên không có bài nào để quay về.
     if (summary.config.review) {
-      void this.router.navigate(['/review']);
+      void this.router.navigateByUrl(PATH.review);
       return;
     }
 
-    const base = BACK_ROUTE[summary.config.lessonKind];
+    const kind = summary.config.lessonKind;
     // Phiên luyện âm Hán Việt mở từ chính màn hình danh sách `/kanji` và hỏi trên
     // CẢ danh sách, nên `lessonId` của nó là một id giả (`KANJI_SESSION_ID`) chứ
     // không phải một chữ — ghép vào thành `/kanji/am-han-viet` là một đường dẫn
     // không tồn tại.
     // Khu Bộ thủ có đúng một phiên "mở từ danh sách" như vậy (`RADICAL_SESSION_ID`).
     const isListSession =
-      (summary.config.lessonKind === 'kanji' && summary.lessonId === KANJI_SESSION_ID) ||
-      (summary.config.lessonKind === 'radical' && summary.lessonId === RADICAL_SESSION_ID);
-    void this.router.navigate(isListSession ? [base] : [base, summary.lessonId]);
+      (kind === 'kanji' && summary.lessonId === KANJI_SESSION_ID) ||
+      (kind === 'radical' && summary.lessonId === RADICAL_SESSION_ID);
+    void this.router.navigateByUrl(isListSession ? listPathOf(kind) : lessonPath(kind, summary.lessonId));
   }
 
   backHome(): void {
     this.session.clearSummary();
-    void this.router.navigate(['/']);
+    void this.router.navigateByUrl(PATH.today);
   }
 }

@@ -60,13 +60,13 @@ interface LessonGroup {
  * Gồm ba nhóm:
  *  1. Bài tập chuyên đề cài sẵn trong mã nguồn (`core/exercises/`): hai bài gom động
  *     từ của nhiều bài lẫn nhiều cấp theo một chủ đề ngữ pháp, và bài số đếm.
- *  2. Bài chia động từ — tới từ `data-source/`, mở ở `/lesson/:id`.
- *  3. Bài dịch hội thoại — cũng tới từ `data-source/`, cũng mở ở `/lesson/:id`.
+ *  2. Bài chia động từ — tới từ `data-source/`, mở ở `/luyen-tap/bai-tap/dong-tu-bai-N`.
+ *  3. Bài dịch hội thoại — cũng tới từ `data-source/`, mở ở `/luyen-tap/bai-tap/hoi-thoai-bai-N`.
  *
  * Hai nhóm sau trước đây nằm ngoài trang chủ. Chúng chuyển về đây vì cùng một
  * việc: luyện một kỹ năng (chia thể, dịch câu) chứ không phải nhớ nghĩa của một
- * kho từ. Đường dẫn chi tiết `/lesson/:id` GIỮ NGUYÊN — đổi tab không có nghĩa là
- * đổi URL, và ★ "chưa nhớ" khoá theo id bài nên cũng không mất.
+ * kho từ. Đường dẫn chi tiết nằm dưới tab này (xem `core/paths.ts`), nên menu và nút
+ * quay lại đều chỉ về đây; ★ "chưa nhớ" khoá theo id bài chứ không theo URL nên không mất.
  *
  * Nhóm nào lấy loại bài nào là tra `lessonKindsOfTab('exercise')` chứ không viết
  * cứng, để việc phân chia tab chỉ nằm ở một chỗ (xem `LESSON_KIND_TAB`).

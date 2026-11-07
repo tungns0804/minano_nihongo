@@ -14,8 +14,8 @@
  *                         trên với âm Hán Việt / cấp độ / từ ví dụ của khu Kanji.
  *
  * Hai màn hình dùng dữ liệu này:
- *  - `/radical`      lưới bộ thủ theo số nét + luyện "bộ thủ → âm Hán Việt".
- *  - `/radical/:id`  một bộ + các chữ ghép từ bộ đó, luyện trên các chữ ấy.
+ *  - `/kanji/bo-thu`      lưới bộ thủ theo số nét + luyện "bộ thủ → âm Hán Việt".
+ *  - `/kanji/bo-thu/:id`  một bộ + các chữ ghép từ bộ đó, luyện trên các chữ ấy.
  */
 
 import type { MessageKey } from '../i18n/messages';
@@ -80,7 +80,7 @@ export interface RadicalKanji {
 
 export interface RadicalEntry {
   /**
-   * Đoạn cuối đường dẫn `/radical/<id>`, cũng là khoá lưu danh sách ★ của bộ này.
+   * Đoạn cuối đường dẫn `/kanji/bo-thu/<id>`, cũng là khoá lưu danh sách ★ của bộ này.
    * Ghép âm Hán Việt bỏ dấu với mã Unicode của bộ — hai bộ trùng âm (人 và 儿 đều
    * NHÂN) vẫn tách nhau được. KHÔNG đổi tuỳ tiện: đổi là mất ★.
    */
@@ -212,7 +212,7 @@ export function radicalQuestionCount(
  * Id "bài học" của phiên luyện âm Hán Việt của bộ thủ.
  *
  * Phiên này không thuộc bộ nào cả (nó hỏi trên CẢ danh sách), nên cần một id
- * riêng để lưu dấu ★ và để màn hình kết quả biết đường quay về `/radical`. Đổi
+ * riêng để lưu dấu ★ và để màn hình kết quả biết đường quay về `/kanji/bo-thu`. Đổi
  * chuỗi này là mất ★ của phần luyện âm Hán Việt.
  */
 export const RADICAL_SESSION_ID = 'bo-thu';

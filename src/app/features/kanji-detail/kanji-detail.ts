@@ -23,6 +23,7 @@ import {
 } from '../../core/kanji/kanji-composition';
 import { LessonStore } from '../../core/lessons/lesson-store';
 import type { VocabularyWord } from '../../core/lessons/vocabulary.model';
+import { PATH, itemPath, lessonPath } from '../../core/paths';
 import { LIMIT_CHOICES, practiceConfig } from '../../core/practice/practice.model';
 import { orderQuestions } from '../../core/practice/build-questions';
 import { buildKanjiDrawQuestions } from '../../core/practice/draw-questions';
@@ -42,13 +43,16 @@ import { PagerItem, SiblingPager } from '../../shared/sibling-pager';
 import { CompositionTree } from './composition-tree';
 
 /**
- * Bài học đang dẫn người học tới chữ này (`/kanji/:id?lesson=<id bài>`).
+ * Bài học đang dẫn người học tới chữ này (`/kanji/:id?bai=<id bài>`).
+ * Link cũ ghi `?lesson=` vẫn được đọc.
  *
  * Có nó thì nút quay lại trỏ về bài, "chữ trước / chữ sau" lật theo thứ tự chữ
  * trong bài, và đầu trang nhắc lại những từ của bài có dùng chữ đang xem.
  */
 interface LessonContext {
   id: string;
+  /** Trang của bài, cho nút quay lại. */
+  path: string;
   name: string;
   words: readonly VocabularyWord[];
   kanji: readonly KanjiEntry[];
@@ -104,6 +108,11 @@ export class KanjiDetail extends PracticeScreen {
   readonly lessonContext = signal<LessonContext | null>(null);
   private lessonRequest = '';
 
+  /** Trang của một chữ Hán khác — chip "chữ có chứa chữ này", dãy chữ trước / sau. */
+  kanjiPath(id: string): string {
+    return itemPath(PATH.kanji, id);
+  }
+
   /**
    * Dãy của "chữ trước / chữ sau".
    *
@@ -118,8 +127,8 @@ export class KanjiDetail extends PracticeScreen {
       return lesson.kanji.map((item) => ({
         key: item.id,
         name: `${item.char} ${item.hanViet}`,
-        path: `/kanji/${item.id}`,
-        query: { lesson: lesson.id },
+        path: this.kanjiPath(item.id),
+        query: { bai: lesson.id },
       }));
     }
 
@@ -127,7 +136,7 @@ export class KanjiDetail extends PracticeScreen {
     return KANJI_ENTRIES.filter((item) => item.level === level).map((item) => ({
       key: item.id,
       name: `${item.char} ${item.hanViet}`,
-      path: `/kanji/${item.id}`,
+      path: this.kanjiPath(item.id),
     }));
   });
 
@@ -309,7 +318,7 @@ export class KanjiDetail extends PracticeScreen {
       this.load(id);
     });
     this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe((params) => {
-      void this.loadLesson(params.get('lesson') ?? '');
+      void this.loadLesson(params.get('bai') ?? params.get('lesson') ?? '');
     });
   }
 
@@ -335,6 +344,7 @@ export class KanjiDetail extends PracticeScreen {
 
     this.lessonContext.set({
       id: lesson.id,
+      path: lessonPath(lesson.kind, lesson.id),
       name: lesson.name,
       words: lesson.words,
       kanji: kanjiInTexts(lesson.words.map((word) => word.japanese)),
@@ -345,6 +355,7 @@ export class KanjiDetail extends PracticeScreen {
     const entry = kanjiById(id);
     this.entry.set(entry);
     if (!entry) return;
+    this.labelPage(entry.hanViet ? `${entry.char} · ${entry.hanViet}` : entry.char);
 
     // Đường nét nằm ở gói tải riêng theo cấp (15–290 kB nén) — chỉ tải nhóm của chữ
     // đang mở, và mỗi nhóm một lần: lật sang chữ cùng cấp thì không tải gì thêm.

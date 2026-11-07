@@ -20,13 +20,13 @@
       <div class="notice notice-error">
         {{ t('lesson.notFound', { id: lessonId() }) }}
       </div>
-      <div><a class="btn" routerLink="/grammar">{{ t('grammar.back') }}</a></div>
+      <div><a class="btn" [routerLink]="PATH.grammar">{{ t('grammar.back') }}</a></div>
     </div>
   } @else if (lesson(); as data) {
     <div class="stack stack-xl">
       <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
       <header class="stack stack-sm">
-        <a class="back-link" routerLink="/grammar">{{ t('grammar.back') }}</a>
+        <a class="back-link" [routerLink]="PATH.grammar">{{ t('grammar.back') }}</a>
         <div class="row">
           <h1>{{ data.name }}</h1>
           @if (data.origin === 'custom') {

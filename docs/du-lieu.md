@@ -118,7 +118,7 @@ Script báo rõ từng dòng lỗi (thiếu cột, cột rỗng) và từng dòn
 
 > Màn hình này đã bị tắt. Cờ `IMPORT_LESSON_ENABLED` trong
 > [`src/app/core/feature-flags.ts`](../src/app/core/feature-flags.ts) đang để `false`, nên mục
-> “Nạp bài mới” không hiện trên thanh điều hướng và đường dẫn `/import` cũng không được đăng
+> “Nạp bài mới” không hiện trên thanh điều hướng và đường dẫn `/tu-vung/nap-bai` cũng không được đăng
 > ký — gõ tay vào sẽ bị đưa về trang chủ. Đổi cờ đó thành `true` là có lại toàn bộ, mã màn
 > hình vẫn nằm nguyên trong `src/app/features/import-lesson/`.
 >

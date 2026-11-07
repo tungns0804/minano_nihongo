@@ -41,7 +41,7 @@ export interface TranslationSet {
 export interface GrammarRef {
   /** Bài dạy mẫu này. */
   lesson: number;
-  /** Id bài ngữ pháp, để dẫn sang `/grammar/<id>`. */
+  /** Id bài ngữ pháp, để dẫn sang trang bài đó (`/ngu-phap/bai-N`). */
   lessonId: string;
   title: string;
   /** Công thức đầu tiên của mẫu; rỗng nếu mẫu không có công thức. */

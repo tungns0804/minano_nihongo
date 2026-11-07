@@ -3,7 +3,7 @@
 import type { Entry } from './entry';
 
 export const GRAMMAR_MESSAGES = {
-  // Bài ngữ pháp có màn hình riêng chứ không dùng chung với /lesson/:id: nội dung
+  // Bài ngữ pháp có màn hình riêng chứ không dùng chung với bài từ vựng: nội dung
   // của nó là trang lý thuyết (công thức, bảng biến đổi, các cách dùng) chứ không
   // phải một bảng dữ liệu như ba loại bài kia.
   'grammar.title': { vi: 'Ngữ pháp 皆の日本語', ja: '皆の日本語の文法' },

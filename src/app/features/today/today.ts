@@ -6,6 +6,7 @@ import { GOAL_CHOICES } from '../../core/activity/activity.model';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { MESSAGES, type MessageKey } from '../../core/i18n/messages';
 import { NAV_GROUPS, NavGroupId } from '../../core/navigation';
+import { PATH } from '../../core/paths';
 import { N3ProgressStore } from '../../core/n3/n3-progress-store';
 import {
   N3_DEFAULT_OUT_OF_SCOPE,
@@ -70,6 +71,7 @@ const SKILL_DESC: Record<Exclude<NavGroupId, 'today'>, MessageKey> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Today {
+  protected readonly PATH = PATH;
   private readonly lang = inject(LanguageStore);
   private readonly review = inject(ReviewStore);
   private readonly n3 = inject(N3ProgressStore);
@@ -94,7 +96,7 @@ export class Today {
     descKey: SKILL_DESC[group.id as Exclude<NavGroupId, 'today'>],
   }));
 
-  // ── Lộ trình N3: cùng công thức với trang /n3 ───────────────────────────
+  // ── Lộ trình N3: cùng công thức với trang /tien-do-n3 ───────────────────
 
   /** Làm mới lúc trang mở; trang này không để mở qua đêm như trang /n3. */
   private readonly today = signal(todayDay());
@@ -182,7 +184,7 @@ export class Today {
         detail: this.t('plan.goal.detail', { answered: this.answered() }),
         percent: this.goalPercent(),
         done: this.activity.today().met,
-        path: this.recentStore.entries()[0]?.path ?? '/vocab',
+        path: this.recentStore.entries()[0]?.path ?? PATH.vocab,
         actionKey: 'plan.go.learn' as MessageKey,
       },
       {
@@ -193,7 +195,7 @@ export class Today {
         detail: '',
         percent: due > 0 ? 0 : 100,
         done: due === 0,
-        path: '/review',
+        path: PATH.review,
         actionKey: 'plan.go.review' as MessageKey,
       },
     ];
@@ -206,7 +208,7 @@ export class Today {
         detail: this.t('plan.n3.detail', { done: this.n3DoneToday() }),
         percent: Math.min(100, Math.round((this.n3DoneToday() / this.n3Target()) * 100)),
         done: this.n3DoneToday() >= this.n3Target(),
-        path: '/n3',
+        path: PATH.n3,
         actionKey: 'plan.go.n3' as MessageKey,
       });
     }

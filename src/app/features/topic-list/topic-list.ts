@@ -10,7 +10,7 @@ import { LessonProgress } from '../../shared/lesson-progress';
 
 /** Một thẻ chủ đề, đã trộn sẵn phần khai tay với phần dữ liệu sinh. */
 interface TopicRow {
-  /** Id chủ đề — cũng là đoạn cuối `/topic/<id>` và khoá lưu ★. */
+  /** Id chủ đề — cũng là đoạn cuối `/tu-vung/chu-de/<id>` và khoá lưu ★. */
   id: string;
   icon: string;
   japanese: string;

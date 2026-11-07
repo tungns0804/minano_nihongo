@@ -124,7 +124,8 @@ export interface N3Unit {
   kind: N3UnitKind;
   source: N3UnitSource;
   /**
-   * Đường dẫn trong app để học mục này, ví dụ `/lesson/soumatome-n3-1`.
+   * Đường dẫn trong app để học mục này, ví dụ `/tu-vung/soumatome-n3-1` — dựng bằng
+   * `lessonPath` (core/paths.ts), không viết tay.
    * Rỗng khi `source` không phải `app`.
    */
   route: string;

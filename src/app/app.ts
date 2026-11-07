@@ -17,9 +17,11 @@ import { ActivityStore } from './core/activity/activity-store';
 import { LanguageStore } from './core/i18n/language-store';
 import type { MessageKey } from './core/i18n/messages';
 import { T } from './core/i18n/t';
-import { NAV_GROUPS, groupOf, pathOf, subPageOf } from './core/navigation';
+import { NAV_GROUPS, locate } from './core/navigation';
+import { PATH, pathOf } from './core/paths';
 import { FeedbackSound } from './core/services/feedback-sound';
 import { NavigationProgress } from './core/services/navigation-progress';
+import { PageLabel } from './core/services/page-label';
 import { ThemeStore } from './core/services/theme-store';
 import { Icon } from './shared/icon';
 
@@ -28,9 +30,16 @@ const BACK_TO_TOP_AT = 700;
 
 /** Trang không thuộc nhóm menu nào vẫn cần một tên trên breadcrumb. */
 const CRUMB_OUTSIDE_NAV: Partial<Record<string, MessageKey>> = {
-  practice: 'route.practice',
-  result: 'route.result',
+  [PATH.session]: 'route.practice',
+  [PATH.result]: 'route.result',
 };
+
+/** Một mắt xích của breadcrumb. `path` null là trang đang mở — không phải link. */
+interface Crumb {
+  readonly key?: MessageKey;
+  readonly text?: string;
+  readonly path: string | null;
+}
 
 @Component({
   selector: 'app-root',
@@ -74,33 +83,53 @@ export class App {
     { initialValue: this.router.url },
   );
 
+  /** Đường dẫn trần của trang đang mở. */
+  private readonly path = computed(() => pathOf(this.url()));
+
+  /** Nhóm + trang con của URL hiện tại — xem `locate`. */
+  private readonly spot = computed(() => locate(this.path()));
+
   /**
-   * Nhóm menu đang mở, tính cả các trang chi tiết nằm dưới nó (xem `groupOf`).
+   * Nhóm menu đang mở, tính cả các trang bài nằm dưới nó.
    * null ở màn hình luyện tập và kết quả: ở đó menu đáy trên điện thoại ẩn đi.
    */
-  protected readonly group = computed(() => groupOf(this.url()));
+  protected readonly group = computed(() => this.spot()?.group ?? null);
 
   /** Hàng tab con ở đầu trang — chỉ hiện ở trang danh sách của nhóm có từ hai trang. */
   protected readonly subNav = computed(() => {
-    const group = this.group();
-    const page = subPageOf(this.url());
-    return group && page && group.pages.length > 1 && group.pages.includes(page)
-      ? { group, page }
-      : null;
+    const spot = this.spot();
+    return spot?.isPage && spot.group.pages.length > 1 ? spot : null;
   });
 
-  /** Tên hiện sau "皆の日本語 /" trên thanh trên cùng. */
-  protected readonly crumbKey = computed<MessageKey | null>(() => {
-    const group = this.group();
-    if (group) return group.labelKey;
-    const segment = pathOf(this.url()).split('/').find(Boolean) ?? '';
-    return CRUMB_OUTSIDE_NAV[segment] ?? null;
-  });
+  private readonly pageLabel = inject(PageLabel);
 
-  /** Tên trang con sau tên nhóm, khi trang con không trùng tên với nhóm. */
-  protected readonly crumbSubKey = computed<MessageKey | null>(() => {
-    const sub = this.subNav();
-    return sub && sub.page.labelKey !== sub.group.labelKey ? sub.page.labelKey : null;
+  /**
+   * Breadcrumb sau "皆の日本語": nhóm › tab › bài, ví dụ "Ngữ pháp › Minano › Bài 12".
+   *
+   * Trước đây trang bài chỉ hiện tên nhóm — vào một bài ngữ pháp thì thanh trên cùng
+   * nói "Ngữ pháp" y như ở danh sách, không biết đang ở tab nào, bài nào. Giờ mắt xích
+   * nào không phải trang đang mở đều bấm được để đi lên một bậc.
+   *
+   * Tab trùng tên nhóm (Kanji › Kanji, Hôm nay › Hôm nay) thì bỏ, khỏi lặp chữ. Tên
+   * bài tới từ `PageLabel`, nên lúc bài còn đang nạp thì breadcrumb dừng ở tab.
+   */
+  protected readonly crumbs = computed<Crumb[]>(() => {
+    const path = this.path();
+    const spot = this.spot();
+    if (!spot) {
+      const key = CRUMB_OUTSIDE_NAV[path];
+      return key ? [{ key, path: null }] : [];
+    }
+
+    const linkUnlessHere = (target: string) => (target === path ? null : target);
+    const { group, page } = spot;
+    const crumbs: Crumb[] = [{ key: group.labelKey, path: linkUnlessHere(group.path) }];
+    if (group.pages.length > 1 && page.labelKey !== group.labelKey) {
+      crumbs.push({ key: page.labelKey, path: linkUnlessHere(page.path) });
+    }
+    const label = spot.isPage ? null : this.pageLabel.labelOf(path);
+    if (label) crumbs.push({ key: label.key, text: label.text, path: null });
+    return crumbs;
   });
 
   /**

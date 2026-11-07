@@ -4,7 +4,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { T } from '../../core/i18n/t';
 import { LessonStore } from '../../core/lessons/lesson-store';
-import { Lesson } from '../../core/lessons/vocabulary.model';
+import { Lesson, shortLessonName } from '../../core/lessons/vocabulary.model';
+import { PATH, idOfSlug, lessonPath } from '../../core/paths';
 import { buildQuestions } from '../../core/practice/build-questions';
 import {
   DIRECTIONS,
@@ -132,7 +133,7 @@ export class TranslationDetail extends PracticeScreen {
   constructor() {
     super();
     this.route.paramMap.pipe(takeUntilDestroyed()).subscribe((params) => {
-      const id = params.get('id') ?? '';
+      const id = idOfSlug(PATH.translate, params.get('slug') ?? '');
       this.lessonId.set(id);
       this.resetView();
       void this.load(id);
@@ -144,7 +145,7 @@ export class TranslationDetail extends PracticeScreen {
     this.notFound.set(false);
 
     const lesson = await this.lessonStore.getLesson(id);
-    // Màn hình này chỉ biết vẽ bài luyện dịch; mở /translate/<id bài khác> thì coi như
+    // Màn hình này chỉ biết vẽ bài luyện dịch; mở /luyen-tap/dich/<id bài khác> thì coi như
     // không tìm thấy thay vì vẽ ra một trang trống không rõ lý do.
     const translation = lesson?.kind === 'translation' ? lesson : null;
 
@@ -152,7 +153,15 @@ export class TranslationDetail extends PracticeScreen {
     this.selectedSetIds.set(translation?.translationSets.map((set) => set.id) ?? []);
     this.notFound.set(translation === null);
     this.loading.set(false);
-    if (translation) this.rememberRecent({ title: translation.name, kindKey: 'kind.translation' });
+    if (translation) {
+      this.rememberRecent({ title: translation.name, kindKey: 'kind.translation' });
+      this.labelPage(shortLessonName(translation.name));
+    }
+  }
+
+  /** Bài ngữ pháp mà một câu dùng tới — chip dưới câu dẫn sang đó. */
+  grammarPath(lessonId: string): string {
+    return lessonPath('grammar', lessonId);
   }
 
   private resetView(): void {

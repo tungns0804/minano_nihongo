@@ -166,6 +166,7 @@ export class CounterExercise extends PracticeScreen {
       titleKey: 'exercise.counters.name',
       kindKey: 'kind.exercise',
     });
+    this.labelPage(this.t('exercise.counters.name'), 'exercise.counters.name');
   }
 
   // ── Sự kiện ─────────────────────────────────────────────────────────────

@@ -16,13 +16,13 @@
       <div class="notice notice-error">
         {{ t('lesson.notFound', { id: lessonId() }) }}
       </div>
-      <div><a class="btn" routerLink="/translate">{{ t('translate.back') }}</a></div>
+      <div><a class="btn" [routerLink]="PATH.translate">{{ t('translate.back') }}</a></div>
     </div>
   } @else if (lesson(); as data) {
     <div class="stack stack-xl">
       <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
       <header class="stack stack-sm">
-        <a class="back-link" routerLink="/translate">{{ t('translate.back') }}</a>
+        <a class="back-link" [routerLink]="PATH.translate">{{ t('translate.back') }}</a>
         <h1>{{ data.name }}</h1>
         @if (data.description) {
           <p class="muted">{{ data.description }}</p>
@@ -50,7 +50,7 @@
             <span class="label">{{ t('translate.grammarOverview.current') }}</span>
             <div class="grammar-chips">
               @for (use of grammarUses().current; track use.id) {
-                <a class="grammar-chip is-current" [routerLink]="['/grammar', use.ref.lessonId]">
+                <a class="grammar-chip is-current" [routerLink]="grammarPath(use.ref.lessonId)">
                   <span class="jp">{{ use.ref.title }}</span>
                   <span class="grammar-chip-count">{{ use.count }}</span>
                 </a>
@@ -63,7 +63,7 @@
               <span class="label">{{ t('translate.grammarOverview.older') }}</span>
               <div class="grammar-chips">
                 @for (use of grammarUses().older; track use.id) {
-                  <a class="grammar-chip" [routerLink]="['/grammar', use.ref.lessonId]">
+                  <a class="grammar-chip" [routerLink]="grammarPath(use.ref.lessonId)">
                     <span class="grammar-chip-lesson">
                       {{ t('translate.lessonBadge', { lesson: use.ref.lesson }) }}
                     </span>

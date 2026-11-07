@@ -7,6 +7,7 @@
  * cây ở màn hình một chữ và bảng ở màn hình một bộ không bao giờ nói khác nhau.
  */
 
+import { PATH, itemPath } from '../paths';
 import { KANJI_PART_ROWS, PART_INFO } from '../radical/kanji-parts.generated';
 import { radicalId } from '../radical/radical.model';
 import { kanjiByChar } from './kanji-entries';
@@ -27,7 +28,7 @@ export interface PartNode {
   hanViet: string;
   kind: PartKind;
   /** Lệnh dẫn đường cho `routerLink`; null khi mảnh không có trang nào. */
-  link: readonly string[] | null;
+  link: string | null;
   children: PartNode[];
 }
 
@@ -70,9 +71,9 @@ function describe(part: string, index: number): Omit<PartNode, 'children'> {
   const radical = radicalInfo(part, index);
   const hanViet = radical?.[1] || kanji?.hanViet || PART_INFO[part]?.[1] || '';
 
-  if (kanji) return { char: part, hanViet, kind: 'kanji', link: ['/kanji', kanji.id] };
+  if (kanji) return { char: part, hanViet, kind: 'kanji', link: itemPath(PATH.kanji, kanji.id) };
   if (radical) {
-    return { char: part, hanViet, kind: 'radical', link: ['/radical', radicalId(radical[0], radical[1])] };
+    return { char: part, hanViet, kind: 'radical', link: itemPath(PATH.radicals, radicalId(radical[0], radical[1])) };
   }
   return { char: part, hanViet, kind: 'other', link: null };
 }
@@ -107,10 +108,10 @@ export function compositionTree(entry: KanjiEntry): PartNode | null {
 }
 
 /** Bộ thủ mà chính chữ này là — 手 là bộ 手, 日 là bộ 日. null nếu không phải bộ nào. */
-export function ownRadical(char: string): { char: string; hanViet: string; link: readonly string[] } | null {
+export function ownRadical(char: string): { char: string; hanViet: string; link: string } | null {
   const info = radicalInfo(char, 0);
   if (!info) return null;
-  return { char: info[0], hanViet: info[1], link: ['/radical', radicalId(info[0], info[1])] };
+  return { char: info[0], hanViet: info[1], link: itemPath(PATH.radicals, radicalId(info[0], info[1])) };
 }
 
 /** Hình -> các chữ ghép trực tiếp từ nó. Dựng một lần, lúc lần đầu có người hỏi. */

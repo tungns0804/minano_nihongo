@@ -1,7 +1,7 @@
 # Lộ trình thi đỗ JLPT N3 — 05/09/2026 → 10/12/2026
 
 > **Tài liệu này là bản phân tích.** Bảng kiểm soát *sống* nằm trong ứng dụng, tab
-> **Tiến độ N3** (`/n3`): tích một buổi học ở đó thì phần trăm và nhịp học mỗi ngày
+> **Tiến độ N3** (`/tien-do-n3`): tích một buổi học ở đó thì phần trăm và nhịp học mỗi ngày
 > tự tính lại. Dữ liệu lộ trình là `src/app/core/n3/n3-syllabus.ts`; toán tính tiến
 > độ là `src/app/core/n3/n3.model.ts`; `npm run verify:n3` soát tính toàn vẹn.
 >
@@ -40,7 +40,7 @@ Hệ quả trực tiếp, và là lý do lộ trình được thiết kế như 
   đứng riêng, không có ai gánh hộ.
 - Không luyện nghe thì **trượt**, bất kể ba phần kia đầy điểm. Đây là giới hạn lớn
   nhất của lần này — xem mục 8.
-- Vì vậy tiến độ ở tab `/n3` **không đo bằng "số bài đã học / tổng số bài"** mà đo
+- Vì vậy tiến độ ở tab `/tien-do-n3` **không đo bằng "số bài đã học / tổng số bài"** mà đo
   bằng **điểm khối quy đổi**. "Xong 90% số bài" mà 90% đó nằm cả trong một khối thì
   vẫn là trượt chắc, và một con số nói ngược lại là một con số nói dối.
 
@@ -156,13 +156,13 @@ trong máy**. Mọi tài liệu ngữ pháp trong thư mục giáo trình đều
 của N3 nào.
 
 **Hệ quả đo được:** trần tiến độ của trụ ngữ pháp bị chặn ở **36%**, và trần của cả
-lộ trình (không tính 聴解) bị chặn ở **89%**. Tab `/n3` vẽ phần đó bằng vạch gạch
+lộ trình (không tính 聴解) bị chặn ở **89%**. Tab `/tien-do-n3` vẽ phần đó bằng vạch gạch
 chéo trên thanh tiến độ, đúng nghĩa "chỗ này không phải chưa học, mà là chưa có gì
 để học".
 
 **Cần làm:** bổ sung quyển đó vào `C:\Users\Admin\Downloads\Japanese\N3`. Có sách
 thì phần ngữ pháp N3 nạp thành bài học trong app được ngay — định dạng
-`grammar.json` và hai màn hình `/grammar` đã chạy tốt với 219 mẫu N5 và N4.
+`grammar.json` và hai màn hình `/ngu-phap` đã chạy tốt với 219 mẫu N5 và N4.
 
 Trong lúc chờ, phần ngữ pháp làm được như mục 6.3.
 
@@ -232,7 +232,7 @@ nhất đẩy giai đoạn 1 lên mức không theo được. Tích khi nào ôn
    lại sách**. Từ nào sai thì bấm ★.
 3. Mỗi ngày 1 bài ngữ pháp 26–50 ở tab Ngữ pháp (bài 1–25 nay cũng có, để tra lại nền N5). Chỗ nào mờ thì tra
    `Bản dịch và giải thích ngữ pháp - Tập 2.pdf`.
-4. Cửa vào: xong **80% phần nền có hẹn ngày** thì mới mở 総まとめ. Tab `/n3` hiện
+4. Cửa vào: xong **80% phần nền có hẹn ngày** thì mới mở 総まとめ. Tab `/tien-do-n3` hiện
    trạng thái cửa vào ngay trên thẻ "Nền N5–N4".
 
 **Giai đoạn 2 (26/09 → 17/11) — 2–3 buổi/ngày, 80–105 phút**
@@ -275,7 +275,7 @@ Nạp chữ mới sát ngày thi làm loãng đúng phần vừa mới nhớ đ�
 - **Bộ thủ để phân biệt chữ trông giống nhau**, đúng chỗ 表記 hay bẫy. Tab Bộ thủ có
   chiết tự cho 345 chữ N3.
 - Trong app, phần luyện của trụ này gồm 3 mục ở tab Kanji và Bộ thủ, nằm cuối
-  danh sách 文字 của tab `/n3`.
+  danh sách 文字 của tab `/tien-do-n3`.
 
 ### 6.2 語彙 — từ vựng (20 điểm quy đổi)
 
@@ -372,7 +372,7 @@ Cách tính, và tại sao nó tự cập nhật:
 - Mục học được rải đều bằng `floor(i × số_ngày / tổng_mục)` — công thức này **không
   phụ thuộc vào việc đã tích những mục nào**. Mốc hẹn phải đứng yên, nếu không thì
   "chậm 3 buổi" hôm nay có thể tự thành "đúng hẹn" ngày mai mà chẳng học gì thêm.
-- Con số **"buổi/ngày"** to nhất trên tab `/n3` được tính lại **mỗi lần mở trang**:
+- Con số **"buổi/ngày"** to nhất trên tab `/tien-do-n3` được tính lại **mỗi lần mở trang**:
   `số mục còn lại ÷ số ngày còn được nạp bài mới`. Nghỉ ba ngày thì nó tự dâng lên,
   chứ không tiếp tục hiện 2,4 như hôm đầu.
 - Chia cho **số ngày còn được nạp bài mới (tới 17/11)**, không chia tới hôm thi. Dồn
@@ -404,7 +404,7 @@ Theo quyết định phạm vi: **lần này không xây phần luyện nghe tro
 
 1. **聴解 chiếm 60/180 điểm và có điểm chuẩn riêng.** Không luyện thì trượt, dù ba
    phần kia đầy điểm. Đây không phải rủi ro — đây là điều chắc chắn nếu để nguyên.
-2. **Phần trăm ở tab `/n3` mặc định KHÔNG tính 聴解.** Lý do: để nó trong mẫu số thì
+2. **Phần trăm ở tab `/tien-do-n3` mặc định KHÔNG tính 聴解.** Lý do: để nó trong mẫu số thì
    con số đứng mãi ở mức thấp và không còn phản ánh việc học đang diễn ra. Bù lại,
    trang **luôn hiện một cảnh báo** cạnh con số, và có ô "Tính cả phần 聴解 vào phần
    trăm" để xem con số đầy đủ bất cứ lúc nào. Bật lên: trần tụt từ 89% xuống 93% của
@@ -443,7 +443,7 @@ Theo quyết định phạm vi: **lần này không xây phần luyện nghe tro
 
 ## 9. Bảng kiểm soát đầy đủ
 
-Bảng dưới đây là bản in của cùng dữ liệu mà tab `/n3` dùng. **Bảng trong app mới là
+Bảng dưới đây là bản in của cùng dữ liệu mà tab `/tien-do-n3` dùng. **Bảng trong app mới là
 bản sống** — nó tự tính phần trăm, tự đổi mốc "đến hạn / trễ hẹn", và lưu dấu tích
 trong trình duyệt. Bản dưới đây để in ra hoặc mở khi không có app.
 
@@ -825,14 +825,14 @@ Mục không ghi gì trong ngoặc là **có bài trong app**.
 | --- | --- |
 | Dữ liệu | id không trùng; tiêu đề Nhật/Việt không rỗng; trọng số > 0 |
 | Đối chiếu sách | số mục khớp mục lục (42/42/42/23); mỗi tuần đúng 7 ngày; ngày thứ bảy là bài kiểm tra |
-| Đường dẫn | mọi `/lesson/`, `/grammar/`, `/exercise/` trỏ tới thứ **có thật, đúng loại** — bài ngữ pháp phải đi qua `/grammar/`, không phải `/lesson/` |
+| Đường dẫn | mọi đường dẫn trỏ tới thứ **có thật, đúng loại** — phải đúng bằng `lessonPath` / `exercisePath` của bài đó (bài ngữ pháp ở `/ngu-phap/`, không ở `/tu-vung/`) |
 | Chữ hiển thị | mọi khoá thông điệp đều có trong từ điển hai ngôn ngữ |
 | Lịch | bốn giai đoạn phủ kín, không hở không trùng; id giai đoạn không trùng; ngày cuối không trước ngày đầu; mọi mục tích được đều có mốc hẹn; khối khai "ngoài lịch" thì thật sự không có mốc |
 | **Nhịp học** | **mỗi giai đoạn không vượt 3,5 buổi/ngày** — kiểm tra quan trọng nhất với người học |
 | Thang điểm | tổng 180; và tổng theo **từng khối** khớp 60/60/60; mọi trụ có mặt trong cả ba bảng |
 
 Bốn luật đã được thử phá để chắc chắn chúng bắt lỗi thật, không chỉ xanh cho vui:
-trỏ vào một id `ExerciseMode` không phải đường dẫn, đưa bài ngữ pháp qua `/lesson/`,
+trỏ vào một id `ExerciseMode` không phải đường dẫn, đưa bài ngữ pháp qua nhánh từ vựng,
 đặt trọng số 0, và bóp giai đoạn 1 xuống 8 ngày (7,63 buổi/ngày) — cả bốn đều báo lỗi
 và trả về mã thoát khác 0.
 

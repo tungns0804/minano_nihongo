@@ -44,7 +44,8 @@ src/styles/                      tokens (màu, cỡ chữ), base, components, sh
 src/app/
   app.*                          Vỏ ứng dụng: thanh bên / menu đáy, breadcrumb, hàng tab con
   core/
-    navigation.ts                Năm nhóm menu + tab con của từng nhóm + nhóm của mỗi URL
+    paths.ts                     MỌI đường dẫn: PATH, lessonPath, rút gọn id ↔ đoạn URL, chuyển tiếp link cũ
+    navigation.ts                Năm nhóm menu + tab con của từng nhóm + nhóm/tab của mỗi URL
     activity/
       activity.model.ts          Số câu mỗi ngày, mục tiêu, chuỗi ngày học — toán thuần
       activity-store.ts          Nhật ký hoạt động trong localStorage; ghi từ PracticeSessionStore
@@ -130,14 +131,15 @@ src/app/
       feedback-sound.ts          Tiếng chuông khi chấm câu
       local-storage.ts           Đọc/ghi localStorage an toàn
       navigation-progress.ts     Thanh tiến trình khi chuyển trang
+      page-label.ts              Tên bài đang mở — cho breadcrumb và tiêu đề tab
     utils/                       Hàm thuần không biết gì về nghiệp vụ
       dom-events.ts              Đọc giá trị từ sự kiện DOM
       random.ts                  Trộn, bốc ngẫu nhiên
-    guards/                      Chặn vào /practice và /result khi không có phiên
+    guards/                      Chặn /lam-bai, /ket-qua khi không có phiên; chuẩn hoá + chuyển tiếp đường dẫn cũ
   features/
     today/                       Trang Hôm nay (/) — ôn tập đến hạn, học tiếp, tiến độ N3
-    lesson-list/                 Từ vựng → Minano (/vocab) — chỉ bài từ vựng
-    lesson-detail/               Bảng từ vựng + thiết lập luyện tập (dùng cho cả /topic/:id)
+    lesson-list/                 Từ vựng → Minano (/tu-vung) — chỉ bài từ vựng
+    lesson-detail/               Bảng từ vựng + thiết lập luyện tập (dùng cho cả chủ đề, bài động từ, bài hội thoại)
     topic-list/                  Tab Từ vựng chủ đề — lưới 20 chủ đề
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
@@ -167,6 +169,7 @@ dụng. **Sửa một bên thì phải sửa bên kia**, rồi chạy:
 ```bash
 npm run verify           # sinh lại public/lessons rồi chạy tất cả các lệnh kiểm tra bên dưới
 npm run verify:parser    # hai bản parser cho kết quả giống nhau
+npm run verify:paths     # mọi bài có đường dẫn đi hai chiều, đúng tab; link cũ vẫn mở đúng bài
 npm run verify:answer    # dấu câu / khoảng trắng không làm sai kết quả chấm
 npm run verify:conjugation  # engine chia động từ + dữ liệu động từ thật
 npm run verify:topics    # 20 chủ đề khớp kho từ, không chủ đề nào bịa ra từ mới
