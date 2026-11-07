@@ -4,54 +4,54 @@
 # 220: ảnh ghi 役立てる là "được sử dụng" (nghĩa bị động) — 役立てる là tha động từ, ở đây ghi "Tận dụng, dùng vào việc có ích".
 # 243: ảnh ghi 遅れ là "gián đoạn" — 遅れ là sự chậm trễ (電車の遅れ), ở đây ghi đúng nghĩa.
 # Động từ 201–220
-,むく,Lột
-HOẠT,滑る (すべる),Trượt
-TÍCH,積もる (つもる),Được tích tụ
-TÍCH,積む (つむ),Tích tụ, chất lại
-KHÔNG,空く (あく),Bị thủng
-KHÔNG,空ける (あける),Thủng
-HẠ,下がる (さがる),Bị giảm
-HẠ,下げる (さげる),Giảm
-LÃNH,冷える (ひえる),Bị lạnh
-LÃNH,冷やす (ひやす),Làm lạnh
-LÃNH,冷める (さめる),Bị nguội
-LÃNH,冷ます (さます),Làm nguội
-NHIÊN,燃える (もえる),Cháy
-NHIÊN,燃やす (もやす),Đốt
-PHÍ,沸く (わく),Sôi
-PHÍ,沸かす (わかす),Đun sôi
-MINH,鳴る (なる),Kêu
-MINH,鳴らす (ならす),Làm kêu
-DỊCH LẬP,役立つ (やくだつ),Hữu ích
-DỊCH LẬP,役立てる (やくだてる),Tận dụng, dùng vào việc có ích
+,むく,Lột|みかんの皮をむいて食べました。|Tôi bóc vỏ quýt ra ăn.
+HOẠT,滑る (すべる),Trượt|雪の道で滑って転びました。|Tôi trượt chân ngã trên đường tuyết.
+TÍCH,積もる (つもる),Được tích tụ|夜の間に雪が10センチ積もりました。|Qua đêm tuyết đã phủ dày 10 cm.
+TÍCH,積む (つむ),Tích tụ, chất lại|トラックに荷物を積みました。|Tôi đã chất hàng lên xe tải.
+KHÔNG,空く (あく),Bị thủng|靴下に穴が空いてしまいました。|Tất bị thủng một lỗ rồi.
+KHÔNG,空ける (あける),Thủng|壁に穴を空けないでください。|Đừng khoan lỗ lên tường.
+HẠ,下がる (さがる),Bị giảm|夜になって、気温が下がりました。|Về đêm nhiệt độ đã giảm.
+HẠ,下げる (さげる),Giảm|エアコンの温度を少し下げてください。|Hãy giảm nhiệt độ điều hoà xuống một chút.
+LÃNH,冷える (ひえる),Bị lạnh|夜は冷えますから、上着を持って行ってください。|Ban đêm trời lạnh nên hãy mang theo áo khoác.
+LÃNH,冷やす (ひやす),Làm lạnh|スイカを冷やして食べましょう。|Ướp lạnh dưa hấu rồi ăn nhé.
+LÃNH,冷める (さめる),Bị nguội|料理が冷めないうちに食べてください。|Hãy ăn khi đồ ăn còn chưa nguội.
+LÃNH,冷ます (さます),Làm nguội|熱いスープを少し冷ましてから飲みます。|Tôi để súp nóng nguội bớt rồi mới uống.
+NHIÊN,燃える (もえる),Cháy|火事で家が燃えています。|Ngôi nhà đang cháy vì hoả hoạn.
+NHIÊN,燃やす (もやす),Đốt|庭で落ち葉を燃やしました。|Tôi đã đốt lá rụng trong vườn.
+PHÍ,沸く (わく),Sôi|お湯が沸いたら、火を止めてください。|Nước sôi thì hãy tắt bếp.
+PHÍ,沸かす (わかす),Đun sôi|お茶を入れるために、お湯を沸かしました。|Tôi đun nước sôi để pha trà.
+MINH,鳴る (なる),Kêu|授業中に携帯電話が鳴りました。|Điện thoại di động reo trong giờ học.
+MINH,鳴らす (ならす),Làm kêu|自転車のベルを鳴らしました。|Tôi bấm chuông xe đạp.
+DỊCH LẬP,役立つ (やくだつ),Hữu ích|この辞書は勉強にとても役立ちます。|Cuốn từ điển này rất hữu ích cho việc học.
+DỊCH LẬP,役立てる (やくだてる),Tận dụng, dùng vào việc có ích|日本で学んだことを国で役立てたいです。|Tôi muốn đem những gì học ở Nhật về áp dụng ở quê nhà.
 # Danh từ gốc động từ (連用名詞) 221–250
-SỨC,飾り (かざり),Trang trí
-DU,遊び (あそび),Chơi
-TẬP,集まり (あつまり),Tập hợp
-GIÁO,教え (おしえ),Dạy
-DŨNG,踊り (おどり),Nhảy
-TƯ,思い (おもい),Suy nghĩ, cảm giác
-KHẢO,考え (かんがえ),Nghĩ, ý tưởng
-PHIẾN,片づけ (かたづけ),Ngăn nắp
-THỦ TRUYỀN,手伝い (てつだい),Giúp đỡ
-ĐỘNG,働き (はたらき),Hoạt động
-QUYẾT,決まり (きまり),Luật lệ
-TAO,騒ぎ (さわぎ),Ồn ào, om xòm
-TRI,知らせ (しらせ),Tin tức, thông báo
-LẠI,頼み (たのみ),Yêu cầu
-BÌ,疲れ (つかれ),Vất vả, mệt mỏi
-VI,違い (ちがい),Khác biệt
-THỦY,始め (はじめ),Khởi đầu
-TỤC,続き (つづき),Tiếp tục
-MỘ,暮れ (くれ),Cuối năm
-HÀNH,行き (いき),Đi
-QUY,帰り (かえり),Trở về
-CẤP,急ぎ (いそぎ),Khẩn cấp, vội
-TRÌ,遅れ (おくれ),Sự chậm trễ
-THẢI,貸し (かし),Cho mượn
-TÁ,借り (かり),Mượn
-THẮNG,勝ち (かち),Thắng
-PHỤ,負け (まけ),Thua
-NGHINH,迎え (むかえ),Đón
-THỦY,始まり (はじまり),Bắt đầu
-CHUNG,終わり (おわり),Kết thúc
+SỨC,飾り (かざり),Trang trí|クリスマスツリーに飾りをつけました。|Tôi đã treo đồ trang trí lên cây thông Noel.
+DU,遊び (あそび),Chơi|今度うちへ遊びに来てください。|Lần tới hãy đến nhà tôi chơi nhé.
+TẬP,集まり (あつまり),Tập hợp|今夜、大学の友達の集まりがあります。|Tối nay có buổi họp mặt bạn đại học.
+GIÁO,教え (おしえ),Dạy|両親の教えを今も守っています。|Đến giờ tôi vẫn giữ những lời dạy của bố mẹ.
+DŨNG,踊り (おどり),Nhảy|お祭りで日本の踊りを見ました。|Tôi đã xem điệu múa Nhật ở lễ hội.
+TƯ,思い (おもい),Suy nghĩ, cảm giác|家族への思いを手紙に書きました。|Tôi đã viết tình cảm dành cho gia đình vào lá thư.
+KHẢO,考え (かんがえ),Nghĩ, ý tưởng|それはいい考えですね。|Đó là một ý hay đấy.
+PHIẾN,片づけ (かたづけ),Ngăn nắp|パーティーの後の片づけを手伝いました。|Tôi đã giúp dọn dẹp sau bữa tiệc.
+THỦ TRUYỀN,手伝い (てつだい),Giúp đỡ|友達の引っ越しの手伝いに行きました。|Tôi đã đến giúp bạn chuyển nhà.
+ĐỘNG,働き (はたらき),Hoạt động|この薬には熱を下げる働きがあります。|Thuốc này có tác dụng hạ sốt.
+QUYẾT,決まり (きまり),Luật lệ|寮には夜10時までに帰るという決まりがあります。|Ký túc xá có quy định phải về trước 10 giờ tối.
+TAO,騒ぎ (さわぎ),Ồn ào, om xòm|外で何か騒ぎが起きているようです。|Hình như bên ngoài đang có chuyện ồn ào gì đó.
+TRI,知らせ (しらせ),Tin tức, thông báo|合格の知らせを聞いて、とてもうれしかったです。|Nghe tin đỗ, tôi đã rất vui.
+LẠI,頼み (たのみ),Yêu cầu|一つ頼みがあるんですが、いいですか。|Tôi có một việc muốn nhờ, được không?
+BÌ,疲れ (つかれ),Vất vả, mệt mỏi|温泉に入って、一週間の疲れが取れました。|Ngâm suối nước nóng xong, mệt mỏi cả tuần tan biến.
+VI,違い (ちがい),Khác biệt|「は」と「が」の違いを教えてください。|Hãy giải thích cho tôi sự khác nhau giữa "wa" và "ga".
+THỦY,始め (はじめ),Khởi đầu|来月の始めに引っ越します。|Đầu tháng sau tôi chuyển nhà.
+TỤC,続き (つづき),Tiếp tục|このドラマの続きが早く見たいです。|Tôi muốn sớm được xem phần tiếp theo của bộ phim này.
+MỘ,暮れ (くれ),Cuối năm|年の暮れはいつも忙しいです。|Cuối năm lúc nào cũng bận rộn.
+HÀNH,行き (いき),Đi|行きの飛行機の中で映画を見ました。|Tôi đã xem phim trên chuyến bay lượt đi.
+QUY,帰り (かえり),Trở về|会社の帰りにスーパーに寄りました。|Trên đường đi làm về tôi ghé siêu thị.
+CẤP,急ぎ (いそぎ),Khẩn cấp, vội|急ぎの用事があるので、お先に失礼します。|Tôi có việc gấp nên xin phép về trước.
+TRÌ,遅れ (おくれ),Sự chậm trễ|事故で電車に30分の遅れが出ています。|Do tai nạn, tàu điện đang bị chậm 30 phút.
+THẢI,貸し (かし),Cho mượn|彼には一万円の貸しがあります。|Tôi đang cho anh ấy mượn 10.000 yên.
+TÁ,借り (かり),Mượn|先輩には大きな借りがあります。|Tôi còn nợ tiền bối một ân tình lớn.
+THẮNG,勝ち (かち),Thắng|3対1で私たちのチームの勝ちです。|Đội chúng tôi thắng với tỉ số 3–1.
+PHỤ,負け (まけ),Thua|今日の試合は私の負けです。|Trận hôm nay tôi thua.
+NGHINH,迎え (むかえ),Đón|駅まで迎えに来てくれませんか。|Bạn đến ga đón tôi được không?
+THỦY,始まり (はじまり),Bắt đầu|これが二人の恋の始まりでした。|Đó là khởi đầu cho chuyện tình của hai người.
+CHUNG,終わり (おわり),Kết thúc|夏休みもそろそろ終わりです。|Kỳ nghỉ hè cũng sắp kết thúc rồi.

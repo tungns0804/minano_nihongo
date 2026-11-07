@@ -595,7 +595,16 @@
                         }
                         <td>{{ word.vietnamese }}</td>
                         @if (hasExamples()) {
-                          <td class="col-example jp">{{ word.example }}</td>
+                          <td class="col-example jp">
+                            {{ word.example }}
+                            <!-- Bản dịch xuống dòng riêng ngay dưới câu Nhật, chữ thường chứ
+                                 không phải chữ Nhật: hai câu cùng nghĩa đứng sát nhau thì mắt
+                                 so được từng phần, mà không chiếm thêm một cột trong bảng
+                                 vốn đã sát mép (xem --max-width ở tokens.css). -->
+                            @if (word.exampleVietnamese) {
+                              <span class="example-vi">{{ word.exampleVietnamese }}</span>
+                            }
+                          </td>
                         }
                         <!-- Cột ảnh đứng CUỐI bảng: các quy tắc nth-child chỉnh bề rộng ở
                              lesson-detail.css chỉ nhắm cột 2–5, chèn ảnh vào giữa là lệch hết. -->

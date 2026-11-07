@@ -59,6 +59,10 @@ const SAMPLES = [
   'J,缶 (かん),lon, hộp thiếc|空き缶を捨てます。',
   // Ô chỉ gồm ngoặc: KHÔNG được coi là có cách đọc, nếu không từ sẽ thành rỗng
   'K,(く),chỉ có ngoặc',
+  // Câu ví dụ kèm bản dịch sau dấu | thứ hai — bản dịch được chứa dấu phẩy
+  'L,け,nghĩa a, nghĩa b|窓を開けます。|Tôi mở cửa sổ, cho thoáng.',
+  // Dán từ Excel: cột thứ 5 là bản dịch câu ví dụ
+  'M	こ	nghĩa bằng TAB	例文です。	Đây là câu ví dụ.',
 ];
 
 const raw = SAMPLES.join('\n');
@@ -108,6 +112,27 @@ if (byJapanese.get('か')?.example !== '例文もTAB。') {
 if (byJapanese.get('逃げます')?.example !== '') {
   problems.push(
     `Từ không có ví dụ phải cho example = "" , nhận được ${JSON.stringify(byJapanese.get('逃げます')?.example)}`,
+  );
+}
+
+// ── Bản dịch câu ví dụ ───────────────────────────────────────────────────
+const ke = byJapanese.get('け');
+if (
+  ke?.vietnamese !== 'nghĩa a, nghĩa b' ||
+  ke?.example !== '窓を開けます。' ||
+  ke?.exampleVietnamese !== 'Tôi mở cửa sổ, cho thoáng.'
+) {
+  problems.push(`Dấu | thứ hai phải tách câu ví dụ khỏi bản dịch: ${JSON.stringify(ke)}`);
+}
+if (byJapanese.get('こ')?.exampleVietnamese !== 'Đây là câu ví dụ.') {
+  problems.push(
+    `Cột thứ 5 khi dán bằng TAB phải là bản dịch, nhận được ${JSON.stringify(byJapanese.get('こ')?.exampleVietnamese)}`,
+  );
+}
+// Chỉ có câu ví dụ, không có bản dịch: bản dịch là chuỗi rỗng, câu giữ nguyên.
+if (byJapanese.get('え')?.exampleVietnamese !== '') {
+  problems.push(
+    `Ví dụ không có bản dịch phải cho exampleVietnamese = "", nhận được ${JSON.stringify(byJapanese.get('え')?.exampleVietnamese)}`,
   );
 }
 

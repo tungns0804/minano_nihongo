@@ -196,7 +196,15 @@ for (const topic of TOPIC_DEFS) {
     }
     seen.add(word.japanese);
 
-    rows.push([word.japanese, word.reading, word.hanViet, word.vietnamese, word.example, lesson]);
+    rows.push([
+      word.japanese,
+      word.reading,
+      word.hanViet,
+      word.vietnamese,
+      word.example,
+      word.exampleVietnamese,
+      lesson,
+    ]);
   }
 
   if (missing.length > 0) {
@@ -245,7 +253,7 @@ function renderWords() {
     ...BANNER,
     '//',
     '// PHẦN NẶNG: mỗi dòng là [tiếng Nhật, cách đọc, âm Hán Việt, nghĩa, câu ví dụ,',
-    '// id bài gốc]. Chỉ được nhập ĐỘNG (xem topic-entries.ts) để trang chủ khỏi phải',
+    '// bản dịch câu ví dụ, id bài gốc]. Chỉ được nhập ĐỘNG (xem topic-entries.ts) để trang chủ khỏi phải',
     '// tải toàn bộ từ vựng chủ đề khi nó chẳng hiện chủ đề nào.',
     '//',
     '// Toàn bộ nội dung ở đây được TRA từ kho từ của ứng dụng, không chép tay chữ nào.',
@@ -282,7 +290,10 @@ function renderCatalog() {
 
   for (const topic of TOPIC_DEFS) {
     const rows = rowsById.get(topic.id) ?? [];
-    const sources = new Set(rows.map((row) => row[5])).size;
+    // Id bài gốc là phần tử CUỐI của dòng (xem TopicWordSeed). Lấy theo vị trí cuối
+    // chứ không theo chỉ số cố định: thêm cột vào giữa dòng đã từng làm con số này
+    // lặng lẽ thành 1 cho mọi chủ đề.
+    const sources = new Set(rows.map((row) => row.at(-1))).size;
     lines.push(
       '  {',
       `    id: ${quote(topic.id)},`,

@@ -59,6 +59,8 @@ interface PreviewRow {
   extra: string;
   /** Câu ví dụ, chỉ có ở bài từ vựng. */
   example: string;
+  /** Bản dịch câu ví dụ, chỉ có ở bài từ vựng. */
+  exampleVietnamese: string;
   error: string | null;
 }
 
@@ -126,6 +128,7 @@ export class ImportLesson {
         reading: '',
         vietnamese: entry.vietnamese,
         example: '',
+        exampleVietnamese: '',
         extra: result.ok
           ? `${this.lang.t(VERB_GROUP_LABEL_KEY[entry.group])} · ${result.forms.dictionary} · ` +
             `${result.forms.te} · ${result.forms.ta} · ${result.forms.nai}`

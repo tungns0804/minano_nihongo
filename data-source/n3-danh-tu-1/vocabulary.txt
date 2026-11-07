@@ -1,53 +1,53 @@
 # Từ vựng N3 · 名詞 — Bài 1 (từ 1–50)
 # Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
-NAM TÍNH,男性 (だんせい),Đàn ông
-NỮ TÍNH,女性 (じょせい),Phụ nữ
-CAO LINH,高齢 (こうれい),Cao tuổi
-NIÊN THƯỢNG,年上 (としうえ),Hơn tuổi
-MỤC THƯỢNG,目上 (めうえ),Bề trên
-TIÊN BỐI,先輩 (せんぱい),Tiền bối
-HẬU BỐI,後輩 (こうはい),Hậu bối
-THƯỢNG TY,上司 (じょうし),Cấp trên
-TƯƠNG THỦ,相手 (あいて),Người đối diện
-TRI HỢP,知り合い (しりあい),Người quen
-HỮU NHÂN,友人 (ゆうじん),Bạn bè
-TRỌNG,仲 (なか),Mối quan hệ
-SINH NIÊN NGUYỆT NHẬT,生年月日 (せいねんがっぴ),Ngày tháng năm sinh
-ĐẢN SINH,誕生 (たんじょう),Ra đời
-NIÊN,年 (とし),Năm
-XUẤT THÂN,出身 (しゅっしん),Quê quán
-CỐ HƯƠNG,故郷 (こきょう),Cố hương
-THÀNH TRƯỞNG,成長 (せいちょう),Trưởng thành
-THÀNH NHÂN,成人 (せいじん),Người trưởng thành
-HỢP CÁCH,合格 (ごうかく),Đỗ đại học
-TIẾN HỌC,進学 (しんがく),Vào đại học
-THOÁI HỌC,退学 (たいがく),Bỏ học
-TỰU CHỨC,就職 (しゅうしょく),Có việc làm
-THOÁI CHỨC,退職 (たいしょく),Nghỉ việc
-THẤT NGHIỆP,失業 (しつぎょう),Thất nghiệp
-TÀN NGHIỆP,残業 (ざんぎょう),Làm thêm
-SINH HOẠT,生活 (せいかつ),Cuộc sống
-THÔNG CẦN,通勤 (つうきん),Đi làm
-HỌC LỊCH,学歴 (がくれき),Bằng cấp
-CẤP LIỆU,給料 (きゅうりょう),Tiền lương
-DIỆN TIẾP,面接 (めんせつ),Phỏng vấn
-HƯU KHẾ,休憩 (きゅうけい),Nghỉ ngơi
-QUAN QUANG,観光 (かんこう),Tham quan
-QUY QUỐC,帰国 (きこく),Về nước
-QUY TỈNH,帰省 (きせい),Về quê
-QUY TRẠCH,帰宅 (きたく),Về nhà
-THAM GIA,参加 (さんか),Tham gia
-XUẤT TỊCH,出席 (しゅっせき),Có mặt
-KHUYẾT TỊCH,欠席 (けっせき),Vắng mặt
-TRÌ KHẮC,遅刻 (ちこく),Đến muộn
-HOÁ TRANG,化粧 (けしょう),Trang điểm
-KẾ TOÁN,計算 (けいさん),Tính toán
-KẾ HOẠCH,計画 (けいかく),Kế hoạch
-THÀNH CÔNG,成功 (せいこう),Thành công
-THẤT BẠI,失敗 (しっぱい),Thất bại
-CHUẨN BỊ,準備 (じゅんび),Chuẩn bị
-CHỈNH LÝ,整理 (せいり),Chỉnh sửa
-CHÚ VĂN,注文 (ちゅうもん),Đặt hàng
-TRỮ KIM,貯金 (ちょきん),Tiết kiệm
-TRIỆT DẠ,徹夜 (てつや),Thức xuyên đêm
+NAM TÍNH,男性 (だんせい),Đàn ông|この会社は男性の社員が多いです。|Công ty này có nhiều nhân viên nam.
+NỮ TÍNH,女性 (じょせい),Phụ nữ|最近は働く女性が増えています。|Gần đây số phụ nữ đi làm đang tăng lên.
+CAO LINH,高齢 (こうれい),Cao tuổi|祖父は高齢なので、一人で旅行するのは心配です。|Ông tôi đã cao tuổi nên đi du lịch một mình thì tôi lo lắm.
+NIÊN THƯỢNG,年上 (としうえ),Hơn tuổi|彼女は私より三つ年上です。|Cô ấy hơn tôi ba tuổi.
+MỤC THƯỢNG,目上 (めうえ),Bề trên|目上の人には敬語を使いましょう。|Hãy dùng kính ngữ với người bề trên.
+TIÊN BỐI,先輩 (せんぱい),Tiền bối|会社の先輩に仕事を教えてもらいました。|Tôi được tiền bối ở công ty chỉ việc cho.
+HẬU BỐI,後輩 (こうはい),Hậu bối|後輩に晩ご飯をごちそうしました。|Tôi đã đãi hậu bối một bữa tối.
+THƯỢNG TY,上司 (じょうし),Cấp trên|上司に報告書を出しました。|Tôi đã nộp báo cáo cho cấp trên.
+TƯƠNG THỦ,相手 (あいて),Người đối diện|話すときは相手の目を見てください。|Khi nói chuyện hãy nhìn vào mắt người đối diện.
+TRI HỢP,知り合い (しりあい),Người quen|東京には知り合いが一人もいません。|Ở Tokyo tôi không có một người quen nào.
+HỮU NHÂN,友人 (ゆうじん),Bạn bè|週末、大学時代の友人と会いました。|Cuối tuần tôi đã gặp người bạn thời đại học.
+TRỌNG,仲 (なか),Mối quan hệ|田中さんと山田さんはとても仲がいいです。|Anh Tanaka và anh Yamada rất thân với nhau.
+SINH NIÊN NGUYỆT NHẬT,生年月日 (せいねんがっぴ),Ngày tháng năm sinh|この用紙に名前と生年月日を書いてください。|Hãy ghi họ tên và ngày tháng năm sinh vào tờ giấy này.
+ĐẢN SINH,誕生 (たんじょう),Ra đời|先月、姉に女の子が誕生しました。|Tháng trước, chị gái tôi vừa có một bé gái chào đời.
+NIÊN,年 (とし),Năm|年の初めに、今年の目標を決めました。|Đầu năm, tôi đã đặt mục tiêu cho năm nay.
+XUẤT THÂN,出身 (しゅっしん),Quê quán|ご出身はどちらですか。|Bạn quê ở đâu?
+CỐ HƯƠNG,故郷 (こきょう),Cố hương|十年ぶりに故郷に帰りました。|Sau mười năm tôi mới về lại quê hương.
+THÀNH TRƯỞNG,成長 (せいちょう),Trưởng thành|この一年で、彼は大きく成長しました。|Trong một năm qua, cậu ấy đã trưởng thành lên nhiều.
+THÀNH NHÂN,成人 (せいじん),Người trưởng thành|日本では18歳で成人になります。|Ở Nhật, 18 tuổi là trở thành người trưởng thành.
+HỢP CÁCH,合格 (ごうかく),Đỗ đại học|兄は大学の入学試験に合格しました。|Anh tôi đã đỗ kỳ thi vào đại học.
+TIẾN HỌC,進学 (しんがく),Vào đại học|高校を卒業したら、大学に進学するつもりです。|Tốt nghiệp cấp ba xong, tôi định học lên đại học.
+THOÁI HỌC,退学 (たいがく),Bỏ học|彼は病気で大学を退学しました。|Anh ấy đã bỏ học đại học vì bị bệnh.
+TỰU CHỨC,就職 (しゅうしょく),Có việc làm|卒業したら、日本の会社に就職したいです。|Tốt nghiệp xong, tôi muốn vào làm ở một công ty Nhật.
+THOÁI CHỨC,退職 (たいしょく),Nghỉ việc|父は来年、会社を退職します。|Năm sau bố tôi sẽ nghỉ việc ở công ty.
+THẤT NGHIỆP,失業 (しつぎょう),Thất nghiệp|会社が倒産して、失業してしまいました。|Công ty phá sản nên tôi đã bị thất nghiệp.
+TÀN NGHIỆP,残業 (ざんぎょう),Làm thêm|今日は仕事が多くて、9時まで残業しました。|Hôm nay nhiều việc nên tôi làm thêm giờ đến 9 giờ.
+SINH HOẠT,生活 (せいかつ),Cuộc sống|日本の生活にはもう慣れました。|Tôi đã quen với cuộc sống ở Nhật rồi.
+THÔNG CẦN,通勤 (つうきん),Đi làm|毎朝、電車で通勤しています。|Sáng nào tôi cũng đi làm bằng tàu điện.
+HỌC LỊCH,学歴 (がくれき),Bằng cấp|この仕事に学歴は関係ありません。|Công việc này không đòi hỏi bằng cấp.
+CẤP LIỆU,給料 (きゅうりょう),Tiền lương|来月から給料が上がります。|Từ tháng sau lương sẽ tăng.
+DIỆN TIẾP,面接 (めんせつ),Phỏng vấn|明日、アルバイトの面接があります。|Ngày mai tôi có buổi phỏng vấn xin việc làm thêm.
+HƯU KHẾ,休憩 (きゅうけい),Nghỉ ngơi|少し休憩しましょう。|Mình nghỉ giải lao một chút đi.
+QUAN QUANG,観光 (かんこう),Tham quan|京都へ観光に行きました。|Tôi đã đi tham quan Kyoto.
+QUY QUỐC,帰国 (きこく),Về nước|来年の三月に帰国する予定です。|Tôi dự định về nước vào tháng ba năm sau.
+QUY TỈNH,帰省 (きせい),Về quê|お正月は家族で帰省します。|Dịp Tết cả nhà tôi về quê.
+QUY TRẠCH,帰宅 (きたく),Về nhà|毎日7時ごろ帰宅します。|Hằng ngày tôi về đến nhà khoảng 7 giờ.
+THAM GIA,参加 (さんか),Tham gia|日曜日のパーティーに参加しますか。|Bạn có tham gia bữa tiệc chủ nhật không?
+XUẤT TỊCH,出席 (しゅっせき),Có mặt|友達の結婚式に出席しました。|Tôi đã dự đám cưới của bạn.
+KHUYẾT TỊCH,欠席 (けっせき),Vắng mặt|風邪をひいたので、授業を欠席しました。|Vì bị cảm nên tôi đã nghỉ buổi học.
+TRÌ KHẮC,遅刻 (ちこく),Đến muộn|寝坊して、会社に遅刻しました。|Tôi ngủ quên nên đã đến công ty muộn.
+HOÁ TRANG,化粧 (けしょう),Trang điểm|姉は毎朝30分かけて化粧をします。|Sáng nào chị tôi cũng mất 30 phút trang điểm.
+KẾ TOÁN,計算 (けいさん),Tính toán|この計算は間違っています。|Phép tính này sai rồi.
+KẾ HOẠCH,計画 (けいかく),Kế hoạch|夏休みの旅行の計画を立てました。|Tôi đã lên kế hoạch cho chuyến du lịch nghỉ hè.
+THÀNH CÔNG,成功 (せいこう),Thành công|実験は成功しました。|Thí nghiệm đã thành công.
+THẤT BẠI,失敗 (しっぱい),Thất bại|失敗を恐れないでください。|Đừng sợ thất bại.
+CHUẨN BỊ,準備 (じゅんび),Chuẩn bị|旅行の準備はもうできましたか。|Bạn đã chuẩn bị xong cho chuyến đi chưa?
+CHỈNH LÝ,整理 (せいり),Chỉnh sửa|机の上を整理してください。|Hãy sắp xếp lại mặt bàn cho gọn.
+CHÚ VĂN,注文 (ちゅうもん),Đặt hàng|インターネットで本を注文しました。|Tôi đã đặt mua sách qua mạng.
+TRỮ KIM,貯金 (ちょきん),Tiết kiệm|旅行のために毎月貯金しています。|Tôi tiết kiệm tiền hằng tháng để đi du lịch.
+TRIỆT DẠ,徹夜 (てつや),Thức xuyên đêm|試験の前の日に徹夜で勉強しました。|Hôm trước ngày thi tôi đã thức trắng đêm học bài.

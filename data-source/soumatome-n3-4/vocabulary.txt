@@ -3,40 +3,40 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
 # Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
-,エプロン,tạp dề
-,ほうき,chổi
-,ちりとり,hót rác
-,ぞうきん,giẻ lau
-,バケツ,xô
-,エプロンをする,đeo tạp dề
-,エプロンをかける,đeo tạp dề
-,エプロンをつける,đeo tạp dề
-,ソファーをどける,dịch ghế sofa ra
-,どく,tránh ra/ dịch ra
-,部屋を散らかす (へやをちらかす),bày bừa phòng
-,部屋が散らかる (へやがちらかる),phòng bừa bộn
-,部屋を片づける (へやをかたづける),dọn phòng
-,部屋が片づく (へやがかたづく),phòng đã gọn
-,ジュースをこぼす,làm đổ nước ngọt
-,ジュースがこぼれる,nước ngọt bị đổ
-,ほこりがたまる,bụi đọng lại
-,ほこりがつもる,bụi phủ dày
-,雪がつもる (ゆきがつもる),tuyết phủ
-,ほこりを取る (ほこりをとる),phủi bụi
-,掃除機をかける (そうじきをかける),hút bụi
-,ほうきで掃く (ほうきではく),quét bằng chổi
-,水をくむ (みずをくむ),múc/ hứng nước
-,ぞうきんをぬらす,làm ướt giẻ lau
-,ぞうきんをしぼる,vắt giẻ lau
-,床をふく (ゆかをふく),lau sàn
-,ふきんで食器をふく (ふきんでしょっきをふく),lau bát đĩa bằng khăn
-,台ぶきんでテーブルをふく (だいぶきんでテーブルをふく),lau bàn bằng khăn
-,家具をみがく (かぐをみがく),đánh bóng đồ gỗ
-,ブラシでこする,cọ bằng bàn chải
-,生ゴミ (なまゴミ),rác nhà bếp
-,燃えるゴミ (もえるゴミ),rác cháy được
-,燃えないゴミ (もえないゴミ),rác không cháy được
-,面倒だ (めんどうだ),phiền phức
-,面倒くさい (めんどうくさい),ngại/ phiền phức
-,スリッパをそろえる,xếp dép cho ngay ngắn
-,物置にしまう (ものおきにしまう),cất vào nhà kho
+,エプロン,tạp dề|料理をするときは、エプロンが必要です。|Khi nấu ăn thì cần tạp dề.
+,ほうき,chổi|ほうきは物置にあります。|Cây chổi ở trong nhà kho.
+,ちりとり,hót rác|ごみをちりとりで集めて捨てました。|Tôi gom rác bằng hót rác rồi đem bỏ.
+,ぞうきん,giẻ lau|ぞうきんで窓をふきました。|Tôi lau cửa sổ bằng giẻ.
+,バケツ,xô|バケツに水を入れてください。|Hãy cho nước vào xô.
+,エプロンをする,đeo tạp dề|母はいつもエプロンをして料理をします。|Mẹ tôi lúc nào cũng đeo tạp dề khi nấu ăn.
+,エプロンをかける,đeo tạp dề|服が汚れないように、エプロンをかけましょう。|Đeo tạp dề vào để quần áo khỏi bẩn nhé.
+,エプロンをつける,đeo tạp dề|店員はみんな緑のエプロンをつけています。|Nhân viên ai cũng đeo tạp dề màu xanh lá.
+,ソファーをどける,dịch ghế sofa ra|ソファーをどけて、その後ろを掃除しました。|Tôi dịch ghế sofa ra rồi dọn phía sau nó.
+,どく,tránh ra/ dịch ra|邪魔だから、ちょっとどいて。|Vướng quá, tránh ra chút đi.
+,部屋を散らかす (へやをちらかす),bày bừa phòng|子どもがおもちゃで部屋を散らかしました。|Đứa bé bày đồ chơi bừa bộn khắp phòng.
+,部屋が散らかる (へやがちらかる),phòng bừa bộn|忙しくて、部屋が散らかっています。|Bận quá nên phòng đang bừa bộn.
+,部屋を片づける (へやをかたづける),dọn phòng|お客さんが来る前に、部屋を片づけました。|Tôi dọn phòng trước khi khách đến.
+,部屋が片づく (へやがかたづく),phòng đã gọn|一日かかって、やっと部屋が片づきました。|Mất cả ngày, cuối cùng phòng cũng gọn gàng.
+,ジュースをこぼす,làm đổ nước ngọt|子どもがテーブルにジュースをこぼしました。|Đứa bé làm đổ nước ngọt lên bàn.
+,ジュースがこぼれる,nước ngọt bị đổ|コップが倒れて、ジュースがこぼれました。|Cốc bị đổ làm nước ngọt tràn ra.
+,ほこりがたまる,bụi đọng lại|本棚の上にほこりがたまっています。|Bụi bám đầy trên nóc giá sách.
+,ほこりがつもる,bụi phủ dày|長い間使っていないピアノに、ほこりがつもっています。|Bụi phủ dày trên cây đàn piano lâu không dùng.
+,雪がつもる (ゆきがつもる),tuyết phủ|朝起きたら、雪がつもっていました。|Sáng ngủ dậy thì tuyết đã phủ dày.
+,ほこりを取る (ほこりをとる),phủi bụi|掃除機をかける前に、棚のほこりを取ります。|Trước khi hút bụi, tôi phủi bụi trên kệ.
+,掃除機をかける (そうじきをかける),hút bụi|毎週土曜日に部屋に掃除機をかけます。|Thứ bảy hằng tuần tôi hút bụi phòng.
+,ほうきで掃く (ほうきではく),quét bằng chổi|庭の落ち葉をほうきで掃きました。|Tôi quét lá rụng trong vườn bằng chổi.
+,水をくむ (みずをくむ),múc/ hứng nước|バケツに水をくんできてください。|Hãy đi múc nước vào xô giúp tôi.
+,ぞうきんをぬらす,làm ướt giẻ lau|ぞうきんをぬらして、机をふきます。|Làm ướt giẻ rồi lau bàn.
+,ぞうきんをしぼる,vắt giẻ lau|ぞうきんをよくしぼってから、床をふいてください。|Hãy vắt kỹ giẻ rồi mới lau sàn.
+,床をふく (ゆかをふく),lau sàn|毎晩、寝る前に床をふいています。|Tối nào trước khi ngủ tôi cũng lau sàn.
+,ふきんで食器をふく (ふきんでしょっきをふく),lau bát đĩa bằng khăn|洗った食器をふきんでふいて、棚に戻します。|Lau bát đĩa đã rửa bằng khăn rồi xếp lại lên kệ.
+,台ぶきんでテーブルをふく (だいぶきんでテーブルをふく),lau bàn bằng khăn|食事の後、台ぶきんでテーブルをふきました。|Ăn xong tôi lau bàn bằng khăn lau bàn.
+,家具をみがく (かぐをみがく),đánh bóng đồ gỗ|年末に家具をみがいて、ぴかぴかにしました。|Cuối năm tôi đánh bóng đồ gỗ cho sáng bóng.
+,ブラシでこする,cọ bằng bàn chải|お風呂の汚れをブラシでこすりました。|Tôi cọ vết bẩn trong bồn tắm bằng bàn chải.
+,生ゴミ (なまゴミ),rác nhà bếp|生ゴミは火曜日と金曜日に出します。|Rác nhà bếp được đem đổ vào thứ ba và thứ sáu.
+,燃えるゴミ (もえるゴミ),rác cháy được|紙くずは燃えるゴミの日に出してください。|Giấy vụn hãy đem đổ vào ngày thu rác cháy được.
+,燃えないゴミ (もえないゴミ),rác không cháy được|割れたコップは燃えないゴミです。|Cốc vỡ là rác không cháy được.
+,面倒だ (めんどうだ),phiền phức|毎日部屋を掃除するのは面倒だ。|Ngày nào cũng dọn phòng thật phiền phức.
+,面倒くさい (めんどうくさい),ngại/ phiền phức|疲れているので、料理をするのが面倒くさいです。|Mệt quá nên tôi thấy ngại nấu ăn.
+,スリッパをそろえる,xếp dép cho ngay ngắn|玄関でスリッパをそろえておきました。|Tôi đã xếp dép ngay ngắn ở lối vào.
+,物置にしまう (ものおきにしまう),cất vào nhà kho|使わない扇風機を物置にしまいました。|Tôi cất quạt máy không dùng vào nhà kho.

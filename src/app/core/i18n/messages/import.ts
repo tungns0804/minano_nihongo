@@ -23,8 +23,8 @@ export const IMPORT_MESSAGES = {
     ja: '1行1語、カンマ区切りの3列（Excelから貼る場合はTABも可）。3つ目以降のカンマは意味の一部なので、意味にカンマが入っても大丈夫です。# で始まる行はコメントです。',
   },
   'import.format.example': {
-    vi: 'Câu ví dụ là tuỳ chọn: viết sau dấu | ở cuối cột nghĩa. Dùng | chứ không thêm dấu phẩy, để nghĩa vẫn chứa được dấu phẩy. Nếu dán từ Excel bằng TAB thì đặt câu ví dụ ở cột thứ 4.',
-    ja: '例文は任意です。意味の列の末尾に | を書いてその後に続けます。意味にカンマを使えるようにするため、カンマではなく | で区切ります。ExcelからTABで貼る場合は4列目に置きます。',
+    vi: 'Câu ví dụ là tuỳ chọn: viết sau dấu | ở cuối cột nghĩa, muốn kèm bản dịch thì thêm một dấu | nữa rồi viết bản dịch. Dùng | chứ không thêm dấu phẩy, để nghĩa vẫn chứa được dấu phẩy. Nếu dán từ Excel bằng TAB thì đặt câu ví dụ ở cột thứ 4, bản dịch ở cột thứ 5.',
+    ja: '例文は任意です。意味の列の末尾に | を書いてその後に続けます。訳も付ける場合は、もう一つ | を書いてから訳を続けます。意味にカンマを使えるようにするため、カンマではなく | で区切ります。ExcelからTABで貼る場合は例文を4列目、訳を5列目に置きます。',
   },
   'import.format.vocabularyNote': {
     vi: 'Dấu / dùng để tách các nghĩa tương đương. Khi luyện ở chế độ gõ đáp án, gõ đúng một trong các nghĩa đó là được tính đúng.',

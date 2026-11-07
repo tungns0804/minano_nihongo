@@ -3,28 +3,28 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
 # Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
-,洗濯物 (せんたくもの),đồ giặt
-,洗濯物がたまる (せんたくものがたまる),đồ giặt dồn đống
-,洗濯物をためる (せんたくものをためる),để đồ giặt dồn lại
-,ぬれている,đang ướt
-,ぬらす,làm ướt
-,湿っている (しめっている),còn ẩm
-,乾く (かわく),khô
-,干す (ほす),phơi
-,乾燥機で乾かす (かんそうきでかわかす),sấy bằng máy sấy
-,真っ白に仕上がる (まっしろにしあがる),giặt ra trắng tinh
-,たたむ,gấp
-,服を汚す (ふくをよごす),làm bẩn quần áo
-,そでが真っ黒に汚れる (そでがまっくろによごれる),tay áo bẩn đen sì
-,汚れ (よごれ),vết bẩn
-,洗剤を入れる (せんざいをいれる),cho bột giặt
-,台所用洗剤 (だいどころようせんざい),nước rửa bát
-,スーツをクリーニングに出す (スーツをクリーニングにだす),mang vest đi giặt khô
-,コインランドリーで洗濯をする (コインランドリーでせんたくをする),giặt ở tiệm giặt tự động
-,タオルを干す (タオルをほす),phơi khăn
-,服をつるす (ふくをつるす),treo quần áo lên
-,ワイシャツにアイロンをかける,là áo sơ mi
-,しわを伸ばす (しわをのばす),vuốt phẳng nếp nhăn
-,しわが伸びる (しわがのびる),nếp nhăn đã phẳng
-,ウールのセーターが縮む (ウールのセーターがちぢむ),áo len bị co
-,ジーンズの色が落ちる (ジーンズのいろがおちる),quần bò bị phai màu
+,洗濯物 (せんたくもの),đồ giặt|雨が降りそうなので、洗濯物を中に入れました。|Trời sắp mưa nên tôi đã mang đồ giặt vào trong.
+,洗濯物がたまる (せんたくものがたまる),đồ giặt dồn đống|忙しくて、洗濯物がたまってしまいました。|Bận quá nên đồ giặt dồn thành đống.
+,洗濯物をためる (せんたくものをためる),để đồ giặt dồn lại|洗濯物をためないで、毎日洗いましょう。|Đừng để dồn đồ giặt, hãy giặt hằng ngày.
+,ぬれている,đang ướt|雨で服がぬれています。|Quần áo bị ướt vì mưa.
+,ぬらす,làm ướt|本をぬらさないように、かばんに入れました。|Tôi cho sách vào cặp để khỏi bị ướt.
+,湿っている (しめっている),còn ẩm|このタオルはまだ湿っています。|Chiếc khăn này vẫn còn ẩm.
+,乾く (かわく),khô|今日は天気がいいので、洗濯物がすぐ乾きます。|Hôm nay trời đẹp nên đồ giặt khô nhanh.
+,干す (ほす),phơi|天気がいいので、布団を干しました。|Trời đẹp nên tôi đã phơi chăn đệm.
+,乾燥機で乾かす (かんそうきでかわかす),sấy bằng máy sấy|雨の日は、洗濯物を乾燥機で乾かします。|Ngày mưa tôi sấy đồ giặt bằng máy sấy.
+,真っ白に仕上がる (まっしろにしあがる),giặt ra trắng tinh|この洗剤を使うと、シャツが真っ白に仕上がります。|Dùng bột giặt này thì áo sơ mi giặt ra trắng tinh.
+,たたむ,gấp|乾いた服をたたんで、引き出しにしまいます。|Gấp quần áo đã khô rồi cất vào ngăn kéo.
+,服を汚す (ふくをよごす),làm bẩn quần áo|子どもが泥遊びをして、服を汚しました。|Đứa bé nghịch bùn làm bẩn quần áo.
+,そでが真っ黒に汚れる (そでがまっくろによごれる),tay áo bẩn đen sì|一日中働いたら、そでが真っ黒に汚れました。|Làm việc cả ngày, tay áo bẩn đen sì.
+,汚れ (よごれ),vết bẩn|このシャツの汚れはなかなか落ちません。|Vết bẩn trên áo sơ mi này mãi không sạch.
+,洗剤を入れる (せんざいをいれる),cho bột giặt|洗濯機に洗剤を入れすぎないでください。|Đừng cho quá nhiều bột giặt vào máy giặt.
+,台所用洗剤 (だいどころようせんざい),nước rửa bát|台所用洗剤でお皿を洗います。|Rửa đĩa bằng nước rửa bát.
+,スーツをクリーニングに出す (スーツをクリーニングにだす),mang vest đi giặt khô|明日、スーツをクリーニングに出します。|Ngày mai tôi mang vest đi giặt khô.
+,コインランドリーで洗濯をする (コインランドリーでせんたくをする),giặt ở tiệm giặt tự động|洗濯機が壊れたので、コインランドリーで洗濯をしました。|Máy giặt hỏng nên tôi đã giặt ở tiệm giặt tự động.
+,タオルを干す (タオルをほす),phơi khăn|ベランダにタオルを干しました。|Tôi phơi khăn ngoài ban công.
+,服をつるす (ふくをつるす),treo quần áo lên|ハンガーに服をつるして乾かします。|Treo quần áo lên mắc để phơi khô.
+,ワイシャツにアイロンをかける,là áo sơ mi|毎晩、次の日のワイシャツにアイロンをかけます。|Tối nào tôi cũng là áo sơ mi cho ngày hôm sau.
+,しわを伸ばす (しわをのばす),vuốt phẳng nếp nhăn|アイロンでスカートのしわを伸ばしました。|Tôi dùng bàn là làm phẳng nếp nhăn của váy.
+,しわが伸びる (しわがのびる),nếp nhăn đã phẳng|シャツを干す前によく振ると、しわが伸びます。|Giũ kỹ áo trước khi phơi thì nếp nhăn sẽ phẳng ra.
+,ウールのセーターが縮む (ウールのセーターがちぢむ),áo len bị co|お湯で洗ったら、ウールのセーターが縮んでしまいました。|Giặt bằng nước nóng nên áo len đã bị co lại.
+,ジーンズの色が落ちる (ジーンズのいろがおちる),quần bò bị phai màu|ジーンズの色が落ちるので、ほかの服と別に洗います。|Quần bò bị phai màu nên tôi giặt riêng với quần áo khác.

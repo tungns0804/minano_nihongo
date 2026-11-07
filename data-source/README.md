@@ -180,11 +180,21 @@ Viết sau dấu `|` ở cuối cột nghĩa:
 TỊCH,席,chỗ ngồi/ ghế
 ```
 
+Muốn kèm **bản dịch tiếng Việt** của câu thì thêm một dấu `|` nữa:
+
+```
+TRÌ KHẮC,遅刻 (ちこく),đến muộn|寝坊して、会社に遅刻しました。|Tôi ngủ quên nên đã đến công ty muộn.
+```
+
+Bản dịch hiện thành dòng nhỏ ngay dưới câu tiếng Nhật trong bảng. Mọi từ vựng N3 đều có
+đủ câu ví dụ lẫn bản dịch; bài 皆の日本語 26–50 chỉ có câu tiếng Nhật.
+
 Dùng `|` chứ **không thêm một dấu phẩy nữa** là có chủ ý: cột nghĩa được phép chứa dấu phẩy, nên
 nếu tách bằng dấu phẩy thì mọi dòng có nghĩa kiểu `nghĩa a, nghĩa b` sẽ âm thầm bị cắt mất một nửa
 và nửa đó biến thành câu ví dụ.
 
-Nếu dán từ Excel bằng TAB thì đặt câu ví dụ ở **cột thứ 4**, không cần dấu `|`.
+Nếu dán từ Excel bằng TAB thì đặt câu ví dụ ở **cột thứ 4** và bản dịch ở **cột thứ 5**,
+không cần dấu `|`.
 
 Cột ví dụ chỉ hiện trong bảng từ vựng khi bài có ít nhất một câu — bài chưa có ví dụ thì bảng giữ
 nguyên 4 cột như cũ.

@@ -299,7 +299,8 @@ function sanitizeWords(raw: unknown): VocabularyWord[] {
 
   return raw.flatMap((item): VocabularyWord[] => {
     if (!item || typeof item !== 'object') return [];
-    const { id, hanViet, japanese, reading, vietnamese, example } = item as Record<string, unknown>;
+    const { id, hanViet, japanese, reading, vietnamese, example, exampleVietnamese } =
+      item as Record<string, unknown>;
     if (
       typeof id !== 'string' ||
       typeof hanViet !== 'string' ||
@@ -323,6 +324,7 @@ function sanitizeWords(raw: unknown): VocabularyWord[] {
         reading: typeof reading === 'string' ? reading : '',
         vietnamese,
         example: typeof example === 'string' ? example : '',
+        exampleVietnamese: typeof exampleVietnamese === 'string' ? exampleVietnamese : '',
       },
     ];
   });

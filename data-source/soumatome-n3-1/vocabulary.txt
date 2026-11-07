@@ -3,46 +3,46 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
 # Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
-,キッチン,bếp
-,台所 (だいどころ),bếp
-,電子レンジ (でんしレンジ),lò vi sóng
-,（お）茶わん (ちゃわん),bát ăn cơm
-,ワイングラス,ly rượu vang
-,コーヒーカップ,tách cà phê
-,湯飲み (ゆのみ),chén trà
-,冷蔵庫 (れいぞうこ),tủ lạnh
-,ガスレンジ,bếp ga
-,ガスコンロ,bếp ga
-,ガラスのコップ,cốc thuỷ tinh
-,レバー,cần gạt/ tay gạt
-,流し (ながし),bồn rửa
-,リビング,phòng khách
-,居間 (いま),phòng khách
-,窓ガラス (まどガラス),kính cửa sổ
-,雨戸 (あまど),cửa chống mưa bão
-,網戸 (あみど),cửa lưới chống côn trùng
-,天井 (てんじょう),trần nhà
-,床 (ゆか),sàn nhà
-,コンセント,ổ cắm điện
-,コード,dây điện
-,エアコン,điều hoà
-,ヒーター,lò sưởi
-,じゅうたん,thảm
-,カーペット,thảm
-,水道の蛇口をひねる (すいどうのじゃぐちをひねる),vặn vòi nước
-,水が凍る (みずがこおる),nước đóng băng
-,氷になる (こおりになる),đóng thành đá
-,冷凍して保存する (れいとうしてほぞんする),cấp đông để bảo quản
-,残り物を温める (のこりものをあたためる),hâm nóng đồ ăn thừa
-,ビールを冷やす (ビールをひやす),ướp lạnh bia
-,ビールが冷えている (ビールがひえている),bia đang lạnh
-,エアコンのリモコン,điều khiển điều hoà
-,スイッチ,công tắc
-,電源を入れる (でんげんをいれる),cắm điện/ bật nguồn
-,電源を切る (でんげんをきる),rút điện/ tắt nguồn
-,じゅうたんを敷く (じゅうたんをしく),trải thảm
-,部屋を暖める (へやをあたためる),làm ấm phòng
-,暖房をつける (だんぼうをつける),bật sưởi
-,冷房が効いている (れいぼうがきいている),điều hoà mát tốt
-,日当たりがいい (ひあたりがいい),nhiều nắng/ hướng nắng tốt
-,日当たりが悪い (ひあたりがわるい),thiếu nắng/ hướng nắng kém
+,キッチン,bếp|新しい家のキッチンは広くて使いやすいです。|Bếp của nhà mới rộng và dễ dùng.
+,台所 (だいどころ),bếp|母は台所で晩ご飯を作っています。|Mẹ đang nấu bữa tối trong bếp.
+,電子レンジ (でんしレンジ),lò vi sóng|冷たいご飯を電子レンジで温めました。|Tôi hâm cơm nguội bằng lò vi sóng.
+,（お）茶わん (ちゃわん),bát ăn cơm|茶わんにご飯をよそってください。|Hãy xới cơm vào bát.
+,ワイングラス,ly rượu vang|ワイングラスに赤ワインを注ぎました。|Tôi rót rượu vang đỏ vào ly.
+,コーヒーカップ,tách cà phê|誕生日に友達からコーヒーカップをもらいました。|Tôi được bạn tặng tách cà phê vào dịp sinh nhật.
+,湯飲み (ゆのみ),chén trà|祖父は大きな湯飲みでお茶を飲みます。|Ông tôi uống trà bằng chén trà to.
+,冷蔵庫 (れいぞうこ),tủ lạnh|牛乳は冷蔵庫に入れておいてください。|Hãy cất sữa vào tủ lạnh.
+,ガスレンジ,bếp ga|ガスレンジの火を弱くしてください。|Hãy vặn nhỏ lửa bếp ga.
+,ガスコンロ,bếp ga|ガスコンロでお湯を沸かしました。|Tôi đun nước bằng bếp ga.
+,ガラスのコップ,cốc thuỷ tinh|ガラスのコップを落として割ってしまいました。|Tôi làm rơi vỡ cốc thuỷ tinh.
+,レバー,cần gạt/ tay gạt|レバーを上げると、水が出ます。|Gạt cần lên thì nước sẽ chảy ra.
+,流し (ながし),bồn rửa|使った食器は流しに置いてください。|Bát đĩa đã dùng hãy để vào bồn rửa.
+,リビング,phòng khách|家族はみんなリビングでテレビを見ています。|Cả nhà đang xem tivi ở phòng khách.
+,居間 (いま),phòng khách|夕食の後、居間でお茶を飲みました。|Sau bữa tối, chúng tôi uống trà ở phòng khách.
+,窓ガラス (まどガラス),kính cửa sổ|ボールが当たって、窓ガラスが割れました。|Quả bóng đập vào làm vỡ kính cửa sổ.
+,雨戸 (あまど),cửa chống mưa bão|台風が来るので、雨戸を閉めました。|Bão sắp đến nên tôi đã đóng cửa chống bão.
+,網戸 (あみど),cửa lưới chống côn trùng|網戸があるので、窓を開けても虫が入りません。|Có cửa lưới nên mở cửa sổ cũng không bị côn trùng vào.
+,天井 (てんじょう),trần nhà|この部屋は天井が高いですね。|Phòng này trần cao nhỉ.
+,床 (ゆか),sàn nhà|床にごみが落ちています。|Có rác rơi trên sàn.
+,コンセント,ổ cắm điện|掃除機のプラグをコンセントに差し込みました。|Tôi cắm phích máy hút bụi vào ổ điện.
+,コード,dây điện|コードに足を引っかけて、転びそうになりました。|Tôi vướng chân vào dây điện, suýt ngã.
+,エアコン,điều hoà|暑いので、エアコンをつけましょう。|Nóng quá, bật điều hoà lên đi.
+,ヒーター,lò sưởi|寒い朝はヒーターの前から動けません。|Những sáng lạnh tôi không rời khỏi lò sưởi được.
+,じゅうたん,thảm|じゅうたんの上にジュースをこぼしてしまいました。|Tôi lỡ làm đổ nước ngọt lên thảm.
+,カーペット,thảm|冬になったので、カーペットを出しました。|Trời vào đông nên tôi đã lấy thảm ra.
+,水道の蛇口をひねる (すいどうのじゃぐちをひねる),vặn vòi nước|水道の蛇口をひねっても、水が出ません。|Vặn vòi nước rồi mà nước vẫn không chảy.
+,水が凍る (みずがこおる),nước đóng băng|寒くて、池の水が凍っています。|Trời lạnh nên nước hồ đã đóng băng.
+,氷になる (こおりになる),đóng thành đá|水は0度で氷になります。|Nước đóng thành đá ở 0 độ.
+,冷凍して保存する (れいとうしてほぞんする),cấp đông để bảo quản|残ったカレーは冷凍して保存します。|Cà ri thừa tôi cấp đông để bảo quản.
+,残り物を温める (のこりものをあたためる),hâm nóng đồ ăn thừa|昼ご飯は昨日の残り物を温めて食べました。|Bữa trưa tôi hâm lại đồ ăn thừa hôm qua để ăn.
+,ビールを冷やす (ビールをひやす),ướp lạnh bia|パーティーの前にビールを冷やしておきました。|Trước bữa tiệc tôi đã ướp lạnh bia sẵn.
+,ビールが冷えている (ビールがひえている),bia đang lạnh|冷蔵庫でビールが冷えていますよ。|Trong tủ lạnh có bia đang lạnh đấy.
+,エアコンのリモコン,điều khiển điều hoà|エアコンのリモコンが見つかりません。|Tôi không tìm thấy điều khiển điều hoà.
+,スイッチ,công tắc|部屋に入ったら、電気のスイッチを入れてください。|Vào phòng thì hãy bật công tắc đèn.
+,電源を入れる (でんげんをいれる),cắm điện/ bật nguồn|パソコンの電源を入れても、画面がつきません。|Bật nguồn máy tính rồi mà màn hình không sáng.
+,電源を切る (でんげんをきる),rút điện/ tắt nguồn|使わないときは電源を切ってください。|Khi không dùng thì hãy tắt nguồn.
+,じゅうたんを敷く (じゅうたんをしく),trải thảm|床にじゅうたんを敷くと、暖かくなります。|Trải thảm lên sàn thì sẽ ấm hơn.
+,部屋を暖める (へやをあたためる),làm ấm phòng|お客さんが来る前に、部屋を暖めておきました。|Tôi đã làm ấm phòng trước khi khách đến.
+,暖房をつける (だんぼうをつける),bật sưởi|寒いので、暖房をつけてもいいですか。|Lạnh quá, tôi bật sưởi được không?
+,冷房が効いている (れいぼうがきいている),điều hoà mát tốt|電車の中は冷房が効いていて、涼しいです。|Trong tàu điện điều hoà chạy mát nên rất dễ chịu.
+,日当たりがいい (ひあたりがいい),nhiều nắng/ hướng nắng tốt|この部屋は南向きで、日当たりがいいです。|Phòng này hướng nam nên nhiều nắng.
+,日当たりが悪い (ひあたりがわるい),thiếu nắng/ hướng nắng kém|日当たりが悪くて、洗濯物がなかなか乾きません。|Thiếu nắng nên đồ giặt mãi không khô.

@@ -80,7 +80,7 @@ export interface TopicDef {
 /**
  * Một từ đã tra xong, ở dạng nén do `npm run generate:topics` sinh ra.
  *
- * [tiếng Nhật, cách đọc, âm Hán Việt, nghĩa, câu ví dụ, id bài gốc]
+ * [tiếng Nhật, cách đọc, âm Hán Việt, nghĩa, câu ví dụ, bản dịch câu ví dụ, id bài gốc]
  *
  * Mảng chứ không phải object: `topic-words.generated.ts` là file sinh tự động dài hơn một
  * nghìn dòng, viết bằng object thì tên trường lặp lại ở mỗi dòng và file phình
@@ -92,6 +92,7 @@ export type TopicWordSeed = readonly [
   hanViet: string,
   vietnamese: string,
   example: string,
+  exampleVietnamese: string,
   sourceLesson: string,
 ];
 
@@ -190,6 +191,13 @@ export function buildTopicLessons(
  * đã đủ duy nhất — script sinh dữ liệu đã loại trùng. Dùng thẳng chuỗi đó làm id
  * thì soi localStorage còn đọc được là từ nào.
  */
-function buildTopicWord([japanese, reading, hanViet, vietnamese, example]: TopicWordSeed): VocabularyWord {
-  return { id: japanese, japanese, reading, hanViet, vietnamese, example };
+function buildTopicWord([
+  japanese,
+  reading,
+  hanViet,
+  vietnamese,
+  example,
+  exampleVietnamese,
+]: TopicWordSeed): VocabularyWord {
+  return { id: japanese, japanese, reading, hanViet, vietnamese, example, exampleVietnamese };
 }

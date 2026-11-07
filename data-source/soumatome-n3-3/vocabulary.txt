@@ -3,39 +3,39 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
 # Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
-,ふた,nắp
-,なべ,nồi
-,おたま,muôi/ vá
-,フライパン,chảo
-,フライ返し (フライがえし),sạn lật/ xẻng lật
-,炊飯器 (すいはんき),nồi cơm điện
-,しゃもじ,muôi xới cơm
-,（お）湯を沸かす (ゆをわかす),đun sôi nước
-,（お）湯が沸く (ゆがわく),nước sôi
-,（お）湯を冷ます (ゆをさます),để nguội nước nóng
-,（お）湯が冷める (ゆがさめる),nước nguội đi
-,なべを火にかける (なべをひにかける),bắc nồi lên bếp
-,ご飯を炊く (ごはんをたく),nấu cơm
-,油を熱する (あぶらをねっする),làm nóng dầu
-,油で揚げる (あぶらであげる),chiên ngập dầu
-,煮る (にる),kho/ ninh
-,ゆでる,luộc
-,いためる,xào
-,蒸す (むす),hấp
-,水を切る (みずをきる),để ráo nước
-,混ぜる (まぜる),trộn
-,こげる,cháy khét
-,ひっくり返す (ひっくりかえす),lật lại
-,裏返す (うらがえす),lật mặt
-,味をつける (あじをつける),nêm nếm
-,塩を加える (しおをくわえる),thêm muối
-,こしょうを振る (こしょうをふる),rắc tiêu
-,味見をする (あじみをする),nếm thử
-,味を見る (あじをみる),nếm thử
-,味が濃い (あじがこい),đậm vị
-,味が薄い (あじがうすい),nhạt vị
-,からい,cay/ mặn
-,塩からい (しおからい),mặn
-,すっぱい,chua
-,できあがる,hoàn thành
-,できあがり,vừa xong
+,ふた,nắp|なべにふたをして、10分煮ます。|Đậy nắp nồi lại và ninh 10 phút.
+,なべ,nồi|大きいなべでスープを作りました。|Tôi nấu súp bằng nồi to.
+,おたま,muôi/ vá|おたまでみそ汁をよそいます。|Múc canh miso bằng muôi.
+,フライパン,chảo|フライパンで卵を焼きます。|Rán trứng bằng chảo.
+,フライ返し (フライがえし),sạn lật/ xẻng lật|フライ返しで卵焼きをお皿に移しました。|Tôi dùng sạn lật chuyển trứng cuộn sang đĩa.
+,炊飯器 (すいはんき),nồi cơm điện|新しい炊飯器を買ったら、ご飯がおいしくなりました。|Mua nồi cơm điện mới xong, cơm ngon hẳn lên.
+,しゃもじ,muôi xới cơm|しゃもじでご飯を茶わんによそいます。|Xới cơm vào bát bằng muôi xới cơm.
+,（お）湯を沸かす (ゆをわかす),đun sôi nước|カップラーメンを作るので、お湯を沸かしてください。|Tôi làm mì cốc, hãy đun sôi nước giúp nhé.
+,（お）湯が沸く (ゆがわく),nước sôi|お湯が沸いたら、パスタを入れます。|Nước sôi thì cho mì Ý vào.
+,（お）湯を冷ます (ゆをさます),để nguội nước nóng|赤ちゃんのミルクを作るので、お湯を冷まします。|Để pha sữa cho em bé, tôi để nước nóng nguội bớt.
+,（お）湯が冷める (ゆがさめる),nước nguội đi|話している間に、お湯が冷めてしまいました。|Trong lúc nói chuyện thì nước nóng đã nguội mất.
+,なべを火にかける (なべをひにかける),bắc nồi lên bếp|なべを火にかけて、水を沸かします。|Bắc nồi lên bếp rồi đun sôi nước.
+,ご飯を炊く (ごはんをたく),nấu cơm|晩ご飯の前に、ご飯を炊いておきます。|Trước bữa tối, tôi nấu cơm sẵn.
+,油を熱する (あぶらをねっする),làm nóng dầu|フライパンで油を熱してから、肉を入れます。|Làm nóng dầu trong chảo rồi mới cho thịt vào.
+,油で揚げる (あぶらであげる),chiên ngập dầu|エビに衣をつけて、油で揚げます。|Tẩm bột tôm rồi chiên ngập dầu.
+,煮る (にる),kho/ ninh|魚をしょうゆと砂糖で煮ます。|Kho cá với nước tương và đường.
+,ゆでる,luộc|卵を10分ゆでてください。|Hãy luộc trứng 10 phút.
+,いためる,xào|野菜と肉をいっしょにいためます。|Xào rau với thịt.
+,蒸す (むす),hấp|中華まんを蒸して食べました。|Tôi hấp bánh bao lên ăn.
+,水を切る (みずをきる),để ráo nước|洗った野菜の水をよく切ってください。|Hãy để rau đã rửa thật ráo nước.
+,混ぜる (まぜる),trộn|卵と砂糖をよく混ぜます。|Trộn đều trứng với đường.
+,こげる,cháy khét|魚が真っ黒にこげてしまいました。|Con cá bị cháy đen mất rồi.
+,ひっくり返す (ひっくりかえす),lật lại|肉を焼くときは、何度もひっくり返さないでください。|Khi nướng thịt, đừng lật đi lật lại nhiều lần.
+,裏返す (うらがえす),lật mặt|片面が焼けたら、魚を裏返します。|Một mặt chín rồi thì lật mặt cá lại.
+,味をつける (あじをつける),nêm nếm|しょうゆと砂糖で味をつけます。|Nêm bằng nước tương và đường.
+,塩を加える (しおをくわえる),thêm muối|最後に塩を加えて、5分煮ます。|Cuối cùng thêm muối rồi ninh 5 phút.
+,こしょうを振る (こしょうをふる),rắc tiêu|肉に塩とこしょうを振って焼きます。|Rắc muối tiêu lên thịt rồi nướng.
+,味見をする (あじみをする),nếm thử|火を止める前に味見をしてください。|Hãy nếm thử trước khi tắt bếp.
+,味を見る (あじをみる),nếm thử|ちょっと味を見てくれる？|Nếm thử giúp mình chút được không?
+,味が濃い (あじがこい),đậm vị|このスープは味が濃いので、水を足しましょう。|Súp này đậm vị quá, thêm nước vào đi.
+,味が薄い (あじがうすい),nhạt vị|病院の食事は味が薄いです。|Đồ ăn ở bệnh viện nhạt.
+,からい,cay/ mặn|このカレーはとてもからいです。|Món cà ri này rất cay.
+,塩からい (しおからい),mặn|このみそ汁はちょっと塩からいですね。|Canh miso này hơi mặn nhỉ.
+,すっぱい,chua|このみかんはまだすっぱいです。|Quả quýt này vẫn còn chua.
+,できあがる,hoàn thành|あと5分で料理ができあがります。|5 phút nữa món ăn sẽ xong.
+,できあがり,vừa xong|これで肉じゃがのできあがりです。|Thế là món thịt hầm khoai tây đã hoàn thành.

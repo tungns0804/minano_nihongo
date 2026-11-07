@@ -3,54 +3,54 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
 # 174/175: ảnh ghi nghĩa của 間に合う và 間に合わせる bị đảo — ở đây ghi đúng nghĩa.
 # Động từ 151–170
-ĐOẠN,断る (ことわる),Từ chối
-KIẾN,見つかる (みつかる),Được tìm thấy
-KIẾN,見つける (みつける),Tìm thấy
-BỘ,捕まる (つかまる),Bị bắt
-BỘ,捕まえる (つかまえる),Bắt
-THỪA,乗る (のる),Leo lên
-THỪA,乗せる (のせる),Cho lên
-GIÁNG,降りる (おりる),Xuống
-GIÁNG,降ろす (おろす),Cho xuống
-TRỰC,直る (なおる),Được sửa
-TRỰC,直す (なおす),Sửa
-TRỊ,治る (なおる),Hồi phục
-TRỊ,治す (なおす),Cứu chữa
-VONG,亡くなる (なくなる),Chết
-VONG,亡くす (なくす),Mất
-SINH,生まれる (うまれる),Được sinh ra
-SINH,生む (うむ),Sinh
-XUẤT HỘI,出会う (であう),Gặp (ngẫu nhiên)
-PHỎNG,訪ねる (たずねる),Thăm
-PHÓ HỢP,付き合う (つきあう),Hẹn hò, giao tiếp
+ĐOẠN,断る (ことわる),Từ chối|忙しかったので、誘いを断りました。|Vì bận nên tôi đã từ chối lời mời.
+KIẾN,見つかる (みつかる),Được tìm thấy|なくした鍵が見つかりました。|Chiếc chìa khoá bị mất đã được tìm thấy.
+KIẾN,見つける (みつける),Tìm thấy|駅の近くでいいアパートを見つけました。|Tôi đã tìm được một căn hộ tốt gần ga.
+BỘ,捕まる (つかまる),Bị bắt|犯人はすぐに警察に捕まりました。|Thủ phạm đã nhanh chóng bị cảnh sát bắt.
+BỘ,捕まえる (つかまえる),Bắt|子どもたちが川で魚を捕まえています。|Bọn trẻ đang bắt cá ở sông.
+THỪA,乗る (のる),Leo lên|駅の前でバスに乗りました。|Tôi đã lên xe buýt ở trước ga.
+THỪA,乗せる (のせる),Cho lên|父が車で駅まで乗せてくれました。|Bố đã chở tôi đến ga bằng ô tô.
+GIÁNG,降りる (おりる),Xuống|次の駅で電車を降ります。|Tôi xuống tàu ở ga tiếp theo.
+GIÁNG,降ろす (おろす),Cho xuống|すみません、駅の前で降ろしてください。|Xin lỗi, cho tôi xuống ở trước ga.
+TRỰC,直る (なおる),Được sửa|壊れていたパソコンが直りました。|Cái máy tính bị hỏng đã được sửa xong.
+TRỰC,直す (なおす),Sửa|作文の間違いを直してください。|Hãy sửa lỗi sai trong bài văn.
+TRỊ,治る (なおる),Hồi phục|薬を飲んだら、風邪が治りました。|Uống thuốc xong thì tôi đã khỏi cảm.
+TRỊ,治す (なおす),Cứu chữa|早く病気を治して、学校に戻りたいです。|Tôi muốn mau chữa khỏi bệnh để quay lại trường.
+VONG,亡くなる (なくなる),Chết|祖父は去年亡くなりました。|Ông tôi đã mất năm ngoái.
+VONG,亡くす (なくす),Mất|彼は事故で父親を亡くしました。|Anh ấy đã mất bố trong một vụ tai nạn.
+SINH,生まれる (うまれる),Được sinh ra|私は1998年に大阪で生まれました。|Tôi sinh năm 1998 ở Osaka.
+SINH,生む (うむ),Sinh|うちの猫が子猫を三匹生みました。|Con mèo nhà tôi đã đẻ ba con mèo con.
+XUẤT HỘI,出会う (であう),Gặp (ngẫu nhiên)|大学で今の妻に出会いました。|Tôi đã gặp vợ tôi bây giờ ở trường đại học.
+PHỎNG,訪ねる (たずねる),Thăm|週末、友達の家を訪ねました。|Cuối tuần tôi đã đến thăm nhà bạn.
+PHÓ HỢP,付き合う (つきあう),Hẹn hò, giao tiếp|二人は3年前から付き合っています。|Hai người đó hẹn hò từ ba năm trước.
 # Động từ 171–200
-HIỆU,効く (きく),Có hiệu quả
-,はやる,Phổ biến
-KINH,経つ (たつ),Qua (thời gian trôi qua)
-GIAN HỢP,間に合う (まにあう),Kịp giờ
-GIAN HỢP,間に合わせる (まにあわせる),Làm cho kịp giờ
-THÔNG,通う (かよう),Đi làm, đi học
-,込む (こむ),Đông
-VI,すれ違う (すれちがう),Vượt, lướt qua nhau
-QUẢI,掛かる (かかる),Được bao phủ, được treo
-QUẢI,掛ける (かける),Bao phủ, treo
-ĐỘNG,動く (うごく),Hoạt động
-ĐỘNG,動かす (うごかす),Di chuyển
-LY,離れる (はなれる),Tránh xa
-LY,離す (はなす),Tách ra
-,ぶつかる,Bị đâm
-,ぶつける,Đâm
-,こぼれる,Bị tràn
-,こぼす,Tràn, làm đổ
-,ふく,Lau
-PHIẾN PHÓ,片付く (かたづく),Được dọn dẹp
-PHIẾN PHÓ,片付ける (かたづける),Dọn dẹp
-BAO,包む (つつむ),Bọc
-TRƯƠNG,張る (はる),Dán
-VÔ,無くなる (なくなる),Bị mất
-VÔ,無くす (なくす),Mất
-TÚC,足りる (たりる),Đủ
-TÀN,残る (のこる),Bị thừa, còn lại
-TÀN,残す (のこす),Thừa, để lại
-HỦ,腐る (くさる),Thối
-,むける,Bị lột
+HIỆU,効く (きく),Có hiệu quả|この薬は頭痛によく効きます。|Thuốc này rất hiệu quả với chứng đau đầu.
+,はやる,Phổ biến|今、若い人の間でこの歌がはやっています。|Bây giờ bài hát này đang thịnh hành trong giới trẻ.
+KINH,経つ (たつ),Qua (thời gian trôi qua)|日本に来てから、もう2年が経ちました。|Từ khi đến Nhật đã hai năm trôi qua.
+GIAN HỢP,間に合う (まにあう),Kịp giờ|走ったので、電車に間に合いました。|Nhờ chạy nên tôi đã kịp chuyến tàu.
+GIAN HỢP,間に合わせる (まにあわせる),Làm cho kịp giờ|締め切りに間に合わせるために、徹夜しました。|Tôi đã thức trắng đêm để kịp hạn chót.
+THÔNG,通う (かよう),Đi làm, đi học|週に2回、日本語学校に通っています。|Một tuần tôi đi học ở trường tiếng Nhật hai lần.
+,込む (こむ),Đông|朝の電車はとても込んでいます。|Tàu điện buổi sáng rất đông.
+VI,すれ違う (すれちがう),Vượt, lướt qua nhau|駅で昔の友達とすれ違いました。|Tôi đã đi lướt qua một người bạn cũ ở nhà ga.
+QUẢI,掛かる (かかる),Được bao phủ, được treo|壁にきれいな絵が掛かっています。|Trên tường có treo một bức tranh đẹp.
+QUẢI,掛ける (かける),Bao phủ, treo|コートをハンガーに掛けてください。|Hãy treo áo khoác lên mắc.
+ĐỘNG,動く (うごく),Hoạt động|時計が止まって、動きません。|Đồng hồ dừng rồi, không chạy nữa.
+ĐỘNG,動かす (うごかす),Di chuyển|机を窓の近くに動かしましょう。|Hãy chuyển cái bàn đến gần cửa sổ.
+LY,離れる (はなれる),Tránh xa|危ないですから、ドアから離れてください。|Nguy hiểm, hãy tránh xa cửa ra.
+LY,離す (はなす),Tách ra|道を渡るときは、子どもの手を離さないでください。|Khi qua đường, đừng buông tay con nhé.
+,ぶつかる,Bị đâm|自転車が車にぶつかりました。|Chiếc xe đạp đã đâm vào ô tô.
+,ぶつける,Đâm|机に足をぶつけてしまいました。|Tôi lỡ đập chân vào bàn.
+,こぼれる,Bị tràn|コップから水がこぼれています。|Nước đang tràn ra khỏi cốc.
+,こぼす,Tràn, làm đổ|服にコーヒーをこぼしてしまいました。|Tôi lỡ làm đổ cà phê ra áo.
+,ふく,Lau|タオルで汗をふきました。|Tôi lau mồ hôi bằng khăn.
+PHIẾN PHÓ,片付く (かたづく),Được dọn dẹp|部屋がやっと片付きました。|Cuối cùng phòng cũng đã được dọn gọn.
+PHIẾN PHÓ,片付ける (かたづける),Dọn dẹp|遊んだ後は、おもちゃを片付けなさい。|Chơi xong thì dọn đồ chơi đi.
+BAO,包む (つつむ),Bọc|プレゼントをきれいな紙で包みました。|Tôi đã gói quà bằng giấy đẹp.
+TRƯƠNG,張る (はる),Dán|壁にポスターを張りました。|Tôi đã dán áp phích lên tường.
+VÔ,無くなる (なくなる),Bị mất|財布が無くなってしまいました。|Ví của tôi bị mất rồi.
+VÔ,無くす (なくす),Mất|大切な鍵を無くしてしまいました。|Tôi lỡ làm mất chiếc chìa khoá quan trọng.
+TÚC,足りる (たりる),Đủ|お金が足りないので、カードで払います。|Không đủ tiền mặt nên tôi trả bằng thẻ.
+TÀN,残る (のこる),Bị thừa, còn lại|パーティーの料理がたくさん残りました。|Đồ ăn của bữa tiệc còn thừa rất nhiều.
+TÀN,残す (のこす),Thừa, để lại|嫌いな野菜を残してはいけません。|Không được bỏ thừa rau mình không thích.
+HỦ,腐る (くさる),Thối|夏は食べ物がすぐ腐ります。|Mùa hè đồ ăn nhanh bị thiu.
+,むける,Bị lột|日焼けして、背中の皮がむけました。|Bị cháy nắng nên da lưng bị bong ra.

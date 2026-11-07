@@ -1,53 +1,53 @@
 # Từ vựng N3 · 名詞 — Bài 2 (từ 51–100)
 # Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
-DẪN VIỆT,引っ越し (ひっこし),Chuyển nhà
-THÂN TRƯỜNG,身長 (しんちょう),Chiều cao
-THỂ TRỌNG,体重 (たいじゅう),Cân nặng
-,けが,Vết thương
-HỘI,会 (かい),Hội, tiệc
-THÚ VỊ,趣味 (しゅみ),Sở thích
-HƯNG VỊ,興味 (きょうみ),Hứng thú
-TƯ XUẤT,思い出 (おもいで),Nhớ lại
-NHŨNG ĐÀM,冗談 (じょうだん),Đùa cợt
-MỤC ĐÍCH,目的 (もくてき),Mục đích
-ƯỚC THÚC,約束 (やくそく),Lời hứa
-,おしゃべり,Nói chuyện riêng
-VIỄN LỰ,遠慮 (えんりょ),Ngại ngần
-NGÃ MẠN,我慢 (がまん),Chịu đựng
-MÊ HOẶC,迷惑 (めいわく),Làm phiền
-HY VỌNG,希望 (きぼう),Hi vọng
-MỘNG,夢 (ゆめ),Giấc mơ
-TÁN THÀNH,賛成 (さんせい),Đồng ý
-PHẢN ĐỐI,反対 (はんたい),Đối lập
-TƯỞNG TƯỢNG,想像 (そうぞう),Tưởng tượng
-NỖ LỰC,努力 (どりょく),Nỗ lực
-THÁI DƯƠNG,太陽 (たいよう),Mặt trời
-ĐỊA CẦU,地球 (ちきゅう),Trái đất
-ÔN ĐỘ,温度 (おんど),Nhiệt độ
-THẤP ĐỘ,湿度 (しつど),Độ ẩm
-THẤP KHÍ,湿気 (しっけ),Hơi ẩm
-MAI VŨ,梅雨 (つゆ),Mùa mưa
-,かび,Nấm mốc
-NOÃN PHÒNG,暖房 (だんぼう),Điều hòa ấm
-BÌ,皮 (かわ),Vỏ
-PHỮU,缶 (かん),Đồ hộp
-HOẠ DIỆN,画面 (がめん),Màn hình
-PHIÊN TỔ,番組 (ばんぐみ),Chương trình
-KÝ SỰ,記事 (きじ),Ký sự
-CẬN SỞ,近所 (きんじょ),Xung quanh
-CẢNH SÁT,警察 (けいさつ),Cảnh sát
-PHẠM NHÂN,犯人 (はんにん),Tội phạm
-TIỂU TIỀN,小銭 (こぜに),Tiền lẻ
-,ごちそう,Chiêu đãi
-TÁC GIẢ,作者 (さくしゃ),Tác giả
-TÁC PHẨM,作品 (さくひん),Tác phẩm
-CHẾ PHỤC,制服 (せいふく),Đồng phục
-TẨY TỄ,洗剤 (せんざい),Bột giặt
-ĐỂ,底 (そこ),Đáy
-ĐỊA HẠ,地下 (ちか),Ngầm
-TỰ,寺 (てら),Chùa
-ĐẠO LỘ,道路 (どうろ),Đường
-BẢN,坂 (さか),Dốc
-YÊN,煙 (けむり),Khói
-HÔI,灰 (はい),Tàn
+DẪN VIỆT,引っ越し (ひっこし),Chuyển nhà|来週の日曜日に引っ越しをします。|Chủ nhật tuần sau tôi chuyển nhà.
+THÂN TRƯỜNG,身長 (しんちょう),Chiều cao|弟は身長が180センチあります。|Em trai tôi cao 1 mét 80.
+THỂ TRỌNG,体重 (たいじゅう),Cân nặng|毎朝、体重を量っています。|Sáng nào tôi cũng cân xem mình nặng bao nhiêu.
+,けが,Vết thương|自転車で転んで、足にけがをしました。|Tôi ngã xe đạp và bị thương ở chân.
+HỘI,会 (かい),Hội, tiệc|会の始めに、社長があいさつをしました。|Đầu buổi tiệc, giám đốc đã phát biểu chào mừng.
+THÚ VỊ,趣味 (しゅみ),Sở thích|私の趣味は写真を撮ることです。|Sở thích của tôi là chụp ảnh.
+HƯNG VỊ,興味 (きょうみ),Hứng thú|日本の歴史に興味があります。|Tôi có hứng thú với lịch sử Nhật Bản.
+TƯ XUẤT,思い出 (おもいで),Nhớ lại|日本での生活は楽しい思い出になりました。|Cuộc sống ở Nhật đã trở thành một kỷ niệm vui.
+NHŨNG ĐÀM,冗談 (じょうだん),Đùa cợt|怒らないで。冗談ですよ。|Đừng giận. Tôi đùa thôi mà.
+MỤC ĐÍCH,目的 (もくてき),Mục đích|今回の旅行の目的は何ですか。|Mục đích của chuyến đi lần này là gì?
+ƯỚC THÚC,約束 (やくそく),Lời hứa|友達と6時に会う約束をしました。|Tôi đã hẹn gặp bạn lúc 6 giờ.
+,おしゃべり,Nói chuyện riêng|授業中におしゃべりをしてはいけません。|Không được nói chuyện riêng trong giờ học.
+VIỄN LỰ,遠慮 (えんりょ),Ngại ngần|遠慮しないで、たくさん食べてください。|Đừng ngại, cứ ăn nhiều vào nhé.
+NGÃ MẠN,我慢 (がまん),Chịu đựng|痛いですが、もう少し我慢してください。|Đau đấy, nhưng ráng chịu thêm chút nữa nhé.
+MÊ HOẶC,迷惑 (めいわく),Làm phiền|夜遅くに電話をするのは迷惑です。|Gọi điện khuya là làm phiền người khác.
+HY VỌNG,希望 (きぼう),Hi vọng|希望の会社に就職できました。|Tôi đã vào làm được ở công ty mình mong muốn.
+MỘNG,夢 (ゆめ),Giấc mơ|私の夢は医者になることです。|Ước mơ của tôi là trở thành bác sĩ.
+TÁN THÀNH,賛成 (さんせい),Đồng ý|私はその意見に賛成です。|Tôi đồng ý với ý kiến đó.
+PHẢN ĐỐI,反対 (はんたい),Đối lập|両親は私の留学に反対しています。|Bố mẹ phản đối việc tôi đi du học.
+TƯỞNG TƯỢNG,想像 (そうぞう),Tưởng tượng|十年後の自分を想像してみてください。|Hãy thử tưởng tượng bản thân mười năm sau.
+NỖ LỰC,努力 (どりょく),Nỗ lực|努力すれば、きっと合格できます。|Nếu nỗ lực thì chắc chắn sẽ đỗ.
+THÁI DƯƠNG,太陽 (たいよう),Mặt trời|太陽は東から昇ります。|Mặt trời mọc ở phía đông.
+ĐỊA CẦU,地球 (ちきゅう),Trái đất|地球を大切にしましょう。|Hãy bảo vệ Trái Đất.
+ÔN ĐỘ,温度 (おんど),Nhiệt độ|部屋の温度を25度にしてください。|Hãy để nhiệt độ phòng ở 25 độ.
+THẤP ĐỘ,湿度 (しつど),Độ ẩm|日本の夏は湿度が高いです。|Mùa hè ở Nhật độ ẩm cao.
+THẤP KHÍ,湿気 (しっけ),Hơi ẩm|湿気が多くて、洗濯物が乾きません。|Không khí ẩm quá nên đồ giặt không khô.
+MAI VŨ,梅雨 (つゆ),Mùa mưa|梅雨に入って、毎日雨が降っています。|Vào mùa mưa rồi nên ngày nào cũng mưa.
+,かび,Nấm mốc|パンにかびが生えてしまいました。|Bánh mì bị mốc mất rồi.
+NOÃN PHÒNG,暖房 (だんぼう),Điều hòa ấm|寒いので暖房をつけました。|Lạnh quá nên tôi đã bật máy sưởi.
+BÌ,皮 (かわ),Vỏ|りんごの皮をむいてください。|Hãy gọt vỏ táo.
+PHỮU,缶 (かん),Đồ hộp|空き缶はこちらに捨ててください。|Hãy bỏ vỏ lon rỗng vào đây.
+HOẠ DIỆN,画面 (がめん),Màn hình|パソコンの画面が急に暗くなりました。|Màn hình máy tính đột nhiên tối đi.
+PHIÊN TỔ,番組 (ばんぐみ),Chương trình|毎晩、ニュース番組を見ています。|Tối nào tôi cũng xem chương trình thời sự.
+KÝ SỰ,記事 (きじ),Ký sự|新聞でおもしろい記事を読みました。|Tôi đã đọc được một bài báo thú vị trên báo.
+CẬN SỞ,近所 (きんじょ),Xung quanh|この近所に郵便局はありますか。|Quanh đây có bưu điện không?
+CẢNH SÁT,警察 (けいさつ),Cảnh sát|道で財布を拾ったので、警察に届けました。|Tôi nhặt được một chiếc ví trên đường nên đã mang nộp cho cảnh sát.
+PHẠM NHÂN,犯人 (はんにん),Tội phạm|犯人はまだ捕まっていません。|Thủ phạm vẫn chưa bị bắt.
+TIỂU TIỀN,小銭 (こぜに),Tiền lẻ|小銭がないので、千円札で払います。|Tôi không có tiền lẻ nên trả bằng tờ 1000 yên.
+,ごちそう,Chiêu đãi|昨日、先輩に晩ご飯をごちそうになりました。|Hôm qua tôi được tiền bối đãi bữa tối.
+TÁC GIẢ,作者 (さくしゃ),Tác giả|この小説の作者は有名な人です。|Tác giả của cuốn tiểu thuyết này là người nổi tiếng.
+TÁC PHẨM,作品 (さくひん),Tác phẩm|美術館でピカソの作品を見ました。|Tôi đã xem tác phẩm của Picasso ở bảo tàng mỹ thuật.
+CHẾ PHỤC,制服 (せいふく),Đồng phục|この学校の制服はかわいいです。|Đồng phục của trường này dễ thương.
+TẨY TỄ,洗剤 (せんざい),Bột giặt|洗剤が少なくなったので、買っておいてください。|Bột giặt sắp hết rồi, mua sẵn giúp tôi nhé.
+ĐỂ,底 (そこ),Đáy|かばんの底に鍵がありました。|Chìa khoá nằm ở đáy túi.
+ĐỊA HẠ,地下 (ちか),Ngầm|駐車場は地下にあります。|Bãi đỗ xe ở dưới tầng hầm.
+TỰ,寺 (てら),Chùa|京都にはたくさんのお寺があります。|Ở Kyoto có rất nhiều chùa.
+ĐẠO LỘ,道路 (どうろ),Đường|道路が込んでいて、遅れました。|Đường đông xe nên tôi bị muộn.
+BẢN,坂 (さか),Dốc|駅までは長い坂を上らなければなりません。|Đến ga phải leo một con dốc dài.
+YÊN,煙 (けむり),Khói|台所から煙が出ています。|Khói đang bốc ra từ nhà bếp.
+HÔI,灰 (はい),Tàn|たばこの灰を床に落とさないでください。|Đừng để tàn thuốc lá rơi xuống sàn.

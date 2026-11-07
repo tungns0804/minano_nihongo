@@ -27,6 +27,12 @@ export interface VocabularyWord {
   vietnamese: string;
   /** Câu ví dụ có dùng từ này. Chuỗi rỗng nghĩa là chưa có. */
   example: string;
+  /**
+   * Bản dịch tiếng Việt của câu ví dụ. Chuỗi rỗng nghĩa là chưa có — bài 皆の日本語
+   * 26–50 chỉ có câu tiếng Nhật. Không nằm trong khoá sinh id, nên thêm bản dịch
+   * cho một từ đã có không làm mất ★ của từ đó.
+   */
+  exampleVietnamese: string;
 }
 
 /**

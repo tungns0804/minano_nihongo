@@ -349,7 +349,8 @@ export class LessonDetail extends PracticeScreen {
     if (!keyword) return base;
     return base.filter((word) =>
       normalizeSearch(
-        `${word.hanViet} ${word.japanese} ${word.reading} ${word.vietnamese} ${word.example}`,
+        `${word.hanViet} ${word.japanese} ${word.reading} ${word.vietnamese} ${word.example} ` +
+          word.exampleVietnamese,
       ).includes(keyword),
     );
   });

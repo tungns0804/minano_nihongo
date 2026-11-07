@@ -213,7 +213,12 @@
                             {{ row.error ? row.error : row.extra }}
                           </td>
                         } @else if (hasExamples()) {
-                          <td class="jp col-example">{{ row.example }}</td>
+                          <td class="jp col-example">
+                            {{ row.example }}
+                            @if (row.exampleVietnamese) {
+                              <span class="example-vi">{{ row.exampleVietnamese }}</span>
+                            }
+                          </td>
                         }
                       </tr>
                     }

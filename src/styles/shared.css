@@ -484,3 +484,16 @@ html:has(dialog.viewer[open]) {
   overflow: hidden;
   scrollbar-gutter: stable;
 }
+
+/* --- Bản dịch câu ví dụ ---------------------------------------------------
+   Dòng dưới câu ví dụ trong bảng từ vựng (trang bài học và trang nạp bài). Font
+   giao diện thay vì font Nhật của ô, nhỏ và nhạt hơn câu gốc: nó để đối chiếu khi
+   cần, mắt vẫn đọc câu tiếng Nhật trước. */
+.example-vi {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-ui);
+  font-size: var(--fs-sm);
+  line-height: 1.45;
+  color: var(--text-faint);
+}

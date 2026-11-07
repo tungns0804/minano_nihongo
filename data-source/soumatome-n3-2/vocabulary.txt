@@ -3,37 +3,37 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
 # Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
-,肉じゃが (にくじゃが),món thịt hầm khoai tây
-,材料 (ざいりょう),nguyên liệu
-,牛肉 (ぎゅうにく),thịt bò
-,ジャガイモ,khoai tây
-,玉ネギ (たまネギ),hành tây
-,調味料 (ちょうみりょう),gia vị
-,酒 (さけ),rượu
-,しょうゆ,nước tương/ xì dầu
-,砂糖 (さとう),đường
-,サラダ油 (サラダあぶら),dầu ăn
-,酢 (す),giấm
-,天ぷら油 (てんぷらあぶら),dầu chiên
-,大さじ (おおさじ),thìa canh
-,小さじ (こさじ),thìa cà phê
-,包丁 (ほうちょう),dao làm bếp
-,まな板 (まないた),thớt
-,はかり,cân
-,カップ,cốc đong
-,リットル,lít
-,グラム,gam
-,夕食のおかず (ゆうしょくのおかず),món ăn bữa tối
-,栄養のバランスを考える (えいようのバランスをかんがえる),cân nhắc cân bằng dinh dưỡng
-,カロリーが高い食品 (カロリーがたかいしょくひん),thực phẩm nhiều calo
-,はかりで量る (はかりではかる),cân bằng cân
-,塩を少々入れる (しおをしょうしょういれる),cho một chút muối
-,皮をむく (かわをむく),gọt vỏ
-,材料を刻む (ざいりょうをきざむ),thái nhỏ nguyên liệu
-,大きめに切る (おおきめにきる),cắt to
-,3センチ幅に切る (さんセンチはばにきる),cắt bề ngang 3 cm
-,みそ汁がぬるくなる (みそしるがぬるくなる),canh miso bị nguội
-,ラップをかぶせる,phủ màng bọc thực phẩm
-,ラップをかける,phủ màng bọc thực phẩm
-,ラップでくるむ,bọc bằng màng bọc thực phẩm
-,（アルミ）ホイル,giấy bạc
+,肉じゃが (にくじゃが),món thịt hầm khoai tây|母の作る肉じゃがが一番好きです。|Tôi thích nhất món thịt hầm khoai tây mẹ nấu.
+,材料 (ざいりょう),nguyên liệu|カレーの材料を買いにスーパーへ行きました。|Tôi đi siêu thị mua nguyên liệu làm cà ri.
+,牛肉 (ぎゅうにく),thịt bò|すき焼きには牛肉を使います。|Món sukiyaki dùng thịt bò.
+,ジャガイモ,khoai tây|ジャガイモを一口の大きさに切ります。|Cắt khoai tây thành miếng vừa ăn.
+,玉ネギ (たまネギ),hành tây|玉ネギを切ると、涙が出ます。|Thái hành tây là chảy nước mắt.
+,調味料 (ちょうみりょう),gia vị|しょうゆやみそは日本の代表的な調味料です。|Nước tương và miso là những gia vị tiêu biểu của Nhật.
+,酒 (さけ),rượu|料理に酒を少し入れると、おいしくなります。|Cho chút rượu vào món ăn sẽ ngon hơn.
+,しょうゆ,nước tương/ xì dầu|刺身にしょうゆをつけて食べます。|Chấm sashimi với nước tương để ăn.
+,砂糖 (さとう),đường|コーヒーに砂糖を入れますか。|Bạn có cho đường vào cà phê không?
+,サラダ油 (サラダあぶら),dầu ăn|フライパンにサラダ油をひきます。|Tráng dầu ăn lên chảo.
+,酢 (す),giấm|すしのご飯には酢を混ぜます。|Cơm sushi được trộn với giấm.
+,天ぷら油 (てんぷらあぶら),dầu chiên|使った天ぷら油は流しに捨てないでください。|Đừng đổ dầu chiên đã dùng vào bồn rửa.
+,大さじ (おおさじ),thìa canh|しょうゆを大さじ2杯入れてください。|Hãy cho 2 thìa canh nước tương.
+,小さじ (こさじ),thìa cà phê|塩を小さじ1杯加えます。|Thêm 1 thìa cà phê muối.
+,包丁 (ほうちょう),dao làm bếp|この包丁はよく切れます。|Con dao này rất sắc.
+,まな板 (まないた),thớt|まな板の上で野菜を切ります。|Thái rau trên thớt.
+,はかり,cân|このはかりは1グラムから量れます。|Chiếc cân này cân được từ 1 gam.
+,カップ,cốc đong|お米をカップで2杯量りました。|Tôi đong 2 cốc gạo.
+,リットル,lít|毎日2リットルの水を飲んでいます。|Hằng ngày tôi uống 2 lít nước.
+,グラム,gam|豚肉を300グラム買いました。|Tôi đã mua 300 gam thịt lợn.
+,夕食のおかず (ゆうしょくのおかず),món ăn bữa tối|今日の夕食のおかずは焼き魚です。|Món ăn tối nay là cá nướng.
+,栄養のバランスを考える (えいようのバランスをかんがえる),cân nhắc cân bằng dinh dưỡng|栄養のバランスを考えて、野菜もたくさん食べています。|Để cân bằng dinh dưỡng, tôi cũng ăn nhiều rau.
+,カロリーが高い食品 (カロリーがたかいしょくひん),thực phẩm nhiều calo|ダイエット中なので、カロリーが高い食品は食べません。|Tôi đang ăn kiêng nên không ăn thực phẩm nhiều calo.
+,はかりで量る (はかりではかる),cân bằng cân|砂糖をはかりで量ってから入れます。|Cân đường bằng cân rồi mới cho vào.
+,塩を少々入れる (しおをしょうしょういれる),cho một chút muối|スープに塩を少々入れてください。|Hãy cho một chút muối vào súp.
+,皮をむく (かわをむく),gọt vỏ|ジャガイモの皮をむいてください。|Hãy gọt vỏ khoai tây.
+,材料を刻む (ざいりょうをきざむ),thái nhỏ nguyên liệu|野菜などの材料を細かく刻みます。|Thái nhỏ các nguyên liệu như rau củ.
+,大きめに切る (おおきめにきる),cắt to|肉じゃがのジャガイモは大きめに切ります。|Khoai tây cho món thịt hầm thì cắt miếng to.
+,3センチ幅に切る (さんセンチはばにきる),cắt bề ngang 3 cm|ネギを3センチ幅に切ってください。|Hãy cắt hành lá thành khúc dài 3 cm.
+,みそ汁がぬるくなる (みそしるがぬるくなる),canh miso bị nguội|早く食べないと、みそ汁がぬるくなりますよ。|Không ăn nhanh là canh miso nguội mất đấy.
+,ラップをかぶせる,phủ màng bọc thực phẩm|お皿にラップをかぶせて、冷蔵庫に入れます。|Phủ màng bọc thực phẩm lên đĩa rồi cho vào tủ lạnh.
+,ラップをかける,phủ màng bọc thực phẩm|ラップをかけてから、電子レンジで温めます。|Phủ màng bọc thực phẩm rồi hâm trong lò vi sóng.
+,ラップでくるむ,bọc bằng màng bọc thực phẩm|残ったご飯をラップでくるんで冷凍しました。|Tôi bọc cơm thừa bằng màng bọc rồi cấp đông.
+,（アルミ）ホイル,giấy bạc|魚をアルミホイルで包んで焼きます。|Gói cá bằng giấy bạc rồi nướng.

@@ -3,55 +3,55 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
 # 300: ảnh ghi 温める là "ấm, nóng" — 温める là tha động từ (vế của 温まる), ở đây ghi "Làm ấm, hâm nóng".
 # Danh từ gốc động từ (連用名詞) 251–259
-LỆ,戻り (もどり),Trở về, trả lại
-BIỆT,別れ (わかれ),Chia ly
-HỶ,喜び (よろこび),Hớn hở
-LẠC,楽しみ (たのしみ),Sung sướng
-TIẾU,笑い (わらい),Cười
-KINH,驚き (おどろき),Ngạc nhiên
-NỘ,怒り (いかり),Giận dữ
-BI,悲しみ (かなしみ),Buồn bã
-HẠNH,幸せな (しあわせな),Hạnh phúc
+LỆ,戻り (もどり),Trở về, trả lại|部長は会議中で、戻りは3時ごろです。|Trưởng phòng đang họp, khoảng 3 giờ mới quay lại.
+BIỆT,別れ (わかれ),Chia ly|友達との別れはつらいです。|Chia tay bạn bè thật buồn.
+HỶ,喜び (よろこび),Hớn hở|子どもが生まれた喜びは忘れられません。|Tôi không thể quên niềm vui khi con chào đời.
+LẠC,楽しみ (たのしみ),Sung sướng|週末の旅行が楽しみです。|Tôi rất mong chờ chuyến du lịch cuối tuần.
+TIẾU,笑い (わらい),Cười|彼の話で、教室は笑いでいっぱいになりました。|Câu chuyện của anh ấy khiến cả lớp tràn ngập tiếng cười.
+KINH,驚き (おどろき),Ngạc nhiên|そのニュースを聞いて、驚きで言葉が出ませんでした。|Nghe tin đó, tôi ngạc nhiên đến mức không nói nên lời.
+NỘ,怒り (いかり),Giận dữ|彼の失礼な言葉に怒りを感じました。|Tôi thấy giận trước lời nói thất lễ của anh ta.
+BI,悲しみ (かなしみ),Buồn bã|母を亡くした悲しみはなかなか消えません。|Nỗi buồn mất mẹ mãi không nguôi.
+HẠNH,幸せな (しあわせな),Hạnh phúc|家族と幸せな毎日を送っています。|Tôi đang sống những ngày hạnh phúc bên gia đình.
 # Tính từ 260–298
-ĐẮC Ý,得意な (とくいな),Mạnh, giỏi
-KHỔ THỦ,苦手な (にがてな),Yếu, kém
-NHIỆT TÂM,熱心な (ねっしんな),Chăm chỉ
-MỘNG TRUNG,夢中な (むちゅうな),Chú tâm
-THOÁI KHUẤT,退屈な (たいくつな),Chán
-KIỆN KHANG,健康な (けんこうな),Khỏe khoắn
-KHỔ,苦しい (くるしい),Cực khổ
-BÌNH KHÍ,平気な (へいきな),Bình thản
-HỐI,悔しい (くやしい),Cay cú
-,うらやましい,Ghen tỵ
-,かゆい,Ngứa
-,おとなしい,Trầm lặng
-NGÃ MẠN CƯỜNG,我慢強い (がまんづよい),Chịu đựng giỏi
-CHÍNH TRỰC,正直な (しょうじきな),Trung thực
-,けちな,Kẹt xỉ
-NGÃ TẬN,我儘な (わがままな),Ích kỷ
-TÍCH CỰC ĐÍCH,積極的な (せっきょくてきな),Tích cực
-TIÊU CỰC ĐÍCH,消極的な (しょうきょくてきな),Tiêu cực
-MÃN TÚC,満足な (まんぞくな),Thỏa mãn
-BẤT MÃN,不満な (ふまんな),Bất mãn
-BẤT AN,不安な (ふあんな),Bất an
-ĐẠI BIẾN,大変な (たいへんな),Tồi tệ
-VÔ LÝ,無理な (むりな),Vô lý
-BẤT CHÚ Ý,不注意な (ふちゅういな),Không chú ý
-LẠC,楽な (らくな),Thoải mái
-DIỆN ĐẢO,面倒な (めんどうな),Phiền phức
-THẤT LỄ,失礼な (しつれいな),Thất lễ
-ĐƯƠNG NHIÊN,当然な (とうぜんな),Đương nhiên
-Ý NGOẠI,意外な (いがいな),Không ngờ đến
-KẾT CẤU,結構な (けっこうな),Tốt, đủ
-PHÁI THỦ,派手な (はでな),Lòe loẹt
-ĐỊA VỊ,地味な (じみな),Giản dị
-,おしゃれな,Thời trang, mốt
-BIẾN,変な (へんな),Lạ
-BẤT TƯ NGHỊ,不思議な (ふしぎな),Thần bí
-,ましな,Tốt lên
-,むだな,Lãng phí
-TỰ DO,自由な (じゆうな),Tự do
-BẤT TỰ DO,不自由な (ふじゆうな),Tàn tật, không tự do
+ĐẮC Ý,得意な (とくいな),Mạnh, giỏi|私は料理が得意です。|Tôi giỏi nấu ăn.
+KHỔ THỦ,苦手な (にがてな),Yếu, kém|私は数学が苦手です。|Tôi kém môn toán.
+NHIỆT TÂM,熱心な (ねっしんな),Chăm chỉ|彼はとても熱心に日本語を勉強しています。|Anh ấy học tiếng Nhật rất chăm chỉ.
+MỘNG TRUNG,夢中な (むちゅうな),Chú tâm|弟はゲームに夢中で、宿題をしません。|Em trai tôi mải mê chơi game, không làm bài tập.
+THOÁI KHUẤT,退屈な (たいくつな),Chán|雨の日は外に出られなくて退屈です。|Ngày mưa không ra ngoài được nên buồn chán.
+KIỆN KHANG,健康な (けんこうな),Khỏe khoắn|健康な体を作るために、毎朝走っています。|Sáng nào tôi cũng chạy bộ để có cơ thể khoẻ mạnh.
+KHỔ,苦しい (くるしい),Cực khổ|走りすぎて、息が苦しいです。|Chạy quá sức nên tôi thở không nổi.
+BÌNH KHÍ,平気な (へいきな),Bình thản|彼は寒くても平気な顔をしています。|Dù trời lạnh, anh ấy vẫn tỉnh bơ như không.
+HỐI,悔しい (くやしい),Cay cú|試合に負けて、とても悔しいです。|Thua trận đấu nên tôi rất cay cú.
+,うらやましい,Ghen tỵ|毎年海外旅行ができるなんて、うらやましいです。|Năm nào cũng được đi du lịch nước ngoài, thật đáng ghen tị.
+,かゆい,Ngứa|蚊に刺されて、腕がかゆいです。|Bị muỗi đốt nên cánh tay ngứa.
+,おとなしい,Trầm lặng|隣の家の犬はとてもおとなしいです。|Con chó nhà hàng xóm rất hiền.
+NGÃ MẠN CƯỜNG,我慢強い (がまんづよい),Chịu đựng giỏi|彼女は我慢強いので、文句を言いません。|Cô ấy chịu đựng giỏi nên không hề phàn nàn.
+CHÍNH TRỰC,正直な (しょうじきな),Trung thực|正直に話してくれて、ありがとう。|Cảm ơn bạn đã nói thật với tôi.
+,けちな,Kẹt xỉ|彼はけちで、全然お金を使いません。|Anh ta keo kiệt, chẳng chịu tiêu tiền gì cả.
+NGÃ TẬN,我儘な (わがままな),Ích kỷ|彼は我儘な人で、自分のことしか考えません。|Anh ta là người ích kỷ, chỉ nghĩ đến bản thân.
+TÍCH CỰC ĐÍCH,積極的な (せっきょくてきな),Tích cực|彼女は授業で積極的に質問します。|Cô ấy tích cực đặt câu hỏi trong giờ học.
+TIÊU CỰC ĐÍCH,消極的な (しょうきょくてきな),Tiêu cực|彼は新しいことに消極的です。|Anh ấy dè dặt, thụ động trước những điều mới.
+MÃN TÚC,満足な (まんぞくな),Thỏa mãn|今の生活に満足しています。|Tôi hài lòng với cuộc sống hiện tại.
+BẤT MÃN,不満な (ふまんな),Bất mãn|給料が安いことに不満を持っています。|Tôi bất mãn vì lương thấp.
+BẤT AN,不安な (ふあんな),Bất an|一人で外国に行くのは不安です。|Đi nước ngoài một mình khiến tôi bất an.
+ĐẠI BIẾN,大変な (たいへんな),Tồi tệ|毎日残業で大変です。|Ngày nào cũng làm thêm giờ, vất vả lắm.
+VÔ LÝ,無理な (むりな),Vô lý|一日でこの仕事を終わらせるのは無理です。|Làm xong việc này trong một ngày là không thể.
+BẤT CHÚ Ý,不注意な (ふちゅういな),Không chú ý|不注意で、コップを割ってしまいました。|Vì bất cẩn nên tôi đã làm vỡ cốc.
+LẠC,楽な (らくな),Thoải mái|この仕事は楽ですが、給料が安いです。|Công việc này nhàn nhưng lương thấp.
+DIỆN ĐẢO,面倒な (めんどうな),Phiền phức|毎日料理をするのは面倒です。|Ngày nào cũng nấu ăn thật phiền phức.
+THẤT LỄ,失礼な (しつれいな),Thất lễ|人の話を聞かないのは失礼です。|Không chịu nghe người khác nói là thất lễ.
+ĐƯƠNG NHIÊN,当然な (とうぜんな),Đương nhiên|あんなことを言われたら、彼が怒るのは当然です。|Bị nói như thế thì anh ấy giận là đương nhiên.
+Ý NGOẠI,意外な (いがいな),Không ngờ đến|試合は意外な結果になりました。|Trận đấu đã có một kết quả không ngờ.
+KẾT CẤU,結構な (けっこうな),Tốt, đủ|結構なお土産をいただき、ありがとうございます。|Cảm ơn anh chị đã tặng món quà tuyệt vời thế này.
+PHÁI THỦ,派手な (はでな),Lòe loẹt|その赤い服はちょっと派手すぎます。|Bộ đồ đỏ đó hơi loè loẹt quá.
+ĐỊA VỊ,地味な (じみな),Giản dị|会社には地味な色のスーツを着ていきます。|Tôi mặc vest màu giản dị khi đi làm.
+,おしゃれな,Thời trang, mốt|駅の近くにおしゃれなカフェができました。|Gần ga mới mở một quán cà phê sành điệu.
+BIẾN,変な (へんな),Lạ|この牛乳は変なにおいがします。|Sữa này có mùi lạ.
+BẤT TƯ NGHỊ,不思議な (ふしぎな),Thần bí|昨夜、不思議な夢を見ました。|Đêm qua tôi đã có một giấc mơ kỳ lạ.
+,ましな,Tốt lên|熱は下がらないが、昨日よりは少しましだ。|Vẫn chưa hạ sốt, nhưng đã đỡ hơn hôm qua một chút.
+,むだな,Lãng phí|時間をむだに使わないようにしましょう。|Hãy cố đừng lãng phí thời gian.
+TỰ DO,自由な (じゆうな),Tự do|土曜日は自由な時間がたくさんあります。|Thứ bảy tôi có nhiều thời gian tự do.
+BẤT TỰ DO,不自由な (ふじゆうな),Tàn tật, không tự do|駅には目の不自由な人のための点字ブロックがあります。|Ở nhà ga có gạch dẫn đường dành cho người khiếm thị.
 # Động từ 299–300 (đầu bảng "Bài 4 形容詞")
-ÔN,温まる (あたたまる),Trở nên ấm hơn
-ÔN,温める (あたためる),Làm ấm, hâm nóng
+ÔN,温まる (あたたまる),Trở nên ấm hơn|スープを飲んで、体が温まりました。|Uống súp xong người tôi ấm lên.
+ÔN,温める (あたためる),Làm ấm, hâm nóng|電子レンジでお弁当を温めてください。|Hãy hâm nóng hộp cơm bằng lò vi sóng.

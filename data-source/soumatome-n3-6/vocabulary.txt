@@ -3,43 +3,43 @@
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Cột âm Hán Việt để TRỐNG: sách 総まとめ không chú âm Hán Việt.
 # Chú giải tiếng Anh của sách đã bỏ: cột nghĩa chỉ còn tiếng Việt.
-,かわいらしい,dễ thương
-,かわいそうな,tội nghiệp
-,行儀がいい (ぎょうぎがいい),ngoan/ lễ phép
-,利口な (りこうな),khôn/ thông minh
-,かしこい,khôn/ thông minh
-,人なつっこい (ひとなつっこい),dễ gần/ quấn người
-,わがままな,ích kỷ/ đòi hỏi
-,生意気な (なまいきな),xấc xược
-,生意気な態度 (なまいきなたいど),thái độ xấc xược
-,甘やかす (あまやかす),nuông chiều
-,かわいがる,cưng chiều
-,おんぶする,cõng
-,抱っこする (だっこする),bế/ ẵm
-,腕に抱く (うでにだく),ôm trong tay
-,ほえる,sủa
-,しっぽを振る (しっぽをふる),vẫy đuôi
-,人になれる (ひとになれる),quen người
-,うなる,gầm gừ
-,穴をほる (あなをほる),đào hố
-,穴をうめる (あなをうめる),lấp hố
-,育児 (いくじ),việc nuôi con
-,子育て (こそだて),việc nuôi con
-,幼児 (ようじ),trẻ nhỏ
-,幼い子ども (おさないこども),trẻ nhỏ
-,子どもが成長する (こどもがせいちょうする),trẻ lớn lên
-,わがままに育つ (わがままにそだつ),lớn lên hư hỏng
-,えらい,giỏi/ đáng khen
-,頭をなでる (あたまをなでる),xoa đầu
-,尻をたたく (しりをたたく),phát vào mông
-,尻をぶつ (しりをぶつ),phát vào mông
-,いたずらをする,nghịch ngợm
-,いたずらな,tinh nghịch
-,手をつなぐ (てをつなぐ),nắm tay
-,はなす,buông ra
-,子どもが迷子になる (こどもがまいごになる),trẻ bị lạc
-,子どもが母親の後をついていく (こどもがははおやのあとをついていく),trẻ đi theo sau mẹ
-,犬を飼う (いぬをかう),nuôi chó
-,散歩に連れていく (さんぽにつれていく),dắt đi dạo
-,犬にえさをやる (いぬにえさをやる),cho chó ăn
-,犬にえさを与える (いぬにえさをあたえる),cho chó ăn
+,かわいらしい,dễ thương|かわいらしい子犬が生まれました。|Một chú cún con dễ thương vừa ra đời.
+,かわいそうな,tội nghiệp|雨の中で鳴いている猫がかわいそうです。|Con mèo kêu dưới mưa thật tội nghiệp.
+,行儀がいい (ぎょうぎがいい),ngoan/ lễ phép|お宅のお子さんは行儀がいいですね。|Con nhà anh chị ngoan ngoãn, lễ phép quá.
+,利口な (りこうな),khôn/ thông minh|この犬はとても利口で、人の言葉が分かります。|Con chó này rất khôn, hiểu được tiếng người.
+,かしこい,khôn/ thông minh|娘はかしこくて、何でもすぐ覚えます。|Con gái tôi thông minh, cái gì cũng nhớ ngay.
+,人なつっこい (ひとなつっこい),dễ gần/ quấn người|この猫は人なつっこくて、誰にでも近寄ってきます。|Con mèo này quấn người, ai nó cũng lại gần.
+,わがままな,ích kỷ/ đòi hỏi|うちの子はわがままで、毎日困っています。|Con tôi đòi hỏi đủ thứ, ngày nào tôi cũng khổ sở.
+,生意気な (なまいきな),xấc xược|弟は最近、生意気なことばかり言います。|Dạo này em trai tôi toàn nói những lời xấc xược.
+,生意気な態度 (なまいきなたいど),thái độ xấc xược|先輩に生意気な態度をとってはいけません。|Không được có thái độ xấc xược với tiền bối.
+,甘やかす (あまやかす),nuông chiều|子どもを甘やかしすぎるのはよくありません。|Quá nuông chiều con cái là không tốt.
+,かわいがる,cưng chiều|祖母は孫をとてもかわいがっています。|Bà rất cưng chiều cháu.
+,おんぶする,cõng|父親が子どもをおんぶして歩いています。|Người bố đang cõng con đi.
+,抱っこする (だっこする),bế/ ẵm|赤ちゃんを抱っこしてもいいですか。|Tôi bế em bé được không?
+,腕に抱く (うでにだく),ôm trong tay|母親は赤ちゃんを腕に抱いて、寝かせました。|Người mẹ ôm em bé trong tay ru ngủ.
+,ほえる,sủa|隣の犬は夜になるとよくほえます。|Con chó nhà bên cứ tối là sủa.
+,しっぽを振る (しっぽをふる),vẫy đuôi|犬がしっぽを振って、私を迎えてくれました。|Con chó vẫy đuôi ra đón tôi.
+,人になれる (ひとになれる),quen người|この犬はまだ人になれていません。|Con chó này vẫn chưa quen người.
+,うなる,gầm gừ|知らない人を見て、犬がうなりました。|Thấy người lạ, con chó gầm gừ.
+,穴をほる (あなをほる),đào hố|犬が庭に穴をほっています。|Con chó đang đào hố trong vườn.
+,穴をうめる (あなをうめる),lấp hố|犬がほった穴をうめました。|Tôi đã lấp cái hố con chó đào.
+,育児 (いくじ),việc nuôi con|夫も育児に協力してくれます。|Chồng tôi cũng phụ giúp việc nuôi con.
+,子育て (こそだて),việc nuôi con|子育てと仕事を両立するのは大変です。|Vừa nuôi con vừa đi làm thật vất vả.
+,幼児 (ようじ),trẻ nhỏ|この絵本は幼児向けです。|Cuốn sách tranh này dành cho trẻ nhỏ.
+,幼い子ども (おさないこども),trẻ nhỏ|幼い子どもを一人で家に残してはいけません。|Không được để trẻ nhỏ ở nhà một mình.
+,子どもが成長する (こどもがせいちょうする),trẻ lớn lên|子どもが成長するのは本当に早いです。|Trẻ con lớn nhanh thật.
+,わがままに育つ (わがままにそだつ),lớn lên hư hỏng|甘やかしすぎると、子どもはわがままに育ちます。|Nuông chiều quá thì trẻ sẽ lớn lên hư hỏng.
+,えらい,giỏi/ đáng khen|一人で宿題ができて、えらいね。|Tự làm bài tập một mình, giỏi quá!
+,頭をなでる (あたまをなでる),xoa đầu|母は「よくできたね」と子どもの頭をなでました。|Mẹ xoa đầu con và nói: "Con làm giỏi lắm".
+,尻をたたく (しりをたたく),phát vào mông|いたずらをした子どもの尻をたたきました。|Tôi phát vào mông đứa trẻ nghịch ngợm.
+,尻をぶつ (しりをぶつ),phát vào mông|昔は悪いことをすると、親に尻をぶたれました。|Ngày xưa làm điều sai là bị bố mẹ phát vào mông.
+,いたずらをする,nghịch ngợm|子どもが壁に絵をかくいたずらをしました。|Đứa bé nghịch ngợm vẽ lên tường.
+,いたずらな,tinh nghịch|いたずらな子猫がカーテンに登っています。|Chú mèo con tinh nghịch đang leo lên rèm cửa.
+,手をつなぐ (てをつなぐ),nắm tay|子どもと手をつないで、公園まで歩きました。|Tôi nắm tay con đi bộ đến công viên.
+,はなす,buông ra|危ないから、手をはなさないでね。|Nguy hiểm đấy, đừng buông tay nhé.
+,子どもが迷子になる (こどもがまいごになる),trẻ bị lạc|デパートで子どもが迷子になりました。|Đứa trẻ bị lạc ở trung tâm thương mại.
+,子どもが母親の後をついていく (こどもがははおやのあとをついていく),trẻ đi theo sau mẹ|小さい子どもが母親の後をついていく姿はかわいいです。|Hình ảnh đứa trẻ nhỏ lẽo đẽo theo sau mẹ thật đáng yêu.
+,犬を飼う (いぬをかう),nuôi chó|子どものころから、犬を飼いたいと思っていました。|Từ hồi bé tôi đã muốn nuôi chó.
+,散歩に連れていく (さんぽにつれていく),dắt đi dạo|毎朝、犬を散歩に連れていきます。|Sáng nào tôi cũng dắt chó đi dạo.
+,犬にえさをやる (いぬにえさをやる),cho chó ăn|旅行の間は、隣の人が犬にえさをやってくれます。|Trong lúc tôi đi du lịch, hàng xóm cho chó ăn giúp.
+,犬にえさを与える (いぬにえさをあたえる),cho chó ăn|犬にえさを与えすぎないでください。|Đừng cho chó ăn quá nhiều.

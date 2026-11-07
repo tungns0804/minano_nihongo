@@ -54,6 +54,15 @@
 .word-table.has-reading.has-example th:nth-child(4) { width: 14%; }
 .word-table.has-reading.has-example th:nth-child(5) { width: 17.5%; }
 
+/* Câu ví dụ + cột ảnh (bài N3 có ảnh): cách đọc nằm dưới từ nên không có cột riêng,
+   nhưng cột ảnh 100px lại ăn vào đúng cột ví dụ — cột nhận chỗ thừa. Câu ví dụ ở đây
+   kèm cả bản dịch, là ô dài nhất hàng, nên ba cột chữ ngắn bên trái nhường bớt chỗ;
+   để như nhóm "has-example" ở trên thì câu tiếng Nhật bẻ dòng giữa chừng còn cột
+   nghĩa thì thừa một nửa. */
+.word-table.has-example.has-image th:nth-child(2) { width: 14%; }
+.word-table.has-example.has-image th:nth-child(3) { width: 17%; }
+.word-table.has-example.has-image th:nth-child(4) { width: 15%; }
+
 /* Cột ảnh (chỉ có ở bài có ảnh) luôn đứng cuối và rộng cố định vừa ảnh nhỏ 72px cộng lề
    ô. Khai bằng lớp chứ không bằng nth-child: số thứ tự của nó đổi theo các cột tuỳ bài ở
    trên, còn các quy tắc nth-child ở trên không bao giờ chạm tới vị trí của nó. */

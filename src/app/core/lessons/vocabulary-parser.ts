@@ -88,8 +88,9 @@ function stripBom(text: string): string {
  *   dấu | ngay trong cột nghĩa.
  */
 export function splitRow(line: string): string[] {
-  // Dán từ bảng tính: mỗi TAB là một cột, cột thứ 4 là câu ví dụ.
-  if (line.includes('\t')) return line.split('\t').slice(0, 4);
+  // Dán từ bảng tính: mỗi TAB là một cột, cột thứ 4 là câu ví dụ, cột thứ 5 là
+  // bản dịch của câu ví dụ.
+  if (line.includes('\t')) return line.split('\t').slice(0, 5);
 
   const first = line.indexOf(',');
   if (first < 0) return [line];
@@ -121,16 +122,27 @@ export function splitJapaneseAndReading(text: string): [string, string] {
 }
 
 /**
- * Tách cột nghĩa thành nghĩa + câu ví dụ ở dấu | ĐẦU TIÊN.
+ * Tách cột nghĩa thành nghĩa + câu ví dụ ở dấu | ĐẦU TIÊN, rồi tách câu ví dụ
+ * thành câu tiếng Nhật + bản dịch tiếng Việt ở dấu | THỨ HAI:
+ *   "chạy trốn|犯人は逃げました。|Tên tội phạm đã bỏ trốn."
+ *
+ * Bản dịch không bắt buộc. Với từ vựng N3 nó gần như là phần chính của câu ví dụ:
+ * người học đọc câu tiếng Nhật để thấy từ đứng trong ngữ cảnh nào, nhưng câu N3
+ * hay có từ khác chưa học, thiếu bản dịch thì ví dụ thành thêm một chỗ phải tra.
  *
  * Dùng | chứ không thêm một dấu phẩy nữa là có chủ ý: cột nghĩa được phép chứa
  * dấu phẩy (đã ghi trong tài liệu và có test bảo vệ), nên nếu tách bằng dấu phẩy
  * thì mọi dòng có nghĩa kiểu "nghĩa a, nghĩa b" sẽ âm thầm bị cắt mất một nửa
  * và nửa đó biến thành câu ví dụ.
  */
-export function splitMeaningAndExample(text: string): [string, string] {
+export function splitMeaningAndExample(text: string): [string, string, string] {
   const pipe = text.indexOf('|');
-  return pipe < 0 ? [text, ''] : [text.slice(0, pipe), text.slice(pipe + 1)];
+  if (pipe < 0) return [text, '', ''];
+  const rest = text.slice(pipe + 1);
+  const second = rest.indexOf('|');
+  return second < 0
+    ? [text.slice(0, pipe), rest, '']
+    : [text.slice(0, pipe), rest.slice(0, second), rest.slice(second + 1)];
 }
 
 /** Phân tích nội dung thô (dán tay hoặc đọc từ file) thành danh sách từ vựng. */
@@ -173,10 +185,14 @@ export function parseVocabulary(raw: string): ParseResult {
     const [rawJapanese, rawReading] = splitJapaneseAndReading(normalizeField(columns[1]));
     const japanese = normalizeField(rawJapanese);
     const reading = normalizeField(rawReading);
-    // Cột 4 (dán bằng TAB) được ưu tiên; không có thì lấy phần sau dấu | của cột nghĩa.
-    const [rawMeaning, meaningExample] = splitMeaningAndExample(columns[2] ?? '');
+    // Cột 4 và 5 (dán bằng TAB) được ưu tiên; không có thì lấy phần sau dấu | của
+    // cột nghĩa.
+    const [rawMeaning, meaningExample, meaningExampleVietnamese] = splitMeaningAndExample(
+      columns[2] ?? '',
+    );
     const vietnamese = normalizeField(rawMeaning);
     const example = normalizeField(columns[3] ?? meaningExample);
+    const exampleVietnamese = normalizeField(columns[4] ?? meaningExampleVietnamese);
 
     // Chỉ TIẾNG NHẬT và NGHĨA là bắt buộc. Âm Hán Việt được phép rỗng: từ vựng N3
     // của 日本語総まとめ có rất nhiều từ katakana (アイデア) và trạng từ thuần kana
@@ -222,7 +238,7 @@ export function parseVocabulary(raw: string): ParseResult {
     }
     usedIds.add(id);
 
-    words.push({ id, hanViet, japanese, reading, vietnamese, example });
+    words.push({ id, hanViet, japanese, reading, vietnamese, example, exampleVietnamese });
   });
 
   return { words, issues };
