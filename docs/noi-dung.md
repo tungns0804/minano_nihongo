@@ -751,22 +751,37 @@ cặp cùng nói về một sự việc nhưng khác hẳn ở chỗ ai làm.
 
 ### 2. Chuyển thể động từ (N5 → N2)
 
-Chuyển thể lịch sự ます sang thể Te / Ta / Ru / Nai và ngược lại. **293 động từ**, đủ ba nhóm
-kể cả các trường hợp đặc biệt:
+Chuyển thể lịch sự ます sang **12 thể** và ngược lại, chia ba nhóm bốn thể:
+
+| Nhóm | Các thể |
+| --- | --- |
+| Thể cơ bản | từ điển (る), Te, Ta, Nai |
+| Điều kiện · Ý chí · Mệnh lệnh | ば, よう, ろ, るな |
+| Khả năng · Bị động · Sai khiến | れる, られる, させる, させられる |
+
+**293 động từ**, đủ ba nhóm kể cả các trường hợp đặc biệt:
 
 - *Nhóm 1 nhìn như nhóm 2* — 帰ります, 入ります, 走ります, 切ります, 知ります, 滑ります, 握ります,
   蹴ります, 喋ります, 参ります… Gắn nhãn “đặc biệt” và **lọc riêng ra luyện được**.
 - *Ngoại lệ* — 行きます → 行って, あります → ない.
 - *Kính ngữ chia bất quy tắc* — いらっしゃいます, くださいます, なさいます, おっしゃいます.
-- *Nhóm 3* — します, 来ます, 持って来ます và các động từ ghép ～します.
+- *Nhóm 3* — します (khả năng là できる, 勉強できる), 来ます (来られる, 来い, こさせる…),
+  持って来ます và các động từ ghép ～します.
+- *Động từ không chủ ý* (分かります, あります, 見えます, 咲きます…) và *kính ngữ* (いらっしゃいます,
+  伺います, 申します…) chỉ được hỏi thể cơ bản và thể ば: 分かれる, 見えられる là những chữ không ai
+  dùng. Bảng tra cứu hiện “—” ở các ô đó. Danh sách nằm ở `NON_VOLITIONAL_IDS` / `KEIGO_IDS`
+  trong `exercise-verbs.ts`.
+- *Cách viết khác cũng đúng* — bị động sai khiến nhóm 1 gõ dạng rút gọn (書かされる) cũng được;
+  する → せよ cũng được.
 
 | Chiều | Câu hỏi | Đáp án |
 | --- | --- | --- |
-| ます → thể ngắn | 帰ります → thể Te? | 帰って |
-| thể ngắn → ます | 帰って (thể Te) → thể Mậu? | 帰ります |
+| ます → thể khác | 帰ります → thể Te? | 帰って |
+| thể khác → ます | 帰って (thể Te) → thể Mậu? | 帰ります |
 | Trộn cả hai chiều | mỗi cặp được hỏi cả xuôi lẫn ngược | |
 
-Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi một câu cho từng thể đã chọn.
+Chọn được nhiều thể cùng lúc, hoặc cả nhóm một lần; mỗi động từ được hỏi một câu cho từng thể
+đã chọn. Lịch ôn tập vẫn chỉ hỏi bốn thể cơ bản.
 
 ### Điểm chung của hai bài tập động từ
 
@@ -775,7 +790,8 @@ Chọn được nhiều thể cùng lúc; mỗi động từ được hỏi mộ
   đúng engine chia thể (luật chia bám vào kana ở đuôi), nên không phải khai tay thể nào cả.
 - **Phạm vi ★ Chưa nhớ**, giới hạn số câu, trộn thứ tự, hiện/ẩn nghĩa tiếng Việt — giống các
   loại bài khác. Dấu ★ lưu riêng cho từng bài tập.
-- **Bảng tra cứu** ngay dưới phần thiết lập: bảng cặp tự/tha động từ, hoặc bảng chia đủ 4 thể.
+- **Bảng tra cứu** ngay dưới phần thiết lập: bảng cặp tự/tha động từ, hoặc bảng chia đủ 12 thể
+  (xem từng nhóm bốn thể; chọn thêm thể nào thì bảng mở đúng nhóm đó).
 - Dùng lại nguyên màn hình luyện tập và màn hình kết quả của các loại bài kia.
 
 Dữ liệu cả ba bài tập nằm thẳng trong mã nguồn (`src/app/core/exercises/`) chứ không đi qua

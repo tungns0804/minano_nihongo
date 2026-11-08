@@ -1,6 +1,7 @@
 import type { MessageKey } from '../i18n/messages';
 import { MESSAGES } from '../i18n/messages';
 import {
+  BASIC_VERB_FORMS,
   VERB_FORM_LABEL_KEY,
   VERB_GROUP_LABEL_KEY,
   VerbForm,
@@ -246,9 +247,10 @@ function buildFormChoices(
     add(conjugateAsGroup(verb.entry.masu, group)?.[answerForm]);
   }
 
-  // 2. Thể khác của chính động từ đó.
+  // 2. Thể khác của chính động từ đó — chỉ trong năm thể của bài học: bài học chưa
+  //    dạy bị động hay sai khiến thì đưa chúng làm đáp án nhiễu cũng vô nghĩa.
   if (!askingForMasu) {
-    for (const other of shuffle(Object.keys(verb.forms) as VerbForm[])) {
+    for (const other of shuffle(BASIC_VERB_FORMS)) {
       add(verb.forms[other]);
     }
   }

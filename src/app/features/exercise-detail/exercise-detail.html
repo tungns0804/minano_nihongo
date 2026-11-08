@@ -67,19 +67,44 @@
           @if (needsForms()) {
             <div class="field">
               <span class="label">{{ t('lesson.forms') }}</span>
-              <div class="options">
-                @for (form of availableForms; track form) {
-                  <button
-                    type="button"
-                    class="option"
-                    [class.is-active]="isFormSelected(form)"
-                    (click)="toggleForm(form)"
-                  >
-                    {{ t(formLabelKey[form]) }}
-                  </button>
+              <div class="form-groups">
+                @for (group of formGroups; track group.id) {
+                  <div class="form-group">
+                    <div class="form-group-head">
+                      <span class="form-group-name"><app-t [key]="group.labelKey" /></span>
+                      <button
+                        type="button"
+                        class="form-group-toggle"
+                        [attr.aria-pressed]="isGroupSelected(group)"
+                        (click)="toggleFormGroup(group)"
+                      >
+                        {{ isGroupSelected(group) ? t('exercise.formGroup.none') : t('exercise.formGroup.all') }}
+                      </button>
+                    </div>
+                    <div class="options">
+                      @for (form of group.forms; track form) {
+                        <button
+                          type="button"
+                          class="option"
+                          [class.is-active]="isFormSelected(form)"
+                          (click)="toggleForm(form)"
+                        >
+                          {{ t(formLabelKey[form]) }}
+                        </button>
+                      }
+                    </div>
+                  </div>
                 }
               </div>
               <span class="hint"><app-t key="lesson.forms.hint" block /></span>
+              @if (picksExtendedForms()) {
+                @if (hasLimitedVerbs()) {
+                  <span class="hint"><app-t key="exercise.forms.limitHint" block /></span>
+                }
+                @if (isFormSelected('causativePassive')) {
+                  <span class="hint"><app-t key="exercise.forms.altHint" block /></span>
+                }
+              }
             </div>
           }
 
@@ -275,18 +300,40 @@
             </div>
           } @else {
             <!-- ── Bảng chia động từ ──────────────────────────────────── -->
+            <div class="table-groups" role="group" [attr.aria-label]="t('exercise.table.group')">
+              @for (group of formGroups; track group.id) {
+                <button
+                  type="button"
+                  class="table-group"
+                  [class.is-active]="tableGroupId() === group.id"
+                  [attr.aria-pressed]="tableGroupId() === group.id"
+                  (click)="setTableGroup(group.id)"
+                >
+                  <app-t [key]="group.labelKey" />
+                </button>
+              }
+            </div>
+            @if (tableGroupId() !== 'basic' && hasLimitedVerbs()) {
+              <p class="small faint">{{ t('exercise.table.naNote') }}</p>
+            }
             <div class="scroll-x">
-              <table class="word-table verb-table">
+              <table class="word-table verb-table" [class.is-extended]="tableGroupId() !== 'basic'">
                 <thead>
                   <tr>
                     <th class="col-star"><span class="sr-only">{{ t('lesson.col.star') }}</span>★</th>
                     <th>ます</th>
                     <th>{{ t('lesson.col.reading') }}</th>
                     <th>{{ t('lesson.col.group') }}</th>
-                    <th>る</th>
-                    <th>て</th>
-                    <th>た</th>
-                    <th>ない</th>
+                    @for (form of tableForms(); track form) {
+                      <th class="col-form" [title]="t(formLabelKey[form])">
+                        @if (tableGroupId() === 'basic') {
+                          {{ t(formShortKey[form]) }}
+                        } @else {
+                          <span class="th-name">{{ t(formNameKey[form]) }}</span>
+                          <span class="th-jp jp">{{ t(formShortKey[form]) }}</span>
+                        }
+                      </th>
+                    }
                     <th>{{ t('lesson.col.meaningShort') }}</th>
                     <th>{{ t('exercise.col.level') }}</th>
                   </tr>
@@ -316,10 +363,24 @@
                           </span>
                         }
                       </td>
-                      <td class="jp" data-label="る">{{ row.forms?.dictionary ?? '' }}</td>
-                      <td class="jp form-te" data-label="て">{{ row.forms?.te ?? '' }}</td>
-                      <td class="jp" data-label="た">{{ row.forms?.ta ?? '' }}</td>
-                      <td class="jp" data-label="ない">{{ row.forms?.nai ?? '' }}</td>
+                      @for (form of tableForms(); track form) {
+                        @if (hasForm(row.verb, form)) {
+                          <td class="jp" [class.form-te]="form === 'te'" [attr.data-label]="t(formShortKey[form])">
+                            {{ row.forms?.[form] ?? '' }}
+                            @for (alt of row.alternates[form] ?? []; track alt) {
+                              <span class="form-alt">{{ alt }}</span>
+                            }
+                          </td>
+                        } @else {
+                          <td
+                            class="form-na"
+                            [attr.data-label]="t(formShortKey[form])"
+                            [title]="t(naTitleKey(row.verb))"
+                          >
+                            —
+                          </td>
+                        }
+                      }
                       <td class="col-meaning-cell">{{ row.verb.meaning }}</td>
                       <td class="col-level"><span class="badge">{{ row.verb.level }}</span></td>
                     </tr>

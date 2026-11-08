@@ -21,7 +21,7 @@ import {
 } from '../review/review.model';
 import { pickRandom } from '../utils/random';
 import {
-  EXERCISE_FORMS,
+  BASIC_EXERCISE_FORMS,
   buildTransitivityQuestions,
   buildVerbFormQuestions,
 } from './exercise-questions';
@@ -230,7 +230,7 @@ function buildOne(
             lessonKind: 'exercise',
             exercise: 'chuyen-the-dong-tu',
             exerciseMode: toJapanese ? 'form-to-masu' : 'masu-to-form',
-            verbForms: pickRandom(EXERCISE_FORMS, 1),
+            verbForms: pickRandom(BASIC_EXERCISE_FORMS, 1),
             // Hiện nghĩa như mặc định của khu Bài tập: động từ trơ không có nghĩa thì
             // nhiều từ gần giống nhau không phân biệt nổi.
             showHanViet: true,

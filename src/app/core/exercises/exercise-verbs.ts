@@ -1,6 +1,7 @@
 /**
  * Dữ liệu bài tập 2 — động từ N5 → N2 để luyện chuyển thể lịch sự (ます) sang
- * các thể ngắn (る, て, た, ない) và ngược lại.
+ * mười hai thể khác (る, て, た, ない, ば, よう, ろ, るな, khả năng, bị động, sai
+ * khiến, bị động sai khiến) và ngược lại.
  *
  * Mỗi động từ chỉ khai báo THỂ ます + NHÓM, đúng như bài động từ của giáo trình:
  * các thể còn lại do `core/japanese/conjugation.ts` tính lúc chạy, nên sửa luật
@@ -22,24 +23,118 @@
  */
 
 import type { VerbGroup } from '../japanese/conjugation';
-import type { ExerciseLevel, ExerciseVerb } from './exercise.model';
+import type { ExerciseLevel, ExerciseVerb, VerbFormLimit } from './exercise.model';
 
 /** [thể ます, cách đọc kana, nhóm, nghĩa tiếng Việt, có phải nhóm 1 dễ nhầm không] */
 type Row = readonly [string, string, VerbGroup, string, boolean?];
 
+/**
+ * Động từ không chủ ý (無意志動詞): chỉ hỏi bốn thể cơ bản và thể ば — xem
+ * `VerbFormLimit`. Khoá là id (kanji|cách đọc) vì 降ります ふります (mưa rơi) thuộc
+ * loại này còn 降ります おります (xuống xe) thì không.
+ *
+ * Chỉ ghi những từ mà ý chí / mệnh lệnh / khả năng nghe vô lý hẳn. Từ còn lưỡng lự
+ * nhưng dùng được (死ぬな, 止まれ, 忘れよう, 動ける…) thì để hỏi đủ.
+ */
+export const NON_VOLITIONAL_IDS: ReadonlySet<string> = new Set([
+  // N5
+  '終わります|おわります',
+  '始まります|はじまります',
+  '分かります|わかります',
+  '困ります|こまります',
+  '降ります|ふります',
+  'あります|あります',
+  '知ります|しります',
+  '要ります|いります',
+  '疲れます|つかれます',
+  // N4
+  '間に合います|まにあいます',
+  '咲きます|さきます',
+  '続きます|つづきます',
+  '乾きます|かわきます',
+  '済みます|すみます',
+  '決まります|きまります',
+  '太ります|ふとります',
+  '曇ります|くもります',
+  '減ります|へります',
+  '遅れます|おくれます',
+  '生まれます|うまれます',
+  '晴れます|はれます',
+  '足ります|たります',
+  '過ぎます|すぎます',
+  '見えます|みえます',
+  '聞こえます|きこえます',
+  '壊れます|こわれます',
+  '汚れます|よごれます',
+  '落ちます|おちます',
+  // N3
+  '迷います|まよいます',
+  '驚きます|おどろきます',
+  '届きます|とどきます',
+  '吹きます|ふきます',
+  '光ります|ひかります',
+  '悩みます|なやみます',
+  '転びます|ころびます',
+  '育ちます|そだちます',
+  '慣れます|なれます',
+  '倒れます|たおれます',
+  '増えます|ふえます',
+  '冷えます|ひえます',
+  '溶けます|とけます',
+  '失敗します|しっぱいします',
+  // N2
+  '増します|まします',
+  '浮かびます|うかびます',
+  '含みます|ふくみます',
+  '積もります|つもります',
+  '限ります|かぎります',
+  '散ります|ちります',
+  '照ります|てります',
+  '焦ります|あせります',
+  '混じります|まじります',
+  '湿ります|しめります',
+  '現れます|あらわれます',
+  '優れます|すぐれます',
+  '溢れます|あふれます',
+  '成功します|せいこうします',
+]);
+
+/** Kính ngữ và khiêm nhường ngữ: cũng chỉ hỏi bốn thể cơ bản và thể ば. */
+export const KEIGO_IDS: ReadonlySet<string> = new Set([
+  'いらっしゃいます|いらっしゃいます',
+  'くださいます|くださいます',
+  'なさいます|なさいます',
+  'おっしゃいます|おっしゃいます',
+  '伺います|うかがいます',
+  '申します|もうします',
+  '致します|いたします',
+  '召し上がります|めしあがります',
+  '参ります|まいります',
+]);
+
+function limitOf(id: string): VerbFormLimit | null {
+  if (NON_VOLITIONAL_IDS.has(id)) return 'non-volitional';
+  if (KEIGO_IDS.has(id)) return 'keigo';
+  return null;
+}
+
 function level(value: ExerciseLevel, rows: readonly Row[]): ExerciseVerb[] {
-  return rows.map(([masu, reading, group, meaning, deceptive]) => ({
+  return rows.map(([masu, reading, group, meaning, deceptive]) => {
     // Kanji + cách đọc: chỉ mình kanji thì 降ります (ふります/おります) đụng nhau, mà
     // id lại là khoá của dấu ★ — hai động từ chung id nghĩa là đánh dấu một cái
     // thì cái kia cũng sáng sao theo.
-    id: `${masu}|${reading}`,
-    masu,
-    reading,
-    meaning,
-    group,
-    level: value,
-    deceptive: deceptive === true,
-  }));
+    const id = `${masu}|${reading}`;
+    return {
+      id,
+      masu,
+      reading,
+      meaning,
+      group,
+      level: value,
+      deceptive: deceptive === true,
+      limit: limitOf(id),
+    };
+  });
 }
 
 export const EXERCISE_VERBS: readonly ExerciseVerb[] = [

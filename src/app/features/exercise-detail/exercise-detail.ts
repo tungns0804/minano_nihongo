@@ -12,17 +12,26 @@ import {
   FORM_MODES,
   TRANSITIVITY_MODES,
   TransitivityPair,
+  VERB_FORM_GROUPS,
+  VerbFormGroup,
+  VerbFormGroupId,
   exerciseInfo,
   exerciseModeInfo,
   modeNeedsForms,
   modeQuestionsPerItem,
+  verbFormGroupOf,
+  verbHasForm,
 } from '../../core/exercises/exercise.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
 import { T } from '../../core/i18n/t';
+import type { MessageKey } from '../../core/i18n/messages';
 import {
   VERB_FORM_LABEL_KEY,
+  VERB_FORM_NAME_KEY,
+  VERB_FORM_SHORT_KEY,
   VERB_GROUP_LABEL_KEY,
+  VerbAlternates,
   VerbForm,
   VerbForms,
   conjugate,
@@ -34,6 +43,7 @@ import {
   EXERCISE_FORMS,
   buildTransitivityQuestions,
   buildVerbFormQuestions,
+  countVerbFormQuestions,
 } from '../../core/practice/exercise-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
@@ -45,6 +55,7 @@ import { PracticeSetup } from '../../shared/practice-setup';
 interface VerbRow {
   verb: ExerciseVerb;
   forms: VerbForms | null;
+  alternates: VerbAlternates;
   irregular: boolean;
 }
 
@@ -71,7 +82,9 @@ export class ExerciseDetail extends PracticeScreen {
   private readonly route = inject(ActivatedRoute);
 
   readonly formLabelKey = VERB_FORM_LABEL_KEY;
-  readonly availableForms = EXERCISE_FORMS;
+  readonly formShortKey = VERB_FORM_SHORT_KEY;
+  readonly formNameKey = VERB_FORM_NAME_KEY;
+  readonly formGroups = VERB_FORM_GROUPS;
 
   readonly exerciseId = signal('');
   readonly info = signal<ExerciseInfo | null>(null);
@@ -84,6 +97,16 @@ export class ExerciseDetail extends PracticeScreen {
   readonly levels = signal<ExerciseLevel[]>([...EXERCISE_LEVELS]);
   readonly mode = signal<ExerciseMode>('to-transitive');
   readonly selectedForms = signal<VerbForm[]>(['te']);
+  /**
+   * Nhóm thể đang hiện ở bảng tra cứu. Mười hai thể không nhét vừa một bảng, nên
+   * bảng hiện từng nhóm bốn thể như ba hàng của khung chọn thể.
+   */
+  readonly tableGroupId = signal<VerbFormGroupId>('basic');
+  readonly tableForms = computed(
+    () =>
+      (VERB_FORM_GROUPS.find((group) => group.id === this.tableGroupId()) ?? VERB_FORM_GROUPS[0])
+        .forms,
+  );
 
   readonly notFound = computed(() => this.info() === null);
   readonly isTransitivity = computed(() => this.info()?.id === 'tu-tha-dong-tu');
@@ -156,16 +179,18 @@ export class ExerciseDetail extends PracticeScreen {
   );
 
   /**
-   * Số câu sẽ luyện: mỗi mục sinh (số thể đang chọn) × (1 hoặc 2 chiều) câu.
-   * Bài tự/tha động từ không chọn thể nên hệ số thể luôn là 1.
+   * Tổng số câu trước khi cắt theo "Số câu": bài tự/tha sinh (1 hoặc 2 chiều) câu
+   * mỗi cặp; bài chuyển thể sinh thêm chừng ấy câu cho mỗi thể đang chọn — trừ những
+   * thể động từ đó không dùng (分かります không có thể khả năng).
    */
-  private readonly questionsPerItem = computed(() => {
-    const forms = this.needsForms() ? Math.max(1, this.selectedForms().length) : 1;
-    return forms * modeQuestionsPerItem(this.mode());
+  private readonly totalQuestions = computed(() => {
+    const perItem = modeQuestionsPerItem(this.mode());
+    if (this.isTransitivity()) return this.poolPairs().length * perItem;
+    return countVerbFormQuestions(this.poolVerbs(), this.selectedForms(), perItem);
   });
 
   readonly plannedQuestionCount = computed(() => {
-    const total = this.poolSize() * this.questionsPerItem();
+    const total = this.totalQuestions();
     const limit = this.questionLimit();
     return limit === null ? total : Math.min(limit, total);
   });
@@ -173,8 +198,16 @@ export class ExerciseDetail extends PracticeScreen {
   readonly canStart = computed(() => this.plannedQuestionCount() > 0);
 
   readonly limitChoices = computed(() =>
-    LIMIT_CHOICES.filter((limit) => limit < this.poolSize() * this.questionsPerItem()),
+    LIMIT_CHOICES.filter((limit) => limit < this.totalQuestions()),
   );
+
+  /** Đang chọn thể nào ngoài nhóm cơ bản không — ghi chú về động từ bị bớt thể chỉ cần lúc đó. */
+  readonly picksExtendedForms = computed(() =>
+    this.selectedForms().some((form) => verbFormGroupOf(form).id !== 'basic'),
+  );
+
+  /** Có động từ nào trong các cấp đang chọn bị bớt thể không. */
+  readonly hasLimitedVerbs = computed(() => this.levelVerbs().some((verb) => verb.limit !== null));
 
   readonly modeShort = computed(() => this.lang.t(this.currentMode().shortKey));
 
@@ -186,6 +219,7 @@ export class ExerciseDetail extends PracticeScreen {
       return {
         verb,
         forms: result.ok ? result.forms : null,
+        alternates: result.ok ? result.alternates : {},
         irregular: isIrregularVerb(verb.masu),
       };
     }),
@@ -199,7 +233,7 @@ export class ExerciseDetail extends PracticeScreen {
     if (!keyword) return base;
     return base.filter((row) =>
       normalizeSearch(
-        `${row.verb.masu} ${row.verb.reading} ${row.verb.meaning} ${formsText(row.forms)}`,
+        `${row.verb.masu} ${row.verb.reading} ${row.verb.meaning} ${formsText(row)}`,
       ).includes(keyword),
     );
   });
@@ -248,6 +282,7 @@ export class ExerciseDetail extends PracticeScreen {
     this.levels.set([...info.levels]);
     this.mode.set(DEFAULT_MODE[info.id]);
     this.selectedForms.set(['te']);
+    this.tableGroupId.set('basic');
     this.scope.set('all');
     this.questionLimit.set(null);
     this.search.set('');
@@ -288,10 +323,49 @@ export class ExerciseDetail extends PracticeScreen {
     // Luôn phải còn ít nhất một thể được chọn.
     if (current.includes(form) && current.length === 1) return;
 
-    this.selectedForms.set(
-      current.includes(form) ? current.filter((f) => f !== form) : [...current, form],
-    );
+    if (current.includes(form)) {
+      this.setForms(current.filter((f) => f !== form));
+    } else {
+      this.setForms([...current, form]);
+      // Vừa chọn thêm thể nào thì bảng mở đúng nhóm đó để dò đáp án ngay bên dưới.
+      this.tableGroupId.set(verbFormGroupOf(form).id);
+    }
+  }
+
+  isGroupSelected(group: VerbFormGroup): boolean {
+    return group.forms.every((form) => this.isFormSelected(form));
+  }
+
+  /** Chọn hoặc bỏ cả bốn thể của một nhóm. */
+  toggleFormGroup(group: VerbFormGroup): void {
+    const current = this.selectedForms();
+    if (this.isGroupSelected(group)) {
+      const rest = current.filter((form) => !group.forms.includes(form));
+      // Bỏ cả nhóm mà không còn thể nào thì giữ nguyên, như khi bỏ thể cuối cùng.
+      if (rest.length > 0) this.setForms(rest);
+      return;
+    }
+    this.setForms([...current, ...group.forms]);
+    this.tableGroupId.set(group.id);
+  }
+
+  /** Giữ thứ tự của khung chọn để dòng tóm tắt không đảo theo thứ tự bấm. */
+  private setForms(forms: readonly VerbForm[]): void {
+    this.selectedForms.set(EXERCISE_FORMS.filter((form) => forms.includes(form)));
     this.questionLimit.set(null);
+  }
+
+  setTableGroup(id: VerbFormGroupId): void {
+    this.tableGroupId.set(id);
+  }
+
+  hasForm(verb: ExerciseVerb, form: VerbForm): boolean {
+    return verbHasForm(verb, form);
+  }
+
+  /** Lời giải thích ô "—": vì sao động từ này không có thể đó. */
+  naTitleKey(verb: ExerciseVerb): MessageKey {
+    return verb.limit === 'keigo' ? 'exercise.table.na.keigo' : 'exercise.table.na.non-volitional';
   }
 
   /** Khu này có thêm phạm vi "động từ đặc biệt", cũng có thể rỗng đi. */
@@ -343,6 +417,11 @@ export class ExerciseDetail extends PracticeScreen {
   }
 }
 
-function formsText(forms: VerbForms | null): string {
-  return forms ? `${forms.dictionary} ${forms.te} ${forms.ta} ${forms.nai}` : '';
+/** Mọi thể đã chia gộp thành một chuỗi để ô tìm khớp được cả dạng đã chia. */
+function formsText(row: VerbRow): string {
+  const { forms } = row;
+  if (!forms) return '';
+  return EXERCISE_FORMS.filter((form) => verbHasForm(row.verb, form))
+    .flatMap((form) => [forms[form], ...(row.alternates[form] ?? [])])
+    .join(' ');
 }

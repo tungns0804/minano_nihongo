@@ -74,6 +74,118 @@ Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-b
   color: var(--accent);
 }
 
+/* Hai nhóm thể mở rộng: tiêu đề hai dòng (tên + đuôi), và dạng chia dài hơn hẳn
+   る/て/た/ない nên cột rộng hơn. Bảng vẫn giữ đúng bề rộng của nhóm cơ bản để đổi
+   nhóm không làm bảng nhảy ra ngoài thẻ; số ít dạng rất dài (持って来させられる)
+   xuống dòng. */
+.verb-table.is-extended th.col-form {
+  width: 130px;
+  white-space: normal;
+}
+
+/* Chỗ cho bốn cột rộng hơn lấy từ cột nhóm: nhãn "Đặc biệt", "Bất quy tắc" xuống dòng. */
+.verb-table.is-extended th:nth-child(4) {
+  width: 110px;
+}
+
+.th-name,
+.th-jp {
+  display: block;
+}
+
+.th-jp {
+  margin-top: 2px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+}
+
+/* Cách viết khác cũng được chấm đúng (書かされる) — nằm dưới dạng chính, nhỏ và nhạt. */
+.form-alt {
+  display: block;
+  font-size: 0.82em;
+  color: var(--text-muted);
+}
+
+.form-na {
+  color: var(--text-faint);
+  cursor: help;
+}
+
+/* --- Khung chọn thể: ba nhóm, mỗi nhóm một hàng --- */
+
+.form-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.form-group-name {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Nút chữ nhỏ, không khung: đứng cạnh tên nhóm chứ không tranh chỗ với các nút thể. */
+.form-group-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.form-group-toggle:hover {
+  text-decoration: underline;
+}
+
+/* --- Chọn nhóm thể hiện ở bảng --- */
+
+.table-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.table-group {
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.table-group:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.table-group.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 620;
+}
+
 /* Ô của bảng cặp gộp ba dòng: động từ, cách đọc, nghĩa. */
 .col-pair {
   display: table-cell;
@@ -212,5 +324,16 @@ Phần dùng chung với các màn hình khác (.back-link, .options-2, .start-b
 
   .pair-table .col-jp {
     font-size: 1.15rem;
+  }
+
+  /* Nhãn dài nhất của bảng chia là させられる — năm chữ, 3.2em không đủ chỗ. */
+  .verb-table td[data-label]::before {
+    flex-basis: 5.2em;
+  }
+
+  /* Trên thẻ, cách viết khác nằm cùng dòng với dạng chính cho gọn. */
+  .verb-table .form-alt {
+    display: inline;
+    margin-left: 6px;
   }
 }

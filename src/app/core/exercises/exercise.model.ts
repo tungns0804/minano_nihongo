@@ -17,7 +17,7 @@
  */
 
 import type { MessageKey } from '../i18n/messages';
-import type { VerbGroup } from '../japanese/conjugation';
+import type { VerbForm, VerbGroup } from '../japanese/conjugation';
 
 /**
  * Id của bài tập. Dùng làm luôn:
@@ -515,4 +515,58 @@ export interface ExerciseVerb {
    * Chỉ để gắn nhãn và lọc riêng ra luyện, không ảnh hưởng cách chia.
    */
   deceptive: boolean;
+  /** Lý do động từ này chỉ được hỏi một phần các thể; null là hỏi đủ. Xem `verbHasForm`. */
+  limit: VerbFormLimit | null;
+}
+
+/**
+ * Vì sao một động từ không được hỏi đủ các thể.
+ *
+ *  - `non-volitional`: động từ không chủ ý (無意志動詞) — 分かる, ある, 見える, 咲く…
+ *    Engine vẫn chia ra được 分かれる, 見えられる, 咲こう, nhưng đó là những chữ không
+ *    ai dùng, có khi còn trùng một động từ khác (分かれる = "chia ra"). Đem ra hỏi là
+ *    dạy sai.
+ *  - `keigo`: kính ngữ / khiêm nhường ngữ — いらっしゃる, 伺う, 申す… Thể khả năng,
+ *    bị động, sai khiến hay ý chí của chúng hầu như không xuất hiện.
+ *
+ * Hai loại này vẫn có đủ bốn thể cơ bản và thể ば (分かれば, あれば, いらっしゃれば).
+ */
+export type VerbFormLimit = 'non-volitional' | 'keigo';
+
+const LIMITED_FORMS: readonly VerbForm[] = ['dictionary', 'te', 'ta', 'nai', 'ba'];
+
+/** Thể này có được đem ra hỏi (và hiện trong bảng) với động từ này không. */
+export function verbHasForm(verb: ExerciseVerb, form: VerbForm): boolean {
+  return verb.limit === null || LIMITED_FORMS.includes(form);
+}
+
+/**
+ * Mười hai thể của bài "Chuyển thể động từ", chia ba nhóm bốn thể — đúng cách các
+ * bảng tổng hợp "Chia động từ" hay xếp: thể cơ bản của sơ cấp, nhóm thể biểu thị ý
+ * định của người nói, rồi nhóm thể đổi vai chủ ngữ (khả năng, bị động, sai khiến).
+ */
+export type VerbFormGroupId = 'basic' | 'mood' | 'voice';
+
+export interface VerbFormGroup {
+  id: VerbFormGroupId;
+  labelKey: MessageKey;
+  forms: readonly VerbForm[];
+}
+
+export const VERB_FORM_GROUPS: readonly VerbFormGroup[] = [
+  { id: 'basic', labelKey: 'exercise.formGroup.basic', forms: ['dictionary', 'te', 'ta', 'nai'] },
+  {
+    id: 'mood',
+    labelKey: 'exercise.formGroup.mood',
+    forms: ['ba', 'volitional', 'imperative', 'prohibitive'],
+  },
+  {
+    id: 'voice',
+    labelKey: 'exercise.formGroup.voice',
+    forms: ['potential', 'passive', 'causative', 'causativePassive'],
+  },
+];
+
+export function verbFormGroupOf(form: VerbForm): VerbFormGroup {
+  return VERB_FORM_GROUPS.find((group) => group.forms.includes(form)) ?? VERB_FORM_GROUPS[0];
 }

@@ -1,8 +1,14 @@
-import type { ExerciseVerb, TransitivityPair } from '../exercises/exercise.model';
+import {
+  VERB_FORM_GROUPS,
+  verbHasForm,
+  type ExerciseVerb,
+  type TransitivityPair,
+} from '../exercises/exercise.model';
 import type { MessageKey } from '../i18n/messages';
 import {
   VERB_FORM_LABEL_KEY,
   VERB_GROUP_LABEL_KEY,
+  VerbAlternates,
   VerbForm,
   VerbForms,
   conjugate,
@@ -31,7 +37,14 @@ import { limitAttempts } from './vocabulary-questions';
  */
 
 /** Các thể được đem ra hỏi ở bài chuyển thể (không hỏi lại chính thể ます). */
-export const EXERCISE_FORMS: readonly VerbForm[] = ['dictionary', 'te', 'ta', 'nai'];
+export const EXERCISE_FORMS: readonly VerbForm[] = VERB_FORM_GROUPS.flatMap((group) => group.forms);
+
+/**
+ * Bốn thể cơ bản. Lịch ôn chỉ hỏi những thể này: lịch tính theo ĐỘNG TỪ chứ không
+ * theo thể, nên một người mới luyện thể て mà đến hạn ôn lại bị hỏi bị động sai
+ * khiến thì chỉ thấy bị đánh đố.
+ */
+export const BASIC_EXERCISE_FORMS: readonly VerbForm[] = VERB_FORM_GROUPS[0].forms;
 
 /** Chiều hỏi của một câu cụ thể, đã tách khỏi chế độ "trộn". */
 type PairDirection = 'to-transitive' | 'to-intransitive';
@@ -109,8 +122,10 @@ export function buildTransitivityQuestions(
 interface ConjugatedExerciseVerb {
   verb: ExerciseVerb;
   forms: VerbForms;
+  alternates: VerbAlternates;
   /** Các thể viết toàn kana; null khi cách đọc không chia được (dữ liệu sai). */
   readingForms: VerbForms | null;
+  readingAlternates: VerbAlternates;
 }
 
 /**
@@ -126,12 +141,30 @@ export function conjugateExerciseVerbs(
     const result = conjugate(verb.masu, verb.group);
     if (!result.ok) return [];
     const reading = conjugate(verb.reading, verb.group);
-    return [{ verb, forms: result.forms, readingForms: reading.ok ? reading.forms : null }];
+    return [
+      {
+        verb,
+        forms: result.forms,
+        alternates: result.alternates,
+        readingForms: reading.ok ? reading.forms : null,
+        readingAlternates: reading.ok ? reading.alternates : {},
+      },
+    ];
   });
 }
 
-function verbSubject(item: ConjugatedExerciseVerb): QuestionSubject {
+/** Thể chính kèm cách viết khác cũng đúng: "書かせられる／書かされる". */
+function withAlternates(item: ConjugatedExerciseVerb, form: VerbForm): string {
+  return [item.forms[form], ...(item.alternates[form] ?? [])].join('／');
+}
+
+function verbSubject(item: ConjugatedExerciseVerb, form: VerbForm): QuestionSubject {
   const { verb, forms } = item;
+  // Bốn thể cơ bản luôn hiện để so; thể đang hỏi mà nằm ngoài bốn thể đó thì thêm
+  // một dòng riêng, không thì xem lại đáp án lại không thấy chính thể vừa hỏi.
+  const askedLine = BASIC_EXERCISE_FORMS.includes(form)
+    ? []
+    : [recapJp(VERB_FORM_LABEL_KEY[form], withAlternates(item, form))];
   return {
     id: verb.id,
     title: verb.masu,
@@ -149,9 +182,14 @@ function verbSubject(item: ConjugatedExerciseVerb): QuestionSubject {
       recapJp('verbForm.te.short', forms.te),
       recapJp('verbForm.ta.short', forms.ta),
       recapJp('verbForm.nai.short', forms.nai),
+      ...askedLine,
       recap('exercise.col.level', verb.level),
     ],
   };
+}
+
+function answersOf(forms: VerbForms | null, alternates: VerbAlternates, form: VerbForm): string[] {
+  return forms ? [forms[form], ...(alternates[form] ?? [])] : [];
 }
 
 function formQuestion(
@@ -173,15 +211,15 @@ function formQuestion(
   };
 
   return makeQuestion({
-    subject: verbSubject(item),
+    subject: verbSubject(item, form),
     labelKey: label.key,
     labelParams: label.params,
     prompt: item.forms[promptForm],
     hint: config.showHanViet ? item.verb.meaning : null,
     correctAnswer: item.forms[answerForm],
     acceptedAnswers: uniqueAnswers(
-      item.forms[answerForm],
-      item.readingForms ? item.readingForms[answerForm] : '',
+      ...answersOf(item.forms, item.alternates, answerForm),
+      ...answersOf(item.readingForms, item.readingAlternates, answerForm),
     ),
     answerIsJapanese: true,
     answerPromptKey: askingForMasu ? 'practice.answerPrompt.masu' : 'practice.answerPrompt.form',
@@ -191,16 +229,34 @@ function formQuestion(
 }
 
 /**
+ * Số câu một nhóm động từ sẽ sinh với các thể đã chọn, trước khi cắt theo "Số câu".
+ * Không phải (số động từ × số thể): động từ không chủ ý và kính ngữ bỏ qua những thể
+ * không dùng (xem `verbHasForm`).
+ */
+export function countVerbFormQuestions(
+  verbs: readonly ExerciseVerb[],
+  forms: readonly VerbForm[],
+  perPair: number,
+): number {
+  let count = 0;
+  for (const verb of verbs) {
+    for (const form of forms) if (verbHasForm(verb, form)) count += perPair;
+  }
+  return count;
+}
+
+/**
  * Mỗi cặp (động từ × thể) là một câu hỏi, nên chọn 4 thể cho 60 động từ sẽ ra
  * 240 câu — dùng tuỳ chọn "Số câu" để cắt bớt. Chiều "trộn" nhân đôi con số đó
- * vì mỗi cặp được hỏi cả xuôi lẫn ngược.
+ * vì mỗi cặp được hỏi cả xuôi lẫn ngược. Cặp nào động từ không dùng thể đó
+ * (分かります × khả năng) thì bỏ qua.
  */
 export function buildVerbFormQuestions(
   verbs: readonly ExerciseVerb[],
   config: PracticeConfig,
 ): PracticeQuestion[] {
   const forms = config.verbForms.filter((form) => EXERCISE_FORMS.includes(form));
-  const usableForms = forms.length > 0 ? forms : EXERCISE_FORMS;
+  const usableForms = forms.length > 0 ? forms : BASIC_EXERCISE_FORMS;
 
   const directions: FormDirection[] =
     config.exerciseMode === 'form-to-masu'
@@ -212,6 +268,7 @@ export function buildVerbFormQuestions(
   const questions: PracticeQuestion[] = [];
   for (const item of conjugateExerciseVerbs(verbs)) {
     for (const form of usableForms) {
+      if (!verbHasForm(item.verb, form)) continue;
       for (const direction of directions) {
         questions.push(formQuestion(item, form, direction, config));
       }

@@ -16,9 +16,38 @@ import type { MessageKey } from '../i18n/messages';
 export type VerbGroup = 1 | 2 | 3;
 
 /** Các thể được hỗ trợ. */
-export type VerbForm = 'masu' | 'dictionary' | 'te' | 'ta' | 'nai';
+export type VerbForm =
+  | 'masu'
+  | 'dictionary'
+  | 'te'
+  | 'ta'
+  | 'nai'
+  | 'ba'
+  | 'volitional'
+  | 'imperative'
+  | 'prohibitive'
+  | 'potential'
+  | 'passive'
+  | 'causative'
+  | 'causativePassive';
 
-export const VERB_FORMS: readonly VerbForm[] = ['masu', 'dictionary', 'te', 'ta', 'nai'];
+/**
+ * Năm thể của bài động từ theo giáo trình. Bài học và lịch ôn chỉ hỏi những thể
+ * này; tám thể còn lại chỉ có ở bài tập "Chuyển thể động từ".
+ */
+export const BASIC_VERB_FORMS: readonly VerbForm[] = ['masu', 'dictionary', 'te', 'ta', 'nai'];
+
+export const VERB_FORMS: readonly VerbForm[] = [
+  ...BASIC_VERB_FORMS,
+  'ba',
+  'volitional',
+  'imperative',
+  'prohibitive',
+  'potential',
+  'passive',
+  'causative',
+  'causativePassive',
+];
 
 /**
  * Nhãn là KHOÁ thông điệp chứ không phải chữ sẵn, vì giao diện có hai ngôn ngữ.
@@ -30,6 +59,14 @@ export const VERB_FORM_LABEL_KEY: Record<VerbForm, MessageKey> = {
   te: 'verbForm.te',
   ta: 'verbForm.ta',
   nai: 'verbForm.nai',
+  ba: 'verbForm.ba',
+  volitional: 'verbForm.volitional',
+  imperative: 'verbForm.imperative',
+  prohibitive: 'verbForm.prohibitive',
+  potential: 'verbForm.potential',
+  passive: 'verbForm.passive',
+  causative: 'verbForm.causative',
+  causativePassive: 'verbForm.causativePassive',
 };
 
 /** Nhãn ngắn (ます, る, て…) dùng làm tiêu đề cột trong bảng chia. */
@@ -39,6 +76,35 @@ export const VERB_FORM_SHORT_KEY: Record<VerbForm, MessageKey> = {
   te: 'verbForm.te.short',
   ta: 'verbForm.ta.short',
   nai: 'verbForm.nai.short',
+  ba: 'verbForm.ba.short',
+  volitional: 'verbForm.volitional.short',
+  imperative: 'verbForm.imperative.short',
+  prohibitive: 'verbForm.prohibitive.short',
+  potential: 'verbForm.potential.short',
+  passive: 'verbForm.passive.short',
+  causative: 'verbForm.causative.short',
+  causativePassive: 'verbForm.causativePassive.short',
+};
+
+/**
+ * Tên gọn, không kèm đuôi tiếng Nhật ("Khả năng", "Bị động"…): dòng trên của tiêu
+ * đề cột ở bảng chia, dòng dưới là nhãn ngắn. Chỉ nhãn ngắn thì れる (khả năng) và
+ * られる (bị động) đứng cạnh nhau không biết cột nào là gì; nhãn đầy đủ thì quá dài.
+ */
+export const VERB_FORM_NAME_KEY: Record<VerbForm, MessageKey> = {
+  masu: 'verbForm.masu.name',
+  dictionary: 'verbForm.dictionary.name',
+  te: 'verbForm.te.name',
+  ta: 'verbForm.ta.name',
+  nai: 'verbForm.nai.name',
+  ba: 'verbForm.ba.name',
+  volitional: 'verbForm.volitional.name',
+  imperative: 'verbForm.imperative.name',
+  prohibitive: 'verbForm.prohibitive.name',
+  potential: 'verbForm.potential.name',
+  passive: 'verbForm.passive.name',
+  causative: 'verbForm.causative.name',
+  causativePassive: 'verbForm.causativePassive.name',
 };
 
 export const VERB_GROUP_LABEL_KEY: Record<VerbGroup, MessageKey> = {
@@ -49,8 +115,15 @@ export const VERB_GROUP_LABEL_KEY: Record<VerbGroup, MessageKey> = {
 
 export type VerbForms = Record<VerbForm, string>;
 
+/**
+ * Cách viết khác cũng đúng của một thể, chỉ dùng để CHẤM chứ không hiện làm đáp án
+ * chính: dạng rút gọn của bị động sai khiến nhóm 1 (書かされる bên cạnh 書かせられる —
+ * sách dạy cả hai, người Nhật nói dạng rút gọn nhiều hơn) và mệnh lệnh văn viết せよ.
+ */
+export type VerbAlternates = Partial<Record<VerbForm, readonly string[]>>;
+
 export type ConjugationResult =
-  | { ok: true; forms: VerbForms }
+  | { ok: true; forms: VerbForms; alternates: VerbAlternates }
   | { ok: false; reason: string };
 
 const MASU = 'ます';
@@ -84,6 +157,32 @@ const I_TO_A: Record<string, string> = {
   い: 'わ',
 };
 
+/** Âm hàng い -> âm hàng え: thể ば (書けば), mệnh lệnh (書け), khả năng (書ける). */
+const I_TO_E: Record<string, string> = {
+  き: 'け',
+  ぎ: 'げ',
+  し: 'せ',
+  ち: 'て',
+  に: 'ね',
+  び: 'べ',
+  み: 'め',
+  り: 'れ',
+  い: 'え',
+};
+
+/** Âm hàng い -> âm hàng お, cho thể ý chí: 書きます -> 書こう, 買います -> 買おう. */
+const I_TO_O: Record<string, string> = {
+  き: 'こ',
+  ぎ: 'ご',
+  し: 'そ',
+  ち: 'と',
+  に: 'の',
+  び: 'ぼ',
+  み: 'も',
+  り: 'ろ',
+  い: 'お',
+};
+
 /** Âm tiện (音便) cho thể て/た của nhóm 1, theo âm cuối của gốc ます. */
 const I_TO_TE_TA: Record<string, readonly [string, string]> = {
   い: ['って', 'った'],
@@ -108,32 +207,25 @@ const IRREGULAR: Record<string, Partial<VerbForms>> = {
 
   // Thể phủ định của あります là ない, không phải あらない.
   あります: { nai: 'ない' },
-
-  // Nhóm kính ngữ ～います nhưng thể từ điển là ～る.
-  いらっしゃいます: {
-    dictionary: 'いらっしゃる',
-    te: 'いらっしゃって',
-    ta: 'いらっしゃった',
-    nai: 'いらっしゃらない',
-  },
-  くださいます: {
-    dictionary: 'くださる',
-    te: 'くださって',
-    ta: 'くださった',
-    nai: 'くださらない',
-  },
-  なさいます: { dictionary: 'なさる', te: 'なさって', ta: 'なさった', nai: 'なさらない' },
-  おっしゃいます: {
-    dictionary: 'おっしゃる',
-    te: 'おっしゃって',
-    ta: 'おっしゃった',
-    nai: 'おっしゃらない',
-  },
 };
 
-/** Động từ này có nằm trong bảng bất quy tắc không (dùng để hiện nhãn trên UI). */
+/**
+ * Kính ngữ viết ～います nhưng thể từ điển là ～る: いらっしゃいます chia y như một
+ * động từ ～ります nhóm 1 (いらっしゃる, いらっしゃらない, いらっしゃれば…), chỉ khác
+ * thể ます và thể mệnh lệnh — いらっしゃい, ください, なさい, おっしゃい chứ không
+ * phải ～れ. Đổi gốc sang ～り rồi chia theo luật thì không phải liệt kê tay từng thể.
+ */
+const RU_KEIGO: ReadonlySet<string> = new Set([
+  'いらっしゃいます',
+  'くださいます',
+  'なさいます',
+  'おっしゃいます',
+]);
+
+/** Động từ này có chia bất quy tắc không (dùng để hiện nhãn trên UI). */
 export function isIrregularVerb(masu: string): boolean {
-  return Object.prototype.hasOwnProperty.call(IRREGULAR, masu.trim());
+  const source = masu.trim();
+  return Object.prototype.hasOwnProperty.call(IRREGULAR, source) || RU_KEIGO.has(source);
 }
 
 /**
@@ -154,11 +246,17 @@ export function conjugate(masu: string, group: VerbGroup): ConjugationResult {
     return { ok: false, reason: 'Thiếu phần gốc trước "ます"' };
   }
 
+  if (group === 1 && RU_KEIGO.has(source)) {
+    const base = conjugateGodan(`${stem.slice(0, -1)}り`, source);
+    if (!base.ok) return base;
+    return { ...base, forms: { ...base.forms, imperative: stem } };
+  }
+
   const base = byGroup(source, stem, group);
   if (!base.ok) return base;
 
   const override = IRREGULAR[source];
-  return { ok: true, forms: override ? { ...base.forms, ...override } : base.forms };
+  return override ? { ...base, forms: { ...base.forms, ...override } } : base;
 }
 
 function byGroup(source: string, stem: string, group: VerbGroup): ConjugationResult {
@@ -174,7 +272,18 @@ function byGroup(source: string, stem: string, group: VerbGroup): ConjugationRes
           te: `${stem}て`,
           ta: `${stem}た`,
           nai: `${stem}ない`,
+          ba: `${stem}れば`,
+          volitional: `${stem}よう`,
+          imperative: `${stem}ろ`,
+          prohibitive: `${stem}るな`,
+          // Khả năng và bị động của nhóm 2 trùng nhau (食べられる). Dạng bỏ ら
+          // (食べれる) là văn nói, sách và đề thi không coi là đúng nên không nhận.
+          potential: `${stem}られる`,
+          passive: `${stem}られる`,
+          causative: `${stem}させる`,
+          causativePassive: `${stem}させられる`,
         },
+        alternates: {},
       };
     case 3:
       return conjugateIrregularGroup(stem, source);
@@ -201,15 +310,30 @@ function conjugateGodan(stem: string, source: string): ConjugationResult {
     };
   }
 
+  const dictionary = head + dictionaryEnding;
+  const aStem = head + naiEnding; // 書か, 買わ
+  const eStem = head + I_TO_E[last]; // 書け, 買え
+
   return {
     ok: true,
     forms: {
       masu: source,
-      dictionary: head + dictionaryEnding,
+      dictionary,
       te: head + teTa[0],
       ta: head + teTa[1],
-      nai: `${head}${naiEnding}ない`,
+      nai: `${aStem}ない`,
+      ba: `${eStem}ば`,
+      volitional: `${head}${I_TO_O[last]}う`,
+      imperative: eStem,
+      prohibitive: `${dictionary}な`,
+      potential: `${eStem}る`,
+      passive: `${aStem}れる`,
+      causative: `${aStem}せる`,
+      causativePassive: `${aStem}せられる`,
     },
+    // Dạng rút gọn ～される không dùng cho động từ đuôi す: 話させられる thì được,
+    // 話さされる thì không (hai âm さ liền nhau).
+    alternates: last === 'し' ? {} : { causativePassive: [`${aStem}される`] },
   };
 }
 
@@ -226,7 +350,18 @@ function conjugateIrregularGroup(stem: string, source: string): ConjugationResul
         te: `${head}して`,
         ta: `${head}した`,
         nai: `${head}しない`,
+        ba: `${head}すれば`,
+        volitional: `${head}しよう`,
+        imperative: `${head}しろ`,
+        prohibitive: `${head}するな`,
+        // Thể khả năng của する là một động từ khác hẳn: できる, 勉強できる.
+        potential: `${head}できる`,
+        passive: `${head}される`,
+        causative: `${head}させる`,
+        causativePassive: `${head}させられる`,
       },
+      // せよ là mệnh lệnh văn viết (đề thi, biển báo), vẫn là đáp án đúng.
+      alternates: { imperative: [`${head}せよ`] },
     };
   }
 
@@ -241,11 +376,20 @@ function conjugateIrregularGroup(stem: string, source: string): ConjugationResul
         te: `${head}来て`,
         ta: `${head}来た`,
         nai: `${head}来ない`,
+        ba: `${head}来れば`,
+        volitional: `${head}来よう`,
+        imperative: `${head}来い`,
+        prohibitive: `${head}来るな`,
+        potential: `${head}来られる`,
+        passive: `${head}来られる`,
+        causative: `${head}来させる`,
+        causativePassive: `${head}来させられる`,
       },
+      alternates: {},
     };
   }
 
-  // きます (hiragana): đổi cả nguyên âm gốc — くる / きて / きた / こない.
+  // きます (hiragana): đổi cả nguyên âm gốc — くる / きて / こない / こよう / こい…
   if (stem.endsWith('き')) {
     const head = stem.slice(0, -1);
     return {
@@ -256,7 +400,16 @@ function conjugateIrregularGroup(stem: string, source: string): ConjugationResul
         te: `${head}きて`,
         ta: `${head}きた`,
         nai: `${head}こない`,
+        ba: `${head}くれば`,
+        volitional: `${head}こよう`,
+        imperative: `${head}こい`,
+        prohibitive: `${head}くるな`,
+        potential: `${head}こられる`,
+        passive: `${head}こられる`,
+        causative: `${head}こさせる`,
+        causativePassive: `${head}こさせられる`,
       },
+      alternates: {},
     };
   }
 
