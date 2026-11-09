@@ -626,7 +626,7 @@ nào ghép từ chúng.
 ## Trắc nghiệm Kanji theo bài
 
 Tab **Kanji → Trắc nghiệm** (`/kanji/trac-nghiem`) là đề trắc nghiệm theo **bài** của nguồn đề,
-khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có **N5 · Bài 17** và **N5 · Bài 19**
+khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có **N5 · Bài 17, 19, 20**
 (20 câu mỗi bài). Mỗi bài hai phần như đề gốc:
 
 | Phần | Câu hỏi | Ví dụ |
@@ -642,7 +642,7 @@ khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có 
 - **Sửa so với đề gốc**: câu tiếng Nhật sai hoặc không tự nhiên được sửa, ghi rõ từng chỗ ở
   đầu mỗi bài trong `kanji-quiz.data.ts`. Bài 17: 1-10 (夢は…になることです), 2-5 (あまぎ,
   だれの). Bài 19: 1-3 (方言を話します), 1-5 (しゅみは読書です), 1-6 (店には), 2-6 (から),
-  2-8 (日本語は). Bản đề dán vào mất gạch chân nên chữ gạch chân suy từ bốn lựa chọn.
+  2-8 (日本語は). Bài 20 chỉ sửa trình bày (ngoặc kép thừa, khoảng trắng lạc). Bản đề dán vào mất gạch chân nên chữ gạch chân suy từ bốn lựa chọn.
 
 **Thêm một bài**: chép thêm một mục vào `core/kanji/kanji-quiz.data.ts` (cú pháp 〈gạch chân〉,
 {漢字|かな}, đáp án ghi số 1–4), rồi chạy `npm run verify:kanji-quiz`. Script soát bốn lựa chọn
