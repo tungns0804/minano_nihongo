@@ -5,6 +5,7 @@ import { GrammarBook, loadGrammarBooks } from '../exercises/grammar-books';
 import { flattenN4Examples, meaningPoints } from '../exercises/n4-grammar.model';
 import { TRANSITIVITY_PAIRS } from '../exercises/transitive-pairs';
 import { KANJI_SESSION_ID } from '../kanji/kanji.model';
+import { KANJI_QUIZ_ID, kanjiQuizQuestionById } from '../kanji/kanji-quiz';
 import { RADICAL_SESSION_ID } from '../radical/radical.model';
 import {
   PracticeConfig,
@@ -28,6 +29,7 @@ import {
 import { buildCounterQuestions } from './counter-questions';
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildKanjiHanVietQuestions, buildKanjiWordQuestions } from './kanji-questions';
+import { buildKanjiQuizQuestions } from './kanji-quiz-questions';
 import { buildN4ExampleQuestions, buildN4MeaningQuestions } from './n4-grammar-questions';
 import { buildRadicalHanVietQuestions } from './radical-questions';
 import { FORMS_BY_MODE, buildVerbQuestions } from './verb-questions';
@@ -289,6 +291,24 @@ function buildOne(
           }),
         ) ?? null
       );
+
+    case 'kq': {
+      // Đề trắc nghiệm chỉ có lựa chọn, như đề luyện N4: hỏi lại đúng câu đó.
+      const question = kanjiQuizQuestionById(id);
+      if (!question) return null;
+      return (
+        buildKanjiQuizQuestions(
+          [question],
+          configOf({
+            lessonKind: 'exercise',
+            exercise: KANJI_QUIZ_ID,
+            exerciseMode: 'kq-all',
+            answerMode: 'choice',
+            showFurigana: true,
+          }),
+        )[0] ?? null
+      );
+    }
 
     case 'ne': {
       // Khoá thẻ không ghi sách: tìm trong mọi sách, câu thuộc sách nào thì hỏi như sách đó.

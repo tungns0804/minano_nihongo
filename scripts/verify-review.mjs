@@ -195,6 +195,16 @@ expect(
   );
   expect(areaOfKey('tv:f1-w1') === 'vocab' && areaOfKey('tg:b1-16') === 'grammar', 'tv on chung tu vung, tg on chung ngu phap');
 }
+expect(
+  ['kq-all', 'kq-reading', 'kq-writing'].every(
+    (exerciseMode) =>
+      ref(
+        { lessonKind: 'exercise', lessonId: 'trac-nghiem-kanji', exercise: 'trac-nghiem-kanji', exerciseMode, answerMode: 'choice' },
+        'n5-17-1-5',
+      )?.key === 'kq:n5-17-1-5',
+  ) && areaOfKey('kq:n5-17-1-5') === 'kanji',
+  'trac nghiem Kanji theo bai -> kq, on cung khu Kanji',
+);
 expect(ref({ lessonKind: 'kanji', lessonId: 'nhu-6fe1', answerMode: 'draw' }, 'x') === null, 'phien viet chu khong vao lich');
 expect(
   ref({ lessonKind: 'radical', lessonId: 'bo-thu', radicalMode: 'radical-hanviet' }, 'x')?.key === 'rc:x',

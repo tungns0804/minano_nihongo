@@ -1,0 +1,7 @@
+/* Khối "Xem đề" (.view-…) dùng chung với đề luyện N4, nằm ở `src/styles/shared.css`.
+   File này chỉ giữ dòng ghi chú riêng của đề kanji. */
+
+/* Nghĩa và mẹo nhớ đứng sau số đáp án: chữ thường, không tô xanh như số đáp án. */
+.view-note {
+  color: var(--text-muted);
+}

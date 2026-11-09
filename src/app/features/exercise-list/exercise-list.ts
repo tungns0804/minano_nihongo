@@ -263,8 +263,10 @@ function itemCountOf(id: ExerciseId): number {
       return EXERCISE_VERBS.length;
     case 'so-dem':
       return COUNTER_ITEMS.length;
-    // Sách ngữ pháp và đề luyện N4 không có thẻ ở trang này (xem `allExercises`).
+    // Sách ngữ pháp, đề luyện N4 và trắc nghiệm Kanji không có thẻ ở trang này (xem
+    // `allExercises`).
     case 'taisaku-n4':
+    case 'trac-nghiem-kanji':
     case 'ngu-phap-n4':
     case 'ngu-phap-vnjpclub':
       return 0;

@@ -74,6 +74,8 @@ src/app/
       kanji-supplement.ts        Âm Hán Việt viết tay cho chữ kho từ không suy được
       kanji-words.generated.ts   2.123 chữ + 2.406 lượt từ — DO MÁY SINH
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
+      kanji-quiz.data.ts         Đề trắc nghiệm Kanji theo bài — CHÉP TAY
+      kanji-quiz.ts              Trải đề thành từng câu (id = khoá ★, khoá lịch ôn)
     topics/
       topic.model.ts             Kiểu dữ liệu + hàm dựng bài học của khu Chủ đề
       topic-list.ts              20 chủ đề: tên + danh sách từ — KHAI TAY, chỉ script đọc

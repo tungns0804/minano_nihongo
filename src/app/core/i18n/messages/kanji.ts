@@ -127,4 +127,55 @@ export const KANJI_MESSAGES = {
     vi: 'Danh sách chữ và cấp độ lấy theo bảng kanji JLPT N5→N1. Từ minh hoạ và phần lớn âm Hán Việt rút từ kho của ứng dụng (từ vựng 皆の日本語 bài 1-50 và động từ khu Bài tập); N2 và N1 nằm ngoài kho từ nên phần lớn chữ hai cấp đó chỉ luyện được âm Hán Việt.',
     ja: '漢字の一覧とレベルはJLPT N5〜N1の漢字表に従います。例語と漢越音の多くはアプリ内のデータ（皆の日本語 第1-50課の単語と練習問題の動詞）から取り出しています。N2・N1はそのデータの範囲外なので、多くは漢越音の練習のみになります。',
   },
+
+  // ── Tab "Trắc nghiệm": đề kanji theo bài (core/kanji/kanji-quiz.ts) ─────────
+  'kanjiQuiz.name': { vi: 'Trắc nghiệm Kanji theo bài', ja: '課ごとの漢字テスト' },
+  'kanjiQuiz.desc': {
+    vi: 'Mỗi bài hai phần như đề gốc: 問題1 chọn cách đọc của chữ Hán gạch chân, 問題2 chọn chữ Hán đúng cho từ gạch chân. Trả lời xong mỗi câu có nghĩa của từ và mẹo phân biệt với các lựa chọn nhiễu.',
+    ja: '各課は元のテストと同じ2部構成です。問題1は下線の漢字の読み方を、問題2は下線のことばの正しい漢字を選びます。答えるたびに、ことばの意味とまぎらわしい選択肢との見分け方が出ます。',
+  },
+  'kanjiQuiz.questionCount': { vi: '{count} câu', ja: '{count}問' },
+  'kanjiQuiz.sets': { vi: 'Bài (chọn nhiều được)', ja: '課（複数選択可）' },
+  'kanjiQuiz.set': { vi: '{level} · Bài {lesson} ({count})', ja: '{level}・第{lesson}課（{count}）' },
+  'kanjiQuiz.set.title': { vi: '{level} · Bài {lesson}', ja: '{level}・第{lesson}課' },
+  'kanjiQuiz.mode.all': { vi: 'Cả đề theo thứ tự', ja: '全問を順番に' },
+  'kanjiQuiz.mode.all.short': { vi: 'Cả đề', ja: '全問' },
+  'kanjiQuiz.mode.all.example': {
+    vi: '問題1 rồi 問題2, như làm bài thật',
+    ja: '問題1→問題2、本番と同じ順番',
+  },
+  'kanjiQuiz.mode.reading': { vi: '問題1 · Đọc chữ Hán', ja: '問題1・漢字の読み' },
+  'kanjiQuiz.mode.reading.short': { vi: 'Đọc chữ Hán', ja: '漢字の読み' },
+  'kanjiQuiz.mode.reading.example': { vi: '雨戸 → あまど', ja: '雨戸 → あまど' },
+  'kanjiQuiz.mode.writing': { vi: '問題2 · Chọn cách viết', ja: '問題2・表記' },
+  'kanjiQuiz.mode.writing.short': { vi: 'Chọn cách viết', ja: '表記' },
+  'kanjiQuiz.mode.writing.example': { vi: 'はなび → 花火', ja: 'はなび → 花火' },
+  'kanjiQuiz.label.reading': { vi: 'Từ gạch chân đọc thế nào?', ja: '下線のことばの読み方は？' },
+  'kanjiQuiz.label.writing': {
+    vi: 'Từ gạch chân viết bằng chữ Hán thế nào?',
+    ja: '下線のことばの漢字は？',
+  },
+  'kanjiQuiz.instr.reading': {
+    vi: '問題1 — Từ gạch chân đọc thế nào?',
+    ja: '問題１　＿＿の ことばは ひらがなで どう かきますか。',
+  },
+  'kanjiQuiz.instr.writing': {
+    vi: '問題2 — Từ gạch chân viết bằng chữ Hán thế nào?',
+    ja: '問題２　＿＿の ことばは どう かきますか。',
+  },
+  'kanjiQuiz.col.word': { vi: 'Từ', ja: 'ことば' },
+  'kanjiQuiz.col.tip': { vi: 'Ghi nhớ', ja: 'ポイント' },
+  'kanjiQuiz.col.source': { vi: 'Trong đề', ja: '出典' },
+  'kanjiQuiz.option.furiganaHint': {
+    vi: 'Chỉ có ở vài chữ ngoài bài (将来, 夢, 世界…). Tắt đi để tự đọc.',
+    ja: '課の範囲外の漢字（将来・夢・世界など）にだけ付いています。消すと自分で読む練習になります。',
+  },
+  'kanjiQuiz.answerNote': {
+    vi: 'Mọi câu là trắc nghiệm bốn lựa chọn, giữ đúng thứ tự như đề gốc.',
+    ja: 'すべて4択で、選択肢の順番も元のテストのとおりです。',
+  },
+  'kanjiQuiz.orderNote': {
+    vi: 'Dạng "Cả đề" đi đúng thứ tự đề và không trộn câu, như ngồi làm bài thật.',
+    ja: '「全問を順番に」は元の順番どおりで、問題を混ぜません。',
+  },
 } as const satisfies Record<string, Entry>;

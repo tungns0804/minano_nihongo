@@ -125,6 +125,12 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/radical-detail/radical-detail').then((m) => m.RadicalDetail),
   },
+  // Trắc nghiệm Kanji theo bài (N5 · Bài 17…) — khai trước /kanji/:id như /kanji/bo-thu.
+  {
+    path: r(PATH.kanjiQuiz),
+    title: 'route.kanjiQuiz',
+    loadComponent: () => import('./features/kanji-quiz/kanji-quiz').then((m) => m.KanjiQuiz),
+  },
   {
     path: r(PATH.kanji),
     title: 'route.kanji',

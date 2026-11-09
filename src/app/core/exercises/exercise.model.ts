@@ -25,7 +25,14 @@ import type { VerbForm, VerbGroup } from '../japanese/conjugation';
  *  - khoá lưu danh sách ★ "chưa nhớ" (giống id bài học)
  * nên KHÔNG đổi tuỳ tiện: đổi là mất hết ★ của bài tập đó.
  */
-export type ExerciseId = 'tu-tha-dong-tu' | 'chuyen-the-dong-tu' | 'so-dem' | 'taisaku-n4' | GrammarBookId;
+export type ExerciseId =
+  | 'tu-tha-dong-tu'
+  | 'chuyen-the-dong-tu'
+  | 'so-dem'
+  | 'taisaku-n4'
+  // Tab "Trắc nghiệm" của khu Kanji (`core/kanji/kanji-quiz.ts`).
+  | 'trac-nghiem-kanji'
+  | GrammarBookId;
 
 /**
  * Id các "sách ngữ pháp" (`grammar-books.ts`) — khai ở đây chứ không ở file đó để những
@@ -86,7 +93,11 @@ export type ExerciseMode =
   | 'tk-bunpo-test'
   | 'tk-word-meaning'
   | 'tk-meaning-word'
-  | 'tk-book';
+  | 'tk-book'
+  // Bài 6 — trắc nghiệm Kanji theo bài: cả đề, hoặc riêng 問題1 / 問題2
+  | 'kq-all'
+  | 'kq-reading'
+  | 'kq-writing';
 
 export interface ExerciseModeInfo {
   id: ExerciseMode;
@@ -374,6 +385,34 @@ export const TAISAKU_FUROKU_MODES: readonly ExerciseModeInfo[] = [
   },
 ];
 
+/**
+ * Dạng luyện của tab "Trắc nghiệm" khu Kanji: cả đề đi đúng thứ tự như làm bài thật,
+ * hoặc luyện riêng một 問題 cho phần mình yếu.
+ */
+export const KANJI_QUIZ_MODES: readonly ExerciseModeInfo[] = [
+  {
+    id: 'kq-all',
+    labelKey: 'kanjiQuiz.mode.all',
+    shortKey: 'kanjiQuiz.mode.all.short',
+    exampleKey: 'kanjiQuiz.mode.all.example',
+    step: 0,
+  },
+  {
+    id: 'kq-reading',
+    labelKey: 'kanjiQuiz.mode.reading',
+    shortKey: 'kanjiQuiz.mode.reading.short',
+    exampleKey: 'kanjiQuiz.mode.reading.example',
+    step: 0,
+  },
+  {
+    id: 'kq-writing',
+    labelKey: 'kanjiQuiz.mode.writing',
+    shortKey: 'kanjiQuiz.mode.writing.short',
+    exampleKey: 'kanjiQuiz.mode.writing.example',
+    step: 0,
+  },
+];
+
 /** Câu của phần 文法 ôn chung với ngữ pháp; hai phần kia là chuyện nhớ từ. */
 export function isTaisakuGrammarMode(mode: ExerciseMode): boolean {
   return TAISAKU_BUNPO_MODES.some((info) => info.id === mode);
@@ -387,6 +426,7 @@ const ALL_MODES: readonly ExerciseModeInfo[] = [
   ...TAISAKU_MOJI_MODES,
   ...TAISAKU_BUNPO_MODES,
   ...TAISAKU_FUROKU_MODES,
+  ...KANJI_QUIZ_MODES,
 ];
 
 export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
@@ -400,6 +440,7 @@ export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
   // Trắc nghiệm trước: luật biến âm phải nhìn thấy đúng/sai cạnh nhau vài lần mới ngấm.
   'so-dem': 'counter-choice',
   'taisaku-n4': 'tk-kanji-reading',
+  'trac-nghiem-kanji': 'kq-all',
   // Lộ trình chứ không phải bậc khó nhất: người mới mở bài ra mà gặp ngay dạng gõ cả
   // câu tiếng Nhật thì chỉ thấy mình chưa biết gì.
   'ngu-phap-n4': 'grammar-path',

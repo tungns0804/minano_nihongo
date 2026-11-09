@@ -58,9 +58,14 @@ try {
   fail('Khong doc duoc public/lessons/index.json. Chay "npm run generate" truoc.');
 }
 for (const topic of TOPIC_CATALOG) items.push(['topic', topic.id]);
-// Sách ngữ pháp và đề luyện N4 cũng là "bài tập" (lessonKind của phiên luyện), dù
-// không nằm trong danh sách thẻ `EXERCISES`.
-for (const id of new Set([...EXERCISES.map((item) => item.id), ...GRAMMAR_BOOK_IDS, 'taisaku-n4'])) {
+// Sách ngữ pháp, đề luyện N4 và trắc nghiệm Kanji cũng là "bài tập" (lessonKind của
+// phiên luyện), dù không nằm trong danh sách thẻ `EXERCISES`.
+for (const id of new Set([
+  ...EXERCISES.map((item) => item.id),
+  ...GRAMMAR_BOOK_IDS,
+  'taisaku-n4',
+  'trac-nghiem-kanji',
+])) {
   items.push(['exercise', id]);
 }
 

@@ -15,6 +15,7 @@ Từng khu của ứng dụng: học gì, luyện thế nào, dữ liệu lấy 
 | **Sách ngữ pháp** | Tổng hợp N4 (tài liệu), vnjpclub N4 — lý thuyết + lộ trình 5 bậc | Cài sẵn / sinh bằng script | **Luyện tập → Ngữ pháp N4** / **Ngữ pháp → vnjpclub** |
 | **Kanji** | Danh sách 2.123 chữ Hán N5→N1 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | **Kanji → Kanji** |
 | **Bộ thủ** | 214 bộ thủ + các chữ Hán N5→N1 ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | **Kanji → Bộ thủ** |
+| **Trắc nghiệm Kanji** | Đề trắc nghiệm theo bài (N5 · Bài 17…): đọc chữ Hán, chọn cách viết | Chép tay từ đề người dùng đưa | **Kanji → Trắc nghiệm** |
 
 Ranh giới giữa hai tab đầu là **nhớ nghĩa** hay **luyện một kỹ năng**. Tab **Từ vựng minano**
 chỉ có bài từ vựng: mở ra là để nhớ nghĩa của một kho từ. Tab **Bài tập bổ trợ** gom mọi thứ
@@ -620,6 +621,32 @@ npm run verify:radicals     # kiểm tra file sinh có khớp nguồn không (n�
 Hiện có **195 / 214 bộ** có chữ ghép trong kho N5→N1; 19 bộ còn lại (龠, 鬯, 黹, 鼎…) vẫn hiện ở
 lưới và vẫn luyện âm Hán Việt được, chỉ chưa luyện chữ được — bảng jōyō không có chữ thông dụng
 nào ghép từ chúng.
+
+
+## Trắc nghiệm Kanji theo bài
+
+Tab **Kanji → Trắc nghiệm** (`/kanji/trac-nghiem`) là đề trắc nghiệm theo **bài** của nguồn đề,
+khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có **N5 · Bài 17** (20 câu). Mỗi bài
+hai phần như đề gốc:
+
+| Phần | Câu hỏi | Ví dụ |
+| --- | --- | --- |
+| 問題1 · Đọc chữ Hán | chữ Hán gạch chân → chọn cách đọc | 〈雨戸〉を あけてください → あまど |
+| 問題2 · Chọn cách viết | từ kana gạch chân → chọn chữ Hán | 〈はなび〉を みに 行きました → 花火 |
+
+- **Dạng bài**: "Cả đề theo thứ tự" (không trộn, như làm bài thật), hoặc riêng 問題1 / 問題2.
+- Bốn lựa chọn giữ **đúng thứ tự đề gốc**. Trả lời xong mỗi câu hiện từ (chữ Hán + cách đọc),
+  nghĩa tiếng Việt và **mẹo phân biệt** với các lựa chọn nhiễu.
+- Khối **Xem đề** in cả đề như trên giấy, bật "Hiện đáp án" để dò. Dấu ★ và lịch ôn (thẻ `kq`,
+  ôn cùng khu Kanji) như các khu khác.
+- **Sửa so với đề gốc**: câu 1-10 「夢は銀行員になりたいです」 → 「夢は銀行員になることです」;
+  câu 2-5 「あめぎ…だれですか」 → 「あまぎ…だれのですか」 (雨着 đọc あまぎ). Bản đề dán vào mất
+  gạch chân nên chữ gạch chân suy từ bốn lựa chọn; câu 1-6 chọn gạch 花を (はな).
+
+**Thêm một bài**: chép thêm một mục vào `core/kanji/kanji-quiz.data.ts` (cú pháp 〈gạch chân〉,
+{漢字|かな}, đáp án ghi số 1–4), rồi chạy `npm run verify:kanji-quiz`. Script soát bốn lựa chọn
+khác nhau, đáp án trong 1–4, đúng một phần gạch chân, 問題1 gạch chữ Hán + lựa chọn kana,
+問題2 ngược lại, và id câu không trùng.
 
 
 ## Luyện viết chữ
