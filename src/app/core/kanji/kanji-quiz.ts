@@ -14,11 +14,12 @@
  */
 
 import type { ExerciseMode } from '../exercises/exercise.model';
+import { kanjiId } from './kanji.model';
 import type { KanjiLevel } from './kanji.model';
 import { KANJI_QUIZ_DATA } from './kanji-quiz.data';
 // `import type` riêng: `npm run verify:kanji-quiz` nạp file này bằng
 // --experimental-strip-types, chế độ đó không bóc được tên kiểu lẫn trong import giá trị.
-import type { RawKanjiQuiz, RawQuizItem } from './kanji-quiz.data';
+import type { RawKanjiQuiz, RawQuizItem, RawStudyKanji } from './kanji-quiz.data';
 
 export const KANJI_QUIZ_ID = 'trac-nghiem-kanji';
 
@@ -48,12 +49,33 @@ export interface KanjiQuizQuestion {
   tip: string;
 }
 
+/** Một từ cần học, đã biết chữ đang học đọc theo âm On hay Kun. */
+export interface KanjiStudyWord {
+  word: string;
+  reading: string;
+  meaning: string;
+  sound: 'on' | 'kun';
+}
+
+/** Một chữ cần học của bài: âm On, âm Kun và các từ dùng chữ đó. */
+export interface KanjiStudy {
+  char: string;
+  hanViet: string;
+  /** Id trang chữ ở khu Kanji (`/kanji/<id>`) — cùng cách dựng với khu đó. */
+  kanjiId: string;
+  on: readonly string[];
+  kun: readonly string[];
+  words: readonly KanjiStudyWord[];
+}
+
 export interface KanjiQuizSet {
   /** "n5-17", hoặc "n5-25-p1" với bài chia phần — dùng ghép id câu và để nhớ bài đang chọn. */
   id: string;
   level: KanjiLevel;
   lesson: number;
   part: number | null;
+  /** Chữ & từ cần học; rỗng với bài chép từ đề có sẵn. */
+  study: readonly KanjiStudy[];
   questions: readonly KanjiQuizQuestion[];
 }
 
@@ -65,7 +87,19 @@ function buildSet(raw: RawKanjiQuiz): KanjiQuizSet {
   const questions = KANJI_QUIZ_KINDS.flatMap((kind, index) =>
     raw[kind].map((item, at) => buildQuestion(raw, id, kind, index + 1, at + 1, item)),
   );
-  return { id, level: raw.level, lesson: raw.lesson, part, questions };
+  const study = (raw.study ?? []).map(buildStudy);
+  return { id, level: raw.level, lesson: raw.lesson, part, study, questions };
+}
+
+function buildStudy(raw: RawStudyKanji): KanjiStudy {
+  return {
+    char: raw.char,
+    hanViet: raw.hanViet,
+    kanjiId: kanjiId(raw.char, raw.hanViet),
+    on: raw.on,
+    kun: raw.kun,
+    words: raw.words.map(([word, reading, meaning, sound]) => ({ word, reading, meaning, sound })),
+  };
 }
 
 function buildQuestion(

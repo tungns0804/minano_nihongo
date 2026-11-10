@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { ExerciseMode, KANJI_QUIZ_MODES, exerciseModeInfo } from '../../core/exercises/exercise.model';
 import type { MessageKey } from '../../core/i18n/messages';
@@ -67,7 +68,7 @@ interface ViewGroup {
  */
 @Component({
   selector: 'app-kanji-quiz',
-  imports: [PracticeSetup, RubyText, StarButton, T],
+  imports: [PracticeSetup, RouterLink, RubyText, StarButton, T],
   templateUrl: './kanji-quiz.html',
   styleUrl: './kanji-quiz.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -110,6 +111,11 @@ export class KanjiQuiz extends PracticeScreen {
   readonly limitChoices = computed(() => LIMIT_CHOICES.filter((limit) => limit < this.pool().length));
   /** Câu bốn lựa chọn chỉ có ba lượt sai — dòng tóm tắt phải nói đúng con số đó. */
   readonly planMax = Math.min(this.maxWrongAttempts, CHOICE_COUNT - 1);
+
+  /** Bài đang chọn có danh sách "chữ & từ cần học" (bài soạn từ bài giảng). */
+  readonly studySets = computed(() =>
+    KANJI_QUIZ_SETS.filter((set) => set.study.length > 0 && this.selectedSets().includes(set.id)),
+  );
 
   readonly viewGroups = computed<ViewGroup[]>(() => {
     const groups: ViewGroup[] = [];

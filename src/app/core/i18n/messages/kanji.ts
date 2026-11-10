@@ -175,6 +175,14 @@ export const KANJI_MESSAGES = {
   'kanjiQuiz.col.word': { vi: 'Từ', ja: 'ことば' },
   'kanjiQuiz.col.tip': { vi: 'Ghi nhớ', ja: 'ポイント' },
   'kanjiQuiz.col.source': { vi: 'Trong đề', ja: '出典' },
+  'kanjiQuiz.study': { vi: 'Chữ & từ cần học', ja: '覚える漢字とことば' },
+  'kanjiQuiz.study.desc': {
+    vi: 'Âm On (音読み) là âm đọc gốc Hán, thường gặp trong từ ghép hai chữ Hán: 広大 こうだい. Âm Kun (訓読み) là âm thuần Nhật, thường đi kèm okurigana: 広い ひろい. Bấm vào chữ để mở trang chữ (thứ tự nét, luyện viết).',
+    ja: '音読みは漢語の読み方で、漢字二字の熟語によく使われます（広大 こうだい）。訓読みは和語の読み方で、送りがなとよく一緒に使われます（広い ひろい）。漢字を押すと、その字のページ（書き順・書き取り）が開きます。',
+  },
+  'kanjiQuiz.study.on': { vi: 'Âm On', ja: '音読み' },
+  'kanjiQuiz.study.kun': { vi: 'Âm Kun', ja: '訓読み' },
+  'kanjiQuiz.study.open': { vi: 'Mở trang chữ {char}', ja: '「{char}」のページを開く' },
   'kanjiQuiz.option.furiganaHint': {
     vi: 'Chỉ có ở vài chữ ngoài bài (将来, 夢, 世界…). Tắt đi để tự đọc.',
     ja: '課の範囲外の漢字（将来・夢・世界など）にだけ付いています。消すと自分で読む練習になります。',

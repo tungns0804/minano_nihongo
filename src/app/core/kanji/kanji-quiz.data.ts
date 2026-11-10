@@ -24,9 +24,34 @@ export type RawQuizItem = readonly [
   tip: string,
 ];
 
+/**
+ * [từ, cách đọc, nghĩa, chữ đang học đọc theo âm nào trong từ này]
+ *
+ * Âm đánh trên TỪNG từ chứ không suy ra được: 広い (ひろ — Kun) và 広大 (こう — On) cùng
+ * mở đầu bằng 広, chỉ người soạn mới biết từ nào đọc kiểu nào.
+ */
+export type RawStudyWord = readonly [word: string, reading: string, meaning: string, sound: 'on' | 'kun'];
+
+/** Một chữ trong danh sách "chữ & từ cần học" của bài. */
+export interface RawStudyKanji {
+  char: string;
+  /** Âm Hán Việt, viết HOA như khu Kanji — cũng dùng để dựng đường dẫn tới trang chữ. */
+  hanViet: string;
+  /** Âm On (音読み), viết hiragana như đề. */
+  on: readonly string[];
+  /** Âm Kun (訓読み); dấu ・ tách phần okurigana: ひろ・い, ひろ・がる. */
+  kun: readonly string[];
+  words: readonly RawStudyWord[];
+}
+
 export interface RawKanjiQuiz {
   level: KanjiLevel;
   lesson: number;
+  /**
+   * Chữ và từ cần học của bài, kèm âm On / Kun. Có ở bài soạn từ bài giảng (Bài 26…);
+   * bài chép từ đề có sẵn thì bỏ trống.
+   */
+  study?: readonly RawStudyKanji[];
   /**
    * Phần của bài khi nguồn đề chia một bài thành nhiều đề (Bài 25 phần 1, phần 2…).
    * Bỏ trống với bài chỉ có một đề. Nằm trong id câu, nên KHÔNG thêm vào bài đã có.
@@ -1456,6 +1481,212 @@ export const KANJI_QUIZ_DATA: readonly RawKanjiQuiz[] = [
         3,
         'vợ (cách nói khiêm nhường)',
         'か = 家 (nhà), ない = 内 (bên trong): 家内.',
+      ],
+    ],
+  },
+
+  // ── N4 · Bài 26 ──────────────────────────────────────────────────────────
+  // Bài này KHÔNG có đề gốc: người dùng gửi ảnh bài giảng (bảng từ của 広, 低, 近, 遠) và
+  // nhờ soạn đề. Từ trong ảnh: 広い, 広がる, 広げる, 広大な, 低い, 低下, 低学年, 高低,
+  // 近い, 近づく, 近所, 最近, 近年, 遠い (ảnh thứ hai cắt ngang sau 遠い). Thêm 広告, 最低,
+  // 遠く, 遠足 — từ thông dụng của bốn chữ này — cho đủ hai phần đề. Câu ví dụ do app viết.
+  {
+    level: 'N4',
+    lesson: 26,
+    study: [
+      {
+        char: '広',
+        hanViet: 'QUẢNG',
+        on: ['こう'],
+        kun: ['ひろ・い', 'ひろ・がる', 'ひろ・げる'],
+        words: [
+          ['広い', 'ひろい', 'rộng', 'kun'],
+          ['広がる', 'ひろがる', 'lan rộng, mở rộng ra (tự động từ) — 道が広がる', 'kun'],
+          ['広げる', 'ひろげる', 'mở rộng, trải ra, giở ra (tha động từ) — 新聞を広げる', 'kun'],
+          ['広大な', 'こうだいな', 'rộng lớn, bao la — 広大な土地', 'on'],
+          ['広告', 'こうこく', 'quảng cáo', 'on'],
+        ],
+      },
+      {
+        char: '低',
+        hanViet: 'ĐÊ',
+        on: ['てい'],
+        kun: ['ひく・い'],
+        words: [
+          ['低い', 'ひくい', 'thấp — せが低い (thấp người)', 'kun'],
+          ['低下', 'ていか', 'sự giảm sút, đi xuống', 'on'],
+          ['低学年', 'ていがくねん', 'các lớp nhỏ (lớp 1–3 tiểu học)', 'on'],
+          ['高低', 'こうてい', 'cao thấp, độ cao thấp', 'on'],
+          ['最低', 'さいてい', 'thấp nhất, tệ nhất', 'on'],
+        ],
+      },
+      {
+        char: '近',
+        hanViet: 'CẬN',
+        on: ['きん'],
+        kun: ['ちか・い'],
+        words: [
+          ['近い', 'ちかい', 'gần — 学校に近い', 'kun'],
+          ['近づく', 'ちかづく', 'đến gần, tiến lại gần — 川に近づく', 'kun'],
+          ['近所', 'きんじょ', 'hàng xóm, khu lân cận', 'on'],
+          ['最近', 'さいきん', 'gần đây', 'on'],
+          ['近年', 'きんねん', 'những năm gần đây', 'on'],
+        ],
+      },
+      {
+        char: '遠',
+        hanViet: 'VIỄN',
+        on: ['えん'],
+        kun: ['とお・い'],
+        words: [
+          ['遠い', 'とおい', 'xa — 駅から遠い', 'kun'],
+          ['遠く', 'とおく', 'nơi xa, đằng xa', 'kun'],
+          ['遠足', 'えんそく', 'chuyến dã ngoại (của trường)', 'on'],
+        ],
+      },
+    ],
+    reading: [
+      [
+        'この　{公園|こうえん}は　とても　〈広い〉です。',
+        ['ひくい', 'ひろい', 'こうい', 'ひらい'],
+        2,
+        'rộng',
+        'Âm Kun: 広 đứng với okurigana い đọc ひろ — ひろい. Âm On こう chỉ dùng trong từ ghép (広大, 広告).',
+      ],
+      [
+        'この　{先|さき}で　道が　〈広がって〉います。',
+        ['ひろげて', 'こうがって', 'ひろがって', 'ひくがって'],
+        3,
+        'mở rộng ra (đường rộng ra)',
+        '広がる (tự động từ: tự rộng ra) — 道が広がる. 広げる (tha động từ: làm cho rộng ra) — 新聞を広げる.',
+      ],
+      [
+        '電車の　中で　新聞を　〈広げ〉ないで　ください。',
+        ['ひろげ', 'ひろが', 'ひらげ', 'こうげ'],
+        1,
+        'giở ra, trải ra',
+        '新聞を広げる: có tân ngữ を nên dùng tha động từ 広げる (ひろげる), không phải 広がる.',
+      ],
+      [
+        '{北海道|ほっかいどう}には　〈広大〉な　{土地|とち}が　あります。',
+        ['ひろだい', 'こうたい', 'ひろおお', 'こうだい'],
+        4,
+        'rộng lớn, bao la',
+        'Âm On: 広 = こう, 大 = だい. Từ ghép hai chữ Hán thường đọc âm On.',
+      ],
+      [
+        'わたしは　せが　〈低い〉です。',
+        ['ひろい', 'ひくい', 'ていい', 'ひきい'],
+        2,
+        'thấp',
+        'Âm Kun: 低い = ひくい. てい là âm On, dùng trong 低下, 最低.',
+      ],
+      [
+        '{年|とし}を　とって、{体力|たいりょく}が　〈低下〉しました。',
+        ['ひくか', 'てえか', 'ていか', 'ていげ'],
+        3,
+        'giảm sút',
+        'Âm On: 低 = てい, 下 = か. Từ ghép → âm On, không đọc ひく.',
+      ],
+      [
+        'この　本は　小学校の　〈低学年〉{向|む}けです。',
+        ['ひくがくねん', 'ていかくねん', 'てがくねん', 'ていがくねん'],
+        4,
+        'các lớp nhỏ (lớp 1–3)',
+        'Âm On: 低 = てい (âm dài). 学年 = がくねん. Ngược lại là 高学年 こうがくねん.',
+      ],
+      [
+        '学校に　〈近い〉　アパートに　{住|す}んでいます。',
+        ['ちかい', 'とおい', 'きんい', 'ちがい'],
+        1,
+        'gần',
+        'Âm Kun: 近い = ちかい. ちがい là 違い (khác). きん là âm On (近所, 最近).',
+      ],
+      [
+        '〈最近〉、日本語の　勉強が　{楽|たの}しいです。',
+        ['さいちか', 'さいこん', 'さいきん', 'さっきん'],
+        3,
+        'gần đây',
+        'Âm On: 最 = さい, 近 = きん. Từ ghép → âm On.',
+      ],
+      [
+        '駅から　家まで　〈遠い〉です。',
+        ['とうい', 'とおい', 'えんい', 'とおおい'],
+        2,
+        'xa',
+        'Âm Kun: 遠い = とおい — âm dài viết bằng お (とおい), không phải う. えん là âm On (遠足).',
+      ],
+    ],
+    writing: [
+      [
+        '〈きんじょ〉の　人と　話しました。',
+        ['近処', '遠所', '近所', '近手'],
+        3,
+        'hàng xóm, khu lân cận',
+        'きん = 近 (âm On), じょ = 所. 処 trông giống nhưng không dùng ở đây.',
+      ],
+      [
+        '{船|ふね}が　{港|みなと}に　〈ちかづいて〉きました。',
+        ['近づいて', '遠づいて', '広づいて', '低づいて'],
+        1,
+        'đến gần',
+        'ちか = 近 (âm Kun): 近い → 近づく (tiến lại gần).',
+      ],
+      [
+        '〈きんねん〉、{外国人|がいこくじん}の　{観光客|かんこうきゃく}が　{増|ふ}えています。',
+        ['近念', '遠年', '今年', '近年'],
+        4,
+        'những năm gần đây',
+        'きん = 近 (âm On), ねん = 年. 今年 đọc ことし (năm nay).',
+      ],
+      [
+        'この　グラフは　{気温|きおん}の　〈こうてい〉を　{表|あらわ}しています。',
+        ['高底', '高低', '広低', '高停'],
+        2,
+        'cao thấp, độ cao thấp',
+        'こう = 高, てい = 低 (âm On). 底 (đáy) và 停 (dừng) cũng đọc てい — đừng nhầm.',
+      ],
+      [
+        '{来週|らいしゅう}、学校の　〈えんそく〉で　山に　行きます。',
+        ['園足', '遠走', '遠足', '近足'],
+        3,
+        'dã ngoại (của trường)',
+        'えん = 遠 (âm On). 園 (vườn) cũng đọc えん nhưng 遠足 là "đi bộ đường xa".',
+      ],
+      [
+        '〈とおく〉に　山が　見えます。',
+        ['近く', '広く', '低く', '遠く'],
+        4,
+        'đằng xa, nơi xa',
+        'とお = 遠 (âm Kun): 遠い → 遠く. 近く ちかく là "gần".',
+      ],
+      [
+        'テストの　{点数|てんすう}は　〈さいてい〉でした。',
+        ['最低', '最底', '再低', '最近'],
+        1,
+        'thấp nhất, tệ nhất',
+        'さい = 最, てい = 低 (âm On). 底 cũng đọc てい nhưng nghĩa là "đáy".',
+      ],
+      [
+        'この　{部屋|へや}は　〈ひろくて〉　{明|あか}るいです。',
+        ['低くて', '広くて', '高くて', '近くて'],
+        2,
+        'rộng',
+        'ひろ = 広 (âm Kun): 広い → 広くて.',
+      ],
+      [
+        '〈ちかい〉　うちに　また　会いましょう。',
+        ['遠い', '低い', '広い', '近い'],
+        4,
+        'gần (近いうちに: trong ít bữa nữa)',
+        'ちか = 近 (âm Kun). 近いうちに = sắp tới, nay mai.',
+      ],
+      [
+        '駅前で　新しい　〈こうこく〉を　見ました。',
+        ['広国', '光告', '広告', '広吉'],
+        3,
+        'quảng cáo',
+        'こう = 広 (âm On), こく = 告: 広告 (quảng cáo).',
       ],
     ],
   },

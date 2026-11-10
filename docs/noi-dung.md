@@ -626,7 +626,7 @@ nào ghép từ chúng.
 ## Trắc nghiệm Kanji theo bài
 
 Tab **Kanji → Trắc nghiệm** (`/kanji/trac-nghiem`) là đề trắc nghiệm theo **bài** của nguồn đề,
-khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có **N5 · Bài 17, 19–24, 25 (phần 1, 2)**
+khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có **N5 · Bài 17, 19–24, 25 (phần 1, 2)** và **N4 · Bài 26**
 (20 câu mỗi bài). Mỗi bài hai phần như đề gốc:
 
 | Phần | Câu hỏi | Ví dụ |
@@ -637,12 +637,15 @@ khác hai tab bên cạnh vốn đi theo từng chữ / từng bộ. Hiện có 
 - **Dạng bài**: "Cả đề theo thứ tự" (không trộn, như làm bài thật), hoặc riêng 問題1 / 問題2.
 - Bốn lựa chọn giữ **đúng thứ tự đề gốc**. Trả lời xong mỗi câu hiện từ (chữ Hán + cách đọc),
   nghĩa tiếng Việt và **mẹo phân biệt** với các lựa chọn nhiễu.
+- Khối **Chữ & từ cần học** (bài soạn từ bài giảng, hiện có N4 · Bài 26): mỗi chữ có âm Hán Việt,
+  **âm On** và **âm Kun**, các từ dùng chữ đó — mỗi từ gắn nhãn đọc theo On hay Kun (hai màu cố
+  định), bấm chữ để mở trang chữ ở tab Kanji.
 - Khối **Xem đề** in cả đề như trên giấy, bật "Hiện đáp án" để dò. Dấu ★ và lịch ôn (thẻ `kq`,
   ôn cùng khu Kanji) như các khu khác.
 - **Sửa so với đề gốc**: câu tiếng Nhật sai hoặc không tự nhiên được sửa, ghi rõ từng chỗ ở
   đầu mỗi bài trong `kanji-quiz.data.ts`. Bài 17: 1-10 (夢は…になることです), 2-5 (あまぎ,
   だれの). Bài 19: 1-3 (方言を話します), 1-5 (しゅみは読書です), 1-6 (店には), 2-6 (から),
-  2-8 (日本語は). Bài 20 chỉ sửa trình bày (ngoặc kép thừa, khoảng trắng lạc). Bài 21: 1-10 (ワンさん). Bài 22: 1-5 (大好きな), 1-10 (大きな), 2-7 (神戸の). Bài 23: 1-4 (動きます), 1-5 (つくった), 1-8/1-9 (には), 2-3 (じゆうに使って), 2-5 (thêm ngữ cảnh), 2-6 (会社で), 2-7 (行きました), 2-8 (タイには). Bài 24: 2-9 thiếu lựa chọn thứ tư, thêm 支院. Bài 25 phần 1 chỉ sửa trình bày; phần 2: 1-4 (パンダは), 2-4 (はってん), 2-8 (Ｂ社が, thêm 協刀), 2-9 (遅くなりました). Bản đề dán vào mất gạch chân nên chữ gạch chân suy từ bốn lựa chọn.
+  2-8 (日本語は). Bài 20 chỉ sửa trình bày (ngoặc kép thừa, khoảng trắng lạc). Bài 21: 1-10 (ワンさん). Bài 22: 1-5 (大好きな), 1-10 (大きな), 2-7 (神戸の). Bài 23: 1-4 (動きます), 1-5 (つくった), 1-8/1-9 (には), 2-3 (じゆうに使って), 2-5 (thêm ngữ cảnh), 2-6 (会社で), 2-7 (行きました), 2-8 (タイには). Bài 24: 2-9 thiếu lựa chọn thứ tư, thêm 支院. Bài 26 không có đề gốc: đề do app soạn từ bảng từ trong ảnh bài giảng. Bài 25 phần 1 chỉ sửa trình bày; phần 2: 1-4 (パンダは), 2-4 (はってん), 2-8 (Ｂ社が, thêm 協刀), 2-9 (遅くなりました). Bản đề dán vào mất gạch chân nên chữ gạch chân suy từ bốn lựa chọn.
 
 **Thêm một bài**: chép thêm một mục vào `core/kanji/kanji-quiz.data.ts` (cú pháp 〈gạch chân〉,
 {漢字|かな}, đáp án ghi số 1–4), rồi chạy `npm run verify:kanji-quiz`. Bài mà nguồn chia thành

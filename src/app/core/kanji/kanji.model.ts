@@ -213,7 +213,7 @@ export function lowestLevel(words: readonly KanjiWord[]): KanjiLevel {
  * Unicode thì nhìn vào localStorage không biết đó là chữ nào. Chữ chưa có âm Hán
  * Việt thì chỉ còn mã Unicode ("k-9032").
  */
-function kanjiId(char: string, hanViet: string): string {
+export function kanjiId(char: string, hanViet: string): string {
   const code = char.codePointAt(0)!.toString(16);
   const name = slug(hanViet);
   return name ? `${name}-${code}` : `k-${code}`;

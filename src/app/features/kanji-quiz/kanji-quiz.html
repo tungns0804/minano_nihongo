@@ -151,6 +151,64 @@
       </ng-container>
     </app-practice-setup>
 
+    <!-- ── Chữ & từ cần học ──────────────────────────────────────────── -->
+    <!-- Chỉ bài soạn từ bài giảng mới có danh sách này; học từ trước rồi mới làm đề. -->
+    @if (studySets().length > 0) {
+      <section class="card">
+        <div class="card-body stack">
+          <h2>{{ t('kanjiQuiz.study') }}</h2>
+          <p class="muted small">{{ t('kanjiQuiz.study.desc') }}</p>
+
+          @for (set of studySets(); track set.id) {
+            @if (studySets().length > 1) {
+              <h3 class="view-set">{{ setTitle(set) }}</h3>
+            }
+            <div class="study-grid">
+              @for (item of set.study; track item.char) {
+                <article class="study-kanji">
+                  <header class="study-head">
+                    <a
+                      class="study-char jp"
+                      [routerLink]="itemPath(PATH.kanji, item.kanjiId)"
+                      [title]="t('kanjiQuiz.study.open', { char: item.char })"
+                    >{{ item.char }}</a>
+                    <div class="study-readings">
+                      <strong class="study-hv">{{ item.hanViet }}</strong>
+                      <div class="study-line">
+                        <span class="sound-tag sound-on">{{ t('kanjiQuiz.study.on') }}</span>
+                        <span class="study-sounds jp">
+                          @for (sound of item.on; track sound) { <span>{{ sound }}</span> } @empty { — }
+                        </span>
+                      </div>
+                      <div class="study-line">
+                        <span class="sound-tag sound-kun">{{ t('kanjiQuiz.study.kun') }}</span>
+                        <span class="study-sounds jp">
+                          @for (sound of item.kun; track sound) { <span>{{ sound }}</span> } @empty { — }
+                        </span>
+                      </div>
+                    </div>
+                  </header>
+
+                  <ul class="study-words">
+                    @for (word of item.words; track word.word) {
+                      <li>
+                        <span class="study-word jp">{{ word.word }}</span>
+                        <span class="study-reading jp">{{ word.reading }}</span>
+                        <span class="sound-tag" [class.sound-on]="word.sound === 'on'" [class.sound-kun]="word.sound === 'kun'">
+                          {{ word.sound === 'on' ? t('kanjiQuiz.study.on') : t('kanjiQuiz.study.kun') }}
+                        </span>
+                        <span class="study-meaning">{{ word.meaning }}</span>
+                      </li>
+                    }
+                  </ul>
+                </article>
+              }
+            </div>
+          }
+        </div>
+      </section>
+    }
+
     <!-- ── Xem đề ─────────────────────────────────────────────────────── -->
     <section class="card">
       <div class="card-body stack">
