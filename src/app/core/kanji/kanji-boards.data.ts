@@ -2,8 +2,9 @@
  * Bảng chữ của bài giảng Kanji (thầy Công Minh Nguyễn, tài liệu "Minnnchann") — người dùng
  * chụp gửi ngày 2026-11-10, tám ảnh. Mở ở tab Kanji › Âm On/Kun (`features/kanji-onkun`).
  *
- * Mỗi bảng chép NGUYÊN thứ tự trên ảnh, hàng nối hàng (mười chữ một hàng). Hàng bị cắt mất
- * ở mép trên của ảnh 5, 6, 7 thì bỏ — không đoán chữ nào nằm ở đó. `marked` là các chữ thầy
+ * Mỗi bảng chép NGUYÊN thứ tự trên ảnh, hàng nối hàng (mười chữ một hàng). Hàng chỉ còn mép
+ * dưới ở đầu ảnh (vài ảnh chụp cắt ngang hàng trên cùng) thì bỏ — không đoán chữ nào nằm ở
+ * đó; người dùng nói cả bộ là 320 chữ, ở đây đọc được 300. `marked` là các chữ thầy
  * tô vàng trên bảng lúc chụp (ảnh chụp ở các buổi khác nhau, nên "tô vàng" là "đã giảng tới
  * lúc đó" chứ không phải một danh sách học xong cố định).
  *

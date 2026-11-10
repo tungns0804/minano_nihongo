@@ -468,7 +468,9 @@ của bài từ vựng là lịch của TỪ.
 
 `/kanji/am-on-kun`: 300 chữ chép từ tám ảnh bảng của bài giảng Kanji người dùng gửi ngày 2026-11-10
 ([`kanji-boards.data.ts`](../src/app/core/kanji/kanji-boards.data.ts)), đúng thứ tự trên bảng, mỗi ảnh
-một "bảng". Hàng bị cắt ở mép trên ảnh 5, 6, 7 thì bỏ. Chữ thầy tô vàng (104 chữ) giữ dấu đó: nền vàng
+một "bảng". Hàng bị ảnh cắt ngang ở mép trên thì bỏ, không đoán — người dùng nói cả bộ là 320 chữ,
+đọc được 300. Bộ chữ của bài giảng KHÔNG trùng danh sách N3 của app: trong 300 chữ có 186 chữ N3, 33
+N4, 4 N5, 67 N2, 10 N1; ngược lại 189 / 375 chữ N3 không có trên bảng. Chữ thầy tô vàng (104 chữ) giữ dấu đó: nền vàng
 trên thẻ, và công tắc "Chỉ chữ tô vàng trên bảng". Ảnh chụp ở các buổi khác nhau nên "tô vàng" là
 "đã giảng tới lúc chụp", không phải danh sách học xong cố định.
 
