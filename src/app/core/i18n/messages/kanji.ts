@@ -195,4 +195,54 @@ export const KANJI_MESSAGES = {
     vi: 'Dạng "Cả đề" đi đúng thứ tự đề và không trộn câu, như ngồi làm bài thật.',
     ja: '「全問を順番に」は元の順番どおりで、問題を混ぜません。',
   },
+
+  // ── Âm On / Kun của chữ trong bài từ vựng N3 (core/kanji/onkun.model.ts) ──
+  'onkun.sound.on': { vi: 'On', ja: '音' },
+  'onkun.sound.kun': { vi: 'Kun', ja: '訓' },
+  'onkun.sound.special': { vi: 'Đặc biệt', ja: '熟字訓' },
+  'onkun.sound.specialTitle': {
+    vi: 'Đọc theo cả cụm (熟字訓) — không chia được cho từng chữ, nên không phải âm On hay Kun của chữ nào.',
+    ja: '熟語全体で読む熟字訓です。一字ずつに分けられないので、音読みでも訓読みでもありません。',
+  },
+  'onkun.rareTitle': {
+    vi: 'Âm đặc biệt, dùng rất hẹp',
+    ja: '特別な、または用法のごく狭い音訓',
+  },
+  'onkun.legend': {
+    vi: 'Âm tô đậm là âm mà các từ trong bài dùng tới; âm in mờ là âm đặc biệt, rất ít gặp. Trong cách đọc của mỗi từ, phần gạch dưới là phần của chữ đang xem.',
+    ja: '太字はこの課の単語で使われている読み、薄い字は用法のごく狭い読みです。各単語の読み方の下線部が、その漢字の読みです。',
+  },
+  'onkun.mask': { vi: 'Che âm đọc để tự kiểm tra', ja: '読みを隠して確認' },
+  'onkun.maskHint': {
+    vi: 'Nhìn chữ, tự nhớ âm On, âm Kun và cách đọc từng từ; bấm vào thẻ để mở ra.',
+    ja: '漢字を見て音読み・訓読み・単語の読みを思い出し、カードを押して確かめます。',
+  },
+  'onkun.reveal': { vi: 'Bấm để xem âm đọc của chữ {char}', ja: '「{char}」の読みを表示' },
+  'onkun.practice': { vi: 'Luyện âm On / Kun', ja: '音読み・訓読みの練習' },
+  'onkun.scope.all': { vi: 'Cả {count} chữ', ja: '全{count}字' },
+  'onkun.scope.favorite': { vi: '★ Chữ chưa nhớ ({count})', ja: '★ 未習得の漢字（{count}）' },
+  'onkun.scope.hint': {
+    vi: 'Bấm ☆ trên thẻ chữ để đánh dấu chữ chưa nhớ âm, rồi luyện riêng nhóm đó.',
+    ja: '漢字カードの☆を押して、読みを覚えていない字に印を付け、その字だけを練習できます。',
+  },
+  'onkun.mode.reading': { vi: 'Chữ → âm On, âm Kun', ja: '漢字 → 音読み・訓読み' },
+  'onkun.mode.reading.short': { vi: 'Âm On / Kun', ja: '音読み・訓読み' },
+  'onkun.mode.reading.example': {
+    vi: '冷 → On れい · Kun つめ・たい (mỗi chữ hai câu)',
+    ja: '冷 → 音 れい・訓 つめ・たい（1字2問）',
+  },
+  'onkun.mode.inWord': { vi: 'Đọc chữ gạch chân trong từ', ja: '単語の中の漢字の読み' },
+  'onkun.mode.inWord.short': { vi: 'Chữ trong từ', ja: '語中の漢字' },
+  'onkun.mode.inWord.example': {
+    vi: '冷蔵庫 → 冷 đọc れい (từ của bài)',
+    ja: '冷蔵庫 → 冷 は れい（この課の単語）',
+  },
+  'onkun.label.on': { vi: 'Âm On của chữ này?', ja: 'この漢字の音読みは？' },
+  'onkun.label.kun': { vi: 'Âm Kun của chữ này?', ja: 'この漢字の訓読みは？' },
+  'onkun.label.inWord': { vi: 'Chữ gạch chân đọc là gì?', ja: '下線の漢字の読みは？' },
+  'onkun.col.on': { vi: 'Âm On', ja: '音読み' },
+  'onkun.col.kun': { vi: 'Âm Kun', ja: '訓読み' },
+  'onkun.col.examples': { vi: 'Từ trong bài', ja: 'この課の単語' },
+  'onkun.col.inWordOn': { vi: 'Trong từ này (âm On)', ja: 'この語での読み（音）' },
+  'onkun.col.inWordKun': { vi: 'Trong từ này (âm Kun)', ja: 'この語での読み（訓）' },
 } as const satisfies Record<string, Entry>;

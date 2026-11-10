@@ -247,7 +247,7 @@ export class Result {
    * Phiên thường thì nguồn của mọi câu chính là bài đang luyện, nên kết quả như cũ.
    */
   private favoriteLessonOf(item: QuestionResult): string | null {
-    return item.question.review?.source ?? this.summary()?.lessonId ?? null;
+    return item.question.favoriteKey ?? item.question.review?.source ?? this.summary()?.lessonId ?? null;
   }
 
   /** Luyện lại chỉ những câu vừa sai, giữ nguyên thiết lập cũ. */

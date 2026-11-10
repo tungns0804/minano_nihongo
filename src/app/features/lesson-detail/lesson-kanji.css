@@ -1,0 +1,57 @@
+/* Thẻ chữ (.study-…) và nhãn On / Kun (.sound-…) nằm ở `src/styles/shared.css` — dùng
+   chung với tab Kanji › Trắc nghiệm. File này chỉ giữ phần riêng của khối trong bài:
+   ★ trên thẻ, chữ đang xem được tô trong từ, và chế độ che âm để tự kiểm tra. */
+
+:host {
+  display: block;
+}
+
+/* Thẻ co theo nội dung: bài có chữ năm từ ví dụ (冷) nằm cạnh chữ một từ, kéo giãn cả
+   hàng theo thẻ cao nhất thì các thẻ ngắn thành khoảng trống lớn. */
+.study-grid {
+  align-items: start;
+}
+
+/* ★ ở góc phải đầu thẻ, ngang hàng chữ to. */
+.study-star {
+  align-self: flex-start;
+  margin-left: auto;
+}
+
+/* Chữ đang xem trong từ, và phần cách đọc của chính chữ đó: nhìn một dòng là thấy
+   冷蔵庫 — れいぞうこ, chữ 冷 ứng với れい. */
+.word-char {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.reading-part {
+  color: var(--text);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
+/* Che âm đọc: làm mờ chứ không ẩn hẳn, để bố cục thẻ không nhảy khi mở ra. */
+.study-kanji[role='button'] {
+  cursor: pointer;
+}
+
+.study-kanji[role='button']:focus-visible {
+  outline: 2px solid var(--accent-ring);
+  outline-offset: 2px;
+}
+
+.is-masked .mask-target {
+  filter: blur(6px);
+  user-select: none;
+}
+
+.mask-target {
+  transition: filter var(--dur) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mask-target {
+    transition: none;
+  }
+}

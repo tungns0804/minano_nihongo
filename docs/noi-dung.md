@@ -428,6 +428,38 @@ bài nên "Chữ trước / Chữ sau" quay về dãy cùng cấp như thường
 Kho chữ (~300 kB) chỉ nạp ở bài có khối này; dữ liệu nét (~280 kB nén) chỉ nạp khi mở trang một
 chữ, và chỉ lần đầu.
 
+#### Âm On / Kun của chữ trong bài
+
+Mỗi chữ của khối là một **thẻ học**: chữ to (bấm để mở trang chữ), âm Hán Việt, dòng **Âm On** và
+dòng **Âm Kun**, rồi **các từ của chính bài** có dùng chữ đó — mỗi từ kèm cách đọc, phần đọc của chữ
+được gạch dưới (冷蔵庫 <u>れい</u>ぞうこ) và nhãn **On** / **Kun** / **Đặc biệt** theo màu. Âm mà từ trong bài
+dùng tới in đậm; âm "đặc biệt, dùng hẹp" của bảng gốc in mờ. Công tắc **"Che âm đọc để tự kiểm tra"**
+làm mờ âm và cách đọc trên mọi thẻ; bấm một thẻ để mở thẻ đó. Nút ☆ trên thẻ đánh dấu "chữ chưa nhớ
+âm".
+
+- **Âm lấy từ đâu:** `joyo-readings.data.ts` — chép nguyên 常用漢字表 (平成22年内閣告示第2号, 2.136 chữ)
+  cùng bảng 付表 (梅雨 つゆ, 部屋 へや…). Chữ hay âm bảng không có mà bài dùng tới thì khai tay ở
+  `EXTRA_READINGS` (`kanji-readings.ts`): 叩, 儘 (ngoài bảng), 我 わ-が, 経 た-つ.
+- **Từ nào đọc âm nào:** máy căn cách đọc của từ vào từng chữ (`alignReading`), có tính ba biến âm
+  — đục âm đầu (誕生 → じょう), っ (出身 → しゅっ), okurigana lược khi viết (申込, 物置) — và chọn âm Kun
+  theo đuôi viết sau chữ (倒す → たお-す, không phải たお-れる). Cụm 付表 (梅雨, 迷子, 手伝い) mang nhãn
+  **Đặc biệt**: đọc cả cụm, không phải âm của chữ nào.
+- `npm run verify:kanji-readings` soát bảng âm, 18 từ mẫu, và **mọi từ có chữ Hán của mọi bài N3** phải
+  căn được — thêm bài N3 mới có âm ngoài bảng thì script báo đúng từ đó.
+
+Dưới thẻ là khung **"Luyện âm On / Kun"** (phạm vi: cả bài hoặc ★ chữ chưa nhớ; cụm, số câu, trắc
+nghiệm hay gõ như bảng từ):
+
+| Dạng | Hỏi | Đáp án | Lựa chọn nhiễu |
+| --- | --- | --- | --- |
+| Chữ → âm On, âm Kun | `冷` — âm On? / âm Kun? (mỗi chữ hai câu) | `れい` / `ひ・やす` (gõ âm nào của loại đó cũng đúng, hiragana hay katakana) | một âm loại kia của chính chữ đó + âm cùng loại của chữ khác trong bài |
+| Đọc chữ gạch chân trong từ | `<u>冷</u>蔵庫` (từ của bài, kèm nghĩa) | phần đọc đúng như trong từ, kể cả biến âm: `れい`, 誕生 → `じょう` | các âm khác của chính chữ đó |
+
+Phiên luyện là phiên của **bài** (`lessonKind: vocabulary`, cờ `onKunMode`): kết quả, "học cụm sau" và
+nút quay lại về đúng trang bài. ★ của câu là ★ của **chữ**, lưu ở khoá riêng `<id bài>#am-on-kun` —
+không lẫn vào ★ từ vựng của bài và không bị nút "Xoá ★" của bảng từ xoá. Câu âm On / Kun **không vào
+lịch ôn**: lịch của bài từ vựng là lịch của TỪ.
+
 ### Các phần luyện tập
 
 | Ở đâu | Chiều hỏi | Ví dụ | Cách trả lời |

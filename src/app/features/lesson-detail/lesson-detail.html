@@ -644,30 +644,11 @@
         </div>
       </section>
 
-      <!-- ── Chữ Hán trong bài ──────────────────────────────────────────── -->
-      <!-- Mỗi ô mở trang chữ kèm ?lesson= để trang đó quay về đúng bài này và lật
-           "chữ sau" theo thứ tự chữ trong bài. -->
+      <!-- ── Chữ Hán trong bài: thẻ âm On / Kun + khung luyện nhớ âm ─────── -->
+      <!-- Khối riêng (lesson-kanji.ts) vì nó có khung thiết lập và ★ của riêng nó — trên
+           CHỮ chứ không trên từ. Dựng lại khi sang bài khác: `resetView` xoá danh sách chữ. -->
       @if (lessonKanji().length > 0) {
-        <section class="card" id="lesson-kanji">
-          <div class="card-body stack">
-            <div class="stack stack-sm">
-              <div class="row">
-                <h2>{{ t('lesson.kanji.title') }}</h2>
-                <span class="badge">{{ t('kanji.kanjiCount', { count: lessonKanji().length }) }}</span>
-              </div>
-              <p class="muted small"><app-t key="lesson.kanji.desc" block /></p>
-            </div>
-
-            <div class="lesson-kanji-grid">
-              @for (entry of lessonKanji(); track entry.id) {
-                <a class="lesson-kanji-cell" [routerLink]="itemPath(PATH.kanji, entry.id)" [queryParams]="{ bai: data.id }">
-                  <span class="lesson-kanji-char jp" aria-hidden="true">{{ entry.char }}</span>
-                  <span class="lesson-kanji-han">{{ entry.hanViet }}</span>
-                </a>
-              }
-            </div>
-          </div>
-        </section>
+        <app-lesson-kanji [lesson]="data" [kanji]="lessonKanji()" />
       }
 
       <!-- Sang bài kề cùng loại mà không phải quay về danh sách. -->

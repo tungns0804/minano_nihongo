@@ -58,7 +58,8 @@ import { PracticeSetup } from '../../shared/practice-setup';
 import { VocabPhoto } from '../../shared/vocab-photo';
 import { PhotoViewer } from '../../shared/photo-viewer';
 import { LessonPager } from '../../shared/lesson-pager';
-import type { KanjiEntry } from '../../core/kanji/kanji.model';
+import type { LessonKanji } from '../../core/kanji/onkun.model';
+import { LessonKanjiStudy } from './lesson-kanji';
 
 /**
  * Thiết lập mà bài TỪ VỰNG có sẵn khi mở ra — đúng bộ người học chụp gửi ngày
@@ -90,7 +91,17 @@ const VOCABULARY_DEFAULTS = {
 
 @Component({
   selector: 'app-lesson-detail',
-  imports: [LessonPager, PhotoViewer, PracticeSetup, RouterLink, SearchBox, StarButton, T, VocabPhoto],
+  imports: [
+    LessonKanjiStudy,
+    LessonPager,
+    PhotoViewer,
+    PracticeSetup,
+    RouterLink,
+    SearchBox,
+    StarButton,
+    T,
+    VocabPhoto,
+  ],
   templateUrl: './lesson-detail.html',
   styleUrl: './lesson-detail.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -159,10 +170,11 @@ export class LessonDetail extends PracticeScreen {
   readonly words = computed(() => this.lesson()?.words ?? []);
 
   /**
-   * Chữ Hán của bài, theo thứ tự gặp trong bảng từ — chỉ ở bài mà
-   * `showsLessonKanji` cho phép (mọi bài từ vựng N3). Rỗng cho tới khi kho chữ nạp xong.
+   * Chữ Hán của bài, theo thứ tự gặp trong bảng từ, kèm âm On / Kun và các từ của bài —
+   * chỉ ở bài mà `showsLessonKanji` cho phép (mọi bài từ vựng N3). Rỗng cho tới khi kho
+   * chữ nạp xong.
    */
-  readonly lessonKanji = signal<readonly KanjiEntry[]>([]);
+  readonly lessonKanji = signal<readonly LessonKanji[]>([]);
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
   readonly lines = computed(() => this.lesson()?.lines ?? []);
 
@@ -459,16 +471,20 @@ export class LessonDetail extends PracticeScreen {
   }
 
   /**
-   * Dựng lưới "Chữ Hán trong bài".
+   * Dựng khối "Chữ Hán trong bài" (xem `lesson-kanji.ts`).
    *
-   * Nạp ĐỘNG kho chữ: nó nặng ~300 kB, mà trang bài học mở cho mọi bài — bài nào
-   * không có khối này thì không phải tải nó.
+   * Nạp ĐỘNG kho chữ (~300 kB) và bảng âm On / Kun (~73 kB): trang bài học mở cho mọi
+   * bài — bài nào không có khối này thì không phải tải chúng.
    */
   private async loadLessonKanji(lesson: Lesson): Promise<void> {
-    const { kanjiInTexts } = await import('../../core/kanji/kanji-entries');
+    const [{ kanjiInTexts }, { lessonKanjiOf }] = await Promise.all([
+      import('../../core/kanji/kanji-entries'),
+      import('../../core/kanji/onkun-study'),
+    ]);
     // Người học đã sang bài khác trong lúc chờ.
     if (this.lesson()?.id !== lesson.id) return;
-    this.lessonKanji.set(kanjiInTexts(lesson.words.map((word) => word.japanese)));
+    const entries = kanjiInTexts(lesson.words.map((word) => word.japanese));
+    this.lessonKanji.set(lessonKanjiOf(lesson.words, entries));
   }
 
   /** Nút ở đầu trang: lưới chữ nằm dưới bảng 50 từ, không cuộn thì không ai thấy. */

@@ -76,6 +76,10 @@ src/app/
       kanji-entries.ts           Dựng danh sách chữ + tra theo id
       kanji-quiz.data.ts         Đề trắc nghiệm Kanji theo bài — CHÉP TAY
       kanji-quiz.ts              Trải đề thành từng câu (id = khoá ★, khoá lịch ôn)
+      joyo-readings.data.ts      Âm On / Kun của 2.136 chữ + 付表 — chép từ 常用漢字表, NẠP ĐỘNG
+      kanji-readings.ts          Tách âm On / Kun; căn cách đọc của một từ vào từng chữ
+      onkun.model.ts             Kiểu + dạng luyện của khối "Chữ Hán trong bài" (nhẹ, gói chính)
+      onkun-study.ts             Dựng thẻ chữ của một bài N3 từ bảng từ — NẠP ĐỘNG
     topics/
       topic.model.ts             Kiểu dữ liệu + hàm dựng bài học của khu Chủ đề
       topic-list.ts              20 chủ đề: tên + danh sách từ — KHAI TAY, chỉ script đọc
@@ -118,6 +122,7 @@ src/app/
       exercise-questions.ts      Câu hỏi cho hai bài tập động từ
       n4-grammar-questions.ts    Câu hỏi cho bài ngữ pháp N4: năm bậc + lộ trình dễ → khó
       kanji-questions.ts         Câu hỏi cho khu Kanji
+      onkun-questions.ts         Câu hỏi âm On / Kun của chữ trong bài N3
       radical-questions.ts       Câu hỏi cho khu Bộ thủ
       draw-questions.ts          Câu hỏi viết tay, dùng chung cho khu Kanji và Bộ thủ
       review-questions.ts        Câu hỏi cho phiên ôn tập ngắt quãng
@@ -141,7 +146,8 @@ src/app/
   features/
     today/                       Trang Hôm nay (/) — ôn tập đến hạn, học tiếp, tiến độ N3
     lesson-list/                 Từ vựng → Minano (/tu-vung) — chỉ bài từ vựng
-    lesson-detail/               Bảng từ vựng + thiết lập luyện tập (dùng cho cả chủ đề, bài động từ, bài hội thoại)
+    lesson-detail/               Bảng từ vựng + thiết lập luyện tập (dùng cho cả chủ đề, bài động từ, bài hội thoại);
+                                 lesson-kanji.* là khối "Chữ Hán trong bài" của bài N3 (thẻ âm On / Kun + luyện)
     topic-list/                  Tab Từ vựng chủ đề — lưới 20 chủ đề
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập

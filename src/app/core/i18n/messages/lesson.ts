@@ -9,8 +9,8 @@ export const LESSON_MESSAGES = {
   'lesson.kanji.jump': { vi: 'Xem {count} chữ Hán trong bài ↓', ja: 'この課の漢字{count}字を見る ↓' },
   'lesson.kanji.title': { vi: 'Chữ Hán trong bài', ja: 'この課の漢字' },
   'lesson.kanji.desc': {
-    vi: 'Các chữ Hán của những từ ở trên, theo thứ tự trong bảng. Mở một chữ để xem thứ tự nét, viết thử và cấu tạo của nó; nút "Chữ sau" ở cuối trang chữ đi tiếp theo đúng thứ tự này.',
-    ja: '上の単語に使われている漢字を、表の順に並べています。字を開くと筆順・試し書き・構成が見られ、ページ下の「次の漢字」でこの順に進めます。',
+    vi: 'Các chữ Hán của những từ ở trên, theo thứ tự trong bảng, mỗi chữ kèm âm On (音読み — âm gốc Hán, hay gặp trong từ ghép: 冷蔵庫 れいぞうこ) và âm Kun (訓読み — âm thuần Nhật, hay đi với okurigana: 冷たい つめたい), cùng các từ của bài dùng chữ đó. Bấm vào chữ để mở trang chữ (thứ tự nét, viết thử); nút "Chữ sau" ở cuối trang chữ đi tiếp theo đúng thứ tự này.',
+    ja: '上の単語に使われている漢字を表の順に並べ、音読み（漢語の読み。熟語に多い：冷蔵庫 れいぞうこ）と訓読み（和語の読み。送りがなと一緒が多い：冷たい つめたい）、この課でその字を使う単語を示します。字を押すとその字のページ（筆順・試し書き）が開き、ページ下の「次の漢字」でこの順に進めます。',
   },
   'lesson.brokenVerbs': {
     vi: '{count} động từ khai báo sai nhóm, không chia được:',

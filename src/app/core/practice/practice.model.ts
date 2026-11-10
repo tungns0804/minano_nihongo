@@ -2,6 +2,8 @@ import type { ExerciseId, ExerciseMode } from '../exercises/exercise.model';
 import { exerciseModeInfo, modeNeedsForms } from '../exercises/exercise.model';
 import type { KanjiMode } from '../kanji/kanji.model';
 import { kanjiModeInfo } from '../kanji/kanji.model';
+import type { OnKunMode } from '../kanji/onkun.model';
+import { onKunModeInfo } from '../kanji/onkun.model';
 import type { RadicalMode } from '../radical/radical.model';
 import { radicalModeInfo } from '../radical/radical.model';
 import type { ReviewRef } from '../review/review.model';
@@ -283,6 +285,14 @@ export interface PracticeConfig {
    */
   radicalMode: RadicalMode;
 
+  // --- Riêng khối "Chữ Hán trong bài" của bài từ vựng N3 ---
+  /**
+   * Dạng luyện âm On / Kun (xem `core/kanji/onkun.model.ts`); null với mọi phiên khác.
+   * Phiên này mang `lessonKind: 'vocabulary'` và id của bài để kết quả, ★ và "cụm sau"
+   * quay về đúng bài — cờ này mới cho biết nó hỏi trên CHỮ chứ không trên từ.
+   */
+  onKunMode: OnKunMode | null;
+
   // --- Riêng trang Ôn tập (/on-tap) ---
   /**
    * Phiên ôn tập: câu hỏi gom từ nhiều khu nên `lessonKind` không nói được phiên
@@ -329,6 +339,7 @@ export function practiceConfig(
     exerciseMode: 'masu-to-form',
     kanjiMode: 'word-meaning',
     radicalMode: 'radical-hanviet',
+    onKunMode: null,
     review: false,
     ...overrides,
   };
@@ -545,6 +556,12 @@ export interface PracticeQuestion {
    * nhiều bài, và nguồn trong khoá cũng chính là khoá ★ của mục đó.
    */
   review: ReviewRef | null;
+  /**
+   * Khoá ★ của câu khi nó KHÁC bài của phiên (và khác nguồn lịch ôn); null với gần như
+   * mọi câu. Phần âm On / Kun của bài N3 dùng nó: ★ "chữ chưa nhớ âm" nằm ở khoá riêng
+   * (`onKunFavoriteKey`) để không lẫn vào ★ từ vựng của chính bài đó.
+   */
+  favoriteKey: string | null;
   /** Phần riêng của câu đề thi; null với mọi câu khác. */
   exam: ExamExtras | null;
   /** Hình minh họa; null với mục chưa có hình. */
@@ -601,6 +618,7 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     // Khoá lịch ôn do `PracticeSessionStore.start` gắn theo thiết lập của phiên; chỉ
     // phiên Ôn tập mới tự điền sẵn (xem `review-questions.ts`).
     review: null,
+    favoriteKey: null,
     exam: null,
     image: null,
     ...draft,
@@ -643,6 +661,9 @@ export interface SessionSummary {
 export function sessionShortKey(config: PracticeConfig): MessageKey {
   // Xét trước `lessonKind`: phiên ôn gom nhiều khu nên loại bài của nó không nói gì.
   if (config.review) return 'review.short';
+  // Phiên âm On / Kun vẫn là phiên của bài từ vựng (để kết quả quay về đúng bài), nên
+  // phải xét trước khi rơi xuống nhánh chiều luyện của bài từ vựng.
+  if (config.onKunMode) return onKunModeInfo(config.onKunMode).shortKey;
   if (config.lessonKind === 'radical') return radicalModeInfo(config.radicalMode).shortKey;
   if (config.lessonKind === 'kanji') return kanjiModeInfo(config.kanjiMode).shortKey;
   if (config.lessonKind === 'exercise') return exerciseModeInfo(config.exerciseMode).shortKey;
@@ -692,6 +713,9 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showFurigana) keys.push('translate.option.furigana');
     if (config.showGrammarHint) keys.push('translate.option.grammarHint');
+  } else if (config.onKunMode) {
+    keys.push(onKunModeInfo(config.onKunMode).shortKey);
+    if (config.showHanViet) keys.push('lesson.option.showHanViet');
   } else {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showHanViet && directionInfo(config.direction).supportsHanVietHint) {

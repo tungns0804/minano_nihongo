@@ -125,7 +125,7 @@ export function areaOfKey(key: string): ReviewArea | null {
  */
 export function reviewRefOf(
   config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'answerMode' | 'exercise' | 'exerciseMode'> &
-    Partial<Pick<PracticeConfig, 'radicalMode'>>,
+    Partial<Pick<PracticeConfig, 'radicalMode' | 'onKunMode'>>,
   subjectId: string,
 ): ReviewRef | null {
   if (config.answerMode === 'draw') return null;
@@ -135,13 +135,17 @@ export function reviewRefOf(
 
 function itemTypeOf(
   config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'exercise' | 'exerciseMode'> &
-    Partial<Pick<PracticeConfig, 'radicalMode'>>,
+    Partial<Pick<PracticeConfig, 'radicalMode' | 'onKunMode'>>,
 ): ReviewItemType | null {
   // switch đủ mọi loại bài: thêm loại mới mà quên quyết định nó có vào lịch ôn hay
   // không thì TypeScript báo lỗi ngay ở đây.
   switch (config.lessonKind) {
     case 'vocabulary':
     case 'topic':
+      // Luyện âm On / Kun của chữ trong bài N3 (`onkun-questions.ts`): khoá của câu là
+      // CHỮ, không phải từ — ghi vào thẻ `w` thì đọc đúng một chữ lại đẩy lịch của một
+      // từ không hề được hỏi. Phần này chưa có thẻ ôn riêng.
+      if (config.onKunMode) return null;
       return 'w';
     case 'grammar':
       return 'g';

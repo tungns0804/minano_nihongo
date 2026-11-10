@@ -634,3 +634,145 @@ html:has(dialog.viewer[open]) {
     padding-left: 0;
   }
 }
+
+/* --- Thẻ chữ Hán: âm On / Kun và các từ dùng chữ đó -----------------------
+   Tab Kanji › Trắc nghiệm (khối "Chữ & từ cần học") và khối "Chữ Hán trong bài" của
+   bài từ vựng N3 (features/lesson-detail/lesson-kanji). */
+
+.study-grid {
+  display: grid;
+  /* min(…, 100%): màn hình hẹp hơn 320px thì một cột vừa khung, không tràn ngang. */
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: var(--sp-3);
+}
+
+.study-kanji {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+}
+
+.study-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Chữ to bấm được — mở trang chữ (thứ tự nét, luyện viết). */
+.study-char {
+  flex-shrink: 0;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.study-char:hover {
+  color: var(--accent);
+}
+
+.study-readings {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.study-hv {
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+}
+
+.study-line {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/* Nhiều âm Kun (ひろ・い、ひろ・がる…): chỉ xuống dòng GIỮA hai âm, không giữa một âm. */
+.study-sounds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+}
+
+.study-sounds > span {
+  white-space: nowrap;
+}
+
+.study-sounds > span:not(:last-child)::after {
+  content: '、';
+}
+
+/* Âm On và âm Kun mang hai màu cố định ở cả dòng âm lẫn từng từ: nhìn màu là biết từ
+   đó đọc kiểu nào. */
+.sound-tag {
+  flex-shrink: 0;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-size: var(--fs-xs);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.sound-on {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.sound-kun {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.study-words {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+}
+
+.study-words li {
+  /* Dòng 1: từ · cách đọc · nhãn On/Kun. Dòng 2: nghĩa. Để nghĩa chung một hàng thì
+     ba thẻ chữ xếp cạnh nhau ép nó thành cột hẹp vài chữ một dòng. */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+}
+
+.study-word {
+  font-size: 1.05rem;
+}
+
+.study-reading {
+  color: var(--text-muted);
+}
+
+.study-meaning {
+  flex-basis: 100%;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* Âm mà từ trong bài dùng tới: đậm, để thấy ngay bài đang dạy âm nào của chữ. */
+.study-sounds > .is-used {
+  font-weight: 700;
+}
+
+/* Âm đặc biệt / dùng rất hẹp (bảng thường dụng in thụt vào). */
+.study-sounds > .is-rare {
+  color: var(--text-faint);
+}
+
+/* Cụm đọc đặc biệt (熟字訓: 梅雨 つゆ) — không phải On cũng không phải Kun. */
+.sound-special {
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+}

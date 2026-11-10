@@ -207,7 +207,8 @@ export class Practice {
    * bài đang luyện, nên kết quả như cũ.
    */
   private favoriteLessonId(): string | null {
-    return this.question()?.review?.source ?? this.lesson()?.id ?? null;
+    const question = this.question();
+    return question?.favoriteKey ?? question?.review?.source ?? this.lesson()?.id ?? null;
   }
 
   // --- Trắc nghiệm ---

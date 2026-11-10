@@ -1,0 +1,281 @@
+<div class="stack stack-xl">
+  <!-- ── Thẻ học từng chữ ─────────────────────────────────────────────── -->
+  <!-- id là đích của nút "Xem N chữ Hán trong bài ↓" ở đầu trang bài. -->
+  <section class="card" id="lesson-kanji">
+    <div class="card-body stack">
+      <div class="stack stack-sm">
+        <div class="row">
+          <h2>{{ t('lesson.kanji.title') }}</h2>
+          <span class="badge">{{ t('kanji.kanjiCount', { count: kanji().length }) }}</span>
+          <span class="spacer"></span>
+          <button type="button" class="btn btn-sm" (click)="scrollToPractice()">
+            ↓ {{ t('onkun.practice') }}
+          </button>
+        </div>
+        <p class="muted small"><app-t key="lesson.kanji.desc" block /></p>
+        <p class="faint small">{{ t('onkun.legend') }}</p>
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" [checked]="masked()" (change)="toggleMask($event)" />
+        <span>
+          <strong>{{ t('onkun.mask') }}</strong>
+          <span class="hint">{{ t('onkun.maskHint') }}</span>
+        </span>
+      </label>
+
+      <div class="study-grid">
+        @for (item of kanji(); track item.id) {
+          <article
+            class="study-kanji"
+            [class.is-masked]="isHidden(item)"
+            [attr.role]="masked() ? 'button' : null"
+            [attr.tabindex]="masked() ? 0 : null"
+            [attr.aria-pressed]="masked() ? !isHidden(item) : null"
+            [attr.title]="masked() ? t('onkun.reveal', { char: item.char }) : null"
+            (click)="reveal(item)"
+            (keydown.enter)="$event.target === $event.currentTarget && reveal(item)"
+          >
+            <header class="study-head">
+              <!-- ?bai= để trang chữ quay về đúng bài và lật "Chữ sau" theo thứ tự này. -->
+              <a
+                class="study-char jp"
+                [routerLink]="itemPath(PATH.kanji, item.id)"
+                [queryParams]="{ bai: lesson().id }"
+                [title]="t('kanjiQuiz.study.open', { char: item.char })"
+                (click)="$event.stopPropagation()"
+              >{{ item.char }}</a>
+              <div class="study-readings">
+                <strong class="study-hv">{{ item.hanViet }}</strong>
+                <div class="study-line">
+                  <span class="sound-tag sound-on">{{ t('onkun.col.on') }}</span>
+                  <span class="study-sounds jp mask-target">
+                    @for (sound of item.on; track $index) {
+                      <span
+                        [class.is-used]="sound.used"
+                        [class.is-rare]="sound.rare && !sound.used"
+                        [attr.title]="sound.rare ? t('onkun.rareTitle') : null"
+                      >{{ sound.label }}</span>
+                    } @empty {
+                      <span>—</span>
+                    }
+                  </span>
+                </div>
+                <div class="study-line">
+                  <span class="sound-tag sound-kun">{{ t('onkun.col.kun') }}</span>
+                  <span class="study-sounds jp mask-target">
+                    @for (sound of item.kun; track $index) {
+                      <span
+                        [class.is-used]="sound.used"
+                        [class.is-rare]="sound.rare && !sound.used"
+                        [attr.title]="sound.rare ? t('onkun.rareTitle') : null"
+                      >{{ sound.label }}</span>
+                    } @empty {
+                      <span>—</span>
+                    }
+                  </span>
+                </div>
+              </div>
+              <button
+                app-star
+                class="study-star"
+                [on]="isFavorite(item.id)"
+                [name]="item.char"
+                (click)="toggleFavorite(item.id); $event.stopPropagation()"
+              ></button>
+            </header>
+
+            <ul class="study-words">
+              @for (word of item.examples; track word.wordId) {
+                <li>
+                  @let split = wordParts(word.japanese, item.char);
+                  <span class="study-word jp">{{ split[0] }}<b class="word-char">{{ split[1] }}</b>{{ split[2] }}</span>
+                  <span class="study-reading jp mask-target">
+                    @if (word.parts; as parts) {
+                      {{ parts[0] }}<u class="reading-part">{{ parts[1] }}</u>{{ parts[2] }}
+                    } @else {
+                      {{ word.reading }}
+                    }
+                  </span>
+                  @if (word.sound; as sound) {
+                    <span
+                      class="sound-tag mask-target"
+                      [class.sound-on]="sound === 'on'"
+                      [class.sound-kun]="sound === 'kun'"
+                      [class.sound-special]="sound === 'special'"
+                      [attr.title]="sound === 'special' ? t('onkun.sound.specialTitle') : null"
+                    >{{ t(soundKey(sound)) }}</span>
+                  }
+                  <span class="study-meaning">{{ word.meaning }}</span>
+                </li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Luyện nhớ âm ─────────────────────────────────────────────────── -->
+  <app-practice-setup class="practice-card">
+    <h2>{{ t('onkun.practice') }}</h2>
+
+    <div class="field">
+      <span class="label">{{ t('lesson.scope') }}</span>
+      <div class="options">
+        <button type="button" class="option" [class.is-active]="scope() === 'all'" (click)="setScope('all')">
+          {{ t('onkun.scope.all', { count: kanji().length }) }}
+        </button>
+        <button
+          type="button"
+          class="option"
+          [class.is-active]="scope() === 'favorite'"
+          [disabled]="favoriteCount() === 0"
+          (click)="setScope('favorite')"
+        >
+          {{ t('onkun.scope.favorite', { count: favoriteCount() }) }}
+        </button>
+      </div>
+      @if (favoriteCount() === 0) {
+        <span class="hint">{{ t('onkun.scope.hint') }}</span>
+      }
+    </div>
+
+    <div class="field">
+      <span class="label">{{ t('lesson.questionType') }}</span>
+      <div class="options">
+        @for (item of modes; track item.id) {
+          <button
+            type="button"
+            class="option option-stacked"
+            [class.is-active]="mode() === item.id"
+            (click)="setMode(item.id)"
+          >
+            <strong><app-t [key]="item.labelKey" block /></strong>
+            <span class="option-example jp"><app-t [key]="item.exampleKey" block /></span>
+          </button>
+        }
+      </div>
+    </div>
+
+    <ng-container ngProjectAs="[setupAdvanced]">
+      <div class="field">
+        <span class="label">{{ t('lesson.answerMode') }}</span>
+        <div class="options">
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="answerMode() === 'choice'"
+            (click)="setAnswerMode('choice')"
+          >
+            {{ t('lesson.answerMode.choice') }}
+          </button>
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="answerMode() === 'typing'"
+            (click)="setAnswerMode('typing')"
+          >
+            {{ t('lesson.answerMode.typing') }}
+          </button>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="label">{{ t('lesson.questionCount') }}</span>
+        <div class="options">
+          <button
+            type="button"
+            class="option"
+            [class.is-active]="questionLimit() === null"
+            (click)="setQuestionLimit(null)"
+          >
+            {{ t('common.all') }}
+          </button>
+          @for (limit of limitChoices(); track limit) {
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="questionLimit() === limit"
+              (click)="setQuestionLimit(limit)"
+            >
+              {{ t('lesson.questionCount.n', { count: limit }) }}
+            </button>
+          }
+        </div>
+      </div>
+
+      @if (batchTotal() > 1) {
+        <div class="field">
+          <span class="label">{{ t('lesson.batch') }}</span>
+          <div class="options">
+            <button
+              type="button"
+              class="option"
+              [class.is-active]="batchIndex() === null"
+              (click)="setBatchIndex(null)"
+            >
+              {{ t('lesson.batch.random') }}
+            </button>
+            @for (item of batchOptions(); track item.index) {
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="batchIndex() === item.index"
+                (click)="setBatchIndex(item.index)"
+              >
+                {{ t('lesson.batch.n', { index: item.index + 1, from: item.from, to: item.to }) }}
+              </button>
+            }
+          </div>
+          <span class="hint"><app-t key="lesson.batch.hint" block /></span>
+        </div>
+      }
+
+      <div class="field">
+        <span class="label">{{ t('lesson.options') }}</span>
+        <div class="options">
+          <label class="checkbox">
+            <input type="checkbox" [checked]="showHint()" (change)="toggleShowHint($event)" />
+            <span>
+              <strong><app-t key="lesson.option.showHanViet" block /></strong>
+              <span class="hint"><app-t key="lesson.option.harder" block /></span>
+            </span>
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
+            <span>
+              <strong><app-t key="lesson.option.shuffle" block /></strong>
+              <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container ngProjectAs="[setupActions]">
+      <div class="start-bar">
+        <div class="small muted">
+          <app-t
+            key="lesson.plan"
+            block
+            [params]="{
+              count: plannedQuestionCount(),
+              mode: modeShort(),
+              answer: t(answerMode() === 'choice' ? 'lesson.plan.choice' : 'lesson.plan.typing'),
+              max: planMax()
+            }"
+          />
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" [disabled]="!canStart()" (click)="start()">
+          {{ t('lesson.start') }}
+        </button>
+      </div>
+
+      @if (!canStart()) {
+        <div class="notice notice-warning">{{ t('lesson.emptyScope') }}</div>
+      }
+    </ng-container>
+  </app-practice-setup>
+</div>
