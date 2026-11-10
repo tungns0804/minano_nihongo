@@ -25,7 +25,7 @@
               [attr.aria-pressed]="isSetSelected(set)"
               (click)="toggleSet(set)"
             >
-              {{ t('kanjiQuiz.set', { level: set.level, lesson: set.lesson, count: setCount(set) }) }}
+              {{ setLabel(set) }}
             </button>
           }
         </div>
@@ -171,7 +171,7 @@
         @for (group of viewGroups(); track group.key) {
           <section class="view-group">
             <h3 class="view-set">
-              {{ t('kanjiQuiz.set.title', { level: group.set.level, lesson: group.set.lesson }) }}
+              {{ setTitle(group.set) }}
             </h3>
             <p class="view-instruction jp">{{ t(group.instructionKey) }}</p>
 

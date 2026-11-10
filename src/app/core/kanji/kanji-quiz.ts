@@ -32,6 +32,8 @@ export interface KanjiQuizQuestion {
   setId: string;
   level: KanjiLevel;
   lesson: number;
+  /** Phần của bài (Bài 25 phần 1…); null với bài chỉ có một đề. */
+  part: number | null;
   kind: KanjiQuizKind;
   /** Số 問題 trong đề (1 hoặc 2). */
   mondai: number;
@@ -47,21 +49,23 @@ export interface KanjiQuizQuestion {
 }
 
 export interface KanjiQuizSet {
-  /** "n5-17" — dùng ghép id câu và để nhớ bài đang chọn. */
+  /** "n5-17", hoặc "n5-25-p1" với bài chia phần — dùng ghép id câu và để nhớ bài đang chọn. */
   id: string;
   level: KanjiLevel;
   lesson: number;
+  part: number | null;
   questions: readonly KanjiQuizQuestion[];
 }
 
 const UNDERLINE = /〈([^〉]*)〉/;
 
 function buildSet(raw: RawKanjiQuiz): KanjiQuizSet {
-  const id = `${raw.level.toLowerCase()}-${raw.lesson}`;
+  const part = raw.part ?? null;
+  const id = `${raw.level.toLowerCase()}-${raw.lesson}${part === null ? '' : `-p${part}`}`;
   const questions = KANJI_QUIZ_KINDS.flatMap((kind, index) =>
     raw[kind].map((item, at) => buildQuestion(raw, id, kind, index + 1, at + 1, item)),
   );
-  return { id, level: raw.level, lesson: raw.lesson, questions };
+  return { id, level: raw.level, lesson: raw.lesson, part, questions };
 }
 
 function buildQuestion(
@@ -77,6 +81,7 @@ function buildQuestion(
     setId,
     level: raw.level,
     lesson: raw.lesson,
+    part: raw.part ?? null,
     kind,
     mondai,
     number,
@@ -122,7 +127,8 @@ export function kanjiQuizQuestions(
   );
 }
 
-/** "N5 第17課 問題1-6" — viết kiểu đề tiếng Nhật nên không phải dịch. */
+/** "N5 第17課 問題1-6", "N5 第25課（1）問題1-6" — viết kiểu đề tiếng Nhật nên không phải dịch. */
 export function kanjiQuizSource(question: KanjiQuizQuestion): string {
-  return `${question.level} 第${question.lesson}課 問題${question.mondai}-${question.number}`;
+  const part = question.part === null ? '' : `（${question.part}）`;
+  return `${question.level} 第${question.lesson}課${part} 問題${question.mondai}-${question.number}`;
 }

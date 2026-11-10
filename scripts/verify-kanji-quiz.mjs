@@ -70,7 +70,7 @@ function checkItem(where, [prompt, options, answer, meaning], kind) {
 const lessons = new Set();
 let count = 0;
 for (const quiz of KANJI_QUIZ_DATA) {
-  const name = `${quiz.level} bài ${quiz.lesson}`;
+  const name = `${quiz.level} bài ${quiz.lesson}${quiz.part ? ` phần ${quiz.part}` : ''}`;
   if (lessons.has(name)) fail(name, 'trùng bài với một mục khác');
   lessons.add(name);
   if (quiz.reading.length + quiz.writing.length === 0) fail(name, 'bài không có câu nào');

@@ -138,6 +138,15 @@ export const KANJI_MESSAGES = {
   'kanjiQuiz.sets': { vi: 'Bài (chọn nhiều được)', ja: '課（複数選択可）' },
   'kanjiQuiz.set': { vi: '{level} · Bài {lesson} ({count})', ja: '{level}・第{lesson}課（{count}）' },
   'kanjiQuiz.set.title': { vi: '{level} · Bài {lesson}', ja: '{level}・第{lesson}課' },
+  // Bài mà nguồn đề chia thành nhiều phần (Bài 25 phần 1, phần 2).
+  'kanjiQuiz.set.part': {
+    vi: '{level} · Bài {lesson} · phần {part} ({count})',
+    ja: '{level}・第{lesson}課 その{part}（{count}）',
+  },
+  'kanjiQuiz.set.partTitle': {
+    vi: '{level} · Bài {lesson} · phần {part}',
+    ja: '{level}・第{lesson}課 その{part}',
+  },
   'kanjiQuiz.mode.all': { vi: 'Cả đề theo thứ tự', ja: '全問を順番に' },
   'kanjiQuiz.mode.all.short': { vi: 'Cả đề', ja: '全問' },
   'kanjiQuiz.mode.all.example': {

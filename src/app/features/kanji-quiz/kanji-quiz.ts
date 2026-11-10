@@ -139,6 +139,22 @@ export class KanjiQuiz extends PracticeScreen {
     return kanjiQuizQuestions(this.mode(), [set.id]).length;
   }
 
+  /** Nút chọn bài: "N5 · Bài 17 (20)", "N5 · Bài 25 · phần 1 (20)". */
+  setLabel(set: KanjiQuizSet): string {
+    const params = { level: set.level, lesson: set.lesson, count: this.setCount(set) };
+    return set.part === null
+      ? this.t('kanjiQuiz.set', params)
+      : this.t('kanjiQuiz.set.part', { ...params, part: set.part });
+  }
+
+  /** Tiêu đề nhóm câu ở phần "Xem đề". */
+  setTitle(set: KanjiQuizSet): string {
+    const params = { level: set.level, lesson: set.lesson };
+    return set.part === null
+      ? this.t('kanjiQuiz.set.title', params)
+      : this.t('kanjiQuiz.set.partTitle', { ...params, part: set.part });
+  }
+
   isSetSelected(set: KanjiQuizSet): boolean {
     return this.selectedSets().includes(set.id);
   }
