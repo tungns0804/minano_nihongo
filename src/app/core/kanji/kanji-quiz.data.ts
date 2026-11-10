@@ -1692,9 +1692,13 @@ export const KANJI_QUIZ_DATA: readonly RawKanjiQuiz[] = [
   },
 
   // ── N4 · Bài 28 ──────────────────────────────────────────────────────────
-  // Không có đề gốc: ảnh bài giảng (「練習しましょう」) có 働く, 作文, 作る, 作者, 名作, 作家.
-  // Hai chữ chỉ đủ cho 16 câu, nên thêm từ thông dụng: 作品, 作業 (âm On さ), 作り方, 働き,
-  // 共働き, 労働 (âm On どう). Câu ví dụ do app viết; đáp án rải đều 1–4.
+  // Không có đề gốc: hai ảnh bài giảng (「練習しましょう」).
+  //  - Ảnh 1 (働, 作): 働く, 作文, 作る, 作者, 名作, 作家. Thêm từ thông dụng: 作品, 作業 (âm On
+  //    さ), 作り方, 働き, 共働き, 労働 (âm On どう).
+  //  - Ảnh 2 (会, 社), gửi sau nên câu nối vào CUỐI mỗi 問題 (1-9…, 2-9…) — id câu cũ giữ
+  //    nguyên: 会う, 入会, 会話, 大会 (ảnh viết nhầm スーポツ → スポーツ), 会社, 入社しき, 本社.
+  //    Thêm 社長, 神社 (じゃ) và 社 やしろ cho đủ âm Kun.
+  // Câu ví dụ do app viết; đáp án rải đều 1–4.
   {
     level: 'N4',
     lesson: 28,
@@ -1725,6 +1729,32 @@ export const KANJI_QUIZ_DATA: readonly RawKanjiQuiz[] = [
           ['作家', 'さっか', 'nhà văn — さく thành さっ trước か', 'on'],
           ['作品', 'さくひん', 'tác phẩm', 'on'],
           ['作業', 'さぎょう', 'công việc, thao tác — âm On thứ hai さ', 'on'],
+        ],
+      },
+      {
+        char: '会',
+        hanViet: 'HỘI',
+        on: ['かい'],
+        kun: ['あ・う'],
+        words: [
+          ['会う', 'あう', 'gặp — 友達に会う', 'kun'],
+          ['入会', 'にゅうかい', 'gia nhập (hội, câu lạc bộ)', 'on'],
+          ['会話', 'かいわ', 'hội thoại', 'on'],
+          ['大会', 'たいかい', 'đại hội, giải thi đấu — スポーツ大会', 'on'],
+          ['会社', 'かいしゃ', 'công ty', 'on'],
+        ],
+      },
+      {
+        char: '社',
+        hanViet: 'XÃ',
+        on: ['しゃ'],
+        kun: ['やしろ'],
+        words: [
+          ['入社式', 'にゅうしゃしき', 'lễ đón nhân viên mới vào công ty', 'on'],
+          ['本社', 'ほんしゃ', 'trụ sở chính', 'on'],
+          ['社長', 'しゃちょう', 'giám đốc', 'on'],
+          ['神社', 'じんじゃ', 'đền thần đạo — しゃ biến âm thành じゃ', 'on'],
+          ['社', 'やしろ', 'đền thờ (từ cổ, ít dùng)', 'kun'],
         ],
       },
     ],
@@ -1785,6 +1815,34 @@ export const KANJI_QUIZ_DATA: readonly RawKanjiQuiz[] = [
         'lao động',
         'Âm On: 働 = どう (như 動). 労働 = ろう ＋ どう.',
       ],
+      [
+        '友達に　〈会う〉　{約束|やくそく}が　あります。',
+        ['かう', 'えう', 'あう', 'かいう'],
+        3,
+        'gặp',
+        'Âm Kun: 会う = あう. かう là 買う (mua). かい là âm On (会社, 会話).',
+      ],
+      [
+        'テニスクラブに　〈入会〉しました。',
+        ['にゅうかい', 'いりかい', 'にゅうがい', 'はいかい'],
+        1,
+        'gia nhập (câu lạc bộ)',
+        'Âm On: 入 = にゅう, 会 = かい. Từ ghép → âm On.',
+      ],
+      [
+        '来月、スポーツ　〈大会〉が　あります。',
+        ['だいかい', 'おおかい', 'たいがい', 'たいかい'],
+        4,
+        'giải thi đấu, đại hội',
+        '大 đọc たい trong 大会, 大切 — không phải だい (大学). 会 = かい.',
+      ],
+      [
+        '四月に　〈入社〉{式|しき}が　あります。',
+        ['いりしゃ', 'にゅうしゃ', 'にゅうじゃ', 'はいしゃ'],
+        2,
+        'vào công ty (入社式: lễ đón nhân viên mới)',
+        'Âm On: 入 = にゅう, 社 = しゃ.',
+      ],
     ],
     writing: [
       [
@@ -1842,6 +1900,34 @@ export const KANJI_QUIZ_DATA: readonly RawKanjiQuiz[] = [
         1,
         'kiệt tác',
         'めい = 名 (danh). 明, 命 cũng đọc めい nhưng nghĩa khác.',
+      ],
+      [
+        '日本語で　〈かいわ〉の　{練習|れんしゅう}を　します。',
+        ['回話', '会話', '会和', '絵話'],
+        2,
+        'hội thoại',
+        'かい = 会 (hội), わ = 話 (thoại). 回, 絵 cũng đọc かい / え nhưng nghĩa khác.',
+      ],
+      [
+        'この　会社の　〈ほんしゃ〉は　{大阪|おおさか}に　あります。',
+        ['本車', '木社', '本者', '本社'],
+        4,
+        'trụ sở chính',
+        'しゃ = 社 (xã). 車 (xe), 者 (giả) cũng đọc しゃ; 木 (cây) thiếu nét ngang của 本.',
+      ],
+      [
+        '父は　〈かいしゃ〉で　働いています。',
+        ['会社', '回社', '会車', '絵社'],
+        1,
+        'công ty',
+        'かい = 会, しゃ = 社: 会社. Đảo lại thành 社会 (しゃかい) là "xã hội".',
+      ],
+      [
+        '{京都|きょうと}には　有名な　〈じんじゃ〉が　たくさん　あります。',
+        ['神車', '神者', '神社', '紳社'],
+        3,
+        'đền thần đạo',
+        'じゃ = 社 (しゃ biến âm). 紳 (thân) trông giống 神 nhưng bộ bên trái là 糸.',
       ],
     ],
   },
