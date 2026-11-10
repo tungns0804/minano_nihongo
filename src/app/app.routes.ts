@@ -131,6 +131,12 @@ export const routes: Routes = [
     title: 'route.kanjiQuiz',
     loadComponent: () => import('./features/kanji-quiz/kanji-quiz').then((m) => m.KanjiQuiz),
   },
+  // Bảng chữ bài giảng — âm On / Kun, Hán Việt, viết chữ. Cũng phải đứng trước /kanji/:id.
+  {
+    path: r(PATH.kanjiOnKun),
+    title: 'route.kanjiOnKun',
+    loadComponent: () => import('./features/kanji-onkun/kanji-onkun').then((m) => m.KanjiOnKun),
+  },
   {
     path: r(PATH.kanji),
     title: 'route.kanji',

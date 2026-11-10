@@ -78,6 +78,7 @@ export const NAV_GROUPS: readonly NavGroup[] = [
       { path: PATH.kanji, labelKey: 'app.nav.kanji' },
       { path: PATH.radicals, labelKey: 'app.nav.radical' },
       { path: PATH.kanjiQuiz, labelKey: 'app.sub.kanjiQuiz' },
+      { path: PATH.kanjiOnKun, labelKey: 'app.sub.kanjiOnKun' },
     ],
   },
   {

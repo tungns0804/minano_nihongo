@@ -1,10 +1,11 @@
 /**
- * Khối "Chữ Hán trong bài" của bài từ vựng N3: âm On / Kun của từng chữ, ví dụ lấy ngay
- * từ bảng từ của bài, và hai dạng luyện nhớ âm.
+ * Thẻ học âm On / Kun / Hán Việt của từng chữ và năm dạng luyện — ở hai nơi: khối "Chữ Hán
+ * trong bài" của bài từ vựng N3 (ví dụ là từ của bài), và tab Kanji › Âm On/Kun (chữ trên
+ * bảng bài giảng, `kanji-boards.data.ts`).
  *
  * File này chỉ có kiểu và hằng — nhẹ, nằm được trong gói chính (`practice.model.ts` cần
  * tên dạng luyện để gọi tên phiên). Phần dựng dữ liệu kéo theo bảng âm 73 kB nên nằm ở
- * `onkun-study.ts`, chỉ nạp khi mở bài N3.
+ * `onkun-study.ts`, chỉ nạp khi cần.
  */
 
 import type { MessageKey } from '../i18n/messages';
@@ -49,23 +50,33 @@ export interface LessonKanjiExample {
 }
 
 export interface LessonKanji {
-  /** Id chữ ở khu Kanji — link sang trang chữ, và khoá ★ "chữ chưa nhớ âm" của bài. */
+  /** Id chữ ở khu Kanji — link sang trang chữ, và khoá ★ "chữ chưa nhớ âm". */
   id: string;
   char: string;
   hanViet: string;
+  /** Các âm Hán Việt khác của chính chữ (行 HÀNH/HÀNG) — gõ âm nào cũng tính đúng. */
+  altHanViet: readonly string[];
   on: readonly LessonReading[];
   kun: readonly LessonReading[];
   examples: readonly LessonKanjiExample[];
+  /** Có dữ liệu nét để viết bằng chuột (KanjiVG thiếu vài chữ hiếm). */
+  drawable: boolean;
+  /** Chữ thầy tô vàng trên bảng bài giảng; luôn false ở bài từ vựng. */
+  marked: boolean;
 }
 
 // ── Dạng luyện ───────────────────────────────────────────────────────────
 
 /**
+ *  - `onkun-all`      tổng hợp: mỗi chữ hỏi âm Hán Việt, âm On, âm Kun (tối đa ba câu).
+ *  - `onkun-hanviet`  nhìn chữ, nhớ âm Hán Việt.
  *  - `onkun-reading`  nhìn chữ, nhớ âm On (một câu) và âm Kun (một câu) của nó.
- *  - `onkun-in-word`  chữ gạch chân trong một từ của bài đọc là gì — mỗi cặp chữ × từ
- *                     một câu; lựa chọn nhiễu là chính các âm khác của chữ đó.
+ *  - `onkun-in-word`  chữ gạch chân trong một từ ví dụ đọc là gì — mỗi cặp chữ × từ một
+ *                     câu; lựa chọn nhiễu là chính các âm khác của chữ đó.
+ *  - `onkun-draw`     nhìn âm Hán Việt và một từ ví dụ (cách đọc + nghĩa), viết chữ bằng
+ *                     chuột — dùng chung phần chấm nét của khu Kanji.
  */
-export type OnKunMode = 'onkun-reading' | 'onkun-in-word';
+export type OnKunMode = 'onkun-all' | 'onkun-hanviet' | 'onkun-reading' | 'onkun-in-word' | 'onkun-draw';
 
 export interface OnKunModeInfo {
   id: OnKunMode;
@@ -75,6 +86,18 @@ export interface OnKunModeInfo {
 }
 
 export const ON_KUN_MODES: readonly OnKunModeInfo[] = [
+  {
+    id: 'onkun-all',
+    labelKey: 'onkun.mode.all',
+    shortKey: 'onkun.mode.all.short',
+    exampleKey: 'onkun.mode.all.example',
+  },
+  {
+    id: 'onkun-hanviet',
+    labelKey: 'onkun.mode.hanViet',
+    shortKey: 'onkun.mode.hanViet.short',
+    exampleKey: 'onkun.mode.hanViet.example',
+  },
   {
     id: 'onkun-reading',
     labelKey: 'onkun.mode.reading',
@@ -87,6 +110,12 @@ export const ON_KUN_MODES: readonly OnKunModeInfo[] = [
     shortKey: 'onkun.mode.inWord.short',
     exampleKey: 'onkun.mode.inWord.example',
   },
+  {
+    id: 'onkun-draw',
+    labelKey: 'onkun.mode.draw',
+    shortKey: 'onkun.mode.draw.short',
+    exampleKey: 'onkun.mode.draw.example',
+  },
 ];
 
 export function onKunModeInfo(id: OnKunMode): OnKunModeInfo {
@@ -94,9 +123,9 @@ export function onKunModeInfo(id: OnKunMode): OnKunModeInfo {
 }
 
 /**
- * Khoá ★ "chữ chưa nhớ âm" của một bài. Riêng khỏi khoá ★ của bài (id bài, giữ id TỪ):
- * chung khoá thì số ★ trên thẻ bài cộng lẫn chữ với từ, và nút "Xoá ★" của bảng từ xoá
- * luôn ★ của chữ.
+ * Khoá ★ "chữ chưa nhớ âm" của một bài (hay của trang bảng chữ bài giảng). Riêng khỏi
+ * khoá ★ của bài (id bài, giữ id TỪ): chung khoá thì số ★ trên thẻ bài cộng lẫn chữ với
+ * từ, và nút "Xoá ★" của bảng từ xoá luôn ★ của chữ.
  */
 export function onKunFavoriteKey(lessonId: string): string {
   return `${lessonId}#am-on-kun`;
@@ -107,14 +136,34 @@ export function isQuizzableExample(example: LessonKanjiExample): boolean {
   return (example.sound === 'on' || example.sound === 'kun') && example.said.length > 0;
 }
 
+/** Chữ nào đem vào được dạng luyện: dạng viết bỏ chữ không có nét mẫu. */
+export function onKunPool(kanji: readonly LessonKanji[], mode: OnKunMode): readonly LessonKanji[] {
+  return mode === 'onkun-draw' ? kanji.filter((item) => item.drawable) : kanji;
+}
+
 /** Số câu một dạng luyện sinh ra từ các chữ — dòng "sẽ luyện N câu" phải nói đúng trước. */
 export function onKunQuestionCount(kanji: readonly LessonKanji[], mode: OnKunMode): number {
   let count = 0;
-  for (const item of kanji) {
-    count +=
-      mode === 'onkun-reading'
-        ? Number(item.on.length > 0) + Number(item.kun.length > 0)
-        : item.examples.filter(isQuizzableExample).length;
+  for (const item of onKunPool(kanji, mode)) {
+    const hanViet = Number(item.hanViet.length > 0);
+    const readings = Number(item.on.length > 0) + Number(item.kun.length > 0);
+    switch (mode) {
+      case 'onkun-all':
+        count += hanViet + readings;
+        break;
+      case 'onkun-hanviet':
+        count += hanViet;
+        break;
+      case 'onkun-reading':
+        count += readings;
+        break;
+      case 'onkun-in-word':
+        count += item.examples.filter(isQuizzableExample).length;
+        break;
+      case 'onkun-draw':
+        count += 1;
+        break;
+    }
   }
   return count;
 }

@@ -14,7 +14,10 @@
  *  - mọi chữ của khối "Chữ Hán trong bài" có âm, có ít nhất một từ ví dụ, và cách đọc
  *    chia ba khúc ghép lại đúng bằng cách đọc in ra;
  *  - vài từ mẫu căn ra đúng âm (On / Kun, biến âm, okurigana lược, cụm đọc đặc biệt) —
- *    sửa thuật toán căn mà làm lệch những ca này là dạy sai.
+ *    sửa thuật toán căn mà làm lệch những ca này là dạy sai;
+ *  - bảng chữ bài giảng (`kanji-boards.data.ts`): chữ có ở khu Kanji và có âm, không trùng
+ *    giữa các bảng, chữ tô vàng nằm trong bảng, từ ví dụ viết tay chứa chữ của nó và căn
+ *    được, và mỗi thẻ có ít nhất hai ví dụ, trong đó có từ căn ra âm On / Kun.
  *
  * Chạy: npm run verify:kanji-readings
  */
@@ -36,7 +39,8 @@ const { JOYO_READINGS, JOYO_SPECIAL_WORDS } = await import(pathToFileURL(join(KA
 const { EXTRA_READINGS, alignReading, readingsOf, isKanji } = await import(
   pathToFileURL(join(KANJI, 'kanji-readings.ts'))
 );
-const { lessonKanjiOf } = await import(pathToFileURL(join(KANJI, 'onkun-study.ts')));
+const { lessonKanjiOf, boardKanjiOf } = await import(pathToFileURL(join(KANJI, 'onkun-study.ts')));
+const { KANJI_BOARDS, BOARD_EXAMPLES } = await import(pathToFileURL(join(KANJI, 'kanji-boards.data.ts')));
 // Dựng lại danh sách chữ từ file sinh ra, như verify-kanji-quiz: `kanji-entries.ts` lẫn tên
 // kiểu trong import giá trị nên --experimental-strip-types không nạp được.
 const { KANJI_SEEDS } = await import(pathToFileURL(join(KANJI, 'kanji-words.generated.ts')));
@@ -169,7 +173,53 @@ for (const { folder, words } of n3Lessons) {
   }
 }
 
-log(`${c.bold}Kiem tra am On / Kun cua bai tu vung N3${c.reset}`);
+// ── Bảng chữ bài giảng ─────────────────────────────────────────────────
+
+const boardOf = new Map();
+const cells = [];
+for (const board of KANJI_BOARDS) {
+  const where = `bang ${board.board}`;
+  for (const char of board.marked) if (!board.chars.includes(char)) fail(where, `chu to vang ${char} khong co tren bang`);
+  for (const char of board.chars) {
+    if (boardOf.has(char)) fail(where, `${char} da co o bang ${boardOf.get(char)}`);
+    boardOf.set(char, board.board);
+    const entry = ENTRY_BY_CHAR.get(char);
+    if (!entry) {
+      fail(where, `${char} khong co o khu Kanji (khong co trang chu, khong co am Han Viet)`);
+      continue;
+    }
+    if (!readingsOf(char)) fail(where, `${char} khong co am On / Kun`);
+    cells.push({ entry, examples: BOARD_EXAMPLES[char] ?? [], marked: board.marked.includes(char) });
+  }
+}
+for (const [char, list] of Object.entries(BOARD_EXAMPLES)) {
+  if (!boardOf.has(char)) fail(`BOARD_EXAMPLES ${char}`, 'chu khong co tren bang nao');
+  for (const item of list) {
+    const [word, reading, meaning, extra] = item.split('|');
+    const where = `BOARD_EXAMPLES ${char} ${word}`;
+    if (!word || !reading || !meaning || extra !== undefined) fail(where, `can dung "tu|cach doc|nghia": "${item}"`);
+    else if (!word.includes(char)) fail(where, `tu khong chua chu ${char}`);
+    else if (!alignReading(word, reading)) fail(where, `khong can duoc cach doc "${reading}"`);
+  }
+}
+/**
+ * Chữ mà trong khoảng N5–N3 chỉ có đúng một từ thông dụng — từ thứ hai nào cũng là N1
+ * (召 chỉ có 召し上がる, 簡 chỉ có 簡単, 因 chỉ có 原因). Thêm từ N1 cho đủ hai là làm ví dụ
+ * khó hơn chính chữ cần học.
+ */
+const ONE_COMMON_WORD = new Set(['召', '簡', '因']);
+
+let boardCards = 0;
+for (const card of boardKanjiOf(cells)) {
+  boardCards++;
+  const where = `bang ${boardOf.get(card.char)} ${card.char}`;
+  if (card.examples.length < 2 && !ONE_COMMON_WORD.has(card.char)) fail(where, `chi co ${card.examples.length} tu vi du — them vao BOARD_EXAMPLES`);
+  if (!card.examples.some((example) => example.sound === 'on' || example.sound === 'kun')) {
+    fail(where, 'khong tu vi du nao can ra am On / Kun');
+  }
+}
+
+log(`${c.bold}Kiem tra am On / Kun cua bai tu vung N3 va bang chu bai giang${c.reset}`);
 if (problems.length > 0) {
   for (const problem of problems) log(`${c.red}[LOI] ${problem}${c.reset}`);
   log(`${c.red}${problems.length} loi.${c.reset}`);
@@ -177,6 +227,7 @@ if (problems.length > 0) {
 } else {
   log(
     `${c.green}OK: ${joyoCount} chu thuong dung, ${SAMPLES.length} tu mau; ${n3Lessons.length} bai N3 - ` +
-      `${wordCount} tu co chu Han deu can duoc, ${kanjiCount} the chu du am va vi du.${c.reset}`,
+      `${wordCount} tu co chu Han deu can duoc, ${kanjiCount} the chu du am va vi du; ` +
+      `${KANJI_BOARDS.length} bang bai giang - ${boardCards} the chu.${c.reset}`,
   );
 }

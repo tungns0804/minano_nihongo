@@ -1,0 +1,6 @@
+/* Thẻ chữ và khung luyện nằm ở `shared/kanji-study.*`; trang này chỉ có hàng chọn bảng. */
+
+/* Nút bảng ghi cả ba chữ đầu bảng (駐無満…) — chữ Nhật nằm lẫn trong nhãn tiếng Việt. */
+.jp-mix {
+  font-family: var(--font-ui), var(--font-jp);
+}

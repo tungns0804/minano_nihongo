@@ -79,7 +79,8 @@ src/app/
       joyo-readings.data.ts      Âm On / Kun của 2.136 chữ + 付表 — chép từ 常用漢字表, NẠP ĐỘNG
       kanji-readings.ts          Tách âm On / Kun; căn cách đọc của một từ vào từng chữ
       onkun.model.ts             Kiểu + dạng luyện của khối "Chữ Hán trong bài" (nhẹ, gói chính)
-      onkun-study.ts             Dựng thẻ chữ của một bài N3 từ bảng từ — NẠP ĐỘNG
+      onkun-study.ts             Dựng thẻ chữ (bài N3, bảng bài giảng) — NẠP ĐỘNG
+      kanji-boards.data.ts       300 chữ trên 8 bảng bài giảng + từ ví dụ viết tay — CHÉP TAY
     topics/
       topic.model.ts             Kiểu dữ liệu + hàm dựng bài học của khu Chủ đề
       topic-list.ts              20 chủ đề: tên + danh sách từ — KHAI TAY, chỉ script đọc
@@ -147,7 +148,7 @@ src/app/
     today/                       Trang Hôm nay (/) — ôn tập đến hạn, học tiếp, tiến độ N3
     lesson-list/                 Từ vựng → Minano (/tu-vung) — chỉ bài từ vựng
     lesson-detail/               Bảng từ vựng + thiết lập luyện tập (dùng cho cả chủ đề, bài động từ, bài hội thoại);
-                                 lesson-kanji.* là khối "Chữ Hán trong bài" của bài N3 (thẻ âm On / Kun + luyện)
+                                 khối "Chữ Hán trong bài" của bài N3 là shared/kanji-study.*
     topic-list/                  Tab Từ vựng chủ đề — lưới 20 chủ đề
     grammar-list/                Tab Ngữ pháp — danh sách bài
     grammar-detail/              Lý thuyết một bài ngữ pháp + thiết lập luyện tập
@@ -156,6 +157,7 @@ src/app/
     n4-grammar/                  Màn hình của mọi sách ngữ pháp: lý thuyết + lộ trình năm bậc
     n3-progress/                 Tab Tiến độ N3 — phần trăm, nhịp học mỗi ngày, bảng kiểm soát
     kanji-list/                  Tab Kanji — lưới chữ Hán + luyện âm Hán Việt
+    kanji-onkun/                 Tab Kanji › Âm On/Kun — chọn bảng chữ bài giảng (thẻ + luyện ở shared/kanji-study)
     kanji-detail/                Một chữ: các từ dùng chữ đó + luyện từ
     radical-list/                Tab Bộ thủ — lưới 214 bộ + luyện âm Hán Việt
     radical-detail/              Một bộ: các chữ ghép từ bộ đó + luyện chữ

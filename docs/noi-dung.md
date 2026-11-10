@@ -452,13 +452,49 @@ nghiệm hay gõ như bảng từ):
 
 | Dạng | Hỏi | Đáp án | Lựa chọn nhiễu |
 | --- | --- | --- | --- |
+| Tổng hợp (mặc định) | ba câu liền nhau cho mỗi chữ: Hán Việt, On, Kun (thiếu loại âm nào thì bớt câu đó) | như ba dạng dưới | như ba dạng dưới |
+| Chữ → âm Hán Việt | `冷` | `LÃNH` (gõ âm nào trong các âm của chữ cũng đúng; "Bỏ qua dấu" có tác dụng) | âm Hán Việt của chữ khác |
 | Chữ → âm On, âm Kun | `冷` — âm On? / âm Kun? (mỗi chữ hai câu) | `れい` / `ひ・やす` (gõ âm nào của loại đó cũng đúng, hiragana hay katakana) | một âm loại kia của chính chữ đó + âm cùng loại của chữ khác trong bài |
-| Đọc chữ gạch chân trong từ | `<u>冷</u>蔵庫` (từ của bài, kèm nghĩa) | phần đọc đúng như trong từ, kể cả biến âm: `れい`, 誕生 → `じょう` | các âm khác của chính chữ đó |
+| Đọc chữ gạch chân trong từ | `<u>冷</u>蔵庫` (từ ví dụ, kèm nghĩa) | phần đọc đúng như trong từ, kể cả biến âm: `れい`, 誕生 → `じょう` | các âm khác của chính chữ đó |
+| Viết chữ | `LÃNH` + gợi ý `れいぞうこ — tủ lạnh` | viết 冷 bằng chuột, chấm từng nét như khu Kanji | — (chữ chưa có nét mẫu bị bỏ, khung thiết lập báo số chữ bỏ) |
 
-Phiên luyện là phiên của **bài** (`lessonKind: vocabulary`, cờ `onKunMode`): kết quả, "học cụm sau" và
-nút quay lại về đúng trang bài. ★ của câu là ★ của **chữ**, lưu ở khoá riêng `<id bài>#am-on-kun` —
-không lẫn vào ★ từ vựng của bài và không bị nút "Xoá ★" của bảng từ xoá. Câu âm On / Kun **không vào
-lịch ôn**: lịch của bài từ vựng là lịch của TỪ.
+Phiên luyện là phiên của nơi mở nó (cờ `onKunMode`): ở bài N3 là phiên của **bài** (`lessonKind:
+vocabulary`), ở tab Kanji › Âm On/Kun là bài tập `am-on-kun` — kết quả, "học cụm sau" và nút quay lại
+về đúng trang. ★ của câu là ★ của **chữ**, lưu ở khoá riêng `<id>#am-on-kun` — không lẫn vào ★ từ
+vựng của bài và không bị nút "Xoá ★" của bảng từ xoá. Câu âm On / Kun **không vào lịch ôn**: lịch
+của bài từ vựng là lịch của TỪ.
+
+#### Tab Kanji › Âm On/Kun — bảng chữ bài giảng
+
+`/kanji/am-on-kun`: 300 chữ chép từ tám ảnh bảng của bài giảng Kanji người dùng gửi ngày 2026-11-10
+([`kanji-boards.data.ts`](../src/app/core/kanji/kanji-boards.data.ts)), đúng thứ tự trên bảng, mỗi ảnh
+một "bảng". Hàng bị cắt ở mép trên ảnh 5, 6, 7 thì bỏ. Chữ thầy tô vàng (104 chữ) giữ dấu đó: nền vàng
+trên thẻ, và công tắc "Chỉ chữ tô vàng trên bảng". Ảnh chụp ở các buổi khác nhau nên "tô vàng" là
+"đã giảng tới lúc chụp", không phải danh sách học xong cố định.
+
+| Bảng | Chữ đầu | Số chữ | Tô vàng |
+| --- | --- | --- | --- |
+| 1 | 駐無満… | 50 | 20 |
+| 2 | 未末若… | 50 | 18 |
+| 3 | 防救警… | 20 | 13 |
+| 4 | 召必費… | 40 | 29 |
+| 5 | 了登録… | 40 | 10 |
+| 6 | 念涙笑… | 10 | 1 |
+| 7 | 想練最… | 40 | 2 |
+| 8 | 震波求… | 50 | 11 |
+
+Thẻ và khung luyện là cùng khối với bài N3 (`shared/kanji-study`). Ví dụ của mỗi chữ, tối đa bốn từ:
+
+1. **Từ viết tay** (`BOARD_EXAMPLES`): từ thầy ghi trên bảng (関係, 信じる, 血圧, 返事, 石けん, 津波,
+   募集…) đứng đầu; rồi từ bù cho chữ kho từ chưa có ví dụ (各, 券, 鼻, 般…) hoặc thiếu một loại âm
+   (過 thêm 過去 — On; 全 thêm 全く — Kun). Tất cả trong khoảng N5–N3.
+2. **Từ trong kho** của khu Kanji (đã lọc N5–N3, bỏ cụm như 値段が上がります), ưu tiên từ dùng một âm
+   chưa có ví dụ, rồi từ cấp thấp. Dạng ます của một từ đã có (押します cạnh 押す) không lặp lại.
+
+`verify:kanji-readings` soát cả tám bảng: chữ có ở khu Kanji, không trùng giữa các bảng, từ viết tay
+chứa chữ của nó và căn được âm, mỗi thẻ ít nhất hai ví dụ — trừ 召, 簡, 因, ba chữ mà trong khoảng
+N5–N3 chỉ có một từ thông dụng (召し上がる, 簡単, 原因). Thêm bảng mới: nối một mục vào `KANJI_BOARDS`
+với số bảng kế tiếp, chạy script, viết tay ví dụ cho chữ nào script báo thiếu.
 
 ### Các phần luyện tập
 

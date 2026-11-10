@@ -204,10 +204,18 @@ function surfacesOf(readings: KanjiReadings, first: boolean, last: boolean, writ
 }
 
 /**
+ * Cụm đọc đặc biệt khai thêm, ngoài 付表. 日本: bảng thường dụng không ghi âm に của 日, nên
+ * không có dòng này thì mọi từ có 日本 (日本製, 日本酒) đều không căn được.
+ */
+const EXTRA_SPECIAL_WORDS: readonly (readonly [word: string, reading: string])[] = [
+  ['日本', 'にほん/にっぽん'],
+];
+
+/**
  * Cụm đọc đặc biệt đem ra so, đã bỏ đuôi kana: 付表 ghi 手伝う (てつだう) nhưng bài có
  * 手伝い (てつだい) — so phần 手伝 / てつだ, còn đuôi い khớp như kana thường.
  */
-const SPECIAL_WORDS: readonly (readonly [string, string])[] = JOYO_SPECIAL_WORDS.flatMap(
+const SPECIAL_WORDS: readonly (readonly [string, string])[] = [...JOYO_SPECIAL_WORDS, ...EXTRA_SPECIAL_WORDS].flatMap(
   ([word, readings]) =>
     readings.split('/').map((reading) => {
       const tail = /[ぁ-ゖ]+$/.exec(word)?.[0] ?? '';

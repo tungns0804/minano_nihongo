@@ -225,6 +225,18 @@ export const KANJI_MESSAGES = {
     vi: 'Bấm ☆ trên thẻ chữ để đánh dấu chữ chưa nhớ âm, rồi luyện riêng nhóm đó.',
     ja: '漢字カードの☆を押して、読みを覚えていない字に印を付け、その字だけを練習できます。',
   },
+  'onkun.mode.all': { vi: 'Tổng hợp: Hán Việt + On + Kun', ja: '総合：漢越音＋音読み＋訓読み' },
+  'onkun.mode.all.short': { vi: 'Hán Việt + On / Kun', ja: '漢越音＋音訓' },
+  'onkun.mode.all.example': {
+    vi: '冷 → LÃNH · On れい · Kun つめ・たい (mỗi chữ ba câu)',
+    ja: '冷 → LÃNH・音 れい・訓 つめ・たい（1字3問）',
+  },
+  'onkun.mode.hanViet': { vi: 'Chữ → âm Hán Việt', ja: '漢字 → 漢越音' },
+  'onkun.mode.hanViet.short': { vi: 'Âm Hán Việt', ja: '漢越音' },
+  'onkun.mode.hanViet.example': { vi: '冷 → LÃNH', ja: '冷 → LÃNH' },
+  'onkun.mode.draw': { vi: 'Viết chữ', ja: '漢字を書く' },
+  'onkun.mode.draw.short': { vi: 'Viết chữ', ja: '書き取り' },
+  'onkun.mode.draw.example': { vi: 'LÃNH · れいぞうこ — tủ lạnh → viết 冷', ja: 'LÃNH・れいぞうこ → 冷 を書く' },
   'onkun.mode.reading': { vi: 'Chữ → âm On, âm Kun', ja: '漢字 → 音読み・訓読み' },
   'onkun.mode.reading.short': { vi: 'Âm On / Kun', ja: '音読み・訓読み' },
   'onkun.mode.reading.example': {
@@ -242,7 +254,29 @@ export const KANJI_MESSAGES = {
   'onkun.label.inWord': { vi: 'Chữ gạch chân đọc là gì?', ja: '下線の漢字の読みは？' },
   'onkun.col.on': { vi: 'Âm On', ja: '音読み' },
   'onkun.col.kun': { vi: 'Âm Kun', ja: '訓読み' },
-  'onkun.col.examples': { vi: 'Từ trong bài', ja: 'この課の単語' },
+  'onkun.col.examples': { vi: 'Từ ví dụ', ja: '例' },
   'onkun.col.inWordOn': { vi: 'Trong từ này (âm On)', ja: 'この語での読み（音）' },
   'onkun.col.inWordKun': { vi: 'Trong từ này (âm Kun)', ja: 'この語での読み（訓）' },
+
+  // ── Tab Kanji › Âm On/Kun: bảng chữ bài giảng (features/kanji-onkun) ──
+  'onkunBoard.name': { vi: 'Âm On / Kun · Hán Việt — bảng chữ bài giảng', ja: '講義の漢字表 — 音読み・訓読み・漢越音' },
+  'onkunBoard.desc': {
+    vi: 'Các chữ trên bảng của bài giảng, đúng thứ tự trên bảng. Học thẻ từng chữ — âm Hán Việt, âm On, âm Kun và từ ví dụ N5–N3 — rồi luyện: tổng hợp cả ba âm, từng loại âm, đọc chữ trong từ, hoặc viết chữ.',
+    ja: '講義の板書の漢字を板書の順に並べています。字ごとのカード（漢越音・音読み・訓読み・N5〜N3の例）で覚えてから、総合・音の種類別・語中の読み・書き取りで練習します。',
+  },
+  'onkunBoard.boards': { vi: 'Bảng', ja: '板書' },
+  'onkunBoard.board': { vi: 'Bảng {board} · {preview}… ({count})', ja: '板書{board}・{preview}…（{count}）' },
+  'onkunBoard.allBoards': { vi: 'Cả {count} bảng', ja: '全{count}枚' },
+  'onkunBoard.markedOnly': { vi: 'Chỉ chữ tô vàng trên bảng', ja: '黄色の字だけ' },
+  'onkunBoard.markedHint': {
+    vi: 'Chữ thầy tô vàng là chữ đã giảng tới lúc chụp bảng — {count} chữ trong các bảng đang chọn.',
+    ja: '黄色は撮影時点までに講義で扱った字です。選択中の板書で{count}字。',
+  },
+  'onkunBoard.count': { vi: '{count} chữ', ja: '{count}字' },
+  'onkunBoard.loading': { vi: 'Đang nạp chữ và âm đọc…', ja: '漢字と読みを読み込み中…' },
+  'onkunBoard.study.title': { vi: 'Chữ & từ ví dụ', ja: '漢字と例' },
+  'onkunBoard.study.desc': {
+    vi: 'Mỗi thẻ: âm Hán Việt, âm On (音読み), âm Kun (訓読み) và từ ví dụ N5–N3 — từ thầy ghi trên bảng đứng đầu. Phần gạch dưới trong cách đọc là phần của chữ; nhãn On / Kun cho biết từ đó dùng âm nào. Chữ nền vàng là chữ thầy tô vàng trên bảng. Bấm chữ để mở trang chữ (thứ tự nét, viết thử).',
+    ja: '各カード：漢越音・音読み・訓読み・N5〜N3の例（板書の語が先頭）。読みの下線部がその字の読みで、音／訓のラベルで読みの種類が分かります。黄色の字は板書で黄色だった字です。字を押すと字のページ（筆順・試し書き）が開きます。',
+  },
 } as const satisfies Record<string, Entry>;

@@ -645,10 +645,12 @@
       </section>
 
       <!-- ── Chữ Hán trong bài: thẻ âm On / Kun + khung luyện nhớ âm ─────── -->
-      <!-- Khối riêng (lesson-kanji.ts) vì nó có khung thiết lập và ★ của riêng nó — trên
-           CHỮ chứ không trên từ. Dựng lại khi sang bài khác: `resetView` xoá danh sách chữ. -->
+      <!-- Khối riêng (shared/kanji-study.ts) vì nó có khung thiết lập và ★ của riêng nó —
+           trên CHỮ chứ không trên từ. Dựng lại khi sang bài khác: `resetView` xoá danh sách chữ. -->
       @if (lessonKanji().length > 0) {
-        <app-lesson-kanji [lesson]="data" [kanji]="lessonKanji()" />
+        @if (kanjiTarget(); as target) {
+          <app-kanji-study [target]="target" [kanji]="lessonKanji()" />
+        }
       }
 
       <!-- Sang bài kề cùng loại mà không phải quay về danh sách. -->

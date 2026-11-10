@@ -1,6 +1,6 @@
 import type { MessageKey } from '../i18n/messages';
 import type { KanjiSound } from '../kanji/kanji-readings';
-import { isQuizzableExample, onKunFavoriteKey } from '../kanji/onkun.model';
+import { isQuizzableExample, onKunFavoriteKey, onKunPool } from '../kanji/onkun.model';
 import type { LessonKanji, LessonKanjiExample, LessonReading } from '../kanji/onkun.model';
 import { toKatakana } from '../utils/kana';
 import { shuffle } from '../utils/random';
@@ -14,35 +14,103 @@ import {
   recap,
   recapJp,
 } from './practice.model';
+import { acceptedAnswersOf } from './answer-check';
 import { limitAttempts } from './vocabulary-questions';
 
 /**
- * Câu hỏi của khối "Chữ Hán trong bài" (bài từ vựng N3) — hai dạng của `OnKunMode`:
+ * Câu hỏi của khối âm On / Kun — ở bài từ vựng N3 và ở tab Kanji › Âm On/Kun — theo năm
+ * dạng của `OnKunMode`:
  *
+ *  - `onkun-all`:     mỗi chữ ba câu liền nhau — âm Hán Việt, âm On, âm Kun (chữ thiếu
+ *                     loại âm nào thì bớt câu đó).
+ *  - `onkun-hanviet`: nhìn chữ, chọn / gõ âm Hán Việt.
  *  - `onkun-reading`: nhìn chữ, chọn / gõ âm On (một câu) và âm Kun (một câu) của nó.
- *  - `onkun-in-word`: một từ của bài, chữ đang học gạch chân — chữ đó đọc là gì.
+ *  - `onkun-in-word`: một từ ví dụ, chữ đang học gạch chân — chữ đó đọc là gì.
+ *  - `onkun-draw`:    nhìn âm Hán Việt và một từ ví dụ, viết chữ bằng chuột.
  *
- * ★ của mọi câu là ★ của CHỮ (id chữ ở khu Kanji), lưu ở khoá riêng `onKunFavoriteKey`
- * của bài: người học đánh dấu "chữ chưa nhớ âm", không phải từng câu. Câu không vào lịch
- * ôn (xem `itemTypeOf` ở
- * `review.model.ts`) — lịch ôn của bài từ vựng là lịch của TỪ, đọc đúng một chữ trong từ
- * không có nghĩa là đã nhớ từ đó.
+ * ★ của mọi câu là ★ của CHỮ (id chữ ở khu Kanji), lưu ở khoá riêng `onKunFavoriteKey`:
+ * người học đánh dấu "chữ chưa nhớ âm", không phải từng câu. Câu không vào lịch ôn (xem
+ * `itemTypeOf` ở `review.model.ts`) — lịch ôn của bài từ vựng là lịch của TỪ, đọc đúng một
+ * chữ trong từ không có nghĩa là đã nhớ từ đó.
  */
 export function buildOnKunQuestions(
   pool: readonly LessonKanji[],
   all: readonly LessonKanji[],
   config: PracticeConfig,
 ): PracticeQuestion[] {
-  if (config.onKunMode === 'onkun-in-word') {
-    return pool.flatMap((kanji) =>
-      kanji.examples.filter(isQuizzableExample).map((example) => inWordQuestion(kanji, example, all, config)),
-    );
-  }
-  return pool.flatMap((kanji) =>
+  const mode = config.onKunMode ?? 'onkun-all';
+  const readings = (kanji: LessonKanji) =>
     (['on', 'kun'] as const)
       .filter((sound) => kanji[sound].length > 0)
-      .map((sound) => readingQuestion(kanji, sound, all, config)),
-  );
+      .map((sound) => readingQuestion(kanji, sound, all, config));
+  const hanViet = (kanji: LessonKanji) => (kanji.hanViet ? [hanVietQuestion(kanji, all, config)] : []);
+
+  return onKunPool(pool, mode).flatMap((kanji) => {
+    switch (mode) {
+      case 'onkun-all':
+        return [...hanViet(kanji), ...readings(kanji)];
+      case 'onkun-hanviet':
+        return hanViet(kanji);
+      case 'onkun-reading':
+        return readings(kanji);
+      case 'onkun-in-word':
+        return kanji.examples.filter(isQuizzableExample).map((example) => inWordQuestion(kanji, example, all, config));
+      case 'onkun-draw':
+        return [drawQuestion(kanji, config)];
+    }
+  });
+}
+
+/**
+ * Hỏi âm Hán Việt của chữ. Gõ âm nào trong các âm của chữ cũng đúng (行 HÀNH / HÀNG), bỏ
+ * dấu được nếu người học bật "Bỏ qua dấu"; lựa chọn nhiễu là âm Hán Việt của các chữ khác.
+ * Không có gợi ý âm Hán Việt — chính nó là đáp án.
+ */
+function hanVietQuestion(kanji: LessonKanji, all: readonly LessonKanji[], config: PracticeConfig): PracticeQuestion {
+  const correctAnswer = kanji.hanViet;
+  const valid = [kanji.hanViet, ...kanji.altHanViet];
+  const choices =
+    config.answerMode === 'choice'
+      ? buildChoices(
+          correctAnswer,
+          valid,
+          shuffle(all.filter((item) => item.char !== kanji.char)).map((item) => item.hanViet),
+        )
+      : [];
+
+  return makeQuestion({
+    subject: subjectOf(kanji, readingsLine(kanji)),
+    labelKey: 'kanji.label.kanjiHanViet',
+    prompt: kanji.char,
+    correctAnswer,
+    acceptedAnswers: [...new Set(valid.flatMap(acceptedAnswersOf))],
+    answerPromptKey: 'practice.answerPrompt.hanViet',
+    choices,
+    maxWrongAttempts: limitAttempts(config.maxWrongAttempts, config.answerMode, choices.length),
+    favoriteKey: onKunFavoriteKey(config.lessonId),
+  });
+}
+
+/**
+ * Viết chữ từ âm Hán Việt, kèm một từ ví dụ ở dạng chỉ có cách đọc và nghĩa (れいぞうこ —
+ * tủ lạnh): đủ để nhớ ra chữ mà không bày sẵn mặt chữ. Chấm bằng phần chấm nét của khu
+ * Kanji (`drawChar`); phiên này là `answerMode: 'draw'`.
+ */
+function drawQuestion(kanji: LessonKanji, config: PracticeConfig): PracticeQuestion {
+  const example = kanji.examples.find(isQuizzableExample) ?? kanji.examples[0];
+  return makeQuestion({
+    subject: subjectOf(kanji, readingsLine(kanji)),
+    labelKey: 'kanji.label.draw',
+    prompt: kanji.hanViet || readingsLine(kanji),
+    promptIsJapanese: false,
+    hint: example ? `${example.reading} — ${example.meaning}` : null,
+    correctAnswer: kanji.char,
+    answerIsJapanese: true,
+    answerPromptKey: 'practice.answerPrompt.draw',
+    drawChar: kanji.char,
+    maxWrongAttempts: limitAttempts(config.maxWrongAttempts, 'draw', 0),
+    favoriteKey: onKunFavoriteKey(config.lessonId),
+  });
 }
 
 const READING_LABEL: Record<KanjiSound, MessageKey> = {

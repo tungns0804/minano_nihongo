@@ -59,7 +59,7 @@ import { VocabPhoto } from '../../shared/vocab-photo';
 import { PhotoViewer } from '../../shared/photo-viewer';
 import { LessonPager } from '../../shared/lesson-pager';
 import type { LessonKanji } from '../../core/kanji/onkun.model';
-import { LessonKanjiStudy } from './lesson-kanji';
+import { KanjiStudy, StudyTarget } from '../../shared/kanji-study';
 
 /**
  * Thiết lập mà bài TỪ VỰNG có sẵn khi mở ra — đúng bộ người học chụp gửi ngày
@@ -92,7 +92,7 @@ const VOCABULARY_DEFAULTS = {
 @Component({
   selector: 'app-lesson-detail',
   imports: [
-    LessonKanjiStudy,
+    KanjiStudy,
     LessonPager,
     PhotoViewer,
     PracticeSetup,
@@ -175,6 +175,11 @@ export class LessonDetail extends PracticeScreen {
    * chữ nạp xong.
    */
   readonly lessonKanji = signal<readonly LessonKanji[]>([]);
+  /** Phiên luyện âm On / Kun của khối chữ là phiên của chính bài này. */
+  readonly kanjiTarget = computed<StudyTarget | null>(() => {
+    const lesson = this.lesson();
+    return lesson ? { id: lesson.id, name: lesson.name, kind: 'lesson' } : null;
+  });
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
   readonly lines = computed(() => this.lesson()?.lines ?? []);
 
@@ -471,7 +476,7 @@ export class LessonDetail extends PracticeScreen {
   }
 
   /**
-   * Dựng khối "Chữ Hán trong bài" (xem `lesson-kanji.ts`).
+   * Dựng khối "Chữ Hán trong bài" (xem `shared/kanji-study.ts`).
    *
    * Nạp ĐỘNG kho chữ (~300 kB) và bảng âm On / Kun (~73 kB): trang bài học mở cho mọi
    * bài — bài nào không có khối này thì không phải tải chúng.

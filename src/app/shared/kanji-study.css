@@ -1,6 +1,7 @@
 /* Thẻ chữ (.study-…) và nhãn On / Kun (.sound-…) nằm ở `src/styles/shared.css` — dùng
-   chung với tab Kanji › Trắc nghiệm. File này chỉ giữ phần riêng của khối trong bài:
-   ★ trên thẻ, chữ đang xem được tô trong từ, và chế độ che âm để tự kiểm tra. */
+   chung với tab Kanji › Trắc nghiệm. File này chỉ giữ phần riêng của khối âm On / Kun:
+   ★ trên thẻ, chữ đang xem được tô trong từ, chữ "tô vàng" của bảng bài giảng, và chế độ
+   che âm để tự kiểm tra. */
 
 :host {
   display: block;
@@ -10,6 +11,13 @@
    hàng theo thẻ cao nhất thì các thẻ ngắn thành khoảng trống lớn. */
 .study-grid {
   align-items: start;
+}
+
+/* Chữ thầy tô vàng trên bảng bài giảng — tô lại đúng kiểu đó để nhận ra ngay. */
+.is-marked .study-char {
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  background: var(--warning-soft);
 }
 
 /* ★ ở góc phải đầu thẻ, ngang hàng chữ to. */

@@ -5,14 +5,14 @@
     <div class="card-body stack">
       <div class="stack stack-sm">
         <div class="row">
-          <h2>{{ t('lesson.kanji.title') }}</h2>
+          <h2>{{ t(titleKey()) }}</h2>
           <span class="badge">{{ t('kanji.kanjiCount', { count: kanji().length }) }}</span>
           <span class="spacer"></span>
           <button type="button" class="btn btn-sm" (click)="scrollToPractice()">
             ↓ {{ t('onkun.practice') }}
           </button>
         </div>
-        <p class="muted small"><app-t key="lesson.kanji.desc" block /></p>
+        <p class="muted small"><app-t [key]="descKey()" block /></p>
         <p class="faint small">{{ t('onkun.legend') }}</p>
       </div>
 
@@ -29,6 +29,7 @@
           <article
             class="study-kanji"
             [class.is-masked]="isHidden(item)"
+            [class.is-marked]="item.marked"
             [attr.role]="masked() ? 'button' : null"
             [attr.tabindex]="masked() ? 0 : null"
             [attr.aria-pressed]="masked() ? !isHidden(item) : null"
@@ -37,11 +38,11 @@
             (keydown.enter)="$event.target === $event.currentTarget && reveal(item)"
           >
             <header class="study-head">
-              <!-- ?bai= để trang chữ quay về đúng bài và lật "Chữ sau" theo thứ tự này. -->
+              <!-- ?bai= (chỉ khi đi từ một bài) để trang chữ quay về bài, lật "Chữ sau" theo bài. -->
               <a
                 class="study-char jp"
                 [routerLink]="itemPath(PATH.kanji, item.id)"
-                [queryParams]="{ bai: lesson().id }"
+                [queryParams]="linkParams()"
                 [title]="t('kanjiQuiz.study.open', { char: item.char })"
                 (click)="$event.stopPropagation()"
               >{{ item.char }}</a>
@@ -158,7 +159,22 @@
       </div>
     </div>
 
+    @if (isDrawing()) {
+      <div class="field">
+        <p class="muted small"><app-t key="kanji.drawNote" block /></p>
+        @if (missingStrokeCount() > 0) {
+          <span class="hint">{{ t('kanji.drawMissing', { count: missingStrokeCount() }) }}</span>
+        }
+      </div>
+    }
+
     <ng-container ngProjectAs="[setupAdvanced]">
+      @if (isDrawing()) {
+        <div class="field">
+          <span class="label">{{ t('lesson.answerMode') }}</span>
+          <p class="muted small">{{ t('lesson.answerMode.draw') }}</p>
+        </div>
+      } @else {
       <div class="field">
         <span class="label">{{ t('lesson.answerMode') }}</span>
         <div class="options">
@@ -180,6 +196,7 @@
           </button>
         </div>
       </div>
+      }
 
       <div class="field">
         <span class="label">{{ t('lesson.questionCount') }}</span>
@@ -250,6 +267,17 @@
               <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
             </span>
           </label>
+
+          <!-- Chỉ dạng có hỏi âm Hán Việt và đang gõ đáp án mới có dấu để mà bỏ qua. -->
+          @if (asksHanViet() && sessionAnswerMode() === 'typing') {
+            <label class="checkbox">
+              <input type="checkbox" [checked]="ignoreDiacritics()" (change)="toggleIgnoreDiacritics($event)" />
+              <span>
+                <strong><app-t key="lesson.option.ignoreDiacritics" block /></strong>
+                <span class="hint"><app-t key="lesson.option.ignoreDiacriticsHint" block /></span>
+              </span>
+            </label>
+          }
         </div>
       </div>
     </ng-container>
@@ -263,7 +291,7 @@
             [params]="{
               count: plannedQuestionCount(),
               mode: modeShort(),
-              answer: t(answerMode() === 'choice' ? 'lesson.plan.choice' : 'lesson.plan.typing'),
+              answer: t(planAnswerKey()),
               max: planMax()
             }"
           />

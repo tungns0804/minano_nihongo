@@ -285,11 +285,12 @@ export interface PracticeConfig {
    */
   radicalMode: RadicalMode;
 
-  // --- Riêng khối "Chữ Hán trong bài" của bài từ vựng N3 ---
+  // --- Riêng khối âm On / Kun (bài từ vựng N3, tab Kanji › Âm On/Kun) ---
   /**
    * Dạng luyện âm On / Kun (xem `core/kanji/onkun.model.ts`); null với mọi phiên khác.
-   * Phiên này mang `lessonKind: 'vocabulary'` và id của bài để kết quả, ★ và "cụm sau"
-   * quay về đúng bài — cờ này mới cho biết nó hỏi trên CHỮ chứ không trên từ.
+   * Phiên này mang loại bài và id của nơi mở nó (bài từ vựng, hay trang bài tập
+   * `am-on-kun`) để kết quả, ★ và "cụm sau" quay về đúng chỗ — cờ này mới cho biết nó
+   * hỏi trên CHỮ.
    */
   onKunMode: OnKunMode | null;
 
@@ -661,8 +662,8 @@ export interface SessionSummary {
 export function sessionShortKey(config: PracticeConfig): MessageKey {
   // Xét trước `lessonKind`: phiên ôn gom nhiều khu nên loại bài của nó không nói gì.
   if (config.review) return 'review.short';
-  // Phiên âm On / Kun vẫn là phiên của bài từ vựng (để kết quả quay về đúng bài), nên
-  // phải xét trước khi rơi xuống nhánh chiều luyện của bài từ vựng.
+  // Phiên âm On / Kun mang loại bài của nơi mở nó (bài từ vựng, trang bài tập), nên phải
+  // xét trước khi rơi xuống nhánh chiều luyện của loại bài đó.
   if (config.onKunMode) return onKunModeInfo(config.onKunMode).shortKey;
   if (config.lessonKind === 'radical') return radicalModeInfo(config.radicalMode).shortKey;
   if (config.lessonKind === 'kanji') return kanjiModeInfo(config.kanjiMode).shortKey;
@@ -689,7 +690,12 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     SCOPE_LABEL_KEY[config.scope],
   ];
 
-  if (config.lessonKind === 'radical') {
+  // Phiên âm On / Kun mang loại bài của nơi mở nó (bài từ vựng hay trang bài tập) — xét
+  // cờ của nó trước, không thì nhãn lại là chiều luyện của bảng từ hay của bài chuyển thể.
+  if (config.onKunMode) {
+    keys.push(onKunModeInfo(config.onKunMode).shortKey);
+    if (config.showHanViet && config.onKunMode !== 'onkun-hanviet') keys.push('lesson.option.showHanViet');
+  } else if (config.lessonKind === 'radical') {
     keys.push(radicalModeInfo(config.radicalMode).shortKey);
   } else if (config.lessonKind === 'kanji') {
     keys.push(kanjiModeInfo(config.kanjiMode).shortKey);
@@ -713,9 +719,6 @@ export function describeConfigKeys(config: PracticeConfig): MessageKey[] {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showFurigana) keys.push('translate.option.furigana');
     if (config.showGrammarHint) keys.push('translate.option.grammarHint');
-  } else if (config.onKunMode) {
-    keys.push(onKunModeInfo(config.onKunMode).shortKey);
-    if (config.showHanViet) keys.push('lesson.option.showHanViet');
   } else {
     keys.push(directionInfo(config.direction).shortKey);
     if (config.showHanViet && directionInfo(config.direction).supportsHanVietHint) {

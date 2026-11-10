@@ -1,0 +1,63 @@
+<div class="container page">
+  <div class="stack stack-xl">
+    <!-- ── Tiêu đề ─────────────────────────────────────────────────────── -->
+    <header class="stack stack-sm">
+      <h1>{{ t('onkunBoard.name') }}</h1>
+      <p class="muted">{{ t('onkunBoard.desc') }}</p>
+      <div class="row">
+        <span class="badge">{{ t('onkunBoard.count', { count: totalChars }) }}</span>
+        <span class="badge">{{ t('onkunBoard.allBoards', { count: boards.length }) }}</span>
+      </div>
+    </header>
+
+    <!-- ── Chọn chữ ──────────────────────────────────────────────────── -->
+    <!-- .setup: cùng bố cục với khung thiết lập (nhãn bên trái, nút dạng chip). -->
+    <section class="card">
+      <div class="card-body stack setup">
+        <div class="field">
+          <span class="label">{{ t('onkunBoard.boards') }}</span>
+          <div class="options">
+            @for (board of boards; track board.board) {
+              <button
+                type="button"
+                class="option"
+                [class.is-active]="isSelected(board)"
+                [attr.aria-pressed]="isSelected(board)"
+                (click)="toggleBoard(board)"
+              >
+                <span class="jp-mix">{{ boardLabel(board) }}</span>
+              </button>
+            }
+            <button type="button" class="option" [class.is-active]="allSelected()" (click)="selectAll()">
+              {{ t('onkunBoard.allBoards', { count: boards.length }) }}
+            </button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">{{ t('lesson.options') }}</span>
+          <div class="options">
+            <label class="checkbox">
+              <input type="checkbox" [checked]="markedOnly()" (change)="toggleMarkedOnly($event)" />
+              <span>
+                <strong>{{ t('onkunBoard.markedOnly') }}</strong>
+                <span class="hint">{{ t('onkunBoard.markedHint', { count: markedCount() }) }}</span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    @if (loading()) {
+      <div class="notice" role="status">{{ t('onkunBoard.loading') }}</div>
+    } @else {
+      <app-kanji-study
+        [target]="target()"
+        [kanji]="visible()"
+        titleKey="onkunBoard.study.title"
+        descKey="onkunBoard.study.desc"
+      />
+    }
+  </div>
+</div>

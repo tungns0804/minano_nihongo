@@ -49,6 +49,7 @@ export const PATH = {
   kanji: '/kanji',
   radicals: '/kanji/bo-thu',
   kanjiQuiz: '/kanji/trac-nghiem',
+  kanjiOnKun: '/kanji/am-on-kun',
 
   /** Gốc của nhóm Luyện tập — tự chuyển sang tab đầu (`translate`), không có trang riêng. */
   practiceGroup: '/luyen-tap',
@@ -139,6 +140,8 @@ const EXERCISE_PAGE: Readonly<Record<string, string>> = {
   'taisaku-n4': PATH.taisaku,
   // Trắc nghiệm Kanji theo bài là một tab của khu Kanji, không phải của nhóm Luyện tập.
   'trac-nghiem-kanji': PATH.kanjiQuiz,
+  // Bảng chữ bài giảng (âm On / Kun, Hán Việt) — cũng là một tab của khu Kanji.
+  'am-on-kun': PATH.kanjiOnKun,
 };
 
 /**

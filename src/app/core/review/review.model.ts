@@ -137,15 +137,16 @@ function itemTypeOf(
   config: Pick<PracticeConfig, 'lessonKind' | 'lessonId' | 'exercise' | 'exerciseMode'> &
     Partial<Pick<PracticeConfig, 'radicalMode' | 'onKunMode'>>,
 ): ReviewItemType | null {
+  // Luyện âm On / Kun (`onkun-questions.ts`, ở bài từ vựng N3 lẫn tab Kanji › Âm On/Kun):
+  // khoá của câu là CHỮ, không phải từ — ghi vào thẻ `w` thì đọc đúng một chữ lại đẩy lịch
+  // của một từ không hề được hỏi, còn ở trang bài tập thì rơi vào nhánh `ev` của bài chuyển
+  // thể. Phần này chưa có thẻ ôn riêng.
+  if (config.onKunMode) return null;
   // switch đủ mọi loại bài: thêm loại mới mà quên quyết định nó có vào lịch ôn hay
   // không thì TypeScript báo lỗi ngay ở đây.
   switch (config.lessonKind) {
     case 'vocabulary':
     case 'topic':
-      // Luyện âm On / Kun của chữ trong bài N3 (`onkun-questions.ts`): khoá của câu là
-      // CHỮ, không phải từ — ghi vào thẻ `w` thì đọc đúng một chữ lại đẩy lịch của một
-      // từ không hề được hỏi. Phần này chưa có thẻ ôn riêng.
-      if (config.onKunMode) return null;
       return 'w';
     case 'grammar':
       return 'g';
