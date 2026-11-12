@@ -10,6 +10,8 @@ import {
   isGrammarBookId,
 } from '../../core/exercises/exercise.model';
 import { COUNTER_ITEMS } from '../../core/exercises/counters';
+import { KANJI_BOARD_CHAR_COUNT, KANJI_BOARD_ID } from '../../core/kanji/kanji-boards.data';
+import { onKunFavoriteKey } from '../../core/kanji/onkun.model';
 import { EXERCISE_VERBS } from '../../core/exercises/exercise-verbs';
 import { TRANSITIVITY_PAIRS } from '../../core/exercises/transitive-pairs';
 import type { MessageKey } from '../../core/i18n/messages';
@@ -123,7 +125,8 @@ export class ExerciseList extends LessonBrowser {
         info.levels.length > 1
           ? `${info.levels[0]} → ${info.levels[info.levels.length - 1]}`
           : info.levels[0],
-      favoriteCount: counts[info.id] ?? 0,
+      // ★ của bài Kanji N3 là ★ "chữ chưa nhớ âm", lưu ở khoá riêng của khối âm On / Kun.
+      favoriteCount: counts[info.id === KANJI_BOARD_ID ? onKunFavoriteKey(info.id) : info.id] ?? 0,
     }));
   });
 
@@ -263,6 +266,8 @@ function itemCountOf(id: ExerciseId): number {
       return EXERCISE_VERBS.length;
     case 'so-dem':
       return COUNTER_ITEMS.length;
+    case 'am-on-kun':
+      return KANJI_BOARD_CHAR_COUNT;
     // Sách ngữ pháp, đề luyện N4 và trắc nghiệm Kanji không có thẻ ở trang này (xem
     // `allExercises`).
     case 'taisaku-n4':

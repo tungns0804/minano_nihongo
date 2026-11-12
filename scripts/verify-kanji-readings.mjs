@@ -15,7 +15,7 @@
  *    chia ba khúc ghép lại đúng bằng cách đọc in ra;
  *  - vài từ mẫu căn ra đúng âm (On / Kun, biến âm, okurigana lược, cụm đọc đặc biệt) —
  *    sửa thuật toán căn mà làm lệch những ca này là dạy sai;
- *  - bảng chữ bài giảng (`kanji-boards.data.ts`): chữ có ở khu Kanji và có âm, không trùng
+ *  - bảng chữ bài giảng (`kanji-boards.data.ts`, ví dụ ở `kanji-board-examples.data.ts`): chữ có ở khu Kanji và có âm, không trùng
  *    giữa các bảng, chữ tô vàng nằm trong bảng, từ ví dụ viết tay chứa chữ của nó và căn
  *    được, và mỗi thẻ có ít nhất hai ví dụ, trong đó có từ căn ra âm On / Kun.
  *
@@ -40,7 +40,8 @@ const { EXTRA_READINGS, alignReading, readingsOf, isKanji } = await import(
   pathToFileURL(join(KANJI, 'kanji-readings.ts'))
 );
 const { lessonKanjiOf, boardKanjiOf } = await import(pathToFileURL(join(KANJI, 'onkun-study.ts')));
-const { KANJI_BOARDS, BOARD_EXAMPLES } = await import(pathToFileURL(join(KANJI, 'kanji-boards.data.ts')));
+const { KANJI_BOARDS } = await import(pathToFileURL(join(KANJI, 'kanji-boards.data.ts')));
+const { BOARD_EXAMPLES } = await import(pathToFileURL(join(KANJI, 'kanji-board-examples.data.ts')));
 // Dựng lại danh sách chữ từ file sinh ra, như verify-kanji-quiz: `kanji-entries.ts` lẫn tên
 // kiểu trong import giá trị nên --experimental-strip-types không nạp được.
 const { KANJI_SEEDS } = await import(pathToFileURL(join(KANJI, 'kanji-words.generated.ts')));

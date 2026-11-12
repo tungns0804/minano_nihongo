@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { Router } from '@angular/router';
 
 import { LanguageStore } from '../../core/i18n/language-store';
-import { BOARD_EXAMPLES, KANJI_BOARDS, KANJI_BOARD_ID } from '../../core/kanji/kanji-boards.data';
+import { BOARD_EXAMPLES } from '../../core/kanji/kanji-board-examples.data';
+import { KANJI_BOARDS, KANJI_BOARD_CHAR_COUNT, KANJI_BOARD_ID } from '../../core/kanji/kanji-boards.data';
 import type { RawKanjiBoard } from '../../core/kanji/kanji-boards.data';
 import type { LessonKanji } from '../../core/kanji/onkun.model';
 import { pathOf } from '../../core/paths';
@@ -77,7 +78,7 @@ export class KanjiOnKun {
     this.markedOnly() ? this.inBoards().filter((card) => card.marked) : this.inBoards(),
   );
 
-  readonly totalChars = KANJI_BOARDS.reduce((sum, board) => sum + [...board.chars].length, 0);
+  readonly totalChars = KANJI_BOARD_CHAR_COUNT;
 
   constructor() {
     inject(RecentStore).record({

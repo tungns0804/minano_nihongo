@@ -456,6 +456,8 @@ nghiệm hay gõ như bảng từ):
 | Chữ → âm Hán Việt | `冷` | `LÃNH` (gõ âm nào trong các âm của chữ cũng đúng; "Bỏ qua dấu" có tác dụng) | âm Hán Việt của chữ khác |
 | Chữ → âm On, âm Kun | `冷` — âm On? / âm Kun? (mỗi chữ hai câu) | `れい` / `ひ・やす` (gõ âm nào của loại đó cũng đúng, hiragana hay katakana) | một âm loại kia của chính chữ đó + âm cùng loại của chữ khác trong bài |
 | Đọc chữ gạch chân trong từ | `<u>冷</u>蔵庫` (từ ví dụ, kèm nghĩa) | phần đọc đúng như trong từ, kể cả biến âm: `れい`, 誕生 → `じょう` | các âm khác của chính chữ đó |
+| Đề N3 · 問題1 漢字読み | `<u>関係</u>` + nghĩa (thay câu văn của đề); mỗi TỪ ví dụ một câu | `かんけい` (luôn trắc nghiệm) | đan xen các bẫy của đề thật: âm khác của chữ (せきけい), đục/trong (かんげい), trường âm (しょひ), っ (しゅけつ), âm ghép ゃゅょ (きんしょ), bỏ ん (かけい) — chỉ trong phần đọc của chữ Hán, không đụng okurigana; thiếu bẫy thì mượn cách đọc của từ khác cùng đuôi |
+| Đề N3 · 問題2 表記 | `<u>かんけい</u>` + nghĩa | `関係` (luôn trắc nghiệm) | thay chữ đang học bằng chữ trong bộ cùng âm, đúng loại âm từ đó dùng (観係・感係; 押す → 負す・折す), rồi chữ cùng âm đầu |
 | Viết chữ | `LÃNH` + gợi ý `れいぞうこ — tủ lạnh` | viết 冷 bằng chuột, chấm từng nét như khu Kanji | — (chữ chưa có nét mẫu bị bỏ, khung thiết lập báo số chữ bỏ) |
 
 Phiên luyện là phiên của nơi mở nó (cờ `onKunMode`): ở bài N3 là phiên của **bài** (`lessonKind:
@@ -464,9 +466,10 @@ về đúng trang. ★ của câu là ★ của **chữ**, lưu ở khoá riêng
 vựng của bài và không bị nút "Xoá ★" của bảng từ xoá. Câu âm On / Kun **không vào lịch ôn**: lịch
 của bài từ vựng là lịch của TỪ.
 
-#### Tab Kanji › Âm On/Kun — bảng chữ bài giảng
+#### Kanji luyện tập 320 từ có trong JLPT N3 — bảng chữ bài giảng
 
-`/kanji/am-on-kun`: 300 chữ chép từ tám ảnh bảng của bài giảng Kanji người dùng gửi ngày 2026-11-10
+`/kanji/am-on-kun` (tab "Luyện 320 chữ N3" của khu Kanji, tên và thẻ ở Luyện tập › Bài tập do người dùng
+đặt ngày 2026-11-10): 300 chữ chép từ tám ảnh bảng của bài giảng Kanji người dùng gửi ngày 2026-11-10
 ([`kanji-boards.data.ts`](../src/app/core/kanji/kanji-boards.data.ts)), đúng thứ tự trên bảng, mỗi ảnh
 một "bảng". Hàng bị ảnh cắt ngang ở mép trên thì bỏ, không đoán — người dùng nói cả bộ là 320 chữ,
 đọc được 300. Bộ chữ của bài giảng KHÔNG trùng danh sách N3 của app: trong 300 chữ có 186 chữ N3, 33

@@ -166,6 +166,10 @@
           <span class="hint">{{ t('kanji.drawMissing', { count: missingStrokeCount() }) }}</span>
         }
       </div>
+    } @else if (isExam()) {
+      <div class="field">
+        <p class="muted small">{{ t('onkun.examNote') }}</p>
+      </div>
     }
 
     <ng-container ngProjectAs="[setupAdvanced]">
@@ -173,6 +177,11 @@
         <div class="field">
           <span class="label">{{ t('lesson.answerMode') }}</span>
           <p class="muted small">{{ t('lesson.answerMode.draw') }}</p>
+        </div>
+      } @else if (isExam()) {
+        <div class="field">
+          <span class="label">{{ t('lesson.answerMode') }}</span>
+          <p class="muted small">{{ t('lesson.answerMode.choice') }}</p>
         </div>
       } @else {
       <div class="field">

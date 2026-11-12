@@ -32,6 +32,9 @@ export type ExerciseId =
   | 'taisaku-n4'
   // Tab "Trắc nghiệm" của khu Kanji (`core/kanji/kanji-quiz.ts`).
   | 'trac-nghiem-kanji'
+  // "Kanji luyện tập 320 từ có trong JLPT N3" — bảng chữ bài giảng, trang ở khu Kanji
+  // (`core/kanji/kanji-boards.data.ts`, `features/kanji-onkun`). Có thẻ ở trang Bài tập.
+  | 'am-on-kun'
   | GrammarBookId;
 
 /**
@@ -433,8 +436,13 @@ export function exerciseModeInfo(id: ExerciseMode): ExerciseModeInfo {
   return ALL_MODES.find((mode) => mode.id === id) ?? ALL_MODES[0];
 }
 
-/** Chiều hỏi mặc định của từng bài tập, cũng là chiều hợp lệ đầu tiên. */
-export const DEFAULT_MODE: Record<ExerciseId, ExerciseMode> = {
+/**
+ * Chiều hỏi mặc định của từng bài tập, cũng là chiều hợp lệ đầu tiên.
+ *
+ * Trừ `am-on-kun`: trang đó có dạng luyện riêng (`OnKunMode` ở `core/kanji/onkun.model.ts`),
+ * không đi qua chiều hỏi của bài tập — ghi một chiều giả vào đây là nói dối về nó.
+ */
+export const DEFAULT_MODE: Record<Exclude<ExerciseId, 'am-on-kun'>, ExerciseMode> = {
   'tu-tha-dong-tu': 'to-transitive',
   'chuyen-the-dong-tu': 'masu-to-form',
   // Trắc nghiệm trước: luật biến âm phải nhìn thấy đúng/sai cạnh nhau vài lần mới ngấm.
@@ -510,6 +518,15 @@ export const EXERCISES: readonly ExerciseInfo[] = [
     descKey: 'exercise.n4grammar.desc',
     unitKey: 'exercise.patternCount',
     levels: ['N4'],
+  },
+  // Thẻ dẫn sang trang ở khu Kanji (`EXERCISE_PAGE` ở core/paths.ts) — người dùng muốn thấy
+  // bài này cạnh các bài tập khác, với đúng tên này.
+  {
+    id: 'am-on-kun',
+    nameKey: 'exercise.kanjiN3.name',
+    descKey: 'exercise.kanjiN3.desc',
+    unitKey: 'kanji.kanjiCount',
+    levels: ['N3'],
   },
 ];
 

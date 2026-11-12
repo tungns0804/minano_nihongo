@@ -80,7 +80,8 @@ src/app/
       kanji-readings.ts          Tách âm On / Kun; căn cách đọc của một từ vào từng chữ
       onkun.model.ts             Kiểu + dạng luyện của khối "Chữ Hán trong bài" (nhẹ, gói chính)
       onkun-study.ts             Dựng thẻ chữ (bài N3, bảng bài giảng) — NẠP ĐỘNG
-      kanji-boards.data.ts       300 chữ trên 8 bảng bài giảng + từ ví dụ viết tay — CHÉP TAY
+      kanji-boards.data.ts       300 chữ trên 8 bảng bài giảng — CHÉP TAY
+      kanji-board-examples.data.ts  Từ ví dụ viết tay cho chữ trên bảng — CHÉP TAY
     topics/
       topic.model.ts             Kiểu dữ liệu + hàm dựng bài học của khu Chủ đề
       topic-list.ts              20 chủ đề: tên + danh sách từ — KHAI TAY, chỉ script đọc

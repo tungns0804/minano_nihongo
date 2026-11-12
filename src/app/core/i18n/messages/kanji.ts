@@ -234,6 +234,30 @@ export const KANJI_MESSAGES = {
   'onkun.mode.hanViet': { vi: 'Chữ → âm Hán Việt', ja: '漢字 → 漢越音' },
   'onkun.mode.hanViet.short': { vi: 'Âm Hán Việt', ja: '漢越音' },
   'onkun.mode.hanViet.example': { vi: '冷 → LÃNH', ja: '冷 → LÃNH' },
+  'onkun.mode.examReading': { vi: 'Đề N3 · 問題1 漢字読み', ja: 'N3形式・問題1 漢字読み' },
+  'onkun.mode.examReading.short': { vi: 'Đề · 漢字読み', ja: '漢字読み' },
+  'onkun.mode.examReading.example': {
+    vi: '関係 → かんけい / せきけい / がんけい / かんげい',
+    ja: '関係 → かんけい・せきけい・がんけい・かんげい',
+  },
+  'onkun.mode.examWriting': { vi: 'Đề N3 · 問題2 表記', ja: 'N3形式・問題2 表記' },
+  'onkun.mode.examWriting.short': { vi: 'Đề · 表記', ja: '表記' },
+  'onkun.mode.examWriting.example': {
+    vi: 'かんけい → 関係 / 観係 / 感係 / 完係',
+    ja: 'かんけい → 関係・観係・感係・完係',
+  },
+  'onkun.label.examReading': {
+    vi: 'Từ gạch chân đọc thế nào?',
+    ja: '＿＿のことばの読み方として最もよいものを選んでください',
+  },
+  'onkun.label.examWriting': {
+    vi: 'Từ gạch chân viết bằng chữ Hán thế nào?',
+    ja: '＿＿のことばを漢字で書くとき、最もよいものを選んでください',
+  },
+  'onkun.examNote': {
+    vi: 'Dạng đề như phần 文字 của JLPT: mỗi từ ví dụ một câu, trắc nghiệm bốn lựa chọn, nghĩa của từ in kèm thay cho câu văn. Lựa chọn sai là các lỗi đề hay bẫy — 問題1: nhầm âm On/Kun, đục/trong, trường âm, っ; 問題2: chữ cùng âm.',
+    ja: 'JLPTの文字問題の形式です。例の語ごとに1問、4択で、文の代わりに意味を表示します。問題1は音訓・濁音・長音・促音の間違い、問題2は同じ読みの漢字がひっかけです。',
+  },
   'onkun.mode.draw': { vi: 'Viết chữ', ja: '漢字を書く' },
   'onkun.mode.draw.short': { vi: 'Viết chữ', ja: '書き取り' },
   'onkun.mode.draw.example': { vi: 'LÃNH · れいぞうこ — tủ lạnh → viết 冷', ja: 'LÃNH・れいぞうこ → 冷 を書く' },
@@ -259,10 +283,10 @@ export const KANJI_MESSAGES = {
   'onkun.col.inWordKun': { vi: 'Trong từ này (âm Kun)', ja: 'この語での読み（訓）' },
 
   // ── Tab Kanji › Âm On/Kun: bảng chữ bài giảng (features/kanji-onkun) ──
-  'onkunBoard.name': { vi: 'Âm On / Kun · Hán Việt — bảng chữ bài giảng', ja: '講義の漢字表 — 音読み・訓読み・漢越音' },
+  'onkunBoard.name': { vi: 'Kanji luyện tập 320 từ có trong JLPT N3', ja: 'JLPT N3 漢字320字の練習' },
   'onkunBoard.desc': {
-    vi: 'Các chữ trên bảng của bài giảng, đúng thứ tự trên bảng. Học thẻ từng chữ — âm Hán Việt, âm On, âm Kun và từ ví dụ N5–N3 — rồi luyện: tổng hợp cả ba âm, từng loại âm, đọc chữ trong từ, hoặc viết chữ.',
-    ja: '講義の板書の漢字を板書の順に並べています。字ごとのカード（漢越音・音読み・訓読み・N5〜N3の例）で覚えてから、総合・音の種類別・語中の読み・書き取りで練習します。',
+    vi: 'Bộ 320 chữ Kanji N3 của bài giảng, đúng thứ tự trên bảng — hiện có 300 chữ đọc được từ ảnh, 20 chữ ở hàng bị ảnh cắt sẽ bổ sung khi có ảnh đủ. Học thẻ từng chữ (âm Hán Việt, âm On, âm Kun, từ ví dụ N5–N3) rồi luyện: tổng hợp, từng loại âm, đọc chữ trong từ, đề kiểu JLPT (漢字読み, 表記), hoặc viết chữ.',
+    ja: '講義のN3漢字320字を板書の順に並べています（写真から読めた300字。切れていた行の20字は写真がそろい次第追加）。字ごとのカード（漢越音・音読み・訓読み・N5〜N3の例）で覚えてから、総合・音の種類別・語中の読み・JLPT形式（漢字読み・表記）・書き取りで練習します。',
   },
   'onkunBoard.boards': { vi: 'Bảng', ja: '板書' },
   'onkunBoard.board': { vi: 'Bảng {board} · {preview}… ({count})', ja: '板書{board}・{preview}…（{count}）' },

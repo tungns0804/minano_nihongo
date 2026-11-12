@@ -47,6 +47,7 @@ import {
 } from '../../core/practice/exercise-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
 import { normalizeSearch } from '../../core/lessons/lesson-search';
+import { exercisePath } from '../../core/paths';
 import { SearchBox } from '../../shared/search-box';
 import { StarButton } from '../../shared/star-button';
 import { PracticeSetup } from '../../shared/practice-setup';
@@ -271,6 +272,12 @@ export class ExerciseDetail extends PracticeScreen {
 
   private load(id: string): void {
     const info = exerciseInfo(id);
+    // Bài Kanji N3 có thẻ ở trang Bài tập nhưng trang riêng ở khu Kanji; ai gõ tay
+    // /luyen-tap/bai-tap/am-on-kun thì đưa sang đó — màn hình này không có dạng luyện của nó.
+    if (info?.id === 'am-on-kun') {
+      void this.router.navigateByUrl(exercisePath(info.id), { replaceUrl: true });
+      return;
+    }
     this.info.set(info);
     if (!info) return;
     this.rememberRecent({ title: this.t(info.nameKey), titleKey: info.nameKey, kindKey: 'kind.exercise' });

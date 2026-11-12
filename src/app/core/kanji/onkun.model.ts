@@ -73,10 +73,20 @@ export interface LessonKanji {
  *  - `onkun-reading`  nhìn chữ, nhớ âm On (một câu) và âm Kun (một câu) của nó.
  *  - `onkun-in-word`  chữ gạch chân trong một từ ví dụ đọc là gì — mỗi cặp chữ × từ một
  *                     câu; lựa chọn nhiễu là chính các âm khác của chữ đó.
+ *  - `onkun-exam-reading` / `onkun-exam-writing`  đề kiểu JLPT N3, phần 文字: 問題1 漢字読み
+ *                     (từ viết chữ Hán → chọn cách đọc) và 問題2 表記 (cách đọc → chọn cách
+ *                     viết), mỗi từ ví dụ một câu, luôn trắc nghiệm bốn lựa chọn như đề thật.
  *  - `onkun-draw`     nhìn âm Hán Việt và một từ ví dụ (cách đọc + nghĩa), viết chữ bằng
  *                     chuột — dùng chung phần chấm nét của khu Kanji.
  */
-export type OnKunMode = 'onkun-all' | 'onkun-hanviet' | 'onkun-reading' | 'onkun-in-word' | 'onkun-draw';
+export type OnKunMode =
+  | 'onkun-all'
+  | 'onkun-hanviet'
+  | 'onkun-reading'
+  | 'onkun-in-word'
+  | 'onkun-exam-reading'
+  | 'onkun-exam-writing'
+  | 'onkun-draw';
 
 export interface OnKunModeInfo {
   id: OnKunMode;
@@ -111,6 +121,18 @@ export const ON_KUN_MODES: readonly OnKunModeInfo[] = [
     exampleKey: 'onkun.mode.inWord.example',
   },
   {
+    id: 'onkun-exam-reading',
+    labelKey: 'onkun.mode.examReading',
+    shortKey: 'onkun.mode.examReading.short',
+    exampleKey: 'onkun.mode.examReading.example',
+  },
+  {
+    id: 'onkun-exam-writing',
+    labelKey: 'onkun.mode.examWriting',
+    shortKey: 'onkun.mode.examWriting.short',
+    exampleKey: 'onkun.mode.examWriting.example',
+  },
+  {
     id: 'onkun-draw',
     labelKey: 'onkun.mode.draw',
     shortKey: 'onkun.mode.draw.short',
@@ -136,6 +158,35 @@ export function isQuizzableExample(example: LessonKanjiExample): boolean {
   return (example.sound === 'on' || example.sound === 'kun') && example.said.length > 0;
 }
 
+/** Hai dạng đề kiểu JLPT — luôn trắc nghiệm, như đề thật. */
+export function isExamMode(mode: OnKunMode): boolean {
+  return mode === 'onkun-exam-reading' || mode === 'onkun-exam-writing';
+}
+
+/** Một câu đề: một từ ví dụ, kèm chữ đang học mà từ đó được xếp dưới. */
+export interface ExamItem {
+  kanji: LessonKanji;
+  example: LessonKanjiExample;
+}
+
+/**
+ * Từ ví dụ đem làm câu đề, mỗi từ MỘT câu: 関係 nằm dưới cả 関 lẫn 係, chọn hai chữ đó thì
+ * đề vẫn chỉ hỏi 関係 một lần — lần gặp đầu, theo thứ tự chữ.
+ */
+export function examItems(kanji: readonly LessonKanji[]): ExamItem[] {
+  const seen = new Set<string>();
+  const items: ExamItem[] = [];
+  for (const item of kanji) {
+    for (const example of item.examples) {
+      const key = `${example.japanese}|${example.reading}`;
+      if (!isQuizzableExample(example) || seen.has(key)) continue;
+      seen.add(key);
+      items.push({ kanji: item, example });
+    }
+  }
+  return items;
+}
+
 /** Chữ nào đem vào được dạng luyện: dạng viết bỏ chữ không có nét mẫu. */
 export function onKunPool(kanji: readonly LessonKanji[], mode: OnKunMode): readonly LessonKanji[] {
   return mode === 'onkun-draw' ? kanji.filter((item) => item.drawable) : kanji;
@@ -143,6 +194,7 @@ export function onKunPool(kanji: readonly LessonKanji[], mode: OnKunMode): reado
 
 /** Số câu một dạng luyện sinh ra từ các chữ — dòng "sẽ luyện N câu" phải nói đúng trước. */
 export function onKunQuestionCount(kanji: readonly LessonKanji[], mode: OnKunMode): number {
+  if (isExamMode(mode)) return examItems(kanji).length;
   let count = 0;
   for (const item of onKunPool(kanji, mode)) {
     const hanViet = Number(item.hanViet.length > 0);
@@ -162,6 +214,9 @@ export function onKunQuestionCount(kanji: readonly LessonKanji[], mode: OnKunMod
         break;
       case 'onkun-draw':
         count += 1;
+        break;
+      case 'onkun-exam-reading':
+      case 'onkun-exam-writing':
         break;
     }
   }

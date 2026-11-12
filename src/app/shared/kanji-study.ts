@@ -6,6 +6,7 @@ import type { MessageKey } from '../core/i18n/messages';
 import {
   ON_KUN_MODES,
   OnKunMode,
+  isExamMode,
   onKunFavoriteKey,
   onKunModeInfo,
   onKunPool,
@@ -134,8 +135,12 @@ export class KanjiStudy extends PracticeScreen {
   readonly canStart = computed(() => this.plannedQuestionCount() > 0);
   readonly limitChoices = computed(() => LIMIT_CHOICES.filter((limit) => limit < this.totalQuestionCount()));
   readonly modeShort = computed(() => this.lang.t(onKunModeInfo(this.mode()).shortKey));
-  /** Cách trả lời thật của phiên: dạng viết luôn là viết bằng chuột. */
-  readonly sessionAnswerMode = computed<AnswerMode>(() => (this.isDrawing() ? 'draw' : this.answerMode()));
+  /** Dạng đề kiểu JLPT: luôn trắc nghiệm bốn lựa chọn như đề thật. */
+  readonly isExam = computed(() => isExamMode(this.mode()));
+  /** Cách trả lời thật của phiên: dạng viết luôn là viết bằng chuột, dạng đề luôn trắc nghiệm. */
+  readonly sessionAnswerMode = computed<AnswerMode>(() =>
+    this.isDrawing() ? 'draw' : this.isExam() ? 'choice' : this.answerMode(),
+  );
   readonly planAnswerKey = computed<MessageKey>(() => {
     const mode = this.sessionAnswerMode();
     return mode === 'draw' ? 'lesson.plan.draw' : mode === 'choice' ? 'lesson.plan.choice' : 'lesson.plan.typing';

@@ -323,6 +323,14 @@ export const EXERCISE_MESSAGES = {
     ja: '翌日は新しい項目の前に「復習」タブへ。練習した文型と例文は、忘れかけたころに自動で出題されます。',
   },
 
+  // Bài "Kanji luyện tập 320 từ có trong JLPT N3" — thẻ ở đây, trang ở Kanji › Luyện 320 chữ N3
+  // (features/kanji-onkun). Tên do người dùng đặt (2026-11-10).
+  'exercise.kanjiN3.name': { vi: 'Kanji luyện tập 320 từ có trong JLPT N3', ja: 'JLPT N3 漢字320字の練習' },
+  'exercise.kanjiN3.desc': {
+    vi: 'Bộ chữ Kanji N3 của bài giảng: học âm Hán Việt, âm On, âm Kun với từ ví dụ N5–N3, rồi luyện bảy dạng — có đề kiểu JLPT (漢字読み, 表記) và viết chữ.',
+    ja: '講義のN3漢字：漢越音・音読み・訓読みをN5〜N3の例で覚え、7つの形式で練習（JLPT形式の漢字読み・表記、書き取りを含む）。',
+  },
+
   // Bài "Số đếm & trợ số từ" (core/exercises/counters.ts).
   'exercise.counters.name': { vi: 'Số đếm & trợ số từ', ja: '数と助数詞' },
   'exercise.counters.desc': {
