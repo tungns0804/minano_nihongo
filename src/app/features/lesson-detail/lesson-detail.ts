@@ -89,6 +89,9 @@ const VOCABULARY_DEFAULTS = {
   showHanViet: boolean;
 };
 
+/** Hai tab của bài có khối chữ Hán. */
+type LessonTab = 'words' | 'kanji';
+
 @Component({
   selector: 'app-lesson-detail',
   imports: [
@@ -180,6 +183,20 @@ export class LessonDetail extends PracticeScreen {
     const lesson = this.lesson();
     return lesson ? { id: lesson.id, name: lesson.name, kind: 'lesson' } : null;
   });
+
+  /** Tab đang mở, đọc từ `?tab=` (xem `setTab`). */
+  readonly tab = signal<LessonTab>('words');
+  /** Bài có khối chữ Hán (bài từ vựng N3) thì trang chia hai tab Từ vựng | Chữ Hán. */
+  readonly hasKanjiTab = computed(() => {
+    const lesson = this.lesson();
+    return lesson !== null && showsLessonKanji(lesson);
+  });
+  /** Bài không có tab thì nội dung từ vựng luôn hiện, bất kể URL ghi gì. */
+  readonly showWordsTab = computed(() => !this.hasKanjiTab() || this.tab() === 'words');
+  /** Lật sang bài kề mà vẫn ở tab Chữ Hán; bài kề không có tab thì tham số tự bị bỏ qua. */
+  readonly pagerQuery = computed(() =>
+    this.hasKanjiTab() && this.tab() === 'kanji' ? { tab: 'kanji' } : undefined,
+  );
   readonly verbs = computed(() => this.lesson()?.verbs ?? []);
   readonly lines = computed(() => this.lesson()?.lines ?? []);
 
@@ -444,6 +461,9 @@ export class LessonDetail extends PracticeScreen {
       this.resetView();
       void this.load(id, `${this.base}/${slug}`);
     });
+    this.route.queryParamMap.pipe(takeUntilDestroyed()).subscribe((params) => {
+      this.tab.set(params.get('tab') === 'kanji' ? 'kanji' : 'words');
+    });
   }
 
   private async load(id: string, requested: string): Promise<void> {
@@ -492,18 +512,18 @@ export class LessonDetail extends PracticeScreen {
     this.lessonKanji.set(lessonKanjiOf(lesson.words, entries));
   }
 
-  /** Nút ở đầu trang: lưới chữ nằm dưới bảng 50 từ, không cuộn thì không ai thấy. */
-  scrollToKanji(): void {
-    // Cuộn bằng script chứ không dùng href="#…": bản offline định tuyến bằng dấu #.
-    const card = document.getElementById('lesson-kanji');
-    if (!card) return;
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // Viền khối loé lên khi tới nơi (motion.css: .is-arrived). Gỡ lớp, ép trình duyệt
-    // tính lại bố cục, rồi gắn lại — không thì bấm lần thứ hai hiệu ứng không chạy nữa.
-    card.classList.remove('is-arrived');
-    void card.offsetWidth;
-    card.classList.add('is-arrived');
+  /**
+   * Đổi tab bằng cách đổi `?tab=` trên URL (thay chứ không thêm vào lịch sử: nút Back của
+   * trình duyệt vẫn về trang trước, không lùi qua từng lần bấm tab). Tab đọc lại từ URL ở
+   * `constructor`, nên đây là đường đổi tab duy nhất.
+   */
+  setTab(tab: LessonTab): void {
+    void this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { tab: tab === 'kanji' ? 'kanji' : null },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
   }
 
   /**

@@ -40,14 +40,15 @@ interface DrawnStroke {
           </g>
         }
 
-        <!-- Khoá track đổi theo số lần phát: phần tử dựng lại nên hoạt hình CSS chạy lại từ đầu. -->
+        <!-- Mỗi lần phát là một mảng mới, khoá mới: phần tử dựng lại nên hoạt hình CSS chạy
+             lại từ đầu (xem \`frames\`). -->
         <g class="order-ink" [class.is-playing]="runs() > 0">
-          @for (stroke of drawn(); track runs() + ':' + $index) {
+          @for (stroke of frames(); track stroke.key) {
             <path [attr.d]="stroke.path" pathLength="1" [style.--i]="$index" />
           }
         </g>
         <g class="order-num" [class.is-playing]="runs() > 0">
-          @for (stroke of drawn(); track runs() + ':' + $index) {
+          @for (stroke of frames(); track stroke.key) {
             <text [attr.x]="stroke.labelX" [attr.y]="stroke.labelY" [style.--i]="$index">
               {{ $index + 1 }}
             </text>
@@ -194,6 +195,19 @@ export class StrokeOrder {
     const paths = this.paths();
     const labels = strokeLabels(paths);
     return paths.map((path, index) => ({ path, labelX: labels[index].x, labelY: labels[index].y }));
+  });
+
+  /**
+   * Nét đem vẽ, kèm khoá theo lần phát.
+   *
+   * Phải là một MẢNG MỚI mỗi lần bấm, không chỉ khoá mới: `@for` chỉ đối chiếu lại khoá
+   * khi chính mảng đổi. Trước đây khoá ghép `runs()` ngay trong biểu thức `track` mà vẫn
+   * lặp trên `drawn()` (mảng cũ), nên lần bấm đầu chạy được nhờ lớp `is-playing` vừa gắn
+   * vào, còn từ lần thứ hai không phần tử nào dựng lại — nút "Xem lại" bấm như không.
+   */
+  protected readonly frames = computed(() => {
+    const run = this.runs();
+    return this.drawn().map((stroke, index) => ({ ...stroke, key: `${run}:${index}` }));
   });
 
   play(): void {

@@ -311,7 +311,11 @@ export class Result {
     const isListSession =
       (kind === 'kanji' && summary.lessonId === KANJI_SESSION_ID) ||
       (kind === 'radical' && summary.lessonId === RADICAL_SESSION_ID);
-    void this.router.navigateByUrl(isListSession ? listPathOf(kind) : lessonPath(kind, summary.lessonId));
+    const path = isListSession ? listPathOf(kind) : lessonPath(kind, summary.lessonId);
+    // Phiên âm On / Kun mở từ tab Chữ Hán của bài từ vựng thì về đúng tab đó, không rơi
+    // về tab Từ vựng rồi phải bấm lại.
+    const tab = summary.config.onKunMode && kind === 'vocabulary' ? { tab: 'kanji' } : {};
+    void this.router.navigate([path], { queryParams: tab });
   }
 
   backHome(): void {

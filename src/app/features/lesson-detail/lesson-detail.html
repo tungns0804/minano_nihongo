@@ -44,16 +44,48 @@
           @if (specialCount() > 0) {
             <span class="badge badge-accent">{{ t('lesson.specialCount', { count: specialCount() }) }}</span>
           }
-          <!-- Lưới chữ nằm sau bảng từ (học từ trước, rồi mới đi vào từng chữ), nên
-               đầu trang phải có lối tắt — không thì phải cuộn qua 50 dòng mới biết. -->
-          @if (lessonKanji().length > 0) {
-            <button type="button" class="btn btn-sm kanji-jump" (click)="scrollToKanji()">
-              {{ t('lesson.kanji.jump', { count: lessonKanji().length }) }}
-            </button>
-          }
         </div>
       </header>
 
+      <!-- ── Hai tab: Từ vựng | Chữ Hán ──────────────────────────────────── -->
+      <!-- Chỉ ở bài có khối chữ Hán (bài từ vựng N3). Trước đây khối chữ nằm SAU bảng
+           50 từ trên cùng một trang — muốn học chữ phải cuộn qua cả bảng từ lẫn khung
+           thiết lập. Tab ghi trên URL (?tab=kanji) nên quay về từ màn kết quả, tải lại
+           trang hay lật sang bài sau vẫn đúng tab đang học. -->
+      @if (hasKanjiTab()) {
+        <div class="level-tabs lesson-tabs" role="tablist" [attr.aria-label]="t('lesson.tabs')">
+          <button
+            type="button"
+            role="tab"
+            class="level-tab"
+            [class.is-active]="tab() === 'words'"
+            [attr.aria-selected]="tab() === 'words'"
+            (click)="setTab('words')"
+          >
+            <strong>{{ t('lesson.tab.words') }}</strong>
+            <span class="level-tab-count">{{ t(kindLabelKeys().unit, { count: data.itemCount }) }}</span>
+          </button>
+          <button
+            type="button"
+            role="tab"
+            class="level-tab"
+            [class.is-active]="tab() === 'kanji'"
+            [attr.aria-selected]="tab() === 'kanji'"
+            (click)="setTab('kanji')"
+          >
+            <strong>{{ t('lesson.tab.kanji') }}</strong>
+            <span class="level-tab-count">
+              @if (lessonKanji().length > 0) {
+                {{ t('kanji.kanjiCount', { count: lessonKanji().length }) }}
+              } @else {
+                {{ t('lesson.tab.kanjiLoading') }}
+              }
+            </span>
+          </button>
+        </div>
+      }
+
+      @if (showWordsTab()) {
       @if (brokenVerbs().length > 0) {
         <div class="notice notice-error">
           <div class="stack" style="gap: 6px; width: 100%">
@@ -643,18 +675,23 @@
           }
         </div>
       </section>
+      }
 
-      <!-- ── Chữ Hán trong bài: thẻ âm On / Kun + khung luyện nhớ âm ─────── -->
+      <!-- ── Tab Chữ Hán: thẻ âm On / Kun + khung luyện nhớ âm ──────────── -->
       <!-- Khối riêng (shared/kanji-study.ts) vì nó có khung thiết lập và ★ của riêng nó —
            trên CHỮ chứ không trên từ. Dựng lại khi sang bài khác: `resetView` xoá danh sách chữ. -->
-      @if (lessonKanji().length > 0) {
-        @if (kanjiTarget(); as target) {
-          <app-kanji-study [target]="target" [kanji]="lessonKanji()" />
+      @if (hasKanjiTab() && tab() === 'kanji') {
+        @if (lessonKanji().length > 0) {
+          @if (kanjiTarget(); as target) {
+            <app-kanji-study [target]="target" [kanji]="lessonKanji()" />
+          }
+        } @else {
+          <div class="notice" role="status">{{ t('lesson.tab.kanjiLoading') }}</div>
         }
       }
 
-      <!-- Sang bài kề cùng loại mà không phải quay về danh sách. -->
-      <app-lesson-pager [lessonId]="data.id" [kind]="data.kind" />
+      <!-- Sang bài kề cùng loại mà không phải quay về danh sách — giữ nguyên tab đang học. -->
+      <app-lesson-pager [lessonId]="data.id" [kind]="data.kind" [query]="pagerQuery()" />
     </div>
   }
 </div>

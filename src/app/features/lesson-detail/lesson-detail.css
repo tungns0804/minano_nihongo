@@ -519,15 +519,12 @@
 }
 
 /* ============================================================================
-   CHỮ HÁN TRONG BÀI — nút tắt ở đầu trang (khối chữ nằm ở shared/kanji-study.*)
+   HAI TAB TỪ VỰNG | CHỮ HÁN (bài có khối chữ Hán — khối chữ nằm ở shared/kanji-study.*)
    ========================================================================== */
 
-/* Nút ở hàng badge đầu trang: cùng chiều cao với badge bên cạnh để hàng không
-   phình ra, nhưng là nút thật (viền, con trỏ) vì badge ở đây vốn không bấm được. */
-.kanji-jump {
-  min-height: 0;
-  padding: 1px 10px;
-  font-size: var(--fs-xs);
+/* Hai tab chiếm đúng bề rộng của nội dung, không trải hết hàng như tab cấp của bảng tra. */
+.lesson-tabs .level-tab {
+  min-width: 9rem;
 }
 
 /* ============================================================================

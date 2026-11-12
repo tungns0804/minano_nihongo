@@ -401,8 +401,11 @@ qua bản gọn `kanji-parts.generated.ts` — không có cách tách nào viế
 
 ### Đi từ một bài học sang
 
-**Mọi bài từ vựng N3** (sáu bài Từ vựng N3 · 名詞 và sáu bài 総まとめ N3) có thêm khối **"Chữ Hán
-trong bài"** dưới bảng từ, và một nút "Xem N chữ Hán trong bài ↓" ở đầu trang để nhảy tới đó.
+**Mọi bài từ vựng N3** (sáu bài Từ vựng N3 · 名詞 và sáu bài 総まとめ N3) chia trang thành hai tab
+ngay dưới tên bài: **Từ vựng** (khung luyện + bảng từ như mọi bài) và **Chữ Hán** (khung luyện âm +
+thẻ từng chữ). Trước 2026-11-12 khối chữ nằm dưới bảng 50 từ trên cùng một trang, người dùng thấy
+phải cuộn quá nhiều. Tab ghi trên URL (`?tab=kanji`): tải lại trang, quay về từ màn kết quả của
+phiên luyện chữ, hay bấm "Bài sau" đều giữ đúng tab.
 Điều kiện là `showsLessonKanji` ([`vocabulary.model.ts`](../src/app/core/lessons/vocabulary.model.ts)): bài từ
 vựng có cấp N3 trong meta.json — bài N3 thêm sau này tự có khối, không phải khai id ở đâu. Bài
 Minano (N5, N4) chưa bật; muốn bật thì nới điều kiện đó, khối tự dựng từ chính từ vựng của bài.
@@ -447,7 +450,7 @@ làm mờ âm và cách đọc trên mọi thẻ; bấm một thẻ để mở t
 - `npm run verify:kanji-readings` soát bảng âm, 18 từ mẫu, và **mọi từ có chữ Hán của mọi bài N3** phải
   căn được — thêm bài N3 mới có âm ngoài bảng thì script báo đúng từ đó.
 
-Dưới thẻ là khung **"Luyện âm On / Kun"** (phạm vi: cả bài hoặc ★ chữ chưa nhớ; cụm, số câu, trắc
+Trên thẻ là khung **"Luyện âm On / Kun"** (phạm vi: cả bài hoặc ★ chữ chưa nhớ; cụm, số câu, trắc
 nghiệm hay gõ như bảng từ):
 
 | Dạng | Hỏi | Đáp án | Lựa chọn nhiễu |

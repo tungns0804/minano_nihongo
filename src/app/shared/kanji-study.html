@@ -1,123 +1,7 @@
 <div class="stack stack-xl">
-  <!-- ── Thẻ học từng chữ ─────────────────────────────────────────────── -->
-  <!-- id là đích của nút "Xem N chữ Hán trong bài ↓" ở đầu trang bài. -->
-  <section class="card" id="lesson-kanji">
-    <div class="card-body stack">
-      <div class="stack stack-sm">
-        <div class="row">
-          <h2>{{ t(titleKey()) }}</h2>
-          <span class="badge">{{ t('kanji.kanjiCount', { count: kanji().length }) }}</span>
-          <span class="spacer"></span>
-          <button type="button" class="btn btn-sm" (click)="scrollToPractice()">
-            ↓ {{ t('onkun.practice') }}
-          </button>
-        </div>
-        <p class="muted small"><app-t [key]="descKey()" block /></p>
-        <p class="faint small">{{ t('onkun.legend') }}</p>
-      </div>
-
-      <label class="checkbox">
-        <input type="checkbox" [checked]="masked()" (change)="toggleMask($event)" />
-        <span>
-          <strong>{{ t('onkun.mask') }}</strong>
-          <span class="hint">{{ t('onkun.maskHint') }}</span>
-        </span>
-      </label>
-
-      <div class="study-grid">
-        @for (item of kanji(); track item.id) {
-          <article
-            class="study-kanji"
-            [class.is-masked]="isHidden(item)"
-            [class.is-marked]="item.marked"
-            [attr.role]="masked() ? 'button' : null"
-            [attr.tabindex]="masked() ? 0 : null"
-            [attr.aria-pressed]="masked() ? !isHidden(item) : null"
-            [attr.title]="masked() ? t('onkun.reveal', { char: item.char }) : null"
-            (click)="reveal(item)"
-            (keydown.enter)="$event.target === $event.currentTarget && reveal(item)"
-          >
-            <header class="study-head">
-              <!-- ?bai= (chỉ khi đi từ một bài) để trang chữ quay về bài, lật "Chữ sau" theo bài. -->
-              <a
-                class="study-char jp"
-                [routerLink]="itemPath(PATH.kanji, item.id)"
-                [queryParams]="linkParams()"
-                [title]="t('kanjiQuiz.study.open', { char: item.char })"
-                (click)="$event.stopPropagation()"
-              >{{ item.char }}</a>
-              <div class="study-readings">
-                <strong class="study-hv">{{ item.hanViet }}</strong>
-                <div class="study-line">
-                  <span class="sound-tag sound-on">{{ t('onkun.col.on') }}</span>
-                  <span class="study-sounds jp mask-target">
-                    @for (sound of item.on; track $index) {
-                      <span
-                        [class.is-used]="sound.used"
-                        [class.is-rare]="sound.rare && !sound.used"
-                        [attr.title]="sound.rare ? t('onkun.rareTitle') : null"
-                      >{{ sound.label }}</span>
-                    } @empty {
-                      <span>—</span>
-                    }
-                  </span>
-                </div>
-                <div class="study-line">
-                  <span class="sound-tag sound-kun">{{ t('onkun.col.kun') }}</span>
-                  <span class="study-sounds jp mask-target">
-                    @for (sound of item.kun; track $index) {
-                      <span
-                        [class.is-used]="sound.used"
-                        [class.is-rare]="sound.rare && !sound.used"
-                        [attr.title]="sound.rare ? t('onkun.rareTitle') : null"
-                      >{{ sound.label }}</span>
-                    } @empty {
-                      <span>—</span>
-                    }
-                  </span>
-                </div>
-              </div>
-              <button
-                app-star
-                class="study-star"
-                [on]="isFavorite(item.id)"
-                [name]="item.char"
-                (click)="toggleFavorite(item.id); $event.stopPropagation()"
-              ></button>
-            </header>
-
-            <ul class="study-words">
-              @for (word of item.examples; track word.wordId) {
-                <li>
-                  @let split = wordParts(word.japanese, item.char);
-                  <span class="study-word jp">{{ split[0] }}<b class="word-char">{{ split[1] }}</b>{{ split[2] }}</span>
-                  <span class="study-reading jp mask-target">
-                    @if (word.parts; as parts) {
-                      {{ parts[0] }}<u class="reading-part">{{ parts[1] }}</u>{{ parts[2] }}
-                    } @else {
-                      {{ word.reading }}
-                    }
-                  </span>
-                  @if (word.sound; as sound) {
-                    <span
-                      class="sound-tag mask-target"
-                      [class.sound-on]="sound === 'on'"
-                      [class.sound-kun]="sound === 'kun'"
-                      [class.sound-special]="sound === 'special'"
-                      [attr.title]="sound === 'special' ? t('onkun.sound.specialTitle') : null"
-                    >{{ t(soundKey(sound)) }}</span>
-                  }
-                  <span class="study-meaning">{{ word.meaning }}</span>
-                </li>
-              }
-            </ul>
-          </article>
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- ── Luyện nhớ âm ─────────────────────────────────────────────────── -->
+  <!-- Đứng TRƯỚC thẻ chữ, như khung thiết lập đứng trước bảng từ ở tab Từ vựng: mở tab là
+       luyện được ngay, không phải cuộn qua vài chục thẻ. -->
   <app-practice-setup class="practice-card">
     <h2>{{ t('onkun.practice') }}</h2>
 
@@ -315,4 +199,117 @@
       }
     </ng-container>
   </app-practice-setup>
+
+  <!-- ── Thẻ học từng chữ ─────────────────────────────────────────────── -->
+  <section class="card">
+    <div class="card-body stack">
+      <div class="stack stack-sm">
+        <div class="row">
+          <h2>{{ t(titleKey()) }}</h2>
+          <span class="badge">{{ t('kanji.kanjiCount', { count: kanji().length }) }}</span>
+        </div>
+        <p class="muted small"><app-t [key]="descKey()" block /></p>
+        <p class="faint small">{{ t('onkun.legend') }}</p>
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" [checked]="masked()" (change)="toggleMask($event)" />
+        <span>
+          <strong>{{ t('onkun.mask') }}</strong>
+          <span class="hint">{{ t('onkun.maskHint') }}</span>
+        </span>
+      </label>
+
+      <div class="study-grid">
+        @for (item of kanji(); track item.id) {
+          <article
+            class="study-kanji"
+            [class.is-masked]="isHidden(item)"
+            [class.is-marked]="item.marked"
+            [attr.role]="masked() ? 'button' : null"
+            [attr.tabindex]="masked() ? 0 : null"
+            [attr.aria-pressed]="masked() ? !isHidden(item) : null"
+            [attr.title]="masked() ? t('onkun.reveal', { char: item.char }) : null"
+            (click)="reveal(item)"
+            (keydown.enter)="$event.target === $event.currentTarget && reveal(item)"
+          >
+            <header class="study-head">
+              <!-- ?bai= (chỉ khi đi từ một bài) để trang chữ quay về bài, lật "Chữ sau" theo bài. -->
+              <a
+                class="study-char jp"
+                [routerLink]="itemPath(PATH.kanji, item.id)"
+                [queryParams]="linkParams()"
+                [title]="t('kanjiQuiz.study.open', { char: item.char })"
+                (click)="$event.stopPropagation()"
+              >{{ item.char }}</a>
+              <div class="study-readings">
+                <strong class="study-hv">{{ item.hanViet }}</strong>
+                <div class="study-line">
+                  <span class="sound-tag sound-on">{{ t('onkun.col.on') }}</span>
+                  <span class="study-sounds jp mask-target">
+                    @for (sound of item.on; track $index) {
+                      <span
+                        [class.is-used]="sound.used"
+                        [class.is-rare]="sound.rare && !sound.used"
+                        [attr.title]="sound.rare ? t('onkun.rareTitle') : null"
+                      >{{ sound.label }}</span>
+                    } @empty {
+                      <span>—</span>
+                    }
+                  </span>
+                </div>
+                <div class="study-line">
+                  <span class="sound-tag sound-kun">{{ t('onkun.col.kun') }}</span>
+                  <span class="study-sounds jp mask-target">
+                    @for (sound of item.kun; track $index) {
+                      <span
+                        [class.is-used]="sound.used"
+                        [class.is-rare]="sound.rare && !sound.used"
+                        [attr.title]="sound.rare ? t('onkun.rareTitle') : null"
+                      >{{ sound.label }}</span>
+                    } @empty {
+                      <span>—</span>
+                    }
+                  </span>
+                </div>
+              </div>
+              <button
+                app-star
+                class="study-star"
+                [on]="isFavorite(item.id)"
+                [name]="item.char"
+                (click)="toggleFavorite(item.id); $event.stopPropagation()"
+              ></button>
+            </header>
+
+            <ul class="study-words">
+              @for (word of item.examples; track word.wordId) {
+                <li>
+                  @let split = wordParts(word.japanese, item.char);
+                  <span class="study-word jp">{{ split[0] }}<b class="word-char">{{ split[1] }}</b>{{ split[2] }}</span>
+                  <span class="study-reading jp mask-target">
+                    @if (word.parts; as parts) {
+                      {{ parts[0] }}<u class="reading-part">{{ parts[1] }}</u>{{ parts[2] }}
+                    } @else {
+                      {{ word.reading }}
+                    }
+                  </span>
+                  @if (word.sound; as sound) {
+                    <span
+                      class="sound-tag mask-target"
+                      [class.sound-on]="sound === 'on'"
+                      [class.sound-kun]="sound === 'kun'"
+                      [class.sound-special]="sound === 'special'"
+                      [attr.title]="sound === 'special' ? t('onkun.sound.specialTitle') : null"
+                    >{{ t(soundKey(sound)) }}</span>
+                  }
+                  <span class="study-meaning">{{ word.meaning }}</span>
+                </li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
 </div>

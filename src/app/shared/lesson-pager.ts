@@ -43,8 +43,15 @@ export class LessonPager {
 
   readonly lessonId = input.required<string>();
   readonly kind = input.required<LessonKind>();
+  /** Tham số giữ nguyên khi lật bài — ví dụ `?tab=kanji` để sang bài sau vẫn ở tab Chữ Hán. */
+  readonly query = input<Readonly<Record<string, string>> | undefined>(undefined);
 
   protected readonly items = computed<PagerItem[]>(() => {
+    const query = this.query();
+    return this.paths().map((item) => (query ? { ...item, query } : item));
+  });
+
+  private readonly paths = computed<PagerItem[]>(() => {
     const kind = this.kind();
     if (!PAGED_KINDS.has(kind)) return [];
     if (kind === 'topic') {

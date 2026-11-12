@@ -6,7 +6,11 @@ export const LESSON_MESSAGES = {
   'lesson.loading': { vi: 'Đang tải bài học…', ja: 'レッスンを読み込み中…' },
   'lesson.notFound': { vi: 'Không tìm thấy bài học {id}.', ja: 'レッスン {id} が見つかりません。' },
   'lesson.specialCount': { vi: '{count} động từ đặc biệt', ja: '特殊動詞{count}語' },
-  'lesson.kanji.jump': { vi: 'Xem {count} chữ Hán trong bài ↓', ja: 'この課の漢字{count}字を見る ↓' },
+  // Hai tab của bài có khối chữ Hán (bài từ vựng N3).
+  'lesson.tabs': { vi: 'Nội dung bài', ja: 'レッスンの内容' },
+  'lesson.tab.words': { vi: 'Từ vựng', ja: '単語' },
+  'lesson.tab.kanji': { vi: 'Chữ Hán', ja: '漢字' },
+  'lesson.tab.kanjiLoading': { vi: 'Đang nạp chữ…', ja: '読み込み中…' },
   'lesson.kanji.title': { vi: 'Chữ Hán trong bài', ja: 'この課の漢字' },
   'lesson.kanji.desc': {
     vi: 'Các chữ Hán của những từ ở trên, theo thứ tự trong bảng, mỗi chữ kèm âm On (音読み — âm gốc Hán, hay gặp trong từ ghép: 冷蔵庫 れいぞうこ) và âm Kun (訓読み — âm thuần Nhật, hay đi với okurigana: 冷たい つめたい), cùng các từ của bài dùng chữ đó. Bấm vào chữ để mở trang chữ (thứ tự nét, viết thử); nút "Chữ sau" ở cuối trang chữ đi tiếp theo đúng thứ tự này.',
