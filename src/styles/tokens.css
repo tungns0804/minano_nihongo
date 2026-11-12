@@ -180,71 +180,76 @@
 }
 
 /* --- Đèn đêm --------------------------------------------------------------
-   Tông thứ ba, cho lúc học buổi tối khi mắt đã mỏi: nền nâu sepia TỐI, chữ màu kem
-   ngà chứ không trắng gắt, màu nhấn hổ phách — màn hình phát ít sáng như giao diện
-   tối nhưng không có mảng xanh lạnh nào (giao diện tối dùng xám xanh và màu nhấn
-   xanh ngọc).
+   Tông thứ ba, làm theo Night light của Windows: nền ngả màu giấy kem, chữ nâu đậm thay
+   vì xanh đen, không màu xanh lạnh nào. Dành cho lúc học buổi tối.
 
-   Lịch sử (đọc trước khi sửa): hai bản đầu là nền giấy ngà SÁNG theo kiểu Night light
-   của Windows — bản ngà vàng đậm (các lớp dính thành một mảng), rồi bản "kem nhạt"
-   #f3ece0 với thẻ gần trắng mà người dùng chọn ngày 2026-11-01. Ngày 2026-11-12 người
-   dùng báo bản kem vẫn chưa ưng: học buổi tối mắt mỏi, nền gần trắng vẫn chói. Bốn
-   phương án được đặt cạnh nhau trên app thật (sepia tối, giấy ngà dịu, than ấm, hổ phách
-   trên nền đen); người dùng giao cho chọn và lấy phương án gợi ý là bản này. Độ sáng
-   nền thẻ: bản kem 0.975, bản này 0.019.
+   Lịch sử (đọc trước khi sửa — đã hỏng ba lần theo ba hướng):
+    - bản đầu ngà vàng đậm: các lớp sát màu nhau thành một mảng ngà liền;
+    - bản thứ hai kéo nền trang xuống màu cát đậm (#e8d9bc) để tách lớp: nặng và bẩn;
+    - ngày 2026-11-12 thử đổi hẳn sang nâu sepia TỐI: người dùng xem trên màn hình rộng
+      và nói "như này có mà hỏng mắt" — chữ phụ màu nâu nhạt trên nền tối vừa mờ vừa
+      nhoè. Người dùng muốn GIỮ tông kem sáng này và chỉ tối ưu nó, không thêm chế độ.
+   Bản hiện tại là bản "kem nhạt" người dùng chọn ngày 2026-11-01, chỉnh lại ngày
+   2026-11-12: thẻ không còn gần trắng (#fffcf6 → #f2eadc, bớt ~15% độ sáng), nền
+   trang và ô lõm hạ theo cùng nhịp nên khoảng cách giữa các lớp giữ như cũ, chữ phụ và
+   năm màu nhấn / trạng thái đậm thêm một chút để bù cho nền tối hơn. Khung vẫn tách nhau
+   bằng viền và bóng, không bằng một mảng nền đậm.
 
    Đây là bảng màu duy nhất phải viết tay lần thứ hai, vì light-dark() chỉ biết đúng
    hai giá trị. Đổi lại, không component nào phải biết tông này tồn tại — chúng vẫn chỉ
    đọc biến như cũ.
 
-   color-scheme là dark: ô nhập liệu, thanh cuộn, hộp chọn của trình duyệt lấy bản tối
-   cho khớp nền, và light-dark() ở chỗ nào chưa có trong khối này cũng rơi về giá trị tối.
+   color-scheme là light: ô nhập liệu, thanh cuộn, hộp chọn của trình duyệt lấy bản sáng,
+   khớp với nền kem.
 
-   Độ tương phản: ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5.3:1 trên cả bốn lớp
-   nền (chữ chính 11.6:1 trên thẻ), chữ trên nút nhấn và trên năm nền nhạt của nhãn đều
-   ≥ 4.5:1 — đạt WCAG AA cho chữ nhỏ. Sửa màu thì phải đo lại. */
+   Độ tương phản: ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5:1 trên cả bốn lớp nền
+   (chữ chính 13.2:1 trên thẻ), chữ trên nút nhấn và trên nền nhạt của nhãn ≥ 4.5:1 —
+   đạt WCAG AA cho chữ nhỏ. Sửa màu thì phải đo lại. */
 :root[data-theme='night'] {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --bg: #221c16;
-  --bg-elevated: #2b241d;
-  --bg-subtle: #272019;
-  --bg-inset: #1d1813;
+  --bg: #e7ddcc;
+  --bg-elevated: #f2eadc;
+  --bg-subtle: #ece3d3;
+  --bg-inset: #e0d4c0;
 
-  --text: #ebdfc9;
-  --text-muted: #c4b296;
-  --text-faint: #a99678;
+  --text: #2b2113;
+  --text-muted: #55411f;
+  --text-faint: #5f4a2b;
 
-  --border: #3d3328;
-  --border-strong: #574837;
+  --border: #d8ccb6;
+  --border-strong: #c2b195;
 
-  /* Hổ phách thay xanh ngọc: màu nhấn là thứ sáng nhất trang, nên nó phải ấm nhất. */
-  --accent: #e5a35a;
-  --accent-hover: #efb878;
-  --accent-soft: #45321d;
-  --accent-text: #23170a;
-  --accent-ring: rgb(229 163 90 / 22%);
+  /* Chàm là màu xanh nhất trong bảng màu sáng, nên nó là thứ đầu tiên phải thay
+     khi cả tông này sinh ra để bớt ánh sáng xanh. Cam đất giữ đúng vai trò "màu
+     nhấn ấm" mà vẫn không lẫn với --warning (ngả vàng) hay --danger (ngả đỏ). */
+  --accent: #8a420e;
+  --accent-hover: #73370b;
+  --accent-soft: #ecd8b8;
+  --accent-text: #fffaf0;
+  --accent-ring: rgb(138 66 14 / 18%);
 
-  /* Thương hiệu nâu gỗ sáng thay cho xanh Mekong, cùng lý do. */
-  --brand: #d8a468;
-  --brand-soft: #3e2f1c;
+  /* Thương hiệu nâu gỗ thay cho xanh Mekong, cùng lý do với màu nhấn ở trên. */
+  --brand: #674518;
+  --brand-soft: #e8d6b4;
 
-  --success: #a8c47c;
-  --success-soft: #2c3520;
-  --success-border: #52633a;
+  --success: #3f5d18;
+  --success-soft: #dfe4c4;
+  --success-border: #adc183;
 
-  --danger: #ee9a84;
-  --danger-soft: #45261f;
-  --danger-border: #7a4535;
+  --danger: #9a2b1b;
+  --danger-soft: #efd3c6;
+  --danger-border: #d99c85;
 
-  --warning: #e2c26a;
-  --warning-soft: #3d321a;
-  --warning-border: #6e5c2a;
+  --warning: #6e4f03;
+  --warning-soft: #eadab0;
+  --warning-border: #d1b46a;
 
-  --star: #f2bd55;
+  --star: #b8740a;
 
-  /* Nền đã tối: bóng đen thuần như giao diện tối, bóng pha nâu chìm mất. */
-  --shadow-sm: 0 1px 2px rgb(0 0 0 / 30%);
-  --shadow: 0 4px 16px rgb(0 0 0 / 35%);
-  --shadow-lg: 0 12px 32px rgb(0 0 0 / 45%);
+  /* Bóng đổ pha nâu chứ không pha xanh đen: bóng xám lạnh trên nền kem nhìn ra ngay
+     là bẩn, vì nó là mảng duy nhất trong trang không cùng họ màu. */
+  --shadow-sm: 0 1px 2px rgb(74 48 14 / 10%);
+  --shadow: 0 4px 16px rgb(74 48 14 / 12%);
+  --shadow-lg: 0 12px 32px rgb(74 48 14 / 18%);
 }

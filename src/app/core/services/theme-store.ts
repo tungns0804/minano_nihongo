@@ -8,7 +8,7 @@ const STORAGE_KEY = 'jp-practice:theme';
 
 /**
  * 'system' = đi theo cài đặt sáng/tối của hệ điều hành.
- * 'night'  = đèn đêm: nền nâu sepia tối, chữ kem, không màu xanh lạnh — cho buổi tối, khi mắt đã mỏi.
+ * 'night'  = đèn đêm: nền giấy kem dịu, chữ nâu đậm, ít ánh sáng xanh, giống Night light của Windows.
  */
 export type ThemePreference = 'system' | 'light' | 'dark' | 'night';
 
@@ -41,7 +41,7 @@ type ResolvedTheme = 'light' | 'dark' | 'night';
 const THEME_COLOR: Record<ResolvedTheme, string> = {
   light: '#ffffff',
   dark: '#181d24',
-  night: '#2b241d',
+  night: '#f2eadc',
 };
 
 /**
