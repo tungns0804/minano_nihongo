@@ -1180,10 +1180,11 @@ Nút ở góc phải header xoay vòng **Tự động → Sáng → Tối → Đ
 sáng/tối của hệ điều hành và đổi ngay khi bạn đổi cài đặt đó; ba lựa chọn còn lại ép cứng bất kể
 hệ thống đang để gì. Lựa chọn được nhớ lại cho lần mở sau.
 
-**Đèn đêm** làm đúng việc mà Night light của Windows làm, nhưng chỉ trong trang này: giữ độ sáng
-vừa phải của giao diện sáng và cắt bớt ánh sáng xanh, nên nền ngả màu giấy ngà, chữ là nâu đậm,
-màu nhấn đổi từ chàm sang cam đất. Hợp với lúc học buổi tối — nền trắng thì chói, mà nền tối lại
-quá tương phản với đèn phòng. Ba bậc chữ và bốn màu trạng thái vẫn đạt WCAG AA như hai tông kia.
+**Đèn đêm** dành cho buổi tối khi mắt đã mỏi: nền nâu sepia tối, chữ màu kem ngà chứ không trắng
+gắt, màu nhấn hổ phách — màn hình phát ít sáng như giao diện Tối nhưng không có mảng xanh lạnh nào.
+Từ 2026-11-12; trước đó Đèn đêm là nền giấy ngà sáng (kem nhạt), người dùng thấy buổi tối vẫn chói
+và chọn bản này trong bốn phương án đặt cạnh nhau. Ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5:1
+trên mọi lớp nền, đạt WCAG AA như hai tông kia.
 
 **Kết quả**
 
