@@ -628,7 +628,14 @@
                         <td>{{ word.vietnamese }}</td>
                         @if (hasExamples()) {
                           <td class="col-example jp">
-                            {{ word.example }}
+                            <!-- Từ đang học được tô ngay trong câu, kể cả khi đã chia
+                                 (渇く → 渇いた) — xem core/japanese/example-highlight.ts.
+                                 Không tìm ra thì hiện nguyên câu, không đoán bừa. -->
+                            @if (exampleHighlights().get(word.id); as parts) {
+                              {{ parts[0] }}<mark class="example-word">{{ parts[1] }}</mark>{{ parts[2] }}
+                            } @else {
+                              {{ word.example }}
+                            }
                             <!-- Bản dịch xuống dòng riêng ngay dưới câu Nhật, chữ thường chứ
                                  không phải chữ Nhật: hai câu cùng nghĩa đứng sát nhau thì mắt
                                  so được từng phần, mà không chiếm thêm một cột trong bảng

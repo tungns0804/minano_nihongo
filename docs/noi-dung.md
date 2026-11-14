@@ -1067,6 +1067,17 @@ tra lại được.
 
 ## Tính năng chung
 
+**Câu ví dụ tô sẵn từ đang học**
+
+Ở cột **Ví dụ** của bảng từ (mọi bài có câu ví dụ: N3 và 皆の日本語 26–50), từ đang học được tô
+màu nhấn ngay trong câu, **kể cả khi đã chia**: 渇く → 渇いた, 殴る → 殴られました, 得意な → 得意です,
+「（お）湯を沸かす」 → お湯を沸かして. Máy đoán gốc của từ rồi đi qua đuôi chia
+([`example-highlight.ts`](../src/app/core/japanese/example-highlight.ts)), và dừng trước phần không
+thuộc từ (渇いた|ので, 預かって|くれました) để chỉ sáng đúng từ đó. Không tìm ra thì hiện nguyên
+câu — tô nhầm chỗ còn tệ hơn không tô. `npm run verify:example-highlight` chốt 25 ca khó và đòi
+**mọi câu ví dụ của bài N3** đều tô được; N4/N5 tô được 804/805 câu (câu sót là kính ngữ
+お掛けください).
+
 **Bốn chiều luyện tập (bài từ vựng)**
 
 | Chiều | Câu hỏi | Đáp án |

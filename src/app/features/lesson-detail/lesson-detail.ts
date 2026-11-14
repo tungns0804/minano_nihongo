@@ -8,6 +8,7 @@ import {
   VerbForm,
   VerbGroup,
 } from '../../core/japanese/conjugation';
+import { exampleParts } from '../../core/japanese/example-highlight';
 import type { MessageKey } from '../../core/i18n/messages';
 import { T } from '../../core/i18n/t';
 import {
@@ -225,6 +226,13 @@ export class LessonDetail extends PracticeScreen {
 
   /** Chỉ hiện cột ví dụ khi bài có ít nhất một câu — tránh cột trống vô ích. */
   readonly hasExamples = computed(() => this.words().some((word) => word.example.length > 0));
+  /**
+   * Câu ví dụ cắt sẵn quanh từ đang học, theo id từ. Tính một lần cho cả bài chứ
+   * không gọi hàm trong template: ô tìm kiếm lọc lại bảng sau mỗi phím gõ.
+   */
+  readonly exampleHighlights = computed(
+    () => new Map(this.words().map((word) => [word.id, exampleParts(word.example, word.japanese, word.reading)])),
+  );
   /** Bài có từ nào có ảnh minh họa không — có thì mới hiện công tắc ảnh. */
   readonly hasImages = computed(() => this.words().some((word) => vocabImageOf(word) !== null));
   private readonly imagePreference = inject(ImagePreference);
