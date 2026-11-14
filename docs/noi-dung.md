@@ -1195,7 +1195,7 @@ có giấy phép tự do: CC0, phạm vi công cộng, CC BY, CC BY-SA. Mỗi �
 CC BY-SA bắt buộc ghi tác giả và giấy phép ở chỗ dùng ảnh — vì vậy dòng ghi nguồn đi chung một
 component với ảnh (`shared/vocab-photo.ts`), không chỗ nào vẽ ảnh mà thiếu nó. Bản thu nhỏ 330px
 lưu sẵn trong `public/images/vocab/` (mỗi ảnh vài chục KB), trang không gọi Commons lúc chạy.
-Hiện có ảnh cho 283 từ của sáu bài N3 · 名詞 (1–300); 17 từ, phần lớn là từ trừu tượng (目上, 遠慮, 悔しい, ましな…), chưa có ảnh vì Commons không có ảnh nào đúng nghĩa.
+Hiện có ảnh cho 582 từ của mười tám bài Mimikara N3: 283/300 từ ở bài 1–6 và 299/580 từ ở bài 7–18. Từ chưa có ảnh phần lớn là từ trừu tượng (目上, 遠慮, 悔しい, ましな…), phó từ và liên từ (cả bài 18), vì Commons không có ảnh nào đúng nghĩa. Ảnh do AI tạo, ảnh ghi tên người thật trong tên file và ảnh mang bối cảnh chính trị, quân sự bị loại dù khớp từ khoá.
 
 Thêm ảnh cho từ khác: tìm ảnh trên commons.wikimedia.org, thêm một mục vào
 `src/app/core/images/vocab-images.ts` — khoá `'chữ Nhật|cách đọc'`, giá trị là tên file trên
