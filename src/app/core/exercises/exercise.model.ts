@@ -42,7 +42,7 @@ export type ExerciseId =
  * chỗ chỉ cần hỏi "đây có phải bài ngữ pháp không" (lịch ôn, nạp lúc khởi động) không
  * phải kéo theo toàn bộ dữ liệu ngữ pháp vào bundle.
  */
-export const GRAMMAR_BOOK_IDS = ['ngu-phap-n4', 'ngu-phap-vnjpclub'] as const;
+export const GRAMMAR_BOOK_IDS = ['ngu-phap-n4', 'ngu-phap-vnjpclub', 'ngu-phap-n3'] as const;
 export type GrammarBookId = (typeof GRAMMAR_BOOK_IDS)[number];
 
 export function isGrammarBookId(id: string | null | undefined): id is GrammarBookId {
@@ -453,6 +453,7 @@ export const DEFAULT_MODE: Record<Exclude<ExerciseId, 'am-on-kun'>, ExerciseMode
   // câu tiếng Nhật thì chỉ thấy mình chưa biết gì.
   'ngu-phap-n4': 'grammar-path',
   'ngu-phap-vnjpclub': 'grammar-path',
+  'ngu-phap-n3': 'grammar-path',
 };
 
 /** Dạng luyện ý nghĩa (trắc nghiệm) của bài ngữ pháp N4 — đơn vị hỏi là MẪU chứ không phải câu. */
@@ -518,6 +519,13 @@ export const EXERCISES: readonly ExerciseInfo[] = [
     descKey: 'exercise.n4grammar.desc',
     unitKey: 'exercise.patternCount',
     levels: ['N4'],
+  },
+  {
+    id: 'ngu-phap-n3',
+    nameKey: 'exercise.n3grammar.name',
+    descKey: 'exercise.n3grammar.desc',
+    unitKey: 'exercise.patternCount',
+    levels: ['N3'],
   },
   // Thẻ dẫn sang trang ở khu Kanji (`EXERCISE_PAGE` ở core/paths.ts) — người dùng muốn thấy
   // bài này cạnh các bài tập khác, với đúng tên này.

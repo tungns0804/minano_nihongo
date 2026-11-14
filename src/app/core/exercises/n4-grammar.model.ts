@@ -128,6 +128,11 @@ export interface N4QuizItem {
   answer: string;
   /** Chú thích từ vựng của tài liệu. Rỗng nếu không có. */
   note: string;
+  /**
+   * Vì sao đáp án đúng — chỉ hiện SAU khi trả lời (`note` thì hiện ngay dưới câu hỏi).
+   * Câu phân biệt mẫu dễ nhầm mà ghi lý do lên trước thì lý do chính là đáp án.
+   */
+  explain: string;
 }
 
 export interface N4Quiz {
@@ -144,7 +149,7 @@ export interface N4Section {
   /** Đoạn mở đầu chung cho cả mục, trước mẫu đầu tiên. */
   intro: string[];
   points: N4Point[];
-  /** "Bài luyện tập" kèm đáp án của tài liệu; chỉ một mục có. */
+  /** "Bài luyện tập" kèm đáp án — của tài liệu (N4), hoặc soạn thêm (mục phân biệt của N3). */
   quiz: N4Quiz | null;
   /**
    * Trang gốc khi mục chỉ là phần tóm lược của một trang web (bộ vnjpclub): màn hình

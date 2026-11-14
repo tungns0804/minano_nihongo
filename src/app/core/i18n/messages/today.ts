@@ -23,8 +23,8 @@ export const TODAY_MESSAGES = {
   },
   'today.skill.kanji.desc': { vi: 'Chữ Hán N5–N1 và 214 bộ thủ', ja: 'N5〜N1の漢字と214部首' },
   'today.skill.practice.desc': {
-    vi: 'Luyện dịch, động từ, ngữ pháp N4 theo 5 bậc và đề N4',
-    ja: '翻訳、動詞、5段階のN4文法、N4模試',
+    vi: 'Luyện dịch, động từ, ngữ pháp N4 và N3 theo 5 bậc, đề N4',
+    ja: '翻訳、動詞、5段階のN4・N3文法、N4模試',
   },
   // ── Chuỗi ngày học (core/activity) ─────────────────────────────────────
   'streak.title': { vi: 'Chuỗi ngày học', ja: '連続学習' },

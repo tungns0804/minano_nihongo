@@ -57,6 +57,7 @@ export const PATH = {
   exercises: '/luyen-tap/bai-tap',
   counters: '/luyen-tap/bai-tap/so-dem',
   n4grammar: '/luyen-tap/ngu-phap-n4',
+  n3grammar: '/luyen-tap/ngu-phap-n3',
   taisaku: '/luyen-tap/de-n4',
 
   /** Đang làm một phiên luyện — không thuộc nhóm menu nào. */
@@ -136,6 +137,7 @@ const EXERCISE_PAGE: Readonly<Record<string, string>> = {
   // để `lessonIdOfPath` không coi nó là trang cố định.
   'so-dem': PATH.counters,
   'ngu-phap-n4': PATH.n4grammar,
+  'ngu-phap-n3': PATH.n3grammar,
   'ngu-phap-vnjpclub': PATH.vnjpclub,
   'taisaku-n4': PATH.taisaku,
   // Trắc nghiệm Kanji theo bài là một tab của khu Kanji, không phải của nhóm Luyện tập.

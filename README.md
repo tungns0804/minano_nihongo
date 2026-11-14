@@ -22,7 +22,7 @@ Các nguồn trong cùng một kỹ năng là **hàng tab con** ở đầu trang
 | **Từ vựng** | Minano · Theo chủ đề | `/tu-vung` · `/tu-vung/chu-de` |
 | **Ngữ pháp** | Minano · vnjpclub | `/ngu-phap` · `/ngu-phap/vnjpclub` |
 | **Kanji** | Kanji · Bộ thủ | `/kanji` · `/kanji/bo-thu` |
-| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Ngữ pháp N4 · Đề N4 | `/luyen-tap/dich` · `/luyen-tap/bai-tap` · `/luyen-tap/ngu-phap-n4` · `/luyen-tap/de-n4` |
+| **Luyện tập** | Luyện dịch · Bài tập bổ trợ · Ngữ pháp N4 · Ngữ pháp N3 · Đề N4 | `/luyen-tap/dich` · `/luyen-tap/bai-tap` · `/luyen-tap/ngu-phap-n4` · `/luyen-tap/ngu-phap-n3` · `/luyen-tap/de-n4` |
 
 **Đường dẫn đọc y như menu** ([`core/paths.ts`](src/app/core/paths.ts)): nhóm → tab → bài, tiếng Việt
 không dấu — `/tu-vung/bai-12`, `/ngu-phap/bai-12`, `/luyen-tap/dich/bai-12`,

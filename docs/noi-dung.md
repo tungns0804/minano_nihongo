@@ -12,7 +12,7 @@ Từng khu của ứng dụng: học gì, luyện thế nào, dữ liệu lấy 
 | **Dịch hội thoại** | Dịch từng câu Việt ↔ Nhật | `câu Nhật \| câu Việt` | **Luyện tập → Bài tập bổ trợ** |
 | **Bài tập chuyên đề** | Tự/tha động từ, chuyển thể động từ (N5→N2) | Cài sẵn trong mã nguồn | **Luyện tập → Bài tập bổ trợ** |
 | **Ngữ pháp** | Mẫu ngữ pháp + giải thích + luyện viết câu | JSON | **Ngữ pháp → Minano** |
-| **Sách ngữ pháp** | Tổng hợp N4 (tài liệu), vnjpclub N4 — lý thuyết + lộ trình 5 bậc | Cài sẵn / sinh bằng script | **Luyện tập → Ngữ pháp N4** / **Ngữ pháp → vnjpclub** |
+| **Sách ngữ pháp** | Tổng hợp N4 (tài liệu), Tổng hợp N3 (tài liệu), vnjpclub N4 — lý thuyết + lộ trình 5 bậc | Cài sẵn / sinh bằng script | **Luyện tập → Ngữ pháp N4 / Ngữ pháp N3** / **Ngữ pháp → vnjpclub** |
 | **Kanji** | Danh sách 2.123 chữ Hán N5→N1 + từ dùng chữ đó | Danh sách JLPT + kho từ có sẵn | **Kanji → Kanji** |
 | **Bộ thủ** | 214 bộ thủ + các chữ Hán N5→N1 ghép từ bộ đó | Bảng bộ thủ + chiết tự + kho chữ khu Kanji | **Kanji → Bộ thủ** |
 | **Trắc nghiệm Kanji** | Đề trắc nghiệm theo bài (N5 · Bài 17…): đọc chữ Hán, chọn cách viết | Chép tay từ đề người dùng đưa | **Kanji → Trắc nghiệm** |
@@ -996,6 +996,36 @@ câu luyện tập không trùng, ý nghĩa và tên mẫu không trùng (trùng
 phải có chỗ trống `《…》` trỏ về một mẫu có ý nghĩa, câu nhắc lại ở mục so sánh phải đánh dấu y
 như bản gốc, và các mảnh của mọi câu ghép lại phải được chấm đúng. `npm run verify:answer` thử chấm mọi câu ví dụ với các
 cách gõ khác nhau.
+
+## Luyện tập ngữ pháp N3
+
+Tab con **Ngữ pháp N3** trong nhóm Luyện tập (`/luyen-tap/ngu-phap-n3`), cùng màn hình và cùng
+lộ trình năm bậc với Ngữ pháp N4 ở trên — chỉ khác dữ liệu
+([`n3-grammar.ts`](../src/app/core/exercises/n3-grammar.ts)).
+
+Chép từ tài liệu **“TỔNG HỢP NGỮ PHÁP N3”** (110 mẫu – Tuần 1, 2, 4, 5, 6; bản tóm tắt quyển
+総まとめ N3 文法, thiếu Tuần 3 vì file gốc không có). Giữ cách chia của tài liệu: **mục 1–12 là 12
+nhóm theo chức năng** (bị động – sai khiến, dạng nói tắt, các mẫu ように, … わけ và phủ định mạnh),
+mỗi mẫu có ý nghĩa, cách chia, câu ví dụ và dòng "Bài gốc: Tuần X, Ngày Y" để tra lại sách.
+**Mục 13 là phần "Phân biệt các mẫu dễ nhầm"** của tài liệu (13 cặp/bộ, mỗi bộ một bảng). Tổng:
+**110 mẫu** luyện ý nghĩa, **202 câu ví dụ** (142 câu đủ dài để sắp xếp).
+
+Những chỗ thêm vào so với tài liệu, đều để luyện được:
+
+- **Furigana** `{漢字|かな}` cho mọi câu ví dụ (tài liệu không ghi cách đọc) và dấu chỗ trống `《…》`.
+- **Bài luyện tập của mục 13 — 35 câu do ứng dụng soạn**, theo đúng quy tắc phân biệt của tài liệu
+  (tài liệu ghi rõ đã bỏ bài luyện tập và đề thực chiến Ngày 7). Mỗi câu chỉ có một đáp án đúng
+  theo quy tắc, và có **lời giải thích hiện sau khi trả lời** (`explain` — trường thứ năm của câu
+  luyện tập; `note` thì hiện ngay dưới câu hỏi nên không dùng để ghi lý do).
+- Ý nghĩa rút thành một dòng để làm đáp án trắc nghiệm; vài mẫu gần nghĩa ("càng… càng", "ngay
+  cả", "về", "tức là"…) khai ở `N3_SYNONYMS` để không bao giờ làm đáp án nhiễu cho nhau. Các nhóm
+  mà chính câu ví dụ thay được cho nhau (みたい/らしい/っぽい, わりに/くせに, の/こと…) khai ở
+  `N3_INTERCHANGEABLE_GROUPS` — bậc 3 không lấy nhiễu trong nhóm đó; phân biệt chúng là việc của
+  mục 13.
+
+Bước 1 của khối "Cách học hiệu quả" có lời riêng (`GrammarBook.guideReadKey`): một mục ở đây là cả
+một nhóm 6–15 mẫu, nên gợi ý khoảng 5 mẫu mới mỗi ngày và chọn "Số câu" để học một nhóm dài làm
+vài chặng. Id mẫu đều mang đầu `n3-` vì khoá lịch ôn `nm:<id mẫu>` dùng chung cho mọi sách.
 
 ## Đề luyện N4 · 直前対策
 

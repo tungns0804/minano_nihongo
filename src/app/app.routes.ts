@@ -206,6 +206,13 @@ export const routes: Routes = [
     resolve: { book: () => loadGrammarBook('ngu-phap-n4') },
     loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
   },
+  // Luyện tập ngữ pháp N3: cùng màn hình với N4, dữ liệu là tài liệu "Tổng hợp ngữ pháp N3".
+  {
+    path: r(PATH.n3grammar),
+    title: 'route.n3grammar',
+    resolve: { book: () => loadGrammarBook('ngu-phap-n3') },
+    loadComponent: () => import('./features/n4-grammar/n4-grammar').then((m) => m.N4Grammar),
+  },
   // Đề luyện N4 · 直前対策: chọn phần, dạng câu và đề của một quyển sách luyện thi.
   {
     path: r(PATH.taisaku),

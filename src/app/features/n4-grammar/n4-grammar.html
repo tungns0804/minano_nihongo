@@ -23,7 +23,7 @@
       <div class="card-body stack stack-sm">
         <h2 id="n4-guide-title" class="n4-guide-title">{{ t('exercise.n4.guide.title') }}</h2>
         <ol class="n4-guide-steps">
-          <li><app-t key="exercise.n4.guide.read" block /></li>
+          <li><app-t [key]="book.guideReadKey ?? 'exercise.n4.guide.read'" block /></li>
           <li><app-t key="exercise.n4.guide.path" block /></li>
           <li><app-t key="exercise.n4.guide.star" block /></li>
           <li><app-t key="exercise.n4.guide.review" block /></li>
@@ -295,7 +295,12 @@
                       <summary>{{ t('exercise.n4.quizAnswers') }}</summary>
                       <ol class="n4-quiz-list">
                         @for (item of quiz.items; track $index) {
-                          <li class="jp">{{ item.answer }}</li>
+                          <li>
+                            <span class="jp">{{ item.answer }}</span>
+                            @if (item.explain) {
+                              <span class="small muted"> — {{ item.explain }}</span>
+                            }
+                          </li>
                         }
                       </ol>
                     </details>

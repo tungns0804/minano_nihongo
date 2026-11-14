@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Kiểm tra dữ liệu bài tập "Luyện tập ngữ pháp N4" (src/app/core/exercises/n4-grammar.ts).
+ * Kiểm tra dữ liệu mọi "sách ngữ pháp" (`grammar-books.ts`): Tổng hợp N4 (n4-grammar.ts),
+ * Tổng hợp N3 (n3-grammar.ts) và vnjpclub N4.
  *
  * Vì sao cần một script riêng: hơn ba trăm câu ví dụ chép tay từ tài liệu, mỗi câu
  * viết theo cú pháp furigana {漢字|かな}. Sai một dấu ngoặc thì giao diện vẫn vẽ ra
@@ -284,7 +285,7 @@ function verifyBook(book) {
   log(`  cau vi du      : ${exampleCount} (${practiced} cau dem ra luyen)`);
   log(`  dien cho trong : ${blanks.length} cau, tro ve ${blankTargets.size} mau`);
   log(`  sap xep cau    : ${orders.length} cau du dai de sap xep`);
-  log(`  bai luyen tap  : ${quizIds.size} cau cua tai lieu`);
+  log(`  bai luyen tap  : ${quizIds.size} cau`);
   log();
 
 }
@@ -305,5 +306,5 @@ if (problems.length > 0) {
   log(`${c.red}${problems.length} van de can sua.${c.reset}`);
   process.exitCode = 1;
 } else {
-  log(`${c.green}OK: du lieu ngu phap N4 hop le.${c.reset}`);
+  log(`${c.green}OK: du lieu cac sach ngu phap hop le.${c.reset}`);
 }

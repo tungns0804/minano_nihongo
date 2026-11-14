@@ -94,6 +94,8 @@ export const NAV_GROUPS: readonly NavGroup[] = [
       // Bài "Luyện tập ngữ pháp N4" nằm ở nhóm Luyện tập theo ý người dùng (01/11/2026): họ
       // dùng nó để luyện theo lộ trình năm bậc, cạnh đề luyện N4, hơn là để đọc lý thuyết.
       { path: PATH.n4grammar, labelKey: 'app.sub.n4grammar' },
+      // Sách "Tổng hợp ngữ pháp N3" (14/11/2026) — cùng màn hình, cùng lộ trình 5 bậc với N4.
+      { path: PATH.n3grammar, labelKey: 'app.sub.n3grammar' },
       { path: PATH.taisaku, labelKey: 'app.sub.taisaku' },
     ],
   },

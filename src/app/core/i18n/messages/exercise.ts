@@ -59,6 +59,11 @@ export const EXERCISE_MESSAGES = {
     vi: 'Tổng hợp ngữ pháp N4 theo tài liệu: mô tả từng mẫu, câu ví dụ kèm giải thích. Luyện theo lộ trình 5 bậc từ dễ đến khó: ý nghĩa, điền chỗ trống, sắp xếp câu, tự dịch.',
     ja: '資料に沿ったN4文法のまとめ：文型ごとの説明と解説つきの例文。意味・穴埋め・並べ替え・翻訳の5段階で、やさしい順に練習できます。',
   },
+  'exercise.n3grammar.name': { vi: 'Luyện tập ngữ pháp N3', ja: 'N3文法の練習' },
+  'exercise.n3grammar.desc': {
+    vi: 'Tổng hợp 110 mẫu ngữ pháp N3 theo tài liệu, chia 12 nhóm theo chức năng, kèm phần phân biệt các mẫu dễ nhầm. Luyện theo lộ trình 5 bậc từ dễ đến khó: ý nghĩa, điền chỗ trống, sắp xếp câu, tự dịch.',
+    ja: '資料に沿ったN3文法110項目のまとめ（機能別12グループ、間違えやすい文型の比較つき）。意味・穴埋め・並べ替え・翻訳の5段階で、やさしい順に練習できます。',
+  },
   'exercise.pairCount': { vi: '{count} cặp động từ', ja: '動詞{count}組' },
   'exercise.verbCount': { vi: '{count} động từ', ja: '動詞{count}語' },
   'exercise.patternCount': { vi: '{count} mẫu ngữ pháp', ja: '文型{count}個' },
@@ -172,8 +177,8 @@ export const EXERCISE_MESSAGES = {
     ja: '（　）に入る文型は？',
   },
   'exercise.label.quiz': {
-    vi: 'Bài luyện tập của tài liệu — chọn câu đúng',
-    ja: '資料の練習問題 — 正しいものを選ぶ',
+    vi: 'Bài luyện tập — chọn câu đúng',
+    ja: '練習問題 — 正しいものを選ぶ',
   },
   'exercise.label.order': {
     vi: 'Sắp xếp các mảnh thành câu tiếng Nhật',
@@ -224,6 +229,14 @@ export const EXERCISE_MESSAGES = {
     vi: 'Theo tài liệu “TỔNG HỢP NGỮ PHÁP N4”: mỗi mục mô tả mẫu ngữ pháp, câu ví dụ và lời giải thích. Đọc xong mục nào thì học ngay mục đó theo 5 bậc từ dễ đến khó.',
     ja: '資料「N4文法のまとめ」に沿って、項目ごとに文型の説明・例文・解説を載せています。読んだ項目は、すぐに5段階でやさしい順に練習できます。',
   },
+  'exercise.n3.subtitle': {
+    vi: 'Theo tài liệu “TỔNG HỢP NGỮ PHÁP N3” (110 mẫu, tóm tắt từ sách 総まとめ N3 文法): 12 nhóm theo chức năng, mỗi mẫu có ý nghĩa, cách chia và câu ví dụ. Mục cuối phân biệt các mẫu dễ nhầm, kèm bài luyện tập.',
+    ja: '資料「N3文法のまとめ」（110項目、総まとめN3文法の要約）に沿って、機能別の12グループに文型の意味・接続・例文を載せています。最後の項目は間違えやすい文型の比較と練習問題です。',
+  },
+  'exercise.n3.guide.read': {
+    vi: 'Mở một nhóm, đọc ý nghĩa, cách chia và câu ví dụ của từng mẫu (bật furigana nếu cần). Mỗi ngày khoảng 5 mẫu mới — nhóm dài thì chọn “Số câu” để học làm vài chặng.',
+    ja: 'グループを開き、各文型の意味・接続・例文を読みます（必要ならふりがなを表示）。新しい文型は1日5個ほど。長いグループは「問題数」を選んで数回に分けて進めます。',
+  },
   'exercise.n4.sectionCount': { vi: '{count} mục', ja: '{count}項目' },
   'exercise.n4.theory': { vi: 'Ngữ pháp & câu ví dụ', ja: '文法と例文' },
   'exercise.n4.theory.hint': {
@@ -234,7 +247,7 @@ export const EXERCISE_MESSAGES = {
     vi: 'Tìm mẫu ngữ pháp, ý nghĩa hoặc câu ví dụ…',
     ja: '文型・意味・例文で検索…',
   },
-  'exercise.n4.search.aria': { vi: 'Tìm trong ngữ pháp N4', ja: 'N4文法を検索' },
+  'exercise.n4.search.aria': { vi: 'Tìm trong sách ngữ pháp', ja: '文法を検索' },
   'exercise.n4.openAll': { vi: 'Mở tất cả', ja: 'すべて開く' },
   'exercise.n4.closeAll': { vi: 'Thu gọn tất cả', ja: 'すべて閉じる' },
   'exercise.n4.noMatch': { vi: 'Không có mục nào khớp với "{term}".', ja: '「{term}」に一致する項目がありません。' },
@@ -243,8 +256,8 @@ export const EXERCISE_MESSAGES = {
   'exercise.n4.examples': { vi: 'Ví dụ', ja: '例' },
   'exercise.n4.alsoSaid': { vi: 'Cũng nói:', ja: '別の言い方：' },
   'exercise.n4.wrong': { vi: 'Cách dùng sai', ja: '誤った使い方' },
-  'exercise.n4.quiz': { vi: 'Bài luyện tập trong tài liệu', ja: '資料の練習問題' },
-  'exercise.n4.quizAnswers': { vi: 'Xem đáp án (theo tài liệu)', ja: '解答を見る（資料どおり）' },
+  'exercise.n4.quiz': { vi: 'Bài luyện tập', ja: '練習問題' },
+  'exercise.n4.quizAnswers': { vi: 'Xem đáp án', ja: '解答を見る' },
   'exercise.n4.practiceSection': { vi: 'Học mục này: dễ → khó', ja: 'この項目をやさしい順に練習' },
   'exercise.n4.starPoint': { vi: 'Đánh dấu mẫu này là chưa nhớ', ja: 'この文型を未習得にする' },
   'exercise.n4.mode': { vi: 'Dạng luyện tập', ja: '練習の形式' },
@@ -304,7 +317,8 @@ export const EXERCISE_MESSAGES = {
     ja: 'この項目で練習済みの文型（第1〜2段階）と例文（第5段階）の数。復習ページで予定が組まれています。',
   },
   'exercise.n4.filled': { vi: 'Phần điền vào', ja: '入る部分' },
-  'exercise.n4.quizAnswer': { vi: 'Đáp án của tài liệu', ja: '資料の解答' },
+  'exercise.n4.quizAnswer': { vi: 'Đáp án', ja: '解答' },
+  'exercise.n4.quizWhy': { vi: 'Giải thích', ja: '解説' },
   'exercise.n4.guide.title': { vi: 'Cách học hiệu quả', ja: '効果的な学び方' },
   'exercise.n4.guide.read': {
     vi: 'Mở một mục, đọc ý nghĩa, công thức và các câu ví dụ (bật furigana nếu cần). Mỗi ngày chỉ cần 1–2 mục mới.',

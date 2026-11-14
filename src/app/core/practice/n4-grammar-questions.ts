@@ -236,6 +236,7 @@ function quizQuestion({ item, section }: N4QuizRef, config: PracticeConfig): Pra
   const choices = shuffle(options.map(writtenText));
 
   const lines: RecapItem[] = [recapJp('exercise.n4.quizAnswer', item.answer)];
+  if (item.explain) lines.push(recap('exercise.n4.quizWhy', item.explain));
   if (item.note) lines.push(recap('grammar.recap.note', item.note));
 
   return makeQuestion({

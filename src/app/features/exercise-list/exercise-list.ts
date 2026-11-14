@@ -116,7 +116,7 @@ export class ExerciseList extends LessonBrowser {
   private readonly allExercises = computed<ExerciseCard[]>(() => {
     // Đọc signal counts để số ★ trên thẻ tự cập nhật sau khi luyện xong.
     const counts = this.favoriteStore.counts();
-    // Các "sách ngữ pháp" (Tổng hợp N4, vnjpclub) có tab con riêng (core/navigation.ts),
+    // Các "sách ngữ pháp" (Tổng hợp N4, Tổng hợp N3, vnjpclub) có tab con riêng (core/navigation.ts),
     // nên không lặp lại thẻ ở đây.
     return EXERCISES.filter((info) => !isGrammarBookId(info.id)).map((info) => ({
       ...info,
@@ -273,6 +273,7 @@ function itemCountOf(id: ExerciseId): number {
     case 'taisaku-n4':
     case 'trac-nghiem-kanji':
     case 'ngu-phap-n4':
+    case 'ngu-phap-n3':
     case 'ngu-phap-vnjpclub':
       return 0;
   }

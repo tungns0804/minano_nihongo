@@ -52,8 +52,14 @@ export interface RawPoint {
   usages?: readonly RawUsage[];
 }
 
-/** [câu hỏi, các lựa chọn, đáp án, chú thích] */
-export type RawQuizItem = readonly [prompt: string, options: readonly string[], answer: string, note?: string];
+/** [câu hỏi, các lựa chọn, đáp án, chú thích, lời giải thích hiện sau khi trả lời] */
+export type RawQuizItem = readonly [
+  prompt: string,
+  options: readonly string[],
+  answer: string,
+  note?: string,
+  explain?: string,
+];
 
 export interface RawSection {
   id: string;
@@ -133,12 +139,13 @@ function toQuiz(raw: RawSection['quiz']): N4Quiz | null {
   if (!raw) return null;
   return {
     instruction: raw.instruction,
-    items: raw.items.map(([prompt, options, answer, note]) => ({
+    items: raw.items.map(([prompt, options, answer, note, explain]) => ({
       id: hashId(plainText(prompt)),
       prompt,
       options: [...options],
       answer,
       note: note ?? '',
+      explain: explain ?? '',
     })),
   };
 }

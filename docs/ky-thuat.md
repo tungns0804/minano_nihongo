@@ -66,6 +66,8 @@ src/app/
       grammar-book.build.ts      Dựng dữ liệu một sách ngữ pháp từ dạng viết tay / sinh tự động
       grammar-books.ts           Kiểu "sách ngữ pháp" + nạp động từng sách (mỗi sách một gói tải)
       grammar-book-n4.ts         Sách Tổng hợp N4 (dữ liệu ở n4-grammar.ts)
+      n3-grammar.ts              13 mục: tài liệu "TỔNG HỢP NGỮ PHÁP N3" (110 mẫu) + 35 câu phân biệt
+      grammar-book-n3.ts         Sách Tổng hợp N3 (dữ liệu ở n3-grammar.ts)
       grammar-book-vnjpclub.ts   Sách vnjpclub N4 (dữ liệu ở vnjpclub-n4.generated.ts)
       vnjpclub-n4.generated.ts   Các mẫu N4 của vnjpclub — DO MÁY SINH (import-vnjpclub.mjs)
     kanji/

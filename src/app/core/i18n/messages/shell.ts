@@ -36,6 +36,7 @@ export const SHELL_MESSAGES = {
   'app.sub.topic': { vi: 'Theo chủ đề', ja: 'テーマ別' },
   // Tên tab ngắn: hàng tab đã nằm trong nhóm Ngữ pháp, nên chỉ cần tên nguồn.
   'app.sub.n4grammar': { vi: 'Ngữ pháp N4', ja: 'N4文法' },
+  'app.sub.n3grammar': { vi: 'Ngữ pháp N3', ja: 'N3文法' },
   'app.sub.vnjpclub': { vi: 'vnjpclub', ja: 'vnjpclub' },
   'app.sub.taisaku': { vi: 'Đề N4', ja: 'N4模試' },
   'app.sub.kanjiQuiz': { vi: 'Trắc nghiệm', ja: 'テスト' },
@@ -168,6 +169,7 @@ export const SHELL_MESSAGES = {
   'route.exercise': { vi: 'Bài tập bổ trợ', ja: '補助練習' },
   'route.exerciseDetail': { vi: 'Nội dung bài tập', ja: '練習問題の詳細' },
   'route.n4grammar': { vi: 'Luyện tập ngữ pháp N4', ja: 'N4文法の練習' },
+  'route.n3grammar': { vi: 'Luyện tập ngữ pháp N3', ja: 'N3文法の練習' },
   'route.counters': { vi: 'Số đếm & trợ số từ', ja: '数と助数詞' },
   'route.taisaku': { vi: 'Đề luyện N4 · 直前対策', ja: 'N4 直前対策' },
   'route.vnjpclub': { vi: 'Ngữ pháp N4 · vnjpclub', ja: 'N4文法・vnjpclub' },

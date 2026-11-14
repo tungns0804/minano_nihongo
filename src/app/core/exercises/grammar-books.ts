@@ -15,6 +15,11 @@ export interface GrammarBook {
   readonly path: string;
   readonly nameKey: MessageKey;
   readonly subtitleKey: MessageKey;
+  /**
+   * Bước 1 của khối "Cách học hiệu quả" nếu sách cần lời khác mặc định: mục của sách N3 là
+   * cả một nhóm 6–15 mẫu, nên "mỗi ngày 1–2 mục" của sách N4 không còn đúng.
+   */
+  readonly guideReadKey?: MessageKey;
   readonly sections: readonly N4Section[];
   /** Mẫu CÙNG nghĩa — không bao giờ làm đáp án nhiễu cho nhau. */
   readonly synonyms: readonly (readonly string[])[];
@@ -34,6 +39,7 @@ export interface GrammarBook {
 const LOADERS: Record<GrammarBookId, () => Promise<GrammarBook>> = {
   'ngu-phap-n4': () => import('./grammar-book-n4').then((m) => m.N4_BOOK),
   'ngu-phap-vnjpclub': () => import('./grammar-book-vnjpclub').then((m) => m.VNJPCLUB_BOOK),
+  'ngu-phap-n3': () => import('./grammar-book-n3').then((m) => m.N3_BOOK),
 };
 
 const loaded = new Map<GrammarBookId, GrammarBook>();
