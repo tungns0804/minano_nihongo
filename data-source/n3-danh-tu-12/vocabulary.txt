@@ -1,0 +1,62 @@
+# Mimikara N3 · Từ vựng — Bài 12 (từ 551–600)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 7 形容詞Ｂ" 551–590 và "Bài 8 副詞" 591–600) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   562 file ghi 固い・硬い — giữ 固い; 569 立派な "siêu" → tuyệt vời, đàng hoàng;
+#   571 確かな "đích thực" → chắc chắn, đáng tin; 579 急な "đột nhiên" → đột ngột, dốc;
+#   580: file ghi 敵とな (てきとな) — đúng là 適当な (てきとうな), phù hợp;
+#   583 盛んな "thịnh vượng" → thịnh hành, sôi nổi; 597 けっこう "rất" → khá;
+#   598 大分: file ghi cách đọc ずいぶん — đúng là だいぶ;
+#   600: file ghi しっかり với nghĩa "toàn bộ" — đó là すっかり (しっかり có ở từ 848).
+# Tính từ 551–590
+NỒNG,濃い (こい),Đậm/ đặc|このコーヒーは濃すぎて、飲めません。|Cà phê này đặc quá, tôi không uống được.
+BẠC,薄い (うすい),Mỏng/ nhạt|このスープは味が薄いです。|Món súp này vị nhạt.
+TOAN,酸っぱい (すっぱい),Chua|このみかんはとても酸っぱいです。|Quả quýt này rất chua.
+XÚ,臭い (くさい),Hôi/ thối|ごみが臭いので、早く外に出してください。|Rác bốc mùi, hãy mang ra ngoài sớm đi.
+,おかしい,Lạ/ buồn cười|このパソコン、ちょっと調子がおかしいです。|Cái máy tính này chạy hơi lạ.
+,かっこいい,Ngầu/ bảnh|兄の新しい車はとてもかっこいいです。|Xe mới của anh tôi rất ngầu.
+,うまい,Ngon/ giỏi|この店のラーメンは本当にうまいです。|Mì ramen của quán này ngon thật.
+THÂN,親しい (したしい),Thân thiết|彼女は大学時代からの親しい友達です。|Cô ấy là bạn thân từ thời đại học.
+TƯỜNG,詳しい (くわしい),Chi tiết/ am hiểu|詳しいことは後でメールで送ります。|Chi tiết tôi sẽ gửi email sau.
+TẾ,細かい (こまかい),Nhỏ, vụn/ tỉ mỉ|野菜を細かく切ってください。|Hãy thái nhỏ rau.
+THIỂN,浅い (あさい),Nông/ cạn|この川は浅いので、子どもも遊べます。|Con sông này nông nên trẻ con cũng chơi được.
+CỐ,固い (かたい),Cứng|このパンは固くて、食べにくいです。|Bánh mì này cứng, khó ăn.
+,ぬるい,Âm ấm/ nguội (nước)|話している間に、お茶がぬるくなってしまいました。|Trong lúc nói chuyện, trà đã nguội mất.
+,まぶしい,Chói (mắt)|太陽がまぶしくて、目が開けられません。|Mặt trời chói quá, không mở mắt được.
+CHƯNG THỬ,蒸し暑い (むしあつい),Nóng ẩm/ oi bức|日本の夏はとても蒸し暑いです。|Mùa hè ở Nhật rất oi bức.
+THANH KHIẾT,清潔な (せいけつな),Sạch sẽ|このホテルの部屋はとても清潔です。|Phòng khách sạn này rất sạch sẽ.
+TÂN TIÊN,新鮮な (しんせんな),Tươi|この店の魚はいつも新鮮です。|Cá ở cửa hàng này lúc nào cũng tươi.
+PHONG,豊かな (ゆたかな),Giàu có/ phong phú|いつか豊かな生活を送りたいです。|Một ngày nào đó tôi muốn có cuộc sống sung túc.
+LẬP PHÁI,立派な (りっぱな),Tuyệt vời/ đàng hoàng|駅の前に立派なホテルが建ちました。|Trước ga đã mọc lên một khách sạn bề thế.
+CHÍNH XÁC,正確な (せいかくな),Chính xác|集合の正確な時間を教えてください。|Hãy cho tôi biết chính xác giờ tập trung.
+XÁC,確かな (たしかな),Chắc chắn/ đáng tin|これは確かな情報です。|Đây là thông tin đáng tin cậy.
+TRỌNG YẾU,重要な (じゅうような),Quan trọng|明日は重要な会議があります。|Ngày mai có một cuộc họp quan trọng.
+TẤT YẾU,必要な (ひつような),Cần thiết|旅行に必要な物をかばんに入れました。|Tôi đã cho những thứ cần cho chuyến đi vào túi.
+,もったいない,Lãng phí/ phí của|まだ使えるのに捨てるのは、もったいないです。|Vẫn còn dùng được mà vứt đi thì thật phí.
+,すごい,Ghê/ tuyệt quá|一日で本を3冊も読んだんですか。すごいですね。|Một ngày mà đọc tới 3 cuốn sách à? Giỏi quá nhỉ.
+,ひどい,Tồi tệ/ quá đáng|約束を忘れるなんて、ひどいです。|Quên cả lời hẹn thì thật quá đáng.
+KÍCH,激しい (はげしい),Mãnh liệt/ dữ dội|夜になって、雨が激しくなりました。|Về đêm, mưa trở nên dữ dội.
+,そっくりな,Giống hệt|彼女はお母さんにそっくりです。|Cô ấy giống hệt mẹ.
+CẤP,急な (きゅうな),Đột ngột/ dốc|急な用事ができて、パーティーに行けなくなりました。|Có việc đột xuất nên tôi không đi dự tiệc được.
+THÍCH ĐƯƠNG,適当な (てきとうな),Phù hợp/ thích hợp|（　）に適当な言葉を入れてください。|Hãy điền từ thích hợp vào chỗ trống.
+ĐẶC BIỆT,特別な (とくべつな),Đặc biệt|今日は特別な日なので、レストランで食事をします。|Hôm nay là ngày đặc biệt nên chúng tôi ăn ở nhà hàng.
+HOÀN TOÀN,完全な (かんぜんな),Hoàn toàn/ hoàn hảo|病気が完全に治りました。|Bệnh đã khỏi hoàn toàn.
+THỊNH,盛んな (さかんな),Thịnh hành/ sôi nổi|この町では昔から野球が盛んです。|Ở thị trấn này bóng chày thịnh hành từ xưa.
+DẠNG,様々な (さまざまな),Đa dạng/ nhiều loại|この店には様々な国の料理があります。|Quán này có món ăn của nhiều nước khác nhau.
+KHẢ NĂNG,可能な (かのうな),Khả thi/ có thể|予約の変更は前の日まで可能です。|Có thể thay đổi đặt chỗ đến ngày hôm trước.
+BẤT KHẢ NĂNG,不可能な (ふかのうな),Bất khả thi/ không thể|一日でこの仕事を全部終わらせるのは不可能です。|Làm xong hết việc này trong một ngày là không thể.
+CƠ BẢN ĐÍCH,基本的な (きほんてきな),Cơ bản|まず基本的な文法を勉強しましょう。|Trước tiên hãy học ngữ pháp cơ bản.
+QUỐC TẾ ĐÍCH,国際的な (こくさいてきな),Mang tính quốc tế|彼は国際的に有名な画家です。|Ông ấy là họa sĩ nổi tiếng quốc tế.
+,ばらばらな,Rời rạc/ tản mát|家族はみんな、ばらばらに住んでいます。|Gia đình tôi mỗi người sống một nơi.
+,ぼろぼろな,Rách nát/ tả tơi|何年も使った辞書がぼろぼろになりました。|Cuốn từ điển dùng nhiều năm đã rách nát.
+# Phó từ 591–600
+PHI THƯỜNG,非常に (ひじょうに),Rất/ vô cùng|今日は非常に寒いです。|Hôm nay vô cùng lạnh.
+ĐẠI BIẾN,大変に (たいへんに),Rất/ vô cùng|先日は大変にお世話になりました。|Hôm trước tôi đã được anh giúp đỡ rất nhiều.
+,ほとんど,Hầu hết/ gần như|宿題はほとんど終わりました。|Bài tập tôi đã làm gần xong.
+ĐẠI THỂ,大体 (だいたい),Đại khái/ khoảng|駅まで歩いて大体10分です。|Đi bộ đến ga mất khoảng 10 phút.
+,かなり,Khá/ tương đối|今日はかなり歩いたので、疲れました。|Hôm nay đi bộ khá nhiều nên mệt.
+,ずいぶん,Khá là/ đáng kể|日本語がずいぶん上手になりましたね。|Tiếng Nhật của bạn đã giỏi lên đáng kể nhỉ.
+,けっこう,Khá/ tương đối|このレストランは安いけど、けっこうおいしいです。|Nhà hàng này rẻ nhưng khá ngon.
+ĐẠI PHÂN,大分 (だいぶ),Khá nhiều/ đáng kể|風邪は大分よくなりました。|Cảm đã đỡ nhiều rồi.
+,もっと,Hơn nữa|もっとゆっくり話してください。|Hãy nói chậm hơn nữa.
+,すっかり,Hoàn toàn/ hẳn|約束をすっかり忘れていました。|Tôi đã quên khuấy lời hẹn.

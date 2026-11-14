@@ -1,0 +1,58 @@
+# Mimikara N3 · Từ vựng — Bài 10 (từ 451–500)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 5 動詞B") người dùng gửi 2026-11-14 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Nghĩa trong file nguồn được sửa ở những chỗ sai hoặc lệch nghĩa:
+#   455 詰まる "đầy, chặt" → bị tắc, chật kín; 458 閉じる: file gõ "dđóng";
+#   468 行う "tổ chức" → tiến hành, tổ chức; 473 慣らす "khởi động" → làm cho quen;
+#   481 生やす "nuôi(râu)" → để (râu).
+# Động từ 451–500
+ẨN,隠す (かくす),Che giấu/ giấu|母に見つからないように、テストを隠しました。|Tôi giấu bài kiểm tra để mẹ không tìm thấy.
+MAI,埋まる (うまる),Bị chôn/ bị lấp kín|大雪で道が埋まってしまいました。|Con đường bị tuyết lớn vùi lấp.
+MAI,埋める (うめる),Chôn/ lấp|犬が庭に骨を埋めました。|Con chó đã chôn khúc xương ngoài vườn.
+VI,囲む (かこむ),Vây quanh/ quây quanh|家族でテーブルを囲んで、食事をしました。|Cả nhà quây quần quanh bàn ăn cơm.
+CẬT,詰まる (つまる),Bị tắc/ chật kín|鼻が詰まって、においが分かりません。|Bị nghẹt mũi nên tôi không ngửi thấy mùi.
+CẬT,詰める (つめる),Nhồi, nhét/ xếp sát|かばんに服を詰めて、旅行の準備をしました。|Tôi nhét quần áo vào túi để chuẩn bị đi du lịch.
+KHAI,開く (ひらく),Mở|教科書の30ページを開いてください。|Hãy mở sách giáo khoa trang 30.
+BẾ,閉じる (とじる),Đóng/ nhắm (mắt)|目を閉じて、音楽を聞きました。|Tôi nhắm mắt nghe nhạc.
+PHI,飛ぶ (とぶ),Bay|空を鳥が飛んでいます。|Chim đang bay trên trời.
+PHI,飛ばす (とばす),Làm bay/ thả bay|子どもたちが公園で紙飛行機を飛ばしています。|Bọn trẻ đang phóng máy bay giấy trong công viên.
+CHẤN,振る (ふる),Vẫy/ lắc|駅で友達に手を振りました。|Tôi vẫy tay chào bạn ở nhà ga.
+,めくる,Lật (trang)|本のページをゆっくりめくりました。|Tôi chầm chậm lật trang sách.
+KIẾN,見かける (みかける),Tình cờ thấy|駅で先生を見かけました。|Tôi tình cờ thấy thầy giáo ở ga.
+XÁC,確かめる (たしかめる),Xác minh/ kiểm tra lại|答えが正しいか、もう一度確かめてください。|Hãy kiểm tra lại một lần nữa xem đáp án đã đúng chưa.
+THÍ,試す (ためす),Thử|新しい料理の作り方を試してみました。|Tôi đã thử cách nấu món mới.
+THAO PHẢN,繰り返す (くりかえす),Lặp lại|同じ間違いを繰り返さないでください。|Đừng lặp lại cùng một lỗi.
+DỊCH,訳す (やくす),Dịch|この文を日本語に訳してください。|Hãy dịch câu này sang tiếng Nhật.
+HÀNH,行う (おこなう),Tiến hành/ tổ chức|卒業式は体育館で行われます。|Lễ tốt nghiệp được tổ chức ở nhà thể chất.
+GIAN VI,間違う (まちがう),Sai/ nhầm|計算が間違っていました。|Phép tính đã bị sai.
+GIAN VI,間違える (まちがえる),Làm sai/ nhầm|電車を間違えて、遠くの駅まで行ってしまいました。|Tôi lên nhầm tàu và đi tới tận ga xa.
+HỨA,許す (ゆるす),Tha thứ/ cho phép|何度謝っても、彼は許してくれませんでした。|Dù xin lỗi bao nhiêu lần, anh ấy vẫn không tha thứ cho tôi.
+QUÁN,慣れる (なれる),Quen|日本の生活にもう慣れました。|Tôi đã quen với cuộc sống ở Nhật rồi.
+QUÁN,慣らす (ならす),Làm cho quen|走る前に、少しずつ体を慣らしましょう。|Trước khi chạy, hãy làm cho cơ thể quen dần.
+LẬP,立つ (たつ),Đứng|駅の前に男の人が立っています。|Có một người đàn ông đang đứng trước ga.
+LẬP,立てる (たてる),Dựng lên/ lập (kế hoạch)|夏休みの計画を立てました。|Tôi đã lập kế hoạch cho kỳ nghỉ hè.
+KIẾN,建つ (たつ),Được xây|駅の前に新しいビルが建ちました。|Trước ga đã mọc lên một tòa nhà mới.
+KIẾN,建てる (たてる),Xây|いつか海の近くに家を建てたいです。|Một ngày nào đó tôi muốn xây nhà gần biển.
+DỤC,育つ (そだつ),Lớn lên/ được nuôi dưỡng|私は田舎で育ちました。|Tôi lớn lên ở quê.
+DỤC,育てる (そだてる),Nuôi dạy/ trồng|ベランダでトマトを育てています。|Tôi đang trồng cà chua ở ban công.
+SINH,生える (はえる),Mọc|庭に草がたくさん生えています。|Cỏ mọc đầy trong vườn.
+SINH,生やす (はやす),Để (râu)/ để mọc|父はひげを生やしています。|Bố tôi để râu.
+Ô,汚れる (よごれる),Bị bẩn|雨の中を歩いて、靴が汚れました。|Đi bộ dưới mưa nên giày bị bẩn.
+Ô,汚す (よごす),Làm bẩn|子どもがジュースで服を汚しました。|Đứa trẻ làm bẩn áo vì nước hoa quả.
+HOẠI,壊れる (こわれる),Bị hỏng/ bị đổ vỡ|地震で古い家が壊れました。|Ngôi nhà cũ bị đổ vì động đất.
+HOẠI,壊す (こわす),Làm hỏng/ phá|弟が私のカメラを壊しました。|Em trai đã làm hỏng máy ảnh của tôi.
+CÁT,割れる (われる),Bị vỡ|落としたコップが割れてしまいました。|Cái cốc tôi đánh rơi bị vỡ mất.
+CÁT,割る (わる),Làm vỡ/ đập vỡ|卵を割って、ボウルに入れてください。|Hãy đập trứng cho vào bát.
+TRIẾT,折れる (おれる),Bị gãy|強い風で木の枝が折れました。|Cành cây bị gãy vì gió mạnh.
+TRIẾT,折る (おる),Bẻ gãy/ gấp|子どもたちと紙で鶴を折りました。|Tôi gấp hạc giấy cùng bọn trẻ.
+PHÁ,破れる (やぶれる),Bị rách|ズボンが破れてしまいました。|Quần bị rách mất rồi.
+PHÁ,破る (やぶる),Xé rách/ phá (lời hứa)|約束を破ってはいけません。|Không được thất hứa.
+KHÚC,曲がる (まがる),Rẽ/ bị cong|次の角を右に曲がってください。|Hãy rẽ phải ở góc tiếp theo.
+KHÚC,曲げる (まげる),Bẻ cong/ gập|ひざを曲げて、ゆっくり座ってください。|Hãy gập gối rồi từ từ ngồi xuống.
+NGOẠI,外れる (はずれる),Bị tuột/ trật ra|シャツのボタンが外れています。|Cúc áo sơ mi bị tuột rồi.
+NGOẠI,外す (はずす),Tháo ra/ cởi ra|部屋に入るときは、帽子を外してください。|Khi vào phòng hãy bỏ mũ ra.
+DAO,揺れる (ゆれる),Rung/ lắc|地震で家が大きく揺れました。|Nhà rung lắc mạnh vì động đất.
+DAO,揺らす (ゆらす),Làm rung/ đung đưa|風が木の枝を揺らしています。|Gió làm cành cây đung đưa.
+LƯU,流れる (ながれる),Chảy/ trôi|この川はゆっくり流れています。|Dòng sông này chảy chậm.
+LƯU,流す (ながす),Cho chảy/ xả|使った後は、トイレの水を流してください。|Dùng xong hãy xả nước bồn cầu.
+NHU,濡れる (ぬれる),Bị ướt|傘がなかったので、雨で服が濡れました。|Không có ô nên quần áo bị ướt mưa.

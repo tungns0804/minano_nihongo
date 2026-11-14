@@ -1,0 +1,62 @@
+# Mimikara N3 · Từ vựng — Bài 16 (từ 751–800)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 10 動詞Ｃ" 751–795 và "Bài 11 カタカナＢ" 796–800) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   762 伸ばす "nuôi dài, căng ra" → để dài, duỗi ra; 765 重なる "xung đột, xếp chồng" → chồng lên, trùng nhau;
+#   769 載る "vừa, được công bố" → được đặt lên, được đăng; 777 たまる "được tiết kiệm" → tích tụ, dồn lại;
+#   779–781 file ghi 交じる・混じる, 交ざる・混ざる, 交ぜる・混ぜる — giữ cách viết 混 hay gặp hơn;
+#   782 file ghi 解ける・溶ける, 783 ghi 解く・溶く — giữ 溶ける (tan chảy) và 解く (giải, cởi);
+#   786 抜ける "tháo, tuột" → rụng, tuột ra; 789 現す "xuất hiện, hiện ra" → để lộ ra (姿を現す);
+#   793 散らす "tàn" → làm rơi vãi, làm tản ra; 796 file ghi パートナ — đúng là パートナー.
+# Động từ 751–795
+XUẤT LAI,出来る (できる),Có thể/ được làm ra, mọc lên|駅の近くに大きな公園が出来ました。|Gần ga đã có một công viên lớn.
+THIẾT,切れる (きれる),Đứt/ hết (hạn, pin)|携帯の電池が切れてしまいました。|Điện thoại hết pin mất rồi.
+THIẾT,切らす (きらす),Để hết/ hết sạch|すみません、今、牛乳を切らしています。|Xin lỗi, hiện tại nhà tôi hết sữa rồi.
+TRUYỀN,伝わる (つたわる),Được truyền đạt/ được truyền lại|私の気持ちが彼女に伝わりました。|Tình cảm của tôi đã đến được với cô ấy.
+TRUYỀN,伝える (つたえる),Truyền đạt/ nhắn lại|田中さんに、明日は休むと伝えてください。|Hãy nhắn với anh Tanaka là ngày mai tôi nghỉ.
+TỤC,続く (つづく),Tiếp tục/ kéo dài|雨の日が一週間続いています。|Trời mưa liên tục một tuần nay.
+TỤC,続ける (つづける),Tiếp tục (làm)|日本語の勉強を毎日続けています。|Tôi duy trì việc học tiếng Nhật mỗi ngày.
+,つながる,Được kết nối/ thông|電話がなかなかつながりません。|Điện thoại gọi mãi không được.
+,つなぐ,Nối/ nắm (tay)|子どもと手をつないで歩きました。|Tôi nắm tay con đi bộ.
+,つなげる,Nối lại/ ghép lại|二つの机をつなげて、大きいテーブルにしました。|Tôi ghép hai cái bàn thành một bàn lớn.
+THÂN,伸びる (のびる),Dài ra/ cao lên, tăng|この一年で背が5センチ伸びました。|Trong một năm tôi cao thêm 5 phân.
+THÂN,伸ばす (のばす),Để dài/ duỗi ra|今、髪を伸ばしています。|Bây giờ tôi đang để tóc dài.
+DIÊN,延びる (のびる),Bị hoãn/ bị kéo dài|雨で、試合が来週に延びました。|Vì mưa, trận đấu bị hoãn sang tuần sau.
+DIÊN,延ばす (のばす),Hoãn/ kéo dài|出発を一日延ばしました。|Tôi đã hoãn ngày khởi hành thêm một ngày.
+TRÙNG,重なる (かさなる),Chồng lên/ trùng nhau|二つの用事が同じ日に重なってしまいました。|Hai việc lại trùng vào cùng một ngày.
+TRÙNG,重ねる (かさねる),Chồng lên/ xếp chồng|皿を重ねて、棚にしまいました。|Tôi xếp chồng đĩa rồi cất lên kệ.
+QUẢNG,広がる (ひろがる),Lan rộng/ trải rộng|窓の外に青い海が広がっています。|Ngoài cửa sổ, biển xanh trải rộng.
+QUẢNG,広げる (ひろげる),Mở rộng/ trải ra|テーブルの上に地図を広げました。|Tôi trải bản đồ ra trên bàn.
+TẢI,載る (のる),Được đặt lên/ được đăng|私の写真が新聞に載りました。|Ảnh của tôi đã được đăng trên báo.
+TẢI,載せる (のせる),Đặt lên/ đăng|棚の上に箱を載せました。|Tôi đặt cái hộp lên kệ.
+,そろう,Đủ/ tề tựu|全員そろったので、会議を始めましょう。|Mọi người đã đến đủ, chúng ta bắt đầu họp thôi.
+,そろえる,Chuẩn bị đủ/ xếp ngay ngắn|玄関で靴をそろえてください。|Hãy xếp giày ngay ngắn ở lối vào.
+,まとまる,Được tập hợp/ được thống nhất|みんなの意見がやっとまとまりました。|Ý kiến của mọi người cuối cùng cũng thống nhất.
+,まとめる,Tập hợp/ tóm tắt|会議の内容を一枚にまとめてください。|Hãy tóm tắt nội dung cuộc họp vào một trang.
+PHÓ,付く (つく),Dính/ gắn vào|シャツにコーヒーのしみが付いています。|Áo sơ mi bị dính vết cà phê.
+PHÓ,付ける (つける),Gắn/ thêm vào, phết|パンにバターを付けて食べます。|Tôi phết bơ lên bánh mì để ăn.
+,たまる,Tích tụ/ dồn lại|仕事がたまって、休めません。|Việc dồn lại nên tôi không nghỉ được.
+,ためる,Tích lũy/ để dành|旅行のためにお金をためています。|Tôi đang để dành tiền đi du lịch.
+HỖN,混じる (まじる),Lẫn vào/ trộn lẫn|米に小さい石が混じっていました。|Trong gạo có lẫn sỏi nhỏ.
+HỖN,混ざる (まざる),Được trộn lẫn/ hòa lẫn|水と油は混ざりません。|Nước và dầu không hòa lẫn vào nhau.
+HỖN,混ぜる (まぜる),Trộn|卵と砂糖をよく混ぜてください。|Hãy trộn đều trứng và đường.
+DUNG,溶ける (とける),Tan/ tan chảy|暑くて、アイスクリームが溶けてしまいました。|Trời nóng nên kem tan chảy mất.
+GIẢI,解く (とく),Giải (bài)/ cởi|数学の問題を解くのが好きです。|Tôi thích giải các bài toán.
+HÀM,含む (ふくむ),Chứa/ bao gồm|この値段には税金が含まれています。|Giá này đã bao gồm thuế.
+HÀM,含める (ふくめる),Tính cả/ gộp cả|私を含めて、10人が参加します。|Tính cả tôi, có 10 người tham gia.
+BẠT,抜ける (ぬける),Rụng/ tuột ra|最近、髪の毛がよく抜けます。|Dạo này tóc tôi hay rụng.
+BẠT,抜く (ぬく),Nhổ/ rút ra|歯医者で歯を抜きました。|Tôi đã nhổ răng ở nha sĩ.
+HIỆN,現れる (あらわれる),Xuất hiện/ hiện ra|雲の間から月が現れました。|Mặt trăng hiện ra giữa những đám mây.
+HIỆN,現す (あらわす),Để lộ ra/ làm xuất hiện|30分遅れて、彼はやっと姿を現しました。|Muộn 30 phút, anh ấy mới xuất hiện.
+BIỂU,表れる (あらわれる),Biểu hiện ra (trên mặt)|うれしい気持ちが顔に表れていました。|Niềm vui hiện rõ trên khuôn mặt.
+BIỂU,表す (あらわす),Biểu thị/ thể hiện|気持ちを言葉で表すのは難しいです。|Thể hiện cảm xúc bằng lời thật khó.
+TÁN,散る (ちる),Rụng/ tàn (hoa)|風で桜の花が散ってしまいました。|Hoa anh đào rụng hết vì gió.
+TÁN,散らす (ちらす),Làm rơi vãi/ bày bừa|子どもが部屋中におもちゃを散らしています。|Đứa trẻ bày đồ chơi bừa khắp phòng.
+MINH,明ける (あける),(Trời) sáng/ (năm) mới bắt đầu|夜が明けて、外が明るくなりました。|Trời rạng sáng, bên ngoài sáng dần.
+SAI,差す (さす),Chiếu (nắng)/ giương (ô)|雨が降ってきたので、傘を差しました。|Trời đổ mưa nên tôi giương ô.
+# Từ katakana 796–800
+,パートナー,Đối tác/ bạn đời|彼は仕事のいいパートナーです。|Anh ấy là đối tác tốt trong công việc.
+,リーダー,Người lãnh đạo/ trưởng nhóm|彼女はグループのリーダーに選ばれました。|Cô ấy được chọn làm trưởng nhóm.
+,ボランティア,Tình nguyện (viên)|週末、公園を掃除するボランティアをしています。|Cuối tuần tôi làm tình nguyện dọn dẹp công viên.
+,コミュニケーション,Giao tiếp|家族とのコミュニケーションを大切にしています。|Tôi coi trọng việc giao tiếp với gia đình.
+,ユーモア,Hài hước/ óc hài hước|父はユーモアのある人です。|Bố tôi là người có óc hài hước.

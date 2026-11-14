@@ -1,0 +1,61 @@
+# Mimikara N3 · Từ vựng — Bài 15 (từ 701–750)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 9 名詞Ｃ" 701–715 và "Bài 10 動詞Ｃ" 716–750) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   709 現代 "hiện tại" → hiện đại, thời nay; 722 file ghi 超える・越える — giữ 越える (vượt qua núi, biên giới);
+#   724 過ごす "sử dụng (thời gian)" → trải qua; 729 寄せる "ghé vào" → dồn lại, kéo sát lại;
+#   739: file ghi 臨む với nghĩa "ước" — "mong ước" là 望む (cùng đọc のぞむ), ở đây ghi 望む;
+#   743 思いつく "nghĩ về" → nghĩ ra; 745 熱中する "nghiện" → say mê;
+#   750 file ghi 済ませる・済ます, cột cách đọc gõ "すませる・済ます" — giữ 済ませる (すませる).
+# Danh từ 701–715
+THƯƠNG PHẨM,商品 (しょうひん),Sản phẩm/ hàng hóa|この店は商品の種類が多いです。|Cửa hàng này có nhiều loại hàng.
+CHẤT,質 (しつ),Chất lượng|値段は高いですが、質がいいです。|Giá cao nhưng chất lượng tốt.
+HÌNH,型 (かた),Kiểu/ mẫu|これは古い型のパソコンです。|Đây là máy tính đời cũ.
+SINH SẢN,生産 (せいさん),Sản xuất|この工場では車を生産しています。|Nhà máy này sản xuất ô tô.
+TIÊU PHÍ,消費 (しょうひ),Tiêu dùng/ tiêu thụ|夏は電気の消費が増えます。|Mùa hè lượng điện tiêu thụ tăng lên.
+VẬT GIÁ,物価 (ぶっか),Vật giá/ giá cả|東京は物価が高いです。|Giá cả ở Tokyo đắt đỏ.
+ĐẢO SẢN,倒産 (とうさん),Phá sản|景気が悪くて、多くの会社が倒産しました。|Kinh tế khó khăn, nhiều công ty đã phá sản.
+HUỀ ĐỚI,携帯 (けいたい),Mang theo/ điện thoại di động|携帯に便利な小さい傘を買いました。|Tôi đã mua một chiếc ô nhỏ tiện mang theo.
+HIỆN ĐẠI,現代 (げんだい),Hiện đại/ thời nay|現代の若い人はあまり新聞を読みません。|Người trẻ thời nay ít đọc báo.
+THẾ KỶ,世紀 (せいき),Thế kỷ|このお寺は8世紀に建てられました。|Ngôi chùa này được xây vào thế kỷ 8.
+VĂN HÓA,文化 (ぶんか),Văn hóa|外国の文化を知るのは楽しいです。|Tìm hiểu văn hóa nước ngoài thật thú vị.
+ĐÔ THỊ,都市 (とし),Đô thị/ thành phố|大きい都市は便利ですが、家賃が高いです。|Thành phố lớn thì tiện nhưng tiền nhà đắt.
+ĐỊA PHƯƠNG,地方 (ちほう),Địa phương/ vùng|地方によって、料理の味が違います。|Mỗi vùng có hương vị món ăn khác nhau.
+CHIẾN TRANH,戦争 (せんそう),Chiến tranh|祖父から戦争の話を聞きました。|Tôi đã nghe ông kể chuyện chiến tranh.
+BÌNH HÒA,平和 (へいわ),Hòa bình|世界がずっと平和であってほしいです。|Tôi mong thế giới mãi hòa bình.
+# Động từ 716–750
+THƯỢNG,上る (のぼる),Leo lên/ đi lên|階段を上って、3階へ行きました。|Tôi leo cầu thang lên tầng 3.
+HẠ,下る (くだる),Đi xuống|山を下るときは、足元に気をつけてください。|Khi xuống núi hãy cẩn thận bước chân.
+TIẾN,進む (すすむ),Tiến lên/ tiến triển|この道をまっすぐ進むと、駅に出ます。|Đi thẳng đường này sẽ ra tới ga.
+TIẾN,進める (すすめる),Xúc tiến/ đẩy tới|計画を予定どおり進めています。|Chúng tôi đang triển khai kế hoạch đúng như dự kiến.
+THÔNG,通る (とおる),Đi qua/ được thông qua|この道は車がたくさん通ります。|Con đường này có nhiều xe đi qua.
+THÔNG,通す (とおす),Cho đi qua/ xuyên qua|すみません、ちょっと通してください。|Xin lỗi, cho tôi đi qua một chút.
+VIỆT,越える (こえる),Vượt qua|この山を越えると、海が見えます。|Vượt qua ngọn núi này sẽ thấy biển.
+QUÁ,過ぎる (すぎる),Quá/ đi qua|約束の時間はもう過ぎています。|Đã quá giờ hẹn rồi.
+QUÁ,過ごす (すごす),Trải qua (thời gian)|夏休みは田舎で過ごしました。|Tôi đã trải qua kỳ nghỉ hè ở quê.
+DI,移る (うつる),Chuyển (sang)/ di chuyển|来月、大阪の支店に移ります。|Tháng sau tôi chuyển sang chi nhánh Osaka.
+DI,移す (うつす),Chuyển/ dời|机を窓のそばに移しました。|Tôi đã dời cái bàn ra cạnh cửa sổ.
+LIÊN,連れる (つれる),Dẫn theo/ đưa theo|子どもを連れて、動物園へ行きました。|Tôi dẫn con đi sở thú.
+KÝ,寄る (よる),Ghé qua/ lại gần|帰りにスーパーに寄りました。|Trên đường về tôi ghé siêu thị.
+KÝ,寄せる (よせる),Dồn lại/ kéo sát lại|机を壁のほうに寄せてください。|Hãy kéo bàn sát vào tường.
+DỮ,与える (あたえる),Cho/ trao, gây ra|台風は町に大きな被害を与えました。|Bão đã gây thiệt hại lớn cho thị trấn.
+ĐẮC,得る (える),Có được/ thu được|この仕事から多くの経験を得ました。|Tôi đã có được nhiều kinh nghiệm từ công việc này.
+HƯỚNG,向く (むく),Quay về/ hướng về|私の部屋は南を向いています。|Phòng tôi hướng về phía nam.
+HƯỚNG,向ける (むける),Hướng về/ chĩa về|カメラをこちらに向けてください。|Hãy hướng máy ảnh về phía này.
+KHUYẾN,勧める (すすめる),Khuyên/ mời|医者にたばこをやめるように勧められました。|Tôi được bác sĩ khuyên bỏ thuốc lá.
+TIẾN,薦める (すすめる),Giới thiệu/ tiến cử|先生が薦めてくれた本を読みました。|Tôi đã đọc cuốn sách thầy giới thiệu.
+NHIỆM,任せる (まかせる),Giao phó/ để cho (ai làm)|この仕事はあなたに任せます。|Việc này tôi giao cho bạn.
+THỦ,守る (まもる),Giữ/ tuân thủ, bảo vệ|交通のルールを守りましょう。|Hãy tuân thủ luật giao thông.
+TRANH,争う (あらそう),Tranh giành/ cạnh tranh|二つのチームが優勝を争っています。|Hai đội đang tranh chức vô địch.
+VỌNG,望む (のぞむ),Mong muốn/ ước|両親は私の幸せを望んでいます。|Bố mẹ mong tôi hạnh phúc.
+TÍN,信じる (しんじる),Tin/ tin tưởng|私はあなたの言葉を信じます。|Tôi tin lời bạn.
+THÔNG,通じる (つうじる),Thông (hiểu được)/ thông suốt|私の日本語が通じて、うれしかったです。|Tiếng Nhật của tôi được người ta hiểu, tôi rất vui.
+BÃO,飽きる (あきる),Chán/ ngán|毎日同じ料理なので、飽きてしまいました。|Ngày nào cũng một món nên tôi ngán rồi.
+TƯ,思いつく (おもいつく),Nghĩ ra/ nảy ra|いいアイデアを思いつきました。|Tôi đã nghĩ ra một ý tưởng hay.
+TƯ,思いやる (おもいやる),Quan tâm/ thông cảm (cho người khác)|相手の気持ちを思いやることが大切です。|Biết nghĩ cho cảm xúc của người khác là điều quan trọng.
+NHIỆT TRUNG,熱中する (ねっちゅうする),Say mê/ mải mê|弟はサッカーに熱中しています。|Em trai tôi đang say mê bóng đá.
+MỘ,暮らす (くらす),Sống/ sinh sống|祖母は田舎で一人で暮らしています。|Bà tôi sống một mình ở quê.
+QUYỂN,巻く (まく),Quấn/ cuộn|寒いので、首にマフラーを巻きました。|Trời lạnh nên tôi quấn khăn quanh cổ.
+KẾT,結ぶ (むすぶ),Buộc/ thắt, nối|靴のひもをしっかり結んでください。|Hãy buộc dây giày cho chắc.
+TẾ,済む (すむ),Xong/ kết thúc|用事が済んだら、すぐ帰ります。|Xong việc là tôi về ngay.
+TẾ,済ませる (すませる),Làm xong/ hoàn tất|晩ご飯はもう済ませました。|Tôi đã ăn tối xong rồi.

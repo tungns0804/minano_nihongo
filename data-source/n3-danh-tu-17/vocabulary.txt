@@ -1,0 +1,59 @@
+# Mimikara N3 · Từ vựng — Bài 17 (từ 801–850)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 11 カタカナＢ" 801–845 và "Bài 12 副詞Ｂ" 846–850) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   811 マスコミ "thông tin truyền thông" → truyền thông đại chúng; 815 マナー "kiểu, thói" → phép lịch sự;
+#   821 ヒット "nổi tiếng" → ăn khách; 840 炒める "rán" → xào; 846 ぐっすり "say" → (ngủ) say.
+# Từ katakana 801–835
+,ショック,Sốc/ cú sốc|試験に落ちて、ショックを受けました。|Thi trượt, tôi bị sốc.
+,ストレス,Căng thẳng/ stress|仕事のストレスで、よく眠れません。|Vì căng thẳng công việc mà tôi ngủ không ngon.
+,バランス,Cân bằng|バランスのいい食事をしましょう。|Hãy ăn uống cân bằng.
+,レベル,Trình độ/ cấp độ|このクラスはレベルが高いです。|Lớp này có trình độ cao.
+,アップ,Tăng lên|来月から給料がアップします。|Từ tháng sau lương sẽ tăng.
+,ダウン,Giảm xuống|今年は店の売り上げがダウンしました。|Năm nay doanh thu của cửa hàng đã giảm.
+,プラス,Phép cộng/ điểm cộng|留学の経験は、仕事にもプラスになります。|Kinh nghiệm du học cũng là điểm cộng cho công việc.
+,マイナス,Phép trừ/ âm, điểm trừ|今朝の気温はマイナス5度でした。|Nhiệt độ sáng nay là âm 5 độ.
+,イメージ,Hình ảnh/ hình dung|日本に来る前のイメージと、ずいぶん違いました。|Khác khá nhiều so với hình dung trước khi đến Nhật.
+,コンテスト,Cuộc thi|来月、スピーチコンテストに出ます。|Tháng sau tôi sẽ tham gia cuộc thi hùng biện.
+,マスコミ,Truyền thông đại chúng|有名な歌手の結婚がマスコミで話題になりました。|Đám cưới của ca sĩ nổi tiếng đã thành chủ đề trên truyền thông.
+,プライバシー,Sự riêng tư|ほかの人のプライバシーを大切にしてください。|Hãy tôn trọng sự riêng tư của người khác.
+,オフィス,Văn phòng|私のオフィスは駅のすぐ近くです。|Văn phòng của tôi ở ngay gần ga.
+,ルール,Luật lệ/ quy tắc|ゲームのルールを説明します。|Tôi sẽ giải thích luật chơi.
+,マナー,Phép lịch sự/ cách cư xử|電車の中で電話をするのはマナー違反です。|Gọi điện trên tàu là vi phạm phép lịch sự.
+,ミス,Lỗi/ sơ suất|小さなミスで、試合に負けてしまいました。|Chỉ vì một lỗi nhỏ mà chúng tôi thua trận.
+,スケジュール,Lịch trình|来週のスケジュールを確認してください。|Hãy xác nhận lịch trình tuần sau.
+,タイトル,Tiêu đề/ tên|メールにタイトルを書くのを忘れました。|Tôi quên viết tiêu đề cho email.
+,テーマ,Chủ đề|今日の会議のテーマは何ですか。|Chủ đề của cuộc họp hôm nay là gì?
+,ストーリー,Câu chuyện/ cốt truyện|この映画はストーリーがおもしろいです。|Bộ phim này có cốt truyện hay.
+,ヒット,Ăn khách/ thành công lớn|この歌は去年大ヒットしました。|Bài hát này đã rất ăn khách vào năm ngoái.
+,ブランド,Thương hiệu/ hàng hiệu|姉はブランドのかばんが好きです。|Chị tôi thích túi hàng hiệu.
+,レンタル,Thuê/ cho thuê|旅行先で自転車をレンタルしました。|Tôi đã thuê xe đạp ở nơi du lịch.
+,リサイクル,Tái chế|古い新聞はリサイクルできます。|Báo cũ có thể tái chế.
+,ラベル,Nhãn|瓶のラベルをはがしてから捨ててください。|Hãy bóc nhãn chai trước khi vứt.
+,タイプ,Loại/ kiểu (người)|彼は私の好きなタイプです。|Anh ấy là mẫu người tôi thích.
+,スタイル,Kiểu dáng/ vóc dáng|彼女はスタイルがよくて、何を着ても似合います。|Cô ấy dáng đẹp nên mặc gì cũng hợp.
+,セット,Bộ/ cài đặt|目覚まし時計を6時にセットしました。|Tôi đặt đồng hồ báo thức lúc 6 giờ.
+,ウイルス,Vi-rút|冬はインフルエンザのウイルスが広がりやすいです。|Mùa đông virus cúm dễ lây lan.
+,ロボット,Rô-bốt|この工場ではたくさんのロボットが働いています。|Ở nhà máy này có nhiều rô-bốt làm việc.
+,エネルギー,Năng lượng|太陽のエネルギーを使って電気を作ります。|Người ta dùng năng lượng mặt trời để tạo ra điện.
+,デジタル,Kỹ thuật số|デジタルカメラで写真を撮りました。|Tôi chụp ảnh bằng máy ảnh kỹ thuật số.
+,マイク,Micro|マイクを使って話してください。|Hãy dùng micro để nói.
+,ブレーキ,Phanh|急に子どもが出てきて、ブレーキをかけました。|Đứa trẻ đột ngột lao ra nên tôi phanh lại.
+,ペンキ,Sơn|週末に部屋の壁にペンキを塗りました。|Cuối tuần tôi đã sơn tường phòng.
+# Động từ nấu ăn 836–845
+XUY,炊ける (たける),(Cơm) chín|ご飯が炊けましたよ。|Cơm chín rồi đấy.
+XUY,炊く (たく),Nấu (cơm)|毎朝、ご飯を炊いています。|Sáng nào tôi cũng nấu cơm.
+CHỬ,煮える (にえる),Chín (khi ninh, hầm)|じゃがいもがよく煮えました。|Khoai tây đã ninh chín kỹ.
+CHỬ,煮る (にる),Ninh/ hầm|野菜と肉を一緒に煮ます。|Ninh rau cùng với thịt.
+SAO,炒める (いためる),Xào|野菜を油で炒めました。|Tôi đã xào rau bằng dầu.
+THIÊU,焼ける (やける),(Được) nướng chín/ cháy|魚がおいしそうに焼けました。|Cá đã nướng chín trông thật ngon.
+THIÊU,焼く (やく),Nướng/ đốt|パンを焼いて、朝ご飯に食べました。|Tôi nướng bánh mì ăn sáng.
+,ゆでる,Luộc|卵を10分ゆでてください。|Hãy luộc trứng 10 phút.
+DƯƠNG,揚げる (あげる),Chiên/ rán ngập dầu|母は天ぷらを揚げるのが上手です。|Mẹ tôi chiên tempura rất khéo.
+CHƯNG,蒸す (むす),Hấp|野菜を蒸して食べると、体にいいです。|Ăn rau hấp thì tốt cho sức khỏe.
+# Phó từ 846–850
+,ぐっすり,(Ngủ) say/ ngon giấc|疲れていたので、ぐっすり眠りました。|Vì mệt nên tôi đã ngủ say.
+,きちんと,Ngay ngắn/ chu đáo|使った物は、きちんと片づけてください。|Đồ đã dùng hãy dọn dẹp gọn gàng.
+,しっかり,Chắc chắn/ vững vàng, đầy đủ|朝ご飯をしっかり食べてから、出かけます。|Tôi ăn sáng đầy đủ rồi mới ra ngoài.
+,はっきり,Rõ ràng|もう少し、はっきり話してください。|Hãy nói rõ ràng hơn một chút.
+,じっと,Chăm chú/ yên (không động đậy)|子どもは動物をじっと見ていました。|Đứa trẻ chăm chú nhìn con vật.

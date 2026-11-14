@@ -7,7 +7,7 @@
  * dòng N2/N1 của `kanji-levels.ts`) nhưng không kèm từ ví dụ — xem
  * `scripts/generate-radicals.mjs`.
  *
- * Thống kê lần sinh gần nhất: 1976 dòng chiết tự, 226 hình có bộ hoặc âm bù.
+ * Thống kê lần sinh gần nhất: 1978 dòng chiết tự, 226 hình có bộ hoặc âm bù.
  */
 
 /**
@@ -900,6 +900,8 @@ export const KANJI_PART_ROWS: Readonly<Record<string, string>> = {
   '抜': '扌+友',
   '栄': '小+冖+木',
   '穴': '宀+八',
+  '基': '其+土',
+  '携': '扌+隹+乃',
   '仁': '亻+二',
   '仮': '亻+反',
   '仰': '亻+丿+卩',

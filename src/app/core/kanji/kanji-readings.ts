@@ -47,13 +47,19 @@ export interface KanjiReadings {
  * được — khai vào đây.
  */
 export const EXTRA_READINGS: Readonly<Record<string, string>> = {
-  // 叩く (たたく) — bài N3 名詞 4.
+  // 叩く (たたく) — bài Mimikara N3 3.
   叩: 'コウ、たた-く',
-  // 我儘 (わがまま) — bài N3 名詞 5. 我が (わが) là âm ngoài bảng của 我.
+  // 我儘 (わがまま) — bài Mimikara N3 6. 我が (わが) là âm ngoài bảng của 我.
   儘: 'ジン、まま',
   我: 'わ-が',
-  // 経つ (時間が経つ) — bài N3 名詞 4; bảng chỉ có へ-る.
+  // 経つ (時間が経つ) — bài Mimikara N3 4; bảng chỉ có へ-る.
   経: 'た-つ',
+  // お詫び (おわび) — bài Mimikara N3 7.
+  詫: 'タ、わ-びる',
+  // 濡れる / 濡らす (ぬれる / ぬらす) — bài Mimikara N3 10, 11.
+  濡: 'ジュ、ぬ-れる、ぬ-らす',
+  // 炒める (いためる) — bài Mimikara N3 17.
+  炒: 'ソウ、いた-める、い-る',
 };
 
 const cache = new Map<string, KanjiReadings | null>();
@@ -205,10 +211,12 @@ function surfacesOf(readings: KanjiReadings, first: boolean, last: boolean, writ
 
 /**
  * Cụm đọc đặc biệt khai thêm, ngoài 付表. 日本: bảng thường dụng không ghi âm に của 日, nên
- * không có dòng này thì mọi từ có 日本 (日本製, 日本酒) đều không căn được.
+ * không có dòng này thì mọi từ có 日本 (日本製, 日本酒) đều không căn được. 出来: chữ 来 đọc
+ * き chỉ là dạng chia của く-る, bảng không ghi riêng — 出来る, 出来事 (bài Mimikara N3 14, 16).
  */
 const EXTRA_SPECIAL_WORDS: readonly (readonly [word: string, reading: string])[] = [
   ['日本', 'にほん/にっぽん'],
+  ['出来', 'でき'],
 ];
 
 /**

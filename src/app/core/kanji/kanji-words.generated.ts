@@ -6,7 +6,7 @@
  * `core/exercises/`). Âm Hán Việt của từng chữ suy ra bằng cách căn âm tiết của
  * âm Hán Việt cả từ với các chữ Hán trong từ — xem `scripts/generate-kanji.mjs`.
  *
- * Thống kê lần sinh gần nhất: 2125 chữ (N5=118 N4=149 N3=375 N2=364 N1=1119), 2735 lượt từ.
+ * Thống kê lần sinh gần nhất: 2127 chữ (N5=118 N4=149 N3=375 N2=366 N1=1119), 2735 lượt từ.
  */
 
 import type { KanjiSeed } from './kanji.model';
@@ -4718,6 +4718,10 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
   ['穴', 'HUYỆT', '', 'N2', [
     ['穴をほる', 'あなをほる', '', 'đào hố', 'N3'],
     ['穴をうめる', 'あなをうめる', '', 'lấp hố', 'N3'],
+  ]],
+  ['基', 'CƠ', '', 'N2', [
+  ]],
+  ['携', 'HUỀ', '', 'N2', [
   ]],
   ['仁', 'NHÂN', '', 'N1', [
   ]],

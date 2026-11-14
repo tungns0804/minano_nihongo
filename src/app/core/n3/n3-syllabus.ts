@@ -397,22 +397,24 @@ const GOI_BLOCKS: N3Block[] = [
     '実戦問題|Bài kiểm tra thực chiến',
   ]),
   {
-    // Các bài từ vựng N3 chép từ bảng người dùng gửi (名詞 1–120, 動詞 121–220, 連用名詞
-    // 221–298, 形容詞 từ 299), 50 từ một bài. Chúng không nằm trong mục lục quyển 語彙
-    // nên là khối "Bổ trợ" như `kanji-7`: không vào con số 42 đối chiếu với sách, nhưng
-    // có hẹn ngày — học xong trong app thì buổi tự được tích (`N3AutoTick`), không có
-    // thì những từ này học xong cũng không được tính.
+    // Các bài từ vựng Mimikara N3 (耳から覚える 語彙トレーニング N3), chép từ bảng người
+    // dùng gửi: 880 từ đánh số liền, 50 từ một bài, bài 18 còn 30 từ. Chúng không nằm
+    // trong mục lục quyển 語彙 総まとめ nên là khối "Bổ trợ" như `kanji-7`: không vào con
+    // số 42 đối chiếu với sách, nhưng có hẹn ngày — học xong trong app thì buổi tự được
+    // tích (`N3AutoTick`), không có thì những từ này học xong cũng không được tính.
+    // Id buổi `goi-7-N` và thư mục `n3-danh-tu-N` giữ nguyên từ hồi bài còn tên "名詞"
+    // để dấu tích và dấu ★ đã lưu không mất.
     id: 'goi-7',
     labelJa: '補強',
     labelVi: 'Bổ trợ',
-    titleJa: 'アプリの語彙 N3（300語）',
-    titleVi: 'Từ vựng N3 trong app — 6 bài, 300 từ',
+    titleJa: '耳から覚える N3（880語）',
+    titleVi: 'Từ vựng Mimikara N3 — 18 bài, 880 từ',
     startPage: 0,
-    units: [1, 2, 3, 4, 5, 6].map((no) =>
+    units: Array.from({ length: 18 }, (_, index) => index + 1).map((no) =>
       appUnit(
         `goi-7-${no}`,
-        `名詞 第${no}課`,
-        `Từ vựng N3 · Bài ${no} (từ ${no * 50 - 49}–${no * 50})`,
+        `耳から覚える 第${no}課`,
+        `Mimikara N3 · Bài ${no} (từ ${no * 50 - 49}–${Math.min(no * 50, 880)})`,
         lessonPath('vocabulary', `n3-danh-tu-${no}`),
       ),
     ),

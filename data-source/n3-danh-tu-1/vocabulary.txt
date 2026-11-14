@@ -1,4 +1,4 @@
-# Từ vựng N3 · 名詞 — Bài 1 (từ 1–50)
+# Mimikara N3 · Từ vựng — Bài 1 (từ 1–50)
 # Nguồn: ảnh bảng "Bài 1 名詞 120" người dùng gửi 2026-10-18 (Kanji · Hiragana · Meaning).
 # Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, ảnh không có.
 NAM TÍNH,男性 (だんせい),Đàn ông|この会社は男性の社員が多いです。|Công ty này có nhiều nhân viên nam.

@@ -201,7 +201,7 @@ chứa bài học nào — nó ĐO các khu kia, cộng thêm ba quyển 総ま�
 học trên sách.
 
 Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba lỗ hổng, cách học từng phần, bảng
-247 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](../LO-TRINH-N3.md)**.
+259 ô tích để in ra) nằm ở **[LO-TRINH-N3.md](../LO-TRINH-N3.md)**.
 
 ### Trang này hiện gì
 
@@ -212,7 +212,7 @@ Bản phân tích đầy đủ (đề thi gồm gì, kiểm kê giáo trình, ba
 | Ba khối điểm | 言語知識 / 読解 / 聴解, mỗi khối 0–60 điểm |
 | Sáu trụ nội dung | Nền N5–N4, 文字, 語彙, 文法, 読解, 聴解 |
 | Bốn giai đoạn | Mốc ngày, việc làm hằng ngày, tiến độ từng giai đoạn |
-| Bảng kiểm soát | 247 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
+| Bảng kiểm soát | 259 buổi học, tích từng buổi, lọc theo Tất cả / Chưa học / Đến hạn / Đã học |
 
 ### Vì sao đo bằng điểm khối, không đo bằng số bài
 
@@ -248,7 +248,7 @@ tích ngược với ngày hôm nay, và buổi người học tự bỏ tích k
 
 | File | Việc |
 | --- | --- |
-| [`n3-syllabus.ts`](../src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 247 buổi học (mục lục bốn quyển và phần bổ trợ trong app), bốn giai đoạn, mốc ngày |
+| [`n3-syllabus.ts`](../src/app/core/n3/n3-syllabus.ts) | Dữ liệu: 259 buổi học (mục lục bốn quyển và phần bổ trợ trong app), bốn giai đoạn, mốc ngày |
 | [`n3.model.ts`](../src/app/core/n3/n3.model.ts) | Kiểu và toán thuần: đổi ngày, rải mục vào lịch, tính phần trăm và nhịp học |
 | [`n3-progress-store.ts`](../src/app/core/n3/n3-progress-store.ts) | Dấu tích trong `localStorage` |
 
@@ -401,7 +401,7 @@ qua bản gọn `kanji-parts.generated.ts` — không có cách tách nào viế
 
 ### Đi từ một bài học sang
 
-**Mọi bài từ vựng N3** (sáu bài Từ vựng N3 · 名詞 và sáu bài 総まとめ N3) chia trang thành hai tab
+**Mọi bài từ vựng N3** (mười tám bài Mimikara N3 và sáu bài 総まとめ N3) chia trang thành hai tab
 ngay dưới tên bài: **Từ vựng** (khung luyện + bảng từ như mọi bài) và **Chữ Hán** (khung luyện âm +
 thẻ từng chữ). Trước 2026-11-12 khối chữ nằm dưới bảng 50 từ trên cùng một trang, người dùng thấy
 phải cuộn quá nhiều. Tab ghi trên URL (`?tab=kanji`): tải lại trang, quay về từ màn kết quả của
@@ -412,11 +412,14 @@ Minano (N5, N4) chưa bật; muốn bật thì nới điều kiện đó, khối
 
 | Bài | Số chữ | Chữ của bài không có ô (không nằm trong danh sách Kanji của app) |
 | --- | --- | --- |
-| Từ vựng N3 · 名詞 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 77 / 78 / 52 / 30 / 40 / 59 | 叩 (bài 3), 儘 (bài 6) |
+| Mimikara N3 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 77 / 78 / 52 / 30 / 40 / 59 | 叩 (bài 3), 儘 (bài 6) |
+| Mimikara N3 — Bài 7 / 8 / 9 / 10 / 11 / 12 | 66 / 79 / 38 / 33 / 9 / 47 | 詫 (bài 7) |
+| Mimikara N3 — Bài 13 / 14 / 15 / 16 / 17 / 18 | 41 / 85 / 53 / 21 / 5 / 15 | 炒 (bài 17) |
 | 総まとめ N3 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 43 / 33 / 24 / 22 / 25 / 33 | 栄 (bài 2), 穴 (bài 6) |
 
 々 (dấu lặp chữ) không phải chữ Hán nên không có ô — đúng như mong muốn. 栄 và 穴 thiếu vì danh sách
-JLPT chép từ ảnh người dùng gửi (xem mục âm Hán Việt của từ N3 ở trên); 叩 và 儘 nằm ngoài bảng jōyō.
+JLPT chép từ ảnh người dùng gửi (xem mục âm Hán Việt của từ N3 ở trên); 基 và 携 (Mimikara bài 12, 14, 15)
+cũng thiếu như vậy và được bổ sung vào N2 cùng lượt. 叩, 儘, 詫, 炒 nằm ngoài bảng jōyō.
 
 Bấm một chữ là mở `/kanji/<id>?lesson=<id bài>`. Tham số `lesson` làm ba việc:
 

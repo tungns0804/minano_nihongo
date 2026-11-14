@@ -1,5 +1,5 @@
 /**
- * DANH SÁCH CHỮ HÁN THEO CẤP JLPT — N5 → N1, tổng 2125 chữ.
+ * DANH SÁCH CHỮ HÁN THEO CẤP JLPT — N5 → N1, tổng 2127 chữ.
  *
  * Ba danh sách N5, N4, N3 chép nguyên từ ảnh người dùng cung cấp, GIỮ ĐÚNG THỨ TỰ
  * trong ảnh (thứ tự dạy theo lối chiết tự, không phải thứ tự bảng chữ hay tần
@@ -179,9 +179,10 @@ export const KANJI_N2_ROWS: readonly string[] = [
   '与|DỮ|与', '超|SIÊU|走+召', '抱|BÃO|扌+包', '捕|BỘ|扌+甫', '尋|TẦM|彐+工+口+寸', '溢|DẬT|氵+益',
   '眺|THIẾU|目+兆', '就|TỰU|京+尤', '更|CANH|一+日+乂', '提|ĐỀ|扌+是', '躍|DƯỢC|足+羽+隹', '討|THẢO|言+寸',
   '沸|PHÍ|氵+弗', '抜|BẠT|扌+友',
-  // Hai chữ jōyō mà từ vựng N3 có dùng (栄養, 穴をほる) nhưng cả năm danh sách đều
-  // chép thiếu — thiếu thì từ không ghép được âm Hán Việt và chữ không có trang riêng.
-  '栄|VINH|小+冖+木', '穴|HUYỆT|宀+八',
+  // Chữ jōyō mà từ vựng N3 có dùng nhưng cả năm danh sách đều chép thiếu — thiếu thì
+  // từ không ghép được âm Hán Việt và chữ không có trang riêng: 栄養, 穴をほる, rồi
+  // 基本 / 基本的な và 携帯 (Mimikara N3 bài 12, 14, 15).
+  '栄|VINH|小+冖+木', '穴|HUYỆT|宀+八', '基|CƠ|其+土', '携|HUỀ|扌+隹+乃',
 ];
 
 export const KANJI_N1_ROWS: readonly string[] = [

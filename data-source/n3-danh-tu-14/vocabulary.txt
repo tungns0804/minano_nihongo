@@ -1,0 +1,59 @@
+# Mimikara N3 · Từ vựng — Bài 14 (từ 651–700)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 9 名詞Ｃ") người dùng gửi 2026-11-14 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   656 表情 "biểu lộ, biểu thị" → nét mặt, biểu cảm; 657: file ghi 鏡面 (ひょうめん) — đúng là 表面, bề mặt;
+#   661 課題 "chủ đề" → bài tập, vấn đề cần giải quyết; 664 記録 "ghi âm" → ghi chép, kỷ lục;
+#   682: file ghi 協調 với nghĩa "nhấn mạnh" — "nhấn mạnh" là 強調 (cùng đọc きょうちょう), ở đây ghi 強調;
+#   689 本人 "người được nói đến" → chính người đó, đương sự; 693 保存 "bảo tồn" → lưu giữ, bảo quản.
+# Danh từ 651–700
+DỊCH,訳 (わけ),Lý do/ nguyên do|遅れた訳を説明してください。|Hãy giải thích lý do đến muộn.
+THÁI ĐỘ,態度 (たいど),Thái độ|あの店の店員は態度がとても悪かったです。|Nhân viên cửa hàng đó có thái độ rất tệ.
+TÍCH,癖 (くせ),Tật/ thói quen|考えるとき、髪をさわる癖があります。|Tôi có tật sờ tóc khi suy nghĩ.
+LỄ NGHI,礼儀 (れいぎ),Lễ nghĩa/ phép lịch sự|彼は若いのに、礼儀正しいです。|Cậu ấy còn trẻ mà rất lễ phép.
+VĂN CÚ,文句 (もんく),Phàn nàn/ kêu ca|彼はいつも仕事の文句を言っています。|Anh ta lúc nào cũng kêu ca về công việc.
+BIỂU TÌNH,表情 (ひょうじょう),Nét mặt/ biểu cảm|彼女は明るい表情で話していました。|Cô ấy nói chuyện với nét mặt tươi tắn.
+BIỂU DIỆN,表面 (ひょうめん),Bề mặt|月の表面には穴がたくさんあります。|Bề mặt mặt trăng có rất nhiều hố.
+CẤM YÊN,禁煙 (きんえん),Cấm hút thuốc/ bỏ thuốc|この店は全部の席が禁煙です。|Quán này cấm hút thuốc ở mọi chỗ ngồi.
+CẤM CHỈ,禁止 (きんし),Cấm|ここに車を止めるのは禁止です。|Cấm đỗ xe ở đây.
+HOÀN THÀNH,完成 (かんせい),Hoàn thành|新しい駅は来年完成する予定です。|Nhà ga mới dự kiến hoàn thành vào năm sau.
+KHOA ĐỀ,課題 (かだい),Bài tập/ vấn đề cần giải quyết|夏休みの課題がまだ終わっていません。|Bài tập hè vẫn chưa làm xong.
+LỆ NGOẠI,例外 (れいがい),Ngoại lệ|どんな規則にも例外があります。|Quy tắc nào cũng có ngoại lệ.
+CƠ BẢN,基本 (きほん),Cơ bản/ nền tảng|スポーツでも勉強でも、基本が大切です。|Dù là thể thao hay học tập, cái cơ bản là quan trọng.
+KÝ LỤC,記録 (きろく),Ghi chép/ kỷ lục|彼は100メートル走で新しい記録を出しました。|Anh ấy đã lập kỷ lục mới ở nội dung chạy 100 mét.
+TRẠNG THÁI,状態 (じょうたい),Trạng thái/ tình trạng|この車は古いですが、状態はいいです。|Chiếc xe này cũ nhưng tình trạng vẫn tốt.
+XUẤT LAI SỰ,出来事 (できごと),Sự việc/ chuyện xảy ra|今日の出来事を日記に書きました。|Tôi đã viết những chuyện xảy ra hôm nay vào nhật ký.
+TRƯỜNG DIỆN,場面 (ばめん),Cảnh/ tình huống|この映画の最後の場面で泣いてしまいました。|Tôi đã khóc ở cảnh cuối của bộ phim này.
+CƠ HỘI,機会 (きかい),Cơ hội/ dịp|日本人と話す機会がもっと欲しいです。|Tôi muốn có thêm cơ hội nói chuyện với người Nhật.
+CỰ LY,距離 (きょり),Khoảng cách/ cự ly|家から駅までの距離は2キロです。|Khoảng cách từ nhà đến ga là 2 cây số.
+ĐỀ ÁN,提案 (ていあん),Đề xuất/ đề nghị|会議で新しい計画を提案しました。|Tôi đã đề xuất một kế hoạch mới trong cuộc họp.
+THỦ,やり取り (やりとり),Trao đổi qua lại|友達と毎日メールのやり取りをしています。|Ngày nào tôi cũng trao đổi email với bạn.
+TRI THỨC,知識 (ちしき),Kiến thức/ tri thức|彼は歴史の知識がたくさんあります。|Anh ấy có nhiều kiến thức về lịch sử.
+THỰC LỰC,実力 (じつりょく),Thực lực/ năng lực thật|試験で自分の実力を試したいです。|Tôi muốn thử thực lực của mình qua kỳ thi.
+THỦ ĐOẠN,手段 (しゅだん),Phương tiện/ cách thức|島へ行く手段は船しかありません。|Cách duy nhất để ra đảo là đi tàu thủy.
+ĐẠI BIỂU,代表 (だいひょう),Đại diện/ đại biểu|クラスの代表としてスピーチをしました。|Tôi đã phát biểu với tư cách đại diện lớp.
+ẢNH HƯỞNG,影響 (えいきょう),Ảnh hưởng|台風の影響で、電車が止まりました。|Do ảnh hưởng của bão, tàu điện đã ngừng chạy.
+HIỆU QUẢ,効果 (こうか),Hiệu quả/ tác dụng|この薬は頭痛に効果があります。|Thuốc này có tác dụng với chứng đau đầu.
+ẤN TƯỢNG,印象 (いんしょう),Ấn tượng|日本の第一印象はどうでしたか。|Ấn tượng đầu tiên của bạn về Nhật Bản thế nào?
+ẤN,印 (しるし),Dấu/ ký hiệu|大切なところに赤い印をつけました。|Tôi đánh dấu đỏ vào những chỗ quan trọng.
+HỢP ĐỒ,合図 (あいず),Ra hiệu/ ám hiệu|先生の合図で、テストが始まりました。|Bài kiểm tra bắt đầu theo hiệu lệnh của thầy.
+CỘNG THÔNG,共通 (きょうつう),Chung/ giống nhau|私たちには共通の趣味があります。|Chúng tôi có chung sở thích.
+CƯỜNG ĐIỆU,強調 (きょうちょう),Nhấn mạnh|先生は、毎日の復習が大切だと強調しました。|Thầy nhấn mạnh rằng ôn bài mỗi ngày là quan trọng.
+TỈNH LƯỢC,省略 (しょうりゃく),Lược bỏ/ giản lược|時間がないので、説明は省略します。|Vì không có thời gian nên tôi xin lược bỏ phần giải thích.
+KHIÊU CHIẾN,挑戦 (ちょうせん),Thử thách/ thử sức|今年はN3の試験に挑戦します。|Năm nay tôi sẽ thử sức với kỳ thi N3.
+KHÍ,やる気 (やるき),Động lực/ hăng hái|先生にほめられて、やる気が出ました。|Được thầy khen nên tôi có thêm động lực.
+DŨNG KHÍ,勇気 (ゆうき),Dũng khí/ can đảm|勇気を出して、彼女に話しかけました。|Tôi lấy hết can đảm bắt chuyện với cô ấy.
+TƯ CÁCH,資格 (しかく),Bằng cấp/ tư cách|仕事のために、何か資格を取りたいです。|Tôi muốn lấy một chứng chỉ nào đó cho công việc.
+THÂN THỈNH,申請 (しんせい),Xin (cấp)/ đăng ký|ビザの申請に必要な書類を準備しています。|Tôi đang chuẩn bị giấy tờ cần thiết để xin visa.
+BẢN NHÂN,本人 (ほんにん),Chính người đó/ đương sự|この手続きは本人が来なければできません。|Thủ tục này phải chính người đó đến mới làm được.
+KHẾ ƯỚC,契約 (けいやく),Hợp đồng/ ký kết|新しい部屋の契約をしました。|Tôi đã ký hợp đồng thuê phòng mới.
+CHỨNG MINH,証明 (しょうめい),Chứng minh/ xác nhận|住所を証明する書類が必要です。|Cần có giấy tờ chứng minh địa chỉ.
+BIẾN CANH,変更 (へんこう),Thay đổi|会議の時間が変更になりました。|Giờ họp đã được thay đổi.
+BẢO TỒN,保存 (ほぞん),Lưu giữ/ bảo quản|作ったファイルを保存するのを忘れました。|Tôi quên lưu file vừa làm.
+BẢO HỘ,保護 (ほご),Bảo vệ/ bảo hộ|この森では動物が保護されています。|Động vật trong khu rừng này được bảo vệ.
+HOÀN CẢNH,環境 (かんきょう),Môi trường|環境のために、ごみを減らしましょう。|Vì môi trường, hãy giảm rác thải.
+TƯ NGUYÊN,資源 (しげん),Tài nguyên|日本は資源が少ない国です。|Nhật Bản là nước ít tài nguyên.
+BẤT TÚC,不足 (ふそく),Thiếu/ không đủ|最近、運動不足で太ってしまいました。|Dạo này thiếu vận động nên tôi bị béo lên.
+BÌNH QUÂN,平均 (へいきん),Trung bình/ bình quân|クラスの平均点は70点でした。|Điểm trung bình của lớp là 70.
+CÁT HỢP,割合 (わりあい),Tỷ lệ|このクラスは女性の割合が高いです。|Lớp này có tỷ lệ nữ cao.
+THƯƠNG MẠI,商売 (しょうばい),Buôn bán/ kinh doanh|祖父は駅の前で長い間商売をしていました。|Ông tôi đã buôn bán trước nhà ga suốt một thời gian dài.

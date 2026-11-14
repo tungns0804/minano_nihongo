@@ -1,0 +1,60 @@
+# Mimikara N3 · Từ vựng — Bài 11 (từ 501–550)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 5 動詞B" 501–510 và "Bài 6 カタカナ" 511–550) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   506 覚ます "mở mắt, tỉnh" → đánh thức, làm tỉnh; 516 トレーニング "đào tạo" → tập luyện;
+#   519 file ghi アイデア・アイディア — giữ アイデア; 522 ラッシュ "đông đúc" → giờ cao điểm;
+#   530 ベンチ "ghế bành" → ghế dài; 535 レジ "máy tính tiền" → quầy thu ngân;
+#   548 アンケート "tờ câu hỏi" → phiếu khảo sát.
+# Động từ 501–510
+NHU,濡らす (ぬらす),Làm ướt|タオルを水で濡らして、顔をふきました。|Tôi nhúng ướt khăn rồi lau mặt.
+MÊ,迷う (まよう),Lạc (đường)/ phân vân|初めての町で道に迷いました。|Tôi bị lạc đường ở thành phố lần đầu đến.
+NÃO,悩む (なやむ),Phiền muộn/ băn khoăn|進学するか就職するか、悩んでいます。|Tôi đang băn khoăn nên học tiếp hay đi làm.
+HOẢNG,慌てる (あわてる),Hoảng hốt/ cuống quýt|寝坊して、慌てて家を出ました。|Ngủ quên nên tôi cuống quýt ra khỏi nhà.
+GIÁC,覚める (さめる),Tỉnh giấc/ tỉnh|今朝は5時に目が覚めました。|Sáng nay tôi tỉnh giấc lúc 5 giờ.
+GIÁC,覚ます (さます),Đánh thức/ làm tỉnh|外の大きな音で目を覚ましました。|Tiếng động lớn bên ngoài làm tôi tỉnh giấc.
+MIÊN,眠る (ねむる),Ngủ|赤ちゃんがベッドで静かに眠っています。|Em bé đang ngủ yên trên giường.
+KỲ,祈る (いのる),Cầu nguyện/ cầu chúc|試験の合格を祈っています。|Tôi cầu chúc bạn thi đỗ.
+CHÚC,祝う (いわう),Chúc mừng/ ăn mừng|家族で祖母の誕生日を祝いました。|Cả nhà đã mừng sinh nhật bà.
+CẢM,感じる (かんじる),Cảm thấy|朝と夜は涼しくて、秋を感じます。|Sáng tối mát mẻ, tôi cảm nhận được mùa thu.
+# Từ katakana 511–550
+,クラスメート,Bạn cùng lớp|クラスメートと一緒に宿題をしました。|Tôi làm bài tập cùng bạn cùng lớp.
+,グループ,Nhóm|三人ずつのグループに分かれてください。|Hãy chia thành từng nhóm ba người.
+,チーム,Đội|私たちのチームが試合に勝ちました。|Đội chúng tôi đã thắng trận.
+,プロフェッショナル,Chuyên nghiệp|彼はプロフェッショナルのカメラマンです。|Anh ấy là thợ ảnh chuyên nghiệp.
+,アマチュア,Nghiệp dư|父はアマチュアのバンドでギターを弾いています。|Bố tôi chơi guitar trong một ban nhạc nghiệp dư.
+,トレーニング,Tập luyện|毎朝ジムでトレーニングをしています。|Sáng nào tôi cũng tập luyện ở phòng gym.
+,マッサージ,Mát xa|疲れたので、マッサージに行きました。|Mệt quá nên tôi đi mát xa.
+,アドバイス,Lời khuyên|先輩にアドバイスをもらいました。|Tôi đã được đàn anh cho lời khuyên.
+,アイデア,Ý tưởng|何かいいアイデアはありませんか。|Có ý tưởng gì hay không?
+,トップ,Đứng đầu/ top|彼はクラスでトップの成績です。|Cậu ấy có thành tích đứng đầu lớp.
+,スピード,Tốc độ|雨の日はスピードを出さないでください。|Ngày mưa đừng chạy tốc độ cao.
+,ラッシュ,Giờ cao điểm|朝のラッシュの電車はとても込んでいます。|Tàu điện giờ cao điểm buổi sáng rất đông.
+,バイク,Xe máy|毎日バイクで会社に通っています。|Hằng ngày tôi đi làm bằng xe máy.
+,ヘルメット,Mũ bảo hiểm|バイクに乗るときは、ヘルメットをかぶってください。|Khi đi xe máy hãy đội mũ bảo hiểm.
+,コンタクトレンズ,Kính áp tròng|私は眼鏡ではなく、コンタクトレンズを使っています。|Tôi không đeo kính mà dùng kính áp tròng.
+,ガラス,Kính/ thủy tinh|窓のガラスが割れてしまいました。|Kính cửa sổ bị vỡ mất rồi.
+,プラスチック,Nhựa|これはプラスチックでできたコップです。|Đây là cái cốc làm bằng nhựa.
+,ベランダ,Ban công|ベランダで洗濯物を干しています。|Tôi phơi quần áo ở ban công.
+,ペット,Thú cưng|このマンションではペットを飼ってはいけません。|Ở chung cư này không được nuôi thú cưng.
+,ベンチ,Ghế dài|公園のベンチに座って休みました。|Tôi ngồi nghỉ trên ghế dài trong công viên.
+,デザイン,Thiết kế/ kiểu dáng|このかばんはデザインがいいです。|Cái túi này thiết kế đẹp.
+,バーゲンセール,Đợt giảm giá|バーゲンセールでコートを半額で買いました。|Tôi mua áo khoác nửa giá trong đợt giảm giá.
+,パート,Việc bán thời gian|母はスーパーでパートをしています。|Mẹ tôi làm bán thời gian ở siêu thị.
+,コンビニエンスストア,Cửa hàng tiện lợi|コンビニエンスストアは24時間開いています。|Cửa hàng tiện lợi mở cửa 24 giờ.
+,レジ,Quầy thu ngân|レジでお金を払ってください。|Hãy trả tiền ở quầy thu ngân.
+,レシート,Hóa đơn/ biên lai|買い物のレシートを捨てないでください。|Đừng vứt hóa đơn mua hàng.
+,インスタント,Ăn liền|忙しいときは、インスタントラーメンを食べます。|Lúc bận tôi ăn mì ăn liền.
+,ファストフード,Đồ ăn nhanh|ファストフードばかり食べると、体に悪いです。|Chỉ ăn đồ ăn nhanh thì có hại cho sức khỏe.
+,フルーツ,Trái cây|朝ご飯にフルーツを食べています。|Bữa sáng tôi ăn trái cây.
+,デザート,Món tráng miệng|食事の後で、デザートにアイスクリームを食べました。|Sau bữa ăn, tôi ăn kem tráng miệng.
+,インターネット,Internet/ mạng|インターネットで飛行機のチケットを予約しました。|Tôi đã đặt vé máy bay qua mạng.
+,チャイム,Chuông (báo)|チャイムが鳴ったら、授業が始まります。|Chuông reo là giờ học bắt đầu.
+,アナウンス,Thông báo (qua loa)|駅のアナウンスをよく聞いてください。|Hãy nghe kỹ thông báo ở nhà ga.
+,メッセージ,Tin nhắn/ lời nhắn|友達に誕生日のメッセージを送りました。|Tôi đã gửi tin nhắn chúc mừng sinh nhật cho bạn.
+,パンフレット,Tờ rơi/ sách giới thiệu|旅行会社で旅行のパンフレットをもらいました。|Tôi đã lấy tờ giới thiệu tour ở công ty du lịch.
+,カード,Thẻ|支払いはカードでもいいですか。|Thanh toán bằng thẻ có được không?
+,インタビュー,Phỏng vấn|試合の後、選手がインタビューを受けました。|Sau trận đấu, cầu thủ được phỏng vấn.
+,アンケート,Phiếu khảo sát|授業の後で、アンケートに答えてください。|Sau giờ học hãy trả lời phiếu khảo sát.
+,データ,Dữ liệu|パソコンのデータが消えてしまいました。|Dữ liệu trong máy tính bị mất rồi.
+,パーセント,Phần trăm|明日、雨が降る確率は70パーセントです。|Khả năng ngày mai có mưa là 70 phần trăm.

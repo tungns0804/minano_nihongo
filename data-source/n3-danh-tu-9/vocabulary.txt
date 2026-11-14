@@ -1,0 +1,61 @@
+# Mimikara N3 · Từ vựng — Bài 9 (từ 401–450)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 4 形容詞" 401–410 và "Bài 5 動詞B" 411–450) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   410 愛 "yêu" → tình yêu (danh từ); 419 合う "gặp" → hợp, khớp (gặp là 会う);
+#   421 当たる "bị đánh" → trúng, va phải; 422 当てる "đánh" → ném trúng, đoán trúng;
+#   437 file ghi 代わる・替わる・換わる, 438 ghi 代える・替える・換える — mỗi từ giữ một cách viết hay gặp nhất
+#       (代わる "thay cho ai", 替える "đổi"), vì app chấm cột tiếng Nhật như một đáp án;
+#   445: file ghi だまる với nghĩa "lừa" — "lừa" là だます (だまる là im lặng), ở đây ghi だます.
+# Danh từ 401–410
+NGỤY,偽 (にせ),Giả/ đồ giả|店で偽のブランドのかばんが売られていました。|Cửa hàng đã bán túi hàng hiệu giả.
+BIỆT,別 (べつ),Khác/ riêng|このシャツは少し小さいので、別のを見せてください。|Áo này hơi nhỏ, cho tôi xem cái khác.
+QUỐC TỊCH,国籍 (こくせき),Quốc tịch|この会社では、いろいろな国籍の人が働いています。|Ở công ty này có người thuộc nhiều quốc tịch làm việc.
+ĐÔNG DƯƠNG,東洋 (とうよう),Phương Đông|東洋の文化に興味があります。|Tôi quan tâm đến văn hóa phương Đông.
+TÂY DƯƠNG,西洋 (せいよう),Phương Tây|この家は西洋風に建てられています。|Ngôi nhà này được xây theo kiểu phương Tây.
+QUỐC TẾ,国際 (こくさい),Quốc tế|来月、東京で国際会議が開かれます。|Tháng sau sẽ có một hội nghị quốc tế ở Tokyo.
+TỰ NHIÊN,自然 (しぜん),Thiên nhiên/ tự nhiên|田舎は自然が豊かです。|Ở quê thiên nhiên phong phú.
+CẢNH SẮC,景色 (けしき),Phong cảnh|山の上から見た景色はとてもきれいでした。|Phong cảnh nhìn từ trên núi rất đẹp.
+TÔN GIÁO,宗教 (しゅうきょう),Tôn giáo|宗教によって、食べてはいけない物があります。|Tùy tôn giáo mà có những thứ không được ăn.
+ÁI,愛 (あい),Tình yêu|母の愛はとても深いです。|Tình yêu của mẹ thật sâu sắc.
+# Động từ 411–450
+GIỚI,届く (とどく),Được gửi đến/ với tới|昨日注文した本が今日届きました。|Cuốn sách tôi đặt hôm qua đã được giao đến hôm nay.
+GIỚI,届ける (とどける),Đem đến/ giao đến|拾った財布を交番に届けました。|Tôi đã mang chiếc ví nhặt được đến đồn cảnh sát.
+,かく,Gãi|蚊に刺されたところをかかないでください。|Đừng gãi chỗ bị muỗi đốt.
+,つかむ,Tóm/ nắm lấy|転びそうになって、手すりをつかみました。|Suýt ngã nên tôi đã nắm lấy tay vịn.
+ÁC,握る (にぎる),Nắm chặt|子どもはお母さんの手をしっかり握っていました。|Đứa bé nắm chặt tay mẹ.
+ỨC,抑える (おさえる),Kìm nén/ giữ lại|怒りを抑えて、静かに話しました。|Tôi kìm cơn giận và nói chuyện bình tĩnh.
+CẬN,近づく (ちかづく),Đến gần/ lại gần|台風が近づいています。|Bão đang đến gần.
+CẬN,近づける (ちかづける),Đưa lại gần|顔を近づけて、小さい字を読みました。|Tôi ghé sát mặt vào để đọc chữ nhỏ.
+HỢP,合う (あう),Hợp/ khớp|この靴は私の足に合いません。|Đôi giày này không vừa chân tôi.
+HỢP,合わせる (あわせる),Gộp lại/ làm cho khớp|みんなで力を合わせて、がんばりましょう。|Mọi người hãy cùng hợp sức cố gắng nhé.
+ĐƯƠNG,当たる (あたる),Trúng/ va phải|ボールが頭に当たりました。|Quả bóng trúng vào đầu tôi.
+ĐƯƠNG,当てる (あてる),Ném trúng/ đoán trúng|答えを当てた人に、プレゼントをあげます。|Ai đoán trúng đáp án sẽ được tặng quà.
+TỶ,比べる (くらべる),So sánh|去年と比べて、今年は雨が多いです。|So với năm ngoái, năm nay mưa nhiều hơn.
+TỰ HỢP,似合う (にあう),Hợp/ trông hợp|その帽子、よく似合っていますね。|Cái mũ đó rất hợp với bạn đấy.
+TỰ,似る (にる),Giống|私は父に似ているとよく言われます。|Tôi hay bị nói là giống bố.
+TỰ,似せる (にせる),Làm cho giống/ bắt chước|これは本物に似せて作った花です。|Đây là hoa được làm cho giống như thật.
+PHÂN,分かれる (わかれる),Được chia ra/ tách ra|クラスは二つのグループに分かれました。|Lớp được chia thành hai nhóm.
+PHÂN,分ける (わける),Chia|ケーキを四つに分けました。|Tôi chia bánh thành bốn phần.
+TÚC,足す (たす),Cộng/ thêm vào|味が薄かったので、塩を足しました。|Vị nhạt nên tôi đã thêm muối.
+DẪN,引く (ひく),Kéo/ trừ|10から3を引くと7です。|10 trừ 3 bằng 7.
+TĂNG,増える (ふえる),Tăng lên|最近、外国人の観光客が増えました。|Gần đây khách du lịch nước ngoài đã tăng lên.
+TĂNG,増やす (ふやす),Làm tăng lên|来月から店員を増やすつもりです。|Từ tháng sau tôi định tuyển thêm nhân viên.
+GIẢM,減る (へる),Giảm xuống|運動を始めて、体重が3キロ減りました。|Bắt đầu tập thể dục, cân nặng của tôi đã giảm 3 cân.
+GIẢM,減らす (へらす),Làm giảm|健康のために、お酒を減らしています。|Vì sức khỏe, tôi đang uống ít rượu đi.
+BIẾN,変わる (かわる),Thay đổi|信号が青に変わりました。|Đèn tín hiệu đã chuyển sang xanh.
+BIẾN,変える (かえる),Làm thay đổi|部屋の家具の場所を変えました。|Tôi đã thay đổi chỗ đặt đồ đạc trong phòng.
+ĐẠI,代わる (かわる),Thay (cho)/ thay thế|母に代わって、私が晩ご飯を作りました。|Tôi đã nấu bữa tối thay mẹ.
+THẾ,替える (かえる),Đổi/ thay|空港で円をドンに替えました。|Tôi đã đổi yên sang đồng ở sân bay.
+PHẢN,返る (かえる),Được trả lại|貸したお金がやっと返ってきました。|Số tiền tôi cho vay cuối cùng cũng được trả lại.
+PHẢN,返す (かえす),Trả lại|図書館に本を返しに行きます。|Tôi đi trả sách cho thư viện.
+NHƯỢNG,譲る (ゆずる),Nhường|電車でお年寄りに席を譲りました。|Tôi đã nhường ghế cho người già trên tàu điện.
+TRỢ,助かる (たすかる),Được cứu/ đỡ quá|手伝ってくれて、本当に助かりました。|Bạn giúp tôi, thật đỡ quá.
+TRỢ,助ける (たすける),Cứu/ giúp đỡ|川に落ちた子どもを助けました。|Tôi đã cứu đứa trẻ rơi xuống sông.
+,いじめる,Bắt nạt|弱い人をいじめてはいけません。|Không được bắt nạt người yếu hơn.
+,だます,Lừa|電話でお金をだまし取られる事件が増えています。|Các vụ bị lừa lấy tiền qua điện thoại đang tăng lên.
+ĐẠO,盗む (ぬすむ),Ăn cắp/ lấy trộm|電車の中で財布を盗まれました。|Tôi bị lấy trộm ví trên tàu điện.
+THÍCH,刺さる (ささる),Bị đâm/ bị cắm vào|指にとげが刺さって、痛いです。|Bị dằm đâm vào ngón tay, đau quá.
+THÍCH,刺す (さす),Đâm/ chích (côn trùng)|夏は蚊によく刺されます。|Mùa hè tôi hay bị muỗi đốt.
+SÁT,殺す (ころす),Giết|虫を殺さないで、外に逃がしてあげました。|Tôi không giết con côn trùng mà thả nó ra ngoài.
+ẨN,隠れる (かくれる),Ẩn nấp/ trốn|子どもはドアの後ろに隠れていました。|Đứa trẻ đã trốn sau cánh cửa.

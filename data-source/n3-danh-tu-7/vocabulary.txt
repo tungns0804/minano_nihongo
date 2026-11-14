@@ -1,0 +1,60 @@
+# Mimikara N3 · Từ vựng — Bài 7 (từ 301–350)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 4 形容詞") người dùng gửi 2026-11-14 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Nghĩa trong file nguồn được sửa ở những chỗ sai hoặc lệch nghĩa:
+#   322 経営 "quản lý" → kinh doanh, điều hành; 323 反省 "tự kiểm tra" → tự kiểm điểm;
+#   330 活躍 "hoạt động" → hoạt động tích cực, tỏa sáng; 341 注目 "chú trọng" → chú ý;
+#   343 翻訳: file ghi cách đọc ほにゃく, đúng là ほんやく; 344 伝言 "tin nhắn thoại" → lời nhắn;
+#   347 混雑 "hỗn tạp" → đông đúc, chen chúc.
+# Động từ cặp tự/tha động từ 301–310
+CAO,高まる (たかまる),Cao lên/ dâng cao|試合が近づいて、町の人たちの期待が高まっています。|Trận đấu đến gần, kỳ vọng của người dân thị trấn đang dâng cao.
+CAO,高める (たかめる),Nâng cao/ làm cao lên|毎日練習して、日本語の力を高めたいです。|Tôi muốn luyện tập mỗi ngày để nâng cao năng lực tiếng Nhật.
+CƯỜNG,強まる (つよまる),Mạnh lên|夜になって、風が強まってきました。|Về đêm, gió đã mạnh dần lên.
+CƯỜNG,強める (つよめる),Làm mạnh lên/ tăng cường|火を強めて、肉を焼いてください。|Hãy vặn to lửa rồi nướng thịt.
+NHƯỢC,弱まる (よわまる),Yếu đi|午後から雨が弱まるでしょう。|Từ chiều mưa có lẽ sẽ nhẹ bớt.
+NHƯỢC,弱める (よわめる),Làm yếu đi/ giảm bớt|スープが沸いたら、火を弱めてください。|Súp sôi rồi thì hãy vặn nhỏ lửa.
+QUẢNG,広まる (ひろまる),Lan rộng/ rộng ra|そのうわさはすぐに学校中に広まりました。|Tin đồn đó lập tức lan khắp trường.
+QUẢNG,広める (ひろめる),Làm lan rộng/ phổ biến|日本の料理を世界に広めたいです。|Tôi muốn phổ biến món ăn Nhật ra thế giới.
+THÂM,深まる (ふかまる),Sâu hơn/ sâu sắc thêm|秋が深まって、木の葉が赤くなりました。|Thu đã về sâu, lá cây chuyển sang màu đỏ.
+THÂM,深める (ふかめる),Làm sâu sắc thêm|留学して、日本の文化への理解を深めました。|Đi du học, tôi đã hiểu sâu hơn về văn hóa Nhật.
+# Danh từ 311–350
+THẾ THOẠI,世話 (せわ),Chăm sóc|毎朝、犬の世話をしています。|Sáng nào tôi cũng chăm sóc con chó.
+GIA ĐÌNH,家庭 (かてい),Gia đình|彼は家庭を大切にする人です。|Anh ấy là người coi trọng gia đình.
+HIỆP LỰC,協力 (きょうりょく),Hợp tác/ hiệp lực|みんなで協力して、部屋を片づけました。|Mọi người cùng hợp sức dọn dẹp căn phòng.
+CẢM TẠ,感謝 (かんしゃ),Cảm tạ/ biết ơn|両親にはとても感謝しています。|Tôi rất biết ơn bố mẹ.
+LỄ,お礼 (おれい),Lời cảm ơn/ quà cảm ơn|手伝ってくれた友達にお礼を言いました。|Tôi đã nói lời cảm ơn người bạn đã giúp mình.
+SÁ,お詫び (おわび),Lời xin lỗi|店長がお客さんにお詫びの電話をかけました。|Cửa hàng trưởng đã gọi điện xin lỗi khách hàng.
+,おじぎ,Cúi chào|日本人はあいさつするとき、よくおじぎをします。|Người Nhật khi chào hỏi thường cúi chào.
+ÁC THỦ,握手 (あくしゅ),Bắt tay|試合の後、選手たちは握手をしました。|Sau trận đấu, các cầu thủ bắt tay nhau.
+,いじわる,Xấu bụng/ chơi xấu|弟にいじわるをしてはいけません。|Không được chơi xấu em trai.
+,いたずら,Nghịch ngợm/ trò tinh nghịch|子どもが壁にいたずら書きをしました。|Đứa trẻ nghịch ngợm vẽ bậy lên tường.
+TIẾT ƯỚC,節約 (せつやく),Tiết kiệm|お金を節約するために、お弁当を作っています。|Để tiết kiệm tiền, tôi tự làm cơm hộp.
+KINH DOANH,経営 (けいえい),Kinh doanh/ điều hành|父は小さなレストランを経営しています。|Bố tôi kinh doanh một nhà hàng nhỏ.
+PHẢN TỈNH,反省 (はんせい),Tự kiểm điểm/ hối lỗi|同じ失敗をしないように、よく反省しました。|Tôi đã tự kiểm điểm kỹ để không mắc lại lỗi đó.
+THỰC HÀNH,実行 (じっこう),Thực hiện/ thực hành|計画を立てたら、すぐに実行しましょう。|Lập kế hoạch xong thì hãy thực hiện ngay.
+TIẾN BỘ,進歩 (しんぽ),Tiến bộ|科学技術は毎年進歩しています。|Khoa học kỹ thuật tiến bộ từng năm.
+BIẾN HÓA,変化 (へんか),Thay đổi/ biến hóa|この町は10年で大きく変化しました。|Thị trấn này đã thay đổi nhiều trong 10 năm.
+PHÁT ĐẠT,発達 (はったつ),Phát triển|交通が発達して、旅行が便利になりました。|Giao thông phát triển nên đi du lịch tiện hơn.
+THỂ LỰC,体力 (たいりょく),Thể lực|毎朝走って、体力をつけています。|Sáng nào tôi cũng chạy để rèn thể lực.
+XUẤT TRƯỜNG,出場 (しゅつじょう),Tham dự (thi đấu)|来月、マラソン大会に出場します。|Tháng sau tôi sẽ tham gia giải marathon.
+HOẠT DƯỢC,活躍 (かつやく),Hoạt động tích cực/ tỏa sáng|彼は日本のチームで活躍しています。|Anh ấy đang thi đấu nổi bật ở một đội bóng Nhật.
+CẠNH TRANH,競争 (きょうそう),Cạnh tranh/ thi đua|兄と、どちらが速く走れるか競争しました。|Tôi thi với anh trai xem ai chạy nhanh hơn.
+ỨNG VIỆN,応援 (おうえん),Cổ vũ/ ủng hộ|家族みんなで弟のサッカーの試合を応援しました。|Cả nhà cùng cổ vũ trận bóng đá của em trai.
+PHÁCH THỦ,拍手 (はくしゅ),Vỗ tay|演奏が終わると、大きな拍手が起こりました。|Phần biểu diễn kết thúc, tiếng vỗ tay vang lên.
+NHÂN KHÍ,人気 (にんき),Được yêu thích/ nổi tiếng|このパン屋は若い人に人気があります。|Tiệm bánh mì này được giới trẻ ưa chuộng.
+,うわさ,Tin đồn|彼女が結婚するといううわさを聞きました。|Tôi nghe tin đồn cô ấy sắp kết hôn.
+TÌNH BÁO,情報 (じょうほう),Thông tin|インターネットで旅行の情報を集めました。|Tôi đã thu thập thông tin du lịch trên mạng.
+GIAO HOÁN,交換 (こうかん),Trao đổi/ đổi|友達とメールアドレスを交換しました。|Tôi đã trao đổi địa chỉ email với bạn.
+LƯU HÀNH,流行 (りゅうこう),Thịnh hành/ trào lưu|今年はこの色の服が流行しています。|Năm nay quần áo màu này đang thịnh hành.
+TUYÊN TRUYỀN,宣伝 (せんでん),Quảng bá/ tuyên truyền|新しい商品をテレビで宣伝しています。|Sản phẩm mới đang được quảng bá trên tivi.
+QUẢNG CÁO,広告 (こうこく),Quảng cáo|新聞の広告を見て、この店に来ました。|Tôi xem quảng cáo trên báo rồi đến cửa hàng này.
+CHÚ MỤC,注目 (ちゅうもく),Chú ý/ được chú ý|この若い選手は今、世界から注目されています。|Cầu thủ trẻ này đang được cả thế giới chú ý.
+THÔNG DỊCH,通訳 (つうやく),Thông dịch/ phiên dịch|会議で社長の通訳をしました。|Tôi đã phiên dịch cho giám đốc trong cuộc họp.
+PHIÊN DỊCH,翻訳 (ほんやく),Biên dịch/ dịch (văn bản)|この小説は20の言葉に翻訳されています。|Cuốn tiểu thuyết này đã được dịch ra 20 thứ tiếng.
+TRUYỀN NGÔN,伝言 (でんごん),Lời nhắn|田中さんに伝言をお願いできますか。|Anh có thể nhắn lại giúp tôi cho anh Tanaka không?
+BÁO CÁO,報告 (ほうこく),Báo cáo|仕事が終わったら、課長に報告してください。|Xong việc thì hãy báo cáo với trưởng phòng.
+LỤC HỌA,録画 (ろくが),Ghi hình/ thu hình|見られない番組を録画しておきました。|Tôi đã thu sẵn chương trình mà mình không xem được.
+HỖN TẠP,混雑 (こんざつ),Đông đúc/ chen chúc|連休の駅はとても混雑しています。|Nhà ga dịp nghỉ dài ngày rất đông đúc.
+SÁP TRỆ,渋滞 (じゅうたい),Tắc đường|事故で道が渋滞しています。|Đường đang tắc vì tai nạn.
+XUNG ĐỘT,衝突 (しょうとつ),Va chạm/ xung đột|交差点で車とバスが衝突しました。|Ô tô và xe buýt đã va chạm ở ngã tư.
+BỊ HẠI,被害 (ひがい),Thiệt hại|台風で、農家が大きな被害を受けました。|Các nhà nông chịu thiệt hại lớn vì bão.

@@ -1,0 +1,39 @@
+# Mimikara N3 · Từ vựng — Bài 18 (từ 851–880)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 12 副詞Ｂ") người dùng gửi 2026-11-14 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Bài cuối của file nguồn nên chỉ có 30 từ.
+# Chỗ sửa so với file nguồn:
+#   853 それぞれ "lần lượt, tương ứng" → mỗi, từng; 858 絶対に "chắc chắn rồi" → tuyệt đối;
+#   863 少しも "một chút" → (không) một chút nào; 870 一体 "cái quái gì" → rốt cuộc;
+#   874 それで "thế thì" → vì thế; 875 そこで "tiếp theo" → vì vậy (nên đã).
+# Phó từ, liên từ 851–880
+,そっと,Nhẹ nhàng/ khẽ khàng|赤ちゃんが寝ているので、そっとドアを閉めました。|Em bé đang ngủ nên tôi khẽ đóng cửa.
+BIỆT,別々に (べつべつに),Riêng ra/ riêng biệt|会計は別々にお願いします。|Cho chúng tôi thanh toán riêng.
+,それぞれ,Mỗi (người, cái)/ từng|人にはそれぞれ好みがあります。|Mỗi người có sở thích riêng.
+HỖ,互いに (たがいに),Lẫn nhau|二人は互いに助け合っています。|Hai người giúp đỡ lẫn nhau.
+TRỰC TIẾP,直接 (ちょくせつ),Trực tiếp|大切なことは、会って直接話したいです。|Chuyện quan trọng thì tôi muốn gặp và nói trực tiếp.
+BẢN ĐƯƠNG,本当に (ほんとうに),Thật sự/ thật lòng|手伝ってくれて、本当にありがとう。|Thật lòng cảm ơn bạn đã giúp tôi.
+TẤT,必ず (かならず),Nhất định/ chắc chắn|明日は必ず来てください。|Ngày mai nhất định phải đến nhé.
+TUYỆT ĐỐI,絶対に (ぜったいに),Tuyệt đối/ nhất định|このことは絶対にだれにも言わないでください。|Chuyện này tuyệt đối đừng nói với ai.
+ĐẶC,特に (とくに),Đặc biệt là|果物が好きです。特にりんごが好きです。|Tôi thích hoa quả, đặc biệt là táo.
+,ただ,Chỉ/ chỉ là|ただ見ているだけで、楽しいです。|Chỉ ngắm thôi cũng thấy vui rồi.
+THIẾU,少なくとも (すくなくとも),Ít nhất|駅まで少なくとも30分はかかります。|Đến ga mất ít nhất 30 phút.
+QUYẾT,決して (けっして),(Không) bao giờ/ tuyệt đối không|私は決してうそをつきません。|Tôi tuyệt đối không nói dối.
+THIẾU,少しも (すこしも),(Không) một chút nào|彼の話は少しもおもしろくなかったです。|Câu chuyện của anh ta chẳng thú vị chút nào.
+,ちっとも,(Không) chút nào|説明を聞いても、ちっとも分かりませんでした。|Nghe giải thích rồi mà tôi chẳng hiểu chút nào.
+TOÀN,全く (まったく),Hoàn toàn (không)|私はお酒が全く飲めません。|Tôi hoàn toàn không uống được rượu.
+,とても,Rất/ (không) thể nào|こんなにたくさんは、とても食べられません。|Nhiều thế này thì tôi không thể nào ăn hết.
+,どんなに,Dù thế nào/ biết bao|どんなに忙しくても、毎日日本語を勉強します。|Dù bận đến đâu, ngày nào tôi cũng học tiếng Nhật.
+,どうしても,Bằng mọi giá/ dù thế nào cũng|どうしてもこの大学に入りたいです。|Tôi muốn vào trường đại học này bằng mọi giá.
+,まるで,Cứ như là|彼は日本語が上手で、まるで日本人のようです。|Anh ấy giỏi tiếng Nhật, cứ như người Nhật vậy.
+NHẤT THỂ,一体 (いったい),Rốt cuộc (là)|一体何があったんですか。|Rốt cuộc đã xảy ra chuyện gì vậy?
+BIỆT,別に (べつに),(Không) có gì đặc biệt|「どうしたの？」「別に、何でもないよ。」|"Sao thế?" "Không có gì đâu."
+,たった,Chỉ (có)/ vẻn vẹn|試験まで、たった一週間しかありません。|Đến kỳ thi chỉ còn vẻn vẹn một tuần.
+,ほんの,Chỉ một chút/ chút xíu|これはほんの気持ちです。どうぞ。|Đây chỉ là chút lòng thành, xin nhận cho.
+,それで,Vì thế/ thế rồi|寝坊しました。それで、遅刻したんです。|Tôi ngủ quên. Vì thế nên đến muộn.
+,そこで,Vì vậy (nên đã)/ do đó|道が分かりませんでした。そこで、交番で聞きました。|Tôi không biết đường. Vì vậy tôi đã hỏi ở đồn cảnh sát.
+,そのうえ,Hơn nữa/ thêm vào đó|この店は安くて、そのうえおいしいです。|Quán này rẻ, hơn nữa lại ngon.
+,また,Lại/ ngoài ra|また来週会いましょう。|Tuần sau gặp lại nhé.
+,または,Hoặc là|黒または青のペンで書いてください。|Hãy viết bằng bút đen hoặc bút xanh.
+,それとも,Hay là (trong câu hỏi)|コーヒーにしますか、それとも紅茶にしますか。|Bạn dùng cà phê hay trà?
+,つまり,Tức là/ nói cách khác|母の姉、つまり私のおばは、東京に住んでいます。|Chị của mẹ tôi, tức là dì tôi, sống ở Tokyo.

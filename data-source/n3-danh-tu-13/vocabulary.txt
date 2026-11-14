@@ -1,0 +1,62 @@
+# Mimikara N3 · Từ vựng — Bài 13 (từ 601–650)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 8 副詞" 601–635 và "Bài 9 名詞Ｃ" 636–650) người dùng gửi 2026-11-14.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Chỗ sửa so với file nguồn:
+#   627–635: cột chữ Nhật của file bị khuyết một từ ở dòng 627 nên lệch lên một dòng so với cột nghĩa
+#       (まさか mang nghĩa "có lẽ", ほっと "không ngờ đến", いらいら "yên tâm", のんびり "khó chịu",
+#       実は "tận hưởng", còn dòng 635 chỉ có nghĩa "thực tế là"). Theo cột nghĩa, dòng 627 ("có lẽ")
+#       điền もしかしたら, các từ sau dời xuống một dòng: まさか 628 … 実は 635.
+#   612 しばらく "một chút" → một lúc, một thời gian; 616 どんどん "dần dần" → ào ào, nhanh chóng;
+#   622 やはり "như dự tính" → quả nhiên; 636 読書 "đọc viết" → đọc sách.
+# Phó từ 601–635
+,いっぱい,Đầy/ nhiều|お腹がいっぱいで、もう食べられません。|Tôi no quá, không ăn được nữa.
+,ぎりぎり,Sát nút/ vừa kịp|走って、授業にぎりぎり間に合いました。|Tôi chạy và vừa kịp giờ học.
+,ぴったり,Vừa khít/ vừa đúng|このくつはサイズがぴったりです。|Đôi giày này vừa khít cỡ chân.
+,たいてい,Thường thì/ đại khái|日曜日はたいてい家にいます。|Chủ nhật tôi thường ở nhà.
+ĐỒNG THỜI,同時に (どうじに),Cùng lúc/ đồng thời|二人は同時に手を挙げました。|Hai người giơ tay cùng lúc.
+TIỀN,前もって (まえもって),Trước (làm sẵn từ trước)|休むときは、前もって連絡してください。|Khi nghỉ hãy báo trước.
+,すぐに,Ngay lập tức|家に着いたら、すぐに電話します。|Về đến nhà tôi sẽ gọi điện ngay.
+,もうすぐ,Sắp|もうすぐ夏休みです。|Sắp đến kỳ nghỉ hè rồi.
+ĐỘT NHIÊN,突然 (とつぜん),Đột nhiên|突然、雨が降ってきました。|Đột nhiên trời đổ mưa.
+GIAN,あっという間に (あっというまに),Trong nháy mắt|夏休みはあっという間に終わりました。|Kỳ nghỉ hè trôi qua trong nháy mắt.
+GIAN,いつの間にか (いつのまにか),Lúc nào không hay|いつの間にか外が暗くなっていました。|Bên ngoài đã tối lúc nào không hay.
+,しばらく,Một lúc/ một thời gian|しばらくお待ちください。|Xin vui lòng chờ một lát.
+,ずっと,Suốt/ hơn hẳn|昨日は一日中ずっと家にいました。|Hôm qua tôi ở nhà suốt cả ngày.
+TƯƠNG BIẾN,相変わらず (あいかわらず),Vẫn như mọi khi|祖父は相変わらず元気です。|Ông tôi vẫn khỏe như mọi khi.
+THỨ,次々に (つぎつぎに),Lần lượt/ liên tiếp|駅の前に新しい店が次々にできています。|Trước ga các cửa hàng mới liên tiếp mọc lên.
+,どんどん,Ào ào/ nhanh chóng|練習すれば、どんどん上手になりますよ。|Luyện tập thì sẽ giỏi lên nhanh thôi.
+,ますます,Càng ngày càng|雨がますます強くなってきました。|Mưa càng lúc càng to.
+,やっと,Cuối cùng cũng/ mãi mới|三回目の試験で、やっと合格しました。|Đến lần thi thứ ba tôi mới đỗ.
+,とうとう,Rốt cuộc/ cuối cùng|一時間待ちましたが、彼はとうとう来ませんでした。|Tôi đợi một tiếng nhưng rốt cuộc anh ấy không đến.
+,ついに,Cuối cùng (thì)|10年かかって、ついに夢がかないました。|Mất 10 năm, cuối cùng giấc mơ đã thành hiện thực.
+,もちろん,Tất nhiên|「一緒に行きますか。」「もちろんです。」|"Bạn đi cùng chứ?" "Tất nhiên rồi."
+,やはり,Quả nhiên/ quả là|天気予報のとおり、やはり雨が降りました。|Đúng như dự báo, quả nhiên trời mưa.
+,きっと,Chắc chắn/ nhất định|明日はきっと晴れるでしょう。|Ngày mai chắc chắn trời sẽ nắng.
+,ぜひ,Nhất định (muốn)|ぜひ一度、私の国に遊びに来てください。|Nhất định hãy đến nước tôi chơi một lần nhé.
+,なるべく,Cố gắng hết mức/ càng… càng tốt|なるべく早く来てください。|Hãy đến sớm nhất có thể.
+ÁN NGOẠI,案外 (あんがい),Không ngờ/ ngoài dự đoán|試験は案外簡単でした。|Bài thi dễ ngoài dự đoán.
+,もしかしたら,Có lẽ/ không chừng|もしかしたら、明日は雪が降るかもしれません。|Không chừng ngày mai tuyết sẽ rơi.
+,まさか,Lẽ nào/ không thể ngờ|まさか一回で合格するとは思いませんでした。|Tôi không ngờ lại đỗ ngay lần đầu.
+,うっかり,Lơ đễnh/ sơ ý|うっかり傘を電車に忘れてしまいました。|Tôi sơ ý để quên ô trên tàu.
+,つい,Lỡ/ buột (theo thói quen)|ケーキがおいしくて、つい食べすぎてしまいました。|Bánh ngon quá nên tôi lỡ ăn quá nhiều.
+TƯ,思わず (おもわず),Bất giác/ không kìm được|彼の話がおもしろくて、思わず笑ってしまいました。|Chuyện của anh ấy thú vị quá nên tôi bất giác bật cười.
+,ほっと,Nhẹ nhõm/ yên tâm|子どもが無事に帰ってきて、ほっとしました。|Con về nhà an toàn, tôi thấy nhẹ nhõm.
+,いらいら,Bực bội/ sốt ruột|バスがなかなか来なくて、いらいらしました。|Xe buýt mãi không đến nên tôi sốt ruột.
+,のんびり,Thong thả/ thảnh thơi|休みの日は家でのんびりします。|Ngày nghỉ tôi thong thả ở nhà.
+THỰC,実は (じつは),Thật ra là|実は、来月国へ帰ることになりました。|Thật ra là tháng sau tôi sẽ về nước.
+# Danh từ 636–650
+ĐỘC THƯ,読書 (どくしょ),Đọc sách|私の趣味は読書です。|Sở thích của tôi là đọc sách.
+DIỄN TẤU,演奏 (えんそう),Biểu diễn (nhạc)/ chơi nhạc|彼女のピアノの演奏はすばらしかったです。|Phần biểu diễn piano của cô ấy thật tuyệt vời.
+NGHỆ THUẬT,芸術 (げいじゅつ),Nghệ thuật|パリは芸術の町だと言われています。|Paris được gọi là thành phố của nghệ thuật.
+KIỂM TRA,検査 (けんさ),Kiểm tra/ xét nghiệm|病院で目の検査を受けました。|Tôi đã kiểm tra mắt ở bệnh viện.
+HUYẾT DỊCH,血液 (けつえき),Máu|健康診断で血液の検査をしました。|Tôi đã xét nghiệm máu trong đợt khám sức khỏe.
+TRỊ LIỆU,治療 (ちりょう),Điều trị|毎週、歯の治療に通っています。|Tuần nào tôi cũng đi chữa răng.
+CHỨNG TRẠNG,症状 (しょうじょう),Triệu chứng|熱やせきなど、風邪の症状があります。|Tôi có các triệu chứng cảm như sốt và ho.
+DỰ PHÒNG,予防 (よぼう),Phòng ngừa/ dự phòng|風邪の予防には、手を洗うことが大切です。|Để phòng cảm, rửa tay là điều quan trọng.
+VINH DƯỠNG,栄養 (えいよう),Dinh dưỡng|野菜には栄養がたくさんあります。|Rau có nhiều chất dinh dưỡng.
+THỦ THUẬT,手術 (しゅじゅつ),Phẫu thuật|父は来週、足の手術を受けます。|Tuần sau bố tôi sẽ phẫu thuật chân.
+TỬ VONG,死亡 (しぼう),Tử vong|その事故で死亡した人はいませんでした。|Không có ai tử vong trong vụ tai nạn đó.
+MỆNH,命 (いのち),Sinh mạng/ tính mạng|医者は人の命を救う仕事です。|Bác sĩ là nghề cứu mạng người.
+NHẤT SINH,一生 (いっしょう),Cả đời/ suốt đời|この日のことは一生忘れません。|Suốt đời tôi sẽ không quên ngày hôm nay.
+NGỘ GIẢI,誤解 (ごかい),Hiểu lầm|私の言い方が悪くて、友達に誤解されました。|Tôi nói không khéo nên bị bạn hiểu lầm.
+HẬU HỐI,後悔 (こうかい),Hối hận|もっと勉強すればよかったと後悔しています。|Tôi hối hận vì đã không học chăm hơn.

@@ -1,0 +1,58 @@
+# Mimikara N3 · Từ vựng — Bài 8 (từ 351–400)
+# Nguồn: file "TỪ VỰNG.xlsx" (sheet "TU VUNG MIMIKARA N3", bảng "Bài 4 形容詞") người dùng gửi 2026-11-14 (Kanji · Hiragana · Meaning).
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT — âm Hán Việt bổ sung, file nguồn không có.
+# Nghĩa trong file nguồn được sửa ở những chỗ sai hoặc lệch nghĩa:
+#   352 事件 "sự kiện" → vụ việc, vụ án; 357 緊張 "lo lắng" → căng thẳng, hồi hộp;
+#   358: file ghi 自身 (じしん, "tự tin") — "tự tin" là 自信, ở đây ghi 自信;
+#   359 自慢 "tự mãn" → khoe khoang, tự hào; 360 感心 "quan tâm" → khâm phục (quan tâm là 関心).
+# Danh từ 351–400
+SỰ CỐ,事故 (じこ),Tai nạn/ sự cố|雪の日は事故に気をつけてください。|Ngày tuyết rơi hãy cẩn thận kẻo gặp tai nạn.
+SỰ KIỆN,事件 (じけん),Vụ việc/ vụ án|近所で事件があって、警察が来ました。|Gần nhà xảy ra một vụ việc nên cảnh sát đã đến.
+CỐ CHƯỚNG,故障 (こしょう),Hỏng hóc/ trục trặc|エアコンが故障して、部屋がとても暑いです。|Điều hòa bị hỏng nên phòng rất nóng.
+TU LÝ,修理 (しゅうり),Sửa chữa|壊れた時計を修理に出しました。|Tôi đã mang chiếc đồng hồ hỏng đi sửa.
+ĐÌNH ĐIỆN,停電 (ていでん),Mất điện|雷で、町全体が停電しました。|Vì sét đánh, cả thị trấn bị mất điện.
+ĐIỀU TỬ,調子 (ちょうし),Tình trạng/ trạng thái|最近、パソコンの調子が悪いです。|Gần đây máy tính chạy không ổn.
+KHẨN TRƯƠNG,緊張 (きんちょう),Căng thẳng/ hồi hộp|面接の前は、とても緊張しました。|Trước buổi phỏng vấn tôi rất hồi hộp.
+TỰ TÍN,自信 (じしん),Tự tin|今度の試験には自信があります。|Tôi tự tin vào kỳ thi lần này.
+TỰ MẠN,自慢 (じまん),Khoe khoang/ tự hào|彼はいつも自分の車を自慢しています。|Anh ta lúc nào cũng khoe chiếc xe của mình.
+CẢM TÂM,感心 (かんしん),Khâm phục/ thán phục|毎日休まずに練習する彼に感心しました。|Tôi khâm phục anh ấy vì ngày nào cũng luyện tập không nghỉ.
+CẢM ĐỘNG,感動 (かんどう),Cảm động/ xúc động|その映画を見て、とても感動しました。|Xem bộ phim đó, tôi rất cảm động.
+HƯNG PHẤN,興奮 (こうふん),Hưng phấn/ phấn khích|試合に勝って、みんな興奮していました。|Thắng trận, ai nấy đều phấn khích.
+CẢM TƯỞNG,感想 (かんそう),Cảm tưởng/ cảm nghĩ|本を読んだ感想を書いてください。|Hãy viết cảm nghĩ sau khi đọc sách.
+DỰ TƯỞNG,予想 (よそう),Dự đoán|試験は予想より簡単でした。|Bài thi dễ hơn tôi dự đoán.
+CHUYÊN MÔN,専門 (せんもん),Chuyên môn/ chuyên ngành|大学での専門は経済です。|Chuyên ngành của tôi ở đại học là kinh tế.
+NGHIÊN CỨU,研究 (けんきゅう),Nghiên cứu|姉は大学で日本の歴史を研究しています。|Chị tôi nghiên cứu lịch sử Nhật Bản ở đại học.
+ĐIỀU TRA,調査 (ちょうさ),Điều tra/ khảo sát|若い人の生活について調査しました。|Chúng tôi đã khảo sát về cuộc sống của giới trẻ.
+NGUYÊN NHÂN,原因 (げんいん),Nguyên nhân|火事の原因はまだ分かりません。|Vẫn chưa rõ nguyên nhân vụ cháy.
+KẾT QUẢ,結果 (けっか),Kết quả|試験の結果は来週出ます。|Tuần sau sẽ có kết quả thi.
+GIẢI QUYẾT,解決 (かいけつ),Giải quyết|みんなで話し合って、問題を解決しました。|Mọi người bàn bạc với nhau và đã giải quyết được vấn đề.
+XÁC NHẬN,確認 (かくにん),Xác nhận/ kiểm tra lại|出かける前に、窓が閉まっているか確認しました。|Trước khi ra ngoài, tôi đã kiểm tra lại xem cửa sổ đã đóng chưa.
+LỢI DỤNG,利用 (りよう),Sử dụng|毎日、駅の近くの図書館を利用しています。|Ngày nào tôi cũng sử dụng thư viện gần ga.
+LÝ GIẢI,理解 (りかい),Hiểu/ lý giải|先生の説明がよく理解できました。|Tôi đã hiểu rõ lời giải thích của thầy.
+PHÁT KIẾN,発見 (はっけん),Phát hiện|山の中で新しい種類の花が発見されました。|Một loài hoa mới đã được phát hiện trong núi.
+PHÁT MINH,発明 (はつめい),Phát minh|電話は約150年前に発明されました。|Điện thoại được phát minh khoảng 150 năm trước.
+QUAN HỆ,関係 (かんけい),Quan hệ/ liên quan|あの二人はどんな関係ですか。|Hai người kia có quan hệ gì vậy?
+ĐOÀN THỂ,団体 (だんたい),Đoàn thể/ đoàn|団体で旅行すると、料金が安くなります。|Đi du lịch theo đoàn thì giá rẻ hơn.
+TUYỂN CỬ,選挙 (せんきょ),Bầu cử|日曜日に市長の選挙があります。|Chủ nhật này có bầu cử thị trưởng.
+THUẾ KIM,税金 (ぜいきん),Tiền thuế/ thuế|働いている人は税金を払わなければなりません。|Người đi làm phải đóng thuế.
+TRÁCH NHIỆM,責任 (せきにん),Trách nhiệm|自分の仕事には責任を持ってください。|Hãy có trách nhiệm với công việc của mình.
+THƯ LOẠI,書類 (しょるい),Giấy tờ/ tài liệu|必要な書類を窓口に出しました。|Tôi đã nộp giấy tờ cần thiết ở quầy.
+ĐỀ DANH,題名 (だいめい),Tiêu đề/ tên (tác phẩm)|その歌の題名を忘れてしまいました。|Tôi quên mất tên bài hát đó rồi.
+ĐIỀU KIỆN,条件 (じょうけん),Điều kiện|この仕事は給料も休みも条件がいいです。|Công việc này cả lương lẫn ngày nghỉ đều có điều kiện tốt.
+ĐẾ THIẾT,締め切り (しめきり),Hạn chót|レポートの締め切りは金曜日です。|Hạn nộp báo cáo là thứ Sáu.
+KỲ GIAN,期間 (きかん),Thời gian/ thời kỳ|セールの期間は一週間です。|Thời gian giảm giá là một tuần.
+BỘI,倍 (ばい),Gấp (bao nhiêu) lần|この町の人口は30年前の2倍になりました。|Dân số thị trấn này đã gấp đôi so với 30 năm trước.
+,くじ,Xổ số/ rút thăm|くじを引いたら、1等が当たりました。|Tôi rút thăm và trúng giải nhất.
+CẬN ĐẠO,近道 (ちかみち),Đường tắt|公園を通って行くと近道です。|Đi xuyên qua công viên là đường tắt.
+TRUNG TÂM,中心 (ちゅうしん),Trung tâm|駅は町の中心にあります。|Nhà ga nằm ở trung tâm thị trấn.
+BIÊN,辺り (あたり),Vùng lân cận/ quanh đây|この辺りに郵便局はありますか。|Quanh đây có bưu điện không?
+CHU,周り (まわり),Xung quanh/ vòng quanh|家の周りに花を植えました。|Tôi đã trồng hoa quanh nhà.
+HUYỆT,穴 (あな),Cái lỗ/ cái hố|靴下に穴があいています。|Tất bị thủng một lỗ.
+LIỆT,列 (れつ),Hàng/ dãy|店の前に長い列ができています。|Trước cửa hàng có một hàng người dài.
+PHÚC,幅 (はば),Chiều rộng/ bề ngang|この道は幅が狭いので、車は通れません。|Con đường này hẹp nên ô tô không đi qua được.
+PHẠM VI,範囲 (はんい),Phạm vi|試験の範囲を教えてください。|Hãy cho tôi biết phạm vi bài thi.
+NỘI DUNG,内容 (ないよう),Nội dung|会議の内容をメモしました。|Tôi đã ghi lại nội dung cuộc họp.
+TRUNG THÂN,中身 (なかみ),Thứ bên trong/ ruột|この箱の中身は何ですか。|Bên trong cái hộp này là gì vậy?
+ĐẶC TRƯNG,特徴 (とくちょう),Đặc trưng/ đặc điểm|この花の特徴は、とてもいいにおいがすることです。|Đặc điểm của loài hoa này là rất thơm.
+PHỔ THÔNG,普通 (ふつう),Bình thường/ thông thường|普通は7時ごろ起きます。|Bình thường tôi dậy khoảng 7 giờ.
+ĐƯƠNG TIỀN,当たり前 (あたりまえ),Đương nhiên|約束を守るのは当たり前のことです。|Giữ lời hứa là chuyện đương nhiên.
