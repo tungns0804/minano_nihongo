@@ -180,15 +180,18 @@
 }
 
 /* --- Đèn đêm --------------------------------------------------------------
-   Tông thứ ba, làm theo Night light của Windows: nền ngả màu giấy kem, chữ nâu đậm thay
-   vì xanh đen, không màu xanh lạnh nào. Dành cho lúc học buổi tối.
+   Tông thứ ba, làm theo Night light của Windows: nền ngả màu giấy kem, chữ nâu đen thay
+   vì xanh đen. Dành cho lúc học buổi tối.
 
-   Lịch sử (đọc trước khi sửa — đã hỏng ba lần theo ba hướng):
+   Lịch sử (đọc trước khi sửa — đã hỏng bốn lần theo bốn hướng):
     - bản đầu ngà vàng đậm: các lớp sát màu nhau thành một mảng ngà liền;
     - bản thứ hai kéo nền trang xuống màu cát đậm (#e8d9bc) để tách lớp: nặng và bẩn;
     - ngày 2026-11-12 thử đổi hẳn sang nâu sepia TỐI: người dùng xem trên màn hình rộng
       và nói "như này có mà hỏng mắt" — chữ phụ màu nâu nhạt trên nền tối vừa mờ vừa
-      nhoè. Người dùng muốn GIỮ tông kem sáng này và chỉ tối ưu nó, không thêm chế độ.
+      nhoè. Người dùng muốn GIỮ tông kem sáng này và chỉ tối ưu nó, không thêm chế độ;
+    - ngày 2026-11-14: mọi màu nhấn đều là nâu nên cả trang đơn sắc, "không có độ tương
+      phản về màu sắc". Đã đưa màu nhấn / thương hiệu về xanh lá thông / xanh chàm (xem
+      khối màu nhấn bên dưới). Đừng quay lại bảng màu toàn nâu.
    Bản hiện tại là bản "kem nhạt" người dùng chọn ngày 2026-11-01, chỉnh lại ngày
    2026-11-12: thẻ không còn gần trắng (#fffcf6 → #f2eadc, bớt ~15% độ sáng), nền
    trang và ô lõm hạ theo cùng nhịp nên khoảng cách giữa các lớp giữ như cũ, chữ phụ và
@@ -203,7 +206,7 @@
    khớp với nền kem.
 
    Độ tương phản: ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5:1 trên cả bốn lớp nền
-   (chữ chính 13.2:1 trên thẻ), chữ trên nút nhấn và trên nền nhạt của nhãn ≥ 4.5:1 —
+   (chữ chính 14.4:1 trên thẻ), chữ trên nút nhấn 7.4:1 và trên nền nhạt của nhãn ≥ 5:1 —
    đạt WCAG AA cho chữ nhỏ. Sửa màu thì phải đo lại. */
 :root[data-theme='night'] {
   color-scheme: light;
@@ -213,25 +216,32 @@
   --bg-subtle: #ece3d3;
   --bg-inset: #e0d4c0;
 
-  --text: #2b2113;
-  --text-muted: #55411f;
-  --text-faint: #5f4a2b;
+  /* Chữ phụ bớt ngả nâu, ngả về nâu xám: chữ nâu trên nền kem cùng một họ màu nên
+     chỉ còn khác nhau về độ sáng, nhìn lâu thành một mảng đục. Viền đậm thêm một
+     bậc (1.48:1 trên thẻ, trước là 1.33:1) để ô, nút, khung tách khỏi nền rõ hơn. */
+  --text: #221a0f;
+  --text-muted: #4a3e2e;
+  --text-faint: #544636;
 
-  --border: #d8ccb6;
-  --border-strong: #c2b195;
+  --border: #cfc1a8;
+  --border-strong: #b4a284;
 
-  /* Chàm là màu xanh nhất trong bảng màu sáng, nên nó là thứ đầu tiên phải thay
-     khi cả tông này sinh ra để bớt ánh sáng xanh. Cam đất giữ đúng vai trò "màu
-     nhấn ấm" mà vẫn không lẫn với --warning (ngả vàng) hay --danger (ngả đỏ). */
-  --accent: #8a420e;
-  --accent-hover: #73370b;
-  --accent-soft: #ecd8b8;
+  /* Màu nhấn và thương hiệu CỐ Ý khác họ màu với nền kem. Trước 2026-11-14 cả hai
+     đều là nâu (cam đất #8a420e, nâu gỗ #674518) để tránh mọi màu xanh — kết quả là
+     nút bấm, lựa chọn đang bật, liên kết, logo, chữ và nền đều cùng một tông nâu,
+     không thứ gì nổi lên; người dùng thấy "không có độ tương phản về màu sắc, nhìn
+     nhiều rất mỏi mắt". Giờ dùng đúng vai trò màu của bản Sáng nhưng trầm hơn cho hợp
+     nền kem: xanh lá thông cho màu nhấn, xanh chàm cho khung ứng dụng. Hai màu này
+     đậm (độ sáng thấp) và chỉ chiếm diện tích nhỏ, nên không làm trang chói hay xanh
+     lạnh đi — phần lớn màn hình vẫn là nền kem ấm. */
+  --accent: #135e44;
+  --accent-hover: #0d4a35;
+  --accent-soft: #d6e4d6;
   --accent-text: #fffaf0;
-  --accent-ring: rgb(138 66 14 / 18%);
+  --accent-ring: rgb(19 94 68 / 18%);
 
-  /* Thương hiệu nâu gỗ thay cho xanh Mekong, cùng lý do với màu nhấn ở trên. */
-  --brand: #674518;
-  --brand-soft: #e8d6b4;
+  --brand: #264f86;
+  --brand-soft: #dbe2ea;
 
   --success: #3f5d18;
   --success-soft: #dfe4c4;

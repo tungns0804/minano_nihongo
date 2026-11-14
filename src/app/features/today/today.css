@@ -225,7 +225,9 @@
   display: block;
   height: 6px;
   border-radius: var(--radius-pill);
-  background: var(--bg-subtle);
+  /* --bg-inset như các thanh tiến độ khác: --bg-subtle chỉ chênh ~1.05:1 với thẻ nên
+     phần đường ray chưa đi tới gần như vô hình, không đọc ra còn bao nhiêu. */
+  background: var(--bg-inset);
   overflow: hidden;
 }
 

@@ -1211,11 +1211,14 @@ sáng/tối của hệ điều hành và đổi ngay khi bạn đổi cài đặ
 hệ thống đang để gì. Lựa chọn được nhớ lại cho lần mở sau.
 
 **Đèn đêm** làm đúng việc mà Night light của Windows làm, nhưng chỉ trong trang này: nền ngả màu
-giấy kem, chữ nâu đậm, màu nhấn đổi từ chàm sang cam đất — cắt bớt ánh sáng xanh mà vẫn là giao diện
-sáng, dễ đọc. Ngày 2026-11-12 tinh chỉnh cho bớt chói (thẻ không còn gần trắng, chữ phụ và màu trạng
-thái đậm hơn) sau khi thử một bản nền nâu tối mà người dùng thấy hại mắt; người dùng muốn giữ tông
-kem này chứ không thêm chế độ. Ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5:1 trên mọi lớp nền,
-đạt WCAG AA như hai tông kia.
+giấy kem, chữ nâu đen — dịu mắt mà vẫn là giao diện sáng, dễ đọc. Ngày 2026-11-12 tinh chỉnh cho bớt
+chói (thẻ không còn gần trắng, chữ phụ và màu trạng thái đậm hơn) sau khi thử một bản nền nâu tối mà
+người dùng thấy hại mắt; người dùng muốn giữ tông kem này chứ không thêm chế độ. Ngày 2026-11-14 bỏ
+bảng màu toàn nâu: màu nhấn (nút, lựa chọn đang bật, liên kết) là xanh lá thông, khung ứng dụng (logo,
+menu đang mở) là xanh chàm — cùng vai trò màu với bản Sáng nhưng trầm hơn — vì khi chữ, nền và màu
+nhấn cùng một tông nâu thì không thứ gì nổi lên, nhìn lâu rất mỏi mắt. Viền và chữ phụ cũng đậm thêm
+một bậc. Ba bậc chữ và năm màu nhấn / trạng thái đều ≥ 5:1 trên mọi lớp nền, đạt WCAG AA như hai tông
+kia.
 
 **Kết quả**
 
