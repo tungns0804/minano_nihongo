@@ -15,6 +15,7 @@ import { PracticeSessionStore } from '../../core/practice/practice-session-store
 import { StarButton } from '../../shared/star-button';
 import { Icon } from '../../shared/icon';
 import { ActivityStore } from '../../core/activity/activity-store';
+import { PracticeHistoryStore } from '../../core/activity/practice-history-store';
 import { N3AutoTick } from '../../core/n3/n3-auto-tick';
 
 type ResultFilter = 'all' | 'wrong' | 'retried';
@@ -80,6 +81,22 @@ export class Result {
   }
 
   readonly summary = this.session.summary;
+  private readonly history = inject(PracticeHistoryStore);
+
+  /**
+   * "Lượt luyện thứ N của bài này" — phiên vừa xong đã được ghi trước khi tới đây (xem
+   * `PracticeSessionStore.finish`), nên số lượt hiện tại chính là số thứ tự của nó.
+   * Phiên Ôn tập không phải lượt của bài nào nên không có dòng này.
+   */
+  protected readonly roundText = computed(() => {
+    const config = this.summary()?.config;
+    if (!config || config.review) return '';
+    const record = this.history.of(config.lessonId);
+    return record
+      ? this.t('result.round', { count: record.sessions, questions: record.questions })
+      : '';
+  });
+
   readonly filter = signal<ResultFilter>('all');
   readonly favoritesJustAdded = signal(0);
 

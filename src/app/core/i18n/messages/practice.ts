@@ -130,6 +130,10 @@ export const PRACTICE_MESSAGES = {
     vi: 'Bạn đã đi hết {count} câu của bài này theo cụm. 🎉',
     ja: 'このレッスンの{count}問をすべて学習し終えました。🎉',
   },
+  'result.round': {
+    vi: 'Lượt luyện thứ {count} của bài này · tổng cộng {questions} câu',
+    ja: 'このレッスン{count}回目の練習 · 累計{questions}問',
+  },
   'result.backToLesson': { vi: 'Về bài học', ja: 'レッスンへ戻る' },
   'result.home': { vi: 'Trang chủ', ja: 'ホーム' },
   'result.markedNotice': {

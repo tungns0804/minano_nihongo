@@ -65,6 +65,7 @@ export const HOME_MESSAGES = {
   'progress.learned': { vi: 'Đã học {count}/{total}', ja: '学習済み {count}/{total}' },
   'progress.practiced': { vi: 'Đã luyện {count} câu', ja: '{count}問 練習済み' },
   'progress.due': { vi: '{count} đến hạn ôn', ja: '復習期限 {count}' },
+  'progress.sessions': { vi: '{count} lượt luyện', ja: '練習{count}回' },
   // Bài trước / bài sau ở cuối trang chi tiết (shared/lesson-pager.ts).
   'pager.aria': { vi: 'Bài kề', ja: '前後のレッスン' },
   'pager.prev': { vi: 'Bài trước', ja: '前のレッスン' },

@@ -33,6 +33,18 @@ export const LESSON_MESSAGES = {
     ja: '解答方法・問題数・その他',
   },
   'lesson.setup.moreHintCount': { vi: 'số câu, tuỳ chọn khác', ja: '問題数・その他' },
+  // Dòng "đã luyện bao nhiêu lượt" dưới nút Bắt đầu (shared/practice-setup.ts).
+  'lesson.setup.history': {
+    vi: 'Đã luyện {count} lượt ({questions} câu) trong {days} ngày · lần gần nhất: {when}',
+    ja: 'これまで{days}日間で{count}回（{questions}問）練習 · 最終：{when}',
+  },
+  'lesson.setup.historyNone': {
+    vi: 'Chưa luyện lượt nào — làm xong một lượt là được ghi lại ở đây.',
+    ja: 'まだ練習していません。最後まで解くとここに記録されます。',
+  },
+  'lesson.setup.when.today': { vi: 'hôm nay', ja: '今日' },
+  'lesson.setup.when.yesterday': { vi: 'hôm qua', ja: '昨日' },
+  'lesson.setup.when.daysAgo': { vi: '{count} ngày trước', ja: '{count}日前' },
   'lesson.scope': { vi: 'Phạm vi', ja: '範囲' },
   'lesson.scope.all': { vi: 'Toàn bộ bài ({count})', ja: 'レッスン全体（{count}）' },
   'lesson.scope.favorite': { vi: '★ Chưa nhớ ({count})', ja: '★ 未習得（{count}）' },

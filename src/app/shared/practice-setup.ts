@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component, Injectable, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Injectable, computed, inject, input, signal } from '@angular/core';
 
+import { PracticeHistoryStore } from '../core/activity/practice-history-store';
+import { daysSince } from '../core/activity/practice-history.model';
 import { LanguageStore } from '../core/i18n/language-store';
 import type { MessageKey } from '../core/i18n/messages';
 import { readJson, writeJson } from '../core/services/local-storage';
+import { Icon } from './icon';
 
 const STORAGE_KEY = 'jp-practice:setup-more-open';
 
@@ -43,9 +46,14 @@ export class SetupMorePreference {
  *
  * Màn hình nào cần cuộn tới khung thì đặt class lên chính thẻ này
  * (`<app-practice-setup class="practice-card">`).
+ *
+ * Truyền `historyId` (id bài, như `PracticeConfig.lessonId`) thì dưới nút Bắt đầu có
+ * thêm một dòng "Đã luyện N lượt… lần gần nhất: hôm qua" — người học hỏi đúng câu đó
+ * mỗi lần mở bài. Trang Ôn tập không truyền: nó không phải một bài.
  */
 @Component({
   selector: 'app-practice-setup',
+  imports: [Icon],
   template: `
     <section class="card">
       <div class="card-body stack setup">
@@ -62,12 +70,42 @@ export class SetupMorePreference {
         </details>
 
         <ng-content select="[setupActions]" />
+
+        @if (historyId()) {
+          <p class="setup-history" [class.is-empty]="!record()">
+            <app-icon name="repeat" />
+            <span>{{ historyText() }}</span>
+          </p>
+        }
       </div>
     </section>
   `,
   styles: `
     :host {
       display: block;
+    }
+
+    .setup-history {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin: 0;
+      color: var(--text-muted);
+      font-size: var(--fs-sm);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .setup-history app-icon {
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .setup-history.is-empty {
+      color: var(--text-faint);
+    }
+
+    .setup-history.is-empty app-icon {
+      color: inherit;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -79,6 +117,33 @@ export class PracticeSetup {
 
   /** Dòng nhỏ cạnh "Tuỳ chỉnh thêm", kể những gì đang gập bên trong. */
   readonly moreHintKey = input<MessageKey>('lesson.setup.moreHint');
+  /** Id bài để đếm lượt đã luyện; null thì không hiện dòng đó. */
+  readonly historyId = input<string | null>(null);
+
+  private readonly history = inject(PracticeHistoryStore);
+  protected readonly record = computed(() => this.history.of(this.historyId()));
+
+  protected readonly historyText = computed(() => {
+    const record = this.record();
+    if (!record) return this.t('lesson.setup.historyNone');
+    const ago = daysSince(record, this.history.today());
+    const when =
+      ago === 0
+        ? this.t('lesson.setup.when.today')
+        : ago === 1
+          ? this.t('lesson.setup.when.yesterday')
+          : this.t('lesson.setup.when.daysAgo', { count: ago });
+    return this.t('lesson.setup.history', {
+      count: record.sessions,
+      questions: record.questions,
+      days: record.days,
+      when,
+    });
+  });
+
+  constructor() {
+    this.history.refreshDay();
+  }
 
   protected onToggle(event: Event): void {
     this.more.set((event.target as HTMLDetailsElement).open);

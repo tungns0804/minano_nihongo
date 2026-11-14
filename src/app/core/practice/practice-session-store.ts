@@ -15,6 +15,7 @@ import { isAnswerCorrect, isPatternCorrect } from './answer-check';
 import { shuffle } from '../utils/random';
 import { ReviewStore } from '../review/review-store';
 import { ActivityStore } from '../activity/activity-store';
+import { PracticeHistoryStore } from '../activity/practice-history-store';
 
 export type NextOutcome = 'moved' | 'finished' | 'blocked';
 
@@ -40,6 +41,7 @@ export interface SessionLesson {
 export class PracticeSessionStore {
   private readonly reviews = inject(ReviewStore);
   private readonly activity = inject(ActivityStore);
+  private readonly history = inject(PracticeHistoryStore);
 
   private readonly lessonRef = signal<SessionLesson | null>(null);
   private readonly configRef = signal<PracticeConfig | null>(null);
@@ -322,6 +324,10 @@ export class PracticeSessionStore {
     });
 
     const correctCount = results.filter((r) => r.isCorrect).length;
+
+    // Ghi TRƯỚC khi đặt kết quả: màn kết quả đọc ngay số lượt để nói "lượt thứ N".
+    // Phiên Ôn tập gom câu từ nhiều bài nên không phải lượt của bài nào.
+    if (!config.review) this.history.record(config.lessonId, results.length, correctCount);
 
     this.summaryRef.set({
       lessonId: lesson.id,

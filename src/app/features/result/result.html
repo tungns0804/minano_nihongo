@@ -17,6 +17,9 @@
           <div class="score-meta">
             <h1>{{ t('result.title') }}</h1>
             <p class="muted">{{ data.lessonName }}</p>
+            @if (roundText(); as round) {
+              <p class="result-round">{{ round }}</p>
+            }
 
             <div class="stat-row">
               <div class="stat">

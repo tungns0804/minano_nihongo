@@ -2,7 +2,7 @@
   <!-- ── Luyện nhớ âm ─────────────────────────────────────────────────── -->
   <!-- Đứng TRƯỚC thẻ chữ, như khung thiết lập đứng trước bảng từ ở tab Từ vựng: mở tab là
        luyện được ngay, không phải cuộn qua vài chục thẻ. -->
-  <app-practice-setup class="practice-card">
+  <app-practice-setup class="practice-card" [historyId]="target().id">
     <h2>{{ t('onkun.practice') }}</h2>
 
     <div class="field">

@@ -143,7 +143,7 @@
     </section>
 
     <!-- ── Luyện trên bộ: đọc âm Hán Việt, hoặc viết bộ ───────────────── -->
-    <app-practice-setup class="practice-card">
+    <app-practice-setup [historyId]="favoriteSessionId()" class="practice-card">
         <div class="stack stack-sm">
           <h2>{{ t(isDrawing() ? 'radical.practiceDraw' : 'radical.practiceHanViet') }}</h2>
           <p class="muted small"><app-t key="radical.practiceHanViet.hint" block /></p>

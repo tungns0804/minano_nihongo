@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 
+import { PracticeHistoryStore } from '../core/activity/practice-history-store';
 import { LanguageStore } from '../core/i18n/language-store';
 import { ReviewStore } from '../core/review/review-store';
 import { RecentStore } from '../core/services/recent-store';
@@ -13,17 +14,21 @@ import { RecentStore } from '../core/services/recent-store';
  *  - "Đang học": bài mở gần nhất (`RecentStore`), để quay lại đúng chỗ;
  *  - thanh + "Đã học x/y": số mục của bài đã vào lịch ôn (`ReviewStore.progressBySource`),
  *    chỉ khi đơn vị đếm khớp tổng của thẻ (`total`); không khớp thì ghi "Đã luyện x";
- *  - "z đến hạn": mục của bài này đang chờ ôn.
+ *  - "z đến hạn": mục của bài này đang chờ ôn;
+ *  - "n lượt luyện": số phiên đã làm xong của bài (`PracticeHistoryStore`).
  *
  * Bài chưa đụng tới thì không vẽ gì — lưới bài mới vẫn gọn như cũ.
  */
 @Component({
   selector: 'app-lesson-progress',
   template: `
-    @if (isCurrent() || stats()) {
+    @if (isCurrent() || stats() || sessions()) {
       <div class="lp">
         @if (isCurrent()) {
           <span class="lp-current">{{ t('progress.current') }}</span>
+        }
+        @if (sessions(); as count) {
+          <span class="lp-sessions">{{ t('progress.sessions', { count }) }}</span>
         }
         @if (stats(); as s) {
           @if (total(); as all) {
@@ -77,8 +82,14 @@ import { RecentStore } from '../core/services/recent-store';
       background: var(--accent);
     }
 
-    .lp-text {
+    .lp-text,
+    .lp-sessions {
       font-variant-numeric: tabular-nums;
+    }
+
+    .lp-sessions {
+      font-weight: 600;
+      color: var(--text);
     }
 
     .lp-due {
@@ -91,6 +102,7 @@ import { RecentStore } from '../core/services/recent-store';
 export class LessonProgress {
   private readonly reviews = inject(ReviewStore);
   private readonly recent = inject(RecentStore);
+  private readonly history = inject(PracticeHistoryStore);
   private readonly lang = inject(LanguageStore);
   protected readonly t = this.lang.t.bind(this.lang);
 
@@ -102,6 +114,8 @@ export class LessonProgress {
   readonly total = input<number | null>(null);
 
   protected readonly stats = computed(() => this.reviews.progressBySource().get(this.source()) ?? null);
+  /** Số lượt đã luyện xong bài này (`PracticeHistoryStore`); 0 thì không hiện. */
+  protected readonly sessions = computed(() => this.history.of(this.source())?.sessions ?? 0);
   protected readonly isCurrent = computed(() => this.recent.entries()[0]?.path === this.path());
   /** Không vượt tổng: một mục có thể vào lịch từ một bài khác cùng chứa nó. */
   protected readonly learned = computed(() => Math.min(this.stats()?.tracked ?? 0, this.total() ?? 0));

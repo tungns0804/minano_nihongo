@@ -300,7 +300,7 @@
       </section>
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
-      <app-practice-setup>
+      <app-practice-setup [historyId]="favoriteSessionId()">
           <h2>{{ t('kanji.practiceWords') }}</h2>
 
           <div class="field">

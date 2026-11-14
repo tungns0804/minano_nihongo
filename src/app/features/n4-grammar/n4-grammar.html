@@ -320,7 +320,7 @@
     </section>
 
     <!-- ── Thiết lập luyện tập ───────────────────────────────────────────── -->
-    <app-practice-setup class="practice-card">
+    <app-practice-setup [historyId]="favoriteSessionId()" class="practice-card">
         <h2>{{ t('lesson.setup') }}</h2>
 
         <div class="field">

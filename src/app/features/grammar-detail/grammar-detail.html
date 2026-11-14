@@ -193,7 +193,7 @@
       }
 
       <!-- ── Thiết lập luyện tập ─────────────────────────────────────────── -->
-      <app-practice-setup moreHintKey="lesson.setup.moreHintCount">
+      <app-practice-setup [historyId]="favoriteSessionId()" moreHintKey="lesson.setup.moreHintCount">
           <h2>{{ t('grammar.practice') }}</h2>
 
           <div class="field">

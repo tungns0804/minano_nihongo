@@ -174,7 +174,7 @@
       </section>
 
       <!-- ── Thiết lập luyện tập ────────────────────────────────────────── -->
-      <app-practice-setup>
+      <app-practice-setup [historyId]="favoriteSessionId()">
           <h2>{{ t('radical.practiceKanji') }}</h2>
 
           <div class="field">

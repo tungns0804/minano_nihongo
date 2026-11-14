@@ -16,7 +16,7 @@
     "generate:strokes": "node --experimental-strip-types --no-warnings scripts/generate-strokes.mjs",
     "generate:audio": "npm run generate && node --experimental-strip-types --no-warnings scripts/generate-audio.mjs",
     "verify": "npm run generate && npm run verify:ci",
-    "verify:ci": "npm run verify:parser && npm run verify:paths && npm run verify:answer && npm run verify:conjugation && npm run verify:i18n && npm run verify:kanji && npm run verify:radicals && npm run verify:strokes && npm run verify:drawing && npm run verify:topics && npm run verify:n3 && npm run verify:n4 && npm run verify:taisaku && npm run verify:kanji-quiz && npm run verify:kanji-readings && npm run verify:example-highlight && npm run verify:review && npm run verify:streak && npm run verify:audio && npm run verify:images",
+    "verify:ci": "npm run verify:parser && npm run verify:paths && npm run verify:answer && npm run verify:conjugation && npm run verify:i18n && npm run verify:kanji && npm run verify:radicals && npm run verify:strokes && npm run verify:drawing && npm run verify:topics && npm run verify:n3 && npm run verify:n4 && npm run verify:taisaku && npm run verify:kanji-quiz && npm run verify:kanji-readings && npm run verify:example-highlight && npm run verify:review && npm run verify:streak && npm run verify:history && npm run verify:audio && npm run verify:images",
     "generate:images": "node --experimental-strip-types --no-warnings scripts/generate-images.mjs",
     "verify:images": "node --experimental-strip-types --no-warnings scripts/generate-images.mjs --check",
     "verify:audio": "node --experimental-strip-types --no-warnings scripts/generate-audio.mjs --check",
@@ -35,6 +35,7 @@
     "verify:kanji-readings": "node --experimental-strip-types --no-warnings scripts/verify-kanji-readings.mjs",
     "verify:example-highlight": "node --experimental-strip-types --no-warnings scripts/verify-example-highlight.mjs",
     "verify:streak": "node --experimental-strip-types --no-warnings scripts/verify-streak.mjs",
+    "verify:history": "node --experimental-strip-types --no-warnings scripts/verify-practice-history.mjs",
     "verify:review": "node --experimental-strip-types --no-warnings scripts/verify-review.mjs",
     "verify:parser": "node --experimental-strip-types --no-warnings scripts/verify-parser-parity.mjs",
     "verify:conjugation": "node --experimental-strip-types --no-warnings scripts/verify-conjugation.mjs"

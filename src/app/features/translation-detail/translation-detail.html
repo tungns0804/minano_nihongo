@@ -144,7 +144,7 @@
       }
 
       <!-- ── Thiết lập luyện tập ─────────────────────────────────────────── -->
-      <app-practice-setup class="practice-card" moreHintKey="lesson.setup.moreHintCount">
+      <app-practice-setup [historyId]="favoriteSessionId()" class="practice-card" moreHintKey="lesson.setup.moreHintCount">
           <h2>{{ t('translate.practice') }}</h2>
 
           @if (sets().length > 1) {
