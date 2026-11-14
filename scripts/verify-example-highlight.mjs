@@ -5,8 +5,10 @@
  * Vì sao cần script riêng: hàm đó đoán gốc của từ rồi đi qua đuôi chia, và nó
  * hỏng LẶNG LẼ theo hai cách mà nhìn bảng không ai để ý — tô hụt (câu hiện trơn,
  * trông như chưa từng có tính năng này) hoặc tô tràn (渇いたので sáng cả ので).
- * Phần đầu chốt từng ca khó đã gặp; phần sau đòi mọi câu ví dụ của bài N3 đều
- * tô được, để bài N3 mới thêm vào mà có câu không tô được thì biết ngay.
+ * Phần đầu chốt từng ca khó đã gặp; phần sau đòi mọi câu ví dụ của bài N3 và của
+ * bảng từ 直前対策 N4 đều tô được, để dữ liệu mới thêm vào mà có câu không tô được
+ * thì biết ngay. Cùng một hàm tô ở bảng từ, ở phần ôn lại sau mỗi câu luyện từ vựng
+ * và ở trang nạp bài, nên soát hàm là soát cả ba chỗ.
  *
  * Chạy: npm run verify:example-highlight
  */
@@ -21,9 +23,10 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(HERE, '..');
 const DATA_DIR = join(ROOT, 'data-source');
 
-const { exampleParts } = await import(
-  toFileUrl(join(ROOT, 'src', 'app', 'core', 'japanese', 'example-highlight.ts'))
-);
+const CORE = join(ROOT, 'src', 'app', 'core');
+const { exampleParts } = await import(toFileUrl(join(CORE, 'japanese', 'example-highlight.ts')));
+const { plainText, kanaText } = await import(toFileUrl(join(CORE, 'translation', 'markup.ts')));
+const { FUROKU_TOPICS } = await import(toFileUrl(join(CORE, 'exercises', 'taisaku-n4.data.ts')));
 
 let failures = 0;
 const fail = (msg) => {
@@ -102,6 +105,21 @@ for (const dir of readdirSync(DATA_DIR).sort()) {
   }
 }
 log(`  N3: ${n3Total} câu ví dụ, đòi tô được hết`);
+
+// Bảng từ 付録 của 直前対策 N4: từ và câu viết theo cú pháp furigana ({首|くび}), câu có
+// khoảng trắng giữa các cụm như sách. app-ruby tìm trên chữ hiển thị — đúng như dưới đây.
+let taisakuTotal = 0;
+for (const topic of FUROKU_TOPICS) {
+  for (const [word, , example] of topic.words ?? []) {
+    if (!example) continue;
+    taisakuTotal++;
+    const sentence = plainText(example).replace(/[〈〉]/g, '');
+    if (!exampleParts(sentence, plainText(word), kanaText(word))) {
+      fail(`直前対策 付録 ${topic.no}: không tô được ${plainText(word)} trong「${sentence}」`);
+    }
+  }
+}
+log(`  直前対策 N4: ${taisakuTotal} câu ví dụ, đòi tô được hết`);
 log(`  ${c.dim}N4/N5: ${otherTotal - otherMissed}/${otherTotal} câu tô được (không bắt buộc)${c.reset}`);
 
 if (failures > 0) {

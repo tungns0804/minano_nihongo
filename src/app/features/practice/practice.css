@@ -595,6 +595,18 @@
   font-size: 1.12rem;
 }
 
+/* Câu ví dụ: trọn một hàng, chữ thường thay vì đậm vừa như các ô ngắn — cả câu mà đậm
+   thì từ được tô (.example-word, đậm hẳn) không còn nổi lên được nữa. */
+.recap-item.recap-sentence {
+  flex-basis: 100%;
+}
+
+.recap-item.recap-sentence dd {
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
 .feedback-actions {
   display: flex;
   align-items: center;

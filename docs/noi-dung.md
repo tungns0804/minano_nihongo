@@ -1072,14 +1072,23 @@ tra lại được.
 
 **Câu ví dụ tô sẵn từ đang học**
 
-Ở cột **Ví dụ** của bảng từ (mọi bài có câu ví dụ: N3 và 皆の日本語 26–50), từ đang học được tô
-màu nhấn ngay trong câu, **kể cả khi đã chia**: 渇く → 渇いた, 殴る → 殴られました, 得意な → 得意です,
-「（お）湯を沸かす」 → お湯を沸かして. Máy đoán gốc của từ rồi đi qua đuôi chia
+Ở mọi chỗ hiện câu ví dụ của một từ, từ đang học được tô màu nhấn ngay trong câu, **kể cả khi
+đã chia**: 渇く → 渇いた, 殴る → 殴られました, 得意な → 得意です, 「（お）湯を沸かす」 → お湯を沸かして.
+
+| Ở đâu | Câu nào |
+| --- | --- |
+| Cột **Ví dụ** của bảng từ | mọi bài có câu ví dụ: N3, 皆の日本語 26–50, chủ đề |
+| Phần ôn lại sau mỗi câu **luyện từ vựng** | dòng **Ví dụ** kèm bản dịch, trọn một hàng — luyện theo bài, theo chủ đề và phiên ôn tập (cùng dựng câu ở `vocabulary-questions.ts`) |
+| Bảng từ 付録 của **直前対策 N4** và phần ôn lại khi luyện bảng đó | câu có furigana: chữ Hán có furigana không cắt đôi được nên chạm vào là tô cả chữ (`highlight` của `app-ruby`) |
+| Bảng xem trước ở trang **Nạp bài** | để thấy trước câu nào máy không tìm ra từ |
+
+Máy đoán gốc của từ rồi đi qua đuôi chia
 ([`example-highlight.ts`](../src/app/core/japanese/example-highlight.ts)), và dừng trước phần không
 thuộc từ (渇いた|ので, 預かって|くれました) để chỉ sáng đúng từ đó. Không tìm ra thì hiện nguyên
-câu — tô nhầm chỗ còn tệ hơn không tô. `npm run verify:example-highlight` chốt 25 ca khó và đòi
-**mọi câu ví dụ của bài N3** đều tô được; N4/N5 tô được 804/805 câu (câu sót là kính ngữ
-お掛けください).
+câu — tô nhầm chỗ còn tệ hơn không tô. Kiểu tô `.example-word` nằm ở `styles/shared.css` để mọi
+màn hình dùng chung. `npm run verify:example-highlight` chốt 25 ca khó và đòi **mọi câu ví dụ của
+bài N3** (1.095 câu) và **của bảng từ 直前対策 N4** (61 câu) đều tô được; 皆の日本語 tô được 804/805
+câu (câu sót là kính ngữ お掛けください).
 
 **Bốn chiều luyện tập (bài từ vựng)**
 

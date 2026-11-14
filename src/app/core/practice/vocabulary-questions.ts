@@ -9,6 +9,7 @@ import {
   directionForWord,
   makeQuestion,
   recap,
+  recapExample,
   recapJp,
 } from './practice.model';
 import { VocabularyWord, WordField, fieldIsJapanese, fieldValue } from '../lessons/vocabulary.model';
@@ -36,6 +37,11 @@ function subjectOf(word: VocabularyWord): QuestionSubject {
       ...(word.hanViet ? [recap('lesson.col.hanViet', word.hanViet)] : []),
       recapJp('lesson.col.japanese', word.japanese),
       recap('lesson.col.meaningShort', word.vietnamese),
+      // Câu ví dụ có tô từ, như cột Ví dụ của bảng từ. Mọi phiên luyện từ vựng (theo
+      // bài, theo chủ đề, ôn tập) đều dựng câu hỏi ở đây nên đều có dòng này.
+      ...(word.example
+        ? [recapExample('lesson.col.example', word.example, word.japanese, word.reading, word.exampleVietnamese)]
+        : []),
     ],
   };
 }

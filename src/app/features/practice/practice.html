@@ -327,13 +327,20 @@
           @if (q.subject.recap.length > 0) {
             <dl class="word-recap">
               @for (item of q.subject.recap; track item.labelKey) {
-                <div class="recap-item">
+                <!-- Câu ví dụ (có `note` — bản dịch, dù rỗng) chiếm trọn một hàng: xếp cạnh
+                     các ô ngắn như nghĩa, âm Hán Việt thì câu bị bẻ thành cột hẹp. -->
+                <div class="recap-item" [class.recap-sentence]="item.note !== undefined">
                   <dt><app-t [key]="item.labelKey" /></dt>
                   <dd [class.jp]="item.japanese">
                     @if (item.valueKey; as valueKey) {
                       <app-t [key]="valueKey" />
+                    } @else if (item.highlight; as parts) {
+                      {{ parts[0] }}<mark class="example-word">{{ parts[1] }}</mark>{{ parts[2] }}
                     } @else {
                       {{ item.value }}
+                    }
+                    @if (item.note) {
+                      <span class="example-vi">{{ item.note }}</span>
                     }
                   </dd>
                 </div>

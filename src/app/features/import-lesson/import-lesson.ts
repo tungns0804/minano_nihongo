@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@a
 import { Router, RouterLink } from '@angular/router';
 
 import { VERB_GROUP_LABEL_KEY, conjugate } from '../../core/japanese/conjugation';
+import { type ExampleParts, exampleParts } from '../../core/japanese/example-highlight';
 import { LanguageStore } from '../../core/i18n/language-store';
 import { PATH, lessonPath } from '../../core/paths';
 import { T } from '../../core/i18n/t';
@@ -62,6 +63,8 @@ interface PreviewRow {
   example: string;
   /** Bản dịch câu ví dụ, chỉ có ở bài từ vựng. */
   exampleVietnamese: string;
+  /** Câu ví dụ cắt quanh từ — xem trước được từ có được tô đúng như trên trang bài không. */
+  highlight: ExampleParts | null;
   error: string | null;
 }
 
@@ -119,7 +122,12 @@ export class ImportLesson {
 
   readonly rows = computed<PreviewRow[]>(() => {
     if (!this.isVerb()) {
-      return this.words().map((word) => ({ ...word, extra: '', error: null }));
+      return this.words().map((word) => ({
+        ...word,
+        extra: '',
+        highlight: exampleParts(word.example, word.japanese, word.reading),
+        error: null,
+      }));
     }
 
     return this.verbs().map((entry) => {
@@ -132,6 +140,7 @@ export class ImportLesson {
         vietnamese: entry.vietnamese,
         example: '',
         exampleVietnamese: '',
+        highlight: null,
         extra: result.ok
           ? `${this.lang.t(VERB_GROUP_LABEL_KEY[entry.group])} · ${result.forms.dictionary} · ` +
             `${result.forms.te} · ${result.forms.ta} · ${result.forms.nai}`

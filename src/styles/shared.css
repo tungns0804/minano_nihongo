@@ -498,6 +498,20 @@ html:has(dialog.viewer[open]) {
   color: var(--text-faint);
 }
 
+/* --- Từ đang học trong câu ví dụ -------------------------------------------
+   Bảng từ (trang bài học, trang nạp bài, 直前対策 N4) và phần ôn lại sau mỗi câu
+   luyện từ vựng — vị trí do core/japanese/example-highlight.ts tìm ra. Cùng màu nhấn
+   với chữ Hán được tô ở thẻ âm On/Kun (.word-char ở shared/kanji-study.css), thêm
+   nền nhạt để giữa câu chữ xám vẫn bắt mắt ngay. Đặt lại nền vì <mark> mặc định là
+   vàng chói. Global vì app-ruby (thành phần có phạm vi riêng) cũng vẽ thẻ này. */
+.example-word {
+  padding: 0 2px;
+  border-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* --- "Xem đề": đề trắc nghiệm in như trên giấy ---------------------------
    Câu đánh số, đề có furigana và gạch chân, bốn lựa chọn đánh số, đáp án tô xanh khi
    bật "Hiện đáp án". Dùng chung cho đề luyện N4 (Luyện tập › Đề N4) và trắc nghiệm

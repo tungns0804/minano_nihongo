@@ -13,7 +13,7 @@ import {
   taisakuTopic,
   taisakuUnitById,
 } from '../exercises/taisaku-n4';
-import { plainText } from '../translation/markup';
+import { kanaText, plainText } from '../translation/markup';
 import { shuffle } from '../utils/random';
 import {
   CHOICE_COUNT,
@@ -23,6 +23,7 @@ import {
   examText,
   makeQuestion,
   recap,
+  recapExample,
   recapJp,
 } from './practice.model';
 import { limitAttempts } from './vocabulary-questions';
@@ -137,7 +138,9 @@ function wordQuestion(word: TaisakuWord, config: PracticeConfig): PracticeQuesti
     recap: [
       recapJp('taisaku.col.word', plainText(word.word)),
       recap('lesson.col.meaningShort', word.meaning),
-      ...(word.example ? [recapJp('taisaku.col.example', examText(word.example))] : []),
+      ...(word.example
+        ? [recapExample('taisaku.col.example', examText(word.example), plainText(word.word), kanaText(word.word))]
+        : []),
     ],
   };
 

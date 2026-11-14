@@ -242,7 +242,7 @@
                         <td class="muted" [attr.data-label]="t('lesson.col.meaningShort')">{{ word.meaning }}</td>
                         @if (hasExamples(topic)) {
                           <td class="jp col-example" [attr.data-label]="t('taisaku.col.example')">
-                            <app-ruby [text]="word.example" />
+                            <app-ruby [text]="word.example" [highlight]="word.word" />
                           </td>
                         }
                       </tr>

@@ -18,6 +18,7 @@ import {
 } from '../lessons/vocabulary.model';
 import { plainText } from '../translation/markup';
 import type { VocabImage } from '../images/vocab-images';
+import { exampleParts, type ExampleParts } from '../japanese/example-highlight';
 
 /**
  * Các chiều luyện tập của bài TỪ VỰNG.
@@ -389,6 +390,13 @@ export interface RecapItem {
   /** Khi có, giá trị lấy từ khoá này — dùng cho giá trị cần dịch như tên nhóm động từ. */
   valueKey: MessageKey | null;
   japanese: boolean;
+  /**
+   * Câu ví dụ cắt sẵn quanh từ đang học — có thì từ đó được tô trong câu, như ở bảng
+   * từ. Tuỳ chọn (không bắt `recap()` khai thêm) và phiên lưu từ bản cũ không có.
+   */
+  highlight?: ExampleParts | null;
+  /** Dòng phụ dưới giá trị, nhạt hơn: bản dịch của câu ví dụ. */
+  note?: string;
 }
 
 /**
@@ -411,6 +419,25 @@ export function recapJp(labelKey: MessageKey, value: string): RecapItem {
 /** Dòng phản hồi mà giá trị phải dịch, ví dụ tên nhóm động từ. */
 export function recapKey(labelKey: MessageKey, valueKey: MessageKey): RecapItem {
   return { labelKey, value: '', valueKey, japanese: false };
+}
+
+/**
+ * Câu ví dụ của một từ, tô sẵn chính từ đó (kể cả dạng đã chia) và kèm bản dịch nếu
+ * có. Vừa trả lời xong mà thấy từ nằm trong câu thì nhớ được cả cách dùng, không chỉ
+ * nghĩa — đúng như ở bảng từ của bài.
+ */
+export function recapExample(
+  labelKey: MessageKey,
+  sentence: string,
+  word: string,
+  reading: string,
+  translation = '',
+): RecapItem {
+  return {
+    ...recapJp(labelKey, sentence),
+    highlight: exampleParts(sentence, word, reading),
+    note: translation,
+  };
 }
 
 /** Một mẫu ngữ pháp có mặt trong câu luyện dịch, kèm lời giải thích cho riêng câu đó. */

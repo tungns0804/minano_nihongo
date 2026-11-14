@@ -214,7 +214,11 @@
                           </td>
                         } @else if (hasExamples()) {
                           <td class="jp col-example">
-                            {{ row.example }}
+                            @if (row.highlight; as parts) {
+                              {{ parts[0] }}<mark class="example-word">{{ parts[1] }}</mark>{{ parts[2] }}
+                            } @else {
+                              {{ row.example }}
+                            }
                             @if (row.exampleVietnamese) {
                               <span class="example-vi">{{ row.exampleVietnamese }}</span>
                             }
