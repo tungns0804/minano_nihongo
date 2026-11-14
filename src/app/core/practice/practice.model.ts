@@ -9,7 +9,13 @@ import { radicalModeInfo } from '../radical/radical.model';
 import type { ReviewRef } from '../review/review.model';
 import { VERB_FORM_LABEL_KEY, VerbForm } from '../japanese/conjugation';
 import type { MessageKey } from '../i18n/messages';
-import { LessonKind, OPTIONAL_WORD_FIELDS, WordField } from '../lessons/vocabulary.model';
+import {
+  LessonKind,
+  OPTIONAL_WORD_FIELDS,
+  VocabularyWord,
+  WordField,
+  fieldValue,
+} from '../lessons/vocabulary.model';
 import { plainText } from '../translation/markup';
 import type { VocabImage } from '../images/vocab-images';
 
@@ -141,6 +147,35 @@ export function directionInfo(id: PracticeDirection): DirectionInfo {
 export function directionUsesField(id: PracticeDirection, field: WordField): boolean {
   const info = directionInfo(id);
   return info.prompt === field || info.answer === field;
+}
+
+/**
+ * Chiều hỏi thật sự của MỘT từ khi phiên đang luyện chiều `id`.
+ *
+ * Từ viết toàn kana (うっかり, アイデア…) không có cách đọc riêng — chữ đã là cách đọc.
+ * Ở hai chiều cách đọc (`jp-kana`, `kana-jp`) mà loại những từ đó ra thì người học
+ * chọn chiều này sẽ không bao giờ gặp chúng; hỏi "うっかり đọc là gì" thì lại vô nghĩa.
+ * Nên chúng được hỏi NGHĨA (Nhật → Việt) ngay trong phiên đó. Nhãn câu hỏi đi theo
+ * chiều trả về, nên người học thấy câu này đổi sang hỏi nghĩa.
+ *
+ * Chỉ áp cho cách đọc: chiều Hán Việt vẫn bỏ từ không có âm Hán Việt như cũ.
+ */
+export function directionForWord(id: PracticeDirection, word: VocabularyWord): DirectionInfo {
+  return directionUsesField(id, 'reading') && !word.reading
+    ? directionInfo('jp-vi')
+    : directionInfo(id);
+}
+
+/**
+ * Từ này có đem ra hỏi được ở chiều `id` không — xét theo chiều thật của nó
+ * (`directionForWord`). Thiếu một trường mà chiều đó cần thì câu hỏi hoặc đáp án sẽ
+ * là chuỗi rỗng: gõ gì cũng sai, mà chẳng có lỗi nào được báo.
+ */
+export function wordFitsDirection(id: PracticeDirection, word: VocabularyWord): boolean {
+  const info = directionForWord(id, word);
+  return OPTIONAL_WORD_FIELDS.every(
+    (field) => (info.prompt !== field && info.answer !== field) || fieldValue(word, field).length > 0,
+  );
 }
 
 /**

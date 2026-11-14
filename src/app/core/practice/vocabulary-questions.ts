@@ -6,7 +6,7 @@ import {
   PracticeQuestion,
   QuestionImage,
   QuestionSubject,
-  directionInfo,
+  directionForWord,
   makeQuestion,
   recap,
   recapJp,
@@ -52,9 +52,10 @@ export function buildVocabularyQuestions(
   allWords: readonly VocabularyWord[],
   config: PracticeConfig,
 ): PracticeQuestion[] {
-  const info = directionInfo(config.direction);
-
   return pool.map((word) => {
+    // Theo TỪNG từ chứ không theo cả phiên: từ toàn kana ở chiều cách đọc được hỏi
+    // nghĩa thay vào, xem `directionForWord`.
+    const info = directionForWord(config.direction, word);
     const correctAnswer = fieldValue(word, info.answer);
     const choices =
       config.answerMode === 'choice'

@@ -4,7 +4,7 @@
 ĐIỆN XA THỪA,電車に乗ります (でんしゃにのります),Đi, lên tàu
 ĐIỆN XA GIÁNG/HÀNG,電車を降ります (でんしゃをおります),Xuống tàu
 THỪA HOÁN,乗り換えます (のりかえます),Chuyển, đổi (tàu)
-DỤC,浴びます,Tắm vòi hoa sen
+DỤC,浴びます (あびます),Tắm vòi hoa sen
 NHẬP,入れます (いれます),Cho vào, bỏ vào
 XUẤT,出します (だします),Lấy ra, rút (tiền)
 ĐẠI HỌC NHẬP,大学に入ります (だいがくにはいります),Vào, nhập học đại học

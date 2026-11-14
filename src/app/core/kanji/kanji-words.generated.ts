@@ -1971,7 +1971,7 @@ export const KANJI_SEEDS: readonly KanjiSeed[] = [
     ['食欲', 'しょくよく', 'THỰC DỤC', 'sự thèm ăn/ cảm giác muốn ăn', 'N4'],
   ]],
   ['浴', 'DỤC', '', 'N3', [
-    ['浴びます', 'あびます', '', 'tắm (vòi sen)', 'N5'],
+    ['浴びます', 'あびます', 'DỤC', 'Tắm vòi hoa sen', 'N5'],
   ]],
   ['容', 'DUNG', '', 'N3', [
   ]],

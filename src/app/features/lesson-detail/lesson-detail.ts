@@ -16,7 +16,6 @@ import {
   directionInfo,
   directionIsUsable,
   DIRECTIONS,
-  directionUsesField,
   LIMIT_CHOICES,
   practiceConfig,
   PracticeConfig,
@@ -24,6 +23,7 @@ import {
   VERB_MODES,
   verbModeInfo,
   VerbPracticeMode,
+  wordFitsDirection,
 } from '../../core/practice/practice.model';
 import {
   ConversationLine,
@@ -32,11 +32,9 @@ import {
   LESSON_KIND_UNIT_KEY,
   LESSON_KIND_LABEL_KEY,
   Lesson,
-  OPTIONAL_WORD_FIELDS,
   VerbEntry,
   VocabularyWord,
   WordField,
-  fieldValue,
   hasWordField,
   shortLessonName,
   showsLessonKanji,
@@ -563,7 +561,7 @@ export class LessonDetail extends PracticeScreen {
   /**
    * Đặt `VOCABULARY_DEFAULTS` cho bài vừa nạp. Phải chạy SAU khi `lesson` đã có: chiều
    * luyện dùng được hay không tuỳ bài có cách đọc không, và số câu của bài lại tuỳ
-   * chiều luyện (chiều cách đọc bỏ qua từ katakana không có cách đọc riêng).
+   * chiều luyện (chiều Hán Việt bỏ qua từ không có âm Hán Việt).
    */
   private applyVocabularyDefaults(): void {
     const defaults = VOCABULARY_DEFAULTS;
@@ -606,10 +604,11 @@ export class LessonDetail extends PracticeScreen {
     //
     // Lọc ở đây chứ không ở nơi dựng câu hỏi, để số câu hiện trên màn hình thiết
     // lập khớp với số câu thật sự luyện.
-    const info = this.currentDirection();
-    const needed = OPTIONAL_WORD_FIELDS.filter((field) => directionUsesField(info.id, field));
-    if (needed.length === 0) return scoped;
-    return scoped.filter((word) => needed.every((field) => fieldValue(word, field).length > 0));
+    //
+    // Riêng cách đọc thì từ thiếu không bị bỏ: từ toàn kana được hỏi nghĩa thay vào
+    // (xem `directionForWord`), để chọn chiều cách đọc vẫn học đủ cả bài.
+    const direction = this.direction();
+    return scoped.filter((word) => wordFitsDirection(direction, word));
   }
 
   private filterVerbs(): VerbEntry[] {
