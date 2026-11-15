@@ -59,8 +59,8 @@ export function buildVocabularyQuestions(
   config: PracticeConfig,
 ): PracticeQuestion[] {
   return pool.map((word) => {
-    // Theo TỪNG từ chứ không theo cả phiên: từ toàn kana ở chiều cách đọc được hỏi
-    // nghĩa thay vào, xem `directionForWord`.
+    // Theo TỪNG từ chứ không theo cả phiên: từ toàn kana ở chiều cách đọc / Hán Việt
+    // được hỏi nghĩa thay vào, xem `directionForWord`.
     const info = directionForWord(config.direction, word);
     const correctAnswer = fieldValue(word, info.answer);
     const choices =

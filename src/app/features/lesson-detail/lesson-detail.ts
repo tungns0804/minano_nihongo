@@ -23,7 +23,6 @@ import {
   VERB_MODES,
   verbModeInfo,
   VerbPracticeMode,
-  wordFitsDirection,
 } from '../../core/practice/practice.model';
 import {
   ConversationLine,
@@ -381,7 +380,7 @@ export class LessonDetail extends PracticeScreen {
   /**
    * Cụm đang chọn, đã kiểm tra còn tồn tại.
    *
-   * Đổi phạm vi hay đổi chiều luyện làm số câu co lại, nên cụm 5 chọn lúc trước
+   * Đổi phạm vi (hay dạng luyện / thể của bài động từ) làm số câu co lại, nên cụm 5 chọn lúc trước
    * có thể không còn. Lọc ở đây thay vì rải lệnh reset khắp các hàm `set*`: quên
    * một chỗ là người dùng bấm "Bắt đầu" và nhận về một phiên rỗng.
    */
@@ -560,8 +559,7 @@ export class LessonDetail extends PracticeScreen {
 
   /**
    * Đặt `VOCABULARY_DEFAULTS` cho bài vừa nạp. Phải chạy SAU khi `lesson` đã có: chiều
-   * luyện dùng được hay không tuỳ bài có cách đọc không, và số câu của bài lại tuỳ
-   * chiều luyện (chiều Hán Việt bỏ qua từ không có âm Hán Việt).
+   * luyện dùng được hay không tuỳ bài có cách đọc không, và mốc "10 câu" tuỳ số từ.
    */
   private applyVocabularyDefaults(): void {
     const defaults = VOCABULARY_DEFAULTS;
@@ -586,29 +584,15 @@ export class LessonDetail extends PracticeScreen {
       : this.lines();
   }
 
+  /**
+   * Không lọc theo chiều luyện: từ thiếu một trường tuỳ chọn (từ katakana không có
+   * cách đọc riêng lẫn âm Hán Việt) được hỏi nghĩa thay vào (xem `directionForWord`),
+   * nên chiều nào cũng học đủ cả bài và số câu không đổi theo chiều.
+   */
   private filterWords(): VocabularyWord[] {
-    const scoped =
-      this.scope() === 'favorite'
-        ? this.favoritesOf(this.words())
-        : this.words();
-
-    // Bài điền dở dang một trường TUỲ CHỌN (một số từ có cách đọc, một số không;
-    // một số có âm Hán Việt, một số không) thì ở chiều luyện đụng tới trường đó
-    // phải bỏ hẳn những từ thiếu — nếu không, câu hỏi hoặc đáp án sẽ là chuỗi
-    // rỗng: gõ gì cũng sai, mà chẳng có lỗi nào được báo.
-    //
-    // Duyệt CẢ `OPTIONAL_WORD_FIELDS` chứ không chỉ `reading` như trước. Trước
-    // đây chưa lộ ra vì không bài nào trộn từ có và không có âm Hán Việt trong
-    // cùng một bài — nhưng bài CHỦ ĐỀ thì trộn: nó gom từ 皆の日本語 (luôn có âm
-    // Hán Việt) với từ 総まとめ N3 (nhiều từ katakana thì không).
-    //
-    // Lọc ở đây chứ không ở nơi dựng câu hỏi, để số câu hiện trên màn hình thiết
-    // lập khớp với số câu thật sự luyện.
-    //
-    // Riêng cách đọc thì từ thiếu không bị bỏ: từ toàn kana được hỏi nghĩa thay vào
-    // (xem `directionForWord`), để chọn chiều cách đọc vẫn học đủ cả bài.
-    const direction = this.direction();
-    return scoped.filter((word) => wordFitsDirection(direction, word));
+    return this.scope() === 'favorite'
+      ? this.favoritesOf(this.words())
+      : this.words();
   }
 
   private filterVerbs(): VerbEntry[] {

@@ -153,30 +153,23 @@ export function directionUsesField(id: PracticeDirection, field: WordField): boo
 /**
  * Chiều hỏi thật sự của MỘT từ khi phiên đang luyện chiều `id`.
  *
- * Từ viết toàn kana (うっかり, アイデア…) không có cách đọc riêng — chữ đã là cách đọc.
- * Ở hai chiều cách đọc (`jp-kana`, `kana-jp`) mà loại những từ đó ra thì người học
- * chọn chiều này sẽ không bao giờ gặp chúng; hỏi "うっかり đọc là gì" thì lại vô nghĩa.
- * Nên chúng được hỏi NGHĨA (Nhật → Việt) ngay trong phiên đó. Nhãn câu hỏi đi theo
- * chiều trả về, nên người học thấy câu này đổi sang hỏi nghĩa.
+ * Từ viết toàn kana (うっかり, アイデア…) không có cách đọc riêng — chữ đã là cách đọc —
+ * và cũng không có âm Hán Việt. Ở các chiều cách đọc (`jp-kana`, `kana-jp`) và Hán Việt
+ * (`jp-han`, `han-jp`) mà loại những từ đó ra thì người học chọn các chiều này sẽ không
+ * bao giờ gặp chúng; còn hỏi "うっかり đọc là gì" thì vô nghĩa. Nên chúng được hỏi NGHĨA
+ * (Nhật → Việt) ngay trong phiên đó. Nhãn câu hỏi đi theo chiều trả về, nên người học
+ * thấy câu này đổi sang hỏi nghĩa.
  *
- * Chỉ áp cho cách đọc: chiều Hán Việt vẫn bỏ từ không có âm Hán Việt như cũ.
+ * Xét mọi `OPTIONAL_WORD_FIELDS` chứ không chỉ hai trường kể trên: thiếu một trường
+ * mà chiều cần thì câu hỏi hoặc đáp án là chuỗi rỗng — gõ gì cũng sai, mà chẳng có lỗi
+ * nào được báo. Chiều Nhật → Việt chỉ cần hai trường bắt buộc, nên mọi từ đều hỏi được
+ * và không từ nào phải bị loại khỏi phiên.
  */
 export function directionForWord(id: PracticeDirection, word: VocabularyWord): DirectionInfo {
-  return directionUsesField(id, 'reading') && !word.reading
-    ? directionInfo('jp-vi')
-    : directionInfo(id);
-}
-
-/**
- * Từ này có đem ra hỏi được ở chiều `id` không — xét theo chiều thật của nó
- * (`directionForWord`). Thiếu một trường mà chiều đó cần thì câu hỏi hoặc đáp án sẽ
- * là chuỗi rỗng: gõ gì cũng sai, mà chẳng có lỗi nào được báo.
- */
-export function wordFitsDirection(id: PracticeDirection, word: VocabularyWord): boolean {
-  const info = directionForWord(id, word);
-  return OPTIONAL_WORD_FIELDS.every(
-    (field) => (info.prompt !== field && info.answer !== field) || fieldValue(word, field).length > 0,
+  const lacksField = OPTIONAL_WORD_FIELDS.some(
+    (field) => directionUsesField(id, field) && fieldValue(word, field).length === 0,
   );
+  return lacksField ? directionInfo('jp-vi') : directionInfo(id);
 }
 
 /**
