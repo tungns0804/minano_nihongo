@@ -11,7 +11,7 @@
  *    của mục "Ý nghĩa" trong tài liệu chuyển xuống `explanation`. Vài ý nghĩa thêm chữ
  *    trong ngoặc để hai mẫu gần nghĩa không trùng nhau (xem `N3_SYNONYMS`).
  *  - Câu ví dụ thêm furigana {漢字|かな} (tài liệu không ghi cách đọc) và dấu 《chỗ trống》.
- *  - Phần "Bài luyện tập" của mục 13 do ỨNG DỤNG SOẠN THÊM theo đúng các quy tắc phân
+ *  - Phần "Bài luyện tập" của mục 1–12 (`n3-grammar-practice.ts`) và mục 13 do ỨNG DỤNG SOẠN THÊM theo đúng các quy tắc phân
  *    biệt của tài liệu — tài liệu ghi rõ đã bỏ bài luyện tập và đề thực chiến (Ngày 7).
  *    Mỗi câu kèm lời giải thích, chỉ hiện sau khi trả lời.
  *
@@ -24,6 +24,7 @@
 
 import { buildSections, table, type RawSection } from './grammar-book.build';
 import type { N4Section } from './n4-grammar.model';
+import { N3_PRACTICE } from './n3-grammar-practice';
 
 /** Vị trí của mẫu trong quyển gốc, như tài liệu ghi ("T4-N2" = Tuần 4, Ngày 2). */
 function goc(week: number, day: number): string {
@@ -2149,4 +2150,7 @@ export const N3_SAME_FORM: readonly (readonly string[])[] = [
   ['n3-ru-made', 'n3-n-made'],
 ];
 
-export const N3_SECTIONS: readonly N4Section[] = buildSections(RAW_SECTIONS);
+/** Gắn bài luyện tập soạn thêm (`n3-grammar-practice.ts`) vào nhóm 1–12; mục 13 đã có sẵn. */
+export const N3_SECTIONS: readonly N4Section[] = buildSections(
+  RAW_SECTIONS.map((section) => (section.quiz ? section : { ...section, quiz: N3_PRACTICE[section.id] })),
+);
