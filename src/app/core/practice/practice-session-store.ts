@@ -151,6 +151,8 @@ export class PracticeSessionStore {
       // Tiếng Nhật không có dấu cách giữa các từ nên bỏ hết khoảng trắng khi so khớp.
       ignoreAllWhitespace: question.answerIsJapanese,
       ignorePunctuation: question.ignorePunctuation,
+      // `=== true`: câu hỏi của phiên lưu từ bản cũ chưa có trường này.
+      looseMeaning: question.looseMeaning === true,
     };
     const correct =
       question.choices.length > 0

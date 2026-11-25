@@ -6,7 +6,7 @@ NGÔN,言います (いいます),Nói
 TÚC,足ります (たります),Đủ
 THẮNG,勝ちます (かちます),Thắng
 PHỤ,負けます (まけます),Thua
-TẾ,お祭りがあります (おまつりがあります),Được tổ chức, diễn ra, có lễ hội
+TẾ,お祭りがあります (おまつりがあります),Có lễ hội/ lễ hội được tổ chức/ lễ hội diễn ra
 DỊCH LẬP,役に立ちます (やくにたちます),Giúp ích
 BẤT TIỆN,不便 (ふべん),Bất tiện
 THỦ TƯỚNG,首相 (しゅしょう),Thủ tướng

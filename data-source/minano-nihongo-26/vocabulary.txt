@@ -27,7 +27,7 @@ HÀ,何でも (なんでも),cái gì cũng/ bất cứ thứ gì|何でも食�
 HÀ VẬT PHIẾN PHÓ,荷物が片付きます (にもつがかたづきます),đồ đạc được dọn gọn/ đồ đạc được sắp xếp ngăn nắp|荷物が片付きました。
 XUẤT,出します (だします),đổ rác/ vứt rác/ mang rác đi đổ|毎朝ごみを出します。
 NHIÊN,燃えます (もえます),cháy/ rác cháy được|ごみが燃えます。
-NGUYỆT THỦY KIM,月・水・金 (げつ・すい・きん),thứ hai, thứ tư, thứ sáu|ごみは月・水・金に出します。
+NGUYỆT THỦY KIM,月・水・金 (げつ・すい・きん),thứ hai - thứ tư - thứ sáu|ごみは月・水・金に出します。
 TRÍ TRƯỜNG,置き場 (おきば),nơi để/ chỗ để/ bãi để|自転車の置き場はここです。
 HOÀNH,横 (よこ),bên cạnh/ cạnh|駅の横にスーパーがあります。
 BÌNH,瓶 (びん),chai/ cái chai/ lọ|空の瓶を捨てます。

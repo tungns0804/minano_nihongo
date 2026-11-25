@@ -8,7 +8,7 @@ import {
   recap,
   recapJp,
 } from './practice.model';
-import { acceptedAnswersOf } from './answer-check';
+import { acceptedAnswersOf, acceptedMeaningsOf } from './answer-check';
 import { limitAttempts } from './vocabulary-questions';
 
 /**
@@ -118,7 +118,8 @@ function wordQuestion(
     // án, và ở chiều hỏi hiragana thì càng không lộ gì.
     hint: config.showHanViet && word.hanViet ? word.hanViet : null,
     correctAnswer: answer,
-    acceptedAnswers: acceptedAnswersOf(answer),
+    acceptedAnswers: askingMeaning ? acceptedMeaningsOf(answer) : acceptedAnswersOf(answer),
+    looseMeaning: askingMeaning,
     // Cách đọc là kana nên dùng font tiếng Nhật và bỏ hết khoảng trắng khi so khớp;
     // nghĩa là tiếng Việt nên không.
     answerIsJapanese: !askingMeaning,

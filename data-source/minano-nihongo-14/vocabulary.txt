@@ -7,16 +7,16 @@ BẾ,閉めます (しめます),Đóng
 CẤP,急ぎます (いそぎます),Vội, gấp
 ĐÃI,待ちます (まちます),Đợi, chờ
 CHỈ,止めます (とめます),Dừng, đỗ
-HỮU KHÚC,右へ曲がります (みぎへまがります),Rẽ, quẹo phải
+HỮU KHÚC,右へ曲がります (みぎへまがります),Rẽ phải/ quẹo phải
 TRÌ,持ちます (もちます),Mang, cầm
 THỦ,取ります (とります),Lấy
 THỦ TRUYỀN,手伝います (てつだいます),Giúp
 HÔ,呼びます (よびます),Gọi
 THOẠI,話します (はなします),Nói, nói chuyện
 KIẾN,見せます (みせます),Cho xem, trình
-TRÚ SỞ GIÁO,住所を教えます (じゅうしょをおしえます),Nói, cho biết địa chỉ
+TRÚ SỞ GIÁO,住所を教えます (じゅうしょをおしえます),Cho biết địa chỉ/ nói địa chỉ
 THỦY,始めます (はじめます),Bắt đầu
-VŨ GIÁNG/HÀNG,雨が降ります (あめがふります),Rơi mưa, tuyết
+VŨ GIÁNG/HÀNG,雨が降ります (あめがふります),(Trời) mưa/ mưa rơi
 DANH TIỀN,名前 (なまえ),Tên
 TRÚ SỞ,住所 (じゅうしょ),Địa chỉ
 ĐỊA ĐỒ,地図 (ちず),Bản đồ

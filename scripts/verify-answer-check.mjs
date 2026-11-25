@@ -25,7 +25,7 @@ const ROOT = join(HERE, '..');
 // answer-check.ts import "../lessons/vocabulary-parser" không kèm đuôi file — xem `resolveTsImports`.
 resolveTsImports();
 
-const { isAnswerCorrect, isPatternCorrect } = await import(
+const { isAnswerCorrect, isPatternCorrect, acceptedMeaningsOf } = await import(
   pathToFileURL(join(ROOT, 'src', 'app', 'core', 'practice', 'answer-check.ts'))
 );
 const { parseMarkup, plainText, kanaText } = await import(
@@ -240,6 +240,78 @@ for (const { example } of GRAMMAR_BOOKS.flatMap((book) => flattenN4Examples(book
   }
 }
 
+// ── Nghĩa của một từ (cột nghĩa bài từ vựng, nghĩa từ trong khu Kanji) ──────
+// Chấm bằng `acceptedMeaningsOf` + `looseMeaning`, y như vocabulary-questions.ts.
+const MEANING = { ignoreDiacritics: false, ignoreAllWhitespace: false, looseMeaning: true };
+const MEANING_NO_MARKS = { ...MEANING, ignoreDiacritics: true };
+
+function meaningAccepts(meaning, typed, why, options = MEANING) {
+  checks++;
+  if (!isAnswerCorrect(typed, acceptedMeaningsOf(meaning), options)) {
+    problems.push(`[nghĩa từ] ${why}\n     nghĩa: ${JSON.stringify(meaning)}\n     người học gõ: ${JSON.stringify(typed)}`);
+  }
+}
+
+function meaningRejects(meaning, typed, why) {
+  checks++;
+  if (isAnswerCorrect(typed, acceptedMeaningsOf(meaning), MEANING)) {
+    problems.push(`[nghĩa từ] ${why} — lẽ ra phải chấm SAI\n     nghĩa: ${JSON.stringify(meaning)}\n     người học gõ: ${JSON.stringify(typed)}`);
+  }
+}
+
+// Phần trong ngoặc: gõ kèm (không cần dấu ngoặc), bỏ đi, hay gõ cả ngoặc đều đúng.
+meaningAccepts('Hoàn toàn (không)', 'hoàn toàn không', 'Gõ cả phần trong ngoặc, không gõ dấu ngoặc');
+meaningAccepts('Hoàn toàn (không)', 'Hoàn toàn', 'Bỏ phần trong ngoặc');
+meaningAccepts('Hoàn toàn (không)', 'Hoàn toàn (không)', 'Gõ y nguyên');
+meaningAccepts('(Không) bao giờ/ tuyệt đối không', 'không bao giờ', 'Ngoặc ở đầu một nghĩa');
+meaningAccepts('(Không) bao giờ/ tuyệt đối không', 'tuyệt đối không', 'Nghĩa sau dấu /');
+meaningAccepts('Rất/ (không) thể nào', 'không thể nào', 'Ngoặc trong nghĩa thứ hai');
+meaningAccepts('(Trời) sáng/ (năm) mới bắt đầu', 'năm mới bắt đầu', 'Hai nghĩa đều có ngoặc');
+meaningAccepts('Gấp (bao nhiêu) lần', 'gấp bao nhiêu lần', 'Ngoặc ở giữa');
+meaningAccepts('Số (số điện thoại, số phòng)', 'số', 'Dấu phẩy TRONG ngoặc không tách nghĩa');
+meaningAccepts('Hoàn toàn (không)', 'hoan toan khong', 'Bỏ dấu tiếng Việt khi bật tuỳ chọn', MEANING_NO_MARKS);
+meaningRejects('Hoàn toàn (không)', 'không', 'Chỉ gõ phần chú thích trong ngoặc');
+meaningRejects('xem/ nhìn (kính ngữ)', 'kính ngữ', 'Chỉ gõ phần chú thích trong ngoặc');
+meaningRejects('Số (số điện thoại, số phòng)', 'số phòng', 'Một mảnh của chú thích');
+
+// Dấu phẩy ngăn các nghĩa tương đương như dấu /.
+meaningAccepts('Học sinh, sinh viên', 'sinh viên', 'Nghĩa sau dấu phẩy');
+meaningAccepts('Học sinh, sinh viên', 'học sinh sinh viên', 'Gõ cả hai, không dấu phẩy');
+meaningAccepts('Nhồi, nhét/ xếp sát', 'nhét', 'Dấu phẩy và dấu / cùng một ô');
+
+// Dấu ~ chỉ là chỗ trống, dấu lửng và gạch nối chỉ là dấu cách.
+meaningAccepts('hoàn toàn ~ không', 'hoàn toàn không', 'Dấu ~ giữa nghĩa');
+meaningAccepts('～ người', 'người', 'Dấu ～ toàn chiều');
+meaningAccepts('Nhân viên công ty ~', 'nhân viên công ty', 'Dấu ~ cuối nghĩa');
+meaningAccepts('Cố gắng hết mức/ càng… càng tốt', 'càng càng tốt', 'Dấu lửng');
+meaningAccepts('thứ hai - thứ tư - thứ sáu', 'thứ hai, thứ tư, thứ sáu', 'Gạch nối với dấu phẩy là như nhau');
+meaningRejects('thứ hai - thứ tư - thứ sáu', 'thứ hai', 'Liệt kê không phải nghĩa tương đương');
+meaningRejects('Hoàn toàn (không)', 'hoàn toàn có', 'Sai nghĩa');
+
+// Quét mọi từ của mọi bài từ vựng: gõ y nguyên, gõ bỏ dấu ngoặc, và gõ riêng từng
+// nghĩa (tách theo / và ,) đều phải đúng.
+const LESSONS_DIR = join(ROOT, 'public', 'lessons');
+let vocabWords = 0;
+for (const file of readdirSync(LESSONS_DIR)) {
+  if (!file.endsWith('.json') || file === 'index.json') continue;
+  const lesson = JSON.parse(readFileSync(join(LESSONS_DIR, file), 'utf8'));
+  if (lesson.kind !== 'vocabulary') continue;
+  for (const word of lesson.words) {
+    const meaning = word.vietnamese;
+    if (!meaning) continue;
+    vocabWords++;
+    const why = `[${file}] ${word.japanese}`;
+    meaningAccepts(meaning, meaning, `${why}: gõ y nguyên`);
+    for (const part of meaning.split(/[/,]/).map((p) => p.trim()).filter(Boolean)) {
+      if (/[()（）]/.test(part)) continue; // mảnh bị cắt giữa ngoặc
+      meaningAccepts(meaning, part, `${why}: gõ riêng một nghĩa`);
+    }
+    for (const part of meaning.split('/').map((p) => p.trim()).filter(Boolean)) {
+      meaningAccepts(meaning, part.replace(/[()（）]/g, ' ').replace(/\s+/g, ' '), `${why}: gõ kèm phần trong ngoặc`);
+    }
+  }
+}
+
 if (problems.length > 0) {
   process.stdout.write(`Bo cham cau dai co ${problems.length} cho sai:\n`);
   for (const line of problems) process.stdout.write(`  - ${line}\n`);
@@ -248,6 +320,6 @@ if (problems.length > 0) {
   process.stdout.write(
     `OK: dau cau va khoang trang khong lam sai ket qua cham ` +
       `(${checks} luot thu tren ${sentences} cau hoi thoai + ngu phap, ${translationLines} cau luyen dich, ` +
-      `${n4Examples} cau vi du cua cac sach ngu phap).\n`,
+      `${n4Examples} cau vi du cua cac sach ngu phap, ${vocabWords} nghia tu vung).\n`,
   );
 }

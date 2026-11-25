@@ -5,12 +5,12 @@ TIÊN SINH VĂN,先生に聞きます (せんせいにききます),Hỏi giáo 
 HỒI,回します (まわします),Vặn, xoay
 DẪN,引きます (ひきます),Kéo
 BIẾN,変えます (かえます),Đổi
-XÚC,ドアに触ります (ドアにさわります),Sờ, chạm vào cửa
-ĐIẾU XUẤT,お釣りが出ます (おつりがでます),Ra, đi ra tiền thừa
-THỜI KẾ ĐỘNG,時計が動きます (とけいがうごきます),Chuyển động, chạy đồng hồ
+XÚC,ドアに触ります (ドアにさわります),Sờ vào cửa/ chạm vào cửa
+ĐIẾU XUẤT,お釣りが出ます (おつりがでます),Tiền thừa (đi) ra
+THỜI KẾ ĐỘNG,時計が動きます (とけいがうごきます),Đồng hồ chạy/ đồng hồ chuyển động
 ĐẠO BỘ,道を歩きます (みちをあるきます),Đi bộ trên đường
-KIỀU ĐỘ,橋を渡ります (はしをわたります),Qua, đi qua cầu
-XA KHÍ,車に気をつけます (くるまにきをつけます),Chú ý, cẩn thận với ôtô
+KIỀU ĐỘ,橋を渡ります (はしをわたります),(Đi) qua cầu
+XA KHÍ,車に気をつけます (くるまにきをつけます),Chú ý ô tô/ cẩn thận với ô tô
 DẪN VIỆT,引っ越しします (ひっこしします),Chuyển nhà
 ĐIỆN KHÍ ỐC,電気屋 (でんきや),Cửa hàng đồ điện
 ÂM,音 (おと),Âm thanh

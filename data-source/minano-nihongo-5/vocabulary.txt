@@ -41,7 +41,7 @@ NHẬT,１０日 (とおか),ngày mồng 10, 10 ngày
 NHẬT,１４日 (じゅうよっか),ngày 14, 14 ngày
 NHẬT,２０日 (はつか),ngày 20, 20 ngày
 NHẬT,２４日 (にじゅうよっか),ngày 24, 24 ngày
-HÀ NHẬT,何日 (なんにち),nhiêu, mấy ngày, bao nhiêu ngày
+HÀ NHẬT,何日 (なんにち),ngày mấy, mấy ngày, bao nhiêu ngày
 ĐẢN SINH NHẬT,誕生日 (たんじょうび),sinh nhật
 PHỔ THÔNG,普通 (ふつう),tàu thường (dừng cả ở các ga lẻ)
 CẤP HÀNH,急行 (きゅうこう),tàu tốc hành

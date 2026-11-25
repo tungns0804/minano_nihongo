@@ -590,6 +590,13 @@ export interface PracticeQuestion {
    */
   ignorePunctuation: boolean;
   /**
+   * Chấm NGHĨA của một từ: dấu câu (ngoặc, dấu phẩy, dấu ~, dấu lửng…) tính như một
+   * dấu cách thay vì phải gõ đúng y nguyên. Nhờ vậy nghĩa "Hoàn toàn (không)" nhận
+   * cách gõ tự nhiên "hoàn toàn không". Khác `ignorePunctuation` ở chỗ khoảng trắng
+   * vẫn giữ làm ranh giới từ. Đi cùng `acceptedMeaningsOf` (xem answer-check.ts).
+   */
+  looseMeaning: boolean;
+  /**
    * Câu hỏi là một CÂU chứ không phải một từ — màn hình luyện tập dùng cỡ chữ nhỏ
    * hơn và ô nhập nhiều dòng.
    */
@@ -669,6 +676,7 @@ export function makeQuestion(draft: QuestionCore & Partial<PracticeQuestion>): P
     choiceLabelKeys: null,
     chunks: [],
     ignorePunctuation: false,
+    looseMeaning: false,
     isSentence: false,
     drawChar: null,
     // Khoá lịch ôn do `PracticeSessionStore.start` gắn theo thiết lập của phiên; chỉ

@@ -17,7 +17,7 @@ DỤC,欲しい (ほしい),muốn có
 TỊCH,寂しい (さびしい),buồn, cô đơn
 QUẢNG,広い (ひろい),rộng
 HIỆP,狭い (せまい),chật, hẹp
-THỊ DỊCH SỞ,市役所 (しやくしょ),văn phòng hành chính quận, thành phố
+THỊ DỊCH SỞ,市役所 (しやくしょ),văn phòng hành chính (quận, thành phố)
 XUYÊN,川 (かわ),sông
 KINH TẾ,経済 (けいざい),kinh tế
 MỸ THUẬT,美術 (びじゅつ),mỹ thuật

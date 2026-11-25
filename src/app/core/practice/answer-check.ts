@@ -52,7 +52,23 @@ export interface CompareOptions {
    * luyện tập: "Dấu câu và khoảng trắng không tính khi chấm."
    */
   ignorePunctuation?: boolean;
+  /**
+   * Chấm NGHĨA của một từ: mỗi dấu câu (ngoặc, phẩy, ~, dấu lửng, gạch nối…) coi
+   * như một dấu cách. "Hoàn toàn (không)" và "hoàn toàn ~ không" đều thành
+   * "hoàn toàn không" — đúng thứ người học gõ ra. Khác `ignorePunctuation`: khoảng
+   * trắng vẫn là ranh giới từ, vì nghĩa tiếng Việt ngắn mà bỏ hết dấu cách thì
+   * "học sinh" với "họcsinh" thành một, không cần thiết.
+   */
+  looseMeaning?: boolean;
 }
+
+/**
+ * Dấu câu coi như dấu cách khi chấm nghĩa (`looseMeaning`). Có thêm ～ toàn chiều mà
+ * `PUNCTUATION` cố ý chừa ra: trong cột nghĩa nó chỉ là chỗ trống ("～ người",
+ * "hoàn toàn ~ không"), người học không gõ. KHÔNG có dấu / — nó ngăn các nghĩa
+ * tương đương và đã được `acceptedMeaningsOf` tách riêng.
+ */
+const MEANING_PUNCTUATION = /[、。，．！？!?,.;:；：'"“”‘’「」『』（）()…‥⋯・~〜～\-–—]/g;
 
 /**
  * Phần trong ngoặc ở cột nghĩa, cả ngoặc nửa chiều lẫn toàn chiều.
@@ -104,6 +120,86 @@ export function acceptedAnswersOf(answer: string): string[] {
   return [...new Set(accepted)].filter((item) => item.length > 0);
 }
 
+/** Ranh giới giữa các nghĩa tương đương trong cột nghĩa của một từ. */
+const MEANING_SEPARATORS = new Set([ALTERNATIVE_SEPARATOR, ',', '，', ';', '；']);
+
+/** Giới hạn số cụm ngoặc đem tổ hợp có/không: 2^3 = 8 cách viết là đủ. */
+const MAX_OPTIONAL_GROUPS = 3;
+
+/**
+ * Tách theo các dấu ngăn nghĩa, nhưng chỉ những dấu nằm NGOÀI ngoặc: chú thích
+ * "Số (số điện thoại, số phòng)" là một nghĩa, không phải hai.
+ */
+function splitMeanings(value: string): string[] {
+  const parts: string[] = [];
+  let depth = 0;
+  let current = '';
+  for (const ch of value) {
+    if (ch === '(' || ch === '（') depth++;
+    else if ((ch === ')' || ch === '）') && depth > 0) depth--;
+    if (depth === 0 && MEANING_SEPARATORS.has(ch)) {
+      parts.push(current);
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  parts.push(current);
+  return parts.map((part) => part.trim()).filter((part) => part.length > 0);
+}
+
+/**
+ * Mọi cách viết khi coi từng cụm trong ngoặc là KHÔNG BẮT BUỘC.
+ * "(Trời) sáng"        -> ["(Trời) sáng", "sáng"]
+ * "Hoàn toàn (không)"  -> ["Hoàn toàn (không)", "Hoàn toàn"]
+ * Còn cách gõ có phần trong ngoặc nhưng không gõ dấu ngoặc ("hoàn toàn không") thì
+ * `looseMeaning` lo: dấu ngoặc khi so chỉ còn là dấu cách.
+ */
+function optionalGroupVariants(value: string): string[] {
+  const groups = [...value.matchAll(PARENTHETICAL)];
+  if (groups.length === 0) return [value];
+  if (groups.length > MAX_OPTIONAL_GROUPS) return [value, withoutParentheticals(value)];
+
+  const variants: string[] = [];
+  for (let mask = 0; mask < 1 << groups.length; mask++) {
+    let out = '';
+    let from = 0;
+    groups.forEach((group, i) => {
+      const start = group.index ?? 0;
+      out += value.slice(from, start) + ((mask >> i) & 1 ? ' ' : group[0]);
+      from = start + group[0].length;
+    });
+    variants.push((out + value.slice(from)).replace(/\s+/g, ' ').trim());
+  }
+  return variants;
+}
+
+/**
+ * Các cách trả lời được chấp nhận cho NGHĨA của một từ (cột nghĩa tiếng Việt của
+ * bài từ vựng, nghĩa của từ trong khu Kanji). Chấm cùng `looseMeaning: true`.
+ *
+ * Nghĩa từ khác câu dài ở hai chỗ, nên tách khỏi `acceptedAnswersOf`:
+ *  - Dấu phẩy cũng ngăn các nghĩa tương đương như dấu /. Sách ghi "Học sinh, sinh
+ *    viên", "Nhồi, nhét/ xếp sát" — gõ một nghĩa là đủ. Câu ví dụ ngữ pháp thì không
+ *    thể tách theo dấu phẩy, nên hàm này không dùng cho câu.
+ *  - Phần trong ngoặc là chú thích tuỳ chọn: "(Không) bao giờ" nhận cả "không bao
+ *    giờ" lẫn "bao giờ". Riêng phần trong ngoặc đứng một mình thì KHÔNG được nhận:
+ *    "không" không phải nghĩa của 全く, "kính ngữ" không phải nghĩa của 召し上がります.
+ *
+ * "Hoàn toàn (không)" -> ["Hoàn toàn (không)", "Hoàn toàn"]
+ * "Rất/ (không) thể nào" -> [..., "Rất", "(không) thể nào", "thể nào"]
+ */
+export function acceptedMeaningsOf(answer: string): string[] {
+  const full = answer.trim();
+  const slashParts = full
+    .split(ALTERNATIVE_SEPARATOR)
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0);
+  const accepted = [full, ...slashParts, ...splitMeanings(full)].flatMap(optionalGroupVariants);
+  // Cách viết chỉ còn toàn dấu (vd. "～") thì không thành đáp án.
+  return [...new Set(accepted)].filter((item) => item.replace(MEANING_PUNCTUATION, '').trim().length > 0);
+}
+
 /** Đưa chuỗi về dạng chuẩn để so sánh: NFC, thường hoá, gọn khoảng trắng. */
 export function normalizeForCompare(value: string, options: CompareOptions): string {
   let out = foldFullwidthDigits(
@@ -114,6 +210,7 @@ export function normalizeForCompare(value: string, options: CompareOptions): str
   );
 
   if (options.ignorePunctuation) out = out.replace(PUNCTUATION, '');
+  else if (options.looseMeaning) out = out.replace(MEANING_PUNCTUATION, ' ');
 
   const dropWhitespace = options.ignoreAllWhitespace || options.ignorePunctuation;
   out = dropWhitespace ? out.replace(/\s+/g, '') : out.replace(/\s+/g, ' ').trim();

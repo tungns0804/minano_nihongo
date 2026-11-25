@@ -13,7 +13,7 @@ import {
   recapJp,
 } from './practice.model';
 import { VocabularyWord, WordField, fieldIsJapanese, fieldValue } from '../lessons/vocabulary.model';
-import { acceptedAnswersOf } from './answer-check';
+import { acceptedAnswersOf, acceptedMeaningsOf } from './answer-check';
 import { shuffle } from '../utils/random';
 
 const ANSWER_PROMPT_KEY: Record<WordField, MessageKey> = {
@@ -85,7 +85,12 @@ export function buildVocabularyQuestions(
       acceptedAnswers:
         info.answer === 'japanese' && word.reading
           ? [...new Set([...acceptedAnswersOf(correctAnswer), word.reading])]
-          : acceptedAnswersOf(correctAnswer),
+          : info.answer === 'vietnamese'
+            ? acceptedMeaningsOf(correctAnswer)
+            : acceptedAnswersOf(correctAnswer),
+      // Hỏi nghĩa: "Hoàn toàn (không)" nhận "hoàn toàn không", "Học sinh, sinh viên"
+      // nhận "sinh viên" — xem `acceptedMeaningsOf`.
+      looseMeaning: info.answer === 'vietnamese',
       // Kana cũng là chữ Nhật: dùng font tiếng Nhật, bỏ hết khoảng trắng khi so
       // khớp, và hiện nhắc bật IME ở chế độ gõ.
       answerIsJapanese: fieldIsJapanese(info.answer),
