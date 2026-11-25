@@ -264,6 +264,15 @@ export interface PracticeConfig {
    *           xong cụm này là sang từ mới chứ không gặp lại từ vừa học.
    */
   batchIndex: number | null;
+  /**
+   * Cách xếp mục vào các cụm (chỉ có nghĩa khi `batchIndex` khác null).
+   *
+   *  - null : theo thứ tự trong bài — cụm 1 luôn là 10 từ đầu bài.
+   *  - số   : trộn cả bài bằng `seededShuffle` với hạt giống này rồi mới cắt cụm.
+   *           Cùng hạt giống thì các cụm vẫn chia hết bài không trùng; đổi hạt
+   *           giống là các từ rơi vào cụm khác, gặp nhau theo kiểu khác.
+   */
+  batchSeed: number | null;
   shuffle: boolean;
   maxWrongAttempts: number;
   /** Bỏ qua dấu tiếng Việt khi so khớp (chỉ áp dụng cho chế độ gõ đáp án). */
@@ -355,6 +364,7 @@ export function practiceConfig(
     answerMode: 'typing',
     questionLimit: null,
     batchIndex: null,
+    batchSeed: null,
     shuffle: true,
     maxWrongAttempts: DEFAULT_MAX_WRONG_ATTEMPTS,
     ignoreDiacritics: false,

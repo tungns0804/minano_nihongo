@@ -122,6 +122,7 @@ export const PRACTICE_MESSAGES = {
     vi: '→ Học tiếp cụm {index} ({from}–{to})',
     ja: '→ 第{index}組（{from}–{to}）へ進む',
   },
+  'result.nextBatchMixed': { vi: '→ Học tiếp cụm {index}', ja: '→ 第{index}組へ進む' },
   'result.nextBatchHint': {
     vi: 'Xong cụm này rồi. Học tiếp cụm sau để sang phần chưa gặp, vẫn giữ nguyên thiết lập vừa dùng.',
     ja: 'この組は終了です。同じ設定のまま、次の組で未習の内容に進みましょう。',
@@ -129,6 +130,10 @@ export const PRACTICE_MESSAGES = {
   'result.batchAllDone': {
     vi: 'Bạn đã đi hết {count} câu của bài này theo cụm. 🎉',
     ja: 'このレッスンの{count}問をすべて学習し終えました。🎉',
+  },
+  'result.batchReshuffled': {
+    vi: 'Vòng sau các từ sẽ được trộn vào cụm theo kiểu khác.',
+    ja: '次の周では、単語が別の並びで組に分けられます。',
   },
   'result.round': {
     vi: 'Lượt luyện thứ {count} của bài này · tổng cộng {questions} câu',

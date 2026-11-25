@@ -117,6 +117,9 @@
           } @else if (batchFinished()) {
             <div class="notice notice-success">
               {{ t('result.batchAllDone', { count: batchGrandTotal() }) }}
+              @if (batchWasMixed()) {
+                {{ t('result.batchReshuffled') }}
+              }
             </div>
           }
         </div>

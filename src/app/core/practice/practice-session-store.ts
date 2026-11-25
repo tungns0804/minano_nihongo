@@ -16,6 +16,7 @@ import { shuffle } from '../utils/random';
 import { ReviewStore } from '../review/review-store';
 import { ActivityStore } from '../activity/activity-store';
 import { PracticeHistoryStore } from '../activity/practice-history-store';
+import { BatchMixStore } from './batch-mix-store';
 
 export type NextOutcome = 'moved' | 'finished' | 'blocked';
 
@@ -42,6 +43,7 @@ export class PracticeSessionStore {
   private readonly reviews = inject(ReviewStore);
   private readonly activity = inject(ActivityStore);
   private readonly history = inject(PracticeHistoryStore);
+  private readonly batchMix = inject(BatchMixStore);
 
   private readonly lessonRef = signal<SessionLesson | null>(null);
   private readonly configRef = signal<PracticeConfig | null>(null);
@@ -330,6 +332,17 @@ export class PracticeSessionStore {
     // Ghi TRƯỚC khi đặt kết quả: màn kết quả đọc ngay số lượt để nói "lượt thứ N".
     // Phiên Ôn tập gom câu từ nhiều bài nên không phải lượt của bài nào.
     if (!config.review) this.history.record(config.lessonId, results.length, correctCount);
+
+    // Đi hết cụm cuối của một vòng đã trộn: vòng sau tự trộn kiểu khác, để các từ
+    // không cứ gặp nhau trong cùng một cụm mãi. Giữa vòng thì không đổi — cụm sau
+    // phải cắt từ đúng thứ tự trộn của cụm trước mới không trùng từ.
+    if (
+      typeof config.batchSeed === 'number' &&
+      config.batchIndex !== null &&
+      this.nextBatchIndex() === null
+    ) {
+      this.batchMix.reshuffle(config.lessonId);
+    }
 
     this.summaryRef.set({
       lessonId: lesson.id,

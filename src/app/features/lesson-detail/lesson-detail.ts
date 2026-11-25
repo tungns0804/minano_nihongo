@@ -40,6 +40,7 @@ import {
 } from '../../core/lessons/vocabulary.model';
 import { LESSON_KIND_TAB, PATH, idOfSlug, lessonPath, listPathOf, pathOf } from '../../core/paths';
 import { batchCount, batchRange } from '../../core/practice/batch';
+import { BatchMixStore } from '../../core/practice/batch-mix-store';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
 import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
@@ -139,6 +140,11 @@ export class LessonDetail extends PracticeScreen {
    * null = không học theo cụm (trộn cả bài rồi lấy N câu, như trước giờ).
    */
   private readonly pickedBatch = signal<number | null>(null);
+  private readonly batchMix = inject(BatchMixStore);
+  /** Từ được trộn vào các cụm hay giữ thứ tự trong bài — xem `BatchMixStore`. */
+  readonly batchMixed = this.batchMix.mixed;
+  /** Vừa bấm "Trộn kiểu khác" — hiện một dòng xác nhận, vì nhìn nút cụm thì không thấy gì đổi. */
+  readonly batchReshuffled = signal(false);
   // Riêng bài từ vựng
   readonly direction = signal<PracticeDirection>('jp-vi');
   // Riêng bài động từ
@@ -547,6 +553,7 @@ export class LessonDetail extends PracticeScreen {
     this.scope.set('all');
     this.questionLimit.set(null);
     this.pickedBatch.set(null);
+    this.batchReshuffled.set(false);
     this.direction.set('jp-vi');
     this.answerMode.set('choice');
     this.shuffleQuestions.set(true);
@@ -628,6 +635,20 @@ export class LessonDetail extends PracticeScreen {
 
   setBatchIndex(index: number | null): void {
     this.pickedBatch.set(index);
+  }
+
+  setBatchMixed(mixed: boolean): void {
+    this.batchMix.setMixed(mixed);
+    this.batchReshuffled.set(false);
+  }
+
+  /** Bắt đầu một vòng trộn mới: các từ rơi vào cụm khác, nên quay về cụm 1. */
+  reshuffleBatches(): void {
+    const lesson = this.lesson();
+    if (!lesson) return;
+    this.batchMix.reshuffle(lesson.id);
+    this.pickedBatch.set(0);
+    this.batchReshuffled.set(true);
   }
 
   setVerbMode(mode: VerbPracticeMode): void {
@@ -728,6 +749,8 @@ export class LessonDetail extends PracticeScreen {
       answerMode: this.answerModeLocked() ? 'typing' : this.answerMode(),
       questionLimit: this.questionLimit(),
       batchIndex: this.batchIndex(),
+      batchSeed:
+        this.batchIndex() !== null && this.batchMix.mixed() ? this.batchMix.seedOf(lesson.id) : null,
       shuffle: this.shuffleQuestions(),
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),

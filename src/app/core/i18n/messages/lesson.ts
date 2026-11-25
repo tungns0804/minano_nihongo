@@ -76,8 +76,25 @@ export const LESSON_MESSAGES = {
   'lesson.batch.random': { vi: 'Ngẫu nhiên cả bài', ja: 'レッスン全体からランダム' },
   'lesson.batch.n': { vi: 'Cụm {index} · {from}–{to}', ja: '第{index}組 · {from}–{to}' },
   'lesson.batch.hint': {
-    vi: 'Học lần lượt từng cụm theo đúng thứ tự trong bài. Xong một cụm sẽ được mời học tiếp cụm sau, cho tới khi hết bài — khác với “Ngẫu nhiên cả bài” là lần nào cũng bốc lại từ đầu.',
-    ja: 'レッスンの順番どおりに一組ずつ学習します。一組終えると次の組へ進むよう案内され、最後まで続きます。「レッスン全体からランダム」は毎回すべてから選び直します。',
+    vi: 'Học lần lượt từng cụm. Xong một cụm sẽ được mời học tiếp cụm sau, cho tới khi hết bài — khác với “Ngẫu nhiên cả bài” là lần nào cũng bốc lại từ đầu.',
+    ja: '一組ずつ学習します。一組終えると次の組へ進むよう案内され、最後まで続きます。「レッスン全体からランダム」は毎回すべてから選び直します。',
+  },
+  'lesson.batch.mixedN': { vi: 'Cụm {index} · {count} câu', ja: '第{index}組 · {count}問' },
+  'lesson.batchMix': { vi: 'Xếp từ vào cụm', ja: '組の分け方' },
+  'lesson.batchMix.mixed': { vi: '🔀 Trộn lẫn', ja: '🔀 シャッフル' },
+  'lesson.batchMix.book': { vi: 'Theo thứ tự trong bài', ja: 'レッスンの順番' },
+  'lesson.batchMix.reshuffle': { vi: '↻ Trộn kiểu khác', ja: '↻ 別の並びにする' },
+  'lesson.batchMix.mixedHint': {
+    vi: 'Các từ được trộn lẫn rồi mới chia cụm, nên một cụm gồm từ ở khắp bài. Đi hết các cụm vẫn là hết bài, không trùng từ. Học xong cụm cuối, vòng sau tự trộn kiểu khác.',
+    ja: '単語をシャッフルしてから組に分けるので、一組にレッスン全体の単語が混ざります。全組を終えればレッスン全体を重複なく学習できます。最後の組を終えると、次の周は別の並びになります。',
+  },
+  'lesson.batchMix.reshuffled': {
+    vi: 'Đã trộn kiểu mới — cụm 1 bây giờ là một nhóm từ khác. Bắt đầu lại từ cụm 1.',
+    ja: '新しい並びにしました。第1組は別の単語になります。第1組からやり直しましょう。',
+  },
+  'lesson.batchMix.bookHint': {
+    vi: 'Cụm 1 luôn là những từ đầu bài, theo đúng thứ tự trong bảng.',
+    ja: '第1組は常にレッスン冒頭の単語で、表の順番どおりです。',
   },
   'lesson.options': { vi: 'Tuỳ chọn', ja: 'オプション' },
   'lesson.option.showMeaning': {
