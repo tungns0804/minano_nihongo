@@ -312,7 +312,43 @@ export class Practice {
    */
   onAnswerEnter(event: Event): void {
     event.stopPropagation();
+
+    // Enter giữa lúc bộ gõ (IME) đang ghép chữ — chữ còn gạch chân, như bộ gõ tiếng
+    // Việt hay tiếng Nhật trên macOS. Phím này trước hết là để bộ gõ chốt chữ:
+    //  - Chrome/Firefox báo `isComposing` rồi mới tới `compositionend`, nên với đáp án
+    //    tiếng Việt thì hẹn chấm sau khi chữ đã chốt (xem onCompositionEnd) để chỉ cần
+    //    một lần Enter như bình thường.
+    //  - Safari bắn `compositionend` TRƯỚC keydown (keyCode 229) — chữ đã chốt rồi.
+    // Đáp án tiếng Nhật thì Enter là để chọn kanji/kana, không phải để nộp bài.
+    const key = event as KeyboardEvent;
+    if (key.isComposing || key.keyCode === 229) {
+      if (this.question()?.answerIsJapanese) return;
+      if (this.composing) {
+        this.submitAfterComposition = true;
+        return;
+      }
+    }
+
     event.preventDefault();
+    this.submitTyped();
+  }
+
+  /** Bộ gõ đang ghép chữ (chữ còn gạch chân trong ô nhập). */
+  private composing = false;
+  /** Đã bấm Enter giữa lúc ghép chữ: chấm ngay khi bộ gõ chốt xong. */
+  private submitAfterComposition = false;
+
+  onCompositionStart(): void {
+    this.composing = true;
+  }
+
+  onCompositionEnd(event: Event): void {
+    this.composing = false;
+    // Lấy giá trị cuối cùng ngay từ ô nhập: trình duyệt không chắc bắn thêm `input`
+    // sau khi chốt chữ.
+    this.typedAnswer.set(valueOf(event));
+    if (!this.submitAfterComposition) return;
+    this.submitAfterComposition = false;
     this.submitTyped();
   }
 
@@ -422,9 +458,24 @@ export class Practice {
       // Còn lượt trả lời: xoá ô nhập để gõ lại, giữ nguyên focus tại đó. Câu sắp xếp thì
       // giữ nguyên cách xếp: thường chỉ sai một hai mảnh, bắt xếp lại từ đầu là phạt
       // nặng hơn cái sai.
-      this.typedAnswer.set('');
+      this.clearAnswerInput();
       this.focusAnswerInput();
     }
+  }
+
+  /**
+   * Xoá ô nhập để gõ lại. Nếu bộ gõ vẫn đang giữ một đoạn ghép dở (bộ gõ tiếng Việt
+   * trên macOS giữ chữ gạch chân tới khi gõ dấu cách), chỉ đặt value = '' là chưa đủ:
+   * bộ gõ sẽ chèn lại đúng đoạn đó và lần Enter sau lại nộp đúng đáp án vừa sai, ăn
+   * mất một lượt. Blur trước thì bộ gõ buộc phải bỏ đoạn ghép.
+   */
+  private clearAnswerInput(): void {
+    const element = this.answerInput()?.nativeElement;
+    if (element && this.composing) element.blur();
+    this.composing = false;
+    this.submitAfterComposition = false;
+    if (element) element.value = '';
+    this.typedAnswer.set('');
   }
 
   // --- Điều hướng trong phiên ---
