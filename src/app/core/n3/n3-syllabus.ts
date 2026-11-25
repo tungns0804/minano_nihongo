@@ -321,16 +321,6 @@ const MOJI_BLOCKS: N3Block[] = [
 
 // ── Trụ 3: 語彙 — 総まとめ N3 語彙 ─────────────────────────────────────────
 
-/** Sáu bài từ vựng N3 đã nạp vào app, ứng với tuần 1 ngày 1–6 của quyển 語彙. */
-const GOI_WEEK1_SOURCES: Record<string, { source: N3UnitSource; route: string }> = {
-  'goi-1-1': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-1') },
-  'goi-1-2': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-2') },
-  'goi-1-3': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-3') },
-  'goi-1-4': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-4') },
-  'goi-1-5': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-5') },
-  'goi-1-6': { source: 'app', route: lessonPath('vocabulary', 'soumatome-n3-6') },
-};
-
 const GOI_BLOCKS: N3Block[] = [
   block(
     'goi',
@@ -349,7 +339,6 @@ const GOI_BLOCKS: N3Block[] = [
       '子どもやペットの世話をしましょう|Chăm con và thú cưng|22',
       '実戦問題|Bài kiểm tra thực chiến|24',
     ],
-    GOI_WEEK1_SOURCES,
   ),
   block('goi', 2, '第2週', 'Tuần 2', '外出しましょう', 'Ra ngoài', 27, [
     '計画を立てましょう|Lập kế hoạch',

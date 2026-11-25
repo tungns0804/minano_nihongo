@@ -401,7 +401,7 @@ qua bản gọn `kanji-parts.generated.ts` — không có cách tách nào viế
 
 ### Đi từ một bài học sang
 
-**Mọi bài từ vựng N3** (mười tám bài Mimikara N3 và sáu bài 総まとめ N3) chia trang thành hai tab
+**Mọi bài từ vựng N3** (mười tám bài Mimikara N3) chia trang thành hai tab
 ngay dưới tên bài: **Từ vựng** (khung luyện + bảng từ như mọi bài) và **Chữ Hán** (khung luyện âm +
 thẻ từng chữ). Trước 2026-11-12 khối chữ nằm dưới bảng 50 từ trên cùng một trang, người dùng thấy
 phải cuộn quá nhiều. Tab ghi trên URL (`?tab=kanji`): tải lại trang, quay về từ màn kết quả của
@@ -415,7 +415,9 @@ Minano (N5, N4) chưa bật; muốn bật thì nới điều kiện đó, khối
 | Mimikara N3 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 77 / 78 / 52 / 30 / 40 / 59 | 叩 (bài 3), 儘 (bài 6) |
 | Mimikara N3 — Bài 7 / 8 / 9 / 10 / 11 / 12 | 66 / 79 / 38 / 33 / 9 / 47 | 詫 (bài 7) |
 | Mimikara N3 — Bài 13 / 14 / 15 / 16 / 17 / 18 | 41 / 85 / 53 / 21 / 5 / 15 | 炒 (bài 17) |
-| 総まとめ N3 — Bài 1 / 2 / 3 / 4 / 5 / 6 | 43 / 33 / 24 / 22 / 25 / 33 | 栄 (bài 2), 穴 (bài 6) |
+
+Sáu bài từ vựng 総まとめ N3 (Tuần 1) đã gỡ khỏi app ngày 2026-11-25; lộ trình N3 vẫn giữ các buổi đó
+dưới dạng học trên sách.
 
 々 (dấu lặp chữ) không phải chữ Hán nên không có ô — đúng như mong muốn. 栄 và 穴 thiếu vì danh sách
 JLPT chép từ ảnh người dùng gửi (xem mục âm Hán Việt của từ N3 ở trên); 基 và 携 (Mimikara bài 12, 14, 15)

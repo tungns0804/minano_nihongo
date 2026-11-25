@@ -125,7 +125,7 @@ project React xếp lẫn vào thư mục giáo trình.
 | Trụ | Đã có | Còn thiếu |
 | --- | --- | --- |
 | 文字 | **375/375 chữ Kanji N3** (`kanji-levels.ts`), 345 chữ có chiết tự bộ thủ | 103 chữ chưa có từ ví dụ; app dạy **âm Hán Việt**, mà đề JLPT hỏi **音読み/訓読み** — hai việc khác nhau |
-| 語彙 | **6/42 bài** 総まとめ N3, 215 từ; thêm **18 bài Mimikara N3** (880 từ, khối `goi-7`) | 36 bài. Trong 215 từ: **0 từ có câu ví dụ**, 0 từ có âm Hán Việt, chỉ ~120 từ có cách đọc |
+| 語彙 | **18 bài Mimikara N3** (880 từ, khối `goi-7`) | 42 buổi của 総まとめ N3 語彙 chỉ học trên sách |
 | 文法 | **50/50 bài** ngữ pháp 皆の日本語 (219 mẫu) | **0 mẫu N3.** Định dạng `grammar.json` và màn hình đã có sẵn — chỉ thiếu nội dung |
 | 読解 | — | **0.** Và chưa có cả đường ống: `LessonKind` chưa có `reading`, chưa có bộ đọc dữ liệu, chưa có màn hình |
 | 聴解 | Chỉ có nút đọc **từng từ** trong bảng từ vựng | **0** dạng bài nghe. Chưa có chiều luyện "nghe rồi trả lời" |
@@ -600,12 +600,12 @@ Mục không ghi gì trong ngoặc là **có bài trong app**.
 
 **第1週 家事をしましょう** — Làm việc nhà · tr. 11
 
-- [ ] `2026-09-26` キッチンで／リビングで (tr. 12) — Trong bếp / phòng khách
-- [ ] `2026-09-27` 料理をしましょう① (tr. 14) — Nấu ăn ①
-- [ ] `2026-09-28` 料理をしましょう② (tr. 16) — Nấu ăn ②
-- [ ] `2026-09-29` 掃除をしましょう (tr. 18) — Dọn dẹp
-- [ ] `2026-09-30` 洗濯をしましょう (tr. 20) — Giặt giũ
-- [ ] `2026-10-01` 子どもやペットの世話をしましょう (tr. 22) — Chăm con và thú cưng
+- [ ] `2026-09-26` キッチンで／リビングで (tr. 12) — Trong bếp / phòng khách _(sách)_
+- [ ] `2026-09-27` 料理をしましょう① (tr. 14) — Nấu ăn ① _(sách)_
+- [ ] `2026-09-28` 料理をしましょう② (tr. 16) — Nấu ăn ② _(sách)_
+- [ ] `2026-09-29` 掃除をしましょう (tr. 18) — Dọn dẹp _(sách)_
+- [ ] `2026-09-30` 洗濯をしましょう (tr. 20) — Giặt giũ _(sách)_
+- [ ] `2026-10-01` 子どもやペットの世話をしましょう (tr. 22) — Chăm con và thú cưng _(sách)_
 - [ ] `2026-10-02` 実戦問題 (tr. 24) — Bài kiểm tra thực chiến _(sách)_
 
 **第2週 外出しましょう** — Ra ngoài · tr. 27

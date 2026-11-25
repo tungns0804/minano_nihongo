@@ -35,7 +35,7 @@ export const BOARD_EXAMPLES: Readonly<Record<string, readonly string[]>> = {
   段: ['階段|かいだん|cầu thang'],
   険: ['保険|ほけん|bảo hiểm'],
   線: ['路線|ろせん|tuyến đường'],
-  面: ['面白い|おもしろい|thú vị'],
+  面: ['面白い|おもしろい|thú vị', '面倒|めんどう|phiền phức'],
   普: ['普段|ふだん|thường ngày'],
   各: ['各駅停車|かくえきていしゃ|tàu dừng mọi ga', '各地|かくち|các nơi'],
   快: ['快速|かいそく|tàu nhanh', '快適|かいてき|dễ chịu, thoải mái'],
@@ -140,7 +140,7 @@ export const BOARD_EXAMPLES: Readonly<Record<string, readonly string[]>> = {
   混: ['混雑|こんざつ|đông đúc', '混む|こむ|đông'],
   焼: ['焼く|やく|nướng'],
   表: ['代表|だいひょう|đại diện'],
-  裏: ['裏|うら|mặt sau'],
+  裏: ['裏|うら|mặt sau', '裏返す|うらがえす|lật mặt'],
   留: ['留守|るす|vắng nhà'],
   守: ['守る|まもる|bảo vệ, giữ (lời)', '留守|るす|vắng nhà'],
   部: ['部分|ぶぶん|bộ phận, phần'],
@@ -155,6 +155,7 @@ export const BOARD_EXAMPLES: Readonly<Record<string, readonly string[]>> = {
   接: ['面接|めんせつ|phỏng vấn'],
 
   // ── Bảng 5 ──
+  油: ['サラダ油|サラダあぶら|dầu ăn'],
   了: ['了解|りょうかい|hiểu rồi, đã rõ', '終了|しゅうりょう|kết thúc'],
   登: ['登山|とざん|leo núi'],
   録: ['記録|きろく|ghi chép, kỷ lục'],

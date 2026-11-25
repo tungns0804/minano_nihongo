@@ -51,26 +51,26 @@ export function isJlptLevel(value: unknown): value is JlptLevel {
 }
 
 /** Giáo trình mà một cấp độ lấy nội dung ra. */
-export type JlptBook = 'minna' | 'soumatome';
+export type JlptBook = 'minna' | 'mimikara';
 
 /**
  * Cấp nào học theo sách nào.
  *
- * N5/N4 đi theo 皆の日本語 (50 bài đánh số liền mạch), N3 đi theo 日本語総まとめ
- * (6 tuần × 7 ngày, đánh số lại từ đầu ở mỗi quyển). Hai cách đánh số đó KHÔNG
+ * N5/N4 đi theo 皆の日本語 (50 bài đánh số liền mạch), N3 đi theo 耳から覚える
+ * (Mimikara, đánh số lại từ bài 1). Hai cách đánh số đó KHÔNG
  * so sánh được với nhau — đó chính là lý do `JLPT_RANGE` bên dưới không còn phủ
  * hết mọi cấp.
  */
 export const JLPT_BOOK: Record<JlptLevel, JlptBook> = {
   N5: 'minna',
   N4: 'minna',
-  N3: 'soumatome',
+  N3: 'mimikara',
 };
 
-/** Tên sách hiện trong nhãn bộ lọc, ví dụ "N3 · 総まとめ". */
+/** Tên sách hiện trong nhãn bộ lọc, ví dụ "N3 · 耳から覚える". */
 export const JLPT_BOOK_NAME: Record<JlptBook, string> = {
   minna: '皆の日本語',
-  soumatome: '総まとめ',
+  mimikara: '耳から覚える',
 };
 
 /**
@@ -136,7 +136,7 @@ export function shortLessonName(name: string): string {
  * Bài có khối "Chữ Hán trong bài" ở trang bài học: lưới các chữ của bài, bấm vào là
  * sang trang chữ đó mà vẫn nhớ đường về bài (`/kanji/:id?bai=<id bài>`).
  *
- * Bật cho MỌI bài từ vựng N3 — sáu bài 名詞 lẫn sáu bài 総まとめ — theo cấp khai trong
+ * Bật cho MỌI bài từ vựng N3 — kể cả bài thêm sau này — theo cấp khai trong
  * meta.json chứ không theo danh sách id: bài N3 thêm sau này tự có khối mà không ai
  * phải nhớ quay lại đây. Bắt đầu là bản thử ở N3 bài 5 rồi mở cho cả N3 cùng ngày
  * 2026-11-05. Bài Minano (N5, N4) chưa bật — muốn bật thì nới điều kiện ở đây, khối
