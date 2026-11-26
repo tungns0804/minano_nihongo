@@ -85,8 +85,8 @@ export const LESSON_MESSAGES = {
   'lesson.batchMix.book': { vi: 'Theo thứ tự trong bài', ja: 'レッスンの順番' },
   'lesson.batchMix.reshuffle': { vi: '↻ Trộn kiểu khác', ja: '↻ 別の並びにする' },
   'lesson.batchMix.mixedHint': {
-    vi: 'Các từ được trộn lẫn rồi mới chia cụm, nên một cụm gồm từ ở khắp bài. Đi hết các cụm vẫn là hết bài, không trùng từ. Học xong cụm cuối, vòng sau tự trộn kiểu khác.',
-    ja: '単語をシャッフルしてから組に分けるので、一組にレッスン全体の単語が混ざります。全組を終えればレッスン全体を重複なく学習できます。最後の組を終えると、次の周は別の並びになります。',
+    vi: 'Các từ được trộn lẫn rồi mới chia cụm, nên một cụm gồm từ ở khắp bài; mỗi lần học, thứ tự câu trong cụm lại được trộn mới. Đi hết các cụm vẫn là hết bài, không trùng từ. Học xong cụm cuối, vòng sau tự chia cụm kiểu khác — muốn đổi ngay thì bấm “Trộn kiểu khác”.',
+    ja: '単語をシャッフルしてから組に分けるので、一組にレッスン全体の単語が混ざります。毎回、組の中の出題順も新しくシャッフルされます。全組を終えればレッスン全体を重複なく学習できます。最後の組を終えると次の周は別の組分けになります。すぐ変えたいときは「別の並びにする」を押してください。',
   },
   'lesson.batchMix.reshuffled': {
     vi: 'Đã trộn kiểu mới — cụm 1 bây giờ là một nhóm từ khác. Bắt đầu lại từ cụm 1.',

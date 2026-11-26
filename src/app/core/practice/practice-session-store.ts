@@ -8,7 +8,7 @@ import {
   QuestionStatus,
   SessionSummary,
 } from './practice.model';
-import { batchCount, sliceBatch } from './batch';
+import { batchCount, shufflesInsideBatch, sliceBatch } from './batch';
 import type { PracticePlan } from './build-questions';
 import { gradeOf, reviewRefOf } from '../review/review.model';
 import { isAnswerCorrect, isPatternCorrect } from './answer-check';
@@ -295,7 +295,7 @@ export class PracticeSessionStore {
     return this.start(
       lesson,
       { ...config, batchIndex: next },
-      { questions: config.shuffle ? shuffle(batch) : batch, all },
+      { questions: shufflesInsideBatch(config) ? shuffle(batch) : batch, all },
     );
   }
 

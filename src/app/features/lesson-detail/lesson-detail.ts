@@ -638,6 +638,12 @@ export class LessonDetail extends PracticeScreen {
   }
 
   setBatchMixed(mixed: boolean): void {
+    // Bấm lại "Trộn lẫn" khi nó đang được chọn thì người học muốn trộn LẠI —
+    // trước đây cú bấm đó không làm gì và trông như nút hỏng.
+    if (mixed && this.batchMix.mixed()) {
+      this.reshuffleBatches();
+      return;
+    }
     this.batchMix.setMixed(mixed);
     this.batchReshuffled.set(false);
   }

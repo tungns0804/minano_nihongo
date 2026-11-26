@@ -8,7 +8,7 @@ import {
 } from '../lessons/vocabulary.model';
 import { seededShuffle, shuffle } from '../utils/random';
 import type { TranslationLineRef } from '../translation/translation.model';
-import { sliceBatch } from './batch';
+import { shufflesInsideBatch, sliceBatch } from './batch';
 import { buildConversationQuestions } from './conversation-questions';
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildTranslationQuestions } from './translation-questions';
@@ -104,7 +104,7 @@ export function orderQuestions(
     const seed = config.batchSeed;
     const all = typeof seed === 'number' ? seededShuffle(questions, seed) : [...questions];
     const batch = sliceBatch(all, limit, config.batchIndex);
-    return { questions: config.shuffle ? shuffle(batch) : batch, all };
+    return { questions: shufflesInsideBatch(config) ? shuffle(batch) : batch, all };
   }
 
   const all = [...questions];
