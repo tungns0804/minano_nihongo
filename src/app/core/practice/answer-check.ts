@@ -123,7 +123,7 @@ export function acceptedAnswersOf(answer: string): string[] {
 /** Ranh giới giữa các nghĩa tương đương trong cột nghĩa của một từ. */
 const MEANING_SEPARATORS = new Set([ALTERNATIVE_SEPARATOR, ',', '，', ';', '；']);
 
-/** Giới hạn số cụm ngoặc đem tổ hợp có/không: 2^3 = 8 cách viết là đủ. */
+/** Giới hạn số cụm ngoặc đem tổ hợp (xem `optionalGroupVariants`). */
 const MAX_OPTIONAL_GROUPS = 3;
 
 /**
@@ -148,30 +148,52 @@ function splitMeanings(value: string): string[] {
   return parts.map((part) => part.trim()).filter((part) => part.length > 0);
 }
 
+/** Trần số cách viết sinh ra từ các cụm ngoặc của một nghĩa. */
+const MAX_GROUP_VARIANTS = 64;
+
+/**
+ * Những gì có thể đứng ở chỗ một cụm ngoặc: giữ nguyên, bỏ đi, hoặc — khi trong
+ * ngoặc là một danh sách — chỉ MỘT mục của danh sách đó.
+ * "(người, cái)" -> ["(người, cái)", " ", "người", "cái"]
+ */
+function groupChoices(group: string): string[] {
+  const inner = group.slice(1, -1);
+  const items = inner
+    .split(/[,，;；/]/)
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0);
+  return [group, ' ', ...(items.length > 1 ? items : [])];
+}
+
 /**
  * Mọi cách viết khi coi từng cụm trong ngoặc là KHÔNG BẮT BUỘC.
  * "(Trời) sáng"        -> ["(Trời) sáng", "sáng"]
  * "Hoàn toàn (không)"  -> ["Hoàn toàn (không)", "Hoàn toàn"]
+ * "Mỗi (người, cái)"   -> [..., "Mỗi", "Mỗi người", "Mỗi cái"]
  * Còn cách gõ có phần trong ngoặc nhưng không gõ dấu ngoặc ("hoàn toàn không") thì
  * `looseMeaning` lo: dấu ngoặc khi so chỉ còn là dấu cách.
  */
 function optionalGroupVariants(value: string): string[] {
   const groups = [...value.matchAll(PARENTHETICAL)];
   if (groups.length === 0) return [value];
-  if (groups.length > MAX_OPTIONAL_GROUPS) return [value, withoutParentheticals(value)];
 
-  const variants: string[] = [];
-  for (let mask = 0; mask < 1 << groups.length; mask++) {
-    let out = '';
-    let from = 0;
-    groups.forEach((group, i) => {
-      const start = group.index ?? 0;
-      out += value.slice(from, start) + ((mask >> i) & 1 ? ' ' : group[0]);
-      from = start + group[0].length;
-    });
-    variants.push((out + value.slice(from)).replace(/\s+/g, ' ').trim());
+  const choices = groups.map((group) => groupChoices(group[0]));
+  const combinations = choices.reduce((total, list) => total * list.length, 1);
+  if (groups.length > MAX_OPTIONAL_GROUPS || combinations > MAX_GROUP_VARIANTS) {
+    return [value, withoutParentheticals(value)];
   }
-  return variants;
+
+  // Duyệt mọi tổ hợp: mỗi cụm ngoặc chọn một trong các `groupChoices` của nó.
+  let partials = [''];
+  let from = 0;
+  groups.forEach((group, i) => {
+    const start = group.index ?? 0;
+    const before = value.slice(from, start);
+    partials = partials.flatMap((prefix) => choices[i].map((choice) => prefix + before + choice));
+    from = start + group[0].length;
+  });
+  const tail = value.slice(from);
+  return partials.map((prefix) => (prefix + tail).replace(/\s+/g, ' ').trim());
 }
 
 /**

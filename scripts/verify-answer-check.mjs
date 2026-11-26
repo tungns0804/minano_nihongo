@@ -270,6 +270,11 @@ meaningAccepts('(Trời) sáng/ (năm) mới bắt đầu', 'năm mới bắt đ
 meaningAccepts('Gấp (bao nhiêu) lần', 'gấp bao nhiêu lần', 'Ngoặc ở giữa');
 meaningAccepts('Số (số điện thoại, số phòng)', 'số', 'Dấu phẩy TRONG ngoặc không tách nghĩa');
 meaningAccepts('Hoàn toàn (không)', 'hoan toan khong', 'Bỏ dấu tiếng Việt khi bật tuỳ chọn', MEANING_NO_MARKS);
+meaningAccepts('Mỗi (người, cái)/ từng', 'mỗi người', 'Một mục của danh sách trong ngoặc');
+meaningAccepts('Mỗi (người, cái)/ từng', 'mỗi cái', 'Mục còn lại của danh sách trong ngoặc');
+meaningAccepts('Mỗi (người, cái)/ từng', 'mỗi', 'Bỏ cả danh sách trong ngoặc');
+meaningAccepts('Đứt/ hết (hạn, pin)', 'hết pin', 'Danh sách trong ngoặc ở nghĩa sau dấu /');
+meaningRejects('Mỗi (người, cái)/ từng', 'người', 'Chỉ gõ một mục trong ngoặc');
 meaningRejects('Hoàn toàn (không)', 'không', 'Chỉ gõ phần chú thích trong ngoặc');
 meaningRejects('xem/ nhìn (kính ngữ)', 'kính ngữ', 'Chỉ gõ phần chú thích trong ngoặc');
 meaningRejects('Số (số điện thoại, số phòng)', 'số phòng', 'Một mảnh của chú thích');
@@ -308,6 +313,15 @@ for (const file of readdirSync(LESSONS_DIR)) {
     }
     for (const part of meaning.split('/').map((p) => p.trim()).filter(Boolean)) {
       meaningAccepts(meaning, part.replace(/[()（）]/g, ' ').replace(/\s+/g, ' '), `${why}: gõ kèm phần trong ngoặc`);
+    }
+    // Ngoặc chứa danh sách ("Mỗi (người, cái)"): thay cả ngoặc bằng từng mục một.
+    for (const part of meaning.split('/').map((p) => p.trim()).filter(Boolean)) {
+      const group = part.match(/[(（]([^)）]*)[)）]/);
+      if (!group || !/[,，]/.test(group[1])) continue;
+      for (const item of group[1].split(/[,，]/).map((p) => p.trim()).filter(Boolean)) {
+        const typed = part.replace(group[0], ` ${item} `).replace(/[()（）]/g, ' ').replace(/\s+/g, ' ').trim();
+        meaningAccepts(meaning, typed, `${why}: gõ một mục trong ngoặc`);
+      }
     }
   }
 }
