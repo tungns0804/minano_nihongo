@@ -1,0 +1,54 @@
+# Từ bổ sung theo chủ đề — những từ cơ bản mà kho từ (皆の日本語 1–50, Mimikara N3) chưa có,
+# thêm 2026-11-26 theo yêu cầu của người dùng để các chủ đề Màu sắc, Tính từ, Phương hướng,
+# Bốn mùa có đủ từ. Không chép từ sách nào: nghĩa và câu ví dụ do app tự viết.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT|CÂU VÍ DỤ|BẢN DỊCH
+#
+# ── Màu sắc ──
+HOÀNG SẮC,黄色い (きいろい),màu vàng/ vàng|この花は黄色いです。|Bông hoa này màu vàng.
+TRÀ SẮC,茶色い (ちゃいろい),màu nâu/ nâu|茶色いかばんを買いました。|Tôi đã mua một chiếc cặp màu nâu.
+CHÂN XÍCH,真っ赤 (まっか),đỏ rực/ đỏ bừng|恥ずかしくて、顔が真っ赤になりました。|Xấu hổ quá, mặt tôi đỏ bừng.
+CHÂN HẮC,真っ黒 (まっくろ),đen sì/ đen kịt|海で遊んで、真っ黒になりました。|Chơi ở biển nên tôi bị đen sạm.
+CHÂN THANH,真っ青 (まっさお),xanh thẳm/ tái mét|今日は空が真っ青です。|Hôm nay bầu trời xanh thẳm.
+HÔI SẮC,灰色 (はいいろ),màu xám|灰色の雲が出てきました。|Mây xám đã kéo đến.
+TỬ,紫 (むらさき),màu tím|紫の花が咲いています。|Hoa màu tím đang nở.
+,ピンク,màu hồng|妹はピンクの服が好きです。|Em gái tôi thích quần áo màu hồng.
+KIM SẮC,金色 (きんいろ),màu vàng kim/ màu vàng óng|父に金色の時計をもらいました。|Tôi được bố tặng một chiếc đồng hồ màu vàng kim.
+NGÂN SẮC,銀色 (ぎんいろ),màu bạc|家の前に銀色の車が止まっています。|Trước nhà có một chiếc ô tô màu bạc đang đỗ.
+# ── Tính từ: kích thước ──
+HẬU,厚い (あつい),dày|この辞書はとても厚いです。|Cuốn từ điển này rất dày.
+THÂM,深い (ふかい),sâu|この川は深いですから、泳がないでください。|Con sông này sâu nên đừng bơi.
+ĐA,多い (おおい),nhiều|この町は公園が多いです。|Thị trấn này có nhiều công viên.
+THIỂU,少ない (すくない),ít|今年は雨が少ないです。|Năm nay ít mưa.
+BỐI ĐÊ,背が低い (せがひくい),thấp (người)/ lùn|弟は私より背が低いです。|Em trai tôi thấp hơn tôi.
+ĐẠI,大きな (おおきな),to/ lớn (đứng trước danh từ)|大きな声で話してください。|Hãy nói to lên.
+TIỂU,小さな (ちいさな),nhỏ/ bé (đứng trước danh từ)|小さな子どもが泣いています。|Một đứa trẻ nhỏ đang khóc.
+QUẢNG,広さ (ひろさ),độ rộng/ diện tích|この部屋の広さはどのくらいですか。|Căn phòng này rộng khoảng bao nhiêu?
+THÂM,深さ (ふかさ),độ sâu|このプールの深さは２メートルです。|Bể bơi này sâu 2 mét.
+# ── Phương hướng ──
+HẬU,後ろ (うしろ),phía sau/ đằng sau|私の後ろに田中さんがいます。|Anh Tanaka đứng phía sau tôi.
+,まっすぐ,thẳng/ đi thẳng|この道をまっすぐ行ってください。|Hãy đi thẳng con đường này.
+HỮU TRẮC,右側 (みぎがわ),bên phải/ phía bên phải|郵便局は銀行の右側にあります。|Bưu điện ở bên phải ngân hàng.
+TẢ TRẮC,左側 (ひだりがわ),bên trái/ phía bên trái|日本では車は道の左側を走ります。|Ở Nhật, ô tô chạy bên trái đường.
+NỘI TRẮC,内側 (うちがわ),bên trong/ phía trong|ドアは内側から開けてください。|Hãy mở cửa từ phía bên trong.
+NGOẠI TRẮC,外側 (そとがわ),bên ngoài/ phía ngoài|箱の外側に名前を書きました。|Tôi đã viết tên ở mặt ngoài chiếc hộp.
+PHẢN ĐỐI TRẮC,反対側 (はんたいがわ),phía đối diện/ phía bên kia|駅は道の反対側にあります。|Nhà ga ở phía bên kia đường.
+CHÍNH DIỆN,正面 (しょうめん),chính diện/ mặt trước|ホテルの正面で待っています。|Tôi đang đợi trước mặt khách sạn.
+TÀ,斜め (ななめ),chéo/ xiên|銀行は駅の斜め前にあります。|Ngân hàng nằm chéo phía trước nhà ga.
+ĐỘT ĐƯƠNG,突き当たり (つきあたり),cuối đường/ chỗ đường cụt|この道の突き当たりを右に曲がってください。|Đến cuối con đường này thì rẽ phải.
+THỦ TIỀN,手前 (てまえ),phía trước/ phía bên này|駅の手前の信号で止めてください。|Hãy dừng ở cột đèn ngay trước nhà ga.
+PHƯƠNG HƯỚNG,方向 (ほうこう),phương hướng/ hướng|駅はどちらの方向ですか。|Nhà ga ở hướng nào?
+# ── Bốn mùa ──
+HẠ HƯU,夏休み (なつやすみ),kỳ nghỉ hè|夏休みに国へ帰ります。|Kỳ nghỉ hè tôi sẽ về nước.
+ĐÔNG HƯU,冬休み (ふゆやすみ),kỳ nghỉ đông|冬休みはスキーに行きたいです。|Kỳ nghỉ đông tôi muốn đi trượt tuyết.
+TIẾU,咲く (さく),nở (hoa)|春になると、桜が咲きます。|Cứ đến mùa xuân là hoa anh đào nở.
+CHÍNH NGUYỆT,正月 (しょうがつ),Tết/ năm mới|正月は家族とゆっくり過ごします。|Dịp Tết tôi thong thả ở bên gia đình.
+TÌNH,晴れ (はれ),trời nắng/ trời quang|明日は晴れでしょう。|Ngày mai có lẽ trời nắng.
+KHÍ ÔN,気温 (きおん),nhiệt độ (không khí)|今日は気温が高いです。|Hôm nay nhiệt độ cao.
+,エアコン,điều hòa|暑いので、エアコンをつけましょう。|Nóng quá, bật điều hòa lên nào.
+PHIẾN PHONG CƠ,扇風機 (せんぷうき),quạt điện|扇風機の前は涼しいです。|Đứng trước quạt thì mát.
+DỤC Y,浴衣 (ゆかた),yukata (kimono mùa hè)|夏祭りに浴衣を着て行きました。|Tôi mặc yukata đi lễ hội mùa hè.
+THẤT TỊCH,七夕 (たなばた),lễ Thất tịch (7/7)|七夕に願い事を書きます。|Vào lễ Thất tịch, người ta viết điều ước.
+ĐỐNG,凍る (こおる),đóng băng|寒くて、池の水が凍りました。|Lạnh quá nên nước hồ đã đóng băng.
+PHONG TÀ,風邪 (かぜ),cảm/ cảm cúm|冬はよく風邪をひきます。|Mùa đông tôi hay bị cảm.
+,コート,áo khoác (dài)|寒いですから、コートを着てください。|Trời lạnh nên hãy mặc áo khoác.
+,セーター,áo len|母がセーターを編んでくれました。|Mẹ đã đan cho tôi chiếc áo len.

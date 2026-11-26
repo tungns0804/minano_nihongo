@@ -77,8 +77,8 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     vietnamese: 'Phương hướng & vị trí',
     description: 'Trên dưới trước sau, bốn phương, những từ chỉ chỗ hay gặp trong câu chỉ đường, và các động từ rẽ / hướng về / tiến lên của N3.',
     icon: '🧭',
-    wordCount: 47,
-    sourceCount: 19,
+    wordCount: 59,
+    sourceCount: 20,
   },
   {
     id: 'giao-thong-di-lai',
@@ -203,8 +203,8 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     vietnamese: 'Bốn mùa',
     description: 'Xuân hạ thu đông, mùa mưa 梅雨, nóng lạnh ẩm, và những việc gắn với từng mùa: ngắm hoa, pháo hoa, lá đỏ, tuyết.',
     icon: '🍂',
-    wordCount: 38,
-    sourceCount: 15,
+    wordCount: 52,
+    sourceCount: 16,
   },
   {
     id: 'tinh-tu-doi-nghia',
@@ -212,8 +212,8 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     vietnamese: 'Tính từ: cao thấp, rộng hẹp, dài ngắn',
     description: 'Các cặp tính từ trái nghĩa tả kích thước và tính chất — to/nhỏ, cao/thấp, rộng/hẹp, dài/ngắn, nặng/nhẹ — xếp từng cặp liền nhau.',
     icon: '📏',
-    wordCount: 43,
-    sourceCount: 14,
+    wordCount: 52,
+    sourceCount: 15,
   },
   {
     id: 'mau-sac',
@@ -221,7 +221,7 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     vietnamese: 'Màu sắc',
     description: 'Tên màu ở dạng danh từ (赤) và tính từ (赤い), sắc đậm nhạt, và cách nói đổi màu.',
     icon: '🎨',
-    wordCount: 19,
-    sourceCount: 8,
+    wordCount: 29,
+    sourceCount: 9,
   },
 ];
