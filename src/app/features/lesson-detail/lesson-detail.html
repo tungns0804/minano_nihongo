@@ -279,53 +279,12 @@
                     [class.is-active]="batchIndex() === item.index"
                     (click)="setBatchIndex(item.index)"
                   >
-                    @if (batchMixed()) {
-                      {{ t('lesson.batch.mixedN', { index: item.index + 1, count: item.to - item.from + 1 }) }}
-                    } @else {
-                      {{ t('lesson.batch.n', { index: item.index + 1, from: item.from, to: item.to }) }}
-                    }
+                    {{ t('lesson.batch.n', { index: item.index + 1, from: item.from, to: item.to }) }}
                   </button>
                 }
               </div>
               <span class="hint">
                 <app-t key="lesson.batch.hint" block />
-              </span>
-            </div>
-
-            <!-- Xếp từ vào cụm: theo sách thì cụm 1 lần nào cũng là 10 từ đầu bài. -->
-            <div class="field">
-              <span class="label">{{ t('lesson.batchMix') }}</span>
-              <div class="options">
-                <button
-                  type="button"
-                  class="option"
-                  [class.is-active]="batchMixed()"
-                  (click)="setBatchMixed(true)"
-                >
-                  {{ t('lesson.batchMix.mixed') }}
-                </button>
-                <button
-                  type="button"
-                  class="option"
-                  [class.is-active]="!batchMixed()"
-                  (click)="setBatchMixed(false)"
-                >
-                  {{ t('lesson.batchMix.book') }}
-                </button>
-                @if (batchMixed()) {
-                  <button type="button" class="option" (click)="reshuffleBatches()">
-                    {{ t('lesson.batchMix.reshuffle') }}
-                  </button>
-                }
-              </div>
-              <span class="hint">
-                @if (batchReshuffled() && batchMixed()) {
-                  <app-t key="lesson.batchMix.reshuffled" block />
-                } @else if (batchMixed()) {
-                  <app-t key="lesson.batchMix.mixedHint" block />
-                } @else {
-                  <app-t key="lesson.batchMix.bookHint" block />
-                }
               </span>
             </div>
           }
@@ -378,7 +337,7 @@
                 <input type="checkbox" [checked]="shuffleQuestions()" (change)="toggleShuffle($event)" />
                 <span>
                   <strong><app-t key="lesson.option.shuffle" block /></strong>
-                  <span class="hint"><app-t key="lesson.option.shuffleHint" block /></span>
+                  <span class="hint"><app-t [key]="shuffleHint().key" [params]="shuffleHint().params" block /></span>
                 </span>
               </label>
 

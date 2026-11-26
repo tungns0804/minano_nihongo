@@ -76,25 +76,8 @@ export const LESSON_MESSAGES = {
   'lesson.batch.random': { vi: 'Ngẫu nhiên cả bài', ja: 'レッスン全体からランダム' },
   'lesson.batch.n': { vi: 'Cụm {index} · {from}–{to}', ja: '第{index}組 · {from}–{to}' },
   'lesson.batch.hint': {
-    vi: 'Học lần lượt từng cụm. Xong một cụm sẽ được mời học tiếp cụm sau, cho tới khi hết bài — khác với “Ngẫu nhiên cả bài” là lần nào cũng bốc lại từ đầu.',
-    ja: '一組ずつ学習します。一組終えると次の組へ進むよう案内され、最後まで続きます。「レッスン全体からランダム」は毎回すべてから選び直します。',
-  },
-  'lesson.batch.mixedN': { vi: 'Cụm {index} · {count} câu', ja: '第{index}組 · {count}問' },
-  'lesson.batchMix': { vi: 'Xếp từ vào cụm', ja: '組の分け方' },
-  'lesson.batchMix.mixed': { vi: '🔀 Trộn lẫn', ja: '🔀 シャッフル' },
-  'lesson.batchMix.book': { vi: 'Theo thứ tự trong bài', ja: 'レッスンの順番' },
-  'lesson.batchMix.reshuffle': { vi: '↻ Trộn kiểu khác', ja: '↻ 別の並びにする' },
-  'lesson.batchMix.mixedHint': {
-    vi: 'Các từ được trộn lẫn rồi mới chia cụm, nên một cụm gồm từ ở khắp bài; mỗi lần học, thứ tự câu trong cụm lại được trộn mới. Đi hết các cụm vẫn là hết bài, không trùng từ. Học xong cụm cuối, vòng sau tự chia cụm kiểu khác — muốn đổi ngay thì bấm “Trộn kiểu khác”.',
-    ja: '単語をシャッフルしてから組に分けるので、一組にレッスン全体の単語が混ざります。毎回、組の中の出題順も新しくシャッフルされます。全組を終えればレッスン全体を重複なく学習できます。最後の組を終えると次の周は別の組分けになります。すぐ変えたいときは「別の並びにする」を押してください。',
-  },
-  'lesson.batchMix.reshuffled': {
-    vi: 'Đã trộn kiểu mới — cụm 1 bây giờ là một nhóm từ khác. Bắt đầu lại từ cụm 1.',
-    ja: '新しい並びにしました。第1組は別の単語になります。第1組からやり直しましょう。',
-  },
-  'lesson.batchMix.bookHint': {
-    vi: 'Cụm 1 luôn là những từ đầu bài, theo đúng thứ tự trong bảng.',
-    ja: '第1組は常にレッスン冒頭の単語で、表の順番どおりです。',
+    vi: 'Chia bài theo thứ tự trong bảng: cụm 1 là từ 1–10, cụm 2 là 11–20… Xong một cụm sẽ được mời học tiếp cụm sau, cho tới khi hết bài — khác với “Ngẫu nhiên cả bài” là lần nào cũng bốc lại từ đầu. Muốn hỏi lộn xộn trong cụm thì bật “Trộn thứ tự câu hỏi”.',
+    ja: '表の順番で組に分けます（第1組は1–10、第2組は11–20…）。一組終えると次の組へ進むよう案内され、最後まで続きます。「レッスン全体からランダム」は毎回すべてから選び直します。組の中で順番を混ぜるには「出題順をシャッフル」をオンにしてください。',
   },
   'lesson.options': { vi: 'Tuỳ chọn', ja: 'オプション' },
   'lesson.option.showMeaning': {
@@ -115,6 +98,18 @@ export const LESSON_MESSAGES = {
   'lesson.option.shuffleHint': {
     vi: 'Tắt đi để hỏi đúng thứ tự trong bài.',
     ja: 'オフにするとレッスンの順番どおりに出題します。',
+  },
+  'lesson.option.shuffleHint.batchOn': {
+    vi: 'Đang bật: hỏi lộn xộn các từ {from}–{to} của cụm {index}, mỗi lần học một thứ tự khác. Không lẫn sang từ của cụm khác.',
+    ja: 'オン：第{index}組（{from}–{to}）の単語だけを、毎回違う順番で出題します。他の組の単語は混ざりません。',
+  },
+  'lesson.option.shuffleHint.batchOff': {
+    vi: 'Đang tắt: hỏi lần lượt từ {from} đến {to} theo đúng thứ tự trong bài. Bật lên để hỏi lộn xộn trong cụm {index}.',
+    ja: 'オフ：{from}から{to}までレッスンの順番どおりに出題します。オンにすると第{index}組の中で順番を混ぜます。',
+  },
+  'lesson.option.shuffleHint.random': {
+    vi: '“Ngẫu nhiên cả bài” luôn bốc lộn xộn từ khắp bài, bật hay tắt đều vậy.',
+    ja: '「レッスン全体からランダム」はオン・オフにかかわらず常にランダムに出題します。',
   },
   'lesson.option.ignoreDiacritics': {
     vi: 'Bỏ qua dấu tiếng Việt khi chấm',

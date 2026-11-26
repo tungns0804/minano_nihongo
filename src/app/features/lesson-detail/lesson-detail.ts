@@ -40,7 +40,6 @@ import {
 } from '../../core/lessons/vocabulary.model';
 import { LESSON_KIND_TAB, PATH, idOfSlug, lessonPath, listPathOf, pathOf } from '../../core/paths';
 import { batchCount, batchRange } from '../../core/practice/batch';
-import { BatchMixStore } from '../../core/practice/batch-mix-store';
 import { buildQuestions, PracticePool } from '../../core/practice/build-questions';
 import { FORMS_BY_MODE } from '../../core/practice/verb-questions';
 import { PracticeScreen } from '../../core/screens/practice-screen';
@@ -76,7 +75,9 @@ const VOCABULARY_DEFAULTS = {
   questionLimit: 10,
   /** Cụm 1 (đếm từ 0). */
   batch: 0,
-  shuffle: false,
+  // Bật sẵn: học theo cụm thì các từ của cụm đang chọn (vd. từ 1–10) được hỏi lộn
+  // xộn, mỗi lần một thứ tự — chỉ trong cụm đó, không lẫn sang cụm khác.
+  shuffle: true,
   showHanViet: true,
 } as const satisfies {
   direction: PracticeDirection;
@@ -140,11 +141,6 @@ export class LessonDetail extends PracticeScreen {
    * null = không học theo cụm (trộn cả bài rồi lấy N câu, như trước giờ).
    */
   private readonly pickedBatch = signal<number | null>(null);
-  private readonly batchMix = inject(BatchMixStore);
-  /** Từ được trộn vào các cụm hay giữ thứ tự trong bài — xem `BatchMixStore`. */
-  readonly batchMixed = this.batchMix.mixed;
-  /** Vừa bấm "Trộn kiểu khác" — hiện một dòng xác nhận, vì nhìn nút cụm thì không thấy gì đổi. */
-  readonly batchReshuffled = signal(false);
   // Riêng bài từ vựng
   readonly direction = signal<PracticeDirection>('jp-vi');
   // Riêng bài động từ
@@ -406,6 +402,27 @@ export class LessonDetail extends PracticeScreen {
     }));
   });
 
+  /**
+   * Chú thích của công tắc "Trộn thứ tự câu hỏi", nói rõ nó trộn KHOẢNG NÀO với lựa
+   * chọn số câu / cụm hiện tại — một câu chung chung thì người học không biết trộn
+   * cụm 1 có lẫn sang từ của cụm 2 hay không.
+   */
+  readonly shuffleHint = computed((): { key: MessageKey; params: Record<string, number> } => {
+    const limit = this.questionLimit();
+    const batch = this.batchIndex();
+    const total = this.totalQuestionCount();
+    if (limit !== null && batch !== null) {
+      const { from, to } = batchRange(total, limit, batch);
+      return {
+        key: this.shuffleQuestions() ? 'lesson.option.shuffleHint.batchOn' : 'lesson.option.shuffleHint.batchOff',
+        params: { index: batch + 1, from, to },
+      };
+    }
+    const none: Record<string, number> = {};
+    if (limit !== null) return { key: 'lesson.option.shuffleHint.random', params: none };
+    return { key: 'lesson.option.shuffleHint', params: none };
+  });
+
   /** Số câu sẽ luyện của phiên sắp bắt đầu. */
   readonly plannedQuestionCount = computed(() => {
     const total = this.totalQuestionCount();
@@ -553,7 +570,6 @@ export class LessonDetail extends PracticeScreen {
     this.scope.set('all');
     this.questionLimit.set(null);
     this.pickedBatch.set(null);
-    this.batchReshuffled.set(false);
     this.direction.set('jp-vi');
     this.answerMode.set('choice');
     this.shuffleQuestions.set(true);
@@ -635,26 +651,6 @@ export class LessonDetail extends PracticeScreen {
 
   setBatchIndex(index: number | null): void {
     this.pickedBatch.set(index);
-  }
-
-  setBatchMixed(mixed: boolean): void {
-    // Bấm lại "Trộn lẫn" khi nó đang được chọn thì người học muốn trộn LẠI —
-    // trước đây cú bấm đó không làm gì và trông như nút hỏng.
-    if (mixed && this.batchMix.mixed()) {
-      this.reshuffleBatches();
-      return;
-    }
-    this.batchMix.setMixed(mixed);
-    this.batchReshuffled.set(false);
-  }
-
-  /** Bắt đầu một vòng trộn mới: các từ rơi vào cụm khác, nên quay về cụm 1. */
-  reshuffleBatches(): void {
-    const lesson = this.lesson();
-    if (!lesson) return;
-    this.batchMix.reshuffle(lesson.id);
-    this.pickedBatch.set(0);
-    this.batchReshuffled.set(true);
   }
 
   setVerbMode(mode: VerbPracticeMode): void {
@@ -755,9 +751,10 @@ export class LessonDetail extends PracticeScreen {
       answerMode: this.answerModeLocked() ? 'typing' : this.answerMode(),
       questionLimit: this.questionLimit(),
       batchIndex: this.batchIndex(),
-      batchSeed:
-        this.batchIndex() !== null && this.batchMix.mixed() ? this.batchMix.seedOf(lesson.id) : null,
-      shuffle: this.shuffleQuestions(),
+      // "Ngẫu nhiên cả bài" đúng như tên: luôn bốc ngẫu nhiên. Tắt trộn ở đó mà vẫn
+      // cắt N câu thì lần nào cũng ra đúng N từ đầu bài theo thứ tự.
+      shuffle:
+        this.shuffleQuestions() || (this.questionLimit() !== null && this.batchIndex() === null),
       ignoreDiacritics: this.ignoreDiacritics(),
       direction: this.direction(),
       showHanViet: this.showHint() && this.hanVietHintAvailable(),

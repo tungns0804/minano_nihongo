@@ -8,19 +8,6 @@
  * sang từ mới, và đi hết các cụm là đi hết bài.
  */
 
-import type { PracticeConfig } from './practice.model';
-
-/**
- * Có trộn thứ tự câu BÊN TRONG cụm không.
- *
- * Cụm đã trộn lẫn (`batchSeed`) thì luôn trộn: thành phần cụm phải cố định suốt một
- * vòng để các cụm không trùng từ, nên nếu thứ tự trong cụm cũng cố định thì học lại
- * cụm 1 bao nhiêu lần cũng gặp y hệt một dãy — đúng điều chế độ trộn muốn tránh.
- */
-export function shufflesInsideBatch(config: Pick<PracticeConfig, 'shuffle' | 'batchSeed'>): boolean {
-  return config.shuffle || typeof config.batchSeed === 'number';
-}
-
 /**
  * Số cụm của một danh sách.
  *

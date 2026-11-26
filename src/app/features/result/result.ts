@@ -126,10 +126,6 @@ export class Result {
     const config = this.summary()?.config;
     if (index === null || !config || config.questionLimit === null) return '';
 
-    // Cụm đã trộn thì "21–30" là vị trí trong thứ tự trộn, không phải trong bảng từ — bỏ đi.
-    if (typeof config.batchSeed === 'number') {
-      return this.lang.t('result.nextBatchMixed', { index: index + 1 });
-    }
     const { from, to } = batchRange(this.session.plan().length, config.questionLimit, index);
     return this.lang.t('result.nextBatch', { index: index + 1, from, to });
   });
@@ -137,11 +133,6 @@ export class Result {
   /** Cụm vừa xong là cụm cuối — hết bài, không mời học tiếp nữa. */
   readonly batchFinished = computed(
     () => this.isBatchSession() && this.session.nextBatchIndex() === null,
-  );
-
-  /** Các cụm của phiên này đã được trộn lẫn (vòng sau sẽ tự trộn kiểu khác). */
-  readonly batchWasMixed = computed(
-    () => typeof this.summary()?.config.batchSeed === 'number',
   );
 
   /** Tổng số câu của cả bài, để nói "bạn đã đi hết N câu". */

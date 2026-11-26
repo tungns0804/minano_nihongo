@@ -6,9 +6,9 @@ import {
   VerbEntry,
   VocabularyWord,
 } from '../lessons/vocabulary.model';
-import { seededShuffle, shuffle } from '../utils/random';
+import { shuffle } from '../utils/random';
 import type { TranslationLineRef } from '../translation/translation.model';
-import { shufflesInsideBatch, sliceBatch } from './batch';
+import { sliceBatch } from './batch';
 import { buildConversationQuestions } from './conversation-questions';
 import { buildGrammarQuestions } from './grammar-questions';
 import { buildTranslationQuestions } from './translation-questions';
@@ -30,8 +30,7 @@ export type PracticePool =
  * Một phiên đã dựng xong.
  *
  * Phiên chỉ chạy `questions` (đã trộn, đã cắt), nhưng vẫn phải giữ `all` —
- * TOÀN BỘ câu hỏi của phạm vi đang chọn, theo đúng thứ tự đã dùng để cắt cụm
- * (thứ tự trong bài, hoặc thứ tự trộn theo `batchSeed`) — thì mới cắt
+ * TOÀN BỘ câu hỏi của phạm vi đang chọn, nguyên thứ tự trong bài — thì mới cắt
  * được cụm kế tiếp lúc người học xong cụm này. Dựng lại từ đầu ở màn hình kết
  * quả thì không được: màn hình đó không còn giữ bài học lẫn tập mục nào cả.
  */
@@ -92,22 +91,18 @@ export function orderQuestions(
   questions: readonly PracticeQuestion[],
   config: PracticeConfig,
 ): PracticePlan {
+  const all = [...questions];
   const limit = config.questionLimit;
   const hasLimit = limit !== null && limit > 0;
 
-  // Học theo cụm: cắt theo một thứ tự CỐ ĐỊNH trước rồi mới trộn bên trong cụm.
-  // Trộn ngẫu nhiên cả bài rồi cắt (như phiên thường ngay bên dưới) thì cụm 2 lại
-  // gặp đúng những từ của cụm 1 — hỏng hẳn ý "học tiếp 10 từ mới". Thứ tự cố định
-  // đó là thứ tự trong bài, hoặc một cách trộn lặp lại được theo `batchSeed`.
+  // Học theo cụm: cắt theo thứ tự gốc TRƯỚC rồi mới trộn bên trong cụm. Làm
+  // ngược lại (trộn cả bài rồi cắt, như phiên thường ngay bên dưới) thì cụm 2
+  // lại gặp đúng những từ của cụm 1 — hỏng hẳn ý "học tiếp 10 từ mới".
   if (hasLimit && config.batchIndex !== null) {
-    // `typeof` chứ không `=== null`: thiết lập lưu từ bản cũ không có trường này.
-    const seed = config.batchSeed;
-    const all = typeof seed === 'number' ? seededShuffle(questions, seed) : [...questions];
     const batch = sliceBatch(all, limit, config.batchIndex);
-    return { questions: shufflesInsideBatch(config) ? shuffle(batch) : batch, all };
+    return { questions: config.shuffle ? shuffle(batch) : batch, all };
   }
 
-  const all = [...questions];
   const ordered = config.shuffle ? shuffle(all) : [...all];
   return { questions: hasLimit ? ordered.slice(0, limit) : ordered, all };
 }
