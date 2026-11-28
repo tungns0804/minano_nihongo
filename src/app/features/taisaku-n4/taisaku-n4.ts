@@ -333,7 +333,7 @@ export class TaisakuN4 extends PracticeScreen {
       const first = this.setNumbers().find((no) => this.setCount(no) > 0);
       this.writeSets(usable.length > 0 ? usable : first !== undefined ? [first] : []);
     }
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
     this.save();
   }

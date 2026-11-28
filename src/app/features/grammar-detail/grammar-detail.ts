@@ -150,7 +150,7 @@ export class GrammarDetail extends PracticeScreen {
     this.lesson.set(null);
     this.selectedPointIds.set([]);
     this.scope.set('all');
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Sự kiện thiết lập ---
@@ -174,7 +174,7 @@ export class GrammarDetail extends PracticeScreen {
         : // Giữ đúng thứ tự trong bài thay vì thứ tự bấm, để dòng tóm tắt đọc xuôi.
           this.points().map((p) => p.id).filter((id) => current.includes(id) || id === pointId),
     );
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   /** Số câu ví dụ của một mẫu, hiện ngay trên nút chọn mẫu. */

@@ -85,8 +85,14 @@ Lớp cha đã có sẵn, **không khai lại**:
 | `search` `onlyFavorites` `onSearch` `clearSearch` `toggleOnlyFavorites` | ô tìm + lọc ★ của bảng |
 | `favoriteIds` `isFavorite` `toggleFavorite` `clearFavorites` `favoritesOf` | khối ★ |
 | `fixScope()` | gọi sau khi đổi cấp/nhóm/bài, vì phạm vi ★ có thể vừa rỗng đi |
+| `resetQuestionLimit()` | gọi khi đổi dạng bài/nhóm làm số câu cũ hết nghĩa — quay về mặc định 10 câu |
 | `launch(lesson, config, plan)` | ba dòng cuối của `start()` |
 | `t` `lang` `maxWrongAttempts` | dịch và hằng số |
+
+Lớp con **phải** khai `limitChoices` (các mốc số câu nhỏ hơn số mục đang hỏi).
+`questionLimit()` được tính từ đó: mốc mặc định 10 mà màn hình không có nút "10 câu"
+thì tự thành "Tất cả". Vì vậy không `set` thẳng `questionLimit` — dùng
+`setQuestionLimit` hoặc `resetQuestionLimit`.
 
 Cần khác một chút thì **override**, đừng khai lại từ đầu:
 

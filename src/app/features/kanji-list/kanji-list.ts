@@ -148,7 +148,7 @@ export class KanjiList extends PracticeScreen {
 
   setLevel(level: KanjiLevel): void {
     this.level.set(level);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     // Cấp mới có thể chưa đánh dấu ★ chữ nào.
     this.fixScope();
   }
@@ -157,7 +157,7 @@ export class KanjiList extends PracticeScreen {
     this.mode.set(mode);
     // Đổi chiều hỏi là đổi số chữ hỏi được (chiều viết bỏ chữ thiếu nét), nên con
     // số câu vừa chọn không còn nghĩa.
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Bắt đầu ---

@@ -181,13 +181,13 @@ export class CounterExercise extends PracticeScreen {
     const next = current.includes(id) ? current.filter((item) => item !== id) : [...current, id];
     // Giữ thứ tự gốc để nút không nhảy chỗ theo thứ tự bấm.
     this.selectedGroups.set(COUNTER_GROUPS.map((group) => group.id).filter((g) => next.includes(g)));
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
   }
 
   selectAllGroups(): void {
     this.selectedGroups.set(COUNTER_GROUPS.map((group) => group.id));
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   setMode(mode: ExerciseMode): void {

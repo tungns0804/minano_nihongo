@@ -291,7 +291,7 @@ export class ExerciseDetail extends PracticeScreen {
     this.selectedForms.set(['te']);
     this.tableGroupId.set('basic');
     this.scope.set('all');
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.search.set('');
     this.onlyFavorites.set(false);
   }
@@ -312,13 +312,13 @@ export class ExerciseDetail extends PracticeScreen {
       : [...current, level];
     // Giữ đúng thứ tự N5 → N2 để nút không nhảy chỗ theo thứ tự bấm.
     this.levels.set(EXERCISE_LEVELS.filter((item) => next.includes(item)));
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
   }
 
   setMode(mode: ExerciseMode): void {
     this.mode.set(mode);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   isFormSelected(form: VerbForm): boolean {
@@ -359,7 +359,7 @@ export class ExerciseDetail extends PracticeScreen {
   /** Giữ thứ tự của khung chọn để dòng tóm tắt không đảo theo thứ tự bấm. */
   private setForms(forms: readonly VerbForm[]): void {
     this.selectedForms.set(EXERCISE_FORMS.filter((form) => forms.includes(form)));
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   setTableGroup(id: VerbFormGroupId): void {

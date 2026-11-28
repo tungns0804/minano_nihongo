@@ -198,7 +198,7 @@ export class RadicalDetail extends PracticeScreen {
     this.levels.set([...KANJI_LEVELS]);
     this.mode.set('kanji-hanviet');
     this.scope.set('all');
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.search.set('');
     this.onlyFavorites.set(false);
   }
@@ -218,13 +218,13 @@ export class RadicalDetail extends PracticeScreen {
       ? current.filter((item) => item !== level)
       : [...current, level];
     this.levels.set(KANJI_LEVELS.filter((item) => next.includes(item)));
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
   }
 
   setMode(mode: RadicalMode): void {
     this.mode.set(mode);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Bắt đầu ---

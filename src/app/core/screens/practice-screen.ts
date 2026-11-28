@@ -6,6 +6,7 @@ import type { MessageKey } from '../i18n/messages';
 import { PATH, itemPath, pathOf } from '../paths';
 import {
   DEFAULT_MAX_WRONG_ATTEMPTS,
+  DEFAULT_QUESTION_LIMIT,
   PracticeConfig,
   PracticeScope,
 } from '../practice/practice.model';
@@ -72,7 +73,27 @@ export abstract class PracticeScreen {
   // ── Thiết lập luyện tập ─────────────────────────────────────────────────
 
   readonly scope = signal<PracticeScope>('all');
-  readonly questionLimit = signal<number | null>(null);
+
+  /**
+   * Các nút số câu của màn hình — chỉ những mốc NHỎ HƠN số mục đang hỏi. Lớp con tự
+   * khai vì "số mục đang hỏi" mỗi nơi tính một kiểu.
+   */
+  abstract readonly limitChoices: Signal<readonly number[]>;
+
+  /** Số câu người học muốn (hoặc mặc định), chưa xét màn hình có nút đó không. */
+  private readonly requestedLimit = signal<number | null>(DEFAULT_QUESTION_LIMIT);
+
+  /**
+   * Số câu thật của phiên; null = "Tất cả".
+   *
+   * Tính ra chứ không lưu: mốc muốn dùng mà không còn nút (bài chỉ có 8 mục, hay
+   * vừa thu phạm vi xuống còn ★) thì thành "Tất cả" — đúng cái nút đang sáng —
+   * thay vì một con số không nút nào hiện. Nới phạm vi ra lại thì mốc cũ tự quay về.
+   */
+  readonly questionLimit = computed<number | null>(() => {
+    const limit = this.requestedLimit();
+    return limit !== null && this.limitChoices().includes(limit) ? limit : null;
+  });
   readonly shuffleQuestions = signal(true);
   readonly ignoreDiacritics = signal(false);
   /**
@@ -140,11 +161,16 @@ export abstract class PracticeScreen {
   /** Đổi phạm vi là đổi số mục đem ra hỏi, nên con số câu cũ không còn nghĩa. */
   setScope(scope: PracticeScope): void {
     this.scope.set(scope);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   setQuestionLimit(limit: number | null): void {
-    this.questionLimit.set(limit);
+    this.requestedLimit.set(limit);
+  }
+
+  /** Quay về số câu mặc định — gọi khi đổi dạng bài / nhóm làm số câu cũ hết nghĩa. */
+  protected resetQuestionLimit(): void {
+    this.requestedLimit.set(DEFAULT_QUESTION_LIMIT);
   }
 
   toggleShuffle(event: Event): void {

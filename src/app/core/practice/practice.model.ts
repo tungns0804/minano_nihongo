@@ -249,6 +249,14 @@ export const CHOICE_COUNT = 4;
 export const LIMIT_CHOICES = [10, 20, 30, 50] as const;
 export const LIMIT_CHOICES_LONG = [10, 20, 30, 50, 100] as const;
 
+/**
+ * Số câu mỗi khung thiết lập chọn sẵn khi mở ra — người học yêu cầu ngày 2026-11-28
+ * cho mọi loại bài: phiên ngắn 10 câu thì làm được nhiều lượt trong ngày. Phạm vi
+ * không quá 10 mục thì không có nút "10 câu" và tự thành "Tất cả" (xem
+ * `PracticeScreen.questionLimit`).
+ */
+export const DEFAULT_QUESTION_LIMIT = 10;
+
 export interface PracticeConfig {
   lessonId: string;
   lessonKind: LessonKind;

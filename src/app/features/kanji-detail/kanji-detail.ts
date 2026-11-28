@@ -367,7 +367,7 @@ export class KanjiDetail extends PracticeScreen {
     this.levels.set([...KANJI_LEVELS]);
     this.mode.set('word-meaning');
     this.scope.set('all');
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.search.set('');
     this.onlyFavorites.set(false);
   }
@@ -387,13 +387,13 @@ export class KanjiDetail extends PracticeScreen {
       ? current.filter((item) => item !== level)
       : [...current, level];
     this.levels.set(KANJI_LEVELS.filter((item) => next.includes(item)));
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
   }
 
   setMode(mode: KanjiMode): void {
     this.mode.set(mode);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Bắt đầu ---

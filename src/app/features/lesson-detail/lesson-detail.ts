@@ -60,33 +60,19 @@ import type { LessonKanji } from '../../core/kanji/onkun.model';
 import { KanjiStudy, StudyTarget } from '../../shared/kanji-study';
 
 /**
- * Thiết lập mà bài TỪ VỰNG có sẵn khi mở ra — đúng bộ người học chụp gửi ngày
- * 2026-11-07 và yêu cầu làm mặc định: nhìn chữ Hán gõ ra cách đọc, mỗi phiên 10 từ
- * theo đúng thứ tự trong bài (bắt đầu từ cụm 1), có âm Hán Việt làm mốc nhớ.
+ * Chiều luyện mà bài TỪ VỰNG (kể cả bài chủ đề) có sẵn khi mở ra: nhìn chữ Hán gõ ra
+ * cách đọc. Bài động từ và hội thoại không có chiều "cách đọc" nên giữ `jp-vi`.
  *
- * Chỉ áp cho bài từ vựng (kể cả bài chủ đề). Bài động từ và hội thoại giữ mặc định
- * cũ — chúng không có chiều "cách đọc", và bài hội thoại còn khoá luôn cách trả lời.
+ * Các thiết lập còn lại (10 câu, ngẫu nhiên cả bài, gõ đáp án, trộn câu, hiện âm Hán
+ * Việt) là mặc định chung của mọi loại bài — xem `resetView`.
  */
 const VOCABULARY_DEFAULTS = {
   direction: 'jp-kana',
   /** Bài không có cách đọc thì không có chiều jp-kana — lùi về chiều này. */
   fallbackDirection: 'jp-vi',
-  answerMode: 'typing',
-  questionLimit: 10,
-  /** Cụm 1 (đếm từ 0). */
-  batch: 0,
-  // Bật sẵn: học theo cụm thì các từ của cụm đang chọn (vd. từ 1–10) được hỏi lộn
-  // xộn, mỗi lần một thứ tự — chỉ trong cụm đó, không lẫn sang cụm khác.
-  shuffle: true,
-  showHanViet: true,
 } as const satisfies {
   direction: PracticeDirection;
   fallbackDirection: PracticeDirection;
-  answerMode: AnswerMode;
-  questionLimit: number;
-  batch: number;
-  shuffle: boolean;
-  showHanViet: boolean;
 };
 
 /** Hai tab của bài có khối chữ Hán. */
@@ -568,10 +554,12 @@ export class LessonDetail extends PracticeScreen {
     this.search.set('');
     this.onlyFavorites.set(false);
     this.scope.set('all');
-    this.questionLimit.set(null);
+    // Mặc định chung của mọi loại bài (người học chụp gửi ngày 2026-11-28): 10 câu,
+    // bốc ngẫu nhiên cả bài, gõ đáp án, trộn thứ tự câu hỏi.
+    this.resetQuestionLimit();
     this.pickedBatch.set(null);
     this.direction.set('jp-vi');
-    this.answerMode.set('choice');
+    this.answerMode.set('typing');
     this.shuffleQuestions.set(true);
     // Mặc định HIỆN âm Hán Việt: nó là mốc nhớ chính của người học tiếng Việt, và ở
     // chiều hỏi nào lộ đáp án thì `hanVietHintAvailable` tự tắt.
@@ -581,8 +569,8 @@ export class LessonDetail extends PracticeScreen {
   }
 
   /**
-   * Đặt `VOCABULARY_DEFAULTS` cho bài vừa nạp. Phải chạy SAU khi `lesson` đã có: chiều
-   * luyện dùng được hay không tuỳ bài có cách đọc không, và mốc "10 câu" tuỳ số từ.
+   * Đặt chiều luyện mặc định cho bài từ vựng vừa nạp. Phải chạy SAU khi `lesson` đã
+   * có: chiều luyện dùng được hay không tuỳ bài có cách đọc không.
    */
   private applyVocabularyDefaults(): void {
     const defaults = VOCABULARY_DEFAULTS;
@@ -591,14 +579,6 @@ export class LessonDetail extends PracticeScreen {
         ? defaults.direction
         : defaults.fallbackDirection,
     );
-    this.answerMode.set(defaults.answerMode);
-    this.shuffleQuestions.set(defaults.shuffle);
-    this.showHint.set(defaults.showHanViet);
-    // Bài ngắn hơn 10 câu không có nút "10 câu" (xem `limitChoices`), nên giữ "Tất cả".
-    if (defaults.questionLimit < this.totalQuestionCount()) {
-      this.questionLimit.set(defaults.questionLimit);
-      this.pickedBatch.set(defaults.batch);
-    }
   }
 
   private filterLines(): ConversationLine[] {
@@ -655,7 +635,7 @@ export class LessonDetail extends PracticeScreen {
 
   setVerbMode(mode: VerbPracticeMode): void {
     this.verbMode.set(mode);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
 
     // Giữ lại các thể vẫn hợp lệ ở dạng mới; hết sạch thì quay về mặc định.
     const allowed = FORMS_BY_MODE[mode];
@@ -675,7 +655,7 @@ export class LessonDetail extends PracticeScreen {
     this.selectedForms.set(
       current.includes(form) ? current.filter((f) => f !== form) : [...current, form],
     );
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Phát âm ---

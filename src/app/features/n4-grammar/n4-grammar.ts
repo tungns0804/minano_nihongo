@@ -430,7 +430,7 @@ export class N4Grammar extends PracticeScreen {
 
   setMode(mode: ExerciseMode): void {
     this.mode.set(mode);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     // Đổi dạng là đổi đơn vị đếm ★ (câu ↔ mẫu), phạm vi ★ có thể vừa rỗng đi.
     this.fixScope();
   }
@@ -471,7 +471,7 @@ export class N4Grammar extends PracticeScreen {
 
   private selectSections(next: ReadonlySet<string>): void {
     this.selectedIds.set(next);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
   }
 

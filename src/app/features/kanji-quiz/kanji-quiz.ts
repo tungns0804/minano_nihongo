@@ -203,7 +203,7 @@ export class KanjiQuiz extends PracticeScreen {
   }
 
   private afterSelectionChange(): void {
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.fixScope();
     this.save();
   }

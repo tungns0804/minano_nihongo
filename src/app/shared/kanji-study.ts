@@ -28,9 +28,6 @@ import { checkedOf } from '../core/utils/dom-events';
 import { PracticeSetup } from './practice-setup';
 import { StarButton } from './star-button';
 
-/** Mặc định: mỗi phiên 20 câu, đi theo cụm đúng thứ tự chữ. */
-const DEFAULT_LIMIT = 20;
-
 const SOUND_KEY: Record<ExampleSound, MessageKey> = {
   on: 'onkun.sound.on',
   kun: 'onkun.sound.kun',
@@ -74,9 +71,10 @@ export class KanjiStudy extends PracticeScreen {
 
   readonly modes = ON_KUN_MODES;
   readonly mode = signal<OnKunMode>('onkun-all');
-  readonly answerMode = signal<AnswerMode>('choice');
+  // Mặc định chung của mọi loại bài: gõ đáp án, 10 câu bốc ngẫu nhiên cả bài.
+  readonly answerMode = signal<AnswerMode>('typing');
   /** Cụm đang chọn, chưa kiểm tra còn hợp lệ — đọc qua `batchIndex` (như ở bảng từ). */
-  private readonly pickedBatch = signal<number | null>(0);
+  private readonly pickedBatch = signal<number | null>(null);
 
   /** Che âm đọc trên thẻ để tự kiểm tra; `revealed` là các thẻ đã bấm mở. */
   readonly masked = signal(false);
@@ -156,7 +154,6 @@ export class KanjiStudy extends PracticeScreen {
     super();
     // Âm Hán Việt là mốc nhớ chính của người học tiếng Việt — bật sẵn như ở bảng từ.
     this.showHint.set(true);
-    this.questionLimit.set(DEFAULT_LIMIT);
   }
 
   // ── Thẻ chữ ─────────────────────────────────────────────────────────────

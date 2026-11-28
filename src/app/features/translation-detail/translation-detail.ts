@@ -168,7 +168,7 @@ export class TranslationDetail extends PracticeScreen {
     this.lesson.set(null);
     this.selectedSetIds.set([]);
     this.scope.set('all');
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Hiển thị ---
@@ -207,7 +207,7 @@ export class TranslationDetail extends PracticeScreen {
         : // Giữ thứ tự trong bài thay vì thứ tự bấm.
           this.sets().map((set) => set.id).filter((id) => current.includes(id) || id === setId),
     );
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   // --- Bắt đầu ---
@@ -216,7 +216,7 @@ export class TranslationDetail extends PracticeScreen {
   practiceSet(setId: string): void {
     this.selectedSetIds.set([setId]);
     this.scope.set('all');
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     this.start();
   }
 

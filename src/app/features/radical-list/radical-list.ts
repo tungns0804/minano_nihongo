@@ -162,7 +162,7 @@ export class RadicalList extends PracticeScreen {
 
   setGroup(group: StrokeGroup): void {
     this.group.set(group);
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
     // Nhóm nét mới có thể chưa đánh dấu ★ bộ nào.
     this.fixScope();
   }
@@ -171,7 +171,7 @@ export class RadicalList extends PracticeScreen {
     this.mode.set(mode);
     // Đổi chiều hỏi là đổi số bộ hỏi được (chiều viết bỏ bộ thiếu nét), nên con số
     // câu vừa chọn không còn nghĩa.
-    this.questionLimit.set(null);
+    this.resetQuestionLimit();
   }
 
   /**
