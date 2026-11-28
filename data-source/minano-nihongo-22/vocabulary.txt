@@ -1,14 +1,14 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 28-29 (các dòng đánh số bài 22).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-TRƯỚC,シャツを着ます (シャツをきます),Mặc áo sơ mi
-NGOA,靴をはきます (くつをはきます),mang giầy
-MẠO TỬ,帽子をかぶります (ぼうしをかぶります),Đội mũ
-NHÃN KÍNH,眼鏡をかけます (めがねをかけます),Đeo kính
+TRƯỚC,シャツを着ます (シャツをきます),Mặc áo sơ mi|白いシャツを着ている人が田中さんです。|Người đang mặc áo sơ mi trắng là anh Tanaka.
+NGOA,靴をはきます (くつをはきます),mang giầy|玄関で靴をはきます。|Tôi đi giày ở lối vào.
+MẠO TỬ,帽子をかぶります (ぼうしをかぶります),Đội mũ|帽子をかぶっている人はだれですか。|Người đang đội mũ là ai vậy?
+NHÃN KÍNH,眼鏡をかけます (めがねをかけます),Đeo kính|眼鏡をかけている人が先生です。|Người đang đeo kính là thầy giáo.
 SINH,生まれます (うまれます),Sinh ra
-MẠO TỬ,帽子 (ぼうし),Mũ
-NHÃN KÍNH,眼鏡 (めがね),Kính
-GIA NHẦM,家賃 (やちん),Tiền thuê nhà
-HÒA THẤT,和室 (わしつ),Phòng kiểu Nhật
-ÁP NHẬP,押入れ (おしいれ),Chỗ để chăn gối
-BỐ ĐOÀN,布団 (ふとん),Chăn, đệm
+MẠO TỬ,帽子 (ぼうし),Mũ|これは父にもらった帽子です。|Đây là cái mũ bố tặng tôi.
+NHÃN KÍNH,眼鏡 (めがね),Kính|新しい眼鏡を買いました。|Tôi đã mua kính mới.
+GIA NHẦM,家賃 (やちん),Tiền thuê nhà|このアパートは家賃が安いです。|Căn hộ này tiền thuê nhà rẻ.
+HÒA THẤT,和室 (わしつ),Phòng kiểu Nhật|この旅館には和室があります。|Lữ quán này có phòng kiểu Nhật.
+ÁP NHẬP,押入れ (おしいれ),Chỗ để chăn gối|布団を押入れに入れます。|Tôi cất chăn đệm vào tủ âm tường.
+BỐ ĐOÀN,布団 (ふとん),Chăn, đệm|和室で布団を敷いて寝ます。|Tôi trải đệm ngủ ở phòng kiểu Nhật.

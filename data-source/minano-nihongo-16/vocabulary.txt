@@ -1,38 +1,38 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 22-23 (các dòng đánh số bài 16).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-ĐIỆN XA THỪA,電車に乗ります (でんしゃにのります),Lên tàu/ đi tàu
-ĐIỆN XA GIÁNG/HÀNG,電車を降ります (でんしゃをおります),Xuống tàu
-THỪA HOÁN,乗り換えます (のりかえます),Chuyển, đổi (tàu)
+ĐIỆN XA THỪA,電車に乗ります (でんしゃにのります),Lên tàu/ đi tàu|駅で電車に乗ります。|Tôi lên tàu ở nhà ga.
+ĐIỆN XA GIÁNG/HÀNG,電車を降ります (でんしゃをおります),Xuống tàu|京都で電車を降ります。|Tôi xuống tàu ở Kyoto.
+THỪA HOÁN,乗り換えます (のりかえます),Chuyển, đổi (tàu)|新宿で電車を乗り換えます。|Tôi đổi tàu ở Shinjuku.
 DỤC,浴びます (あびます),Tắm vòi hoa sen
-NHẬP,入れます (いれます),Cho vào, bỏ vào
-XUẤT,出します (だします),Lấy ra, rút (tiền)
+NHẬP,入れます (いれます),Cho vào, bỏ vào|カードを入れてください。|Hãy cho thẻ vào.
+XUẤT,出します (だします),Lấy ra, rút (tiền)|銀行でお金を出します。|Tôi rút tiền ở ngân hàng.
 ĐẠI HỌC NHẬP,大学に入ります (だいがくにはいります),Vào đại học/ nhập học đại học
 ĐẠI HỌC XUẤT,大学を出ます (だいがくをでます),Ra trường/ tốt nghiệp đại học
-HỘI XÃ,会社をやめます (かいしゃをやめます),Thôi việc/ bỏ việc (ở công ty)
+HỘI XÃ,会社をやめます (かいしゃをやめます),Thôi việc/ bỏ việc (ở công ty)|来月、会社をやめます。|Tháng sau tôi sẽ thôi việc ở công ty.
 ÁP,押します (おします),Bấm, ấn (nút)
-NHƯỢC,若い (わかい),Trẻ
-TRƯỜNG,長い (ながい),Dài
-ĐOẢN,短い (みじかい),Ngắn
-MINH,明るい (あかるい),Sáng
-ÁM,暗い (くらい),Tối
-BỐI CAO,背が高い (せがたかい),Cao
+NHƯỢC,若い (わかい),Trẻ|母は若く見えます。|Mẹ tôi trông trẻ.
+TRƯỜNG,長い (ながい),Dài|この川は長いです。|Con sông này dài.
+ĐOẢN,短い (みじかい),Ngắn|夏休みは短いです。|Kỳ nghỉ hè ngắn.
+MINH,明るい (あかるい),Sáng|この部屋は明るいです。|Căn phòng này sáng sủa.
+ÁM,暗い (くらい),Tối|夜の公園は暗いです。|Công viên ban đêm tối.
+BỐI CAO,背が高い (せがたかい),Cao|兄は背が高いです。|Anh trai tôi cao.
 ĐẦU,頭がいい (あたまがいい),Thông minh
-THỂ,体 (からだ),Người, cơ thể
-ĐẦU,頭 (あたま),Đầu
-PHÁT,髪 (かみ),Tóc
-NHAN,顔 (かお),Mặt
-MỤC,目 (め),Mắt
-NHĨ,耳 (みみ),Tai
-KHẨU,口 (くち),Miệng
-XỈ,歯 (は),Răng
-TÚC,足 (あし),Chân
-LỤC,緑 (みどり),Màu xanh lá cây
-TỰ,お寺 (おてら),Chùa
-THẦN XÃ,神社 (じんじゃ),Đền thờ đạo thần
-LƯU HỌC SINH,留学生 (りゅうがくせい),du học sinh
+THỂ,体 (からだ),Người, cơ thể|体に気をつけてください。|Hãy giữ gìn sức khỏe.
+ĐẦU,頭 (あたま),Đầu|頭が痛いです。|Tôi đau đầu.
+PHÁT,髪 (かみ),Tóc|妹は髪が長いです。|Em gái tôi tóc dài.
+NHAN,顔 (かお),Mặt|朝、顔を洗います。|Buổi sáng tôi rửa mặt.
+MỤC,目 (め),Mắt|マリアさんは目が大きいです。|Chị Maria có đôi mắt to.
+NHĨ,耳 (みみ),Tai|ウサギは耳が長いです。|Con thỏ có đôi tai dài.
+KHẨU,口 (くち),Miệng|口を大きく開けてください。|Hãy há miệng thật to.
+XỈ,歯 (は),Răng|歯が白いです。|Răng trắng.
+TÚC,足 (あし),Chân|たくさん歩いて、足が痛いです。|Đi bộ nhiều nên tôi đau chân.
+LỤC,緑 (みどり),Màu xanh lá cây|この町は緑が多いです。|Thị trấn này nhiều cây xanh.
+TỰ,お寺 (おてら),Chùa|京都には古いお寺がたくさんあります。|Ở Kyoto có rất nhiều ngôi chùa cổ.
+THẦN XÃ,神社 (じんじゃ),Đền thờ đạo thần|お正月に神社へ行きます。|Ngày Tết tôi đi đền thờ.
+LƯU HỌC SINH,留学生 (りゅうがくせい),du học sinh|このクラスには留学生が多いです。|Lớp này có nhiều du học sinh.
 DẪN XUẤT,お引き出しですか (おひきだしですか),Anh/ chị rút tiền ạ?
-ÁM CHỨNG PHIÊN HIỆU,暗証番号 (あんしょうばんごう),Mật khẩu
-THỨ,次に (つぎに),Tiếp theo
-KIM NGẠCH,金額 (きんがく),Số tiền, khoản tiền
+ÁM CHỨNG PHIÊN HIỆU,暗証番号 (あんしょうばんごう),Mật khẩu|暗証番号を押してください。|Hãy bấm mật khẩu.
+THỨ,次に (つぎに),Tiếp theo|次に暗証番号を押します。|Tiếp theo bấm mật khẩu.
+KIM NGẠCH,金額 (きんがく),Số tiền, khoản tiền|金額を確認してください。|Hãy kiểm tra số tiền.
 XÁC NHẬN,確認 (かくにん),Sự xác nhận, sự kiểm tra

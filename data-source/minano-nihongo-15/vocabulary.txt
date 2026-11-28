@@ -7,19 +7,19 @@ SỬ/ SỨ,使います (つかいます),Dùng, sử dụng
 TRÍ,置きます (おきます),Đặt, để
 TÁC,作ります (つくります),Làm, chế tạo, sản xuất
 TẠO,造ります (つくります),Chế tạo, sản xuất
-MẠI,売ります (うります),Bán
+MẠI,売ります (うります),Bán|この店はパンを売っています。|Cửa hàng này bán bánh mì.
 TRI,知ります (しります),Biết
 TRÚ/ TRỤ,住みます (すみます),Sống, ở
-NGHIÊN CỨU,研究します (けんきゅうします),Nghiên cứu
+NGHIÊN CỨU,研究します (けんきゅうします),Nghiên cứu|大学で経済を研究しています。|Tôi đang nghiên cứu kinh tế ở đại học.
 TRI,知っています (しっています),Biết
-TƯ LIỆU,資料 (しりょう),Tài liệu, tư liệu
-PHỤC,服 (ふく),Quần áo
-CHẾ PHẨM,製品 (せいひん),Sản phẩm
-CHUYÊN MÔN,専門 (せんもん),Chuyên môn
-XỈ Y GIẢ,歯医者 (はいしゃ),Nha sĩ
+TƯ LIỆU,資料 (しりょう),Tài liệu, tư liệu|会議の資料をコピーしてください。|Hãy photo tài liệu cuộc họp.
+PHỤC,服 (ふく),Quần áo|新しい服を買いました。|Tôi đã mua quần áo mới.
+CHẾ PHẨM,製品 (せいひん),Sản phẩm|この会社の製品は人気があります。|Sản phẩm của công ty này được ưa chuộng.
+CHUYÊN MÔN,専門 (せんもん),Chuyên môn|大学の専門は何ですか。|Chuyên ngành đại học của bạn là gì?
+XỈ Y GIẢ,歯医者 (はいしゃ),Nha sĩ|歯が痛いので、歯医者へ行きます。|Tôi đau răng nên đi nha sĩ.
 SÀNG ỐC,床屋 (とこや),Hiệu cắt tóc
-ĐỘC THÂN,独身 (どくしん),Độc thân
-ĐẶC,特に (とくに),Đặc biệt
+ĐỘC THÂN,独身 (どくしん),Độc thân|兄はまだ独身です。|Anh trai tôi vẫn còn độc thân.
+ĐẶC,特に (とくに),Đặc biệt|日本料理が好きです。特にすしが好きです。|Tôi thích món Nhật. Đặc biệt là sushi.
 TƯ XUẤT,思い出します (おもいだします),Nhớ lại, hồi tưởng
-GIA TỘC,ご家族 (ごかぞく),Gia đình
-CAO HIỆU,高校 (こうこう),Trường trung học phổ thông
+GIA TỘC,ご家族 (ごかぞく),Gia đình|ご家族はどちらにいますか。|Gia đình anh ở đâu?
+CAO HIỆU,高校 (こうこう),Trường trung học phổ thông|弟は高校に通っています。|Em trai tôi đang học trung học phổ thông.

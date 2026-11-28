@@ -6,17 +6,17 @@ TƯ ĐẠT,私達 (わたしたち),Chúng tôi, chúng ta
 NHÂN,あの人 (あのひと),Người kia, người đó
 PHƯƠNG,あの方 (あのかた),Vị kia
 GIAI,皆さん (みなさん),Các anh chị, các ông bà, các bạn, quý vị
-TIÊN SINH,先生 (せんせい),Thầy/ cô
-GIÁO SƯ,教師 (きょうし),Giáo viên
-HỌC SINH,学生 (がくせい),Học sinh, sinh viên
-HỘI XÃ VIÊN,会社員 (かいしゃいん),Nhân viên công ty
-XÃ VIÊN,社員 (しゃいん),Nhân viên công ty ~
-NGÂN HÀNH VIÊN,銀行員 (ぎんこういん),Nhân viên ngân hàng
-Y GIẢ,医者 (いしゃ),Bác sĩ
-NGHIÊN CỨU GIẢ,研究者 (けんきゅうしゃ),Nhà nghiên cứu
-ĐẠI HỌC,大学 (だいがく),Đại học, Trường đại học
-BỆNH VIỆN,病院 (びょういん),Bệnh viện
-ĐIỆN KHÍ,電気 (でんき),Điện, Đèn điện
-HÀ TUẾ,何歳 (なんさい),Mấy tuổi, bao nhiêu tuổi
+TIÊN SINH,先生 (せんせい),Thầy/ cô|山田先生は日本語の先生です。|Thầy Yamada là giáo viên tiếng Nhật.
+GIÁO SƯ,教師 (きょうし),Giáo viên|母は小学校の教師です。|Mẹ tôi là giáo viên tiểu học.
+HỌC SINH,学生 (がくせい),Học sinh, sinh viên|私は学生です。|Tôi là sinh viên.
+HỘI XÃ VIÊN,会社員 (かいしゃいん),Nhân viên công ty|父は会社員です。|Bố tôi là nhân viên công ty.
+XÃ VIÊN,社員 (しゃいん),Nhân viên công ty ~|田中さんはIMCの社員です。|Anh Tanaka là nhân viên của công ty IMC.
+NGÂN HÀNH VIÊN,銀行員 (ぎんこういん),Nhân viên ngân hàng|姉は銀行員です。|Chị gái tôi là nhân viên ngân hàng.
+Y GIẢ,医者 (いしゃ),Bác sĩ|兄は医者です。|Anh trai tôi là bác sĩ.
+NGHIÊN CỨU GIẢ,研究者 (けんきゅうしゃ),Nhà nghiên cứu|ワットさんは研究者です。|Anh Watt là nhà nghiên cứu.
+ĐẠI HỌC,大学 (だいがく),Đại học, Trường đại học|大学で日本語を勉強しています。|Tôi đang học tiếng Nhật ở trường đại học.
+BỆNH VIỆN,病院 (びょういん),Bệnh viện|病院は駅の近くにあります。|Bệnh viện ở gần nhà ga.
+ĐIỆN KHÍ,電気 (でんき),Điện, Đèn điện|電気をつけてください。|Hãy bật đèn lên.
+HÀ TUẾ,何歳 (なんさい),Mấy tuổi, bao nhiêu tuổi|お子さんは何歳ですか。|Con anh chị mấy tuổi rồi?
 TRUNG QUỐC,中国 (ちゅうごく),Trung Quốc
 NHẬT BẢN,日本 (にほん),Nhật Bản

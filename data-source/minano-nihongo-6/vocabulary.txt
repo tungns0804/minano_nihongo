@@ -8,28 +8,28 @@ KIẾN,見る (みる),xem, nhìn, trông
 VĂN,聞く (きく),nghe
 ĐỘC,読む (よむ),đọc
 THƯ,書く (かく),viết, vẽ
-MÃI,買う (かう),mua
+MÃI,買う (かう),mua|スーパーで野菜を買う。|Tôi mua rau ở siêu thị.
 TOÁT,撮りる (とりる),chụp
 HỘI,会う (あう),gặp
-TRIỀU,朝ごはん (あさごはん),cơm sáng
-TRÚ,昼ごはん (ひるごはん),cơm trưa
-VÃN,晩ごはん (ばんごはん),cơm tối
-NOÃN,卵 (たまご),trứng
-NHỤC,肉 (にく),thịt
-NGƯ,魚 (さかな),cá
-DÃ THÁI,野菜 (やさい),rau
-QUẢ VẬT,果物 (くだもの),hoa quả, trái cây
-THỦY,水 (みず),nước
-TRÀ,お茶 (おちゃ),trà
-HỒNG TRÀ,紅茶 (こうちゃ),trà đen
-NGƯU NHŨ,牛乳 (ぎゅうにゅう),sữa bò
-TỬU,お酒 (おさけ),rượu, rượu sake
-ẢNH HỌA,映画 (えいが),phim, điện ảnh
+TRIỀU,朝ごはん (あさごはん),cơm sáng|朝ごはんを食べません。|Tôi không ăn sáng.
+TRÚ,昼ごはん (ひるごはん),cơm trưa|いっしょに昼ごはんを食べませんか。|Cùng ăn trưa nhé?
+VÃN,晩ごはん (ばんごはん),cơm tối|晩ごはんは何を食べますか。|Bữa tối bạn ăn gì?
+NOÃN,卵 (たまご),trứng|毎朝卵を食べます。|Sáng nào tôi cũng ăn trứng.
+NHỤC,肉 (にく),thịt|肉と野菜を買います。|Tôi mua thịt và rau.
+NGƯ,魚 (さかな),cá|毎晩魚を食べます。|Tối nào tôi cũng ăn cá.
+DÃ THÁI,野菜 (やさい),rau|毎日野菜を食べます。|Ngày nào tôi cũng ăn rau.
+QUẢ VẬT,果物 (くだもの),hoa quả, trái cây|どんな果物が好きですか。|Bạn thích loại hoa quả nào?
+THỦY,水 (みず),nước|水を飲みます。|Tôi uống nước.
+TRÀ,お茶 (おちゃ),trà|お茶を飲みませんか。|Uống trà nhé?
+HỒNG TRÀ,紅茶 (こうちゃ),trà đen|紅茶に牛乳を入れます。|Tôi cho sữa vào trà đen.
+NGƯU NHŨ,牛乳 (ぎゅうにゅう),sữa bò|毎朝牛乳を飲みます。|Sáng nào tôi cũng uống sữa.
+TỬU,お酒 (おさけ),rượu, rượu sake|お酒を飲みません。|Tôi không uống rượu.
+ẢNH HỌA,映画 (えいが),phim, điện ảnh|日曜日に映画を見ます。|Chủ nhật tôi xem phim.
 THỦ CHỈ,手紙 (てがみ),thư
-TẢ CHÂN,写真 (しゃしん),ảnh
-ĐIẾM,店 (みせ),cửa hàng, tiệm
-ĐÌNH,庭 (にわ),vườn
-TÚC ĐỀ,宿題 (しゅくだい),bài tập về nhà
-HOA KIẾN,お花見 (おはなみ),việc ngắm hoa anh đào
+TẢ CHÂN,写真 (しゃしん),ảnh|公園で写真を撮ります。|Tôi chụp ảnh ở công viên.
+ĐIẾM,店 (みせ),cửa hàng, tiệm|あの店で靴を買いました。|Tôi đã mua giày ở cửa hàng kia.
+ĐÌNH,庭 (にわ),vườn|庭で写真を撮ります。|Tôi chụp ảnh trong vườn.
+TÚC ĐỀ,宿題 (しゅくだい),bài tập về nhà|今晩宿題をします。|Tối nay tôi làm bài tập về nhà.
+HOA KIẾN,お花見 (おはなみ),việc ngắm hoa anh đào|週末、公園でお花見をします。|Cuối tuần tôi đi ngắm hoa anh đào ở công viên.
 HÀ,何 (なに),cái gì, gì
-THỜI THỜI,時々 (ときどき),thỉnh thoảng
+THỜI THỜI,時々 (ときどき),thỉnh thoảng|時々図書館へ行きます。|Thỉnh thoảng tôi đi thư viện.

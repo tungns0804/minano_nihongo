@@ -4,13 +4,13 @@
 LIÊN HÀNH,連れて行きます (つれていきます),Dẫn đi
 LIÊN LAI,連れて来ます (つれてきます),Dẫn đến
 NHÂN TỐNG,人を送ります (ひとをおくります),Đưa (ai đó) đi/ đưa (ai đó) đến/ tiễn (ai đó)
-THIỆU GIỚI,紹介します (しょうかいします),Giới thiệu
-ÁN NỘI,案内します (あんないします),Hướng dẫn, giới thiệu
-THUYẾT MINH,説明します (せつめいします),Giải thích, trình bày
+THIỆU GIỚI,紹介します (しょうかいします),Giới thiệu|友達がいい病院を紹介してくれました。|Bạn tôi đã giới thiệu cho tôi một bệnh viện tốt.
+ÁN NỘI,案内します (あんないします),Hướng dẫn, giới thiệu|友達が京都を案内してくれました。|Bạn tôi đã dẫn tôi đi tham quan Kyoto.
+THUYẾT MINH,説明します (せつめいします),Giải thích, trình bày|先生が文法を説明してくれました。|Thầy giáo đã giải thích ngữ pháp cho tôi.
 CHUẨN BỊ,準備 (じゅんび),Chuẩn bị
-Ý VỊ,意味 (いみ),Ý nghĩa
-QUẢ TỬ,お菓子 (おかし),Bánh kẹo
-TOÀN BỘ,全部 (ぜんぶ),Toàn bộ, tất cả
-TỰ PHÂN,自分で (じぶんで),Tự mình
-BIỆN ĐƯƠNG,お弁当 (おべんとう),Cơm hộp
+Ý VỊ,意味 (いみ),Ý nghĩa|この言葉の意味を教えてください。|Hãy cho tôi biết ý nghĩa của từ này.
+QUẢ TỬ,お菓子 (おかし),Bánh kẹo|友達がお菓子をくれました。|Bạn tôi đã cho tôi bánh kẹo.
+TOÀN BỘ,全部 (ぜんぶ),Toàn bộ, tất cả|宿題は全部終わりました。|Bài tập tôi đã làm xong hết.
+TỰ PHÂN,自分で (じぶんで),Tự mình|自分で料理を作ります。|Tôi tự nấu ăn.
+BIỆN ĐƯƠNG,お弁当 (おべんとう),Cơm hộp|母がお弁当を作ってくれました。|Mẹ đã làm cơm hộp cho tôi.
 MẪU NHẬT,母の日 (ははのひ),Ngày của Mẹ

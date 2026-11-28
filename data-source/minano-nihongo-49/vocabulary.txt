@@ -7,31 +7,31 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-HỘI XÃ CẦN,会社に勤めます (かいしゃにつとめます),làm việc ở công ty|兄は自動車の会社に勤めています。
+HỘI XÃ CẦN,会社に勤めます (かいしゃにつとめます),làm việc ở công ty|兄は自動車の会社に勤めています。|Anh trai tôi làm việc ở công ty ô tô.
 HƯU,休みます (やすみます),nghỉ/ ngủ|母はもう休みました。
 Ỷ TỬ QUẢI,椅子に掛けます (いすにかけます),ngồi ghế|どうぞ、椅子にお掛けください。
 QUÁ,過ごします (すごします),trải qua/ trải nghiệm|休みは家族と過ごしました。
 NGÂN HÀNG KÝ,銀行に寄ります (ぎんこうによります),ghé qua ngân hàng|帰りに銀行に寄ります。
-TRIỆU THƯỢNG,召し上がります (めしあがります),ăn/ uống (kính ngữ)|何を召し上がりますか。
-LÃM,ご覧になります (ごらんになります),xem/ nhìn (kính ngữ)|この写真をご覧になりましたか。
-TỒN,ご存じです (ごぞんじです),biết (kính ngữ)|社長の電話番号をご存じですか。
-HÔI MÃNH,灰皿 (はいざら),cái gạt tàn|灰皿はどこにありますか。
-LỮ QUÁN,旅館 (りょかん),khách sạn kiểu Nhật|旅館に泊まりました。
-HỘI TRƯỜNG,会場 (かいじょう),hội trường|会場はあちらです。
-ĐÌNH,バス停 (バスてい),điểm dừng xe buýt|バス停で待っています。
-MẬU DỊCH,貿易 (ぼうえき),mậu dịch/ thương mại quốc tế|貿易の会社で働いています。
-QUY,帰りに (かえりに),trên đường về|帰りに買い物をします。
-VIỄN LỰ,遠慮なく (えんりょなく),đừng khách sáo/ không làm khách|どうぞ遠慮なく召し上がってください。
-NHIỆT XUẤT,熱を出します (ねつをだします),bị sốt|子どもが熱を出しました。
-TRUYỀN,よろしくお伝えください (よろしくおつたえください),Cho tôi gửi lời hỏi thăm.|奥様によろしくお伝えください。
-THẤT LỄ,失礼いたします (しつれいいたします),Tôi xin phép.|では、失礼いたします。
-GIẢNG SƯ,講師 (こうし),giảng viên/ giáo viên|大学の講師をしていらっしゃいます。
-TÁC PHẨM,作品 (さくひん),tác phẩm|この作品はすばらしいです。
+TRIỆU THƯỢNG,召し上がります (めしあがります),ăn/ uống (kính ngữ)|何を召し上がりますか。|Anh dùng món gì ạ?
+LÃM,ご覧になります (ごらんになります),xem/ nhìn (kính ngữ)|この写真をご覧になりましたか。|Anh đã xem bức ảnh này chưa ạ?
+TỒN,ご存じです (ごぞんじです),biết (kính ngữ)|社長の電話番号をご存じですか。|Anh có biết số điện thoại của giám đốc không ạ?
+HÔI MÃNH,灰皿 (はいざら),cái gạt tàn|灰皿はどこにありますか。|Gạt tàn ở đâu vậy?
+LỮ QUÁN,旅館 (りょかん),khách sạn kiểu Nhật|旅館に泊まりました。|Tôi đã trọ ở lữ quán kiểu Nhật.
+HỘI TRƯỜNG,会場 (かいじょう),hội trường|会場はあちらです。|Hội trường ở đằng kia.
+ĐÌNH,バス停 (バスてい),điểm dừng xe buýt|バス停で待っています。|Tôi đang đợi ở điểm dừng xe buýt.
+MẬU DỊCH,貿易 (ぼうえき),mậu dịch/ thương mại quốc tế|貿易の会社で働いています。|Tôi làm việc ở công ty thương mại.
+QUY,帰りに (かえりに),trên đường về|帰りに買い物をします。|Trên đường về tôi đi mua sắm.
+VIỄN LỰ,遠慮なく (えんりょなく),đừng khách sáo/ không làm khách|どうぞ遠慮なく召し上がってください。|Xin mời anh cứ dùng tự nhiên, đừng khách sáo.
+NHIỆT XUẤT,熱を出します (ねつをだします),bị sốt|子どもが熱を出しました。|Con tôi bị sốt.
+TRUYỀN,よろしくお伝えください (よろしくおつたえください),Cho tôi gửi lời hỏi thăm.|奥様によろしくお伝えください。|Cho tôi gửi lời hỏi thăm đến phu nhân.
+THẤT LỄ,失礼いたします (しつれいいたします),Tôi xin phép.|では、失礼いたします。|Vậy tôi xin phép.
+GIẢNG SƯ,講師 (こうし),giảng viên/ giáo viên|大学の講師をしていらっしゃいます。|Thầy đang làm giảng viên đại học.
+TÁC PHẨM,作品 (さくひん),tác phẩm|この作品はすばらしいです。|Tác phẩm này thật tuyệt vời.
 THỤ THƯỞNG,受賞します (じゅしょうします),nhận giải thưởng|先生の小説が賞を受賞しました。
 THẾ GIỚI ĐÍCH,世界的に (せかいてきに),tầm cỡ thế giới|世界的に有名な音楽家です。
 TÁC GIA,作家 (さっか),nhà văn|有名な作家にお会いしました。
-TRƯỜNG NAM,長男 (ちょうなん),trưởng nam/ con trai cả|長男は今年大学に入りました。
+TRƯỜNG NAM,長男 (ちょうなん),trưởng nam/ con trai cả|長男は今年大学に入りました。|Con trai cả của tôi năm nay đã vào đại học.
 CHƯỚNG HẠI,障害 (しょうがい),khuyết tật|障害がある人を助ける仕事です。
-TRÌ,お持ちです (おもちです),có (kính ngữ)|保険証をお持ちですか。
+TRÌ,お持ちです (おもちです),có (kính ngữ)|保険証をお持ちですか。|Anh có mang theo thẻ bảo hiểm không ạ?
 TÁC KHÚC,作曲 (さっきょく),sáng tác nhạc|若いときにこの曲を作曲されました。
 HOẠT ĐỘNG,活動 (かつどう),hoạt động|音楽の活動を続けていらっしゃいます。

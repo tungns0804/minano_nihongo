@@ -7,23 +7,23 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-THAM,参ります (まいります),đi/ đến (khiêm nhường ngữ)|明日、10時に参ります。
-THÂN,申します (もうします),nói/ tên là (khiêm nhường ngữ)|山田と申します。
-BÁI KIẾN,拝見します (はいけんします),xem/ nhìn (khiêm nhường ngữ)|お手紙を拝見しました。
-TỒN,存じます (ぞんじます),biết (khiêm nhường ngữ)|お名前は存じております。
-TỨ,伺います (うかがいます),hỏi/ nghe/ đến thăm (khiêm nhường ngữ)|ちょっと伺いたいことがあります。
-MỤC,お目にかかります (おめにかかります),gặp (khiêm nhường ngữ)|社長にお目にかかりたいのですが。
-TƯ,私 (わたくし),tôi (cách nói lịch sự)|私はミラーと申します。
-TRẠCH,お宅 (おたく),nhà (của người khác)|先生のお宅へ伺いました。
-GIAO NGOẠI,郊外 (こうがい),ngoại ô|郊外に住んでいます。
-TÁI LAI CHU,再来週 (さらいしゅう),tuần sau nữa|再来週、国へ帰ります。
-TÁI LAI NGUYỆT,再来月 (さらいげつ),tháng sau nữa|再来月から新しい仕事を始めます。
-TÁI LAI NIÊN,再来年 (さらいねん),năm sau nữa|再来年、また日本へ参ります。
-BÁN NIÊN,半年 (はんとし),nửa năm|日本に来て半年になります。
-TỐI SƠ,最初に (さいしょに),đầu tiên/ trước hết|最初に自己紹介をいたします。
-TỐI HẬU,最後に (さいごに),cuối cùng|最後にお礼を申し上げます。
-CHỈ KIM,只今 (ただいま),bây giờ/ vừa mới|只今、社長は席を外しております。
-KHẨN TRƯƠNG,緊張します (きんちょうします),căng thẳng/ hồi hộp|発表の前は緊張します。
+THAM,参ります (まいります),đi/ đến (khiêm nhường ngữ)|明日、10時に参ります。|Ngày mai tôi sẽ đến lúc 10 giờ.
+THÂN,申します (もうします),nói/ tên là (khiêm nhường ngữ)|山田と申します。|Tôi tên là Yamada.
+BÁI KIẾN,拝見します (はいけんします),xem/ nhìn (khiêm nhường ngữ)|お手紙を拝見しました。|Tôi đã đọc thư của anh.
+TỒN,存じます (ぞんじます),biết (khiêm nhường ngữ)|お名前は存じております。|Tôi biết tên của anh.
+TỨ,伺います (うかがいます),hỏi/ nghe/ đến thăm (khiêm nhường ngữ)|ちょっと伺いたいことがあります。|Tôi có chút việc muốn hỏi.
+MỤC,お目にかかります (おめにかかります),gặp (khiêm nhường ngữ)|社長にお目にかかりたいのですが。|Tôi muốn được gặp giám đốc.
+TƯ,私 (わたくし),tôi (cách nói lịch sự)|私はミラーと申します。|Tôi tên là Miller.
+TRẠCH,お宅 (おたく),nhà (của người khác)|先生のお宅へ伺いました。|Tôi đã đến thăm nhà thầy.
+GIAO NGOẠI,郊外 (こうがい),ngoại ô|郊外に住んでいます。|Tôi sống ở ngoại ô.
+TÁI LAI CHU,再来週 (さらいしゅう),tuần sau nữa|再来週、国へ帰ります。|Tuần sau nữa tôi về nước.
+TÁI LAI NGUYỆT,再来月 (さらいげつ),tháng sau nữa|再来月から新しい仕事を始めます。|Từ tháng sau nữa tôi bắt đầu công việc mới.
+TÁI LAI NIÊN,再来年 (さらいねん),năm sau nữa|再来年、また日本へ参ります。|Năm sau nữa tôi sẽ lại đến Nhật.
+BÁN NIÊN,半年 (はんとし),nửa năm|日本に来て半年になります。|Tôi đến Nhật đã được nửa năm.
+TỐI SƠ,最初に (さいしょに),đầu tiên/ trước hết|最初に自己紹介をいたします。|Đầu tiên, tôi xin tự giới thiệu.
+TỐI HẬU,最後に (さいごに),cuối cùng|最後にお礼を申し上げます。|Cuối cùng, tôi xin gửi lời cảm ơn.
+CHỈ KIM,只今 (ただいま),bây giờ/ vừa mới|只今、社長は席を外しております。|Hiện giờ giám đốc không có ở chỗ ngồi.
+KHẨN TRƯƠNG,緊張します (きんちょうします),căng thẳng/ hồi hộp|発表の前は緊張します。|Trước khi phát biểu tôi thấy hồi hộp.
 PHÓNG TỐNG,放送します (ほうそうします),phát thanh/ phát sóng|試合はテレビで放送されます。
 TOÁT,ビデオに撮ります (ビデオにとります),thu video/ ghi hình|式をビデオに撮りました。
 THƯỞNG KIM,賞金 (しょうきん),tiền thưởng|賞金をいただきました。
@@ -32,11 +32,11 @@ TƯỢNG,像 (ぞう),tượng/ pho tượng|公園に大きい像がありま�
 MỘNG,夢がかないます (ゆめがかないます),ước mơ thành hiện thực|やっと夢がかないました。
 HIỆP LỰC,協力します (きょうりょくします),hợp tác/ chung sức|みんなで協力しました。
 TÂM,心から (こころから),từ đáy lòng/ chân thành|心からお礼を申し上げます。
-CẢM TẠ,感謝します (かんしゃします),cảm ơn/ biết ơn|皆様に感謝しております。
-LỄ,お礼 (おれい),lời cảm ơn/ sự cảm ơn|お礼の手紙を書きました。
-BÁI KHẢI,拝啓 (はいけい),Kính gửi (mở đầu thư)|手紙は「拝啓」で始めます。
-NGUYÊN KHÍ,お元気でいらっしゃいますか (おげんきでいらっしゃいますか),Anh/chị có khỏe không ạ?|皆様、お元気でいらっしゃいますか。
-MÊ HOẶC,迷惑をかけます (めいわくをかけます),làm phiền|ご迷惑をかけて申し訳ありません。
+CẢM TẠ,感謝します (かんしゃします),cảm ơn/ biết ơn|皆様に感謝しております。|Tôi xin cảm ơn mọi người.
+LỄ,お礼 (おれい),lời cảm ơn/ sự cảm ơn|お礼の手紙を書きました。|Tôi đã viết thư cảm ơn.
+BÁI KHẢI,拝啓 (はいけい),Kính gửi (mở đầu thư)|手紙は「拝啓」で始めます。|Lá thư bắt đầu bằng "Kính gửi".
+NGUYÊN KHÍ,お元気でいらっしゃいますか (おげんきでいらっしゃいますか),Anh/chị có khỏe không ạ?|皆様、お元気でいらっしゃいますか。|Mọi người có khỏe không ạ?
+MÊ HOẶC,迷惑をかけます (めいわくをかけます),làm phiền|ご迷惑をかけて申し訳ありません。|Thành thật xin lỗi vì đã làm phiền.
 SINH,生かします (いかします),tận dụng/ phát huy|日本で習ったことを国で生かしたいです。
 THÀNH,お城 (おしろ),lâu đài/ thành|お城を見に行きました。
-KÍNH CỤ,敬具 (けいぐ),Kính thư (kết thúc thư)|手紙の最後に「敬具」と書きます。
+KÍNH CỤ,敬具 (けいぐ),Kính thư (kết thúc thư)|手紙の最後に「敬具」と書きます。|Cuối thư viết "Kính thư".

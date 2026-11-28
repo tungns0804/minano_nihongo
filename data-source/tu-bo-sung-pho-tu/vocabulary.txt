@@ -12,11 +12,11 @@ NHẤT PHIÊN,一番 (いちばん),nhất/ hơn cả|家族の中で父が一�
 TỐI,最も (もっとも),nhất (văn viết)|富士山は日本で最も高い山です。|Núi Phú Sĩ là ngọn núi cao nhất Nhật Bản.
 ,ほぼ,gần như/ hầu như|仕事はほぼ終わりました。|Công việc gần như xong rồi.
 ,やや,hơi/ có phần|今日はやや寒いです。|Hôm nay hơi lạnh.
-,さらに,hơn nữa/ thêm nữa|値段がさらに上がりました。|Giá lại tăng thêm nữa.
+CANH,更に (さらに),hơn nữa/ thêm nữa|値段が更に上がりました。|Giá lại tăng thêm nữa.
 THIẾU THIẾU,少々 (しょうしょう),một chút (lịch sự)|少々お待ちください。|Xin quý khách vui lòng đợi một chút.
 # ── Đi với thể phủ định ──
 ,なかなか,mãi (không)/ khá là|バスがなかなか来ません。|Xe buýt mãi không đến.
-,めったに,hiếm khi (không)|父はめったに怒りません。|Bố tôi hiếm khi nổi giận.
+DIỆT ĐA,滅多に (めったに),hiếm khi (không)|父は滅多に怒りません。|Bố tôi hiếm khi nổi giận.
 TẤT,必ずしも (かならずしも),không hẳn/ chưa chắc (đã)|高い物が必ずしもいい物だとは限りません。|Đồ đắt chưa chắc đã là đồ tốt.
 # ── Tần suất ──
 ,いつも,lúc nào cũng/ luôn luôn|朝はいつもパンを食べます。|Buổi sáng tôi luôn ăn bánh mì.
@@ -33,25 +33,25 @@ HẬU,後で (あとで),lát nữa/ sau|後で電話します。|Lát nữa tô
 ,これから,từ bây giờ/ sắp tới|これから会議が始まります。|Bây giờ cuộc họp bắt đầu.
 KIM ĐỘ,今度 (こんど),lần tới/ lần này|今度一緒に飲みに行きましょう。|Lần tới cùng đi uống nhé.
 ,まず,trước tiên/ trước hết|まず手を洗ってください。|Trước tiên hãy rửa tay.
-,ちょうど,vừa đúng/ vừa lúc|今ちょうど12時です。|Bây giờ đúng 12 giờ.
+ĐINH ĐỘ,丁度 (ちょうど),vừa đúng/ vừa lúc|今丁度12時です。|Bây giờ đúng 12 giờ.
 TẢO TỐC,早速 (さっそく),ngay lập tức/ liền|買った本を早速読みました。|Tôi đọc ngay cuốn sách vừa mua.
 TÁI,再び (ふたたび),lại/ một lần nữa (văn viết)|事故の後、電車は再び動き始めました。|Sau tai nạn, tàu lại bắt đầu chạy.
 ,いつか,một lúc nào đó/ một ngày nào đó|いつか世界旅行をしたいです。|Một ngày nào đó tôi muốn đi du lịch vòng quanh thế giới.
 ,いよいよ,cuối cùng cũng (đến)/ sắp sửa|いよいよ明日は試験です。|Cuối cùng ngày mai cũng là ngày thi.
 KẾT CỤC,結局 (けっきょく),rốt cuộc/ kết cục|結局、旅行には行きませんでした。|Rốt cuộc tôi đã không đi du lịch.
-,だんだん,dần dần|だんだん寒くなってきました。|Trời dần dần lạnh lên.
+ĐOẠN ĐOẠN,段々 (だんだん),dần dần|段々寒くなってきました。|Trời dần dần lạnh lên.
 # ── Phán đoán, thái độ ──
-,たぶん,có lẽ/ chắc là|明日はたぶん雨でしょう。|Ngày mai có lẽ trời mưa.
+ĐA PHÂN,多分 (たぶん),có lẽ/ chắc là|明日は多分雨でしょう。|Ngày mai có lẽ trời mưa.
 XÁC,確かに (たしかに),đúng là/ quả thật|確かにあなたの言う通りです。|Đúng là như anh nói.
 ,やっぱり,quả nhiên/ rốt cuộc vẫn|やっぱり家が一番です。|Quả nhiên ở nhà là nhất.
 ĐƯƠNG NHIÊN,当然 (とうぜん),đương nhiên|約束を守るのは当然です。|Giữ lời hứa là chuyện đương nhiên.
 THỰC TẾ,実際に (じっさいに),thực tế/ trên thực tế|実際に使ってみると、とても便利でした。|Khi dùng thử thực tế thì rất tiện.
 Ý NGOẠI,意外に (いがいに),bất ngờ là/ không ngờ|試験は意外に簡単でした。|Bài thi dễ không ngờ.
 ,もし,nếu (như)|もし雨が降ったら、行きません。|Nếu trời mưa thì tôi không đi.
-,せっかく,đã mất công/ khó khăn lắm mới|せっかく作ったのに、誰も食べませんでした。|Đã mất công nấu mà chẳng ai ăn.
+CHIẾT GIÁC,折角 (せっかく),đã mất công/ khó khăn lắm mới|折角作ったのに、誰も食べませんでした。|Đã mất công nấu mà chẳng ai ăn.
 ,せめて,ít nhất thì/ tối thiểu|せめて一日だけでも休みたいです。|Ít nhất tôi muốn được nghỉ dù chỉ một ngày.
-,なんとか,bằng cách nào đó/ xoay xở được|なんとか電車に間に合いました。|Bằng cách nào đó tôi cũng kịp tàu.
-,とりあえず,trước mắt/ tạm thời|とりあえずビールをください。|Trước mắt cho tôi bia đã.
+HÀ,何とか (なんとか),bằng cách nào đó/ xoay xở được|何とか電車に間に合いました。|Bằng cách nào đó tôi cũng kịp tàu.
+THỦ CẢM,取り敢えず (とりあえず),trước mắt/ tạm thời|取り敢えずビールをください。|Trước mắt cho tôi bia đã.
 NHẤT ỨNG,一応 (いちおう),tạm thời/ cho chắc|一応、傘を持って行きます。|Cho chắc, tôi mang theo ô.
 ,わざわざ,cất công/ mất công|わざわざ来てくれて、ありがとう。|Cảm ơn bạn đã cất công đến.
 # ── Cách thức ──

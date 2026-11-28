@@ -25,7 +25,7 @@
 # Hai chiều luyện Nhật→Hán Việt và Hán Việt→Nhật bỏ qua đúng mấy dòng đó;
 # `filterWords` trong lesson-detail.ts lo phần này.
 BAO,包みます (つつみます),gói|プレゼントをきれいな紙で包みます。
-PHÍ,沸かします (わかします),đun sôi|お茶を飲むために、お湯を沸かします。
+PHÍ,沸かします (わかします),đun sôi|お茶を飲むために、お湯を沸かします。|Tôi đun nước sôi để uống trà.
 HỖN,混ぜます (まぜます),trộn|材料をよく混ぜてください。
 KẾ TOÁN,計算します (けいさんします),tính/ tính toán|算盤は計算するのに使います。
 TỊNH,並びます (ならびます),xếp hàng|切符を買うために並んでいます。
@@ -34,7 +34,7 @@ TRƯỢNG PHU,丈夫 (じょうぶ),chắc chắn|この袋は丈夫で、荷物
 BIỆN HỘ SĨ,弁護士 (べんごし),luật sư|弁護士になるために、法律を勉強しています。
 ÂM NHẠC GIA,音楽家 (おんがくか),nhạc sĩ/ người hoạt động trong lĩnh vực âm nhạc|ベートーベンは有名な音楽家です。
 TỬ CUNG,子供たち (こどもたち),những đứa trẻ/ bọn trẻ|子供たちのために公園を作りました。
-TỰ NHIÊN,自然 (しぜん),tự nhiên|自然を守るために、何ができますか。
+TỰ NHIÊN,自然 (しぜん),tự nhiên|自然を守るために、何ができますか。|Chúng ta có thể làm gì để bảo vệ thiên nhiên?
 GIÁO DỤC,教育 (きょういく),giáo dục|子どもの教育のためにお金をためています。
 VĂN HÓA,文化 (ぶんか),văn hóa|日本の文化を知るために、お茶を習っています。
 XÃ HỘI,社会 (しゃかい),xã hội|大学を出て、社会に出ます。
@@ -65,7 +65,7 @@ QUỐC LIÊN,国連 (こくれん),Liên Hợp Quốc|国連で働くために�
 ,ベートーベン,Beethoven/ nhà soạn nhạc người Đức (1770-1827)|ベートーベンはドイツの音楽家です。
 ,こどもニュース,Bản tin thiếu nhi/ chương trình tin tức giả định|こどもニュースは子供たちのための番組です。
 XUẤT,ボーナスが出ます (ボーナスがでます),có thưởng/ được thưởng|今年もボーナスが出ました。
-BÁN PHÂN,半分 (はんぶん),một nửa|ボーナスの半分を貯金します。
+BÁN PHÂN,半分 (はんぶん),một nửa|ボーナスの半分を貯金します。|Tôi tiết kiệm một nửa tiền thưởng.
 ,ローン,khoản vay ngân hàng|ローンで車を買いました。
 MIẾN,カップ麺 (カップめん),mì ly/ mì ăn liền để trong ly dùng một lần|お湯を沸かして、カップ麺を作ります。
 THẾ GIỚI SƠ,世界初 (せかいはつ),đầu tiên trên thế giới|これは世界初のカップ麺です。
@@ -74,7 +74,7 @@ THẾ GIỚI SƠ,世界初 (せかいはつ),đầu tiên trên thế giới|こ
 MIẾN,麺 (めん),mì sợi|丼の麺にお湯を注ぎます。
 QUẢNG,広めます (ひろめます),phổ cập/ nhân rộng/ mở rộng|日本の文化を世界に広めたいです。
 THỊ TRƯỜNG ĐIỀU TRA,市場調査 (しじょうちょうさ),điều tra thị trường|新しい商品のために市場調査をします。
-CÁT,割ります (わります),bẻ ra/ chia nhỏ ra|麺を半分に割って、丼に入れます。
+CÁT,割ります (わります),bẻ ra/ chia nhỏ ra|麺を半分に割って、丼に入れます。|Bẻ đôi mì rồi cho vào bát.
 CHÚ,注ぎます (そそぎます),đổ vào|カップにお湯を注ぎます。
 ,チキンラーメン,Chikin Ramen/ tên của một loại mì ăn liền|チキンラーメンは世界初のインスタントラーメンです。
 AN ĐẰNG BÁCH PHÚC,安藤百福 (あんどうももふく),Ando Momofuku/ nhà kinh doanh, nhà phát minh người Nhật (1910-2007)|安藤百福はカップ麺を発明しました。

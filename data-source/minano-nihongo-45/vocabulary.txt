@@ -7,24 +7,24 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-TẠ,謝ります (あやまります),xin lỗi/ tạ lỗi|遅刻したので、先生に謝りました。
-SỰ CỐ TAO,事故に遭います (じこにあいます),gặp tai nạn|事故に遭った場合は、すぐ連絡してください。
-TÍN,信じます (しんじます),tin/ tin tưởng|私はその話を信じません。
+TẠ,謝ります (あやまります),xin lỗi/ tạ lỗi|遅刻したので、先生に謝りました。|Vì đến muộn nên tôi đã xin lỗi thầy giáo.
+SỰ CỐ TAO,事故に遭います (じこにあいます),gặp tai nạn|事故に遭った場合は、すぐ連絡してください。|Trường hợp gặp tai nạn thì hãy liên lạc ngay.
+TÍN,信じます (しんじます),tin/ tin tưởng|私はその話を信じません。|Tôi không tin chuyện đó.
 DỤNG Ý,用意します (よういします),chuẩn bị|会議の資料を用意しておきます。
-BẢO CHỨNG THƯ,保証書 (ほしょうしょ),giấy bảo hành|保証書を持って来てください。
-LÃNH THÂU THƯ,領収書 (りょうしゅうしょ),hóa đơn/ biên lai|領収書をお願いします。
-TẶNG VẬT,贈り物 (おくりもの),quà tặng|贈り物を送りました。
+BẢO CHỨNG THƯ,保証書 (ほしょうしょ),giấy bảo hành|保証書を持って来てください。|Hãy mang theo giấy bảo hành.
+LÃNH THÂU THƯ,領収書 (りょうしゅうしょ),hóa đơn/ biên lai|領収書をお願いします。|Cho tôi xin hóa đơn.
+TẶNG VẬT,贈り物 (おくりもの),quà tặng|贈り物を送りました。|Tôi đã gửi quà tặng.
 GIAN VI ĐIỆN THOẠI,間違い電話 (まちがいでんわ),điện thoại gọi nhầm|さっき間違い電話がありました。
-TRUNG CHỈ,中止 (ちゅうし),dừng/ đình chỉ|雨の場合は中止します。
+TRUNG CHỈ,中止 (ちゅうし),dừng/ đình chỉ|雨の場合は中止します。|Trường hợp trời mưa thì sẽ hủy.
 CẤP,急に (きゅうに),đột nhiên/ gấp|急に用事ができました。
-LẠC,楽しみにしています (たのしみにしています),đang mong đợi/ lấy làm vui|旅行を楽しみにしています。
-DĨ THƯỢNG,以上です (いじょうです),Trên đây là hết./ Tôi xin hết.|説明は以上です。
-HỆ VIÊN,係員 (かかりいん),nhân viên phụ trách|係員に聞いてください。
+LẠC,楽しみにしています (たのしみにしています),đang mong đợi/ lấy làm vui|旅行を楽しみにしています。|Tôi đang rất mong chờ chuyến du lịch.
+DĨ THƯỢNG,以上です (いじょうです),Trên đây là hết./ Tôi xin hết.|説明は以上です。|Phần giải thích xin hết.
+HỆ VIÊN,係員 (かかりいん),nhân viên phụ trách|係員に聞いてください。|Hãy hỏi nhân viên phụ trách.
 ƯU THẮNG,優勝します (ゆうしょうします),vô địch/ đoạt giải nhất|大会で優勝しました。
-NÃO,悩み (なやみ),điều trăn trở/ nỗi phiền muộn|悩みがあったら、相談してください。
-MỤC GIÁC THỜI KẾ,目覚まし時計 (めざましどけい),đồng hồ báo thức|目覚まし時計が鳴りませんでした。
+NÃO,悩み (なやみ),điều trăn trở/ nỗi phiền muộn|悩みがあったら、相談してください。|Nếu có điều gì phiền muộn thì hãy nói với tôi.
+MỤC GIÁC THỜI KẾ,目覚まし時計 (めざましどけい),đồng hồ báo thức|目覚まし時計が鳴りませんでした。|Đồng hồ báo thức đã không kêu.
 MIÊN,眠ります (ねむります),ngủ|昨夜はよく眠れました。
 MỤC GIÁC,目が覚めます (めがさめます),tỉnh giấc|6時に目が覚めました。
-ĐẠI HỌC SINH,大学生 (だいがくせい),sinh viên đại học|息子は大学生です。
-HỒI ĐÁP,回答 (かいとう),câu trả lời/ lời giải|回答を紙に書いてください。
+ĐẠI HỌC SINH,大学生 (だいがくせい),sinh viên đại học|息子は大学生です。|Con trai tôi là sinh viên đại học.
+HỒI ĐÁP,回答 (かいとう),câu trả lời/ lời giải|回答を紙に書いてください。|Hãy viết câu trả lời ra giấy.
 MINH,鳴ります (なります),reo/ kêu|電話が鳴っています。

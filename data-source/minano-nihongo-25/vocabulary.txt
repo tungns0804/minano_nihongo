@@ -3,12 +3,12 @@
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
 KHẢO,考えます (かんがえます),nghĩ, suy nghĩ
 DỊCH TRƯỚC,駅に着きます (えきにつきます),đến ga
-LƯU HỌC,留学します (りゅうがくします),du học
+LƯU HỌC,留学します (りゅうがくします),du học|お金があったら、日本へ留学します。|Nếu có tiền tôi sẽ đi du học Nhật.
 NIÊN THỦ,年を取ります (としをとります),thêm tuổi
-ĐIỀN XÁ,田舎 (いなか),quê, nông thôn
-ĐẠI SỨ QUÁN,大使館 (たいしかん),đại sứ quán
-ỨC,億 (おく),một trăm triệu
-CHUYỂN CẦN,転勤 (てんきん),việc chuyển địa điểm làm việc
-THẾ THOẠI,いろいろお世話になりました。 (いろいろおせわになりました),Anh/chị đã giúp tôi nhiều.
-NGOAN TRƯƠNG,頑張ります (がんばります),cố, cố gắng
-NGUYÊN KHÍ,どうぞお元気で。 (どうぞおげんきで),Chúc anh/chị mạnh khỏe.
+ĐIỀN XÁ,田舎 (いなか),quê, nông thôn|夏休みは田舎へ帰ります。|Kỳ nghỉ hè tôi về quê.
+ĐẠI SỨ QUÁN,大使館 (たいしかん),đại sứ quán|ビザのことで大使館へ行きました。|Tôi đã đến đại sứ quán vì chuyện visa.
+ỨC,億 (おく),một trăm triệu|宝くじで１億円当たったら、家を買います。|Nếu trúng xổ số 100 triệu yên, tôi sẽ mua nhà.
+CHUYỂN CẦN,転勤 (てんきん),việc chuyển địa điểm làm việc|来月、大阪へ転勤します。|Tháng sau tôi chuyển công tác đến Osaka.
+THẾ THOẠI,いろいろお世話になりました。 (いろいろおせわになりました),Anh/chị đã giúp tôi nhiều.|先生、いろいろお世話になりました。|Thưa thầy, em cảm ơn thầy đã giúp đỡ em rất nhiều.
+NGOAN TRƯƠNG,頑張ります (がんばります),cố, cố gắng|試験に合格するまで頑張ります。|Tôi sẽ cố gắng đến khi đỗ kỳ thi.
+NGUYÊN KHÍ,どうぞお元気で。 (どうぞおげんきで),Chúc anh/chị mạnh khỏe.|国へ帰っても、どうぞお元気で。|Về nước rồi cũng chúc anh mạnh khỏe nhé.

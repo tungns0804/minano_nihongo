@@ -7,43 +7,43 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-VẬN ĐỘNG,運動します (うんどうします),vận động/ tập thể thao|毎朝公園で運動しています。
-THÀNH CÔNG,成功します (せいこうします),thành công|実験は成功しました。
-THÍ NGHIỆM THẤT BẠI,試験に失敗します (しけんにしっぱいします),thất bại/ trượt thi|試験に失敗してしまいました。
-THÍ NGHIỆM HỢP CÁCH,試験に合格します (しけんにごうかくします),đỗ thi/ đậu kỳ thi|息子が試験に合格しました。
-LỆ,戻ります (もどります),quay lại/ trở lại|3時までに会社に戻ります。
-VŨ,雨がやみます (あめがやみます),tạnh mưa/ ngừng mưa|雨がやんだら、出かけましょう。
-TÌNH,晴れます (はれます),nắng/ quang đãng/ trời hửng|明日は晴れるでしょう。
-ĐÀM,曇ります (くもります),có mây/ trời râm|午後から曇るかもしれません。
-PHONG XÚY,風が吹きます (かぜがふきます),gió thổi|強い風が吹いています。
-BỆNH KHÍ TRỊ,病気が治ります (びょうきがなおります),khỏi bệnh/ bệnh khỏi|薬を飲んだら、病気が治りました。
-CỐ CHƯỚNG TRỰC,故障が直ります (こしょうがなおります),chỗ hỏng được sửa/ hết hỏng|車の故障がやっと直りました。
-NHIỆT TỤC,熱が続きます (ねつがつづきます),sốt kéo dài/ vẫn còn sốt|三日も熱が続いています。
-LÃNH,冷やします (ひやします),làm lạnh/ ướp lạnh|冷蔵庫でビールを冷やします。
-TÂM PHỐI,心配 (しんぱい),lo lắng|息子のことが心配です。
-THẬP PHÂN,十分 (じゅうぶん),đủ/ đầy đủ|時間は十分あります。
+VẬN ĐỘNG,運動します (うんどうします),vận động/ tập thể thao|毎朝公園で運動しています。|Sáng nào tôi cũng tập thể dục ở công viên.
+THÀNH CÔNG,成功します (せいこうします),thành công|実験は成功しました。|Thí nghiệm đã thành công.
+THÍ NGHIỆM THẤT BẠI,試験に失敗します (しけんにしっぱいします),thất bại/ trượt thi|試験に失敗してしまいました。|Tôi đã trượt kỳ thi mất rồi.
+THÍ NGHIỆM HỢP CÁCH,試験に合格します (しけんにごうかくします),đỗ thi/ đậu kỳ thi|息子が試験に合格しました。|Con trai tôi đã đỗ kỳ thi.
+LỆ,戻ります (もどります),quay lại/ trở lại|3時までに会社に戻ります。|Tôi sẽ quay lại công ty trước 3 giờ.
+VŨ,雨がやみます (あめがやみます),tạnh mưa/ ngừng mưa|雨がやんだら、出かけましょう。|Tạnh mưa thì chúng ta đi ra ngoài nhé.
+TÌNH,晴れます (はれます),nắng/ quang đãng/ trời hửng|明日は晴れるでしょう。|Ngày mai có lẽ trời nắng.
+ĐÀM,曇ります (くもります),có mây/ trời râm|午後から曇るかもしれません。|Từ chiều có thể trời sẽ nhiều mây.
+PHONG XÚY,風が吹きます (かぜがふきます),gió thổi|強い風が吹いています。|Gió đang thổi mạnh.
+BỆNH KHÍ TRỊ,病気が治ります (びょうきがなおります),khỏi bệnh/ bệnh khỏi|薬を飲んだら、病気が治りました。|Uống thuốc xong thì tôi khỏi bệnh.
+CỐ CHƯỚNG TRỰC,故障が直ります (こしょうがなおります),chỗ hỏng được sửa/ hết hỏng|車の故障がやっと直りました。|Chỗ hỏng của ô tô cuối cùng cũng đã được sửa.
+NHIỆT TỤC,熱が続きます (ねつがつづきます),sốt kéo dài/ vẫn còn sốt|三日も熱が続いています。|Tôi đã sốt liền ba ngày.
+LÃNH,冷やします (ひやします),làm lạnh/ ướp lạnh|冷蔵庫でビールを冷やします。|Tôi ướp lạnh bia trong tủ lạnh.
+TÂM PHỐI,心配 (しんぱい),lo lắng|息子のことが心配です。|Tôi lo cho con trai.
+THẬP PHÂN,十分 (じゅうぶん),đủ/ đầy đủ|時間は十分あります。|Còn đủ thời gian.
 KHÔNG,空 (そら),bầu trời|空が青くてきれいです。
-THÁI DƯƠNG,太陽 (たいよう),mặt trời|太陽が出てきました。
-TINH,星 (ほし),sao/ ngôi sao|今夜は星がよく見えます。
+THÁI DƯƠNG,太陽 (たいよう),mặt trời|太陽が出てきました。|Mặt trời đã ló ra.
+TINH,星 (ほし),sao/ ngôi sao|今夜は星がよく見えます。|Tối nay nhìn thấy sao rất rõ.
 NGUYỆT,月 (つき),trăng/ mặt trăng|月が明るい夜です。
-PHONG,風 (かぜ),gió|冷たい風が入ってきます。
-BẮC,北 (きた),bắc/ phía bắc|北の空が暗くなりました。
-NAM,南 (みなみ),nam/ phía nam|南の島へ旅行したいです。
+PHONG,風 (かぜ),gió|冷たい風が入ってきます。|Gió lạnh lùa vào.
+BẮC,北 (きた),bắc/ phía bắc|北の空が暗くなりました。|Bầu trời phía bắc đã tối lại.
+NAM,南 (みなみ),nam/ phía nam|南の島へ旅行したいです。|Tôi muốn đi du lịch đến hòn đảo phía nam.
 TÂY,西 (にし),tây/ phía tây|西の方から雲が来ます。
-ĐÔNG,東 (ひがし),đông/ phía đông|東の空が明るくなりました。
-THỦY ĐẠO,水道 (すいどう),nước máy|水道の水が出ません。
-KIM DẠ,今夜 (こんや),tối nay/ đêm nay|今夜はうちで食事します。
-TỊCH PHƯƠNG,夕方 (ゆうがた),chiều tối|夕方までに帰ります。
-TRÌ,遅く (おそく),muộn/ khuya|昨夜は遅くまで働きました。
+ĐÔNG,東 (ひがし),đông/ phía đông|東の空が明るくなりました。|Bầu trời phía đông đã sáng lên.
+THỦY ĐẠO,水道 (すいどう),nước máy|水道の水が出ません。|Vòi nước máy không có nước.
+KIM DẠ,今夜 (こんや),tối nay/ đêm nay|今夜はうちで食事します。|Tối nay tôi ăn cơm ở nhà.
+TỊCH PHƯƠNG,夕方 (ゆうがた),chiều tối|夕方までに帰ります。|Tôi sẽ về trước chiều tối.
+TRÌ,遅く (おそく),muộn/ khuya|昨夜は遅くまで働きました。|Tối qua tôi làm việc đến khuya.
 NGUYÊN KHÍ,元気 (げんき),khỏe/ khỏe mạnh|祖母はとても元気です。
-VỊ,胃 (い),dạ dày|胃の調子が悪いです。
-ĐỘNG,働きすぎ (はたらきすぎ),làm việc quá sức|働きすぎで体を壊しました。
-VÔ LÝ,無理をします (むりをします),làm quá sức/ làm điều quá khả năng|病気のときは無理をしないほうがいいです。
+VỊ,胃 (い),dạ dày|胃の調子が悪いです。|Dạ dày tôi không được khỏe.
+ĐỘNG,働きすぎ (はたらきすぎ),làm việc quá sức|働きすぎで体を壊しました。|Tôi đã sinh bệnh vì làm việc quá sức.
+VÔ LÝ,無理をします (むりをします),làm quá sức/ làm điều quá khả năng|病気のときは無理をしないほうがいいです。|Khi ốm thì không nên làm quá sức.
 TINH CHIẾM,星占い (ほしうらない),bói sao/ chiêm tinh|星占いを信じますか。
 MẪU NGƯU TỌA,牡牛座 (おうしざ),chòm sao Kim Ngưu|私は牡牛座です。
-KHỐN,困ります (こまります),rắc rối/ khó xử/ gặp khó|道が分からなくて困りました。
-BẢO,宝くじ (たからくじ),xổ số|宝くじが当たったら、家を買います。
-KIỆN KHANG,健康 (けんこう),sức khỏe/ khỏe mạnh|健康に気をつけてください。
+KHỐN,困ります (こまります),rắc rối/ khó xử/ gặp khó|道が分からなくて困りました。|Không biết đường nên tôi đã gặp khó khăn.
+BẢO,宝くじ (たからくじ),xổ số|宝くじが当たったら、家を買います。|Nếu trúng xổ số tôi sẽ mua nhà.
+KIỆN KHANG,健康 (けんこう),sức khỏe/ khỏe mạnh|健康に気をつけてください。|Hãy giữ gìn sức khỏe.
 LUYẾN ÁI,恋愛 (れんあい),tình yêu|恋愛の話をしました。
-LUYẾN NHÂN,恋人 (こいびと),người yêu|恋人と映画を見に行きます。
-KIM TRÌ,お金持ち (おかねもち),người giàu có|お金持ちになりたいです。
+LUYẾN NHÂN,恋人 (こいびと),người yêu|恋人と映画を見に行きます。|Tôi đi xem phim với người yêu.
+KIM TRÌ,お金持ち (おかねもち),người giàu có|お金持ちになりたいです。|Tôi muốn trở thành người giàu có.

@@ -4,31 +4,31 @@
 TỬ CUNG,子供がいます (こどもがいます),có con
 NHẬT BẢN,日本にいます (にほんにいます),ở Nhật
 HỘI XÃ HƯU,会社を休みます (かいしゃをやすみます),nghỉ làm việc
-NHÂN,１人 (ひとり),một người
-NHÂN,２人 (ふたり),hai người
-NHÂN,～人 (～にん),～ người
-ĐÀI,～台 (～だい),～ cái
-MAI,～枚 (～まい),～ tờ, tấm
-HỒI,～回 (～かい),～ lần
-THIẾT THỦ,切手 (きって),tem
-PHONG ĐỒNG,封筒 (ふうとう),phong bì
-TỐC ĐẠT,速達 (そくたつ),gửi nhanh
-THƯ LƯU,書留 (かきとめ),gửi bảo đảm
+NHÂN,１人 (ひとり),một người|１人で旅行に行きました。|Tôi đã đi du lịch một mình.
+NHÂN,２人 (ふたり),hai người|２人で映画を見ました。|Hai người đã cùng xem phim.
+NHÂN,～人 (～にん),～ người|このクラスに学生が２０人います。|Lớp này có 20 sinh viên.
+ĐÀI,～台 (～だい),～ cái|うちに車が２台あります。|Nhà tôi có 2 chiếc ô tô.
+MAI,～枚 (～まい),～ tờ, tấm|紙を３枚ください。|Cho tôi 3 tờ giấy.
+HỒI,～回 (～かい),～ lần|１週間に２回プールへ行きます。|Một tuần tôi đi bể bơi 2 lần.
+THIẾT THỦ,切手 (きって),tem|80円の切手を5枚ください。|Cho tôi 5 con tem loại 80 yên.
+PHONG ĐỒNG,封筒 (ふうとう),phong bì|封筒に手紙を入れます。|Tôi cho thư vào phong bì.
+TỐC ĐẠT,速達 (そくたつ),gửi nhanh|この手紙を速達でお願いします。|Cho tôi gửi lá thư này bằng chuyển phát nhanh.
+THƯ LƯU,書留 (かきとめ),gửi bảo đảm|大切な書類を書留で送りました。|Tôi đã gửi giấy tờ quan trọng bằng thư bảo đảm.
 HÀNG KHÔNG TIỆN,航空便 (こうくうびん),gửi bằng đường hàng không
 THUYỀN TIỆN,船便 (ふなびん),gửi bằng đường biển
-LƯỠNG THÂN,両親 (りょうしん),bố mẹ
-HUYNH ĐỆ,兄弟 (きょうだい),anh chị em
-HUYNH,兄 (あに),anh trai
-HUYNH,お兄さん (おにいさん),anh trai người khác
-TỶ,姉 (あね),chị gái
-TỶ,お姉さん (おねえさん),chị gái
-ĐỆ,弟 (おとうと),em trai
-ĐỆ,弟さん (おとうとさん),em trai
-MUỘI,妹 (いもうと),em gái
-MUỘI,妹さん (いもうとさん),em gái
-NGOẠI QUỐC,外国 (がいこく),nước ngoài
-THỜI GIAN,～時間 (～じかん),～ tiếng
-CHU GIAN,～週間 (～しゅうかん),～ tuần
-NGUYỆT,～か月 (～かげつ),～ tháng
-NIÊN,～年 (～ねん),～ năm
-TOÀN BỘ,全部で (ぜんぶで),tổng cộng
+LƯỠNG THÂN,両親 (りょうしん),bố mẹ|両親は国にいます。|Bố mẹ tôi ở trong nước.
+HUYNH ĐỆ,兄弟 (きょうだい),anh chị em|兄弟は何人いますか。|Bạn có mấy anh chị em?
+HUYNH,兄 (あに),anh trai|兄は東京にいます。|Anh trai tôi ở Tokyo.
+HUYNH,お兄さん (おにいさん),anh trai người khác|お兄さんはお元気ですか。|Anh trai bạn có khỏe không?
+TỶ,姉 (あね),chị gái|姉は結婚しています。|Chị gái tôi đã kết hôn.
+TỶ,お姉さん (おねえさん),chị gái|お姉さんはどこに住んでいますか。|Chị gái bạn sống ở đâu?
+ĐỆ,弟 (おとうと),em trai|弟は高校生です。|Em trai tôi là học sinh cấp ba.
+ĐỆ,弟さん (おとうとさん),em trai|弟さんは何歳ですか。|Em trai bạn bao nhiêu tuổi?
+MUỘI,妹 (いもうと),em gái|妹が一人います。|Tôi có một em gái.
+MUỘI,妹さん (いもうとさん),em gái|妹さんは学生ですか。|Em gái bạn là sinh viên à?
+NGOẠI QUỐC,外国 (がいこく),nước ngoài|外国へ行ったことがありますか。|Bạn đã từng đi nước ngoài chưa?
+THỜI GIAN,～時間 (～じかん),～ tiếng|毎日２時間勉強します。|Mỗi ngày tôi học 2 tiếng.
+CHU GIAN,～週間 (～しゅうかん),～ tuần|２週間国へ帰ります。|Tôi về nước 2 tuần.
+NGUYỆT,～か月 (～かげつ),～ tháng|日本に３か月います。|Tôi ở Nhật 3 tháng.
+NIÊN,～年 (～ねん),～ năm|日本語を１年勉強しました。|Tôi đã học tiếng Nhật 1 năm.
+TOÀN BỘ,全部で (ぜんぶで),tổng cộng|全部でいくらですか。|Tổng cộng bao nhiêu tiền?

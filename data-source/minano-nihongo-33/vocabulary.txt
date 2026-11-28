@@ -11,37 +11,37 @@
 TAO,騒ぎます (さわぎます),làm ồn/ ồn ào/ làm huyên náo|子供たちが教室で騒いでいます。
 ĐẦU,投げます (なげます),ném/ quăng|ボールを投げないでください。
 THỦ,守ります (まもります),bảo vệ/ tuân thủ/ giữ|規則を守ってください。
-THƯỢNG,上げます (あげます),nâng lên/ giơ lên/ tăng lên|わかる人は手を上げてください。
-HẠ,下げます (さげます),hạ xuống/ giảm xuống/ hạ|エアコンの温度を下げましょう。
+THƯỢNG,上げます (あげます),nâng lên/ giơ lên/ tăng lên|わかる人は手を上げてください。|Ai hiểu thì giơ tay lên.
+HẠ,下げます (さげます),hạ xuống/ giảm xuống/ hạ|エアコンの温度を下げましょう。|Hãy hạ nhiệt độ điều hòa xuống.
 TRUYỀN,伝えます (つたえます),truyền đạt/ nhắn lại/ báo lại|部長に伝えていただけませんか。
 XA CHÚ Ý,車に注意します (くるまにちゅういします),chú ý xe cộ/ coi chừng xe|道を渡るとき、車に注意してください。
-TỊCH NGOẠI,席を外します (せきをはずします),rời khỏi chỗ ngồi/ đi vắng/ không có ở chỗ|田中はただいま席を外しております。
-TỊCH,席 (せき),chỗ ngồi/ ghế|窓側の席に座りたいです。
-TẨY TRẠC CƠ,洗濯機 (せんたくき),máy giặt|洗濯機が壊れてしまいました。
-QUY TẮC,規則 (きそく),quy định/ nội quy/ quy tắc|会社の規則を守らなければなりません。
-SỬ DỤNG CẤM CHỈ,使用禁止 (しようきんし),cấm sử dụng|このトイレは使用禁止です。
-LẬP NHẬP CẤM CHỈ,立入禁止 (たちいりきんし),cấm vào/ cấm vào khu vực này|工事中ですから、立入禁止です。
-NHẬP KHẨU,入口 (いりぐち),lối vào/ cửa vào|入口はあちらです。
-XUẤT KHẨU,出口 (でぐち),lối ra/ cửa ra|出口はどこですか。
-PHI THƯỜNG KHẨU,非常口 (ひじょうぐち),lối thoát hiểm/ cửa thoát hiểm|地震のときは非常口から出てください。
+TỊCH NGOẠI,席を外します (せきをはずします),rời khỏi chỗ ngồi/ đi vắng/ không có ở chỗ|田中はただいま席を外しております。|Anh Tanaka hiện không có ở chỗ ngồi.
+TỊCH,席 (せき),chỗ ngồi/ ghế|窓側の席に座りたいです。|Tôi muốn ngồi ghế cạnh cửa sổ.
+TẨY TRẠC CƠ,洗濯機 (せんたくき),máy giặt|洗濯機が壊れてしまいました。|Máy giặt bị hỏng mất rồi.
+QUY TẮC,規則 (きそく),quy định/ nội quy/ quy tắc|会社の規則を守らなければなりません。|Phải tuân thủ nội quy công ty.
+SỬ DỤNG CẤM CHỈ,使用禁止 (しようきんし),cấm sử dụng|このトイレは使用禁止です。|Nhà vệ sinh này cấm sử dụng.
+LẬP NHẬP CẤM CHỈ,立入禁止 (たちいりきんし),cấm vào/ cấm vào khu vực này|工事中ですから、立入禁止です。|Đang thi công nên cấm vào.
+NHẬP KHẨU,入口 (いりぐち),lối vào/ cửa vào|入口はあちらです。|Lối vào ở đằng kia.
+XUẤT KHẨU,出口 (でぐち),lối ra/ cửa ra|出口はどこですか。|Lối ra ở đâu vậy?
+PHI THƯỜNG KHẨU,非常口 (ひじょうぐち),lối thoát hiểm/ cửa thoát hiểm|地震のときは非常口から出てください。|Khi có động đất, hãy thoát ra bằng lối thoát hiểm.
 VÔ LIỆU,無料 (むりょう),miễn phí|子どもは無料で入れます。
-BẢN NHẬT HƯU NGHIỆP,本日休業 (ほんじつきゅうぎょう),hôm nay nghỉ/ hôm nay đóng cửa|本日休業と書いてあります。
-DOANH NGHIỆP TRUNG,営業中 (えいぎょうちゅう),đang mở cửa/ đang kinh doanh|あの店はまだ営業中です。
-SỬ DỤNG TRUNG,使用中 (しようちゅう),đang sử dụng/ đang có người dùng|会議室は使用中です。
-TRÚ XA VI PHẢN,駐車違反 (ちゅうしゃいはん),đỗ xe sai quy định/ đỗ xe trái phép|ここに止めると駐車違反になります。
-CẢNH SÁT,警察 (けいさつ),cảnh sát|すぐに警察に電話してください。
-PHẠT KIM,罰金 (ばっきん),tiền phạt|スピード違反で罰金を払いました。
+BẢN NHẬT HƯU NGHIỆP,本日休業 (ほんじつきゅうぎょう),hôm nay nghỉ/ hôm nay đóng cửa|本日休業と書いてあります。|Có ghi là hôm nay nghỉ.
+DOANH NGHIỆP TRUNG,営業中 (えいぎょうちゅう),đang mở cửa/ đang kinh doanh|あの店はまだ営業中です。|Cửa hàng kia vẫn đang mở cửa.
+SỬ DỤNG TRUNG,使用中 (しようちゅう),đang sử dụng/ đang có người dùng|会議室は使用中です。|Phòng họp đang có người dùng.
+TRÚ XA VI PHẢN,駐車違反 (ちゅうしゃいはん),đỗ xe sai quy định/ đỗ xe trái phép|ここに止めると駐車違反になります。|Đỗ xe ở đây là vi phạm quy định đỗ xe.
+CẢNH SÁT,警察 (けいさつ),cảnh sát|すぐに警察に電話してください。|Hãy gọi điện cho cảnh sát ngay.
+PHẠT KIM,罰金 (ばっきん),tiền phạt|スピード違反で罰金を払いました。|Tôi đã nộp phạt vì chạy quá tốc độ.
 ĐIỆN BÁO,電報 (でんぽう),bức điện/ điện báo/ điện tín|お祝いの電報が届きました。
-CẤP DỤNG,急用 (きゅうよう),việc gấp/ việc khẩn|急用ができて、行けなくなりました。
+CẤP DỤNG,急用 (きゅうよう),việc gấp/ việc khẩn|急用ができて、行けなくなりました。|Có việc gấp nên tôi không đi được nữa.
 ĐIỆN BÁO ĐẢ,電報を打ちます (でんぽうをうちます),đánh điện/ gửi điện báo|国の家族に電報を打ちました。
 ĐIỆN BÁO ĐẠI,電報代 (でんぽうだい),tiền điện báo/ cước điện báo|電報代はいくらかかりますか。
-ĐOẢN,短く (みじかく),ngắn/ ngắn gọn|短く説明してください。
+ĐOẢN,短く (みじかく),ngắn/ ngắn gọn|短く説明してください。|Hãy giải thích ngắn gọn.
 LỆ,例えば (たとえば),ví dụ như/ chẳng hạn/ ví dụ|果物、例えばりんごが好きです。
-TRỌNG BỆNH KHÍ,重い病気 (おもいびょうき),bệnh nặng|父は重い病気で入院しています。
-MINH NHẬT,明日 (あした),ngày mai|明日は雨が降るそうです。
+TRỌNG BỆNH KHÍ,重い病気 (おもいびょうき),bệnh nặng|父は重い病気で入院しています。|Bố tôi đang nằm viện vì bệnh nặng.
+MINH NHẬT,明日 (あした),ngày mai|明日は雨が降るそうです。|Nghe nói ngày mai trời mưa.
 LƯU THỦ,留守 (るす),vắng nhà/ không có nhà|昨日、友達の家へ行きましたが留守でした。
 LƯU THỦ PHIÊN,留守番 (るすばん),trông nhà/ giữ nhà|子どもが一人で留守番をしています。
-CHÚC,お祝い (おいわい),quà mừng/ lời chúc mừng/ lễ mừng|結婚のお祝いを送りました。
-VONG,亡くなります (なくなります),mất/ qua đời|祖父は去年亡くなりました。
-BI,悲しみ (かなしみ),nỗi buồn/ niềm đau|彼の悲しみは言葉にできません。
+CHÚC,お祝い (おいわい),quà mừng/ lời chúc mừng/ lễ mừng|結婚のお祝いを送りました。|Tôi đã gửi quà mừng cưới.
+VONG,亡くなります (なくなります),mất/ qua đời|祖父は去年亡くなりました。|Ông tôi đã mất năm ngoái.
+BI,悲しみ (かなしみ),nỗi buồn/ niềm đau|彼の悲しみは言葉にできません。|Nỗi buồn của anh ấy không thể nói thành lời.
 LỢI DỤNG,利用します (りようします),sử dụng/ dùng/ tận dụng|この図書館は誰でも利用できます。

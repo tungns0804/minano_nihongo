@@ -7,43 +7,43 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-SỐ,数えます (かぞえます),đếm|人数を数えてください。
-TRẮC,測ります (はかります),đo|部屋の広さを測ります。
-LƯỢNG,量ります (はかります),cân|荷物の重さを量ります。
-XÁC,確かめます (たしかめます),xác nhận/ kiểm tra lại|予約したかどうか確かめます。
-HỢP,サイズが合います (サイズがあいます),vừa kích thước/ hợp cỡ|サイズが合うかどうか着てみます。
-XUẤT PHÁT,出発します (しゅっぱつします),xuất phát/ khởi hành|何時に出発するか聞いてみます。
-ĐÁO TRƯỚC,到着します (とうちゃくします),đến/ đến nơi|飛行機は3時に到着します。
+SỐ,数えます (かぞえます),đếm|人数を数えてください。|Hãy đếm số người.
+TRẮC,測ります (はかります),đo|部屋の広さを測ります。|Tôi đo diện tích căn phòng.
+LƯỢNG,量ります (はかります),cân|荷物の重さを量ります。|Tôi cân hành lý.
+XÁC,確かめます (たしかめます),xác nhận/ kiểm tra lại|予約したかどうか確かめます。|Tôi kiểm tra lại xem đã đặt chỗ chưa.
+HỢP,サイズが合います (サイズがあいます),vừa kích thước/ hợp cỡ|サイズが合うかどうか着てみます。|Tôi mặc thử xem có vừa cỡ không.
+XUẤT PHÁT,出発します (しゅっぱつします),xuất phát/ khởi hành|何時に出発するか聞いてみます。|Tôi thử hỏi mấy giờ xuất phát.
+ĐÁO TRƯỚC,到着します (とうちゃくします),đến/ đến nơi|飛行機は3時に到着します。|Máy bay hạ cánh lúc 3 giờ.
 TÚY,酔います (よいます),say|少し酔いました。
-NGUY HIỂM,危険 (きけん),nguy hiểm|ここは危険ですから、入らないでください。
+NGUY HIỂM,危険 (きけん),nguy hiểm|ここは危険ですから、入らないでください。|Ở đây nguy hiểm nên đừng vào.
 TẤT YẾU,必要 (ひつよう),cần thiết|何が必要か教えてください。
 VŨ TRỤ,宇宙 (うちゅう),vũ trụ|宇宙から地球を見てみたいです。
 ĐỊA CẦU,地球 (ちきゅう),trái đất|地球は丸いです。
 VONG NIÊN HỘI,忘年会 (ぼうねんかい),tiệc tất niên|12月に忘年会があります。
 TÂN NIÊN HỘI,新年会 (しんねんかい),tiệc tân niên|新年会に出席します。
 NHỊ THỨ HỘI,二次会 (にじかい),tiệc tăng hai/ bữa tiệc thứ hai|二次会に行きませんか。
-ĐẠI HỘI,大会 (たいかい),đại hội/ cuộc thi|マラソン大会に出ました。
-BIỂU,表 (おもて),mặt trước/ phía trước|紙の表に名前を書きます。
-LÝ,裏 (うら),mặt sau/ phía sau|裏に住所を書いてください。
-PHẢN SỰ,返事 (へんじ),hồi âm/ trả lời|まだ返事が来ません。
-THÂN VÀO,申し込み (もうしこみ),đăng ký|申し込みは今日までです。
-THƯƠNG,傷 (きず),vết thương|手に傷ができました。
-TRƯỜNG,長さ (ながさ),chiều dài|川の長さを調べます。
-TRỌNG,重さ (おもさ),cân nặng/ trọng lượng|荷物の重さは10キロです。
-CAO,高さ (たかさ),chiều cao|山の高さはどのくらいですか。
-ĐẠI,大きさ (おおきさ),cỡ/ kích thước|部屋の大きさを測ります。
-TIỆN,便 (びん),chuyến bay|何便で行きますか。
-TUYẾT TẾ,雪祭り (ゆきまつり),Lễ hội tuyết|札幌の雪祭りを見に行きました。
-THÀNH TÍCH,成績 (せいせき),kết quả/ thành tích|試験の成績がよかったです。
-DẠNG TỬ,様子 (ようす),vẻ/ tình hình|外の様子を見てきます。
-SỰ KIỆN,事件 (じけん),vụ án/ vụ việc|大きい事件が起きました。
+ĐẠI HỘI,大会 (たいかい),đại hội/ cuộc thi|マラソン大会に出ました。|Tôi đã tham gia cuộc thi marathon.
+BIỂU,表 (おもて),mặt trước/ phía trước|紙の表に名前を書きます。|Tôi viết tên vào mặt trước tờ giấy.
+LÝ,裏 (うら),mặt sau/ phía sau|裏に住所を書いてください。|Hãy viết địa chỉ ở mặt sau.
+PHẢN SỰ,返事 (へんじ),hồi âm/ trả lời|まだ返事が来ません。|Vẫn chưa có hồi âm.
+THÂN VÀO,申し込み (もうしこみ),đăng ký|申し込みは今日までです。|Hạn đăng ký là đến hôm nay.
+THƯƠNG,傷 (きず),vết thương|手に傷ができました。|Tay tôi bị một vết thương.
+TRƯỜNG,長さ (ながさ),chiều dài|川の長さを調べます。|Tôi tìm hiểu chiều dài của con sông.
+TRỌNG,重さ (おもさ),cân nặng/ trọng lượng|荷物の重さは10キロです。|Hành lý nặng 10 cân.
+CAO,高さ (たかさ),chiều cao|山の高さはどのくらいですか。|Ngọn núi cao khoảng bao nhiêu?
+ĐẠI,大きさ (おおきさ),cỡ/ kích thước|部屋の大きさを測ります。|Tôi đo kích thước căn phòng.
+TIỆN,便 (びん),chuyến bay|何便で行きますか。|Bạn đi chuyến bay số mấy?
+TUYẾT TẾ,雪祭り (ゆきまつり),Lễ hội tuyết|札幌の雪祭りを見に行きました。|Tôi đã đi xem lễ hội tuyết ở Sapporo.
+THÀNH TÍCH,成績 (せいせき),kết quả/ thành tích|試験の成績がよかったです。|Kết quả bài thi tốt.
+DẠNG TỬ,様子 (ようす),vẻ/ tình hình|外の様子を見てきます。|Tôi ra xem tình hình bên ngoài.
+SỰ KIỆN,事件 (じけん),vụ án/ vụ việc|大きい事件が起きました。|Đã xảy ra một vụ án lớn.
 BỘC ĐẠN,爆弾 (ばくだん),bom|爆弾が見つかりました。
 TÍCH,積みます (つみます),xếp lên/ chất hàng lên|トラックに荷物を積みます。
-VẬN CHUYỂN THỦ,運転手 (うんてんしゅ),tài xế|タクシーの運転手に聞いてみます。
-LY,離れた (はなれた),xa/ cách xa|駅から離れた所に住んでいます。
-CẤP,急に (きゅうに),đột nhiên/ gấp|急に雨が降ってきました。
-ĐỘNG,動かします (うごかします),làm dịch chuyển/ khởi động|机を動かしてもいいですか。
+VẬN CHUYỂN THỦ,運転手 (うんてんしゅ),tài xế|タクシーの運転手に聞いてみます。|Tôi thử hỏi tài xế taxi.
+LY,離れた (はなれた),xa/ cách xa|駅から離れた所に住んでいます。|Tôi sống ở chỗ cách xa nhà ga.
+CẤP,急に (きゅうに),đột nhiên/ gấp|急に雨が降ってきました。|Trời đột nhiên đổ mưa.
+ĐỘNG,動かします (うごかします),làm dịch chuyển/ khởi động|机を動かしてもいいですか。|Tôi dịch cái bàn đi có được không?
 NHẤT SINH HUYỀN MỆNH,一生懸命 (いっしょうけんめい),hết sức/ chăm chỉ|一生懸命勉強しました。
-PHẠM NHÂN,犯人 (はんにん),thủ phạm|犯人はまだ見つかりません。
-THỦ NHẬP,手に入れます (てにいれます),có được/ lấy được|珍しい切手を手に入れました。
-KIM,今でも (いまでも),ngay cả bây giờ|今でもよく覚えています。
+PHẠM NHÂN,犯人 (はんにん),thủ phạm|犯人はまだ見つかりません。|Thủ phạm vẫn chưa được tìm thấy.
+THỦ NHẬP,手に入れます (てにいれます),có được/ lấy được|珍しい切手を手に入れました。|Tôi đã có được một con tem hiếm.
+KIM,今でも (いまでも),ngay cả bây giờ|今でもよく覚えています。|Đến bây giờ tôi vẫn nhớ rõ.

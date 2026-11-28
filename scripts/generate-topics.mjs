@@ -65,7 +65,7 @@ function fail(msg) {
   failures++;
 }
 
-const { TOPIC_DEFS } = await import(toFileUrl(join(ROOT, 'src/app/core/topics/topic-list.ts')));
+const { TOPIC_DEFS, TOPIC_KANJI } = await import(toFileUrl(join(ROOT, 'src/app/core/topics/topic-list.ts')));
 
 /**
  * Bảng âm Hán Việt của từng chữ, để điền cột trống của phần 総まとめ N3.
@@ -150,6 +150,8 @@ const { byJapanese: corpus, byLesson, lessonIds } = readCorpus();
 
 const seeds = [];
 const seenTopicIds = new Set();
+/** Khoá của `TOPIC_KANJI` đã được dùng — khoá thừa là dấu hiệu gõ sai hoặc từ đã bị bỏ. */
+const usedKanji = new Set();
 let totalWords = 0;
 
 for (const topic of TOPIC_DEFS) {
@@ -196,10 +198,15 @@ for (const topic of TOPIC_DEFS) {
     }
     seen.add(word.japanese);
 
+    // Từ kho ghi bằng kana mà có chữ Hán thông dụng: hiện chữ Hán, cách đọc là chính
+    // chuỗi kana gốc (xem `TOPIC_KANJI`).
+    const kanji = TOPIC_KANJI[word.japanese];
+    if (kanji) usedKanji.add(word.japanese);
+
     rows.push([
-      word.japanese,
-      word.reading,
-      word.hanViet,
+      kanji ? kanji[0] : word.japanese,
+      kanji ? word.reading || word.japanese : word.reading,
+      kanji ? kanji[1] : word.hanViet,
       word.vietnamese,
       word.example,
       word.exampleVietnamese,
@@ -225,6 +232,14 @@ for (const topic of TOPIC_DEFS) {
 
   seeds.push([topic.id, rows]);
   totalWords += rows.length;
+}
+
+const unusedKanji = Object.keys(TOPIC_KANJI).filter((key) => !usedKanji.has(key));
+if (unusedKanji.length > 0) {
+  fail(
+    `TOPIC_KANJI co ${unusedKanji.length} khoa khong chu de nao dung: ${unusedKanji.join(' ')}\n` +
+      '      Khoa phai viet DUNG NHU trong kho tu (kana), va tu do phai nam trong mot chu de.',
+  );
 }
 
 // Từ trong kho mà KHÔNG chủ đề nào nhận — chỉ là số liệu, không phải lỗi: 20 chủ

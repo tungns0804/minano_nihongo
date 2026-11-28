@@ -3,37 +3,37 @@
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
 KHỞI,起きます (おきます),Dậy, thức dậy
 TẨM,寝ます (ねます),Ngủ, đi ngủ
-ĐỘNG,働きます (はたらきます),Làm việc
+ĐỘNG,働きます (はたらきます),Làm việc|毎日９時から５時まで働きます。|Ngày nào tôi cũng làm việc từ 9 giờ đến 5 giờ.
 HƯU,休みます (やすみます),Nghỉ, nghỉ ngơi
-MIỄN CƯỜNG,勉強します (べんきょうします),Học
+MIỄN CƯỜNG,勉強します (べんきょうします),Học|毎晩日本語を勉強します。|Tối nào tôi cũng học tiếng Nhật.
 CHUNG,終わります (おわります),Hết, kết thúc, xong
-NGÂN HÀNH,銀行 (ぎんこう),Ngân hàng
-BƯU TIỆN CỤC,郵便局 (ゆうびんきょく),Bưu điện
-ĐỒ THƯ QUÁN,図書館 (としょかん),Thư viện
-MỸ THUẬT QUÁN,美術館 (びじゅつかん),Bảo tàng mỹ thuật
-KIM,今 (いま),Bây giờ
-BÁN,半 (はん),Rưỡi, nửa
-HÀ THỜI,何時 (なんじ),Mấy giờ
-HÀ PHÂN,何分 (なんぷん),Mấy phút
-NGỌ TIỀN,午前 (ごぜん),Sáng, trước 12 giờ trưa
-NGỌ HẬU,午後 (ごご),Chiều, sau 12 giờ trưa
-TRIỀU,朝 (あさ),Buổi sáng, sáng
-TRÚ,昼 (ひる),Buổi trưa, trưa
-VÃN,晩 (ばん),Buổi tối, tối
-DẠ,夜 (よる),Buổi tối, khuya
-KIM VÃN,今晩 (こんばん),Tối nay
-HƯU,休み (やすみ),Nghỉ, nghỉ phép, ngày nghỉ
+NGÂN HÀNH,銀行 (ぎんこう),Ngân hàng|銀行は３時までです。|Ngân hàng mở đến 3 giờ.
+BƯU TIỆN CỤC,郵便局 (ゆうびんきょく),Bưu điện|郵便局は何時からですか。|Bưu điện mở từ mấy giờ?
+ĐỒ THƯ QUÁN,図書館 (としょかん),Thư viện|図書館は何時までですか。|Thư viện mở đến mấy giờ?
+MỸ THUẬT QUÁN,美術館 (びじゅつかん),Bảo tàng mỹ thuật|美術館は９時から５時までです。|Bảo tàng mỹ thuật mở từ 9 giờ đến 5 giờ.
+KIM,今 (いま),Bây giờ|今４時です。|Bây giờ là 4 giờ.
+BÁN,半 (はん),Rưỡi, nửa|今９時半です。|Bây giờ là 9 rưỡi.
+HÀ THỜI,何時 (なんじ),Mấy giờ|今何時ですか。|Bây giờ là mấy giờ?
+HÀ PHÂN,何分 (なんぷん),Mấy phút|今何時何分ですか。|Bây giờ là mấy giờ mấy phút?
+NGỌ TIỀN,午前 (ごぜん),Sáng, trước 12 giờ trưa|午前９時に会社へ行きます。|Tôi đến công ty lúc 9 giờ sáng.
+NGỌ HẬU,午後 (ごご),Chiều, sau 12 giờ trưa|午後３時に会議があります。|Có cuộc họp lúc 3 giờ chiều.
+TRIỀU,朝 (あさ),Buổi sáng, sáng|毎朝６時に起きます。|Sáng nào tôi cũng dậy lúc 6 giờ.
+TRÚ,昼 (ひる),Buổi trưa, trưa|昼は１２時から１時までです。|Giờ nghỉ trưa từ 12 giờ đến 1 giờ.
+VÃN,晩 (ばん),Buổi tối, tối|晩ご飯は７時に食べます。|Tôi ăn tối lúc 7 giờ.
+DẠ,夜 (よる),Buổi tối, khuya|夜１１時に寝ます。|Tôi đi ngủ lúc 11 giờ đêm.
+KIM VÃN,今晩 (こんばん),Tối nay|今晩勉強します。|Tối nay tôi học bài.
+HƯU,休み (やすみ),Nghỉ, nghỉ phép, ngày nghỉ|銀行の休みは土曜日と日曜日です。|Ngân hàng nghỉ thứ bảy và chủ nhật.
 TRÚ HƯU,昼休み (ひるやすみ),Nghỉ trưa
-MỖI TRIỀU,毎朝 (まいあさ),Hàng sáng, mỗi sáng
-MỖI VÃN,毎晩 (まいばん),Hàng tối, mỗi tối
-MỖI NHẬT,毎日 (まいにち),Hàng ngày, mỗi ngày
-NGUYỆT DIỆU NHẬT,月曜日 (げつようび),Thứ hai
-HỎA DIỆU NHẬT,火曜日 (かようび),Thứ ba
-THỦY DIỆU NHẬT,水曜日 (すいようび),Thứ tư
-MỘC DIỆU NHẬT,木曜日 (もくようび),Thứ năm
-KIM DIỆU NHẬT,金曜日 (きんようび),Thứ sáu
-THỔ DIỆU NHẬT,土曜日 (どようび),Thứ bảy
-NHẬT DIỆU NHẬT,日曜日 (にちようび),Chủ Nhật
-HÀ DIỆU NHẬT,何曜日 (なんようび),Thứ mấy
-PHIÊN HIỆU,番号 (ばんごう),Số (số điện thoại, số phòng)
-HÀ PHIÊN,何番 (なんばん),Số bao nhiêu, số mấy
+MỖI TRIỀU,毎朝 (まいあさ),Hàng sáng, mỗi sáng|毎朝コーヒーを飲みます。|Sáng nào tôi cũng uống cà phê.
+MỖI VÃN,毎晩 (まいばん),Hàng tối, mỗi tối|毎晩１１時に寝ます。|Tối nào tôi cũng ngủ lúc 11 giờ.
+MỖI NHẬT,毎日 (まいにち),Hàng ngày, mỗi ngày|毎日勉強します。|Ngày nào tôi cũng học.
+NGUYỆT DIỆU NHẬT,月曜日 (げつようび),Thứ hai|月曜日から金曜日まで働きます。|Tôi làm việc từ thứ hai đến thứ sáu.
+HỎA DIỆU NHẬT,火曜日 (かようび),Thứ ba|火曜日に会議があります。|Thứ ba có cuộc họp.
+THỦY DIỆU NHẬT,水曜日 (すいようび),Thứ tư|水曜日は休みです。|Thứ tư là ngày nghỉ.
+MỘC DIỆU NHẬT,木曜日 (もくようび),Thứ năm|木曜日にテストがあります。|Thứ năm có bài kiểm tra.
+KIM DIỆU NHẬT,金曜日 (きんようび),Thứ sáu|金曜日の晩、友達と食事します。|Tối thứ sáu tôi ăn cơm với bạn.
+THỔ DIỆU NHẬT,土曜日 (どようび),Thứ bảy|土曜日は休みです。|Thứ bảy là ngày nghỉ.
+NHẬT DIỆU NHẬT,日曜日 (にちようび),Chủ Nhật|日曜日は何をしますか。|Chủ nhật bạn làm gì?
+HÀ DIỆU NHẬT,何曜日 (なんようび),Thứ mấy|今日は何曜日ですか。|Hôm nay là thứ mấy?
+PHIÊN HIỆU,番号 (ばんごう),Số (số điện thoại, số phòng)|電話番号は何番ですか。|Số điện thoại của bạn là bao nhiêu?
+HÀ PHIÊN,何番 (なんばん),Số bao nhiêu, số mấy|図書館の電話番号は何番ですか。|Số điện thoại của thư viện là bao nhiêu?

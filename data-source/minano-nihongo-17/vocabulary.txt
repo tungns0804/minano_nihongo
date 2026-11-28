@@ -1,30 +1,30 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 23-25 (các dòng đánh số bài 17).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-GIÁC,覚えます (おぼえます),Nhớ
-VONG,忘れます (わすれます),Quên
+GIÁC,覚えます (おぼえます),Nhớ|毎日新しい言葉を覚えます。|Mỗi ngày tôi nhớ từ mới.
+VONG,忘れます (わすれます),Quên|宿題を忘れないでください。|Đừng quên bài tập về nhà.
 XUẤT,レポートを出します (レポートをだします),Nộp bản báo cáo
-PHẤT,払います (はらいます),Trả tiền
-PHẢN,返します (かえします),Trả lại
+PHẤT,払います (はらいます),Trả tiền|お金を払わなければなりません。|Tôi phải trả tiền.
+PHẢN,返します (かえします),Trả lại|図書館に本を返します。|Tôi trả sách cho thư viện.
 XUẤT,出かけます (でかけます),Ra ngoài
 THOÁT,脱ぎます (ぬぎます),Cởi
 TRÌ HÀNH,持って行きます (もっていきます),Mang đi, mang theo
 TRÌ LAI,持って来ます (もってきます),Mang đến
-TÂM PHỐI,心配します (しんぱいします),Lo lắng
-TÀN NGHIỆP,残業します (ざんぎょうします),Làm thêm, làm quá giờ
-XUẤT TRƯƠNG,出張します (しゅっちょうします),Đi công tác
-DƯỢC ẨM,薬を飲みます (くすりをのみます),Uống thuốc
+TÂM PHỐI,心配します (しんぱいします),Lo lắng|母はいつも私のことを心配しています。|Mẹ lúc nào cũng lo lắng cho tôi.
+TÀN NGHIỆP,残業します (ざんぎょうします),Làm thêm, làm quá giờ|今日は８時まで残業します。|Hôm nay tôi làm thêm đến 8 giờ.
+XUẤT TRƯƠNG,出張します (しゅっちょうします),Đi công tác|来週大阪へ出張します。|Tuần sau tôi đi công tác Osaka.
+DƯỢC ẨM,薬を飲みます (くすりをのみます),Uống thuốc|ご飯を食べてから、薬を飲みます。|Ăn cơm xong tôi uống thuốc.
 PHONG LỮ NHẬP,お風呂に入ります (おふろにはいります),Tắm bồn, vào bồn tắm
 ĐẠI THIẾT,大切 (たいせつ),Quan trọng, quý giá
-ĐẠI TRƯỢNG PHU,大丈夫 (だいじょうぶ),Không sao, không có vấn đề gì
-NGUY,危ない (あぶない),Nguy hiểm
+ĐẠI TRƯỢNG PHU,大丈夫 (だいじょうぶ),Không sao, không có vấn đề gì|大丈夫ですか。|Bạn có sao không?
+NGUY,危ない (あぶない),Nguy hiểm|危ないですから、ここで遊ばないでください。|Nguy hiểm lắm nên đừng chơi ở đây.
 VẤN ĐỀ,問題 (もんだい),Vấn đề
-ĐÁP,答え (こたえ),Câu trả lời
-CẤM YÊN,禁煙 (きんえん),Cấm hút thuốc
-KIỆN KHANG BẢO HIỂM CHỨNG,健康保険証 (けんこうほけんしょう),Thẻ bảo hiểm y tế
-NHIỆT,熱 (ねつ),Sốt
-BỆNH KHÍ,病気 (びょうき),ốm, bệnh
-DƯỢC,薬 (くすり),Thuốc
-THƯỢNG TRƯỚC,上着 (うわぎ),Áo khoác
-HẠ TRƯỚC,下着 (したぎ),Quần áo lót
-TIÊN SINH,先生 (せんせい),Bác sĩ
+ĐÁP,答え (こたえ),Câu trả lời|答えを書いてください。|Hãy viết câu trả lời.
+CẤM YÊN,禁煙 (きんえん),Cấm hút thuốc|ここは禁煙です。|Ở đây cấm hút thuốc.
+KIỆN KHANG BẢO HIỂM CHỨNG,健康保険証 (けんこうほけんしょう),Thẻ bảo hiểm y tế|病院へ健康保険証を持って行ってください。|Hãy mang theo thẻ bảo hiểm y tế đến bệnh viện.
+NHIỆT,熱 (ねつ),Sốt|熱があるので、学校を休みます。|Tôi bị sốt nên nghỉ học.
+BỆNH KHÍ,病気 (びょうき),ốm, bệnh|病気のときは、ゆっくり休んでください。|Khi bị ốm hãy nghỉ ngơi cho thoải mái.
+DƯỢC,薬 (くすり),Thuốc|この薬は一日３回飲んでください。|Hãy uống thuốc này ngày 3 lần.
+THƯỢNG TRƯỚC,上着 (うわぎ),Áo khoác|暑いので、上着を脱ぎます。|Trời nóng nên tôi cởi áo khoác.
+HẠ TRƯỚC,下着 (したぎ),Quần áo lót|旅行に下着を持って行きます。|Tôi mang theo đồ lót khi đi du lịch.
+TIÊN SINH,先生 (せんせい),Bác sĩ|先生、のどが痛いんです。|Bác sĩ ơi, tôi bị đau họng.

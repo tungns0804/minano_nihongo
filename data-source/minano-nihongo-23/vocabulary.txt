@@ -4,23 +4,23 @@
 TIÊN SINH VĂN,先生に聞きます (せんせいにききます),Hỏi giáo viên
 HỒI,回します (まわします),Vặn, xoay
 DẪN,引きます (ひきます),Kéo
-BIẾN,変えます (かえます),Đổi
+BIẾN,変えます (かえます),Đổi|このボタンを押すと、温度を変えることができます。|Bấm nút này thì có thể đổi nhiệt độ.
 XÚC,ドアに触ります (ドアにさわります),Sờ vào cửa/ chạm vào cửa
-ĐIẾU XUẤT,お釣りが出ます (おつりがでます),Tiền thừa (đi) ra
-THỜI KẾ ĐỘNG,時計が動きます (とけいがうごきます),Đồng hồ chạy/ đồng hồ chuyển động
-ĐẠO BỘ,道を歩きます (みちをあるきます),Đi bộ trên đường
-KIỀU ĐỘ,橋を渡ります (はしをわたります),(Đi) qua cầu
+ĐIẾU XUẤT,お釣りが出ます (おつりがでます),Tiền thừa (đi) ra|このボタンを押すと、お釣りが出ます。|Bấm nút này thì tiền thừa sẽ ra.
+THỜI KẾ ĐỘNG,時計が動きます (とけいがうごきます),Đồng hồ chạy/ đồng hồ chuyển động|電池を入れると、時計が動きます。|Cho pin vào thì đồng hồ chạy.
+ĐẠO BỘ,道を歩きます (みちをあるきます),Đi bộ trên đường|夜、一人で道を歩くと危ないです。|Ban đêm đi bộ trên đường một mình thì nguy hiểm.
+KIỀU ĐỘ,橋を渡ります (はしをわたります),(Đi) qua cầu|橋を渡ると、右に公園があります。|Qua cầu là có công viên bên phải.
 XA KHÍ,車に気をつけます (くるまにきをつけます),Chú ý ô tô/ cẩn thận với ô tô
-DẪN VIỆT,引っ越しします (ひっこしします),Chuyển nhà
-ĐIỆN KHÍ ỐC,電気屋 (でんきや),Cửa hàng đồ điện
+DẪN VIỆT,引っ越しします (ひっこしします),Chuyển nhà|来月、新しいアパートに引っ越しします。|Tháng sau tôi chuyển đến căn hộ mới.
+ĐIỆN KHÍ ỐC,電気屋 (でんきや),Cửa hàng đồ điện|電気屋でテレビを買いました。|Tôi đã mua tivi ở cửa hàng đồ điện.
 ÂM,音 (おと),Âm thanh
-CƠ GIỚI,機械 (きかい),Máy, máy móc
-CỐ CHƯỚNG,故障 (こしょう),Hỏng
-ĐẠO,道 (みち),Đường
-GIAO SAI ĐIỂM,交差点 (こうさてん),Ngã tư
-TÍN HIỆU,信号 (しんごう),Đèn tín hiệu
-GIÁC,角 (かど),Góc
-KIỀU,橋 (はし),Cầu
-TRÚ XA TRƯỜNG,駐車場 (ちゅうしゃじょう),Bãi đỗ xe
-CHÍNH NGUYỆT,お正月 (おしょうがつ),Tết (Dương lịch)
-KIẾN VẬT,建物 (たてもの),Tòa nhà
+CƠ GIỚI,機械 (きかい),Máy, máy móc|この機械の使い方を教えてください。|Hãy chỉ tôi cách dùng cái máy này.
+CỐ CHƯỚNG,故障 (こしょう),Hỏng|コピー機が故障しています。|Máy photo bị hỏng.
+ĐẠO,道 (みち),Đường|この道をまっすぐ行ってください。|Hãy đi thẳng con đường này.
+GIAO SAI ĐIỂM,交差点 (こうさてん),Ngã tư|次の交差点を右へ曲がります。|Rẽ phải ở ngã tư tiếp theo.
+TÍN HIỆU,信号 (しんごう),Đèn tín hiệu|信号が赤のときは渡らないでください。|Khi đèn đỏ thì đừng qua đường.
+GIÁC,角 (かど),Góc|あの角を左に曲がってください。|Hãy rẽ trái ở góc kia.
+KIỀU,橋 (はし),Cầu|橋の向こうに駅があります。|Bên kia cầu có nhà ga.
+TRÚ XA TRƯỜNG,駐車場 (ちゅうしゃじょう),Bãi đỗ xe|駐車場に車を止めます。|Tôi đỗ xe ở bãi đỗ xe.
+CHÍNH NGUYỆT,お正月 (おしょうがつ),Tết (Dương lịch)|お正月は家族と過ごします。|Ngày Tết tôi ở bên gia đình.
+KIẾN VẬT,建物 (たてもの),Tòa nhà|あの高い建物は何ですか。|Tòa nhà cao kia là gì vậy?

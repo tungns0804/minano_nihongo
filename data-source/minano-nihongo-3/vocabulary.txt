@@ -1,20 +1,20 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 2-3 (các dòng đánh số bài 3).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-GIÁO THẤT,教室 (きょうしつ),lớp học, phòng học
-THỰC ĐƯỜNG,食堂 (しょくどう),nhà ăn
-SỰ VỤ SỞ,事務所 (じむしょ),văn phòng
-HỘI NGHỊ THẤT,会議室 (かいぎしつ),phòng họp
-THỤ PHÓ,受付 (うけつけ),bộ phận tiếp tân, phòng thường trực
-BỘ ỐC,部屋 (へや),căn phòng
-THỦ TẨY,お手洗い (おてあらい),nhà vệ sinh, phòng vệ sinh, toa-lét
-GIAI ĐOẠN,階段 (かいだん),Cầu thang
+GIÁO THẤT,教室 (きょうしつ),lớp học, phòng học|教室はここです。|Lớp học ở đây.
+THỰC ĐƯỜNG,食堂 (しょくどう),nhà ăn|食堂は地下です。|Nhà ăn ở tầng hầm.
+SỰ VỤ SỞ,事務所 (じむしょ),văn phòng|事務所は３階です。|Văn phòng ở tầng 3.
+HỘI NGHỊ THẤT,会議室 (かいぎしつ),phòng họp|会議室はあちらです。|Phòng họp ở đằng kia.
+THỤ PHÓ,受付 (うけつけ),bộ phận tiếp tân, phòng thường trực|受付はこちらです。|Quầy tiếp tân ở đây.
+BỘ ỐC,部屋 (へや),căn phòng|私の部屋は２階です。|Phòng tôi ở tầng 2.
+THỦ TẨY,お手洗い (おてあらい),nhà vệ sinh, phòng vệ sinh, toa-lét|すみません、お手洗いはどこですか。|Xin lỗi, nhà vệ sinh ở đâu ạ?
+GIAI ĐOẠN,階段 (かいだん),Cầu thang|階段はあそこです。|Cầu thang ở đằng kia.
 QUỐC,お国 (おくに),đất nước
-HỘI XÃ,会社 (かいしゃ),công ty
+HỘI XÃ,会社 (かいしゃ),công ty|会社はどこですか。|Công ty ở đâu?
 ĐIỆN THOẠI,電話 (でんわ),máy điện thoại, điện thoại
-NGOA,靴 (くつ),giầy
-MẠI TRƯỜNG,売り場 (うりば),quầy bán (trong một cửa hàng bách hóa)
-HÀ GIAI,何階 (なんがい),tầng mấy
-BÁCH,百 (ひゃく),Trăm
-THIÊN,千 (せん),nghìn
-VẠN,万 (まん),mười nghìn, vạn
+NGOA,靴 (くつ),giầy|この靴はいくらですか。|Đôi giày này bao nhiêu tiền?
+MẠI TRƯỜNG,売り場 (うりば),quầy bán (trong một cửa hàng bách hóa)|靴の売り場は何階ですか。|Quầy bán giày ở tầng mấy?
+HÀ GIAI,何階 (なんがい),tầng mấy|ワインの売り場は何階ですか。|Quầy rượu vang ở tầng mấy?
+BÁCH,百 (ひゃく),Trăm|このペンは百円です。|Cái bút này giá một trăm yên.
+THIÊN,千 (せん),nghìn|この本は千五百円です。|Quyển sách này giá một nghìn năm trăm yên.
+VẠN,万 (まん),mười nghìn, vạn|このカメラは３万円です。|Cái máy ảnh này giá ba vạn yên.

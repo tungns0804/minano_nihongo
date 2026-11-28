@@ -3,20 +3,20 @@
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
 THIẾT,切る (きる),cắt
 TỐNG,送る (おくる),gửi
-THẢI,貸す (かす),cho mượn, cho vay
-TÁ,借りる (かりる),mượn, vay
-GIÁO,教える (おしえる),dạy
-TẬP,習う (ならう),học, tập
+THẢI,貸す (かす),cho mượn, cho vay|友達に本を貸す。|Tôi cho bạn mượn sách.
+TÁ,借りる (かりる),mượn, vay|図書館で本を借りる。|Tôi mượn sách ở thư viện.
+GIÁO,教える (おしえる),dạy|友達に英語を教える。|Tôi dạy tiếng Anh cho bạn.
+TẬP,習う (ならう),học, tập|先生に日本語を習う。|Tôi học tiếng Nhật với thầy giáo.
 ĐIỆN THOẠI,電話 (でんわ),điện thoại
-THỦ,手 (て),tay
+THỦ,手 (て),tay|手で食べます。|Tôi ăn bằng tay.
 CHỈ,紙 (かみ),giấy
-HOA,花 (はな),hoa
-HÀ VẬT,荷物 (にもつ),đồ đạc, hành lý
-KIM,お金 (おかね),tiền
-THIẾT PHÙ,切符 (きっぷ),vé
-PHỤ,父 (ちち),bố
-MẪU,母 (はは),mẹ
-PHỤ,お父さん (おとうさん),bố
-MẪU,お母さん (おかあさん),Mẹ
-LỮ HÀNH,旅行 (りょこう),Du lịch, chuyến du lịch
-THỔ SẢN,お土産 (おみやげ),quà
+HOA,花 (はな),hoa|彼女に花をあげました。|Tôi đã tặng hoa cho bạn gái.
+HÀ VẬT,荷物 (にもつ),đồ đạc, hành lý|荷物を送ります。|Tôi gửi hành lý.
+KIM,お金 (おかね),tiền|父にお金を借りました。|Tôi đã mượn tiền của bố.
+THIẾT PHÙ,切符 (きっぷ),vé|駅で切符を買います。|Tôi mua vé ở nhà ga.
+PHỤ,父 (ちち),bố|父に時計をもらいました。|Tôi được bố tặng đồng hồ.
+MẪU,母 (はは),mẹ|母に花をあげました。|Tôi đã tặng hoa cho mẹ.
+PHỤ,お父さん (おとうさん),bố|お父さんはお元気ですか。|Bố bạn có khỏe không?
+MẪU,お母さん (おかあさん),Mẹ|お母さんにプレゼントをあげます。|Tôi tặng quà cho mẹ.
+LỮ HÀNH,旅行 (りょこう),Du lịch, chuyến du lịch|旅行は楽しかったです。|Chuyến du lịch rất vui.
+THỔ SẢN,お土産 (おみやげ),quà|友達にお土産をあげます。|Tôi tặng quà cho bạn.

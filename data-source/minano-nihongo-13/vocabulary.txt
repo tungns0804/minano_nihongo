@@ -1,32 +1,32 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 18-19 (các dòng đánh số bài 13).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-DU,遊びます (あそびます),chơi
-VỊNH,泳ぎます (およぎます),bơi
+DU,遊びます (あそびます),chơi|子どもたちは公園で遊びます。|Bọn trẻ chơi ở công viên.
+VỊNH,泳ぎます (およぎます),bơi|海で泳ぎたいです。|Tôi muốn bơi ở biển.
 NGHINH,迎えます (むかえます),đón
-BÌ,疲れます (つかれます),mệt
+BÌ,疲れます (つかれます),mệt|たくさん歩いて疲れました。|Đi bộ nhiều nên tôi mệt.
 THỦ CHỈ XUẤT,手紙を出します (てがみをだします),gửi thư
 KHIẾT TRÀ ĐIẾM NHẬP,喫茶店に入ります (きっさてんにはいります),vào quán giải khát
 KHIẾT TRÀ ĐIẾM XUẤT,喫茶店を出ます (きっさてんをでます),ra khỏi quán giải khát
-KẾT HÔN,結婚します (けっこんします),kết hôn, lập gia đình, cưới
-MÃI VẬT,買い物します (かいものします),mua hàng
-THỰC SỰ,食事します (しょくじします),ăn cơm
+KẾT HÔN,結婚します (けっこんします),kết hôn, lập gia đình, cưới|来年、結婚します。|Năm sau tôi sẽ kết hôn.
+MÃI VẬT,買い物します (かいものします),mua hàng|デパートで買い物します。|Tôi mua sắm ở trung tâm thương mại.
+THỰC SỰ,食事します (しょくじします),ăn cơm|友達とレストランで食事します。|Tôi ăn cơm ở nhà hàng với bạn.
 CÔNG VIÊN TÁN BỘ,公園を散歩します (こうえんをさんぽします),đi dạo ở công viên
-ĐẠI BIẾN,大変 (たいへん),vất vả, khó khăn, khổ
+ĐẠI BIẾN,大変 (たいへん),vất vả, khó khăn, khổ|毎日仕事が大変です。|Ngày nào công việc cũng vất vả.
 DỤC,欲しい (ほしい),muốn có
-TỊCH,寂しい (さびしい),buồn, cô đơn
-QUẢNG,広い (ひろい),rộng
-HIỆP,狭い (せまい),chật, hẹp
-THỊ DỊCH SỞ,市役所 (しやくしょ),văn phòng hành chính (quận, thành phố)
-XUYÊN,川 (かわ),sông
+TỊCH,寂しい (さびしい),buồn, cô đơn|家族に会えなくて、寂しいです。|Không gặp được gia đình nên tôi buồn.
+QUẢNG,広い (ひろい),rộng|この部屋は広いです。|Căn phòng này rộng.
+HIỆP,狭い (せまい),chật, hẹp|私の部屋は狭いです。|Phòng tôi chật.
+THỊ DỊCH SỞ,市役所 (しやくしょ),văn phòng hành chính (quận, thành phố)|市役所へ行って、書類を出します。|Tôi đến văn phòng thành phố nộp giấy tờ.
+XUYÊN,川 (かわ),sông|川で泳ぎました。|Tôi đã bơi ở sông.
 KINH TẾ,経済 (けいざい),kinh tế
-MỸ THUẬT,美術 (びじゅつ),mỹ thuật
-ĐIẾU,釣り (つり),việc câu cá
-HỘI NGHỊ,会議 (かいぎ),họp, cuộc họp
+MỸ THUẬT,美術 (びじゅつ),mỹ thuật|大学で美術を勉強しています。|Tôi đang học mỹ thuật ở đại học.
+ĐIẾU,釣り (つり),việc câu cá|川へ釣りに行きます。|Tôi đi câu cá ở sông.
+HỘI NGHỊ,会議 (かいぎ),họp, cuộc họp|３時から会議があります。|Có cuộc họp từ 3 giờ.
 ĐĂNG LỤC,登録 (とうろく),việc đăng ký
-CHU MẠT,週末 (しゅうまつ),cuối tuần
-HÀ,何か (なにか),cái gì đó
-CHÚ VĂN,ご注文は？ (ごちゅうもん),anh/chị dùng món gì ạ
+CHU MẠT,週末 (しゅうまつ),cuối tuần|週末は何をしますか。|Cuối tuần bạn làm gì?
+HÀ,何か (なにか),cái gì đó|何か飲みたいです。|Tôi muốn uống cái gì đó.
+CHÚ VĂN,ご注文は？ (ごちゅうもん),anh/chị dùng món gì ạ|いらっしゃいませ。ご注文は？|Xin chào quý khách. Quý khách dùng gì ạ?
 NGƯU,牛どん (ぎゅうどん),món cơm thịt bò
-THIỂU ĐÃI,少々お待ちください。 (しょうしょうおまちください),xin anh/chị vui lòng đợi một chút
-BIỆT,別々に (べつべつに),riêng ra/ để riêng
+THIỂU ĐÃI,少々お待ちください。 (しょうしょうおまちください),xin anh/chị vui lòng đợi một chút|はい、少々お待ちください。|Vâng, xin quý khách đợi một chút.
+BIỆT,別々に (べつべつに),riêng ra/ để riêng|お会計は別々にお願いします。|Cho chúng tôi thanh toán riêng.

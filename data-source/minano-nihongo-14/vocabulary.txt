@@ -1,13 +1,13 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 19-21 (các dòng đánh số bài 14).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-TIÊU,消します (けします),Tắt
-KHAI,開けます (あけます),Mở
-BẾ,閉めます (しめます),Đóng
+TIÊU,消します (けします),Tắt|電気を消してください。|Hãy tắt đèn.
+KHAI,開けます (あけます),Mở|窓を開けましょうか。|Tôi mở cửa sổ nhé?
+BẾ,閉めます (しめます),Đóng|ドアを閉めてください。|Hãy đóng cửa lại.
 CẤP,急ぎます (いそぎます),Vội, gấp
 ĐÃI,待ちます (まちます),Đợi, chờ
-CHỈ,止めます (とめます),Dừng, đỗ
-HỮU KHÚC,右へ曲がります (みぎへまがります),Rẽ phải/ quẹo phải
+CHỈ,止めます (とめます),Dừng, đỗ|ここで車を止めてください。|Hãy dừng xe ở đây.
+HỮU KHÚC,右へ曲がります (みぎへまがります),Rẽ phải/ quẹo phải|あの信号を右へ曲がってください。|Hãy rẽ phải ở cột đèn tín hiệu kia.
 TRÌ,持ちます (もちます),Mang, cầm
 THỦ,取ります (とります),Lấy
 THỦ TRUYỀN,手伝います (てつだいます),Giúp
@@ -15,15 +15,15 @@ HÔ,呼びます (よびます),Gọi
 THOẠI,話します (はなします),Nói, nói chuyện
 KIẾN,見せます (みせます),Cho xem, trình
 TRÚ SỞ GIÁO,住所を教えます (じゅうしょをおしえます),Cho biết địa chỉ/ nói địa chỉ
-THỦY,始めます (はじめます),Bắt đầu
-VŨ GIÁNG/HÀNG,雨が降ります (あめがふります),(Trời) mưa/ mưa rơi
+THỦY,始めます (はじめます),Bắt đầu|では、授業を始めましょう。|Nào, chúng ta bắt đầu giờ học thôi.
+VŨ GIÁNG/HÀNG,雨が降ります (あめがふります),(Trời) mưa/ mưa rơi|雨が降っていますから、傘を持って行きます。|Trời đang mưa nên tôi mang theo ô.
 DANH TIỀN,名前 (なまえ),Tên
-TRÚ SỞ,住所 (じゅうしょ),Địa chỉ
-ĐỊA ĐỒ,地図 (ちず),Bản đồ
-DIÊM,塩 (しお),Muối
-SA ĐƯỜNG,砂糖 (さとう),Đường
-ĐỘC PHƯƠNG,読み方 (よみかた),Cách đọc
+TRÚ SỞ,住所 (じゅうしょ),Địa chỉ|ここに住所を書いてください。|Hãy viết địa chỉ vào đây.
+ĐỊA ĐỒ,地図 (ちず),Bản đồ|地図をかいてください。|Hãy vẽ bản đồ cho tôi.
+DIÊM,塩 (しお),Muối|塩を取ってください。|Đưa giúp tôi lọ muối.
+SA ĐƯỜNG,砂糖 (さとう),Đường|コーヒーに砂糖を入れますか。|Bạn có cho đường vào cà phê không?
+ĐỘC PHƯƠNG,読み方 (よみかた),Cách đọc|この漢字の読み方を教えてください。|Hãy chỉ cho tôi cách đọc chữ Hán này.
 PHƯƠNG,～方 (～かた),Cách ~
-THIẾU,もう少し (もうすこし),Thêm một chút nữa thôi
-NGUYỆN,これでお願いします。 (これでおねがいします),Gởi anh tiền này.
-ĐIẾU,お釣り (おつり),Tiền lẻ
+THIẾU,もう少し (もうすこし),Thêm một chút nữa thôi|もう少しゆっくり話してください。|Xin hãy nói chậm thêm một chút.
+NGUYỆN,これでお願いします。 (これでおねがいします),Gởi anh tiền này.|１万円ですね。これでお願いします。|Một vạn yên phải không. Anh lấy tiền ở đây nhé.
+ĐIẾU,お釣り (おつり),Tiền lẻ|お釣りをください。|Cho tôi tiền thừa.

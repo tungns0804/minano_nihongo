@@ -1,32 +1,32 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 13-14 (các dòng đánh số bài 10).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-NAM NHÂN,男の人 (おとこのひと),người đàn ông
-NỮ NHÂN,女の人 (おんなのひと),người đàn bà
-NAM TỬ,男の子 (おとこのこ),cậu con trai
-NỮ TỬ,女の子 (おんなのこ),cô con gái
-KHUYỂN,犬 (いぬ),chó
-MIÊU,猫 (ねこ),Mèo
-MỘC,木 (き),cây, gỗ
+NAM NHÂN,男の人 (おとこのひと),người đàn ông|あの男の人はだれですか。|Người đàn ông kia là ai vậy?
+NỮ NHÂN,女の人 (おんなのひと),người đàn bà|受付に女の人がいます。|Ở quầy tiếp tân có một người phụ nữ.
+NAM TỬ,男の子 (おとこのこ),cậu con trai|公園に男の子が三人います。|Trong công viên có ba cậu bé.
+NỮ TỬ,女の子 (おんなのこ),cô con gái|あの女の子は私の妹です。|Cô bé kia là em gái tôi.
+KHUYỂN,犬 (いぬ),chó|庭に犬がいます。|Trong vườn có con chó.
+MIÊU,猫 (ねこ),Mèo|いすの上に猫がいます。|Trên ghế có con mèo.
+MỘC,木 (き),cây, gỗ|家の前に大きい木があります。|Trước nhà có một cái cây to.
 VẬT,物 (もの),vật, đồ vật
-ĐIỆN TRÌ,電池 (でんち),Pin
-TƯƠNG,箱 (はこ),hộp
-LÃNH TÀNG KHỐ,冷蔵庫 (れいぞうこ),tủ lạnh
-BẰNG,棚 (たな),giá sách
-SONG,窓 (まど),cửa sổ
-CÔNG VIÊN,公園 (こうえん),công viên
-KHIẾT TRÀ ĐIẾM,喫茶店 (きっさてん),quán giải khát, quán cà phê
-BỔN ỐC,本屋 (ほんや),hiệu sách
-THỪA TRƯỜNG,乗り場 (のりば),bến xe, điểm lên xuống xe
-HUYỆN,県 (けん),tỉnh
-THƯỢNG,上 (うえ),Trên
-HẠ,下 (した),dưới
-TIỀN,前 (まえ),trước
-HỮU,右 (みぎ),phải
-TẢ,左 (ひだり),Trái
-TRUNG,中 (なか),trong, giữa
-NGOẠI,外 (そと),Ngoài
-LÂN,隣 (となり),bên cạnh
-CẬN,近く (ちかく),gần
-GIAN,間 (あいだ),giữa
-ÁO,奥 (おく),bên trong cùng, phía sâu bên trong
+ĐIỆN TRÌ,電池 (でんち),Pin|時計の電池が切れました。|Pin đồng hồ hết rồi.
+TƯƠNG,箱 (はこ),hộp|箱の中に何がありますか。|Trong hộp có gì vậy?
+LÃNH TÀNG KHỐ,冷蔵庫 (れいぞうこ),tủ lạnh|冷蔵庫に牛乳があります。|Trong tủ lạnh có sữa.
+BẰNG,棚 (たな),giá sách|棚の上に箱があります。|Trên giá có một cái hộp.
+SONG,窓 (まど),cửa sổ|窓を開けてもいいですか。|Tôi mở cửa sổ được không?
+CÔNG VIÊN,公園 (こうえん),công viên|日曜日に公園を散歩します。|Chủ nhật tôi đi dạo trong công viên.
+KHIẾT TRÀ ĐIẾM,喫茶店 (きっさてん),quán giải khát, quán cà phê|喫茶店でコーヒーを飲みました。|Tôi đã uống cà phê ở quán giải khát.
+BỔN ỐC,本屋 (ほんや),hiệu sách|駅の中に本屋があります。|Trong nhà ga có hiệu sách.
+THỪA TRƯỜNG,乗り場 (のりば),bến xe, điểm lên xuống xe|タクシー乗り場はどこですか。|Bến taxi ở đâu vậy?
+HUYỆN,県 (けん),tỉnh|私は大阪の隣の県に住んでいます。|Tôi sống ở tỉnh bên cạnh Osaka.
+THƯỢNG,上 (うえ),Trên|机の上に本があります。|Trên bàn có quyển sách.
+HẠ,下 (した),dưới|いすの下に猫がいます。|Dưới ghế có con mèo.
+TIỀN,前 (まえ),trước|駅の前で待っています。|Tôi đang đợi ở trước nhà ga.
+HỮU,右 (みぎ),phải|郵便局は銀行の右にあります。|Bưu điện ở bên phải ngân hàng.
+TẢ,左 (ひだり),Trái|左に曲がってください。|Hãy rẽ trái.
+TRUNG,中 (なか),trong, giữa|かばんの中に財布があります。|Trong cặp có cái ví.
+NGOẠI,外 (そと),Ngoài|子どもたちは外で遊んでいます。|Bọn trẻ đang chơi ở ngoài.
+LÂN,隣 (となり),bên cạnh|銀行の隣に本屋があります。|Bên cạnh ngân hàng có hiệu sách.
+CẬN,近く (ちかく),gần|この近くに銀行がありますか。|Gần đây có ngân hàng không?
+GIAN,間 (あいだ),giữa|郵便局と銀行の間に花屋があります。|Giữa bưu điện và ngân hàng có cửa hàng hoa.
+ÁO,奥 (おく),bên trong cùng, phía sâu bên trong|店の奥にトイレがあります。|Nhà vệ sinh ở phía trong cùng của cửa hàng.

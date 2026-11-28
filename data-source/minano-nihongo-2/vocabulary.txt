@@ -1,17 +1,17 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 2 (các dòng đánh số bài 2).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-BẢN/BỔN,本 (ほん),Sách
-TỪ THƯ,辞書 (じしょ),Từ điển
+BẢN/BỔN,本 (ほん),Sách|これは日本語の本です。|Đây là sách tiếng Nhật.
+TỪ THƯ,辞書 (じしょ),Từ điển|それは何の辞書ですか。|Đó là từ điển gì vậy?
 TẠP CHÍ,雑誌 (ざっし),Tạp chí
 TÂN VĂN,新聞 (しんぶん),Báo
-THỦ TRƯƠNG,手帳 (てちょう),Sổ tay
-DANH THÍCH,名刺 (めいし),Danh thiếp
+THỦ TRƯƠNG,手帳 (てちょう),Sổ tay|それは私の手帳です。|Đó là sổ tay của tôi.
+DANH THÍCH,名刺 (めいし),Danh thiếp|これは私の名刺です。|Đây là danh thiếp của tôi.
 DUYÊN BÚT,鉛筆 (えんぴつ),Bút chì
-THỜI KẾ,時計 (とけい),Đồng hồ
-TẢN,傘 (かさ),ô, dù
-TỰ ĐỘNG XA,自動車 (じどうしゃ),ô tô, xe hơi
-KỶ,机 (つくえ),Bàn
+THỜI KẾ,時計 (とけい),Đồng hồ|これは私の時計です。|Đây là đồng hồ của tôi.
+TẢN,傘 (かさ),ô, dù|これはだれの傘ですか。|Đây là ô của ai vậy?
+TỰ ĐỘNG XA,自動車 (じどうしゃ),ô tô, xe hơi|これは日本の自動車です。|Đây là ô tô của Nhật.
+KỶ,机 (つくえ),Bàn|机の上に本があります。|Trên bàn có quyển sách.
 ANH NGỮ,英語 (えいご),Tiếng Anh
 NHẬT BẢN NGỮ,日本語 (にほんご),Tiếng Nhật
 HÀ,何 (なん),Cái gì, gì

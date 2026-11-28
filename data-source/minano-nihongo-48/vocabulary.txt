@@ -9,23 +9,23 @@
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
 GIÁNG,降ろします (おろします),cho xuống/ thả xuống|バス停で客を降ろします。
 HẠ,下ろします (おろします),hạ xuống/ rút (tiền)|銀行でお金を下ろします。
-GIỚI,届けます (とどけます),gửi đến/ chuyển đến|荷物を家まで届けます。
+GIỚI,届けます (とどけます),gửi đến/ chuyển đến|荷物を家まで届けます。|Tôi chuyển hành lý đến tận nhà.
 THẾ THOẠI,世話をします (せわをします),chăm sóc|母の世話をしています。
 HIỀM,嫌 (いや),ngán/ không thích|嫌な仕事もしなければなりません。
-NGHIÊM,厳しい (きびしい),nghiêm/ nghiêm khắc|父は厳しい人です。
-THỤC,塾 (じゅく),cơ sở học thêm|息子を塾に通わせています。
-SINH ĐỒ,生徒 (せいと),học sinh/ học trò|先生は生徒に本を読ませました。
+NGHIÊM,厳しい (きびしい),nghiêm/ nghiêm khắc|父は厳しい人です。|Bố tôi là người nghiêm khắc.
+THỤC,塾 (じゅく),cơ sở học thêm|息子を塾に通わせています。|Tôi cho con trai đi học thêm.
+SINH ĐỒ,生徒 (せいと),học sinh/ học trò|先生は生徒に本を読ませました。|Thầy giáo bắt học sinh đọc sách.
 GIẢ,者 (もの),người|会社の者に聞いてみます。
-NHẬP QUẢN,入管 (にゅうかん),Cục quản lý nhập cảnh|入管でビザの手続きをします。
+NHẬP QUẢN,入管 (にゅうかん),Cục quản lý nhập cảnh|入管でビザの手続きをします。|Tôi làm thủ tục visa ở Cục quản lý nhập cảnh.
 TÁI NHẬP QUỐC,再入国ビザ (さいにゅうこくビザ),thị thực tái nhập cảnh|再入国ビザを申請します。
 TỰ DO,自由に (じゆうに),tự do/ thoải mái|自由に使わせてください。
-MANG,お忙しいですか (おいそがしいですか),Anh/chị có bận không?|今、お忙しいですか。
-CỬU,久しぶり (ひさしぶり),lâu rồi (mới gặp lại)|久しぶりに友達に会いました。
-DOANH NGHIỆP,営業 (えいぎょう),kinh doanh/ bán hàng|営業の仕事をしています。
-LẠC,楽しみます (たのしみます),vui/ tận hưởng|みんなでパーティーを楽しみました。
+MANG,お忙しいですか (おいそがしいですか),Anh/chị có bận không?|今、お忙しいですか。|Bây giờ anh có bận không?
+CỬU,久しぶり (ひさしぶり),lâu rồi (mới gặp lại)|久しぶりに友達に会いました。|Lâu lắm rồi tôi mới gặp lại bạn.
+DOANH NGHIỆP,営業 (えいぎょう),kinh doanh/ bán hàng|営業の仕事をしています。|Tôi làm công việc kinh doanh.
+LẠC,楽しみます (たのしみます),vui/ tận hưởng|みんなでパーティーを楽しみました。|Mọi người đã cùng vui vẻ ở bữa tiệc.
 ĐẠI,代わりをします (かわりをします),thay thế/ làm thay|私が代わりをします。
 CẠNH TẨU,競走します (きょうそうします),chạy đua/ thi chạy|子供たちを競走させます。
 NGHỆ,芸 (げい),trò diễn/ tiết mục|犬に芸をさせます。
 MỸ,美しい (うつくしい),đẹp|美しい景色ですね。
-TƯ,姿 (すがた),dáng điệu/ hình dáng|着物の姿が美しいです。
-TÂM,心 (こころ),trái tim/ tấm lòng|心から感謝しています。
+TƯ,姿 (すがた),dáng điệu/ hình dáng|着物の姿が美しいです。|Dáng vẻ mặc kimono thật đẹp.
+TÂM,心 (こころ),trái tim/ tấm lòng|心から感謝しています。|Tôi chân thành cảm ơn.

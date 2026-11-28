@@ -7,38 +7,38 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-TỰ,飼います (かいます),nuôi|猫を飼います。
-KIẾN,建てます (たてます),xây/ xây dựng|家を建てます。
-ĐẠO TẨU,道を走ります (みちをはしります),chạy trên đường|車が道を走ります。
-HƯU THỦ,休みを取ります (やすみをとります),xin nghỉ/ nghỉ phép|明日休みを取ります。
+TỰ,飼います (かいます),nuôi|猫を飼います。|Tôi nuôi mèo.
+KIẾN,建てます (たてます),xây/ xây dựng|家を建てます。|Tôi xây nhà.
+ĐẠO TẨU,道を走ります (みちをはしります),chạy trên đường|車が道を走ります。|Ô tô chạy trên đường.
+HƯU THỦ,休みを取ります (やすみをとります),xin nghỉ/ nghỉ phép|明日休みを取ります。|Ngày mai tôi xin nghỉ.
 SƠN/SAN KIẾN,山が見えます (やまがみえます),có thể nhìn thấy núi|窓から山が見えます。
 ÂM VĂN,音が聞こえます (おとがきこえます),có thể nghe thấy âm thanh|遠くで音が聞こえます。
 KHÔNG CẢNG,空港ができます (くうこうができます),sân bay được hoàn thành|町に新しい空港ができました。
 GIÁO THẤT KHAI,教室を開きます (きょうしつをひらきます),mở lớp học|日本語の教室を開きます。
-ĐIỂU,鳥 (とり),chim|空に鳥が飛んでいます。
-THANH,声 (こえ),tiếng nói/ giọng nói|きれいな声ですね。
-BA,波 (なみ),sóng|海で高い波があります。
-HOA HỎA,花火 (はなび),pháo hoa|夜、花火を見に行きます。
-CẢNH SẮC,景色 (けしき),phong cảnh/ cảnh sắc|この辺の景色はきれいです。
-TRÚ GIAN,昼間 (ひるま),ban ngày/ thời gian ban ngày|昼間は暑いです。
-TÍCH,昔 (むかし),ngày xưa/ trước đây|昔、ここに公園がありました。
-ĐẠO CỤ,道具 (どうぐ),dụng cụ/ công cụ|料理の道具を買います。
-TỰ ĐỘNG PHIÊN MẠI CƠ,自動販売機 (じどうはんばいき),máy bán hàng tự động|駅で自動販売機を使います。
-THÔNG TÍN PHIÊN MẠI,通信販売 (つうしんはんばい),bán hàng qua bưu điện/ thương mại viễn thông|最近、通信販売をよく利用します。
-ĐÀI SỞ,台所 (だいどころ),bếp/ nhà bếp|台所で料理を作ります。
-BỔN BẰNG,本棚 (ほんだな),giá sách/ kệ sách|本棚に本を並べます。
-MỘNG,夢 (ゆめ),giấc mơ/ ước mơ|昨日の夜、変な夢を見ました。
-GIA,家 (いえ),nhà|新しい家を建てます。
-TỬ CUNG,子供たち (こどもたち),trẻ em/ trẻ con/ con cái|公園で子供たちが遊んでいます。
-ĐẠI HẢO,大好き (だいすき),rất thích/ thích lắm|私は猫が大好きです。
-MẠN HỌA,漫画 (まんが),truyện tranh/ manga|休みの日に漫画を読みます。
+ĐIỂU,鳥 (とり),chim|空に鳥が飛んでいます。|Chim đang bay trên trời.
+THANH,声 (こえ),tiếng nói/ giọng nói|きれいな声ですね。|Giọng hay quá nhỉ.
+BA,波 (なみ),sóng|海で高い波があります。|Ở biển có sóng cao.
+HOA HỎA,花火 (はなび),pháo hoa|夜、花火を見に行きます。|Buổi tối tôi đi xem pháo hoa.
+CẢNH SẮC,景色 (けしき),phong cảnh/ cảnh sắc|この辺の景色はきれいです。|Phong cảnh vùng này đẹp.
+TRÚ GIAN,昼間 (ひるま),ban ngày/ thời gian ban ngày|昼間は暑いです。|Ban ngày trời nóng.
+TÍCH,昔 (むかし),ngày xưa/ trước đây|昔、ここに公園がありました。|Ngày xưa ở đây có công viên.
+ĐẠO CỤ,道具 (どうぐ),dụng cụ/ công cụ|料理の道具を買います。|Tôi mua dụng cụ nấu ăn.
+TỰ ĐỘNG PHIÊN MẠI CƠ,自動販売機 (じどうはんばいき),máy bán hàng tự động|駅で自動販売機を使います。|Tôi dùng máy bán hàng tự động ở nhà ga.
+THÔNG TÍN PHIÊN MẠI,通信販売 (つうしんはんばい),bán hàng qua bưu điện/ thương mại viễn thông|最近、通信販売をよく利用します。|Dạo này tôi hay mua hàng qua mạng.
+ĐÀI SỞ,台所 (だいどころ),bếp/ nhà bếp|台所で料理を作ります。|Tôi nấu ăn trong bếp.
+BỔN BẰNG,本棚 (ほんだな),giá sách/ kệ sách|本棚に本を並べます。|Tôi xếp sách lên giá sách.
+MỘNG,夢 (ゆめ),giấc mơ/ ước mơ|昨日の夜、変な夢を見ました。|Tối qua tôi đã mơ một giấc mơ kỳ lạ.
+GIA,家 (いえ),nhà|新しい家を建てます。|Tôi xây nhà mới.
+TỬ CUNG,子供たち (こどもたち),trẻ em/ trẻ con/ con cái|公園で子供たちが遊んでいます。|Bọn trẻ đang chơi trong công viên.
+ĐẠI HẢO,大好き (だいすき),rất thích/ thích lắm|私は猫が大好きです。|Tôi rất thích mèo.
+MẠN HỌA,漫画 (まんが),truyện tranh/ manga|休みの日に漫画を読みます。|Ngày nghỉ tôi đọc truyện tranh.
 CHỦ NHÂN CÔNG,主人公 (しゅじんこう),nhân vật chính|この映画の主人公はかっこいいです。
 HÌNH,形 (かたち),hình/ dạng/ hình dạng|このチョコレートは星の形をしています。
-BẤT TƯ NGHỊ,不思議 (ふしぎ),kỳ lạ/ khó tin/ bí ẩn|この話はとても不思議です。
-LỆ,例えば (たとえば),ví dụ như/ chẳng hạn/ ví dụ|例えば、この問題を見てください。
-PHÓ,付けます (つけます),lắp/ gắn/ ghép thêm/ đặt tên|ノートに名前を付けます。
-TỰ DO,自由に (じゆうに),tự do/ tuỳ thích/ thoải mái|ここで自由に写真を撮ることができます。
-KHÔNG,空 (そら),bầu trời/ trời|今日の空は青くてきれいです。
+BẤT TƯ NGHỊ,不思議 (ふしぎ),kỳ lạ/ khó tin/ bí ẩn|この話はとても不思議です。|Câu chuyện này thật kỳ lạ.
+LỆ,例えば (たとえば),ví dụ như/ chẳng hạn/ ví dụ|例えば、この問題を見てください。|Ví dụ như, hãy xem bài này.
+PHÓ,付けます (つけます),lắp/ gắn/ ghép thêm/ đặt tên|ノートに名前を付けます。|Tôi ghi tên vào vở.
+TỰ DO,自由に (じゆうに),tự do/ tuỳ thích/ thoải mái|ここで自由に写真を撮ることができます。|Ở đây có thể chụp ảnh thoải mái.
+KHÔNG,空 (そら),bầu trời/ trời|今日の空は青くてきれいです。|Bầu trời hôm nay xanh và đẹp.
 PHI,飛びます (とびます),bay|鳥が空を飛んでいます。
-TỰ PHÂN,自分 (じぶん),bản thân/ mình/ tự mình|自分一人でやります。
-TƯƠNG LAI,将来 (しょうらい),tương lai|将来、医者になりたいです。
+TỰ PHÂN,自分 (じぶん),bản thân/ mình/ tự mình|自分一人でやります。|Tôi tự làm một mình.
+TƯƠNG LAI,将来 (しょうらい),tương lai|将来、医者になりたいです。|Trong tương lai tôi muốn trở thành bác sĩ.

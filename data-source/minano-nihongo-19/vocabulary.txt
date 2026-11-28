@@ -1,22 +1,22 @@
 # Định dạng mỗi dòng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT
 # Nguồn: "TỪ VỰNG N5.pdf" — trang 26-27 (các dòng đánh số bài 19).
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
-SƠN ĐĂNG,山に登ります (やまにのぼります),Leo núi
-BẠC,ホテルに泊まります (ホテルにとまります),Trọ ở khách sạn
-TẢO TRỪ,掃除します (そうじします),Dọn vệ sinh
-TẨY TRẠC,洗濯します (せんたくします),Giặt
-LUYỆN TẬP,練習します (れんしゅうします),Luyện tập, thực hành
-MIÊN,眠い (ねむい),Buồn ngủ
-CƯỜNG,強い (つよい),Mạnh
-NHƯỢC,弱い (よわい),Yếu
-ĐIỀU TỬ,調子がいい (ちょうしがいい),Trong tình trạng tốt
-ĐIỀU TỬ,調子がわるい (ちょうしがわるい),Trong tình trạng xấu
-ĐIỀU TỬ,調子 (ちょうし),Tình trạng, trạng thái
-TƯƠNG PHÁC,相撲 (すもう),Vật Sumo
+SƠN ĐĂNG,山に登ります (やまにのぼります),Leo núi|夏に山に登ったことがあります。|Tôi đã từng leo núi vào mùa hè.
+BẠC,ホテルに泊まります (ホテルにとまります),Trọ ở khách sạn|京都でホテルに泊まりました。|Tôi đã trọ ở khách sạn ở Kyoto.
+TẢO TRỪ,掃除します (そうじします),Dọn vệ sinh|日曜日は部屋を掃除します。|Chủ nhật tôi dọn phòng.
+TẨY TRẠC,洗濯します (せんたくします),Giặt|週末にまとめて洗濯します。|Cuối tuần tôi giặt dồn một lần.
+LUYỆN TẬP,練習します (れんしゅうします),Luyện tập, thực hành|毎日ピアノを練習します。|Ngày nào tôi cũng luyện tập piano.
+MIÊN,眠い (ねむい),Buồn ngủ|ゆうべ遅く寝たので、眠いです。|Tối qua ngủ muộn nên tôi buồn ngủ.
+CƯỜNG,強い (つよい),Mạnh|今日は風が強いです。|Hôm nay gió mạnh.
+NHƯỢC,弱い (よわい),Yếu|私はお酒に弱いです。|Tôi uống rượu kém.
+ĐIỀU TỬ,調子がいい (ちょうしがいい),Trong tình trạng tốt|今日は調子がいいです。|Hôm nay tôi thấy khỏe.
+ĐIỀU TỬ,調子がわるい (ちょうしがわるい),Trong tình trạng xấu|パソコンの調子がわるいです。|Máy tính đang trục trặc.
+ĐIỀU TỬ,調子 (ちょうし),Tình trạng, trạng thái|最近、体の調子はどうですか。|Dạo này sức khỏe bạn thế nào?
+TƯƠNG PHÁC,相撲 (すもう),Vật Sumo|テレビで相撲を見たことがあります。|Tôi đã từng xem Sumo trên tivi.
 TRÀ,お茶 (おちゃ),Trà đạo
-NHẬT,日 (ひ),Ngày
-CAN BỘI,乾杯 (かんぱい),Nâng cốc!/cạn chén
-THỰC,実は (じつは),Thật ra là/ sự tình là
-HÀ HỒI,何回も (なんかいも),Nhiều lần
-VÔ LÝ,無理 (むり),Không thể, quá sức
-THỂ,体にいい (からだにいい),Tốt cho sức khỏe
+NHẬT,日 (ひ),Ngày|いつか日本へ行く日が来ます。|Rồi sẽ đến ngày tôi đi Nhật.
+CAN BỘI,乾杯 (かんぱい),Nâng cốc!/cạn chén|皆さん、乾杯！|Mọi người ơi, cạn chén!
+THỰC,実は (じつは),Thật ra là/ sự tình là|実は、明日は都合が悪いんです。|Thật ra thì ngày mai tôi không tiện.
+HÀ HỒI,何回も (なんかいも),Nhiều lần|この映画は何回も見ました。|Bộ phim này tôi đã xem nhiều lần.
+VÔ LÝ,無理 (むり),Không thể, quá sức|無理をしないでください。|Đừng làm quá sức.
+THỂ,体にいい (からだにいい),Tốt cho sức khỏe|野菜は体にいいです。|Rau tốt cho sức khỏe.

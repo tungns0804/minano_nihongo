@@ -3,14 +3,14 @@
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
 YẾU,ビザが要ります (ビザがいります),Cần thị thực (visa)
 ĐIỀU,調べます (しらべます),Tìm hiểu, điều tra, xem
-TRỰC,直します (なおします),Sửa, chữa
-TU LÝ,修理します (しゅうりします),Sửa chữa, tu sửa
+TRỰC,直します (なおします),Sửa, chữa|壊れたいすを直します。|Tôi sửa cái ghế bị hỏng.
+TU LÝ,修理します (しゅうりします),Sửa chữa, tu sửa|自転車を修理しました。|Tôi đã sửa xe đạp.
 ĐIỆN THOẠI,電話します (でんわします),Gọi điện thoại
 BỘC,僕 (ぼく),Tớ
 QUÂN,君 (きみ),Cậu, bạn
-VẬT GIÁ,物価 (ぶっか),Giá cả, mức giá, vật giá
-TRƯỚC VẬT,着物 (きもの),Kimono
-THỦY,始め (はじめ),Ban đầu, đầu tiên
-CHUNG,終わり (おわり),Kết thúc
-GIAN,この間 (このあいだ),Vừa rồi, hôm nọ
-QUỐC QUY,国へ帰るの？ (くにへかえるの？),Anh/chị có về nước không?
+VẬT GIÁ,物価 (ぶっか),Giá cả, mức giá, vật giá|東京は物価が高い。|Ở Tokyo vật giá đắt đỏ.
+TRƯỚC VẬT,着物 (きもの),Kimono|着物を着たことがありますか。|Bạn đã từng mặc kimono chưa?
+THỦY,始め (はじめ),Ban đầu, đầu tiên|来月の始めに国へ帰る。|Đầu tháng sau tôi về nước.
+CHUNG,終わり (おわり),Kết thúc|映画の終わりはよかった。|Đoạn kết của bộ phim hay.
+GIAN,この間 (このあいだ),Vừa rồi, hôm nọ|この間、駅で先生に会った。|Hôm nọ tôi gặp thầy ở nhà ga.
+QUỐC QUY,国へ帰るの？ (くにへかえるの？),Anh/chị có về nước không?|夏休みは国へ帰るの？|Nghỉ hè bạn có về nước không?

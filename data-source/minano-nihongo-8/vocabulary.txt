@@ -3,36 +3,36 @@
 # Giữ nguyên âm Hán Việt, cách đọc và nghĩa như trong bản scan, không sửa theo nguồn khác.
 TĨNH,静か (しずか),yên tĩnh
 HỮU DANH,有名 (ゆうめい),nổi tiếng
-THÂN THIẾT,親切 (しんせつ),tốt bụng, thân thiện
-NGUYÊN KHÍ,元気 (げんき),khỏe
+THÂN THIẾT,親切 (しんせつ),tốt bụng, thân thiện|ここの人はみんな親切です。|Mọi người ở đây đều tốt bụng.
+NGUYÊN KHÍ,元気 (げんき),khỏe|お元気ですか。|Bạn có khỏe không?
 HẠ,暇 (ひま),rảnh rỗi
 TIỆN LỢI,便利 (べんり),tiện lợi
-ĐẠI,大きい (おおきい),lớn, to
-TIỂU,小さい (ちいさい),bé, nhỏ
-TÂN,新しい (あたらしい),mới
-CỔ,古い (ふるい),cũ
+ĐẠI,大きい (おおきい),lớn, to|東京は大きい町です。|Tokyo là một thành phố lớn.
+TIỂU,小さい (ちいさい),bé, nhỏ|これは小さいかばんです。|Đây là cái cặp nhỏ.
+TÂN,新しい (あたらしい),mới|新しい靴を買いました。|Tôi đã mua giày mới.
+CỔ,古い (ふるい),cũ|これは古いお寺です。|Đây là ngôi chùa cổ.
 ÁC,悪い (わるい),xấu
-THỬ,暑い (あつい),nóng
+THỬ,暑い (あつい),nóng|今日は暑いです。|Hôm nay trời nóng.
 NHIỆT,熱い (あつい),nóng
-HÀN,寒い (さむい),lạnh, rét
+HÀN,寒い (さむい),lạnh, rét|北海道の冬は寒いです。|Mùa đông ở Hokkaido lạnh.
 LÃNH,冷たい (つめたい),lạnh, buốt
 NAN,難しい (むずかしい),khó
 DỊ,易しい (やさしい),dễ
-CAO,高い (たかい),đắt, cao
-AN,安い (やすい),rẻ
-ĐÊ,低い (ひくい),thấp
+CAO,高い (たかい),đắt, cao|このかばんは高いです。|Cái cặp này đắt.
+AN,安い (やすい),rẻ|この店は安いです。|Cửa hàng này rẻ.
+ĐÊ,低い (ひくい),thấp|この山は低いです。|Ngọn núi này thấp.
 MANG,忙しい (いそがしい),bận
-LẠC/ NHẠC,楽しい (たのしい),vui
-BẠCH,白い (しろい),trắng
-HẮC,黒い (くろい),Đen
-XÍCH,赤い (あかい),đỏ
-THANH,青い (あおい),xanh da trời
-ANH,桜 (さくら),anh đào
-SƠN/ SAN,山 (やま),núi
-ĐINH,町 (まち),thị trấn, thị xã, thành phố
-THỰC VẬT,食べ物 (たべもの),đồ ăn
-XA,車 (くるま),xe ô tô
-SỞ,所 (ところ),nơi, chỗ
-LIÊU,寮 (りょう),kí túc xá
-MIỄN CƯỜNG,勉強 (べんきょう),học
+LẠC/ NHẠC,楽しい (たのしい),vui|日本の生活は楽しいです。|Cuộc sống ở Nhật vui.
+BẠCH,白い (しろい),trắng|白いシャツを着ています。|Tôi đang mặc áo sơ mi trắng.
+HẮC,黒い (くろい),Đen|黒い車が好きです。|Tôi thích ô tô màu đen.
+XÍCH,赤い (あかい),đỏ|赤いかばんを持っています。|Tôi có một chiếc cặp màu đỏ.
+THANH,青い (あおい),xanh da trời|青い空がきれいです。|Bầu trời xanh thật đẹp.
+ANH,桜 (さくら),anh đào|桜はきれいな花です。|Hoa anh đào là loài hoa đẹp.
+SƠN/ SAN,山 (やま),núi|富士山は高い山です。|Núi Phú Sĩ là ngọn núi cao.
+ĐINH,町 (まち),thị trấn, thị xã, thành phố|ハノイはにぎやかな町です。|Hà Nội là một thành phố náo nhiệt.
+THỰC VẬT,食べ物 (たべもの),đồ ăn|日本の食べ物はおいしいです。|Đồ ăn Nhật ngon.
+XA,車 (くるま),xe ô tô|これは新しい車です。|Đây là chiếc ô tô mới.
+SỞ,所 (ところ),nơi, chỗ|奈良は静かな所です。|Nara là một nơi yên tĩnh.
+LIÊU,寮 (りょう),kí túc xá|寮の部屋は狭いです。|Phòng ký túc xá chật.
+MIỄN CƯỜNG,勉強 (べんきょう),học|日本語の勉強はどうですか。|Việc học tiếng Nhật thế nào?
 SINH HOẠT,生活 (せいかつ),cuộc sống, sinh hoạt

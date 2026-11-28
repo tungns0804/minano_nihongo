@@ -7,37 +7,37 @@
 #   ĐÀO,逃げます (にげます),chạy trốn/ bỏ chạy|犯人は逃げました。
 # Dùng dấu | chứ không thêm dấu phẩy, để cột nghĩa vẫn chứa được dấu phẩy.
 # Dòng bắt đầu bằng # là ghi chú, sẽ bị bỏ qua.
-XỈ MA,歯を磨きます (はをみがきます),đánh răng|寝る前に歯を磨きます。
+XỈ MA,歯を磨きます (はをみがきます),đánh răng|寝る前に歯を磨きます。|Tôi đánh răng trước khi ngủ.
 TỔ LẬP,組み立てます (くみたてます),lắp/ lắp ráp/ lắp đặt|説明書のとおりに棚を組み立てました。
-TRIẾT,折ります (おります),gấp/ gập/ bẻ|紙を半分に折ってください。
+TRIẾT,折ります (おります),gấp/ gập/ bẻ|紙を半分に折ってください。|Hãy gấp tờ giấy làm đôi.
 VONG VẬT KHÍ,忘れ物に気がつきます (わすれものにきがつきます),phát hiện ra đồ bỏ quên|電車を降りてから忘れ物に気がつきました。
-KIỆN KIẾN,鍵が見つかります (かぎがみつかります),tìm thấy chìa khóa|なくした鍵が見つかりました。
-CHẤT VẤN,質問します (しつもんします),hỏi/ đặt câu hỏi|分からないことは先生に質問します。
-TẾ,細い (ほそい),gầy/ hẹp/ thon|細い道を通ります。
-THÁI,太い (ふとい),béo/ to|太い線を引いてください。
+KIỆN KIẾN,鍵が見つかります (かぎがみつかります),tìm thấy chìa khóa|なくした鍵が見つかりました。|Chìa khóa bị mất đã tìm thấy rồi.
+CHẤT VẤN,質問します (しつもんします),hỏi/ đặt câu hỏi|分からないことは先生に質問します。|Điều gì không hiểu thì tôi hỏi thầy giáo.
+TẾ,細い (ほそい),gầy/ hẹp/ thon|細い道を通ります。|Tôi đi qua con đường hẹp.
+THÁI,太い (ふとい),béo/ to|太い線を引いてください。|Hãy vẽ một đường to.
 BỒN DŨNG,盆踊り (ぼんおどり),múa trong hội Bon|夏祭りで盆踊りを踊りました。
-GIA CỤ,家具 (かぐ),gia cụ/ đồ dùng nội thất|新しい家具を買いました。
+GIA CỤ,家具 (かぐ),gia cụ/ đồ dùng nội thất|新しい家具を買いました。|Tôi đã mua đồ nội thất mới.
 THUYẾT MINH THƯ,説明書 (せつめいしょ),quyển hướng dẫn/ bản hướng dẫn|説明書を読んでから使ってください。
 ĐỒ,図 (ず),sơ đồ/ hình vẽ|図のとおりに書いてください。
 TUYẾN,線 (せん),đường/ đường kẻ|ここに赤い線を引きます。
 THỈ ẤN,矢印 (やじるし),dấu mũi tên|矢印のとおりに進んでください。
-HẮC,黒 (くろ),màu đen|黒のペンで書いてください。
-BẠCH,白 (しろ),màu trắng|白と黒、どちらがいいですか。
-XÍCH,赤 (あか),màu đỏ|赤は目立つ色です。
-THANH,青 (あお),màu xanh da trời|青が好きです。
-CÁM,紺 (こん),màu xanh lam đậm/ xanh navy|紺のスーツを着ます。
-HOÀNG SẮC,黄色 (きいろ),màu vàng|黄色の花が咲いています。
-TRÀ SẮC,茶色 (ちゃいろ),màu nâu|茶色のかばんを買いました。
+HẮC,黒 (くろ),màu đen|黒のペンで書いてください。|Hãy viết bằng bút màu đen.
+BẠCH,白 (しろ),màu trắng|白と黒、どちらがいいですか。|Màu trắng và màu đen, màu nào tốt hơn?
+XÍCH,赤 (あか),màu đỏ|赤は目立つ色です。|Màu đỏ là màu nổi bật.
+THANH,青 (あお),màu xanh da trời|青が好きです。|Tôi thích màu xanh da trời.
+CÁM,紺 (こん),màu xanh lam đậm/ xanh navy|紺のスーツを着ます。|Tôi mặc bộ vest màu xanh navy.
+HOÀNG SẮC,黄色 (きいろ),màu vàng|黄色の花が咲いています。|Hoa màu vàng đang nở.
+TRÀ SẮC,茶色 (ちゃいろ),màu nâu|茶色のかばんを買いました。|Tôi đã mua một chiếc cặp màu nâu.
 TRÀ ĐẠO,茶道 (ちゃどう),trà đạo|大学で茶道を習っています。
 TRÀ,お茶をたてます (おちゃをたてます),pha trà/ khuấy trà|先生に教えていただいたとおりにお茶をたてます。
-TIÊN,先に (さきに),trước|私が先に行きます。
+TIÊN,先に (さきに),trước|私が先に行きます。|Tôi đi trước.
 TẢI,載せます (のせます),để lên/ đặt lên|皿にご飯を載せます。
-KHỔ,苦い (にがい),đắng|この薬は苦いです。
+KHỔ,苦い (にがい),đắng|この薬は苦いです。|Thuốc này đắng.
 THÂN TỬ,親子どんぶり (おやこどんぶり),món oyakodon (cơm gà trứng)|昼ご飯に親子どんぶりを食べました。
-TÀI LIỆU,材料 (ざいりょう),nguyên liệu|料理の材料を買いに行きます。
-ĐIỂU NHỤC,鳥肉 (とりにく),thịt gà|鳥肉を小さく切ります。
-ĐIỀU VỊ LIỆU,調味料 (ちょうみりょう),gia vị|調味料を入れてよく混ぜます。
-HỎA,火 (ひ),lửa|火に気をつけてください。
+TÀI LIỆU,材料 (ざいりょう),nguyên liệu|料理の材料を買いに行きます。|Tôi đi mua nguyên liệu nấu ăn.
+ĐIỂU NHỤC,鳥肉 (とりにく),thịt gà|鳥肉を小さく切ります。|Tôi thái nhỏ thịt gà.
+ĐIỀU VỊ LIỆU,調味料 (ちょうみりょう),gia vị|調味料を入れてよく混ぜます。|Cho gia vị vào rồi trộn đều.
+HỎA,火 (ひ),lửa|火に気をつけてください。|Hãy cẩn thận với lửa.
 HỎA,火にかけます (ひにかけます),cho qua lửa/ đun|なべを火にかけます。
-CHỬ,煮ます (にます),nấu/ hầm|野菜を弱火で煮ます。
-CHỬ,煮えます (にえます),chín/ được nấu chín|野菜が煮えたら、火を止めてください。
+CHỬ,煮ます (にます),nấu/ hầm|野菜を弱火で煮ます。|Tôi ninh rau bằng lửa nhỏ.
+CHỬ,煮えます (にえます),chín/ được nấu chín|野菜が煮えたら、火を止めてください。|Rau chín rồi thì hãy tắt bếp.
