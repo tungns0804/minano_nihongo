@@ -1,0 +1,73 @@
+# Phó từ bổ sung — những phó từ phổ biến N5–N3 mà kho từ (皆の日本語 1–50, Mimikara N3) chưa có,
+# thêm 2026-11-28 theo yêu cầu của người dùng để chủ đề "Phó từ" đủ từ. Không chép từ sách nào:
+# nghĩa và câu ví dụ do app tự viết.
+# Định dạng: ÂM HÁN VIỆT,TIẾNG NHẬT (CÁCH ĐỌC),NGHĨA TIẾNG VIỆT|CÂU VÍ DỤ|BẢN DỊCH
+#
+# ── Mức độ ──
+,あまり,(không) lắm/ (không) mấy|このりんごはあまり甘くないです。|Quả táo này không ngọt lắm.
+,ちょっと,một chút/ hơi|ちょっと待ってください。|Xin chờ một chút.
+,たくさん,nhiều|昨日は宿題がたくさんありました。|Hôm qua có nhiều bài tập.
+,すごく,rất/ cực kỳ|この映画はすごく面白かったです。|Bộ phim này cực kỳ hay.
+NHẤT PHIÊN,一番 (いちばん),nhất/ hơn cả|家族の中で父が一番背が高いです。|Trong gia đình, bố tôi cao nhất.
+TỐI,最も (もっとも),nhất (văn viết)|富士山は日本で最も高い山です。|Núi Phú Sĩ là ngọn núi cao nhất Nhật Bản.
+,ほぼ,gần như/ hầu như|仕事はほぼ終わりました。|Công việc gần như xong rồi.
+,やや,hơi/ có phần|今日はやや寒いです。|Hôm nay hơi lạnh.
+,さらに,hơn nữa/ thêm nữa|値段がさらに上がりました。|Giá lại tăng thêm nữa.
+THIẾU THIẾU,少々 (しょうしょう),một chút (lịch sự)|少々お待ちください。|Xin quý khách vui lòng đợi một chút.
+# ── Đi với thể phủ định ──
+,なかなか,mãi (không)/ khá là|バスがなかなか来ません。|Xe buýt mãi không đến.
+,めったに,hiếm khi (không)|父はめったに怒りません。|Bố tôi hiếm khi nổi giận.
+TẤT,必ずしも (かならずしも),không hẳn/ chưa chắc (đã)|高い物が必ずしもいい物だとは限りません。|Đồ đắt chưa chắc đã là đồ tốt.
+# ── Tần suất ──
+,いつも,lúc nào cũng/ luôn luôn|朝はいつもパンを食べます。|Buổi sáng tôi luôn ăn bánh mì.
+,よく,thường/ hay/ kỹ|週末はよく映画を見ます。|Cuối tuần tôi hay xem phim.
+,たまに,thỉnh thoảng/ đôi khi|たまに外で食事をします。|Thỉnh thoảng tôi ăn ở ngoài.
+NHẤT ĐỘ,一度 (いちど),một lần|一度京都へ行ってみたいです。|Tôi muốn thử đến Kyoto một lần.
+NHẤT ĐỘ,もう一度 (もういちど),một lần nữa|もう一度言ってください。|Xin hãy nói lại một lần nữa.
+# ── Thời gian ──
+,もう,đã/ rồi|宿題はもう終わりました。|Bài tập tôi đã làm xong rồi.
+,まだ,vẫn/ vẫn chưa|まだ昼ご飯を食べていません。|Tôi vẫn chưa ăn trưa.
+,そろそろ,sắp/ đã đến lúc|そろそろ帰りましょう。|Đã đến lúc về thôi.
+,さっき,lúc nãy/ vừa nãy|さっき田中さんから電話がありました。|Lúc nãy có điện thoại của anh Tanaka.
+HẬU,後で (あとで),lát nữa/ sau|後で電話します。|Lát nữa tôi sẽ gọi điện.
+,これから,từ bây giờ/ sắp tới|これから会議が始まります。|Bây giờ cuộc họp bắt đầu.
+KIM ĐỘ,今度 (こんど),lần tới/ lần này|今度一緒に飲みに行きましょう。|Lần tới cùng đi uống nhé.
+,まず,trước tiên/ trước hết|まず手を洗ってください。|Trước tiên hãy rửa tay.
+,ちょうど,vừa đúng/ vừa lúc|今ちょうど12時です。|Bây giờ đúng 12 giờ.
+TẢO TỐC,早速 (さっそく),ngay lập tức/ liền|買った本を早速読みました。|Tôi đọc ngay cuốn sách vừa mua.
+TÁI,再び (ふたたび),lại/ một lần nữa (văn viết)|事故の後、電車は再び動き始めました。|Sau tai nạn, tàu lại bắt đầu chạy.
+,いつか,một lúc nào đó/ một ngày nào đó|いつか世界旅行をしたいです。|Một ngày nào đó tôi muốn đi du lịch vòng quanh thế giới.
+,いよいよ,cuối cùng cũng (đến)/ sắp sửa|いよいよ明日は試験です。|Cuối cùng ngày mai cũng là ngày thi.
+KẾT CỤC,結局 (けっきょく),rốt cuộc/ kết cục|結局、旅行には行きませんでした。|Rốt cuộc tôi đã không đi du lịch.
+,だんだん,dần dần|だんだん寒くなってきました。|Trời dần dần lạnh lên.
+# ── Phán đoán, thái độ ──
+,たぶん,có lẽ/ chắc là|明日はたぶん雨でしょう。|Ngày mai có lẽ trời mưa.
+XÁC,確かに (たしかに),đúng là/ quả thật|確かにあなたの言う通りです。|Đúng là như anh nói.
+,やっぱり,quả nhiên/ rốt cuộc vẫn|やっぱり家が一番です。|Quả nhiên ở nhà là nhất.
+ĐƯƠNG NHIÊN,当然 (とうぜん),đương nhiên|約束を守るのは当然です。|Giữ lời hứa là chuyện đương nhiên.
+THỰC TẾ,実際に (じっさいに),thực tế/ trên thực tế|実際に使ってみると、とても便利でした。|Khi dùng thử thực tế thì rất tiện.
+Ý NGOẠI,意外に (いがいに),bất ngờ là/ không ngờ|試験は意外に簡単でした。|Bài thi dễ không ngờ.
+,もし,nếu (như)|もし雨が降ったら、行きません。|Nếu trời mưa thì tôi không đi.
+,せっかく,đã mất công/ khó khăn lắm mới|せっかく作ったのに、誰も食べませんでした。|Đã mất công nấu mà chẳng ai ăn.
+,せめて,ít nhất thì/ tối thiểu|せめて一日だけでも休みたいです。|Ít nhất tôi muốn được nghỉ dù chỉ một ngày.
+,なんとか,bằng cách nào đó/ xoay xở được|なんとか電車に間に合いました。|Bằng cách nào đó tôi cũng kịp tàu.
+,とりあえず,trước mắt/ tạm thời|とりあえずビールをください。|Trước mắt cho tôi bia đã.
+NHẤT ỨNG,一応 (いちおう),tạm thời/ cho chắc|一応、傘を持って行きます。|Cho chắc, tôi mang theo ô.
+,わざわざ,cất công/ mất công|わざわざ来てくれて、ありがとう。|Cảm ơn bạn đã cất công đến.
+# ── Cách thức ──
+,ゆっくり,chậm rãi/ thong thả|もう少しゆっくり話してください。|Xin hãy nói chậm hơn một chút.
+,ちゃんと,đàng hoàng/ cẩn thận|ちゃんと野菜も食べなさい。|Hãy ăn cả rau cho đàng hoàng.
+NHẤT TỰ,一緒に (いっしょに),cùng nhau/ cùng với|一緒に昼ご飯を食べませんか。|Cùng ăn trưa nhé?
+NHẤT ĐỘ,一度に (いちどに),cùng một lúc|一度にたくさん食べないでください。|Đừng ăn nhiều cùng một lúc.
+CHỦ,主に (おもに),chủ yếu là|この店では主に野菜を売っています。|Cửa hàng này chủ yếu bán rau.
+NGẪU NHIÊN,偶然 (ぐうぜん),tình cờ/ ngẫu nhiên|駅で偶然先生に会いました。|Tôi tình cờ gặp thầy ở nhà ga.
+TOÀN,全て (すべて),tất cả/ toàn bộ|お金は全て使ってしまいました。|Tôi đã tiêu hết sạch tiền rồi.
+# ── Cảm xúc, dáng vẻ (từ láy) ──
+,にこにこ,tươi cười/ cười tủm tỉm|あの子はいつもにこにこしています。|Đứa bé kia lúc nào cũng tươi cười.
+,どきどき,hồi hộp/ tim đập thình thịch|発表の前はどきどきします。|Trước khi thuyết trình tôi hồi hộp.
+,わくわく,háo hức/ nôn nao|明日の旅行が楽しみで、わくわくしています。|Mong chuyến du lịch ngày mai nên tôi háo hức lắm.
+,がっかり,thất vọng/ chán nản|試合に負けて、がっかりしました。|Thua trận nên tôi thất vọng.
+,びっくり,giật mình/ ngạc nhiên|大きな音にびっくりしました。|Tôi giật mình vì tiếng động lớn.
+,ぺらぺら,(nói) trôi chảy/ lưu loát|彼は英語がぺらぺらです。|Anh ấy nói tiếng Anh trôi chảy.
+,ぶらぶら,đi dạo lang thang/ vẩn vơ|日曜日は町をぶらぶらしました。|Chủ nhật tôi đi dạo lang thang trong phố.
+,ふらふら,loạng choạng/ chóng mặt|熱があって、ふらふらします。|Bị sốt nên tôi đi loạng choạng.

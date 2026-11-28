@@ -224,4 +224,13 @@ export const TOPIC_CATALOG: readonly TopicCatalogEntry[] = [
     wordCount: 29,
     sourceCount: 9,
   },
+  {
+    id: 'pho-tu',
+    japanese: '副詞',
+    vietnamese: 'Phó từ',
+    description: 'Phó từ thường gặp từ N5 đến N3, xếp theo nhóm nghĩa: mức độ, đi với phủ định, tần suất, thời gian, phán đoán, cách thức, từ láy tả cảm xúc.',
+    icon: '🔤',
+    wordCount: 148,
+    sourceCount: 26,
+  },
 ];
